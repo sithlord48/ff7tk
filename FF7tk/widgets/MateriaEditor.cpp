@@ -32,6 +32,7 @@ void MateriaEditor::init_display(void)
 {
     lbl_ap = new QLabel(this);
     sb_ap = new QSpinBox(this);
+    sb_ap->setWrapping(1);
     combo_materia = new QComboBox(this);
     for(int i=0;i<91;i++)
     {
@@ -87,25 +88,27 @@ void MateriaEditor::init_display(void)
     box_stats = new QGroupBox(this);
     lbl_stats = new QLabel(this);
 
+    eskill_list = new QListWidget;
+    QVBoxLayout *eskill_layout = new QVBoxLayout;
+    eskill_layout->addWidget(eskill_list);
+
     QVBoxLayout *skill_layout = new QVBoxLayout;
     skill_layout->addWidget(lbl_skill1);
     skill_layout->addWidget(lbl_skill2);
     skill_layout->addWidget(lbl_skill3);
     skill_layout->addWidget(lbl_skill4);
     skill_layout->addWidget(lbl_skill5);
+    skill_layout->addItem(eskill_layout);
     box_skills->setLayout(skill_layout);
     box_skills->setTitle(tr("Skills"));
+    eskill_list->setHidden(1);
 
     QHBoxLayout *stat_layout = new QHBoxLayout;
     stat_layout->addWidget(lbl_stats);
     box_stats->setTitle(tr("Stat Changes"));
     box_stats->setLayout(stat_layout);
 
-    eskill_list = new QListWidget;
-    QVBoxLayout *eskill_layout = new QVBoxLayout;
-    eskill_layout->addWidget(eskill_list);
 
-    eskill_list->setHidden(1);
     QVBoxLayout *main_layout = new QVBoxLayout;
     main_layout->addWidget(frm_name_ap);
     main_layout->addWidget(box_stars);
@@ -114,7 +117,6 @@ void MateriaEditor::init_display(void)
 
     QHBoxLayout *Final = new QHBoxLayout(this);
     Final->addLayout(main_layout);
-    Final->addLayout(eskill_layout);
     this->setLayout(Final);
 
     connect(btn_star1,SIGNAL(clicked()),this,SLOT(btn_star1_clicked()));
@@ -122,12 +124,14 @@ void MateriaEditor::init_display(void)
     connect(btn_star3,SIGNAL(clicked()),this,SLOT(btn_star3_clicked()));
     connect(btn_star4,SIGNAL(clicked()),this,SLOT(btn_star4_clicked()));
     connect(btn_star5,SIGNAL(clicked()),this,SLOT(btn_star5_clicked()));
+
     connect(combo_materia,SIGNAL(currentIndexChanged(int)),this,SLOT(materia_changed(int)));
     connect(sb_ap,SIGNAL(valueChanged(int)),this,SLOT(ap_changed(int)));
 }
 void MateriaEditor::init_data()
 {
     data = new FF7Materia;
+    //Fill Eskill List.
     QListWidgetItem *newItem;
     for(int i=0;i<24;i++)
     {
@@ -136,7 +140,9 @@ void MateriaEditor::init_data()
         newItem->setCheckState(Qt::Unchecked);
         eskill_list->addItem(newItem);
     }
-    eskill_list->setMinimumWidth(135);
+    eskill_list->setSelectionMode(QAbstractItemView::NoSelection);
+    _id= 0x00;
+    _current_ap= 0x00;
 }
 
 void MateriaEditor::setMateria(quint8 materia_id,qint32 materia_ap)
@@ -207,17 +213,23 @@ void MateriaEditor::setStats()
     if(_id==0xFF){lbl_stats->clear();}
     else{lbl_stats->setText(data->Stat_String(_id));}
     lbl_stats->adjustSize();
-
+    //Hide If Eskill..
+    if(_id==0x2C){box_stats->setHidden(1);}
+    else{box_stats->setHidden(0);}
 }
 void MateriaEditor::setLevel()
 {
     _current_level=0;
     for(int i=0;i<_max_level;i++){if(_current_ap >= _level_ap[i]){_current_level++;}}
-    this->setStars();
-    this->setSkills();
+    setStars();
+    setSkills();
 }
 void MateriaEditor::setStars()
 {
+    //Hide if its eskill Materia
+    if(_id==0x2C){box_stars->setHidden(1);return;}
+    else{box_stars->setHidden(0);}
+
     btn_star1->setHidden(1);
     btn_star2->setHidden(1);
     btn_star3->setHidden(1);
@@ -256,21 +268,37 @@ void MateriaEditor::setStars()
 void MateriaEditor::setSkills()
 {
 
-    this->lbl_skill1->clear();
-    this->lbl_skill2->clear();
-    this->lbl_skill3->clear();
-    this->lbl_skill4->clear();
-    this->lbl_skill5->clear();
+    lbl_skill1->clear();
+    lbl_skill2->clear();
+    lbl_skill3->clear();
+    lbl_skill4->clear();
+    lbl_skill5->clear();
     if(_id==0xFF){return;}
+    if(_id==0x2C)
+    {
+        lbl_skill1->setVisible(0);
+        lbl_skill2->setVisible(0);
+        lbl_skill3->setVisible(0);
+        lbl_skill4->setVisible(0);
+        lbl_skill5->setVisible(0);
+    }
+    else
+    {
+        lbl_skill1->setVisible(1);
+        lbl_skill2->setVisible(1);
+        lbl_skill3->setVisible(1);
+        lbl_skill4->setVisible(1);
+        lbl_skill5->setVisible(1);
+    }
     switch (_current_level)
     {// no breaks on purpose
-        case 5: this->lbl_skill5->setText(data->Skills(_id,4));
-        case 4: this->lbl_skill4->setText(data->Skills(_id,3));
-        case 3: this->lbl_skill3->setText(data->Skills(_id,2));
-        case 2: this->lbl_skill2->setText(data->Skills(_id,1));
-        case 1: this->lbl_skill1->setText(data->Skills(_id,0));
+        case 5: lbl_skill5->setText(data->Skills(_id,4));
+        case 4: lbl_skill4->setText(data->Skills(_id,3));
+        case 3: lbl_skill3->setText(data->Skills(_id,2));
+        case 2: lbl_skill2->setText(data->Skills(_id,1));
+        case 1: lbl_skill1->setText(data->Skills(_id,0));
     }
-    this->box_skills->adjustSize();
+    box_skills->adjustSize();
 }
 
 void MateriaEditor::btn_star1_clicked(){setAP(_level_ap[0]);setLevel();}
