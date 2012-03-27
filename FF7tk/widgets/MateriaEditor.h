@@ -1,0 +1,94 @@
+/****************************************************************************/
+//    copyright 2012  Chris Rizzitello <sithlord48@gmail.com>               //
+//                                                                          //
+//    This file is part of FF7tk                                            //
+//                                                                          //
+//    FF7tk is free software: you can redistribute it and/or modify         //
+//    it under the terms of the GNU General Public License as published by  //
+//    the Free Software Foundation, either version 3 of the License, or     //
+//    (at your option) any later version.                                   //
+//                                                                          //
+//    FF7tk is distributed in the hope that it will be useful,              //
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the          //
+//    GNU General Public License for more details.                          //
+/****************************************************************************/
+#ifndef MateriaEditor_H
+  #define MateriaEditor_H
+
+#include <QtGui/QWidget>
+#include <QtGui/QLabel>
+#include <QtGui/QGroupBox>
+#include <QtGui/QHBoxLayout>
+#include <QPushButton>
+#include <QComboBox>
+#include <QSpinBox>
+#include <QListWidget>
+
+/* SET FF7Materia PATH ACCORDINGLY*/
+#include "static_data/FF7Materia.h"
+
+class MateriaEditor : public QWidget
+{
+    Q_OBJECT
+    
+public:
+    MateriaEditor(QWidget *parent=0);
+    //MateriaEditor(QWidget *parent=0,quint8 materia_id=0,qint32 ap=0);
+    void setMateria(quint8 materia_id=0,qint32 materia_ap=0);
+    void setAP (qint32 current_ap=0);
+    qint32 ap(void);
+    qint8 id(void);
+//    qint32 raw_data(void);
+private:
+    void init_display(void);
+    void init_data(void);
+    void setStars(void);
+    void setName(void);
+    void setStats(void);
+    void setSkills(void);
+    void setLevel(void);
+
+    QHBoxLayout *Final;
+    QComboBox *combo_materia;
+    QLabel *lbl_ap;
+    QSpinBox * sb_ap;
+    QFrame *frm_name_ap;
+    QPushButton *btn_star1;
+    QPushButton *btn_star2;
+    QPushButton *btn_star3;
+    QPushButton *btn_star4;
+    QPushButton *btn_star5;
+    QGroupBox *box_stars;
+    QGroupBox *box_skills;
+
+    QListWidget * eskill_list;
+    QLabel *lbl_skill1;
+    QLabel *lbl_skill2;
+    QLabel *lbl_skill3;
+    QLabel *lbl_skill4;
+    QLabel *lbl_skill5;
+    QGroupBox *box_stats;
+    QLabel *lbl_stats;
+
+    FF7Materia *data;
+    quint8 _id;// current id
+    QString _current_name;
+    quint8 _type; //1-magic,2-summon,3-independent,4-support,5-command,0-unknown
+    qint8 _current_level;//current level
+    qint8 _max_level;// max level of materia
+    qint32 _current_ap;// current ap amount
+    qint32 _level_ap[5];// hold ap requirement for each level.
+    QPixmap _full_star_icon;// hold current full star icon
+    QPixmap _empty_star_icon;//hold current empty star icon
+    QPixmap _type_icon; // materia type icon.
+private slots:
+    void btn_star1_clicked();
+    void btn_star2_clicked();
+    void btn_star3_clicked();
+    void btn_star4_clicked();
+    void btn_star5_clicked();
+    void materia_changed(int new_id);
+    void ap_changed(int);
+};
+#endif //MateriaEditor
