@@ -24,6 +24,7 @@
 #include <QComboBox>
 #include <QSpinBox>
 #include <QListWidget>
+#include <QLCDNumber>
 
 /* SET FF7Materia PATH ACCORDINGLY*/
 #include "static_data/FF7Materia.h"
@@ -43,15 +44,20 @@ public:
 private:
     void init_display(void);
     void init_data(void);
+    void init_connections(void);
     void setStars(void);
     void setName(void);
     void setStats(void);
     void setSkills(void);
     void setLevel(void);
-
+    QLCDNumber * lcd_max_ap;
+    QLabel * lbl_slash;
     QHBoxLayout *Final;
+    QComboBox *combo_type;
     QComboBox *combo_materia;
-    QLabel *lbl_ap;
+    QPushButton *btn_rm_materia;
+    QPushButton *btn_copy_materia;
+    QPushButton *btn_paste_materia;
     QSpinBox * sb_ap;
     QFrame *frm_name_ap;
     QPushButton *btn_star1;
@@ -62,7 +68,10 @@ private:
     QGroupBox *box_stars;
     QGroupBox *box_skills;
 
+    QGroupBox * eskill_group;
     QListWidget * eskill_list;
+    QPushButton * btn_clear_eskills;
+    QPushButton * btn_master_eskills;
     QLabel *lbl_skill1;
     QLabel *lbl_skill2;
     QLabel *lbl_skill3;
@@ -73,9 +82,11 @@ private:
 
     FF7Materia *data;
     quint8 _id;// current id
-    QString _current_name;
+    qint8 buffer_id;
+    qint32 buffer_ap;
+    QString _name;
     quint8 _type; //1-magic,2-summon,3-independent,4-support,5-command,0-unknown
-    qint8 _current_level;//current level
+    qint8 _level;//current level
     qint8 _max_level;// max level of materia
     qint32 _current_ap;// current ap amount
     qint32 _level_ap[5];// hold ap requirement for each level.
@@ -88,7 +99,18 @@ private slots:
     void btn_star3_clicked();
     void btn_star4_clicked();
     void btn_star5_clicked();
-    void materia_changed(int new_id);
-    void ap_changed(int);
+    void type_changed(int new_type);
+    void materia_changed(QString new_name);
+    void remove_materia(void);
+    void copy_materia(void);
+    void paste_materia(void);
+    void sb_ap_changed(int);
+    void eskill_list_clicked(QModelIndex);
+    void btn_master_eskill_clicked();
+    void btn_clear_eskill_clicked();
+signals:
+    void ap_changed(qint32);
+    void id_changed(qint8);
+
 };
 #endif //MateriaEditor
