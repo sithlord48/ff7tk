@@ -93,6 +93,7 @@ private:
     QPixmap _full_star_icon;// hold current full star icon
     QPixmap _empty_star_icon;//hold current empty star icon
     QPixmap _type_icon; // materia type icon.
+
 private slots:
     void btn_star1_clicked();
     void btn_star2_clicked();
