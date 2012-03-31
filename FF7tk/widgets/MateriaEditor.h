@@ -38,7 +38,9 @@ public:
     //MateriaEditor(QWidget *parent=0,quint8 materia_id=0,qint32 ap=0);
     void setMateria(quint8 materia_id=0,qint32 materia_ap=0);
     void setAP (qint32 current_ap=0);
+    void setStarsSize(int);
     qint32 ap(void);
+    qint32 MaxAP(void);
     qint8 id(void);
 //    qint32 raw_data(void);
 private:
