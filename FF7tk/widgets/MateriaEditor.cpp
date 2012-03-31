@@ -14,6 +14,10 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "MateriaEditor.h"
+/* Path To Common Icons For Copy / Paste / Delete icon*/
+#include "static_data/icons/Common_Icons/copy.xpm"
+#include "static_data/icons/Common_Icons/paste.xpm"
+#include "static_data/icons/Common_Icons/quit.xpm"
 
 MateriaEditor::MateriaEditor(QWidget *parent):QWidget(parent)
 {
@@ -53,15 +57,15 @@ void MateriaEditor::init_display(void)
     lcd_max_ap->setSegmentStyle(QLCDNumber::Flat);
 
     btn_rm_materia = new QPushButton;
-    btn_rm_materia->setIcon(QIcon::fromTheme("edit-delete"));
+    btn_rm_materia->setIcon(QIcon::fromTheme("edit-delete",QIcon(QPixmap(quit_xpm))));
     btn_rm_materia->setToolTip(tr("Delete"));
 
     btn_copy_materia = new QPushButton;
-    btn_copy_materia->setIcon(QIcon::fromTheme("edit-copy"));
+    btn_copy_materia->setIcon(QIcon::fromTheme("edit-copy",QIcon(QPixmap(copy_xpm))));
     btn_copy_materia->setToolTip(tr("Copy"));
 
     btn_paste_materia = new QPushButton;
-    btn_paste_materia->setIcon(QIcon::fromTheme("edit-paste"));
+    btn_paste_materia->setIcon(QIcon::fromTheme("edit-paste",QIcon(QPixmap(paste_xpm))));
     btn_paste_materia->setToolTip(tr("Paste"));
 
     ap_layout->addWidget(sb_ap);
@@ -214,6 +218,7 @@ void MateriaEditor::init_data()
     _current_ap=0;
     buffer_id=0;
     buffer_ap=0;
+
 }
 
 void MateriaEditor::setMateria(quint8 materia_id,qint32 materia_ap)
