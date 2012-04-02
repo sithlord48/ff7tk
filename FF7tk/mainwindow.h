@@ -23,7 +23,7 @@
 #include "widgets/DialogPreview.h"
 #include "widgets/SlotPreview.h"
 
-#include "widgets/MateriaPreview.h"
+//#include "widgets/MateriaPreview.h"
 #include "widgets/MateriaEditor.h"
 #include "widgets/ItemPreview.h"
 
@@ -48,7 +48,7 @@ private:
 
     Ui::MainWindow *ui;
     DialogPreview *dialog_preview;
-    MateriaPreview *materia_preview;
+//    MateriaPreview *materia_preview;
     MateriaEditor *materia_editor;
     ItemPreview *item_preview;
 };

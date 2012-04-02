@@ -129,15 +129,12 @@ void MateriaEditor::init_normal_mode()
     box_stars->setLayout(stars);
     /* Init Skills Area */
     box_skills = new QGroupBox(this);
-    lbl_skill1 = new QLabel;
-    lbl_skill2 = new QLabel;
-    lbl_skill3 = new QLabel;
-    lbl_skill4 = new QLabel;
-    lbl_skill5 = new QLabel;
-    setStarsSize(48);
+    list_skills = new QListWidget;
+    list_skills->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
     box_stats = new QGroupBox(this);
     lbl_stats = new QLabel;
 
+    setStarsSize(48);
     btn_clear_eskills = new QPushButton;
     btn_clear_eskills->setText(tr("Clear"));
     btn_master_eskills = new QPushButton;
@@ -159,11 +156,7 @@ void MateriaEditor::init_normal_mode()
 
 
     QVBoxLayout *skill_layout = new QVBoxLayout;
-    skill_layout->addWidget(lbl_skill1);
-    skill_layout->addWidget(lbl_skill2);
-    skill_layout->addWidget(lbl_skill3);
-    skill_layout->addWidget(lbl_skill4);
-    skill_layout->addWidget(lbl_skill5);
+    skill_layout->addWidget(list_skills);
     skill_layout->addWidget(eskill_group);
     box_skills->setLayout(skill_layout);
     box_skills->setTitle(tr("Skills"));
@@ -177,14 +170,27 @@ void MateriaEditor::init_normal_mode()
     stat_layout->setContentsMargins(3,0,0,0);
     box_stats->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
 
+    //lbl_element = new QLabel;
+    list_status = new QListWidget;
+    box_status_effects = new QGroupBox;
+    QHBoxLayout * status_effect_layout = new QHBoxLayout;
+    status_effect_layout->addWidget(list_status);
+    box_status_effects->setLayout(status_effect_layout);
+    box_status_effects->setHidden(true);
+    box_status_effects->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
+    box_status_effects->setContentsMargins(3,3,3,3);
+
+
 
     QVBoxLayout *main_layout = new QVBoxLayout;
     main_layout->setContentsMargins(0,3,0,3);
     main_layout->setSpacing(3);
+    //main_layout->addWidget(lbl_element);
     main_layout->addWidget(frm_name_ap);
     main_layout->addWidget(box_stars);
     main_layout->addWidget(box_skills);
     main_layout->addWidget(box_stats);
+    main_layout->addWidget(box_status_effects);
 
     QHBoxLayout *Final = new QHBoxLayout(this);
     Final->setContentsMargins(0,0,0,0);
@@ -284,11 +290,7 @@ void MateriaEditor::init_compact_mode()
     /* Init Skills Area */
     box_skills = new QGroupBox(this);
     box_skills->setMaximumHeight(170);
-    lbl_skill1 = new QLabel;
-    lbl_skill2 = new QLabel;
-    lbl_skill3 = new QLabel;
-    lbl_skill4 = new QLabel;
-    lbl_skill5 = new QLabel;
+    list_skills = new QListWidget;
     setStarsSize(32);
 
     QVBoxLayout *ap_stars_layout =  new QVBoxLayout;
@@ -320,11 +322,7 @@ void MateriaEditor::init_compact_mode()
     eskill_group->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
 
     QVBoxLayout *skill_layout = new QVBoxLayout;
-    skill_layout->addWidget(lbl_skill1);
-    skill_layout->addWidget(lbl_skill2);
-    skill_layout->addWidget(lbl_skill3);
-    skill_layout->addWidget(lbl_skill4);
-    skill_layout->addWidget(lbl_skill5);
+    skill_layout->addWidget(list_skills);
     skill_layout->addWidget(eskill_group);
     box_skills->setLayout(skill_layout);
     box_skills->setTitle(tr("Skills"));
@@ -342,16 +340,14 @@ void MateriaEditor::init_compact_mode()
     box_stats->setTitle(tr("Stat Changes"));
     box_stats->setLayout(stat_layout);
     box_stats->setContentsMargins(3,3,3,3);
-    //box_stats->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
 
 
     QVBoxLayout *main_layout = new QVBoxLayout;
     main_layout->setContentsMargins(0,3,0,0);
     main_layout->setSpacing(3);
+    //main_layout->addWidget(lbl_element);
     main_layout->addWidget(frm_name_ap);
     main_layout->addItem(skill_stars_layout);
-    //main_layout->addWidget(box_stars);
-    //main_layout->addWidget(box_skills);
     main_layout->addWidget(box_stats);
 
     QHBoxLayout *Final = new QHBoxLayout(this);
@@ -426,6 +422,7 @@ void MateriaEditor::setMateria(quint8 materia_id,qint32 materia_ap)
             _type = data->Type(_id);
             _max_level = data->Levels(_id);
             for(int i=0;i<_max_level;i++){_level_ap[i]=data->Ap(_id,i);}
+            _skill_list = data->Skills(_id);
             emit id_changed(_id);
          }
     }
@@ -500,13 +497,26 @@ void MateriaEditor::setName()
 
 void MateriaEditor::setStats()
 {
+    list_status->clear();
+    box_status_effects->title().clear();
+    list_status->setHidden(true);
     if(_id==0xFF){lbl_stats->clear();}
-    else{lbl_stats->setText(data->Stat_String(_id));}
-    //Hide If Eskill..
-    if(_id==0x2C){box_stats->setHidden(true);}
-    else{box_stats->setHidden(false);}
-}
+    else
+    {
+        lbl_stats->setText(data->Stat_String(_id));
+        box_status_effects->setTitle(data->Element(_id));
+        list_status->addItems(data->Status(_id));
+        list_status->setHidden(false);
+        int height = 30*list_status->count()+12;
+        if(height>100){height = 100;}
+        box_status_effects->setFixedHeight(height);
+        box_status_effects->setHidden(false);
+    }
 
+    //Hide If Eskill..
+    if(_id==0x2C){box_stats->setHidden(true);box_status_effects->setHidden(true);}
+    else{box_stats->setHidden(false);box_status_effects->setHidden(false);}
+}
 void MateriaEditor::setLevel()
 {
     _level=0;
@@ -558,44 +568,26 @@ void MateriaEditor::setStars()
 
 void MateriaEditor::setSkills()
 {
-
-    lbl_skill1->setVisible(0);
-    lbl_skill2->setVisible(0);
-    lbl_skill3->setVisible(0);
-    lbl_skill4->setVisible(0);
-    lbl_skill5->setVisible(0);
-    lbl_skill1->clear();
-    lbl_skill2->clear();
-    lbl_skill3->clear();
-    lbl_skill4->clear();
-    lbl_skill5->clear();
-    if((_id==0xFF)||(_id==0x2C)){return;}
+    list_skills->clear();
+    if((_id==0xFF)||(_id==0x2C)){box_skills->setFixedHeight(200);list_skills->setHidden(true);return;}
     else if(_id==0x11 || (_id ==0x30) || (_id==0x49) ||(_id==0x5A))
     {
-        lbl_skill5->setVisible(1);
-        lbl_skill4->setVisible(1);
-        lbl_skill3->setVisible(1);
-        lbl_skill2->setVisible(1);
-        lbl_skill1->setVisible(1);
-        lbl_skill1->setText(data->Skills(_id,0));
+        list_skills->setHidden(false);
+        list_skills->addItem(_skill_list.at(0).toAscii());
         return;
     }
     else
     {
-
-        lbl_skill5->setVisible(1);
-        lbl_skill4->setVisible(1);
-        lbl_skill3->setVisible(1);
-        lbl_skill2->setVisible(1);
-        lbl_skill1->setVisible(1);
+        list_skills->setHidden(false);
         switch (_level)
         {// no breaks on purpose
-            case 5:lbl_skill5->setText(data->Skills(_id,4));
-            case 4:lbl_skill4->setText(data->Skills(_id,3));
-            case 3:lbl_skill3->setText(data->Skills(_id,2));
-            case 2:lbl_skill2->setText(data->Skills(_id,1));
-            case 1:lbl_skill1->setText(data->Skills(_id,0));
+            case 5:if(_skill_list.count()>4){list_skills->insertItem(0,_skill_list.at(4).toAscii());}
+            case 4:if(_skill_list.count()>3){list_skills->insertItem(0,_skill_list.at(3).toAscii());}
+            case 3:if(_skill_list.count()>2){list_skills->insertItem(0,_skill_list.at(2).toAscii());}
+            case 2:if(_skill_list.count()>1){list_skills->insertItem(0,_skill_list.at(1).toAscii());}
+            case 1:if(_skill_list.count()>0){list_skills->insertItem(0,_skill_list.at(0).toAscii());}
         }
+        box_skills->setFixedHeight(120);
     }
 }
 

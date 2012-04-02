@@ -75,14 +75,12 @@ private:
     QListWidget * eskill_list;
     QPushButton * btn_clear_eskills;
     QPushButton * btn_master_eskills;
-    QLabel *lbl_skill1;
-    QLabel *lbl_skill2;
-    QLabel *lbl_skill3;
-    QLabel *lbl_skill4;
-    QLabel *lbl_skill5;
+    QListWidget *list_skills;
     QGroupBox *box_stats;
+    QGroupBox *box_status_effects;
     QLabel *lbl_stats;
-
+    //QLabel *lbl_element;
+    QListWidget *list_status;
     FF7Materia *data;
     quint8 _id;// current id
     qint8 buffer_id;
@@ -96,7 +94,7 @@ private:
     QPixmap _full_star_icon;// hold current full star icon
     QPixmap _empty_star_icon;//hold current empty star icon
     QPixmap _type_icon; // materia type icon.
-
+    QStringList _skill_list;
 private slots:
     void btn_star1_clicked();
     void btn_star2_clicked();

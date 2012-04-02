@@ -47,6 +47,16 @@ public:
   quint8 itemQty(int s,int item_num);
   void setItemId(int s,int item_num,quint16 new_id);
   void setItemQty(int s,int item_num,quint8 new_qty);
+  //materia get/set
+  quint8 partyMateriaId(int s,int mat_num);
+  qint32 partyMateriaAp(int s,int mat_num);
+  quint8 charMateriaId(int s,int who,int mat_num);
+  qint32 charMateriaAp(int s,int who,int mat_num);
+  quint8 stolenMateriaId(int s,int mat_num);
+  qint32 stolenMateriaAp(int s,int mat_num);
+  void setPartyMateria(int s,int mat_num,quint8 id,qint32 ap);
+  void setStolenMateria(int s, int mat_num,quint8 id,qint32 ap);
+  void setCharMateria(int s,int who,int mat_num,quint8 id,qint32 ap);
 
   // String Functions.
   QString charName(int s,int char_num);//Return Char name

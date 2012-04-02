@@ -19,7 +19,6 @@ HEADERS += mainwindow.h \
            widgets/DialogPreview.h \
            widgets/ItemPreview.h \
            widgets/MateriaEditor.h \
-           widgets/MateriaPreview.h \
            widgets/SlotPreview.h \
            static_data/icons/Materia_Icons/command.xpm \
            static_data/icons/Materia_Icons/magic.xpm \
@@ -63,5 +62,4 @@ SOURCES += main.cpp \
            widgets/DialogPreview.cpp \
            widgets/ItemPreview.cpp \
            widgets/MateriaEditor.cpp \
-           widgets/MateriaPreview.cpp \
            widgets/SlotPreview.cpp
