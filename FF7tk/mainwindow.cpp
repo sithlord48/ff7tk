@@ -33,12 +33,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
     dialog_preview_layout->addWidget(dialog_preview);
     ui->dialog_preview_box->setLayout(dialog_preview_layout);
-
+/*
     materia_preview=new MateriaPreview();
     QHBoxLayout *materia_preview_layout =new QHBoxLayout();
     materia_preview_layout->addWidget(materia_preview);
     ui->materia_box->setLayout(materia_preview_layout);
-
+*/
     materia_editor = new MateriaEditor(this,0);
     QHBoxLayout *materia_editor_layout= new QHBoxLayout();
     materia_editor_layout->addWidget(materia_editor);
@@ -56,8 +56,8 @@ MainWindow::~MainWindow()
 }
 void MainWindow::on_btn_set_materia_clicked()
 {
-    materia_preview->setMateria(ui->sb_mat_id->value(),ui->sb_mat_ap->value());
-    this->adjustSize();
+    //materia_preview->setMateria(ui->sb_mat_id->value(),ui->sb_mat_ap->value());
+    //this->adjustSize();
 }
 
 void MainWindow::on_btn_set_item_clicked()
