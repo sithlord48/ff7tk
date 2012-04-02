@@ -34,7 +34,7 @@ class MateriaEditor : public QWidget
     Q_OBJECT
     
 public:
-    MateriaEditor(QWidget *parent=0,int mode=0);
+    MateriaEditor(QWidget *parent=0);
     //MateriaEditor(QWidget *parent=0,quint8 materia_id=0,qint32 ap=0);
     void setMateria(quint8 materia_id=0,qint32 materia_ap=0);
     void setAP (qint32 current_ap=0);
@@ -44,6 +44,7 @@ public:
     qint8 id(void);
 //    qint32 raw_data(void);
 private:
+    void init_display(void);
     void init_normal_mode(void);
     void init_compact_mode(void);
     void init_data(void);
@@ -53,6 +54,7 @@ private:
     void setStats(void);
     void setSkills(void);
     void setLevel(void);
+
     QLCDNumber * lcd_max_ap;
     QLabel * lbl_slash;
     QHBoxLayout *Final;
@@ -62,7 +64,8 @@ private:
     QPushButton *btn_copy_materia;
     QPushButton *btn_paste_materia;
     QSpinBox * sb_ap;
-    QFrame *frm_name_ap;
+    QFrame *frm_name_type;
+    QFrame *frm_ap;
     QPushButton *btn_star1;
     QPushButton *btn_star2;
     QPushButton *btn_star3;
@@ -95,6 +98,8 @@ private:
     QPixmap _empty_star_icon;//hold current empty star icon
     QPixmap _type_icon; // materia type icon.
     QStringList _skill_list;
+    QSpacerItem *v_spacer;
+    QFrame * frm_ap_stars;
 private slots:
     void btn_star1_clicked();
     void btn_star2_clicked();
