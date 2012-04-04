@@ -435,44 +435,72 @@ quint16 FF7Save::itemDecode( quint16 itemraw )
 {
     quint16 item;
     int one = 1;
-    //Big endian
-    //Do Nothing...Item Raw Format QQQQQQQXXXXXXXXX | Item Format QQQQQQQXXXXXXXXX
-    if (*(char *)&one){item = itemraw;}
-    //Little endian
-    //Do things....Item Raw Format XXXXXXXXQQQQQQQX | Item Format XXXXXXXXXQQQQQQQ
-    //Do things....Item Raw Format XXXXXXXXQQQQQQQX | Item Format QQQQQQQXXXXXXXXX
-    else {item = ((itemraw & 0xFF) << 8) | ((itemraw >> 8) & 0xFF);}
+    if (*(char *)&one){
+        /******************************************************************************************/
+        /* Little-Endian (Do Nothing, No Change)                                                  */
+        /* ITEMRAW:                                                                               */
+        /* Itemraw Format: QQQQQQQXXXXXXXXX                                                       */
+        /* ITEM:                                                                                  */
+        /* Item Format: QQQQQQQXXXXXXXXX                                                          */
+        /******************************************************************************************/
+        item = itemraw;
+    } else {
+        /***********************************--*****************************************************/
+        /* Big-Endian (Do things, Format Change)                                                  */
+        /* ITEMRAW:                                                                               */
+        /* Itemraw Format: XXXXXXXXQQQQQQQX                                                       */
+        /* ITEM:                                                                                  */
+        /* Left Shift&Mask itemraw 8bits:  QQQQQQQX00000000 & 1111111100000000 = QQQQQQQX00000000 */
+        /* Right Shift&Mask itemraw 8bits: 00000000XXXXXXXX & 0000000011111111 = 00000000XXXXXXXX */
+        /* Then OR them:                   QQQQQQQX00000000 | 00000000XXXXXXXX = QQQQQQQXXXXXXXXX */
+        /* Item Format: QQQQQQQXXXXXXXXX                                                          */
+        /******************************************************************************************/
+        item = ((itemraw & 0xFF) << 8) | ((itemraw >> 8) & 0xFF);
+    }
     return item;
 }
 quint16 FF7Save::itemEncode( quint16 id, quint8 qty )
 {
     quint16 item,itemraw;
     int one = 1;
-    //Big endian
-    //Do Nothing...Item Raw Format QQQQQQQXXXXXXXXX | Item Format QQQQQQQXXXXXXXXX
     if (*(char *)&one) {
+        /******************************************************************************************/
+        /* Little-Endian                                                                          */
+        /* ITEM:                                                                                  */
+        /* Item Format: QQQQQQQXXXXXXXXX                                                          */
+        /* Left Shift&Mask qty 9bits: QQQQQQQ000000000 & 1111111000000000 = QQQQQQQ000000000      */
+        /* Right Mask id 9bits:              XXXXXXXXX & 0000000111111111 = 0000000XXXXXXXXX      */
+        /* Then OR them:              QQQQQQQ000000000 | 0000000XXXXXXXXX = QQQQQQQXXXXXXXXX      */
+        /* ITEMRAW:                                                                               */
+        /* Itemraw Format: QQQQQQQXXXXXXXXX                                                       */
+        /******************************************************************************************/
         item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
         itemraw = item;
-    //Little endian
-    //Do things....Item Raw Format XXXXXXXXQQQQQQQX | Item Format QQQQQQQXXXXXXXXX
     } else {
-        //item = ((itemraw>>(1)%16) & (0x7FFF>>(-1+(1)%16))) | (itemraw<<(16-(1)%16));
-        item = ((id << 7) & 0xFF80) | (qty & 0x7F);
-        itemraw = (item << 1) | (item >> (16 - 1));
+        /******************************************************************************************/
+        /* Big-Endian                                                                             */
+        /* ITEM:                                                                                  */
+        /* Left Shift&Mask qty 9bits:   QQQQQQQ000000000 & 1111111000000000 = QQQQQQQ000000000    */
+        /* Right Mask id 9bits:         0000000XXXXXXXXX & 0000000111111111 = 0000000XXXXXXXXX    */
+        /* Then OR them:                QQQQQQQ000000000 | 0000000XXXXXXXXX = QQQQQQQXXXXXXXXX    */
+        /* Item Format: QQQQQQQXXXXXXXXX                                                          */
+        /* ITEMRAW:                                                                               */
+        /* Left Shift&Mask item 8bits:  QQQQQQQX00000000 & 1111111100000000 = QQQQQQQX00000000    */
+        /* Right Shift&Mask item 8bits: 00000000XXXXXXXX & 0000000011111111 = 00000000XXXXXXXX    */
+        /* Then OR them:                QQQQQQQX00000000 | 00000000XXXXXXXX = QQQQQQQXXXXXXXXX    */
+        /* Itemraw Format: XXXXXXXXQQQQQQQX                                                       */
+        /******************************************************************************************/
+        item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
+        itemraw = ((item & 0xFF) << 8) | ((item >> 8) & 0xFF);
     }
     return itemraw;
 }
-void FF7Save::setItemId(int s,int item_num,quint16 new_id)
+void FF7Save::setItem(int s,int item_num,quint16 new_id,quint8 new_qty)
 {
-    int qty = itemQty(s,item_num);
-    if((region(s).contains("SLPS-00700")) && (qty>99)){qty = 99;}
-    slot[s].items[item_num]= itemEncode(new_id,99);
-}
-
-void FF7Save::setItemQty(int s,int item_num,quint8 new_qty)
-{
-    if((region(s).contains("SLPS-00700")) && (new_qty>99)){new_qty=99;}
-    slot[s].items[item_num]=itemEncode(itemId(s,item_num),new_qty);
+    if(region(s).contains("SLPS-00700")){if(new_qty>99){if(new_id != 0x1FF){new_qty = 99;}}}
+    //Item Qty over 99 on SLPS-00700 Causes an Error Durring Battle and break all items.
+    //Above Is to Check for and fix, since im sure no one wants to lose all their items.
+    slot[s].items[item_num]= itemEncode(new_id,new_qty);
 }
 
 quint16 FF7Save::itemId(int s,int item_num)
@@ -1403,7 +1431,7 @@ qint32 FF7Save::partyMateriaAp(int s,int mat_num)
     return ap_temp;
 }
 void FF7Save::setStolenMateria(int s, int mat_num, quint8 id,qint32 ap)
-{//if invalid set to 0xFF
+{
     if( (id<91) && ((ap>=0)&&(ap<=16777215)))
     {//Valid Id and Ap provided.
         slot[s].stolen[mat_num].id = id;
