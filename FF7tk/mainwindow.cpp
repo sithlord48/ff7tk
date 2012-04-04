@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     materia_preview_layout->addWidget(materia_preview);
     ui->materia_box->setLayout(materia_preview_layout);
 */
-    materia_editor = new MateriaEditor(this,0);
+    materia_editor = new MateriaEditor(this);
     QHBoxLayout *materia_editor_layout= new QHBoxLayout();
     materia_editor_layout->addWidget(materia_editor);
     ui->materia_editor_box->setLayout(materia_editor_layout);
