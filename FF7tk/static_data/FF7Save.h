@@ -45,8 +45,9 @@ public:
   //Set/Get Data Parts.
   quint16 itemId(int s,int item_num);
   quint8 itemQty(int s,int item_num);
-  void setItemId(int s,int item_num,quint16 new_id);
-  void setItemQty(int s,int item_num,quint8 new_qty);
+
+  void setItem(int s,int item_num,quint16 new_id,quint8 new_qty);
+
   //materia get/set
   quint8 partyMateriaId(int s,int mat_num);
   qint32 partyMateriaAp(int s,int mat_num);
