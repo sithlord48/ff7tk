@@ -96,10 +96,11 @@ QVBoxLayout *finished = new QVBoxLayout;
 finished->addWidget(btn_select);
 finished->addLayout(midbox);
 
+connect(btn_select,SIGNAL(clicked()),this,SLOT(selected()));
+
 this->setLayout(finished);
 this->setMinimumSize(581,150);
 this->setMaximumSize(581,150);
-
 }
 
 void SlotPreview::setParty(QPixmap p1,QPixmap p2,QPixmap p3)
@@ -132,3 +133,4 @@ void SlotPreview::setLocation(QString loc){this->location->setText(loc);}
 void SlotPreview::setGil(int gil){this->gil_amount->setText(QString::number(gil));}
 void SlotPreview::setTime(int hr,int min){this->time_hour->setText(QString::number(hr));this->time_min->setText(QString::number(min));}
 void SlotPreview::set_Button_Label(QString lbl){this->btn_select->setText(lbl);}
+void SlotPreview::selected(void){emit button_clicked();}
