@@ -45,6 +45,7 @@ private slots:
     void set_Party1(QString style);
     void set_Party2(QString style);
     void set_Party3(QString style);
+    void selected(void);
 private:
     QLabel *party1;
     QLabel *party2;
@@ -61,6 +62,8 @@ private:
     QLabel *LEVEL_LABEL;
     QPushButton *btn_select;
     QSpacerItem *spacer1;
+signals:
+    void button_clicked();
 };
 
 #endif
