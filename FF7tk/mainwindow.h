@@ -40,10 +40,11 @@ public:
     ~MainWindow();
 
 private slots:
-
-    void on_btn_set_materia_clicked();
     void on_btn_set_item_clicked();
     void on_combo_widget_currentIndexChanged(int index);
+    void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
+    void on_cb_materia_editor_setEditable_toggled(bool checked);
+
 private:
 
     Ui::MainWindow *ui;
