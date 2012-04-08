@@ -50,7 +50,8 @@ HEADERS += mainwindow.h \
            static_data/icons/Item_Icons/mlink.xpm \
            static_data/icons/Item_Icons/m_no_grow_slot.xpm \
            static_data/icons/Item_Icons/m_grow_slot.xpm \
-           static_data/icons/Materia_Icons/all.xpm
+           static_data/icons/Materia_Icons/all.xpm \
+    static_data/FF7Char.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -62,4 +63,5 @@ SOURCES += main.cpp \
            widgets/DialogPreview.cpp \
            widgets/ItemPreview.cpp \
            widgets/MateriaEditor.cpp \
-           widgets/SlotPreview.cpp
+           widgets/SlotPreview.cpp \
+    static_data/FF7Char.cpp
