@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dialog_preview_box->setHidden(1);
     ui->materia_editor_box->setHidden(1);
     ui->item_preview_box->setHidden(1);
+    ui->char_editor_box->setHidden(1);
 
     dialog_preview= new DialogPreview();
     QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
@@ -42,6 +43,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *item_preview_layout =new QHBoxLayout();
     item_preview_layout->addWidget(item_preview);
     ui->item_box->setLayout(item_preview_layout);
+
+    char_editor = new CharEditor();
+    QHBoxLayout * char_editor_layout = new QHBoxLayout();
+    char_editor_layout->addWidget(char_editor);
+    ui->charEditor_box->setLayout(char_editor_layout);
 }
 
 MainWindow::~MainWindow()
@@ -60,12 +66,14 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->dialog_preview_box->setVisible(0);
     ui->materia_editor_box->setVisible(0);
     ui->item_preview_box->setVisible(0);
+    ui->char_editor_box->setVisible(0);
 
     switch(index)
     {
         case 1:ui->dialog_preview_box->setVisible(1); break;
         case 2:ui->materia_editor_box->setVisible(1); break;
         case 3:ui->item_preview_box->setVisible(1); break;
+        case 4:ui->char_editor_box->setVisible(1); break;
     };
     this->adjustSize();
 }

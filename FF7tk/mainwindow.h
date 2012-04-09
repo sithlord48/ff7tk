@@ -23,9 +23,9 @@
 #include "widgets/DialogPreview.h"
 #include "widgets/SlotPreview.h"
 
-//#include "widgets/MateriaPreview.h"
 #include "widgets/MateriaEditor.h"
 #include "widgets/ItemPreview.h"
+#include "widgets/CharEditor.h"
 
 namespace Ui {
     class MainWindow;
@@ -49,9 +49,9 @@ private:
 
     Ui::MainWindow *ui;
     DialogPreview *dialog_preview;
-//    MateriaPreview *materia_preview;
     MateriaEditor *materia_editor;
     ItemPreview *item_preview;
+    CharEditor *char_editor;
 };
 
 #endif // MAINWINDOW_H
