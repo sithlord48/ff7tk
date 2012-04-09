@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>262</width>
-    <height>19</height>
+    <width>250</width>
+    <height>21</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -41,6 +41,11 @@
       <item>
        <property name="text">
         <string>Item Preview</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CharEditor</string>
        </property>
       </item>
      </widget>
@@ -146,6 +151,48 @@
       <property name="title">
        <string/>
       </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="char_editor_box">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>setStarSize(int)</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QSpinBox" name="sb_charEditor">
+            <property name="maximum">
+             <number>128</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cb_charEditor">
+            <property name="text">
+             <string>is Editable</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="charEditor_box">
+         <property name="title">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
