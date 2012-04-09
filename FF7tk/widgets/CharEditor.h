@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QHBoxLayout>
+#include <QMenu>
 
 
 //set path to FF7Item FF7Materia and FF7Char
@@ -61,6 +62,7 @@ signals:
     void expNext_changed(quint32);
 
 public slots:
+    void charMenu(QPoint);
     void setId(int);
     void setLevel(int);
     void setStr(int);

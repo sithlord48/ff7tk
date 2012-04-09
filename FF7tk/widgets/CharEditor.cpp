@@ -10,6 +10,7 @@ void CharEditor::init_display()
 {
     lbl_avatar = new QLabel;
     lbl_avatar->setFixedSize(86,98);
+    lbl_avatar->setContextMenuPolicy(Qt::CustomContextMenu);
     line_name = new QLineEdit;
     lbl_level = new QLabel(tr("Level"));
     lbl_kills = new QLabel(tr("Kills"));
@@ -75,6 +76,7 @@ void CharEditor::init_connections()
     connect(sb_maxHp,SIGNAL(valueChanged(int)),this,SLOT(setMaxHp(int)));
     connect(sb_kills,SIGNAL(valueChanged(int)),this,SLOT(setKills(int)));
     connect(line_name,SIGNAL(textChanged(QString)),this,SLOT(setName(QString)));
+    connect(lbl_avatar,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(charMenu(QPoint)));
 }
 void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
 {
@@ -447,7 +449,7 @@ void CharEditor::setBaseMp(int baseMp)
 }
 void CharEditor::setExp(int exp)
 {
-    if(data.exp == exp){return;}
+    if(data.exp == quint32(exp)){return;}
     else
     {
         if(exp<0){data.exp=0;}
@@ -458,7 +460,7 @@ void CharEditor::setExp(int exp)
 }
 void CharEditor::setExpNext(int expNext)
 {
-    if(data.expNext == expNext){return;}
+    if(data.expNext == quint32(expNext)){return;}
     else
     {
         if(expNext<0){data.expNext=0;}
@@ -467,6 +469,54 @@ void CharEditor::setExpNext(int expNext)
         QMessageBox::information(this,"EMIT",QString("expNext_Changed:%1").arg(QString::number(data.expNext)));
     }
 }
+void CharEditor::charMenu(QPoint pos)
+{
+    QMenu menu(this);
+    QAction *sel;
+
+
+    menu.addAction(Chars.Icon(0),Chars.defaultName(0));
+    menu.addAction(Chars.Icon(1),Chars.defaultName(1));
+    menu.addAction(Chars.Icon(2),Chars.defaultName(2));
+    menu.addAction(Chars.Icon(3),Chars.defaultName(3));
+    menu.addAction(Chars.Icon(4),Chars.defaultName(4));
+    menu.addAction(Chars.Icon(5),Chars.defaultName(5));
+    menu.addAction(Chars.Icon(6),Chars.defaultName(6));
+    menu.addAction(Chars.Icon(7),Chars.defaultName(7));
+    menu.addAction(Chars.Icon(8),Chars.defaultName(8));
+
+
+
+    /* Do Nothing. Don't know emerald weapon Coords
+    menu.addAction(tr("Place Emerald Weapon?"));
+    */
+    sel = menu.exec(lbl_avatar->mapToGlobal(pos));
+    if(sel==0){return;}
+
+
+    if(sel->text()==tr("Place Leader"))
+    {
+    }
+    else if(sel->text()==tr("Place Tiny Bronco/Chocobo"))
+    {
+    }
+    else if(sel->text()==tr("Place Buggy/Highwind"))
+    {
+    }
+    else if(sel->text()==tr("Place Sub"))
+    {
+    }
+    else if(sel->text()==tr("Place Wild Chocobo"))
+    {
+    }
+    else if(sel->text()==tr("Place Diamond/Ultimate/Ruby Weapon"))
+    {
+    }
+    else if(sel->text()==tr("Place Emerald Weapon?"))
+    {
+    }
+    else{return;}
+}//End Of Map Context Menu
 //void setFlags(int,int);
 //void setZ_4[4](int);
 //void setMaterias(materia,int);
