@@ -20,7 +20,9 @@
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QHBoxLayout>
-//#include <QtGil/QVBoxLayout>
+
+//set path to save icon class
+#include "static_data/SaveIcon.h"
 
 class SlotPreview : public QWidget
 {
@@ -35,6 +37,8 @@ public:
     void setLocation(QString);
     void setGil(int);
     void setTime(int hour,int min);
+    void setPsxIcon(QByteArray,quint8 frames=1);
+    void setMode(int mode);
 
 private slots:
     //raw pix map for labels
@@ -46,24 +50,25 @@ private slots:
     void set_Party2(QString style);
     void set_Party3(QString style);
     void selected(void);
+    void set_ff7_save(void);
+    void set_empty(void);
+    void set_psx_game(void);
+
 private:
     QLabel *party1;
     QLabel *party2;
     QLabel *party3;
-    QLabel *gil_amount;
     QLabel *name;
-    QLabel *time_hour;
-    QLabel *time_min;
-    QLabel *level_amount;
+    QLabel *lbl_time;
+    QLabel *lbl_level;
     QLabel *location;
-    QLabel *GIL_LABEL;
-    QLabel *TIME_LABEL;
-    QLabel *TIME_SEP;
-    QLabel *LEVEL_LABEL;
+    QLabel *lbl_gil;
     QPushButton *btn_select;
-    QSpacerItem *spacer1;
+    QGroupBox *top_most;
+    SaveIcon *icon;
+    bool not_pc;
 signals:
-    void button_clicked();
+    void button_clicked(QString);
 };
 
 #endif
