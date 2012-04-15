@@ -7,7 +7,8 @@
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QMenu>
-
+#include <QCheckBox>
+#include <QComboBox>
 
 //set path to FF7Item FF7Materia and FF7Char
 #include "static_data/FF7Item.h"
@@ -49,7 +50,10 @@ signals:
     void curMp_changed(quint16);
     void maxMp_changed(quint16);
     void kills_changed(quint16);
-    //void Flags_changed(int,quint8);
+    void row_changed(quint8);
+    void levelProgress_changed(quint8);
+    void sadnessfury_changed(quint8);
+
     void limits_changed(quint16);
     void timesused1_changed(quint16);
     void timesused2_changed(quint16);
@@ -58,7 +62,7 @@ signals:
     void baseMp_changed(quint16);
     //void Z_4_changed(int,quint8);
     void exp_changed(quint32);
-    //void Materias_changed(int,materia);
+    void Materias_changed(int,materia);
     void expNext_changed(quint32);
 
 public slots:
@@ -83,14 +87,16 @@ public slots:
     void setWeapon(int);
     void setArmor(int);
     void setAccessory(int);
-   // void setFlags(int,int);
+    void setRow(bool front_row);
+    void setLevelProgress(int);
+    void setSadnessFury(int);
     void setLimits(int);
     void setTimesused1(int);
     void setTimesused2(int);
     void setTimesused3(int);
     void setBaseHp(int);
     void setBaseMp(int);
-    //void setZ_4[4](int);
+    //void setZ_4(int,int);
   void setExp(int);
     //void setMaterias(materia,int);
     void setExpNext(int);
@@ -100,24 +106,33 @@ public slots:
     void setMaxMp(int);
     void setMaxHp(int);
     void setKills(int);
+private slots:
+    void cb_fury_toggled(bool);
+    void cb_sadness_toggled(bool);
 
 private:
     void init_display(void);
     void init_connections(void);
     QLabel *lbl_avatar;
-    QLineEdit * line_name;
+    QLineEdit *line_name;
     QSpinBox *sb_level;
     QSpinBox *sb_curMp;
     QSpinBox *sb_maxMp;
     QSpinBox *sb_curHp;
     QSpinBox *sb_maxHp;
     QSpinBox *sb_kills;
-    QLabel * lbl_level;
-    QLabel * lbl_hp;
-    QLabel * lbl_hp_slash;
-    QLabel * lbl_mp;
-    QLabel * lbl_mp_slash;
-    QLabel * lbl_kills;
+    QLabel *lbl_level;
+    QLabel *lbl_hp;
+    QLabel *lbl_hp_slash;
+    QLabel *lbl_mp;
+    QLabel *lbl_mp_slash;
+    QLabel *lbl_kills;
+    QLabel *lbl_id;
+    QCheckBox *cb_fury;
+    QCheckBox *cb_sadness;
+    QCheckBox *cb_front_row;
+    QComboBox *combo_id;
+
 //Data
    FF7Char Chars;
    FF7CHAR data;

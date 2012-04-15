@@ -24,7 +24,23 @@ void CharEditor::init_display()
     sb_maxMp = new QSpinBox;
     sb_maxHp = new QSpinBox;
     sb_kills = new QSpinBox;
+    cb_fury=new QCheckBox;
+    cb_fury->setText(tr("Fury"));
+    cb_sadness = new QCheckBox;
+    cb_sadness->setText(tr("Sadness"));
+    cb_front_row = new QCheckBox;
+    cb_front_row->setText(tr("Front Row"));
+    lbl_id = new QLabel;
+    lbl_id->setText(tr("ID"));
+    combo_id = new QComboBox;
+    for(int i=0;i<11;i++){combo_id->addItem(Chars.Icon(i),Chars.defaultName(i));}
 
+    sb_level->setMaximum(99);
+    sb_curMp->setMaximum(32767);
+    sb_curHp->setMaximum(32767);
+    sb_maxMp->setMaximum(32767);
+    sb_maxHp->setMaximum(32767);
+    sb_kills->setMaximum(65535);
 
     QHBoxLayout * name_level_layout= new QHBoxLayout;
     name_level_layout->addWidget(line_name);
@@ -62,9 +78,34 @@ void CharEditor::init_display()
     name_hp_mp_kills_layout->addLayout(mp_layout);
     name_hp_mp_kills_layout->addLayout(kills_layout);
 
+
+    QVBoxLayout *fury_sadness_layout = new QVBoxLayout;
+    fury_sadness_layout->setContentsMargins(0,0,0,0);
+    fury_sadness_layout->setSpacing(2);
+    fury_sadness_layout->addWidget(cb_fury);
+    fury_sadness_layout->addWidget(cb_sadness);
+
+
+    QFrame *frm_fury_sadness =new QFrame;
+    frm_fury_sadness->setLayout(fury_sadness_layout);
+
+    QHBoxLayout *id_layout = new QHBoxLayout;
+    id_layout->setContentsMargins(0,0,0,0);
+    id_layout->addWidget(lbl_id);
+    id_layout->addWidget(combo_id);
+
+    QVBoxLayout *sadness_row_id_layout =new QVBoxLayout;
+    sadness_row_id_layout->addWidget(frm_fury_sadness);
+    sadness_row_id_layout->addWidget(cb_front_row);
+    sadness_row_id_layout->addLayout(id_layout);
+
+
     QHBoxLayout *avatar_name_layout = new QHBoxLayout(this);
     avatar_name_layout->addWidget(lbl_avatar);
     avatar_name_layout->addLayout(name_hp_mp_kills_layout);
+    avatar_name_layout->addLayout(sadness_row_id_layout);
+
+    this->setLayout(avatar_name_layout);
 
 }
 void CharEditor::init_connections()
@@ -76,6 +117,9 @@ void CharEditor::init_connections()
     connect(sb_maxHp,SIGNAL(valueChanged(int)),this,SLOT(setMaxHp(int)));
     connect(sb_kills,SIGNAL(valueChanged(int)),this,SLOT(setKills(int)));
     connect(line_name,SIGNAL(textChanged(QString)),this,SLOT(setName(QString)));
+    connect(cb_front_row,SIGNAL(toggled(bool)),this,SLOT(setRow(bool)));
+    connect(cb_fury,SIGNAL(toggled(bool)),this,SLOT(cb_fury_toggled(bool)));
+    connect(cb_sadness,SIGNAL(toggled(bool)),this,SLOT(cb_sadness_toggled(bool)));
     connect(lbl_avatar,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(charMenu(QPoint)));
 }
 void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
@@ -95,6 +139,28 @@ void CharEditor::setLevel(int level)
         emit level_changed(data.level);
         QMessageBox::information(this,"EMIT",QString("Level_Changed:%1").arg(QString::number(data.level)));
     }
+}
+void CharEditor::cb_sadness_toggled(bool sad)
+{
+    if(sad)
+    {
+        setSadnessFury(0x20);
+        cb_fury->blockSignals(true);
+        cb_fury->setChecked(Qt::Unchecked);
+        cb_fury->blockSignals(false);
+    }
+    else{setSadnessFury(0);}
+}
+void CharEditor::cb_fury_toggled(bool fury)
+{
+    if(fury)
+    {
+        setSadnessFury(0x10);
+        cb_sadness->blockSignals(true);
+        cb_sadness->setChecked(Qt::Unchecked);
+        cb_sadness->blockSignals(false);
+    }
+    else{setSadnessFury(0);}
 }
 void CharEditor::setMaxHp(int maxHp)
 {
@@ -353,7 +419,8 @@ void CharEditor::setWeapon(int weapon)
     else
     {
         if(weapon<0){data.weapon=0;}
-        if(weapon>Chars.num_weapons(data.id)){data.weapon=Chars.num_weapons(data.id);}
+        else if(weapon>Chars.num_weapons(data.id)){data.weapon=Chars.num_weapons(data.id);}
+        else {data.weapon=weapon;}
         emit weapon_changed(data.weapon);
         QMessageBox::information(this,"EMIT",QString("weapon_Changed:%1").arg(QString::number(data.weapon)));
     }
@@ -364,7 +431,8 @@ void CharEditor::setArmor(int armor)
     else
     {
         if(armor<0){data.armor=0;}
-        if(armor>32){data.armor=0xFF;}
+        else if(armor>32){data.armor=0xFF;}
+        else {data.armor= armor; }
         emit armor_changed(data.armor);
         QMessageBox::information(this,"EMIT",QString("armor_Changed:%1").arg(QString::number(data.armor)));
     }
@@ -375,11 +443,51 @@ void CharEditor::setAccessory(int accessory)
     else
     {
         if(accessory<0){data.accessory=0;}
-        if(accessory>32){data.accessory=0xFF;}
+        else if(accessory>32){data.accessory=0xFF;}
+        else {data.accessory = accessory;}
         emit accessory_changed(data.accessory);
         QMessageBox::information(this,"EMIT",QString("accessory_Changed:%1").arg(QString::number(data.accessory)));
     }
 }
+void CharEditor::setSadnessFury(int sad_fury)
+{
+    if(sad_fury == data.flags[0]){return;}
+    else
+    {
+        if(sad_fury==0x10){data.flags[0]=0x10;}
+        else if( sad_fury==0x20 ){data.flags[0]=0x20;}
+        else{data.flags[0]=0;}
+        emit sadnessfury_changed(data.flags[0]);
+    }
+    QMessageBox::information(this,"EMIT",QString("sad_fury_Changed:%1").arg(QString::number(data.flags[0])));
+
+}
+void CharEditor::setRow(bool front_row)
+{
+    if( (front_row) && (data.flags[1]==0xFF) ){return;}
+    else if((!front_row) && (data.flags[1]==0xFE)){return;}
+    else
+    {
+        if(front_row){data.flags[1]=0xFF;}
+        else{data.flags[1]=0xFE;}
+        emit row_changed(data.flags[1]);
+        QMessageBox::information(this,"EMIT",QString("row_Changed:%1").arg(QString::number(data.flags[1])));
+    }
+}
+
+void CharEditor::setLevelProgress(int level_progress)
+{//Level progress bar (0-63) game ingores values <4 4-63 are visible as "progress"
+    if(level_progress ==data.flags[2]){return;}
+    else
+    {
+        if(level_progress<0){data.flags[2]=0;}
+        else if(level_progress >63){data.flags[2]=63;}
+        else{data.flags[2]=level_progress;}
+        emit levelProgress_changed(data.flags[2]);
+        //QMessageBox::information(this,"EMIT",QString("Level_Progress_Changed:%1").arg(QString::number(data.flags[2])));
+    }
+}
+
 void CharEditor::setLimits(int limits)
 {
     if(limits ==data.limits){return;}
@@ -387,7 +495,7 @@ void CharEditor::setLimits(int limits)
     {
         if(limits <0){data.limits=0;}
         else if(limits>127){data.limits=127;}
-        else{data.limits = limits;}
+        else {data.limits = limits;}
         emit limits_changed(data.limits);
         QMessageBox::information(this,"EMIT",QString("Limits_Changed:%1").arg(QString::number(data.limits,2)));
     }
@@ -485,38 +593,13 @@ void CharEditor::charMenu(QPoint pos)
     menu.addAction(Chars.Icon(7),Chars.defaultName(7));
     menu.addAction(Chars.Icon(8),Chars.defaultName(8));
 
-
-
-    /* Do Nothing. Don't know emerald weapon Coords
-    menu.addAction(tr("Place Emerald Weapon?"));
-    */
     sel = menu.exec(lbl_avatar->mapToGlobal(pos));
     if(sel==0){return;}
 
-
-    if(sel->text()==tr("Place Leader"))
-    {
-    }
-    else if(sel->text()==tr("Place Tiny Bronco/Chocobo"))
-    {
-    }
-    else if(sel->text()==tr("Place Buggy/Highwind"))
-    {
-    }
-    else if(sel->text()==tr("Place Sub"))
-    {
-    }
-    else if(sel->text()==tr("Place Wild Chocobo"))
-    {
-    }
-    else if(sel->text()==tr("Place Diamond/Ultimate/Ruby Weapon"))
-    {
-    }
-    else if(sel->text()==tr("Place Emerald Weapon?"))
-    {
-    }
     else{return;}
 }//End Of Map Context Menu
+
+
 //void setFlags(int,int);
 //void setZ_4[4](int);
 //void setMaterias(materia,int);
