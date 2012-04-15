@@ -9,6 +9,7 @@
 #include <QMenu>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QGroupBox>
 
 //set path to FF7Item FF7Materia and FF7Char
 #include "static_data/FF7Item.h"
@@ -132,6 +133,42 @@ private:
     QCheckBox *cb_sadness;
     QCheckBox *cb_front_row;
     QComboBox *combo_id;
+
+    QLabel *lbl_str;
+    QSpinBox *sb_str;
+    QSpinBox *sb_str_bonus;
+    QLabel *lbl_str_mat_bonus;
+    QLabel *lbl_str_total;
+
+    QLabel *lbl_vit;
+    QSpinBox *sb_vit;
+    QSpinBox *sb_vit_bonus;
+    QLabel *lbl_vit_mat_bonus;
+    QLabel *lbl_vit_total;
+
+    QLabel *lbl_mag;
+    QSpinBox *sb_mag;
+    QSpinBox *sb_mag_bonus;
+    QLabel *lbl_mag_mat_bonus;
+    QLabel *lbl_mag_total;
+
+    QLabel *lbl_spi;
+    QSpinBox *sb_spi;
+    QSpinBox *sb_spi_bonus;
+    QLabel *lbl_spi_mat_bonus;
+    QLabel *lbl_spi_total;
+
+    QLabel *lbl_dex;
+    QSpinBox *sb_dex;
+    QSpinBox *sb_dex_bonus;
+    QLabel *lbl_dex_mat_bonus;
+    QLabel *lbl_dex_total;
+
+    QLabel *lbl_lck;
+    QSpinBox *sb_lck;
+    QSpinBox *sb_lck_bonus;
+    QLabel *lbl_lck_mat_bonus;
+    QLabel *lbl_lck_total;
 
 //Data
    FF7Char Chars;
