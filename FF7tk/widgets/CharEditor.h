@@ -10,6 +10,7 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QGroupBox>
+#include <QListWidget>
 
 //set path to FF7Item FF7Materia and FF7Char
 #include "static_data/FF7Item.h"
@@ -170,6 +171,12 @@ private:
     QLabel *lbl_lck_mat_bonus;
     QLabel *lbl_lck_total;
 
+    QLabel *lbl_limit_level;
+    QSpinBox *sb_limit_level;
+    QSpinBox *sb_uses_limit_1_1;
+    QSpinBox *sb_uses_limit_1_2;
+    QSpinBox *sb_uses_limit_1_3;
+    QListWidget *list_limits;
 //Data
    FF7Char Chars;
    FF7CHAR data;

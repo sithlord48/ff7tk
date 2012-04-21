@@ -31,84 +31,123 @@ void CharEditor::init_display()
     combo_id = new QComboBox;
     for(int i=0;i<11;i++){combo_id->addItem(Chars.Icon(i),Chars.defaultName(i));}
 
+    //QMessageBox::information(this,"PointSize",QString("Pointsize:%1").arg(this->font().pointSize()));
 
     lbl_str = new QLabel(tr("Str"));
     lbl_str->setFixedWidth(this->font().pointSize()*3);
     sb_str = new QSpinBox;
+    sb_str->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_str_plus_1 = new QLabel(tr("+"));
     lbl_str_plus_1->setFixedWidth(this->font().pointSize());
     sb_str_bonus = new QSpinBox;
+    sb_str_bonus->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_str_plus_2 = new QLabel(tr("+"));
     lbl_str_plus_2->setFixedWidth(this->font().pointSize());
     lbl_str_mat_bonus = new QLabel;
+    lbl_str_mat_bonus->setFixedWidth(this->font().pointSize()*3);
     QLabel *lbl_str_equals = new QLabel(tr("="));
     lbl_str_equals->setFixedWidth(this->font().pointSize());
     lbl_str_total = new QLabel;
+    lbl_str_total->setFixedWidth(this->font().pointSize()*5);
 
     lbl_vit = new QLabel(tr("Vit"));
     lbl_vit->setFixedWidth(this->font().pointSize()*3);
     sb_vit = new QSpinBox;
+    sb_vit->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_vit_plus_1 = new QLabel(tr("+"));
     lbl_vit_plus_1->setFixedWidth(this->font().pointSize());
     sb_vit_bonus = new QSpinBox;
+    sb_vit_bonus->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_vit_plus_2 = new QLabel(tr("+"));
     lbl_vit_plus_2->setFixedWidth(this->font().pointSize());
     lbl_vit_mat_bonus = new QLabel;
+    lbl_vit_mat_bonus->setFixedWidth(this->font().pointSize()*3);
     QLabel *lbl_vit_equals = new QLabel(tr("="));
     lbl_vit_plus_1->setFixedWidth(this->font().pointSize());
     lbl_vit_total = new QLabel;
+    lbl_vit_total->setFixedWidth(this->font().pointSize()*5);
+
 
     lbl_mag = new QLabel(tr("Mag"));
     lbl_mag->setFixedWidth(this->font().pointSize()*3);
     sb_mag = new QSpinBox;
+    sb_mag->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_mag_plus_1 = new QLabel(tr("+"));
     lbl_mag_plus_1->setFixedWidth(this->font().pointSize());
     sb_mag_bonus = new QSpinBox;
+    sb_mag_bonus->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_mag_plus_2 = new QLabel(tr("+"));
     lbl_mag_plus_2->setFixedWidth(this->font().pointSize());
     lbl_mag_mat_bonus = new QLabel;
+    lbl_mag_mat_bonus->setFixedWidth(this->font().pointSize()*3);
     QLabel *lbl_mag_equals = new QLabel(tr("="));
     lbl_mag_plus_1->setFixedWidth(this->font().pointSize());
     lbl_mag_total = new QLabel;
+    lbl_mag_total->setFixedWidth(this->font().pointSize()*5);
+
 
     lbl_spi = new QLabel(tr("Spi"));
     lbl_spi->setFixedWidth(this->font().pointSize()*3);
     sb_spi = new QSpinBox;
+    sb_spi->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_spi_plus_1 = new QLabel(tr("+"));
     lbl_spi_plus_1->setFixedWidth(this->font().pointSize());
     sb_spi_bonus = new QSpinBox;
+    sb_spi_bonus->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_spi_plus_2 = new QLabel(tr("+"));
     lbl_spi_plus_2->setFixedWidth(this->font().pointSize());
     lbl_spi_mat_bonus = new QLabel;
+    lbl_spi_mat_bonus->setFixedWidth(this->font().pointSize()*3);
     QLabel *lbl_spi_equals = new QLabel(tr("="));
     lbl_spi_plus_1->setFixedWidth(this->font().pointSize());
     lbl_spi_total = new QLabel;
+    lbl_spi_total->setFixedWidth(this->font().pointSize()*5);
+
 
     lbl_dex = new QLabel(tr("Dex"));
     lbl_dex->setFixedWidth(this->font().pointSize()*3);
     sb_dex = new QSpinBox;
+    sb_dex->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_dex_plus_1 = new QLabel(tr("+"));
     lbl_dex_plus_1->setFixedWidth(this->font().pointSize());
     sb_dex_bonus = new QSpinBox;
+    sb_dex_bonus->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_dex_plus_2 = new QLabel(tr("+"));
     lbl_dex_plus_2->setFixedWidth(this->font().pointSize());
     lbl_dex_mat_bonus = new QLabel;
+    lbl_dex_mat_bonus->setFixedWidth(this->font().pointSize()*3);
     QLabel *lbl_dex_equals = new QLabel(tr("="));
     lbl_dex_plus_1->setFixedWidth(this->font().pointSize());
     lbl_dex_total = new QLabel;
+    lbl_dex_total->setFixedWidth(this->font().pointSize()*5);
+
 
     lbl_lck = new QLabel(tr("Lck"));
     lbl_lck->setFixedWidth(this->font().pointSize()*3);
     sb_lck = new QSpinBox;
+    sb_lck->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_lck_plus_1 = new QLabel(tr("+"));
     lbl_lck_plus_1->setFixedWidth(this->font().pointSize());
     sb_lck_bonus = new QSpinBox;
+    sb_lck_bonus->setFixedWidth(this->font().pointSize()*5);
     QLabel *lbl_lck_plus_2 = new QLabel(tr("+"));
     lbl_lck_plus_2->setFixedWidth(this->font().pointSize());
     lbl_lck_mat_bonus = new QLabel;
+    lbl_lck_mat_bonus->setFixedWidth(this->font().pointSize()*3);
     QLabel *lbl_lck_equals = new QLabel(tr("="));
     lbl_lck_plus_1->setFixedWidth(this->font().pointSize());
     lbl_lck_total = new QLabel;
+    lbl_lck_total->setFixedWidth(this->font().pointSize()*5);
+
+    list_limits = new QListWidget;
+    lbl_limit_level = new QLabel(tr("Limit Level"));
+    sb_limit_level = new QSpinBox;
+    sb_limit_level->setFixedWidth(this->font().pointSize()*4);
+
+    QHBoxLayout *limit_level_layout = new QHBoxLayout;
+    limit_level_layout->setContentsMargins(0,0,0,0);
+    limit_level_layout->addWidget(lbl_limit_level);
+    limit_level_layout->addWidget(sb_limit_level);
 
 
     sb_level->setMaximum(99);
@@ -129,6 +168,7 @@ void CharEditor::init_display()
     sb_dex_bonus->setMaximum(255);
     sb_lck->setMaximum(255);
     sb_lck_bonus->setMaximum(255);
+    sb_limit_level->setMaximum(4);
 
     QHBoxLayout * name_level_layout= new QHBoxLayout;
     name_level_layout->addWidget(line_name);
@@ -262,6 +302,7 @@ void CharEditor::init_display()
 
 
     QVBoxLayout *stat_layout = new QVBoxLayout;
+    stat_layout->setContentsMargins(0,3,0,0);
     stat_layout->addLayout(str_layout);
     stat_layout->addLayout(vit_layout);
     stat_layout->addLayout(mag_layout);
@@ -271,14 +312,36 @@ void CharEditor::init_display()
 
 
     QGroupBox *stat_box = new QGroupBox;
+    stat_box->setFixedHeight(this->font().pointSize()*16);
     stat_box->setLayout(stat_layout);
 
+    QVBoxLayout *limit_box = new QVBoxLayout;
+    limit_box->addLayout(limit_level_layout);
+    limit_box->addWidget(list_limits);
+
+    QHBoxLayout *lower_section = new QHBoxLayout;
+    lower_section->setContentsMargins(0,0,0,0);
+    lower_section->addWidget(stat_box);
+    lower_section->addLayout(limit_box);
+
+
     QVBoxLayout *Final = new QVBoxLayout;
+    Final->setContentsMargins(0,0,0,0);
     Final->addLayout(avatar_name_layout);
-    Final->addWidget(stat_box);
+    Final->addLayout(lower_section);
 
     this->setLayout(Final);
 
+
+    list_limits->setFixedHeight(this->font().pointSize()*14);
+    list_limits->addItems(Chars.limits(0));
+    list_limits->item(0)->setCheckState(Qt::Unchecked);
+    list_limits->item(1)->setCheckState(Qt::Unchecked);
+    list_limits->item(2)->setCheckState(Qt::Unchecked);
+    list_limits->item(3)->setCheckState(Qt::Unchecked);
+    list_limits->item(4)->setCheckState(Qt::Unchecked);
+    list_limits->item(5)->setCheckState(Qt::Unchecked);
+    list_limits->item(6)->setCheckState(Qt::Unchecked);
 }
 void CharEditor::init_connections()
 {
