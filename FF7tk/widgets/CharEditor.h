@@ -99,7 +99,7 @@ public slots:
     void setBaseHp(int);
     void setBaseMp(int);
     //void setZ_4(int,int);
-  void setExp(int);
+    void setExp(int);
     //void setMaterias(materia,int);
     void setExpNext(int);
 
@@ -108,13 +108,16 @@ public slots:
     void setMaxMp(int);
     void setMaxHp(int);
     void setKills(int);
+    void setAutoLevel(bool);
+    void setAutoStatCalc(bool);
 private slots:
     void cb_fury_toggled(bool);
     void cb_sadness_toggled(bool);
-
+    void calc_limit_value(QModelIndex);
 private:
     void init_display(void);
     void init_connections(void);
+    void calc_stats(void);//calc stat changes if autostatcalc == true;
     QLabel *lbl_avatar;
     QLineEdit *line_name;
     QSpinBox *sb_level;
@@ -179,8 +182,12 @@ private:
     QListWidget *list_limits;
 //Data
    FF7Char Chars;
+   //FF7Item Items;
+   //FF7Materia Materias;
    FF7CHAR data;
    QString _name;
+   bool autolevel;
+   bool autostatcalc;
 };
 
 #endif // CHAREDITOR_H
