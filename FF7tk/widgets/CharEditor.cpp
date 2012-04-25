@@ -5,12 +5,16 @@ CharEditor::CharEditor(QWidget *parent) :
 {
     init_display();
     init_connections();
+    //auto level and auto stat calc are enabled by default.
+    //always check them when doing these actions.
+    autolevel=true;
+    autostatcalc=true;
 }
 void CharEditor::init_display()
 {
     lbl_avatar = new QLabel;
     lbl_avatar->setFixedSize(86,98);
-    lbl_avatar->setContextMenuPolicy(Qt::CustomContextMenu);
+    //lbl_avatar->setContextMenuPolicy(Qt::CustomContextMenu);
     line_name = new QLineEdit;
     lbl_level = new QLabel(tr("Level"));
     lbl_kills = new QLabel(tr("Kills"));
@@ -367,13 +371,59 @@ void CharEditor::init_connections()
     connect(sb_dex_bonus,SIGNAL(valueChanged(int)),this,SLOT(setDexBonus(int)));
     connect(sb_lck,SIGNAL(valueChanged(int)),this,SLOT(setLck(int)));
     connect(sb_lck_bonus,SIGNAL(valueChanged(int)),this,SLOT(setLckBonus(int)));
-
-    connect(lbl_avatar,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(charMenu(QPoint)));
+    connect(list_limits,SIGNAL(clicked(QModelIndex)),this,SLOT(calc_limit_value(QModelIndex)));
+    //connect(lbl_avatar,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(charMenu(QPoint)));
 }
 void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
 {
     data = Chardata;
     _name=Processed_Name;
+    //more here like setting the gui stuff.
+    lbl_avatar->setPixmap(Chars.Pixmap(data.id));
+    line_name->setText(_name);
+    sb_level->setValue(data.level);
+    sb_curMp->setValue(data.curMP);
+    sb_curHp->setValue(data.curHP);
+    sb_maxMp->setValue(data.maxMP);
+    sb_maxHp->setValue(data.maxHP);
+    sb_kills->setValue(data.kills);
+
+    combo_id->blockSignals(true);
+    combo_id->setCurrentIndex(data.id);
+    combo_id->blockSignals(false);
+
+    cb_fury->blockSignals(true);//block when manually toggling.
+    cb_sadness->blockSignals(true);//block when manually toggling
+    if(data.flags[0]==0x10){cb_fury->setChecked(Qt::Checked);}
+    else if(data.flags[0]==0x20 ){cb_sadness->setChecked(Qt::Checked);}
+    else{cb_fury->setChecked(Qt::Unchecked);cb_sadness->setChecked(Qt::Unchecked);}
+    cb_fury->blockSignals(false);
+    cb_sadness->blockSignals(false);
+
+    cb_front_row->blockSignals(true);
+    if(data.flags[1] ==0xFF){cb_front_row->setChecked(Qt::Checked);}
+    else{cb_front_row->setChecked(Qt::Unchecked);}
+    cb_front_row->blockSignals(false);
+
+    sb_str->setValue(data.strength);
+    sb_str_bonus->setValue(data.strength_bonus);
+
+    sb_vit->setValue(data.vitality);
+    sb_vit_bonus->setValue(data.vitality_bonus);
+
+    sb_dex->setValue(data.dexterity);
+    sb_dex_bonus->setValue(data.dexterity_bonus);
+
+    sb_mag->setValue(data.magic);
+    sb_mag_bonus->setValue(data.magic_bonus);
+
+    sb_spi->setValue(data.spirit);
+    sb_spi_bonus->setValue(data.spirit_bonus);
+
+    sb_lck->setValue(data.luck);
+    sb_lck_bonus->setValue(data.luck_bonus);
+
+    calc_stats();
 }
 
 void CharEditor::setLevel(int level)
@@ -502,6 +552,7 @@ void CharEditor::setStr(int strength)
         else if(strength>0xFF){data.strength=0xFF;}
         else{data.strength = strength;}
         emit str_changed(data.strength);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("str_Changed:%1").arg(QString::number(data.strength)));
     }
 }
@@ -514,6 +565,7 @@ void CharEditor::setVit(int vitality)
         else if(vitality>0xFF){data.vitality=0xFF;}
         else{data.vitality = vitality;}
         emit vit_changed(data.vitality);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("vit_Changed:%1").arg(QString::number(data.vitality)));
     }
 }
@@ -526,6 +578,7 @@ void CharEditor::setMag(int magic)
         else if(magic>0xFF){data.magic=0xFF;}
         else{data.magic = magic;}
         emit mag_changed(data.magic);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("mag_Changed:%1").arg(QString::number(data.magic)));
     }
 }
@@ -538,6 +591,7 @@ void CharEditor::setSpi(int spirit)
         else if(spirit>0xFF){data.spirit=0xFF;}
         else{data.spirit = spirit;}
         emit spi_changed(data.spirit);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("spi_Changed:%1").arg(QString::number(data.spirit)));
     }
 }
@@ -550,6 +604,7 @@ void CharEditor::setDex(int dexterity)
         else if(dexterity>0xFF){data.dexterity=0xFF;}
         else{data.dexterity = dexterity;}
         emit dex_changed(data.dexterity);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("dex_Changed:%1").arg(QString::number(data.dexterity)));
     }
 }
@@ -562,6 +617,7 @@ void CharEditor::setLck(int luck)
         else if(luck>0xFF){data.luck=0xFF;}
         else{data.luck = luck;}
         emit lck_changed(data.luck);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("lck_Changed:%1").arg(QString::number(data.luck)));
     }
 }
@@ -574,6 +630,7 @@ void CharEditor::setStrBonus(int strength_bonus)
         else if(strength_bonus>0xFF){data.strength_bonus=0xFF;}
         else{data.strength_bonus = strength_bonus;}
         emit strBonus_changed(data.strength_bonus);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("strBonus_Changed:%1").arg(QString::number(data.strength_bonus)));
     }
 }
@@ -586,6 +643,7 @@ void CharEditor::setVitBonus(int vitality_bonus)
         else if(vitality_bonus>0xFF){data.vitality_bonus=0xFF;}
         else{data.vitality_bonus = vitality_bonus;}
         emit vitBonus_changed(data.vitality_bonus);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("vitBonus_Changed:%1").arg(QString::number(data.vitality_bonus)));
     }
 }
@@ -598,6 +656,7 @@ void CharEditor::setMagBonus(int magic_bonus)
         else if(magic_bonus>0xFF){data.magic_bonus=0xFF;}
         else{data.magic_bonus = magic_bonus;}
         emit magBonus_changed(data.magic_bonus);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("magBonus_Changed:%1").arg(QString::number(data.magic_bonus)));
     }
 }
@@ -610,6 +669,7 @@ void CharEditor::setSpiBonus(int spirit_bonus)
         else if(spirit_bonus>0xFF){data.spirit_bonus=0xFF;}
         else{data.spirit_bonus = spirit_bonus;}
         emit spiBonus_changed(data.spirit_bonus);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("spiBonus_Changed:%1").arg(QString::number(data.spirit_bonus)));
     }
 }
@@ -622,6 +682,7 @@ void CharEditor::setDexBonus(int dexterity_bonus)
         else if(dexterity_bonus>0xFF){data.dexterity_bonus=0xFF;}
         else{data.dexterity_bonus = dexterity_bonus;}
         emit dexBonus_changed(data.dexterity_bonus);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("dexBonus_Changed:%1").arg(QString::number(data.dexterity_bonus)));
     }
 }
@@ -634,6 +695,7 @@ void CharEditor::setLckBonus(int luck_bonus)
         else if(luck_bonus>0xFF){data.luck_bonus=0xFF;}
         else{data.luck_bonus = luck_bonus;}
         emit lckBonus_changed(data.luck_bonus);
+        calc_stats();
         QMessageBox::information(this,"EMIT",QString("lckBonus_Changed:%1").arg(QString::number(data.luck_bonus)));
     }
 }
@@ -825,8 +887,18 @@ void CharEditor::setExpNext(int expNext)
         QMessageBox::information(this,"EMIT",QString("expNext_Changed:%1").arg(QString::number(data.expNext)));
     }
 }
-void CharEditor::charMenu(QPoint pos)
+
+void CharEditor::calc_limit_value(QModelIndex item)
 {
+    int row = item.row();
+    int limits = data.limits;
+    if(list_limits->item(row)->checkState() ==Qt::Checked){limits |= (1<<row);}
+    else{limits &= ~(1<<row);}
+    setLimits(limits);
+}
+
+void CharEditor::charMenu(QPoint pos)
+{//this has problems with out reading all chars. i.e no dynamic entries to the list.
     QMenu menu(this);
     QAction *sel;
 
@@ -847,6 +919,57 @@ void CharEditor::charMenu(QPoint pos)
     else{return;}
 }//End Of Map Context Menu
 
+
+void CharEditor::setAutoLevel(bool ans){autolevel=ans;}//used to turn off auto char leveling
+void CharEditor::setAutoStatCalc(bool ans){autostatcalc=ans;}
+
+void CharEditor::calc_stats(void)
+{
+    int str_total=0;
+    int vit_total=0;
+    int spi_total=0;
+    int dex_total=0;
+    int mag_total=0;
+    int lck_total=0;
+
+    str_total = data.strength + data.strength_bonus;
+    vit_total= data.vitality + data.vitality_bonus;
+    dex_total = data.dexterity + data.dexterity_bonus;
+    spi_total = data.spirit + data.spirit_bonus;
+    mag_total = data.magic + data.magic_bonus;
+    lck_total = data.luck + data.luck_bonus;
+
+    if(!autostatcalc)
+    {
+        //add the materia and equipment bonuses
+        //str_total +=;
+        //vit_total +=;
+        //dex_total +=;
+        //spi_total +=;
+        //mag_total +=;
+        //lck_total +=;
+        //also do Hp/Mp changes too.
+    }
+
+
+    if(str_total < 256)lbl_str_total->setText(QString::number(str_total));
+    else{lbl_str_total->setText(QString::number(255));}
+
+    if(vit_total < 256)lbl_vit_total->setText(QString::number(vit_total));
+    else{lbl_vit_total->setText(QString::number(255));}
+
+    if(dex_total < 256)lbl_dex_total->setText(QString::number(dex_total));
+    else{lbl_dex_total->setText(QString::number(255));}
+
+    if(spi_total < 256)lbl_spi_total->setText(QString::number(spi_total));
+    else{lbl_spi_total->setText(QString::number(255));}
+
+    if(mag_total < 256)lbl_mag_total->setText(QString::number(mag_total));
+    else{lbl_mag_total->setText(QString::number(255));}
+
+    if(lck_total < 256)lbl_lck_total->setText(QString::number(lck_total));
+    else{lbl_lck_total->setText(QString::number(255));}
+}
 
 //void setFlags(int,int);
 //void setZ_4[4](int);
