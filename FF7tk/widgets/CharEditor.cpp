@@ -9,7 +9,8 @@ CharEditor::CharEditor(QWidget *parent) :
     //always check them when doing these actions.
     autolevel=true;
     autostatcalc=true;
-}
+    editable=true;
+ }
 void CharEditor::init_display()
 {
     lbl_avatar = new QLabel;
@@ -35,7 +36,35 @@ void CharEditor::init_display()
     combo_id = new QComboBox;
     for(int i=0;i<11;i++){combo_id->addItem(Chars.Icon(i),Chars.defaultName(i));}
 
-    //QMessageBox::information(this,"PointSize",QString("Pointsize:%1").arg(this->font().pointSize()));
+    lbl_base_hp = new QLabel(tr("HP"));
+    lbl_base_hp_bonus = new QLabel;
+    sb_base_hp = new QSpinBox;
+
+    lbl_base_mp = new QLabel(tr("MP"));
+    lbl_base_mp_bonus = new QLabel;
+    sb_base_mp = new QSpinBox;
+
+    lbl_total_xp = new QLabel(tr("Total Exp"));
+    lbl_level_progress = new QLabel(tr("Level Progress"));
+    bar_tnl = new QProgressBar;
+    bar_tnl->setMinimum(4);//strange range...
+    bar_tnl->setMaximum(61);//strange indeed..
+    lbl_level_next = new QLabel(tr("Next"));
+    sb_total_exp = new QSpinBox;
+    sb_total_exp->setMaximum(2147483647);
+
+    lcd_tnl = new QLCDNumber;
+    lcd_tnl->setNumDigits(8);
+    lcd_tnl->setSegmentStyle(QLCDNumber::Flat);
+    lbl_limit_bar = new QLabel (tr("Limit Bar"));
+    slider_limit = new QSlider;
+    slider_limit->setMaximum(255);
+    slider_limit->setOrientation(Qt::Horizontal);
+    lcd_limit_value = new QLCDNumber;
+
+
+
+    ////QMessageBox::information(this,"PointSize",QString("Pointsize:%1").arg(this->font().pointSize()));
 
     lbl_str = new QLabel(tr("Str"));
     lbl_str->setFixedWidth(this->font().pointSize()*3);
@@ -159,6 +188,8 @@ void CharEditor::init_display()
     sb_curHp->setMaximum(32767);
     sb_maxMp->setMaximum(32767);
     sb_maxHp->setMaximum(32767);
+    sb_base_hp->setMaximum(32767);
+    sb_base_mp->setMaximum(32767);
     sb_kills->setMaximum(65535);
     sb_str->setMaximum(255);
     sb_str_bonus->setMaximum(255);
@@ -238,6 +269,38 @@ void CharEditor::init_display()
     avatar_name_layout->addLayout(sadness_row_id_layout);
 
 
+    QHBoxLayout *exp_layout = new QHBoxLayout;
+    exp_layout->setContentsMargins(0,0,0,0);
+    exp_layout->addWidget(lbl_total_xp);
+    exp_layout->addWidget(sb_total_exp);
+
+    QVBoxLayout *level_bar_layout = new QVBoxLayout;
+    level_bar_layout->setContentsMargins(0,0,0,0);
+    level_bar_layout->addWidget(lbl_level_progress);
+    level_bar_layout->addWidget(bar_tnl);
+
+    QVBoxLayout *level_next_layout = new QVBoxLayout;
+    level_next_layout->setContentsMargins(0,0,0,0);
+    level_next_layout->addWidget(lbl_level_next);
+    level_next_layout->addWidget(lcd_tnl);
+
+    QHBoxLayout *level_progress_layout = new QHBoxLayout;
+    level_progress_layout->addLayout(level_bar_layout);
+    level_progress_layout->addLayout(level_next_layout);
+
+
+    QHBoxLayout *limit_bar_layout = new QHBoxLayout;
+    limit_bar_layout->setContentsMargins(0,0,0,0);
+    limit_bar_layout->addWidget(lbl_limit_bar);
+    limit_bar_layout->addWidget(slider_limit);
+    limit_bar_layout->addWidget(lcd_limit_value);
+
+    QVBoxLayout *level_exp_limit_layout = new QVBoxLayout;
+    level_exp_limit_layout->setContentsMargins(0,0,0,0);
+    level_exp_limit_layout->addLayout(exp_layout);
+    level_exp_limit_layout->addLayout(level_progress_layout);
+    level_exp_limit_layout->addLayout(limit_bar_layout);
+
     QHBoxLayout *str_layout = new QHBoxLayout;
     str_layout->setContentsMargins(0,0,0,0);
     str_layout->addWidget(lbl_str);
@@ -304,6 +367,21 @@ void CharEditor::init_display()
     lck_layout->addWidget(lbl_lck_equals);
     lck_layout->addWidget(lbl_lck_total);
 
+    QHBoxLayout *base_hp_layout = new QHBoxLayout;
+    base_hp_layout->setContentsMargins(0,0,0,0);
+    base_hp_layout->addWidget(lbl_base_hp);
+    base_hp_layout->addWidget(sb_base_hp);
+    base_hp_layout->addWidget(lbl_base_hp_bonus);
+
+    QHBoxLayout *base_mp_layout = new QHBoxLayout;
+    base_mp_layout->setContentsMargins(0,0,0,0);
+    base_mp_layout->addWidget(lbl_base_mp);
+    base_mp_layout->addWidget(sb_base_mp);
+    base_mp_layout->addWidget(lbl_base_mp_bonus);
+
+    QHBoxLayout *base_hp_mp_layout = new QHBoxLayout;
+    base_hp_mp_layout->addLayout(base_hp_layout);
+    base_hp_mp_layout->addLayout(base_mp_layout);
 
     QVBoxLayout *stat_layout = new QVBoxLayout;
     stat_layout->setContentsMargins(0,3,0,0);
@@ -313,7 +391,7 @@ void CharEditor::init_display()
     stat_layout->addLayout(spi_layout);
     stat_layout->addLayout(dex_layout);
     stat_layout->addLayout(lck_layout);
-
+    stat_layout->addLayout(base_hp_mp_layout);
 
     QGroupBox *stat_box = new QGroupBox;
     stat_box->setFixedHeight(this->font().pointSize()*16);
@@ -322,6 +400,7 @@ void CharEditor::init_display()
     QVBoxLayout *limit_box = new QVBoxLayout;
     limit_box->addLayout(limit_level_layout);
     limit_box->addWidget(list_limits);
+
 
     QHBoxLayout *lower_section = new QHBoxLayout;
     lower_section->setContentsMargins(0,0,0,0);
@@ -332,10 +411,10 @@ void CharEditor::init_display()
     QVBoxLayout *Final = new QVBoxLayout;
     Final->setContentsMargins(0,0,0,0);
     Final->addLayout(avatar_name_layout);
+    Final->addLayout(level_exp_limit_layout);
     Final->addLayout(lower_section);
 
     this->setLayout(Final);
-
 
     list_limits->setFixedHeight(this->font().pointSize()*14);
     list_limits->addItems(Chars.limits(0));
@@ -346,14 +425,17 @@ void CharEditor::init_display()
     list_limits->item(4)->setCheckState(Qt::Unchecked);
     list_limits->item(5)->setCheckState(Qt::Unchecked);
     list_limits->item(6)->setCheckState(Qt::Unchecked);
+    lbl_avatar->setPixmap(Chars.Pixmap(0));
 }
 void CharEditor::init_connections()
 {
-    connect(sb_level,SIGNAL(valueChanged(int)),this,SLOT(setLevel(int)));
+    connect(sb_level,SIGNAL(valueChanged(int)),this,SLOT(Level_Changed(int)));
     connect(sb_curMp,SIGNAL(valueChanged(int)),this,SLOT(setCurMp(int)));
     connect(sb_curHp,SIGNAL(valueChanged(int)),this,SLOT(setCurHp(int)));
     connect(sb_maxMp,SIGNAL(valueChanged(int)),this,SLOT(setMaxMp(int)));
     connect(sb_maxHp,SIGNAL(valueChanged(int)),this,SLOT(setMaxHp(int)));
+    connect(sb_base_hp,SIGNAL(valueChanged(int)),this,SLOT(setBaseHp(int)));
+    connect(sb_base_mp,SIGNAL(valueChanged(int)),this,SLOT(setBaseMp(int)));
     connect(sb_kills,SIGNAL(valueChanged(int)),this,SLOT(setKills(int)));
     connect(line_name,SIGNAL(textChanged(QString)),this,SLOT(setName(QString)));
     connect(cb_front_row,SIGNAL(toggled(bool)),this,SLOT(setRow(bool)));
@@ -371,8 +453,21 @@ void CharEditor::init_connections()
     connect(sb_dex_bonus,SIGNAL(valueChanged(int)),this,SLOT(setDexBonus(int)));
     connect(sb_lck,SIGNAL(valueChanged(int)),this,SLOT(setLck(int)));
     connect(sb_lck_bonus,SIGNAL(valueChanged(int)),this,SLOT(setLckBonus(int)));
+    connect(slider_limit,SIGNAL(valueChanged(int)),this,SLOT(setLimitBar(int)));
+    connect(sb_total_exp,SIGNAL(valueChanged(int)),this,SLOT(Exp_Changed(int)));
+    connect(slider_limit,SIGNAL(valueChanged(int)),lcd_limit_value,SLOT(display(int)));
     connect(list_limits,SIGNAL(clicked(QModelIndex)),this,SLOT(calc_limit_value(QModelIndex)));
     //connect(lbl_avatar,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(charMenu(QPoint)));
+}
+void CharEditor::Exp_Changed(int exp)
+{
+    setExp(exp);
+    if(autolevel){setchar_growth(1);}
+}
+void CharEditor::Level_Changed(int level)
+{
+        if(autolevel){setchar_growth(2);}
+        else{setLevel(level);}
 }
 void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
 {
@@ -405,6 +500,12 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
     else{cb_front_row->setChecked(Qt::Unchecked);}
     cb_front_row->blockSignals(false);
 
+    sb_total_exp->setValue(data.exp);
+    lcd_tnl->display(int(data.expNext));
+    slider_limit->setValue(data.limitbar);
+
+    bar_tnl->setValue(data.flags[2]);
+
     sb_str->setValue(data.strength);
     sb_str_bonus->setValue(data.strength_bonus);
 
@@ -423,6 +524,7 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
     sb_lck->setValue(data.luck);
     sb_lck_bonus->setValue(data.luck_bonus);
 
+    setchar_growth(0);
     calc_stats();
 }
 
@@ -434,8 +536,9 @@ void CharEditor::setLevel(int level)
         if(level<0){data.level=0;}
         else if(level>99){data.level=99;}
         else{data.level=level;}
+        setchar_growth(2);
         emit level_changed(data.level);
-        QMessageBox::information(this,"EMIT",QString("Level_Changed:%1").arg(QString::number(data.level)));
+        //QMessageBox::information(this,"EMIT",QString("Level_Changed:%1").arg(QString::number(data.level)));
     }
 }
 void CharEditor::cb_sadness_toggled(bool sad)
@@ -469,7 +572,7 @@ void CharEditor::setMaxHp(int maxHp)
         else if(maxHp >32767){data.maxHP=32767;}
         else{data.maxHP=maxHp;}
         emit maxHp_changed(data.maxHP);
-        QMessageBox::information(this,"EMIT",QString("MaxHp_Changed:%1").arg(QString::number(data.maxHP)));
+        //QMessageBox::information(this,"EMIT",QString("MaxHp_Changed:%1").arg(QString::number(data.maxHP)));
     }
 }
 void CharEditor::setCurHp(int curHp)
@@ -481,7 +584,7 @@ void CharEditor::setCurHp(int curHp)
         else if(curHp >32767){data.curHP=32767;}
         else{data.curHP=curHp;}
         emit curHp_changed(data.curHP);
-        QMessageBox::information(this,"EMIT",QString("CurHp_Changed:%1").arg(QString::number(data.curHP)));
+        //QMessageBox::information(this,"EMIT",QString("CurHp_Changed:%1").arg(QString::number(data.curHP)));
     }
 }
 void CharEditor::setMaxMp(int maxMp)
@@ -493,7 +596,7 @@ void CharEditor::setMaxMp(int maxMp)
         else if(maxMp >32767){data.maxMP=32767;}
         else{data.maxMP=maxMp;}
         emit maxMp_changed(data.maxMP);
-        QMessageBox::information(this,"EMIT",QString("MaxMp_Changed:%1").arg(QString::number(data.maxMP)));
+        //QMessageBox::information(this,"EMIT",QString("MaxMp_Changed:%1").arg(QString::number(data.maxMP)));
     }
 }
 void CharEditor::setCurMp(int curMp)
@@ -505,7 +608,7 @@ void CharEditor::setCurMp(int curMp)
         else if(curMp >32767){data.curMP=32767;}
         else{data.curMP=curMp;}
         emit curMp_changed(data.curMP);
-        QMessageBox::information(this,"EMIT",QString("CurMp_Changed:%1").arg(QString::number(data.curMP)));
+        //QMessageBox::information(this,"EMIT",QString("CurMp_Changed:%1").arg(QString::number(data.curMP)));
     }
 }
 void CharEditor::setKills(int kills)
@@ -517,7 +620,7 @@ void CharEditor::setKills(int kills)
         else if(kills >65535){data.kills=65535;}
         else{data.kills=kills;}
         emit kills_changed(data.kills);
-        QMessageBox::information(this,"EMIT",QString("Kills_Changed:%1").arg(QString::number(data.kills)));
+        //QMessageBox::information(this,"EMIT",QString("Kills_Changed:%1").arg(QString::number(data.kills)));
     }
 }
 void CharEditor::setName(QString name)
@@ -528,7 +631,7 @@ void CharEditor::setName(QString name)
         if(name==""){_name = QByteArray(12,0xFF);}
         else{_name = name;}
         emit name_changed(_name);
-        QMessageBox::information(this,"EMIT",QString("Name_Changed:%1").arg(name));
+        //QMessageBox::information(this,"EMIT",QString("Name_Changed:%1").arg(name));
     }
 }
 void CharEditor::setId(int id)
@@ -540,7 +643,7 @@ void CharEditor::setId(int id)
         else if(id>0x0B){data.id=0xFF;}
         else{data.id = id;}
         emit id_changed(data.id);
-        QMessageBox::information(this,"EMIT",QString("Id_Changed:%1").arg(QString::number(data.id)));
+        //QMessageBox::information(this,"EMIT",QString("Id_Changed:%1").arg(QString::number(data.id)));
     }
 }
 void CharEditor::setStr(int strength)
@@ -553,7 +656,7 @@ void CharEditor::setStr(int strength)
         else{data.strength = strength;}
         emit str_changed(data.strength);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("str_Changed:%1").arg(QString::number(data.strength)));
+        //QMessageBox::information(this,"EMIT",QString("str_Changed:%1").arg(QString::number(data.strength)));
     }
 }
 void CharEditor::setVit(int vitality)
@@ -566,7 +669,7 @@ void CharEditor::setVit(int vitality)
         else{data.vitality = vitality;}
         emit vit_changed(data.vitality);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("vit_Changed:%1").arg(QString::number(data.vitality)));
+        //QMessageBox::information(this,"EMIT",QString("vit_Changed:%1").arg(QString::number(data.vitality)));
     }
 }
 void CharEditor::setMag(int magic)
@@ -579,7 +682,7 @@ void CharEditor::setMag(int magic)
         else{data.magic = magic;}
         emit mag_changed(data.magic);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("mag_Changed:%1").arg(QString::number(data.magic)));
+        //QMessageBox::information(this,"EMIT",QString("mag_Changed:%1").arg(QString::number(data.magic)));
     }
 }
 void CharEditor::setSpi(int spirit)
@@ -592,7 +695,7 @@ void CharEditor::setSpi(int spirit)
         else{data.spirit = spirit;}
         emit spi_changed(data.spirit);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("spi_Changed:%1").arg(QString::number(data.spirit)));
+        //QMessageBox::information(this,"EMIT",QString("spi_Changed:%1").arg(QString::number(data.spirit)));
     }
 }
 void CharEditor::setDex(int dexterity)
@@ -605,7 +708,7 @@ void CharEditor::setDex(int dexterity)
         else{data.dexterity = dexterity;}
         emit dex_changed(data.dexterity);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("dex_Changed:%1").arg(QString::number(data.dexterity)));
+        //QMessageBox::information(this,"EMIT",QString("dex_Changed:%1").arg(QString::number(data.dexterity)));
     }
 }
 void CharEditor::setLck(int luck)
@@ -618,7 +721,7 @@ void CharEditor::setLck(int luck)
         else{data.luck = luck;}
         emit lck_changed(data.luck);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("lck_Changed:%1").arg(QString::number(data.luck)));
+        //QMessageBox::information(this,"EMIT",QString("lck_Changed:%1").arg(QString::number(data.luck)));
     }
 }
 void CharEditor::setStrBonus(int strength_bonus)
@@ -631,7 +734,7 @@ void CharEditor::setStrBonus(int strength_bonus)
         else{data.strength_bonus = strength_bonus;}
         emit strBonus_changed(data.strength_bonus);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("strBonus_Changed:%1").arg(QString::number(data.strength_bonus)));
+        //QMessageBox::information(this,"EMIT",QString("strBonus_Changed:%1").arg(QString::number(data.strength_bonus)));
     }
 }
 void CharEditor::setVitBonus(int vitality_bonus)
@@ -644,7 +747,7 @@ void CharEditor::setVitBonus(int vitality_bonus)
         else{data.vitality_bonus = vitality_bonus;}
         emit vitBonus_changed(data.vitality_bonus);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("vitBonus_Changed:%1").arg(QString::number(data.vitality_bonus)));
+        //QMessageBox::information(this,"EMIT",QString("vitBonus_Changed:%1").arg(QString::number(data.vitality_bonus)));
     }
 }
 void CharEditor::setMagBonus(int magic_bonus)
@@ -657,7 +760,7 @@ void CharEditor::setMagBonus(int magic_bonus)
         else{data.magic_bonus = magic_bonus;}
         emit magBonus_changed(data.magic_bonus);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("magBonus_Changed:%1").arg(QString::number(data.magic_bonus)));
+        //QMessageBox::information(this,"EMIT",QString("magBonus_Changed:%1").arg(QString::number(data.magic_bonus)));
     }
 }
 void CharEditor::setSpiBonus(int spirit_bonus)
@@ -670,7 +773,7 @@ void CharEditor::setSpiBonus(int spirit_bonus)
         else{data.spirit_bonus = spirit_bonus;}
         emit spiBonus_changed(data.spirit_bonus);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("spiBonus_Changed:%1").arg(QString::number(data.spirit_bonus)));
+        //QMessageBox::information(this,"EMIT",QString("spiBonus_Changed:%1").arg(QString::number(data.spirit_bonus)));
     }
 }
 void CharEditor::setDexBonus(int dexterity_bonus)
@@ -683,7 +786,7 @@ void CharEditor::setDexBonus(int dexterity_bonus)
         else{data.dexterity_bonus = dexterity_bonus;}
         emit dexBonus_changed(data.dexterity_bonus);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("dexBonus_Changed:%1").arg(QString::number(data.dexterity_bonus)));
+        //QMessageBox::information(this,"EMIT",QString("dexBonus_Changed:%1").arg(QString::number(data.dexterity_bonus)));
     }
 }
 void CharEditor::setLckBonus(int luck_bonus)
@@ -696,7 +799,7 @@ void CharEditor::setLckBonus(int luck_bonus)
         else{data.luck_bonus = luck_bonus;}
         emit lckBonus_changed(data.luck_bonus);
         calc_stats();
-        QMessageBox::information(this,"EMIT",QString("lckBonus_Changed:%1").arg(QString::number(data.luck_bonus)));
+        //QMessageBox::information(this,"EMIT",QString("lckBonus_Changed:%1").arg(QString::number(data.luck_bonus)));
     }
 }
 void CharEditor::setLimitLevel(int limitlevel)
@@ -708,7 +811,7 @@ void CharEditor::setLimitLevel(int limitlevel)
         else if(limitlevel>4){data.limitlevel=4;}
         else{data.limitlevel = limitlevel;}
         emit limitLevel_changed(data.limitlevel);
-        QMessageBox::information(this,"EMIT",QString("limitLevel_Changed:%1").arg(QString::number(data.limitlevel)));
+        //QMessageBox::information(this,"EMIT",QString("limitLevel_Changed:%1").arg(QString::number(data.limitlevel)));
     }
 }
 void CharEditor::setLimitBar(int limitbar)
@@ -720,7 +823,7 @@ void CharEditor::setLimitBar(int limitbar)
         else if(limitbar>0xFF){data.limitbar=0xFF;}
         else{data.limitbar = limitbar;}
         emit limitBar_changed(data.limitbar);
-        QMessageBox::information(this,"EMIT",QString("limitBar_Changed:%1").arg(QString::number(data.limitbar)));
+        //QMessageBox::information(this,"EMIT",QString("limitBar_Changed:%1").arg(QString::number(data.limitbar)));
     }
 }
 void CharEditor::setWeapon(int weapon)
@@ -732,7 +835,7 @@ void CharEditor::setWeapon(int weapon)
         else if(weapon>Chars.num_weapons(data.id)){data.weapon=Chars.num_weapons(data.id);}
         else {data.weapon=weapon;}
         emit weapon_changed(data.weapon);
-        QMessageBox::information(this,"EMIT",QString("weapon_Changed:%1").arg(QString::number(data.weapon)));
+        //QMessageBox::information(this,"EMIT",QString("weapon_Changed:%1").arg(QString::number(data.weapon)));
     }
 }
 void CharEditor::setArmor(int armor)
@@ -744,7 +847,7 @@ void CharEditor::setArmor(int armor)
         else if(armor>32){data.armor=0xFF;}
         else {data.armor= armor; }
         emit armor_changed(data.armor);
-        QMessageBox::information(this,"EMIT",QString("armor_Changed:%1").arg(QString::number(data.armor)));
+        //QMessageBox::information(this,"EMIT",QString("armor_Changed:%1").arg(QString::number(data.armor)));
     }
 }
 void CharEditor::setAccessory(int accessory)
@@ -756,7 +859,7 @@ void CharEditor::setAccessory(int accessory)
         else if(accessory>32){data.accessory=0xFF;}
         else {data.accessory = accessory;}
         emit accessory_changed(data.accessory);
-        QMessageBox::information(this,"EMIT",QString("accessory_Changed:%1").arg(QString::number(data.accessory)));
+        //QMessageBox::information(this,"EMIT",QString("accessory_Changed:%1").arg(QString::number(data.accessory)));
     }
 }
 void CharEditor::setSadnessFury(int sad_fury)
@@ -769,7 +872,7 @@ void CharEditor::setSadnessFury(int sad_fury)
         else{data.flags[0]=0;}
         emit sadnessfury_changed(data.flags[0]);
     }
-    QMessageBox::information(this,"EMIT",QString("sad_fury_Changed:%1").arg(QString::number(data.flags[0])));
+    //QMessageBox::information(this,"EMIT",QString("sad_fury_Changed:%1").arg(QString::number(data.flags[0])));
 
 }
 void CharEditor::setRow(bool front_row)
@@ -781,7 +884,7 @@ void CharEditor::setRow(bool front_row)
         if(front_row){data.flags[1]=0xFF;}
         else{data.flags[1]=0xFE;}
         emit row_changed(data.flags[1]);
-        QMessageBox::information(this,"EMIT",QString("row_Changed:%1").arg(QString::number(data.flags[1])));
+        //QMessageBox::information(this,"EMIT",QString("row_Changed:%1").arg(QString::number(data.flags[1])));
     }
 }
 
@@ -794,7 +897,7 @@ void CharEditor::setLevelProgress(int level_progress)
         else if(level_progress >63){data.flags[2]=63;}
         else{data.flags[2]=level_progress;}
         emit levelProgress_changed(data.flags[2]);
-        //QMessageBox::information(this,"EMIT",QString("Level_Progress_Changed:%1").arg(QString::number(data.flags[2])));
+        ////QMessageBox::information(this,"EMIT",QString("Level_Progress_Changed:%1").arg(QString::number(data.flags[2])));
     }
 }
 
@@ -807,7 +910,7 @@ void CharEditor::setLimits(int limits)
         else if(limits>127){data.limits=127;}
         else {data.limits = limits;}
         emit limits_changed(data.limits);
-        QMessageBox::information(this,"EMIT",QString("Limits_Changed:%1").arg(QString::number(data.limits,2)));
+        //QMessageBox::information(this,"EMIT",QString("Limits_Changed:%1").arg(QString::number(data.limits,2)));
     }
 }
 void CharEditor::setTimesused1(int timesused)
@@ -850,7 +953,7 @@ void CharEditor::setBaseHp(int baseHp)
         else if(baseHp >32767){data.baseHP=32767;}
         else{data.baseHP=baseHp;}
         emit baseHp_changed(data.baseHP);
-        QMessageBox::information(this,"EMIT",QString("baseHp_Changed:%1").arg(QString::number(data.baseHP)));
+        //QMessageBox::information(this,"EMIT",QString("baseHp_Changed:%1").arg(QString::number(data.baseHP)));
     }
 }
 void CharEditor::setBaseMp(int baseMp)
@@ -862,7 +965,7 @@ void CharEditor::setBaseMp(int baseMp)
         else if(baseMp >32767){data.baseMP=32767;}
         else{data.baseMP=baseMp;}
         emit baseMp_changed(data.baseMP);
-        QMessageBox::information(this,"EMIT",QString("baseMp_Changed:%1").arg(QString::number(data.baseMP)));
+        //QMessageBox::information(this,"EMIT",QString("baseMp_Changed:%1").arg(QString::number(data.baseMP)));
     }
 }
 void CharEditor::setExp(int exp)
@@ -872,8 +975,9 @@ void CharEditor::setExp(int exp)
     {
         if(exp<0){data.exp=0;}
         else{data.exp=exp;}
+        setchar_growth(1);
         emit exp_changed(data.exp);
-        QMessageBox::information(this,"EMIT",QString("exp_Changed:%1").arg(QString::number(data.exp)));
+        //QMessageBox::information(this,"EMIT",QString("exp_Changed:%1").arg(QString::number(data.exp)));
     }
 }
 void CharEditor::setExpNext(int expNext)
@@ -884,7 +988,7 @@ void CharEditor::setExpNext(int expNext)
         if(expNext<0){data.expNext=0;}
         else{data.expNext=expNext;}
         emit expNext_changed(data.expNext);
-        QMessageBox::information(this,"EMIT",QString("expNext_Changed:%1").arg(QString::number(data.expNext)));
+        //QMessageBox::information(this,"EMIT",QString("expNext_Changed:%1").arg(QString::number(data.expNext)));
     }
 }
 
@@ -919,9 +1023,21 @@ void CharEditor::charMenu(QPoint pos)
     else{return;}
 }//End Of Map Context Menu
 
-
 void CharEditor::setAutoLevel(bool ans){autolevel=ans;}//used to turn off auto char leveling
+bool CharEditor::AutoLevel(void){return autolevel;}
 void CharEditor::setAutoStatCalc(bool ans){autostatcalc=ans;}
+bool CharEditor::AutoStatCalc(void){return autostatcalc;}
+void CharEditor::setEditable(bool edit)
+{
+    editable = edit;
+    if(editable){
+    // unlock all items
+    }
+    else{
+    //lock all items
+    }
+}
+bool CharEditor::Editable(void){return editable;}
 
 void CharEditor::calc_stats(void)
 {
@@ -931,6 +1047,8 @@ void CharEditor::calc_stats(void)
     int dex_total=0;
     int mag_total=0;
     int lck_total=0;
+    //int hp_total=0;
+    //int mp_total=0;
 
     str_total = data.strength + data.strength_bonus;
     vit_total= data.vitality + data.vitality_bonus;
@@ -970,7 +1088,97 @@ void CharEditor::calc_stats(void)
     if(lck_total < 256)lbl_lck_total->setText(QString::number(lck_total));
     else{lbl_lck_total->setText(QString::number(255));}
 }
+void CharEditor::setchar_growth(int caller)
+{ /* This Function only gets called if automatic exp<->lvl is enabled.*/
+  /* caller can be 0==just read, 1==exp_changed, 2==lvl_changed */
+    if(AutoLevel()==false){return;}
+    if(caller==0 && data.level==0){return;}//viewing a blank slot on slotchange lets keep it that way
+    sb_total_exp->blockSignals(true);
+    sb_level->blockSignals(true);
 
+    //Update base Stats Var
+    int pre_level = data.level;
+
+    //if the lvl changed we need to set the exp correctly before we continue
+    if(caller==2){
+        //Basic level change
+        setLevel(sb_level->value());
+        //Exp calc
+        setExp(Chars.Total_Exp_For_Level(data.id,sb_level->value()-1));
+        sb_total_exp->setValue(data.exp);
+    }
+
+    for (int i=1;i<100;i++)
+    {
+        if(data.exp>=Chars.Total_Exp_For_Level(data.id,i)){
+            if(i==99){sb_level->setValue(i);}
+        }
+        else{
+            sb_level->setValue(i);break;
+        }
+    }
+    //if the exp was changed make sure the lvl is set correctly.
+    if(caller==1){
+        setLevel(sb_level->value());
+        //CHeck if Char 0 to fix disc in host program example below
+        //if(curchar==ff7->slot[s].party[0]){ff7->setDescLevel(s,ui->sb_lvl->value());}
+    }
+    //Update base Stats Code
+    int curlv = sb_level->value();
+    if(caller==1 || caller==2)
+    {
+        if(pre_level < curlv)
+        {//level up
+            for(int i=pre_level;i<curlv;i++)
+            {// for stat_gain stat guide, 0=str; 1=vit;2=mag;3=spr;4=dex;5=lck;6=basehp;7basemp also use id incase of mods that could move a char.
+                sb_str->setValue(data.strength + Chars.stat_gain(data.id,0,data.strength,i+1));
+                sb_vit->setValue(data.vitality + Chars.stat_gain(data.id,1,data.vitality,i+1));
+                sb_mag->setValue(data.magic + Chars.stat_gain(data.id,2,data.magic,i+1));
+                sb_spi->setValue(data.spirit + Chars.stat_gain(data.id,3,data.spirit,i+1));
+                sb_dex->setValue(data.dexterity + Chars.stat_gain(data.id,4,data.dexterity,i+1));
+                sb_lck->setValue(data.luck + Chars.stat_gain(data.id,5,data.luck,i+1));
+                sb_base_hp->setValue(data.baseHP + Chars.stat_gain(data.id,6,data.baseHP,i+1));
+                sb_base_mp->setValue(data.baseMP + Chars.stat_gain(data.id,7,data.baseMP,i+1));
+            }
+        }
+        else if(pre_level > curlv)
+        {//level down
+            for(int i=pre_level;i>curlv;i--)
+            {// for stat_gain stat guide, 0=str; 1=vit;2=mag;3=spr;4=dex;5=lck;6=basehp;7basemp
+                sb_str->setValue(data.strength - Chars.stat_gain(data.id,0,data.strength,i));
+                sb_vit->setValue(data.vitality - Chars.stat_gain(data.id,1,data.vitality,i));
+                sb_mag->setValue(data.magic - Chars.stat_gain(data.id,2,data.magic,i));
+                sb_spi->setValue(data.spirit - Chars.stat_gain(data.id,3,data.spirit,i));
+                sb_dex->setValue(data.dexterity - Chars.stat_gain(data.id,4,data.dexterity,i));
+                sb_lck->setValue(data.luck - Chars.stat_gain(data.id,5,data.luck,i));
+                sb_base_hp->setValue(data.baseHP - Chars.stat_gain(data.id,6,data.baseHP,i));
+                sb_base_mp->setValue(data.baseMP - Chars.stat_gain(data.id,7,data.baseMP,i));
+            }
+        } //little broken when going down..
+        calc_stats();
+    }
+
+    QString numvalue;
+    if(sb_level->value()!=99)
+    {
+       setExpNext(Chars.Total_Exp_For_Level(data.id,sb_level->value())- sb_total_exp->value());
+       setLevelProgress((Chars.Tnl_For_Level(data.id,sb_level->value()-data.expNext))*62/(Chars.Tnl_For_Level(data.id,sb_level->value())));
+       //ff7->setCharFlag(s,curchar,2,(((chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()]-ff7->charNextExp(s,curchar))*62)/(chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()])));//level progress is in 62 parts.
+    }
+
+    else
+    {
+        setExpNext(0);
+        setLevelProgress(0x3D);
+    }
+    bar_tnl->setValue(data.flags[2]);
+    if(bar_tnl->value()<4){bar_tnl->blockSignals(true);bar_tnl->setValue(0);bar_tnl->blockSignals(false);}//ff7 ingores the value if its <4 (but we don't save this)
+    numvalue.setNum(data.expNext);
+    lcd_tnl->display(numvalue);
+    sb_total_exp->blockSignals(false);
+    sb_level->blockSignals(false);
+
+}
 //void setFlags(int,int);
 //void setZ_4[4](int);
 //void setMaterias(materia,int);
