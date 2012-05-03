@@ -67,7 +67,7 @@ public:
     quint16 baseMp();
     quint32 exp();
     quint32 expNext();
-    //Materias    (int,materia);
+    materia char_materia(int mat);
 
 signals:
     void id_changed(qint8);
@@ -140,11 +140,11 @@ public slots:
     void setTimesused3(int);
     void setBaseHp(int);
     void setBaseMp(int);
-    //void setZ_4(int,int);
     void setExp(int);
-    //void setMaterias(materia,int);
-    void setExpNext(int);
 
+    void setExpNext(int);
+    //void setZ_4(int,int);
+    //void setMaterias(materia,int);
     void setCurMp(int);
     void setCurHp(int);
     void setMaxMp(int);
@@ -164,7 +164,8 @@ private:
     void init_display(void);
     void init_connections(void);
     void calc_stats(void);//calc stat changes if autostatcalc == true;
-    void setchar_growth(int caller);//level up /down a char if autolevel== true;
+    void level_up(int);
+    void update_tnl_bar();
     QLabel *lbl_avatar;
     QLineEdit *line_name;
     QSpinBox *sb_level;
