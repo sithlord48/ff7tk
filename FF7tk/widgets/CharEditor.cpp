@@ -10,6 +10,9 @@ CharEditor::CharEditor(QWidget *parent) :
     autolevel=true;
     autostatcalc=true;
     editable=true;
+    data.id = 0;
+    data.exp = 0;
+    data.level = 0;
  }
 void CharEditor::init_display()
 {
@@ -47,7 +50,7 @@ void CharEditor::init_display()
     lbl_total_xp = new QLabel(tr("Total Exp"));
     lbl_level_progress = new QLabel(tr("Level Progress"));
     bar_tnl = new QProgressBar;
-    bar_tnl->setMinimum(4);//strange range...
+    //bar_tnl->setMinimum(0);//strange range...
     bar_tnl->setMaximum(61);//strange indeed..
     lbl_level_next = new QLabel(tr("Next"));
     sb_total_exp = new QSpinBox;
@@ -462,11 +465,78 @@ void CharEditor::init_connections()
 void CharEditor::Exp_Changed(int exp)
 {
     setExp(exp);
-    if(autolevel){setchar_growth(1);}
+    if(autolevel)
+    {
+        if(data.exp>=Chars.Total_Exp_For_Level(data.id,data.level))
+        {
+            int level=0;
+            int prev_level = data.level;
+            for (int i=1;i<100;i++)
+            {
+                if(data.exp>=Chars.Total_Exp_For_Level(data.id,i)){if(i==99){level=99;}}
+                else{level=i;break;}
+            }
+            sb_level->blockSignals(true);
+            sb_level->setValue(level);
+            setLevel(level);
+            sb_level->blockSignals(false);
+            level_up(prev_level);
+        }
+        update_tnl_bar();
+    }
 }
+qint8 CharEditor::id(){return data.id;}
+qint8 CharEditor::level(){return data.level;}
+quint8 CharEditor::str(){return data.strength;}
+quint8 CharEditor::vit(){return data.vitality;}
+quint8 CharEditor::mag(){return data.magic;}
+quint8 CharEditor::spi(){return data.spirit;}
+quint8 CharEditor::dex(){return data.dexterity;}
+quint8 CharEditor::lck(){return data.luck;}
+quint8 CharEditor::strBonus(){return data.strength_bonus;}
+quint8 CharEditor::vitBonus(){return data.vitality_bonus;}
+quint8 CharEditor::magBonus(){return data.magic_bonus;}
+quint8 CharEditor::spiBonus(){return data.spirit_bonus;}
+quint8 CharEditor::dexBonus(){return data.dexterity_bonus;}
+quint8 CharEditor::lckBonus(){return data.luck_bonus;}
+qint8 CharEditor::limitLevel(){return data.limitlevel;}
+quint8 CharEditor::limitBar(){return data.limitbar;}
+QString CharEditor::name(){return line_name->text();}
+quint8 CharEditor::weapon(){return data.weapon;}
+quint8 CharEditor::armor(){return data.armor;}
+quint8 CharEditor::accessory(){return data.accessory;}
+quint16 CharEditor::curHp(){return data.curHP;}
+quint16 CharEditor::maxHp(){return data.maxHP;}
+quint16 CharEditor::curMp(){return data.curMP;}
+quint16 CharEditor::maxMp(){return data.maxMP;}
+quint16 CharEditor::kills(){return data.kills;}
+quint8 CharEditor::row(){return data.flags[1];}
+quint8 CharEditor::levelProgress(){return data.flags[2];}
+quint8 CharEditor::sadnessfury(){return data.flags[0];}
+quint16 CharEditor::limits(){return data.limits;}
+quint16 CharEditor::timesused1(){return data.timesused1;}
+quint16 CharEditor::timesused2(){return data.timesused2;}
+quint16 CharEditor::timesused3(){return data.timesused3;}
+quint16 CharEditor::baseHp(){return data.baseHP;}
+quint16 CharEditor::baseMp(){return data.baseMP;}
+quint32 CharEditor::exp(){return data.exp;}
+quint32 CharEditor::expNext(){return data.expNext;}
+materia CharEditor::char_materia(int mat){return data.materias[mat];}
+
 void CharEditor::Level_Changed(int level)
 {
-        if(autolevel){setchar_growth(2);}
+        if(autolevel)
+        {
+            int prev_level=data.level;
+            setLevel(level);
+            if(level<=0){setExp(0);}
+            else{setExp(Chars.Total_Exp_For_Level(data.id,level-1));}
+            sb_total_exp->blockSignals(true);
+            sb_total_exp->setValue(data.exp);
+            sb_total_exp->blockSignals(false);
+            level_up(prev_level);
+            update_tnl_bar();
+        }
         else{setLevel(level);}
 }
 void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
@@ -523,8 +593,6 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
 
     sb_lck->setValue(data.luck);
     sb_lck_bonus->setValue(data.luck_bonus);
-
-    setchar_growth(0);
     calc_stats();
 }
 
@@ -536,7 +604,6 @@ void CharEditor::setLevel(int level)
         if(level<0){data.level=0;}
         else if(level>99){data.level=99;}
         else{data.level=level;}
-        setchar_growth(2);
         emit level_changed(data.level);
         //QMessageBox::information(this,"EMIT",QString("Level_Changed:%1").arg(QString::number(data.level)));
     }
@@ -975,7 +1042,6 @@ void CharEditor::setExp(int exp)
     {
         if(exp<0){data.exp=0;}
         else{data.exp=exp;}
-        setchar_growth(1);
         emit exp_changed(data.exp);
         //QMessageBox::information(this,"EMIT",QString("exp_Changed:%1").arg(QString::number(data.exp)));
     }
@@ -1088,81 +1154,46 @@ void CharEditor::calc_stats(void)
     if(lck_total < 256)lbl_lck_total->setText(QString::number(lck_total));
     else{lbl_lck_total->setText(QString::number(255));}
 }
-void CharEditor::setchar_growth(int caller)
-{ /* This Function only gets called if automatic exp<->lvl is enabled.*/
-  /* caller can be 0==just read, 1==exp_changed, 2==lvl_changed */
-    if(AutoLevel()==false){return;}
-    if(caller==0 && data.level==0){return;}//viewing a blank slot on slotchange lets keep it that way
-    sb_total_exp->blockSignals(true);
-    sb_level->blockSignals(true);
 
-    //Update base Stats Var
-    int pre_level = data.level;
-
-    //if the lvl changed we need to set the exp correctly before we continue
-    if(caller==2){
-        //Basic level change
-        setLevel(sb_level->value());
-        //Exp calc
-        setExp(Chars.Total_Exp_For_Level(data.id,sb_level->value()-1));
-        sb_total_exp->setValue(data.exp);
-    }
-
-    for (int i=1;i<100;i++)
-    {
-        if(data.exp>=Chars.Total_Exp_For_Level(data.id,i)){
-            if(i==99){sb_level->setValue(i);}
-        }
-        else{
-            sb_level->setValue(i);break;
+void CharEditor::level_up(int pre_level)
+{
+    if(pre_level < data.level)
+    {//level up
+        for(int i=pre_level;i<data.level;i++)
+        {// for stat_gain stat guide, 0=str; 1=vit;2=mag;3=spr;4=dex;5=lck;6=basehp;7basemp also use id incase of mods that could move a char.
+            sb_str->setValue(data.strength + Chars.stat_gain(data.id,0,data.strength,i+1));
+            sb_vit->setValue(data.vitality + Chars.stat_gain(data.id,1,data.vitality,i+1));
+            sb_mag->setValue(data.magic + Chars.stat_gain(data.id,2,data.magic,i+1));
+            sb_spi->setValue(data.spirit + Chars.stat_gain(data.id,3,data.spirit,i+1));
+            sb_dex->setValue(data.dexterity + Chars.stat_gain(data.id,4,data.dexterity,i+1));
+            sb_lck->setValue(data.luck + Chars.stat_gain(data.id,5,data.luck,i+1));
+            sb_base_hp->setValue(data.baseHP + Chars.stat_gain(data.id,6,data.baseHP,i+1));
+            sb_base_mp->setValue(data.baseMP + Chars.stat_gain(data.id,7,data.baseMP,i+1));
         }
     }
-    //if the exp was changed make sure the lvl is set correctly.
-    if(caller==1){
-        setLevel(sb_level->value());
-        //CHeck if Char 0 to fix disc in host program example below
-        //if(curchar==ff7->slot[s].party[0]){ff7->setDescLevel(s,ui->sb_lvl->value());}
-    }
-    //Update base Stats Code
-    int curlv = sb_level->value();
-    if(caller==1 || caller==2)
-    {
-        if(pre_level < curlv)
-        {//level up
-            for(int i=pre_level;i<curlv;i++)
-            {// for stat_gain stat guide, 0=str; 1=vit;2=mag;3=spr;4=dex;5=lck;6=basehp;7basemp also use id incase of mods that could move a char.
-                sb_str->setValue(data.strength + Chars.stat_gain(data.id,0,data.strength,i+1));
-                sb_vit->setValue(data.vitality + Chars.stat_gain(data.id,1,data.vitality,i+1));
-                sb_mag->setValue(data.magic + Chars.stat_gain(data.id,2,data.magic,i+1));
-                sb_spi->setValue(data.spirit + Chars.stat_gain(data.id,3,data.spirit,i+1));
-                sb_dex->setValue(data.dexterity + Chars.stat_gain(data.id,4,data.dexterity,i+1));
-                sb_lck->setValue(data.luck + Chars.stat_gain(data.id,5,data.luck,i+1));
-                sb_base_hp->setValue(data.baseHP + Chars.stat_gain(data.id,6,data.baseHP,i+1));
-                sb_base_mp->setValue(data.baseMP + Chars.stat_gain(data.id,7,data.baseMP,i+1));
-            }
+    else if(pre_level > data.level)
+    {//level down
+        for(int i=pre_level;i>data.level;i--)
+        {// for stat_gain stat guide, 0=str; 1=vit;2=mag;3=spr;4=dex;5=lck;6=basehp;7basemp
+            sb_str->setValue(data.strength - Chars.stat_gain(data.id,0,data.strength,i));
+            sb_vit->setValue(data.vitality - Chars.stat_gain(data.id,1,data.vitality,i));
+            sb_mag->setValue(data.magic - Chars.stat_gain(data.id,2,data.magic,i));
+            sb_spi->setValue(data.spirit - Chars.stat_gain(data.id,3,data.spirit,i));
+            sb_dex->setValue(data.dexterity - Chars.stat_gain(data.id,4,data.dexterity,i));
+            sb_lck->setValue(data.luck - Chars.stat_gain(data.id,5,data.luck,i));
+            sb_base_hp->setValue(data.baseHP - Chars.stat_gain(data.id,6,data.baseHP,i));
+            sb_base_mp->setValue(data.baseMP - Chars.stat_gain(data.id,7,data.baseMP,i));
         }
-        else if(pre_level > curlv)
-        {//level down
-            for(int i=pre_level;i>curlv;i--)
-            {// for stat_gain stat guide, 0=str; 1=vit;2=mag;3=spr;4=dex;5=lck;6=basehp;7basemp
-                sb_str->setValue(data.strength - Chars.stat_gain(data.id,0,data.strength,i));
-                sb_vit->setValue(data.vitality - Chars.stat_gain(data.id,1,data.vitality,i));
-                sb_mag->setValue(data.magic - Chars.stat_gain(data.id,2,data.magic,i));
-                sb_spi->setValue(data.spirit - Chars.stat_gain(data.id,3,data.spirit,i));
-                sb_dex->setValue(data.dexterity - Chars.stat_gain(data.id,4,data.dexterity,i));
-                sb_lck->setValue(data.luck - Chars.stat_gain(data.id,5,data.luck,i));
-                sb_base_hp->setValue(data.baseHP - Chars.stat_gain(data.id,6,data.baseHP,i));
-                sb_base_mp->setValue(data.baseMP - Chars.stat_gain(data.id,7,data.baseMP,i));
-            }
-        } //little broken when going down..
-        calc_stats();
-    }
-
+    } //little broken when going down..
+    calc_stats();
+}
+void CharEditor::update_tnl_bar(void)
+{
     QString numvalue;
-    if(sb_level->value()!=99)
+    if(data.level!=99)
     {
-       setExpNext(Chars.Total_Exp_For_Level(data.id,sb_level->value())- sb_total_exp->value());
-       setLevelProgress((Chars.Tnl_For_Level(data.id,sb_level->value()-data.expNext))*62/(Chars.Tnl_For_Level(data.id,sb_level->value())));
+       setExpNext(Chars.Total_Exp_For_Level(data.id,data.level)- data.exp);
+       setLevelProgress(((Chars.Tnl_For_Level(data.id,data.level)-data.expNext)*62)/Chars.Tnl_For_Level(data.id,data.level));
        //ff7->setCharFlag(s,curchar,2,(((chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()]-ff7->charNextExp(s,curchar))*62)/(chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()])));//level progress is in 62 parts.
     }
 
@@ -1171,12 +1202,10 @@ void CharEditor::setchar_growth(int caller)
         setExpNext(0);
         setLevelProgress(0x3D);
     }
-    bar_tnl->setValue(data.flags[2]);
-    if(bar_tnl->value()<4){bar_tnl->blockSignals(true);bar_tnl->setValue(0);bar_tnl->blockSignals(false);}//ff7 ingores the value if its <4 (but we don't save this)
+    if(bar_tnl->value()<4){bar_tnl->setValue(0);}//ff7 ingores the value if its <4 (but we don't save this)
+    else{bar_tnl->setValue(data.flags[2]);}
     numvalue.setNum(data.expNext);
     lcd_tnl->display(numvalue);
-    sb_total_exp->blockSignals(false);
-    sb_level->blockSignals(false);
 
 }
 //void setFlags(int,int);
