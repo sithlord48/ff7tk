@@ -243,9 +243,13 @@ private:
     QLabel *lbl_limit_level;
     QSpinBox *sb_limit_level;
     QSpinBox *sb_uses_limit_1_1;
-    QSpinBox *sb_uses_limit_1_2;
-    QSpinBox *sb_uses_limit_1_3;
+    QSpinBox *sb_uses_limit_2_1;
+    QSpinBox *sb_uses_limit_3_1;
     QListWidget *list_limits;
+    QLabel *lbl_uses;
+    QLabel *lbl_1_1;
+    QLabel *lbl_2_1;
+    QLabel *lbl_3_1;
 
 
 //Data

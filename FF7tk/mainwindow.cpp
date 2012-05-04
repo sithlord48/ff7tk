@@ -80,3 +80,5 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
 
 void MainWindow::on_sb_materia_editor_setStarSize_valueChanged(int size){materia_editor->setStarsSize(size);}
 void MainWindow::on_cb_materia_editor_setEditable_toggled(bool checked){materia_editor->setEditable(checked);}
+
+void MainWindow::on_cb_charEditor_clicked(bool checked){char_editor->setEditable(checked);}
