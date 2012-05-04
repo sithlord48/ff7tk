@@ -45,6 +45,8 @@ private slots:
     void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
     void on_cb_materia_editor_setEditable_toggled(bool checked);
 
+    void on_cb_charEditor_clicked(bool checked);
+
 private:
 
     Ui::MainWindow *ui;
