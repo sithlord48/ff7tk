@@ -588,8 +588,7 @@ void CharEditor::Exp_Changed(int exp)
     setExp(exp);
     if(autolevel)
     {
-        /*
-        if(data.exp>=Chars.Total_Exp_For_Level(data.id,data.level))
+        if( (data.exp>=Chars.Total_Exp_For_Level(data.id,data.level)) || (data.exp<=Chars.Total_Exp_For_Level(data.id,data.level-1)) )
         {
             int level=0;
             int prev_level = data.level;
@@ -605,7 +604,6 @@ void CharEditor::Exp_Changed(int exp)
             level_up(prev_level);
         }
         update_tnl_bar();
-        */
     }
 }
 
@@ -613,7 +611,6 @@ void CharEditor::Level_Changed(int level)
 {
         if(autolevel)
         {
-            /*
             int prev_level=data.level;
             setLevel(level);
             if(level<=0){setExp(0);}
@@ -623,7 +620,6 @@ void CharEditor::Level_Changed(int level)
             sb_total_exp->blockSignals(false);
             level_up(prev_level);
             update_tnl_bar();
-            */
         }
         else{setLevel(level);}
 }
@@ -1275,9 +1271,10 @@ void CharEditor::level_up(int pre_level)
             sb_spi->setValue(data.spirit + Chars.stat_gain(data.id,3,data.spirit,i+1));
             sb_dex->setValue(data.dexterity + Chars.stat_gain(data.id,4,data.dexterity,i+1));
             sb_lck->setValue(data.luck + Chars.stat_gain(data.id,5,data.luck,i+1));
+     //       QMessageBox::information(this,"np",QString("baseHP:%1 next lvl:%2").arg(data.baseHP).arg(i+1));
             sb_base_hp->setValue(data.baseHP + Chars.stat_gain(data.id,6,data.baseHP,i+1));
             sb_base_mp->setValue(data.baseMP + Chars.stat_gain(data.id,7,data.baseMP,i+1));
-        }
+         }
     }
     else if(pre_level > data.level)
     {//level down
@@ -1298,20 +1295,24 @@ void CharEditor::level_up(int pre_level)
 void CharEditor::update_tnl_bar(void)
 {
     QString numvalue;
+
     if(data.level!=99)
     {
-       setExpNext(Chars.Total_Exp_For_Level(data.id,data.level)- data.exp);
-       setLevelProgress(((Chars.Tnl_For_Level(data.id,data.level)-data.expNext)*62)/Chars.Tnl_For_Level(data.id,data.level));
+        setExpNext(Chars.Total_Exp_For_Level(data.id,data.level)- data.exp);
+        if(data.level>1)
+        {
+            //BAD MATH BELOW!
+            setLevelProgress(((Chars.Tnl_For_Level(data.id,data.level)-data.expNext)*62)/Chars.Tnl_For_Level(data.id,data.level));
        //ff7->setCharFlag(s,curchar,2,(((chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()]-ff7->charNextExp(s,curchar))*62)/(chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()])));//level progress is in 62 parts.
+        }
     }
-
     else
     {
         setExpNext(0);
         setLevelProgress(0x3D);
     }
+    bar_tnl->setValue(data.flags[2]);
     if(bar_tnl->value()<4){bar_tnl->setValue(0);}//ff7 ingores the value if its <4 (but we don't save this)
-    else{bar_tnl->setValue(data.flags[2]);}
     numvalue.setNum(data.expNext);
     lcd_tnl->display(numvalue);
 
