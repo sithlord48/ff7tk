@@ -443,7 +443,7 @@ void CharEditor::init_display()
     base_hp_layout->addWidget(sb_base_hp);
     base_hp_layout->addWidget(lbl_base_hp_bonus);
     base_hp_layout->addSpacerItem(base_hp_spacer);
-    lbl_base_hp_bonus->setText("+999%");
+    //lbl_base_hp_bonus->setText("+999%");
 
     QSpacerItem *base_mp_spacer = new QSpacerItem(20,0,QSizePolicy::Expanding,QSizePolicy::Fixed);
     QHBoxLayout *base_mp_layout = new QHBoxLayout;
@@ -452,7 +452,7 @@ void CharEditor::init_display()
     base_mp_layout->addWidget(sb_base_mp);
     base_mp_layout->addWidget(lbl_base_mp_bonus);
     base_mp_layout->addSpacerItem(base_mp_spacer);
-    lbl_base_mp_bonus->setText("+999%");
+    //lbl_base_mp_bonus->setText("+999%");
 
     QVBoxLayout *base_hp_mp_layout = new QVBoxLayout;
     base_hp_mp_layout->setContentsMargins(0,0,0,0);
@@ -583,6 +583,9 @@ quint16 CharEditor::baseMp(){return data.baseMP;}
 quint32 CharEditor::exp(){return data.exp;}
 quint32 CharEditor::expNext(){return data.expNext;}
 materia CharEditor::char_materia(int mat){return data.materias[mat];}
+
+//Wrong Level is being Set By This Function
+//ex: cloud with 610 total_exp should be level 6 with 6 exp neeeded to level 7. this is setting him to lvl 7 w/ 6 exp left till level 8.
 void CharEditor::Exp_Changed(int exp)
 {
     setExp(exp);
@@ -606,7 +609,8 @@ void CharEditor::Exp_Changed(int exp)
         update_tnl_bar();
     }
 }
-
+//Wrong EXP Level is being Set By This Function ????
+//ex: cloud with 610 total_exp should be level 6 with 6 exp neeeded to level 7. this is setting him to lvl 7 w/ 6 exp left till level 8.
 void CharEditor::Level_Changed(int level)
 {
         if(autolevel)
@@ -614,7 +618,7 @@ void CharEditor::Level_Changed(int level)
             int prev_level=data.level;
             setLevel(level);
             if(level<=0){setExp(0);}
-            else{setExp(Chars.Total_Exp_For_Level(data.id,level-1));}
+            else{setExp(Chars.Total_Exp_For_Level(data.id,level));}
             sb_total_exp->blockSignals(true);
             sb_total_exp->setValue(data.exp);
             sb_total_exp->blockSignals(false);
