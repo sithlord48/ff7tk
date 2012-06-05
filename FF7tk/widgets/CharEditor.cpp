@@ -249,7 +249,6 @@ void CharEditor::init_display()
     limit_level_layout->addWidget(sb_limit_level);
 
 
-
     sb_level->setMaximum(99);
     sb_curMp->setMaximum(32767);
     sb_curHp->setMaximum(32767);
@@ -584,8 +583,6 @@ quint32 CharEditor::exp(){return data.exp;}
 quint32 CharEditor::expNext(){return data.expNext;}
 materia CharEditor::char_materia(int mat){return data.materias[mat];}
 
-//Wrong Level is being Set By This Function
-//ex: cloud with 610 total_exp should be level 6 with 6 exp neeeded to level 7. this is setting him to lvl 7 w/ 6 exp left till level 8.
 void CharEditor::Exp_Changed(int exp)
 {
     setExp(exp);
@@ -595,11 +592,10 @@ void CharEditor::Exp_Changed(int exp)
         {
             int level=0;
             int prev_level = data.level;
-            for (int i=1;i<100;i++)
+            for (int i=level;i<99;i++)
             {
-                if(data.exp>=Chars.Total_Exp_For_Level(data.id,i)){if(i==99){level=99;}}
-                else{level=i;break;}
-            }
+                if(data.exp>=Chars.Total_Exp_For_Level(data.id,i)){level++;}
+             }
             sb_level->blockSignals(true);
             sb_level->setValue(level);
             setLevel(level);
@@ -609,8 +605,7 @@ void CharEditor::Exp_Changed(int exp)
         update_tnl_bar();
     }
 }
-//Wrong EXP Level is being Set By This Function ????
-//ex: cloud with 610 total_exp should be level 6 with 6 exp neeeded to level 7. this is setting him to lvl 7 w/ 6 exp left till level 8.
+
 void CharEditor::Level_Changed(int level)
 {
         if(autolevel)
@@ -618,7 +613,7 @@ void CharEditor::Level_Changed(int level)
             int prev_level=data.level;
             setLevel(level);
             if(level<=0){setExp(0);}
-            else{setExp(Chars.Total_Exp_For_Level(data.id,level));}
+            else{setExp(Chars.Total_Exp_For_Level(data.id,level-1));}
             sb_total_exp->blockSignals(true);
             sb_total_exp->setValue(data.exp);
             sb_total_exp->blockSignals(false);
@@ -1303,11 +1298,9 @@ void CharEditor::update_tnl_bar(void)
     if(data.level!=99)
     {
         setExpNext(Chars.Total_Exp_For_Level(data.id,data.level)- data.exp);
-        if(data.level>1)
-        {
-            //BAD MATH BELOW!
+        if(data.level>0)
+        {//BAD MATH BELOW!
             setLevelProgress(((Chars.Tnl_For_Level(data.id,data.level)-data.expNext)*62)/Chars.Tnl_For_Level(data.id,data.level));
-       //ff7->setCharFlag(s,curchar,2,(((chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()]-ff7->charNextExp(s,curchar))*62)/(chartnls[ff7->charID(s,curchar)][ui->sb_lvl->value()])));//level progress is in 62 parts.
         }
     }
     else
@@ -1319,7 +1312,6 @@ void CharEditor::update_tnl_bar(void)
     if(bar_tnl->value()<4){bar_tnl->setValue(0);}//ff7 ingores the value if its <4 (but we don't save this)
     numvalue.setNum(data.expNext);
     lcd_tnl->display(numvalue);
-
 }
 //void setFlags(int,int);
 //void setZ_4[4](int);
