@@ -1300,7 +1300,7 @@ void CharEditor::update_tnl_bar(void)
         setExpNext(Chars.Total_Exp_For_Level(data.id,data.level)- data.exp);
         if(data.level>0)
         {//BAD MATH BELOW!
-            setLevelProgress(((Chars.Tnl_For_Level(data.id,data.level)-data.expNext)*62)/Chars.Tnl_For_Level(data.id,data.level));
+             setLevelProgress(((Chars.Tnl_For_Level(data.id,data.level)-data.expNext)*62)/Chars.Tnl_For_Level(data.id,data.level));
         }
     }
     else
