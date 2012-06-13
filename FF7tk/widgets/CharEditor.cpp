@@ -492,11 +492,39 @@ void CharEditor::init_display()
     lower_section->addLayout(limit_box);
 
 
-    QVBoxLayout *Final = new QVBoxLayout;
+    QVBoxLayout *left_Final = new QVBoxLayout;
+    left_Final->setContentsMargins(0,0,0,0);
+    left_Final->addLayout(avatar_name_layout);
+    left_Final->addLayout(level_exp_limit_layout);
+    left_Final->addLayout(lower_section);
+
+    weapon_selection = new EquipmentSelector;
+    weapon_selection->setMode(0);
+    //id +1 for mode selection.
+
+    armor_selection = new EquipmentSelector;
+    armor_selection->setMode(12);
+
+    accessory_selection = new EquipmentSelector;
+    accessory_selection->setMode(13);
+
+    materia_edit  = new MateriaEditor;
+
+    QVBoxLayout *right_Top = new QVBoxLayout;
+    right_Top->setContentsMargins(0,0,0,0);
+    right_Top->addWidget(weapon_selection);
+    right_Top->addWidget(armor_selection);
+    right_Top->addWidget(accessory_selection);
+
+    QVBoxLayout *right_Final = new QVBoxLayout;
+    right_Final->setContentsMargins(0,0,0,0);
+    right_Final->addLayout(right_Top);
+    right_Final->addWidget(materia_edit);
+
+    QHBoxLayout *Final = new QHBoxLayout;
     Final->setContentsMargins(0,0,0,0);
-    Final->addLayout(avatar_name_layout);
-    Final->addLayout(level_exp_limit_layout);
-    Final->addLayout(lower_section);
+    Final->addLayout(left_Final);
+    Final->addLayout(right_Final);
 
     this->setLayout(Final);
 
@@ -692,7 +720,7 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
     }
 
     list_limits->blockSignals(false);
-
+    weapon_selection->setMode(data.id+1);
     calc_stats();
 }
 
