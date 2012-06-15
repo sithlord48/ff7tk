@@ -10,11 +10,16 @@ CharEditor::CharEditor(QWidget *parent) :
     autolevel=true;
     autostatcalc=true;
     editable=true;
+
     //init the data..(just incase)
     _name= "Cloud";
     QByteArray temp;
     temp.fill(0x00,132);
     memcpy(&data,temp,132);
+
+    data.accessory = 0xFF;
+    data.weapon = 5;
+    data.armor =3;
     setChar(data,_name);
  }
 void CharEditor::init_display()
@@ -498,16 +503,14 @@ void CharEditor::init_display()
     left_Final->addLayout(level_exp_limit_layout);
     left_Final->addLayout(lower_section);
 
-    weapon_selection = new EquipmentSelector;
-    weapon_selection->setMode(0);
-    //id +1 for mode selection.
+    weapon_selection = new QComboBox;
 
-    armor_selection = new EquipmentSelector;
-    armor_selection->setMode(12);
+    armor_selection = new QComboBox;
+    for(int i=256;i<288;i++){armor_selection->addItem(QPixmap::fromImage(Items.Image(i)),Items.Name(i));}
 
-    accessory_selection = new EquipmentSelector;
-    accessory_selection->setMode(13);
-
+    accessory_selection = new QComboBox;
+    for(int i=288;i<320;i++){accessory_selection->addItem(QPixmap::fromImage(Items.Image(i)),Items.Name(i));}
+    accessory_selection->addItem(QPixmap::fromImage(Items.Image(288)),tr("-NONE-"));
     materia_edit  = new MateriaEditor;
 
     QVBoxLayout *right_Top = new QVBoxLayout;
@@ -571,6 +574,10 @@ void CharEditor::init_connections()
     connect(slider_limit,SIGNAL(valueChanged(int)),lcd_limit_value,SLOT(display(int)));
     connect(list_limits,SIGNAL(clicked(QModelIndex)),this,SLOT(calc_limit_value(QModelIndex)));
     connect(combo_id,SIGNAL(currentIndexChanged(int)),this,SLOT(setId(int)));
+    connect(weapon_selection,SIGNAL(currentIndexChanged(int)),this,SLOT(setWeapon(int)));
+    connect(armor_selection,SIGNAL(currentIndexChanged(int)),this,SLOT(setArmor(int)));
+    connect(accessory_selection,SIGNAL(currentIndexChanged(int)),this,SLOT(setAccessory(int)));
+
     //connect(lbl_avatar,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(charMenu(QPoint)));
 }
 qint8 CharEditor::id(){return data.id;}
@@ -720,7 +727,20 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
     }
 
     list_limits->blockSignals(false);
-    weapon_selection->setMode(data.id+1);
+
+    weapon_selection->blockSignals(true);
+    weapon_selection->clear();
+    for(int i = Chars.weapon_offset(data.id); i < Chars.num_weapons(data.id)+Chars.weapon_offset(data.id);i++)
+    {
+        weapon_selection->addItem(QPixmap::fromImage(Items.Image(i)),Items.Name(i));
+    }
+    weapon_selection->setCurrentIndex(data.weapon);
+    weapon_selection->blockSignals(false);
+
+    armor_selection->setCurrentIndex(data.armor);
+    if(data.accessory != 0xFF){accessory_selection->setCurrentIndex(data.accessory);}
+    else{accessory_selection->setCurrentIndex(32);}
+
     calc_stats();
 }
 

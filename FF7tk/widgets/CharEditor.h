@@ -21,7 +21,6 @@
 #include "static_data/FF7Char.h"
 
 #include "static_data/Type_FF7CHAR.h"
-#include "widgets/EquipmentSelector.h"
 #include "widgets/MateriaEditor.h"
 
 class CharEditor : public QWidget
@@ -253,14 +252,14 @@ private:
     QLabel *lbl_2_1;
     QLabel *lbl_3_1;
 
-    EquipmentSelector *weapon_selection;
-    EquipmentSelector *armor_selection;
-    EquipmentSelector *accessory_selection;
+    QComboBox*weapon_selection;
+    QComboBox *armor_selection;
+    QComboBox *accessory_selection;
     MateriaEditor *materia_edit;
 
 //Data
    FF7Char Chars;
-   //FF7Item Items;
+   FF7Item Items;
    //FF7Materia Materias;
    FF7CHAR data;
    QString _name;
