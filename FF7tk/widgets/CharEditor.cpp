@@ -513,11 +513,43 @@ void CharEditor::init_display()
     accessory_selection->addItem(QPixmap::fromImage(Items.Image(288)),tr("-NONE-"));
     materia_edit  = new MateriaEditor;
 
+    elemental_effects = new QListWidget();
+    QHBoxLayout *elemental = new QHBoxLayout();
+    elemental->setContentsMargins(0,0,0,0);
+    elemental->addWidget(elemental_effects);
+
+    elemental_box =new QGroupBox();
+    elemental_box->setContentsMargins(3,3,3,3);
+    elemental_box->setLayout(elemental);
+    elemental_box->setTitle(tr("Elemental Effects"));
+    elemental_box->setHidden(1);
+
+    status_effects = new QListWidget();
+    QHBoxLayout *status =new QHBoxLayout();
+    status->setContentsMargins(0,0,0,0);
+    status->addWidget(status_effects);
+
+    status_box = new QGroupBox();
+    status_box->setContentsMargins(3,3,3,3);
+    status_box->setLayout(status);
+    status_box->setTitle(tr("Status Effects"));
+    status_box->setHidden(1);
+
+    QHBoxLayout *effects_layout =new QHBoxLayout();
+    effects_layout->setContentsMargins(0,0,0,0);
+    effects_layout->addWidget(elemental_box);
+    effects_layout->addWidget(status_box);
+    QSpacerItem *spacer2 = new QSpacerItem(-1,-1,QSizePolicy::Expanding,QSizePolicy::Minimum);
+    effects_layout->addSpacerItem(spacer2);
+    effects_layout->setSpacing(0);
+
     QVBoxLayout *right_Top = new QVBoxLayout;
     right_Top->setContentsMargins(0,0,0,0);
     right_Top->addWidget(weapon_selection);
     right_Top->addWidget(armor_selection);
     right_Top->addWidget(accessory_selection);
+    right_Top->addLayout(effects_layout);
+
 
     QVBoxLayout *right_Final = new QVBoxLayout;
     right_Final->setContentsMargins(0,0,0,0);
@@ -1051,6 +1083,8 @@ void CharEditor::setWeapon(int weapon)
         else if(weapon>Chars.num_weapons(data.id)){data.weapon=Chars.num_weapons(data.id);}
         else {data.weapon=weapon;}
         emit weapon_changed(data.weapon);
+        elemental_info();
+        status_info();
         //QMessageBox::information(this,"EMIT",QString("weapon_Changed:%1").arg(QString::number(data.weapon)));
     }
 }
@@ -1063,6 +1097,8 @@ void CharEditor::setArmor(int armor)
         else if(armor>32){data.armor=0xFF;}
         else {data.armor= armor; }
         emit armor_changed(data.armor);
+        elemental_info();
+        status_info();
         //QMessageBox::information(this,"EMIT",QString("armor_Changed:%1").arg(QString::number(data.armor)));
     }
 }
@@ -1075,6 +1111,8 @@ void CharEditor::setAccessory(int accessory)
         else if(accessory>32){data.accessory=0xFF;}
         else {data.accessory = accessory;}
         emit accessory_changed(data.accessory);
+        elemental_info();
+        status_info();
         //QMessageBox::information(this,"EMIT",QString("accessory_Changed:%1").arg(QString::number(data.accessory)));
     }
 }
@@ -1361,6 +1399,136 @@ void CharEditor::update_tnl_bar(void)
     numvalue.setNum(data.expNext);
     lcd_tnl->display(numvalue);
 }
+
+void CharEditor::elemental_info(void)
+{
+    int y=20;
+    bool show=false;
+    int item_id = 0;
+    elemental_effects->clear();
+    for(int r=0;r<3;r++)
+    {
+        switch (r)
+        {
+            case 0:item_id = data.weapon +Chars.weapon_offset(data.id); break;
+            case 1:item_id = data.armor +256; break;
+            case 2:item_id = data.accessory +288; break;
+         }
+        if(item_id <0 || item_id >319){}
+        else
+        {
+            for(int i=0;i<14;i++)
+            {
+                QString effect;
+                int element=0;
+                switch(i)
+                {
+                    case 0: element=Items.element_restoration(item_id); effect.append(tr("Restoration"));break;
+                    case 1: element=Items.element_fire(item_id); effect.append(tr("Fire")); break;
+                    case 2: element=Items.element_cold(item_id); effect.append(tr("Cold")); break;
+                    case 3: element=Items.element_lightning(item_id); effect.append(tr("Lightning")); break;
+                    case 4: element=Items.element_earth(item_id); effect.append(tr("Earth")); break;
+                    case 5: element=Items.element_wind(item_id); effect.append(tr("Wind")); break;
+                    case 6: element=Items.element_water(item_id); effect.append(tr("Water")); break;
+                    case 7: element=Items.element_gravity(item_id); effect.append(tr("Gravity")); break;
+                    case 8: element=Items.element_holy(item_id); effect.append(tr("Holy")); break;
+                    case 9: element=Items.element_poison(item_id); effect.append(tr("Poison")); break;
+                    case 10: element=Items.element_cut(item_id); effect.append(tr("Cut")); break;
+                    case 11: element=Items.element_shoot(item_id); effect.append(tr("Shoot")); break;
+                    case 12: element=Items.element_punch(item_id); effect.append(tr("Punch")); break;
+                    case 13: element=Items.element_hit(item_id); effect.append(tr("Hit")); break;
+                }
+                switch(element)
+                {
+                    case -3: effect.prepend(tr("Absorb:"));break;
+                    case -2: effect.prepend(tr("Nullify:"));break;
+                    case -1: effect.prepend(tr("Halve:"));break;
+                    case  0: effect.clear();break;
+                    case +1: effect.prepend(tr("Attack:"));break;
+                }
+                if(!effect.isNull())
+                {
+                    elemental_effects->addItem(effect);
+                    show=true; y+=18;
+                }
+             }//end of for Loop
+            if(y<=100){elemental_box->setFixedSize(200,y);}
+            else{elemental_box->setFixedSize(200,100);}
+        }//end of else.
+    }//end of other loop.
+   elemental_box->setVisible(show);
+   elemental_box->adjustSize();
+}//end of function
+
+void CharEditor::status_info(void)
+{
+    int y=20;
+    bool show=false;
+    int item_id =0;
+    status_effects->clear();
+    for(int r=0;r<3;r++)
+    {
+        switch (r)
+        {
+            case 0:item_id = data.weapon +Chars.weapon_offset(data.id); break;
+            case 1:item_id = data.armor +256; break;
+            case 2:item_id = data.accessory +288; break;
+         }
+         if(item_id <0 || item_id >319){}
+         else
+         {
+            for(int i=0;i<23;i++)
+            {
+                QString effect;
+                int status=0;
+                switch(i)
+                {
+                    case 0: status=Items.status_death(item_id); effect.append(tr("Death"));break;
+                    case 1: status=Items.status_slow_numb(item_id); effect.append(tr("Slow-Numb"));break;
+                    case 2: status=Items.status_d_sentence(item_id); effect.append(tr("D.Sentence"));break;
+                    case 3: status=Items.status_paralysis(item_id); effect.append(tr("Paralysis"));break;
+                    case 4: status=Items.status_petrify(item_id); effect.append(tr("Petrify"));break;
+                    case 5: status=Items.status_silence(item_id); effect.append(tr("Silence"));break;
+                    case 6: status=Items.status_sleep(item_id); effect.append(tr("Sleep"));break;
+                    case 7: status=Items.status_confusion(item_id); effect.append(tr("Confusion"));break;
+                    case 8: status=Items.status_berserk(item_id); effect.append(tr("Berserk"));break;
+                    case 9: status=Items.status_frog(item_id); effect.append(tr("Frog"));break;
+                    case 10: status=Items.status_mini(item_id); effect.append(tr("Mini"));break;
+                    case 11: status=Items.status_poison(item_id); effect.append(tr("Poison"));break;
+                    case 12: status=Items.status_fury(item_id); effect.append(tr("Fury"));break;
+                    case 13: status=Items.status_sadness(item_id); effect.append(tr("Sadness"));break;
+                    case 14: status=Items.status_darkness(item_id); effect.append(tr("Darkness"));break;
+                    case 15: status=Items.status_haste(item_id); effect.append(tr("Haste"));break;
+                    case 16: status=Items.status_slow(item_id); effect.append(tr("Slow"));break;
+                    case 17: status=Items.status_stop(item_id); effect.append(tr("Stop"));break;
+                    case 18: status=Items.status_barrier(item_id); effect.append(tr("Barrier"));break;
+                    case 19: status=Items.status_m_barrier(item_id); effect.append(tr("M.Barrier"));break;
+                    case 20: status=Items.status_reflect(item_id); effect.append(tr("Reflect"));break;
+                    case 21: status=Items.status_shield(item_id); effect.append(tr("Shield"));break;
+                    case 22: status=Items.status_regen(item_id); effect.append(tr("Regen"));break;
+                }
+                switch(status)
+                {
+                    case -2: effect.prepend(tr("Protect:")); break;
+                    case -1: effect.prepend(tr("Remove:")); break;
+                    case  0: effect.clear();break;
+                    case +1: effect.prepend(tr("Inflict:")); break;
+                    case +2: effect.prepend(tr("OnBattle:"));break;
+                }
+                if(!effect.isNull())
+                {
+                    status_effects->addItem(effect);
+                    show=true; y+=18;
+                 }
+            }//end of for Loop
+            if(y<=100){status_box->setFixedSize(200,y);}
+            else{status_box->setFixedSize(200,100);}
+        }//end of else.
+     }//end of loop
+    status_box->setVisible(show);
+    status_box->adjustSize();
+}//end of function
+
 //void setFlags(int,int);
 //void setZ_4[4](int);
 //void setMaterias(materia,int);
