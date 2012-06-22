@@ -167,6 +167,9 @@ private:
     void calc_stats(void);//calc stat changes if autostatcalc == true;
     void level_up(int);
     void update_tnl_bar();
+    void elemental_info();
+    void status_info();
+
     QLabel *lbl_avatar;
     QLineEdit *line_name;
     QSpinBox *sb_level;
@@ -256,6 +259,10 @@ private:
     QComboBox *armor_selection;
     QComboBox *accessory_selection;
     MateriaEditor *materia_edit;
+    QGroupBox *elemental_box;
+    QGroupBox *status_box;
+    QListWidget *elemental_effects;
+    QListWidget *status_effects;
 
 //Data
    FF7Char Chars;
