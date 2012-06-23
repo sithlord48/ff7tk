@@ -263,6 +263,8 @@ private:
     QGroupBox *status_box;
     QListWidget *elemental_effects;
     QListWidget *status_effects;
+    QGroupBox * weapon_materia_box;
+    QGroupBox *armor_materia_box;
 
 //Data
    FF7Char Chars;
