@@ -543,12 +543,21 @@ void CharEditor::init_display()
     effects_layout->addSpacerItem(spacer2);
     effects_layout->setSpacing(0);
 
+    weapon_materia_box = new QGroupBox;
+    weapon_materia_box->setMinimumHeight(32);
+    armor_materia_box = new QGroupBox;
+    armor_materia_box->setMinimumHeight(32);
+
     QVBoxLayout *right_Top = new QVBoxLayout;
     right_Top->setContentsMargins(0,0,0,0);
     right_Top->addWidget(weapon_selection);
+    right_Top->addWidget(weapon_materia_box);
     right_Top->addWidget(armor_selection);
+    right_Top->addWidget(armor_materia_box);
     right_Top->addWidget(accessory_selection);
     right_Top->addLayout(effects_layout);
+
+
 
 
     QVBoxLayout *right_Final = new QVBoxLayout;
@@ -1405,6 +1414,7 @@ void CharEditor::elemental_info(void)
     int y=20;
     bool show=false;
     int item_id = 0;
+    QString m_effect;
     elemental_effects->clear();
     for(int r=0;r<3;r++)
     {
@@ -1446,11 +1456,12 @@ void CharEditor::elemental_info(void)
                     case  0: effect.clear();break;
                     case +1: effect.prepend(tr("Attack:"));break;
                 }
-                if(!effect.isNull())
+                if(!effect.isNull() && !m_effect.contains(effect,Qt::CaseSensitive))
                 {
-                    elemental_effects->addItem(effect);
-                    show=true; y+=18;
-                }
+                        m_effect.append(effect);
+                        elemental_effects->addItem(effect);
+                        show=true; y+=18;
+                 }
              }//end of for Loop
             if(y<=100){elemental_box->setFixedSize(200,y);}
             else{elemental_box->setFixedSize(200,100);}
@@ -1465,6 +1476,7 @@ void CharEditor::status_info(void)
     int y=20;
     bool show=false;
     int item_id =0;
+    QString m_status;
     status_effects->clear();
     for(int r=0;r<3;r++)
     {
@@ -1515,8 +1527,9 @@ void CharEditor::status_info(void)
                     case +1: effect.prepend(tr("Inflict:")); break;
                     case +2: effect.prepend(tr("OnBattle:"));break;
                 }
-                if(!effect.isNull())
+                if(!effect.isNull() && !m_status.contains(effect,Qt::CaseSensitive))
                 {
+                    m_status.append(effect);
                     status_effects->addItem(effect);
                     show=true; y+=18;
                  }
