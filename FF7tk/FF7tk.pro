@@ -56,7 +56,8 @@ HEADERS += mainwindow.h \
     static_data/Type_FF7CHAR.h \
     static_data/Type_materia.h \
     widgets/SlotSelect.h \
-    static_data/SaveIcon.h
+    static_data/SaveIcon.h \
+    widgets/ChocoboEditor.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -72,4 +73,5 @@ SOURCES += main.cpp \
     static_data/FF7Char.cpp \
     widgets/CharEditor.cpp \
     widgets/SlotSelect.cpp \
-    static_data/SaveIcon.cpp
+    static_data/SaveIcon.cpp \
+    widgets/ChocoboEditor.cpp

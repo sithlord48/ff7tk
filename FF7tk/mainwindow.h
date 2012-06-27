@@ -26,6 +26,7 @@
 #include "widgets/MateriaEditor.h"
 #include "widgets/ItemPreview.h"
 #include "widgets/CharEditor.h"
+#include "widgets/ChocoboEditor.h"
 
 namespace Ui {
     class MainWindow;
@@ -54,6 +55,7 @@ private:
     MateriaEditor *materia_editor;
     ItemPreview *item_preview;
     CharEditor *char_editor;
+    ChocoboEditor *choco_editor;
 };
 
 #endif // MAINWINDOW_H
