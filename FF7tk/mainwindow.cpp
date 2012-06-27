@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->materia_editor_box->setHidden(1);
     ui->item_preview_box->setHidden(1);
     ui->char_editor_box->setHidden(1);
+    ui->choco_editor_box->setHidden(1);
 
     dialog_preview= new DialogPreview();
     QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
@@ -48,6 +49,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout * char_editor_layout = new QHBoxLayout();
     char_editor_layout->addWidget(char_editor);
     ui->charEditor_box->setLayout(char_editor_layout);
+
+    choco_editor = new ChocoboEditor();
+    QHBoxLayout *choco_editor_layout = new QHBoxLayout();
+    choco_editor_layout->addWidget(choco_editor);
+    ui->choco_editor_box->setLayout(choco_editor_layout);
 }
 
 MainWindow::~MainWindow()
@@ -67,6 +73,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->materia_editor_box->setVisible(0);
     ui->item_preview_box->setVisible(0);
     ui->char_editor_box->setVisible(0);
+    ui->choco_editor_box->setVisible(0);
 
     switch(index)
     {
@@ -74,6 +81,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 2:ui->materia_editor_box->setVisible(1); break;
         case 3:ui->item_preview_box->setVisible(1); break;
         case 4:ui->char_editor_box->setVisible(1); break;
+        case 5:ui->choco_editor_box->setVisible(1); break;
     };
     this->adjustSize();
 }
