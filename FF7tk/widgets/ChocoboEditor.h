@@ -60,7 +60,7 @@ signals:
     void personality_changed(quint8);
     void pCount_changed(quint8);
     void wins_changed(quint8);
-    void sex_changed(qint8);
+    void sex_changed(quint8);
     void type_changed(quint8);
     void name_changed(QString);
     void cantMate_changed(bool);
