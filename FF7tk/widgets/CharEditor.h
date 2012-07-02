@@ -122,7 +122,8 @@ signals:
     void baseHp_changed(quint16);
     void baseMp_changed(quint16);
     void exp_changed(quint32);
-    void Materias_changed(int,materia);
+    void mslotChanged(int);
+    void Materias_changed(materia);
     void expNext_changed(quint32);
 
 public slots:
@@ -176,6 +177,24 @@ private slots:
     void calc_limit_value(QModelIndex);
     void Level_Changed(int);// used for tracking growth of char
     void Exp_Changed(int);// used for tracking growth of char
+    void weapon_slot_1_clicked();
+    void weapon_slot_2_clicked();
+    void weapon_slot_3_clicked();
+    void weapon_slot_4_clicked();
+    void weapon_slot_5_clicked();
+    void weapon_slot_6_clicked();
+    void weapon_slot_7_clicked();
+    void weapon_slot_8_clicked();
+    void armor_slot_1_clicked();
+    void armor_slot_2_clicked();
+    void armor_slot_3_clicked();
+    void armor_slot_4_clicked();
+    void armor_slot_5_clicked();
+    void armor_slot_6_clicked();
+    void armor_slot_7_clicked();
+    void armor_slot_8_clicked();
+    void matAp_changed(qint32);
+    void matId_changed(qint8);
 private:
     void init_display(void);
     void init_connections(void);
@@ -184,6 +203,7 @@ private:
     void update_tnl_bar();
     void elemental_info();
     void status_info();
+    void update_materia_slots();
 
     QLabel *lbl_avatar;
     QLineEdit *line_name;
@@ -281,15 +301,43 @@ private:
     QGroupBox * weapon_materia_box;
     QGroupBox *armor_materia_box;
 
+    QPushButton *weapon_slot_1;
+    QPushButton *weapon_slot_2;
+    QPushButton *weapon_slot_3;
+    QPushButton *weapon_slot_4;
+    QPushButton *weapon_slot_5;
+    QPushButton *weapon_slot_6;
+    QPushButton *weapon_slot_7;
+    QPushButton *weapon_slot_8;
+    QPushButton *armor_slot_1;
+    QPushButton *armor_slot_2;
+    QPushButton *armor_slot_3;
+    QPushButton *armor_slot_4;
+    QPushButton *armor_slot_5;
+    QPushButton *armor_slot_6;
+    QPushButton *armor_slot_7;
+    QPushButton *armor_slot_8;
+    QLabel *weapon_m_link_1;
+    QLabel *weapon_m_link_2;
+    QLabel *weapon_m_link_3;
+    QLabel *weapon_m_link_4;
+    QLabel *armor_m_link_1;
+    QLabel *armor_m_link_2;
+    QLabel *armor_m_link_3;
+    QLabel *armor_m_link_4;
+
+
 //Data
    FF7Char Chars;
    FF7Item Items;
-   //FF7Materia Materias;
+   FF7Materia Materias;
    FF7CHAR data;
    QString _name;
    bool autolevel;
    bool autostatcalc;
    bool editable;
+   int mslotsel;//select materia slot
+   qint32 ap;
 };
 
 #endif // CHAREDITOR_H
