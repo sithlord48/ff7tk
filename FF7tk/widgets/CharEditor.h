@@ -29,6 +29,7 @@
 #include <QProgressBar>
 #include <QSlider>
 #include <QLCDNumber>
+#include <QToolBox>
 
 //set path to FF7Item FF7Materia and FF7Char
 #include "static_data/FF7Item.h"
@@ -300,7 +301,9 @@ private:
     QListWidget *status_effects;
     QGroupBox * weapon_materia_box;
     QGroupBox *armor_materia_box;
-
+    QGroupBox *weapon_box;
+    QGroupBox *armor_box;
+    QGroupBox *accessory_box;
     QPushButton *weapon_slot_1;
     QPushButton *weapon_slot_2;
     QPushButton *weapon_slot_3;
@@ -325,7 +328,7 @@ private:
     QLabel *armor_m_link_2;
     QLabel *armor_m_link_3;
     QLabel *armor_m_link_4;
-
+    QToolBox *main_widget;
 
 //Data
    FF7Char Chars;
