@@ -34,13 +34,18 @@ CharEditor::CharEditor(QWidget *parent) :
     memcpy(&data,temp,132);
 
     data.accessory = 0xFF;
-    data.weapon = 5;
-    data.armor =3;
+    data.weapon = 0;
+    data.armor =0;
     setChar(data,_name);
  }
 void CharEditor::init_display()
 {
-    this->setBaseSize(970,500);
+  // main_widget = new QToolBox;
+  // QVBoxLayout *main_layout = new QVBoxLayout;
+  // main_layout->addWidget(main_widget);
+  // this->setLayout(main_layout);
+
+
     lbl_avatar = new QLabel;
     lbl_avatar->setFixedSize(86,98);
     //lbl_avatar->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -464,7 +469,6 @@ void CharEditor::init_display()
     base_hp_layout->addWidget(sb_base_hp);
     base_hp_layout->addWidget(lbl_base_hp_bonus);
     base_hp_layout->addSpacerItem(base_hp_spacer);
-    //lbl_base_hp_bonus->setText("+999%");
 
     QSpacerItem *base_mp_spacer = new QSpacerItem(20,0,QSizePolicy::Expanding,QSizePolicy::Fixed);
     QHBoxLayout *base_mp_layout = new QHBoxLayout;
@@ -473,7 +477,6 @@ void CharEditor::init_display()
     base_mp_layout->addWidget(sb_base_mp);
     base_mp_layout->addWidget(lbl_base_mp_bonus);
     base_mp_layout->addSpacerItem(base_mp_spacer);
-    //lbl_base_mp_bonus->setText("+999%");
 
     QVBoxLayout *base_hp_mp_layout = new QVBoxLayout;
     base_hp_mp_layout->setContentsMargins(0,0,0,0);
@@ -529,6 +532,7 @@ void CharEditor::init_display()
     for(int i=288;i<320;i++){accessory_selection->addItem(QPixmap::fromImage(Items.Image(i)),Items.Name(i));}
     accessory_selection->addItem(QPixmap::fromImage(Items.Image(288)),tr("-NONE-"));
     materia_edit  = new MateriaEditor;
+    materia_edit->setStarsSize(32);
 
     elemental_effects = new QListWidget();
     QHBoxLayout *elemental = new QHBoxLayout();
@@ -813,16 +817,46 @@ void CharEditor::init_display()
     armor_materia_box->setLayout(armor_materia_slots);
 
 
+    QVBoxLayout *weapon_layout = new QVBoxLayout;
+    weapon_layout->setContentsMargins(0,0,0,0);
+    weapon_layout->addWidget(weapon_selection);
+    weapon_layout->addWidget(weapon_materia_box);
+
+    weapon_box = new QGroupBox(tr("Weapon"));
+    weapon_box->setLayout(weapon_layout);
+    weapon_box->setMinimumHeight(100);
+
+    QVBoxLayout *armor_layout = new QVBoxLayout;
+    armor_layout->setContentsMargins(0,0,0,0);
+    armor_layout->addWidget(armor_selection);
+    armor_layout->addWidget(armor_materia_box);
+
+    armor_box = new QGroupBox(tr("Armor"));
+    armor_box->setLayout(armor_layout);
+    armor_box->setMinimumHeight(100);
+
+    QVBoxLayout *accessory_layout = new QVBoxLayout;
+    accessory_layout->setContentsMargins(0,0,0,0);
+    accessory_layout->addWidget(accessory_selection);
+
+    accessory_box = new QGroupBox(tr("Accessory"));
+    accessory_box->setLayout(accessory_layout);
+    accessory_box->setMinimumHeight(40);
+
     QVBoxLayout *right_Top = new QVBoxLayout;
     right_Top->setContentsMargins(0,0,0,0);
-    right_Top->addWidget(weapon_selection);
-    right_Top->addWidget(weapon_materia_box);
-    right_Top->addWidget(armor_selection);
-    right_Top->addWidget(armor_materia_box);
-    right_Top->addWidget(accessory_selection);
+    right_Top->addWidget(weapon_box);
+    right_Top->addWidget(armor_box);
+    right_Top->addWidget(accessory_box);
     right_Top->addLayout(effects_layout);
+    right_Top->addWidget(materia_edit);
 
-
+   // QGroupBox *tab_2 = new QGroupBox;
+   // tab_2->setLayout(right_Top);
+   // main_widget->addItem(tab_2,QString(tr("Equiptment")));
+   // QGroupBox *tab_1 = new QGroupBox;
+   // tab_1->setLayout(left_Final);
+   // main_widget->addItem(tab_1,QString(tr("Status Info")));
 
 
     QVBoxLayout *right_Final = new QVBoxLayout;
@@ -833,21 +867,10 @@ void CharEditor::init_display()
     QHBoxLayout *Final = new QHBoxLayout;
     Final->setContentsMargins(0,0,0,0);
     Final->addLayout(left_Final);
-    Final->addLayout(right_Final);
-
+    Final->addLayout(right_Top);
     this->setLayout(Final);
 
-    list_limits->setFixedHeight(this->font().pointSize()*14);
-    /*
-    list_limits->addItems(Chars.limits(0));
-    list_limits->item(0)->setCheckState(Qt::Unchecked);
-    list_limits->item(1)->setCheckState(Qt::Unchecked);
-    list_limits->item(2)->setCheckState(Qt::Unchecked);
-    list_limits->item(3)->setCheckState(Qt::Unchecked);
-    list_limits->item(4)->setCheckState(Qt::Unchecked);
-    list_limits->item(5)->setCheckState(Qt::Unchecked);
-    list_limits->item(6)->setCheckState(Qt::Unchecked);
-    */
+    list_limits->setFixedHeight(this->font().pointSize()*13);
 }
 void CharEditor::init_connections()
 {
@@ -1382,6 +1405,7 @@ void CharEditor::setWeapon(int weapon)
         elemental_info();
         status_info();
         update_materia_slots();
+        if(autostatcalc){calc_stats();}
         //QMessageBox::information(this,"EMIT",QString("weapon_Changed:%1").arg(QString::number(data.weapon)));
     }
 }
@@ -1397,6 +1421,7 @@ void CharEditor::setArmor(int armor)
         elemental_info();
         status_info();
         update_materia_slots();
+        if(autostatcalc){calc_stats();}
         //QMessageBox::information(this,"EMIT",QString("armor_Changed:%1").arg(QString::number(data.armor)));
     }
 }
@@ -1411,6 +1436,7 @@ void CharEditor::setAccessory(int accessory)
         emit accessory_changed(data.accessory);
         elemental_info();
         status_info();
+        if(autostatcalc){calc_stats();}
         //QMessageBox::information(this,"EMIT",QString("accessory_Changed:%1").arg(QString::number(data.accessory)));
     }
 }
@@ -1600,8 +1626,15 @@ void CharEditor::calc_stats(void)
     int dex_total=0;
     int mag_total=0;
     int lck_total=0;
-    //int hp_total=0;
-    //int mp_total=0;
+
+    int str_bonus=0;
+    int vit_bonus=0;
+    int spi_bonus=0;
+    int dex_bonus=0;
+    int mag_bonus=0;
+    int lck_bonus=0;
+    int hp_bonus=0;
+    int mp_bonus=0;
 
     str_total = data.strength + data.strength_bonus;
     vit_total= data.vitality + data.vitality_bonus;
@@ -1610,44 +1643,313 @@ void CharEditor::calc_stats(void)
     mag_total = data.magic + data.magic_bonus;
     lck_total = data.luck + data.luck_bonus;
 
-    if(!autostatcalc)
+    if(autostatcalc)
     {
         //add equipment bonuses
         //Weapon
-        str_total += Items.Stat_str(data.weapon + Chars.weapon_offset(data.id));
-        vit_total +=Items.Stat_vit(data.weapon + Chars.weapon_offset(data.id));
-        dex_total +=Items.Stat_dex(data.weapon + Chars.weapon_offset(data.id));
-        spi_total +=Items.Stat_spi(data.weapon + Chars.weapon_offset(data.id));
-        mag_total +=Items.Stat_mag(data.weapon + Chars.weapon_offset(data.id));
-        lck_total +=Items.Stat_lck(data.weapon + Chars.weapon_offset(data.id));
-    //    hp_total+=Items.stat_hp(data.weapon + Chars.weapon_offset(data.id));
-    //    mp_total+=Items.stat_hp(data.weapon + Chars.weapon_offset(data.id));
+        str_bonus +=Items.Stat_str(data.weapon + Chars.weapon_offset(data.id));
+        vit_bonus +=Items.Stat_vit(data.weapon + Chars.weapon_offset(data.id));
+        dex_bonus +=Items.Stat_dex(data.weapon + Chars.weapon_offset(data.id));
+        spi_bonus +=Items.Stat_spi(data.weapon + Chars.weapon_offset(data.id));
+        mag_bonus +=Items.Stat_mag(data.weapon + Chars.weapon_offset(data.id));
+        lck_bonus +=Items.Stat_lck(data.weapon + Chars.weapon_offset(data.id));
+        hp_bonus+=Items.Stat_hp(data.weapon + Chars.weapon_offset(data.id));
+        mp_bonus+=Items.Stat_mp(data.weapon + Chars.weapon_offset(data.id));
+        QString title;
+        title.append(tr("AP:x%1 str:+%2 vit:+%3 dex:+%4 spi:+%5 mag:+%6 lck:+%7 hp:+%8% mp:+%9%")
+            .arg(QString::number(Items.m_growth_rate(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_str(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_vit(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_dex(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_spi(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_mag(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_lck(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_hp(data.weapon + Chars.weapon_offset(data.id))),
+                 QString::number(Items.Stat_mp(data.weapon + Chars.weapon_offset(data.id)))));
+        weapon_materia_box->setTitle(title);
         //Armor
-        str_total += Items.Stat_str(data.armor + 256);
-        vit_total +=Items.Stat_vit(data.armor + 256);
-        dex_total +=Items.Stat_dex(data.armor + 256);
-        spi_total +=Items.Stat_spi(data.armor + 256);
-        mag_total +=Items.Stat_mag(data.armor + 256);
-        lck_total +=Items.Stat_lck(data.armor+ 256);
-   //     hp_total+=Items.stat_hp(data.armor + 256);
-   //     mp_total+=Items.stat_hp(data.armor + 256);
+        str_bonus += Items.Stat_str(data.armor + 256);
+        vit_bonus +=Items.Stat_vit(data.armor + 256);
+        dex_bonus +=Items.Stat_dex(data.armor + 256);
+        spi_bonus +=Items.Stat_spi(data.armor + 256);
+        mag_bonus +=Items.Stat_mag(data.armor + 256);
+        lck_bonus +=Items.Stat_lck(data.armor+ 256);
+        hp_bonus+=Items.Stat_hp(data.armor + 256);
+        mp_bonus+=Items.Stat_mp(data.armor + 256);
+        title.clear();
+        title.append(tr("AP:x%1 str:+%2 vit:+%3 dex:+%4 spi:+%5 mag:+%6 lck:+%7 hp:+%8% mp:+%9%")
+          .arg(QString::number(Items.m_growth_rate(data.armor + 256)),
+               QString::number(Items.Stat_str(data.armor + 256)),
+               QString::number(Items.Stat_vit(data.armor + 256)),
+               QString::number(Items.Stat_dex(data.armor + 256)),
+               QString::number(Items.Stat_spi(data.armor + 256)),
+               QString::number(Items.Stat_mag(data.armor + 256)),
+               QString::number(Items.Stat_lck(data.armor + 256)),
+               QString::number(Items.Stat_hp(data.armor + 256)),
+               QString::number(Items.Stat_mp(data.armor + 256))));
+        armor_materia_box->setTitle(title);
         //Accessory
-        str_total += Items.Stat_str(data.armor + 288);
-        vit_total +=Items.Stat_vit(data.armor + 288);
-        dex_total +=Items.Stat_dex(data.armor + 288);
-        spi_total +=Items.Stat_spi(data.armor + 288);
-        mag_total +=Items.Stat_mag(data.armor + 288);
-        lck_total +=Items.Stat_lck(data.armor+ 288);
-   //     hp_total+=Items.stat_hp(data.armor + 288);
-   //     mp_total+=Items.stat_hp(data.armor + 288);
+        if(data.accessory <32)
+        {
+            str_bonus += Items.Stat_str(data.accessory + 288);
+            vit_bonus +=Items.Stat_vit(data.accessory + 288);
+            dex_bonus +=Items.Stat_dex(data.accessory + 288);
+            spi_bonus +=Items.Stat_spi(data.accessory + 288);
+            mag_bonus +=Items.Stat_mag(data.accessory + 288);
+            lck_bonus +=Items.Stat_lck(data.accessory+ 288);
+            hp_bonus+=Items.Stat_hp(data.accessory + 288);
+            mp_bonus+=Items.Stat_mp(data.accessory + 288);
+            title.clear();
+            title.append(tr("Accessory: str:+%1 vit:+%2 dex:+%3 spi:+%4 mag:+%5 lck:+%6 hp:+%7% mp:+%8%")
+                   .arg(QString::number(Items.Stat_str(data.accessory + 288)),
+                   QString::number(Items.Stat_vit(data.accessory + 288)),
+                   QString::number(Items.Stat_dex(data.accessory + 288)),
+                   QString::number(Items.Stat_spi(data.accessory + 288)),
+                   QString::number(Items.Stat_mag(data.accessory + 288)),
+                   QString::number(Items.Stat_lck(data.accessory + 288)),
+                   QString::number(Items.Stat_hp(data.accessory + 288)),
+                   QString::number(Items.Stat_mp(data.accessory + 288))));
+            accessory_box->setTitle(title);
+        }
+        else{title.clear();title.append(tr("Accessory"));accessory_box->setTitle(title);}
+        //process materia
+        for(int i=0;i<16;i++)
+        {
+            if(data.materias[i].id!=0xFF)
+            {
+                switch(i)
+                {
+                case 0:
+                    if(weapon_slot_1->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 1:
+                    if(weapon_slot_2->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 2:
+                    if(weapon_slot_3->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 3:
+                    if(weapon_slot_4->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 4:
+                    if(weapon_slot_5->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 5:
+                    if(weapon_slot_6->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 6:
+                    if(weapon_slot_7->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 7:
+                    if(weapon_slot_8->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 8:
+                    if(armor_slot_1->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 9:
+                    if(armor_slot_2->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 10:
+                    if(armor_slot_3->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 11:
+                    if(armor_slot_4->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 12:
+                    if(armor_slot_5->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 13:
+                    if(armor_slot_6->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 14:
+                    if(armor_slot_7->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                case 15:
+                    if(armor_slot_8->isVisible())
+                    {
+                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
+                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
+                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
+                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
+                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
+                    }
+                    break;
+                };// end of Switch
+            }
+        }
 
+        lbl_str_mat_bonus->setText(QString::number(str_bonus));
+        lbl_vit_mat_bonus->setText(QString::number(vit_bonus));
+        lbl_dex_mat_bonus->setText(QString::number(dex_bonus));
+        lbl_spi_mat_bonus->setText(QString::number(spi_bonus));
+        lbl_mag_mat_bonus->setText(QString::number(mag_bonus));
+        lbl_lck_mat_bonus->setText(QString::number(lck_bonus));
     }
 
+    str_total+=str_bonus;
+    vit_total+= vit_bonus;
+    dex_total+= dex_bonus;
+    spi_total+= spi_bonus;
+    mag_total+= mag_bonus;
+    lck_total+= lck_bonus;
 
     if(str_total < 256)lbl_str_total->setText(QString::number(str_total));
     else{lbl_str_total->setText(QString::number(255));}
 
-    if(vit_total < 256)lbl_vit_total->setText(QString::number(vit_total));
+    if(vit_total  < 256)lbl_vit_total->setText(QString::number(vit_total));
     else{lbl_vit_total->setText(QString::number(255));}
 
     if(dex_total < 256)lbl_dex_total->setText(QString::number(dex_total));
@@ -1661,6 +1963,9 @@ void CharEditor::calc_stats(void)
 
     if(lck_total < 256)lbl_lck_total->setText(QString::number(lck_total));
     else{lbl_lck_total->setText(QString::number(255));}
+
+    if(hp_bonus !=0){lbl_base_hp_bonus->setText(QString("%1%").arg(QString::number(hp_bonus)));} else{lbl_base_hp_bonus->setText(QString(""));}
+    if(mp_bonus!=0){lbl_base_mp_bonus->setText(QString("%1%").arg(QString::number(mp_bonus)));} else{lbl_base_mp_bonus->setText(QString(""));}
 }
 
 void CharEditor::level_up(int pre_level)
@@ -1915,7 +2220,7 @@ void CharEditor::update_materia_slots()
      if(data.materias[15].id!=0xFF){armor_slot_8->setToolTip(Materias.Name(data.materias[15].id));}else{armor_slot_8->setToolTip(QString(tr("-Empty-")));}
 
      //set up weapon
-     QString ap_rate =tr("APx%1").arg(Items.m_growth_rate(data.weapon +Chars.weapon_offset(data.id)));
+     QString ap_rate =tr("AP:x%1").arg(Items.m_growth_rate(data.weapon +Chars.weapon_offset(data.id)));
      weapon_materia_box->setTitle(ap_rate);
      switch(Items.mslots(data.weapon +Chars.weapon_offset(data.id)))
      {
@@ -1936,7 +2241,7 @@ void CharEditor::update_materia_slots()
         case 1: weapon_m_link_1->setStyleSheet(Items.Style_mlink());
       };
      //set up armor
-     ap_rate =tr("APx%1").arg(Items.m_growth_rate(data.armor+256));
+     ap_rate =tr("AP:x%1").arg(Items.m_growth_rate(data.armor+256));
      armor_materia_box->setTitle(ap_rate);
      switch(Items.mslots(data.armor +256))
      {
@@ -1956,6 +2261,7 @@ void CharEditor::update_materia_slots()
         case 2: armor_m_link_2->setStyleSheet(Items.Style_mlink());
         case 1: armor_m_link_1->setStyleSheet(Items.Style_mlink());
       };
+     if(autostatcalc){calc_stats();}
 }
 void CharEditor::matId_changed(qint8 id)
 {
@@ -1963,6 +2269,7 @@ void CharEditor::matId_changed(qint8 id)
     else{data.materias[mslotsel].id = 0xFF;}
     update_materia_slots();
     emit Materias_changed(data.materias[mslotsel]);
+    if(autostatcalc){calc_stats();}
 }
 void CharEditor::matAp_changed(qint32 ap)
 {
