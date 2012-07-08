@@ -1656,16 +1656,40 @@ void CharEditor::calc_stats(void)
         hp_bonus+=Items.Stat_hp(data.weapon + Chars.weapon_offset(data.id));
         mp_bonus+=Items.Stat_mp(data.weapon + Chars.weapon_offset(data.id));
         QString title;
-        title.append(tr("AP:x%1 str:+%2 vit:+%3 dex:+%4 spi:+%5 mag:+%6 lck:+%7 hp:+%8% mp:+%9%")
-            .arg(QString::number(Items.m_growth_rate(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_str(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_vit(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_dex(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_spi(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_mag(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_lck(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_hp(data.weapon + Chars.weapon_offset(data.id))),
-                 QString::number(Items.Stat_mp(data.weapon + Chars.weapon_offset(data.id)))));
+        title.append(tr("AP:x%1").arg(QString::number(Items.m_growth_rate(data.weapon + Chars.weapon_offset(data.id)))));
+
+        if(Items.Stat_str(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Str:+%1").arg(QString::number(Items.Stat_str(data.weapon + Chars.weapon_offset(data.id)))));
+        }
+        if(Items.Stat_vit(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Vit:+%1").arg(QString::number(Items.Stat_vit(data.weapon + Chars.weapon_offset(data.id)))));
+        }
+        if(Items.Stat_dex(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Dex:+%1").arg(QString::number(Items.Stat_dex(data.weapon + Chars.weapon_offset(data.id)))));
+        }
+        if(Items.Stat_spi(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Spi:+%1").arg(QString::number(Items.Stat_spi(data.weapon + Chars.weapon_offset(data.id)))));
+        }
+        if(Items.Stat_mag(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Mag:+%1").arg(QString::number(Items.Stat_mag(data.weapon + Chars.weapon_offset(data.id)))));
+        }
+        if(Items.Stat_lck(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Lck:+%1").arg(QString::number(Items.Stat_lck(data.weapon + Chars.weapon_offset(data.id)))));
+        }
+        if(Items.Stat_hp(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Hp:+%1%").arg(QString::number(Items.Stat_hp(data.weapon + Chars.weapon_offset(data.id)))));
+        }
+        if(Items.Stat_mp(data.weapon + Chars.weapon_offset(data.id))!=0)
+        {
+            title.append(tr(" Mp:+%1%").arg(QString::number(Items.Stat_mp(data.weapon + Chars.weapon_offset(data.id)))));
+        }
         weapon_materia_box->setTitle(title);
         //Armor
         str_bonus += Items.Stat_str(data.armor + 256);
@@ -1677,16 +1701,39 @@ void CharEditor::calc_stats(void)
         hp_bonus+=Items.Stat_hp(data.armor + 256);
         mp_bonus+=Items.Stat_mp(data.armor + 256);
         title.clear();
-        title.append(tr("AP:x%1 str:+%2 vit:+%3 dex:+%4 spi:+%5 mag:+%6 lck:+%7 hp:+%8% mp:+%9%")
-          .arg(QString::number(Items.m_growth_rate(data.armor + 256)),
-               QString::number(Items.Stat_str(data.armor + 256)),
-               QString::number(Items.Stat_vit(data.armor + 256)),
-               QString::number(Items.Stat_dex(data.armor + 256)),
-               QString::number(Items.Stat_spi(data.armor + 256)),
-               QString::number(Items.Stat_mag(data.armor + 256)),
-               QString::number(Items.Stat_lck(data.armor + 256)),
-               QString::number(Items.Stat_hp(data.armor + 256)),
-               QString::number(Items.Stat_mp(data.armor + 256))));
+        title.append(tr("AP:x%1").arg(QString::number(Items.m_growth_rate(data.armor + 256))));
+        if(Items.Stat_str(data.armor + 256) != 0)
+        {
+            title.append(tr(" Str:+%1").arg(QString::number(Items.Stat_str(data.armor + 256))));
+        }
+        if(Items.Stat_vit(data.armor + 256) !=0)
+        {
+            title.append(tr(" Vit:+%1").arg(QString::number(Items.Stat_vit(data.armor + 256))));
+        }
+        if(Items.Stat_dex(data.armor + 256)!=0)
+        {
+            title.append(tr(" Dex:+%1").arg(QString::number(Items.Stat_dex(data.armor + 256))));
+        }
+        if(Items.Stat_spi(data.armor + 256)!=0)
+        {
+            title.append(tr(" Spi:+%1").arg(QString::number(Items.Stat_spi(data.armor + 256))));
+        }
+        if(Items.Stat_mag(data.armor + 256)!=0)
+        {
+            title.append(tr(" Mag:+%1").arg(QString::number(Items.Stat_mag(data.armor + 256))));
+        }
+        if(Items.Stat_lck(data.armor + 256)!=0)
+        {
+            title.append(tr(" Lck:+%1").arg(QString::number(Items.Stat_lck(data.armor + 256))));
+        }
+        if(Items.Stat_hp(data.armor + 256)!=0)
+        {
+            title.append(tr(" Hp:+%1%").arg(QString::number(Items.Stat_hp(data.armor + 256))));
+        }
+        if(Items.Stat_mp(data.armor + 256)!=0)
+        {
+            title.append(tr(" Mp:+%1%").arg(QString::number(Items.Stat_mp(data.armor + 256))));
+        }
         armor_materia_box->setTitle(title);
         //Accessory
         if(data.accessory <32)
@@ -1700,15 +1747,39 @@ void CharEditor::calc_stats(void)
             hp_bonus+=Items.Stat_hp(data.accessory + 288);
             mp_bonus+=Items.Stat_mp(data.accessory + 288);
             title.clear();
-            title.append(tr("Accessory: str:+%1 vit:+%2 dex:+%3 spi:+%4 mag:+%5 lck:+%6 hp:+%7% mp:+%8%")
-                   .arg(QString::number(Items.Stat_str(data.accessory + 288)),
-                   QString::number(Items.Stat_vit(data.accessory + 288)),
-                   QString::number(Items.Stat_dex(data.accessory + 288)),
-                   QString::number(Items.Stat_spi(data.accessory + 288)),
-                   QString::number(Items.Stat_mag(data.accessory + 288)),
-                   QString::number(Items.Stat_lck(data.accessory + 288)),
-                   QString::number(Items.Stat_hp(data.accessory + 288)),
-                   QString::number(Items.Stat_mp(data.accessory + 288))));
+            title.append(tr("Accessory"));
+            if(Items.Stat_str(data.accessory + 288) != 0)
+            {
+                title.append(tr(" Str:+%1").arg(QString::number(Items.Stat_str(data.accessory + 288))));
+            }
+            if(Items.Stat_vit(data.accessory + 288) !=0)
+            {
+                title.append(tr(" Vit:+%1").arg(QString::number(Items.Stat_vit(data.accessory + 288))));
+            }
+            if(Items.Stat_dex(data.accessory + 288)!=0)
+            {
+                title.append(tr(" Dex:+%1").arg(QString::number(Items.Stat_dex(data.accessory + 288))));
+            }
+            if(Items.Stat_spi(data.accessory + 288)!=0)
+            {
+                title.append(tr(" Spi:+%1").arg(QString::number(Items.Stat_spi(data.accessory + 288))));
+            }
+            if(Items.Stat_mag(data.accessory + 288)!=0)
+            {
+                title.append(tr(" Mag:+%1").arg(QString::number(Items.Stat_mag(data.accessory + 288))));
+            }
+            if(Items.Stat_lck(data.accessory + 288)!=0)
+            {
+                title.append(tr(" Lck:+%1").arg(QString::number(Items.Stat_lck(data.accessory + 288))));
+            }
+            if(Items.Stat_hp(data.accessory + 288)!=0)
+            {
+                title.append(tr(" Hp:+%1%").arg(QString::number(Items.Stat_hp(data.accessory + 288))));
+            }
+            if(Items.Stat_mp(data.accessory + 288)!=0)
+            {
+                title.append(tr(" Mp:+%1%").arg(QString::number(Items.Stat_mp(data.accessory + 288))));
+            }
             accessory_box->setTitle(title);
         }
         else{title.clear();title.append(tr("Accessory"));accessory_box->setTitle(title);}
