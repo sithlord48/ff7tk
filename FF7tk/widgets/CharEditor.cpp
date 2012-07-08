@@ -1788,217 +1788,44 @@ void CharEditor::calc_stats(void)
         {
             if(data.materias[i].id!=0xFF)
             {
+                bool add=true;
+                int level=0;
+                int aptemp = Materias.ap2num(data.materias[i].ap);
+                for(int m=0; m<Materias.Levels(data.materias[i].id);m++){if(aptemp >= Materias.Ap(data.materias[i].id,m)){level++;}}
+
                 switch(i)
                 {
-                case 0:
-                    if(weapon_slot_1->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 1:
-                    if(weapon_slot_2->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 2:
-                    if(weapon_slot_3->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 3:
-                    if(weapon_slot_4->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 4:
-                    if(weapon_slot_5->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 5:
-                    if(weapon_slot_6->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 6:
-                    if(weapon_slot_7->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 7:
-                    if(weapon_slot_8->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 8:
-                    if(armor_slot_1->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 9:
-                    if(armor_slot_2->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 10:
-                    if(armor_slot_3->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 11:
-                    if(armor_slot_4->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 12:
-                    if(armor_slot_5->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 13:
-                    if(armor_slot_6->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 14:
-                    if(armor_slot_7->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                case 15:
-                    if(armor_slot_8->isVisible())
-                    {
-                        str_bonus +=Materias.Stat_Str(data.materias[i].id);
-                        vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
-                        dex_bonus +=Materias.Stat_Dex(data.materias[i].id);
-                        spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
-                        mag_bonus +=Materias.Stat_Mag(data.materias[i].id);
-                        lck_bonus +=Materias.Stat_Lck(data.materias[i].id);
-                        hp_bonus+=Materias.Stat_Hp(data.materias[i].id);
-                        mp_bonus+=Materias.Stat_Mp(data.materias[i].id);
-                    }
-                    break;
-                };// end of Switch
+                    case 0: if(weapon_slot_1->isHidden()){add=false;};break;
+                    case 1: if(weapon_slot_2->isHidden()){add=false;}break;
+                    case 2: if(weapon_slot_3->isHidden()){add=false;}break;
+                    case 3: if(weapon_slot_4->isHidden()){add=false;}break;
+                    case 4: if(weapon_slot_5->isHidden()){add=false;}break;
+                    case 5: if(weapon_slot_6->isHidden()){add=false;}break;
+                    case 6: if(weapon_slot_7->isHidden()){add=false;}break;
+                    case 7: if(weapon_slot_8->isHidden()){add=false;}break;
+                    case 8: if(armor_slot_1->isHidden()){add=false;}break;
+                    case 9: if(armor_slot_2->isHidden()){add=false;}break;
+                    case 10:if(armor_slot_3->isHidden()){add=false;}break;
+                    case 11:if(armor_slot_4->isHidden()){add=false;}break;
+                    case 12:if(armor_slot_5->isHidden()){add=false;}break;
+                    case 13:if(armor_slot_6->isHidden()){add=false;}break;
+                    case 14:if(armor_slot_7->isHidden()){add=false;}break;
+                    case 15:if(armor_slot_8->isHidden()){add=false;}break;
+                }
+                if(add)
+                {
+                    // no special materia that affects these stats.
+                    str_bonus +=Materias.Stat_Str(data.materias[i].id);
+                    vit_bonus +=Materias.Stat_Vit(data.materias[i].id);
+                    spi_bonus +=Materias.Stat_Spi(data.materias[i].id);
+                    //Show in Percentage.
+                    if(data.materias[i].id == 0x00){mp_bonus +=(10*level);}                                                 else{mp_bonus+=Materias.Stat_Mp(data.materias[i].id);}
+                    if(data.materias[i].id == 0x01){hp_bonus += (10*level);}                                                 else{hp_bonus+=Materias.Stat_Hp(data.materias[i].id);}
+                    //show exact numbers
+                    if(data.materias[i].id == 0x02){dex_bonus += data.dexterity * (0.01*(level*10));}   else{dex_bonus +=Materias.Stat_Dex(data.materias[i].id);}
+                    if(data.materias[i].id ==0x03){ mag_bonus += data.magic * (0.01*(level*10));}        else{mag_bonus +=Materias.Stat_Mag(data.materias[i].id);}
+                    if(data.materias[i].id ==0x04){ lck_bonus += data.luck * (0.01*(level*10));}              else{lck_bonus +=Materias.Stat_Lck(data.materias[i].id);}
+                 }// end of add case.
             }
         }
 
