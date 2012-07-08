@@ -859,10 +859,10 @@ void CharEditor::init_display()
    // main_widget->addItem(tab_1,QString(tr("Status Info")));
 
 
-    QVBoxLayout *right_Final = new QVBoxLayout;
-    right_Final->setContentsMargins(0,0,0,0);
-    right_Final->addLayout(right_Top);
-    right_Final->addWidget(materia_edit);
+    //QVBoxLayout *right_Final = new QVBoxLayout;
+    //right_Final->setContentsMargins(0,0,0,0);
+    // right_Final->addLayout(right_Top);
+    //right_Final->addWidget(materia_edit);
 
     QHBoxLayout *Final = new QHBoxLayout;
     Final->setContentsMargins(0,0,0,0);
@@ -870,7 +870,7 @@ void CharEditor::init_display()
     Final->addLayout(right_Top);
     this->setLayout(Final);
 
-    list_limits->setFixedHeight(this->font().pointSize()*13);
+    list_limits->setFixedHeight(this->font().pointSize()*14);
 }
 void CharEditor::init_connections()
 {
@@ -2295,114 +2295,97 @@ void CharEditor::weapon_slot_1_clicked(void)
 {
     mslotsel = 0;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp =data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::weapon_slot_2_clicked(void)
 {
     mslotsel = 1;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::weapon_slot_3_clicked(void)
 {
     mslotsel = 2;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::weapon_slot_4_clicked(void)
 {
     mslotsel = 3;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::weapon_slot_5_clicked(void)
 {
     mslotsel = 4;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::weapon_slot_6_clicked(void)
 {
     mslotsel = 5;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::weapon_slot_7_clicked(void)
 {
     mslotsel = 6;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::weapon_slot_8_clicked(void)
 {
     mslotsel = 7;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_1_clicked(void)
 {
     mslotsel = 8;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+     materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_2_clicked(void)
 {
     mslotsel = 9;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_3_clicked(void)
 {
     mslotsel = 10;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_4_clicked(void)
 {
     mslotsel = 11;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_5_clicked(void)
 {
     mslotsel = 12;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_6_clicked(void)
 {
     mslotsel = 13;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_7_clicked(void)
 {
     mslotsel = 14;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 void CharEditor::armor_slot_8_clicked(void)
 {
     mslotsel = 15;
     emit mslotChanged(mslotsel);
-    qint32 ap_temp = data.materias[mslotsel].ap[0] | data.materias[mslotsel].ap[1] << 8 | data.materias[mslotsel].ap[2]<<16;
-    materia_edit->setMateria(data.materias[mslotsel].id,ap_temp);
+    materia_edit->setMateria(data.materias[mslotsel].id,Materias.ap2num(data.materias[mslotsel].ap));
 }
 //void setFlags(int,int);
 //void setZ_4[4](int);
-//void setMaterias(materia,int);

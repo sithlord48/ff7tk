@@ -328,7 +328,6 @@ private:
     QLabel *armor_m_link_2;
     QLabel *armor_m_link_3;
     QLabel *armor_m_link_4;
-    QToolBox *main_widget;
 
 //Data
    FF7Char Chars;
