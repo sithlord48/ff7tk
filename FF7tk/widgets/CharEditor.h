@@ -15,7 +15,7 @@
 /****************************************************************************/
 #ifndef CHAREDITOR_H
 #define CHAREDITOR_H
-
+#include <QScrollArea>
 #include <QWidget>
 #include <QSpinBox>
 #include <QLineEdit>
@@ -328,7 +328,7 @@ private:
     QLabel *armor_m_link_2;
     QLabel *armor_m_link_3;
     QLabel *armor_m_link_4;
-
+    QScrollArea *equipment_section;
 //Data
    FF7Char Chars;
    FF7Item Items;

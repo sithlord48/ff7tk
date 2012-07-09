@@ -566,15 +566,13 @@ void CharEditor::init_display()
 
     //set up materia slots and box for weapon.
     weapon_materia_box = new QGroupBox;
-    weapon_materia_box->setMinimumHeight(48);
+    weapon_materia_box->setFixedHeight(50);
     QSpacerItem *weapon_spacer=new QSpacerItem(-1,-1,QSizePolicy::Expanding,QSizePolicy::Minimum);
     //I Like the No Growth Slots They Look Better so i always use them
     // you can use FF7Item::Style_m_grow_slot() to get the style of that slot
 
     weapon_slot_1 = new QPushButton();
     weapon_slot_1->setFixedSize(32,32);
-    weapon_slot_1->setFlat(true);
-    weapon_slot_1->setAutoFillBackground(true);
     weapon_slot_1->setIconSize(QSize(32,32));
     weapon_slot_1->setStyleSheet(Items.Style_m_no_grow_slot());
     weapon_slot_1->setHidden(1);
@@ -584,17 +582,15 @@ void CharEditor::init_display()
 
     weapon_slot_2 = new QPushButton();
     weapon_slot_2->setFixedSize(32,32);
-    weapon_slot_2->setFlat(true);
-    weapon_slot_2->setAutoFillBackground(true);
     weapon_slot_2->setIconSize(QSize(32,32));
     weapon_slot_2->setStyleSheet(Items.Style_m_no_grow_slot());
     weapon_slot_2->setHidden(1);
 
     QHBoxLayout *weapon_slots_1_and_2 = new QHBoxLayout();
     weapon_slots_1_and_2->setContentsMargins(0,0,0,0);
-    weapon_slots_1_and_2->addWidget(weapon_slot_2);
-    weapon_slots_1_and_2->addWidget(weapon_m_link_1);
     weapon_slots_1_and_2->addWidget(weapon_slot_1);
+    weapon_slots_1_and_2->addWidget(weapon_m_link_1);
+    weapon_slots_1_and_2->addWidget(weapon_slot_2);
     weapon_slots_1_and_2->setSpacing(0);
 
     weapon_slot_3 = new QPushButton();
@@ -620,9 +616,9 @@ void CharEditor::init_display()
 
     QHBoxLayout *weapon_slots_3_and_4 = new QHBoxLayout();
     weapon_slots_3_and_4->setContentsMargins(0,0,0,0);
-    weapon_slots_3_and_4->addWidget(weapon_slot_4);
-    weapon_slots_3_and_4->addWidget(weapon_m_link_2);
     weapon_slots_3_and_4->addWidget(weapon_slot_3);
+    weapon_slots_3_and_4->addWidget(weapon_m_link_2);
+    weapon_slots_3_and_4->addWidget(weapon_slot_4);
     weapon_slots_3_and_4->setSpacing(0);
 
     weapon_slot_5 = new QPushButton();
@@ -647,9 +643,9 @@ void CharEditor::init_display()
 
     QHBoxLayout *weapon_slots_5_and_6 = new QHBoxLayout();
     weapon_slots_5_and_6->setContentsMargins(0,0,0,0);
-    weapon_slots_5_and_6->addWidget(weapon_slot_6);
-    weapon_slots_5_and_6->addWidget(weapon_m_link_3);
     weapon_slots_5_and_6->addWidget(weapon_slot_5);
+    weapon_slots_5_and_6->addWidget(weapon_m_link_3);
+    weapon_slots_5_and_6->addWidget(weapon_slot_6);
     weapon_slots_5_and_6->setSpacing(0);
 
     weapon_slot_7 = new QPushButton();
@@ -674,25 +670,25 @@ void CharEditor::init_display()
 
     QHBoxLayout *weapon_slots_7_and_8 = new QHBoxLayout();
     weapon_slots_7_and_8->setContentsMargins(0,0,0,0);
-    weapon_slots_7_and_8->addWidget(weapon_slot_8);
-    weapon_slots_7_and_8->addWidget(weapon_m_link_4);
     weapon_slots_7_and_8->addWidget(weapon_slot_7);
+    weapon_slots_7_and_8->addWidget(weapon_m_link_4);
+    weapon_slots_7_and_8->addWidget(weapon_slot_8);
     weapon_slots_7_and_8->setSpacing(0);
 
     QHBoxLayout *weapon_materia_slots = new QHBoxLayout();
     weapon_materia_slots->setContentsMargins(0,0,0,0);
-    weapon_materia_slots->addSpacerItem(weapon_spacer);
-    weapon_materia_slots->addLayout(weapon_slots_7_and_8);
-    weapon_materia_slots->addLayout(weapon_slots_5_and_6);
-    weapon_materia_slots->addLayout(weapon_slots_3_and_4);
     weapon_materia_slots->addLayout(weapon_slots_1_and_2);
+    weapon_materia_slots->addLayout(weapon_slots_3_and_4);
+    weapon_materia_slots->addLayout(weapon_slots_5_and_6);
+    weapon_materia_slots->addLayout(weapon_slots_7_and_8);
+    weapon_materia_slots->addSpacerItem(weapon_spacer);
     weapon_materia_slots->setSpacing(12);
 
     weapon_materia_box->setLayout(weapon_materia_slots);
 
     //set up armor materia buttons.
     armor_materia_box = new QGroupBox;
-    armor_materia_box->setMinimumHeight(48);
+    armor_materia_box->setFixedHeight(50);
     QSpacerItem *armor_spacer=new QSpacerItem(-1,-1,QSizePolicy::Expanding,QSizePolicy::Minimum);
     //I Like the No Growth Slots They Look Better so i always use them
     // you can use FF7Item::Style_m_grow_slot() to get the style of that slot
@@ -718,9 +714,9 @@ void CharEditor::init_display()
 
     QHBoxLayout *armor_slots_1_and_2 = new QHBoxLayout();
     armor_slots_1_and_2->setContentsMargins(0,0,0,0);
-    armor_slots_1_and_2->addWidget(armor_slot_2);
-    armor_slots_1_and_2->addWidget(armor_m_link_1);
     armor_slots_1_and_2->addWidget(armor_slot_1);
+    armor_slots_1_and_2->addWidget(armor_m_link_1);
+    armor_slots_1_and_2->addWidget(armor_slot_2);
     armor_slots_1_and_2->setSpacing(0);
 
     armor_slot_3 = new QPushButton();
@@ -746,9 +742,9 @@ void CharEditor::init_display()
 
     QHBoxLayout *armor_slots_3_and_4 = new QHBoxLayout();
     armor_slots_3_and_4->setContentsMargins(0,0,0,0);
-    armor_slots_3_and_4->addWidget(armor_slot_4);
-    armor_slots_3_and_4->addWidget(armor_m_link_2);
     armor_slots_3_and_4->addWidget(armor_slot_3);
+    armor_slots_3_and_4->addWidget(armor_m_link_2);
+    armor_slots_3_and_4->addWidget(armor_slot_4);
     armor_slots_3_and_4->setSpacing(0);
 
     armor_slot_5 = new QPushButton();
@@ -773,9 +769,9 @@ void CharEditor::init_display()
 
     QHBoxLayout *armor_slots_5_and_6 = new QHBoxLayout();
     armor_slots_5_and_6->setContentsMargins(0,0,0,0);
-    armor_slots_5_and_6->addWidget(armor_slot_6);
-    armor_slots_5_and_6->addWidget(armor_m_link_3);
     armor_slots_5_and_6->addWidget(armor_slot_5);
+    armor_slots_5_and_6->addWidget(armor_m_link_3);
+    armor_slots_5_and_6->addWidget(armor_slot_6);
     armor_slots_5_and_6->setSpacing(0);
 
     armor_slot_7 = new QPushButton();
@@ -800,18 +796,18 @@ void CharEditor::init_display()
 
     QHBoxLayout *armor_slots_7_and_8 = new QHBoxLayout();
     armor_slots_7_and_8->setContentsMargins(0,0,0,0);
-    armor_slots_7_and_8->addWidget(armor_slot_8);
-    armor_slots_7_and_8->addWidget(armor_m_link_4);
     armor_slots_7_and_8->addWidget(armor_slot_7);
+    armor_slots_7_and_8->addWidget(armor_m_link_4);
+    armor_slots_7_and_8->addWidget(armor_slot_8);
     armor_slots_7_and_8->setSpacing(0);
 
     QHBoxLayout *armor_materia_slots = new QHBoxLayout();
     armor_materia_slots->setContentsMargins(0,0,0,0);
-    armor_materia_slots->addSpacerItem(armor_spacer);
-    armor_materia_slots->addLayout(armor_slots_7_and_8);
-    armor_materia_slots->addLayout(armor_slots_5_and_6);
-    armor_materia_slots->addLayout(armor_slots_3_and_4);
     armor_materia_slots->addLayout(armor_slots_1_and_2);
+    armor_materia_slots->addLayout(armor_slots_3_and_4);
+    armor_materia_slots->addLayout(armor_slots_5_and_6);
+    armor_materia_slots->addLayout(armor_slots_7_and_8);
+    armor_materia_slots->addSpacerItem(armor_spacer);
     armor_materia_slots->setSpacing(12);
 
     armor_materia_box->setLayout(armor_materia_slots);
@@ -848,9 +844,18 @@ void CharEditor::init_display()
     right_Top->addWidget(weapon_box);
     right_Top->addWidget(armor_box);
     right_Top->addWidget(accessory_box);
-    right_Top->addLayout(effects_layout);
-    right_Top->addWidget(materia_edit);
 
+    QWidget *right_top = new QWidget;
+    right_top->setContentsMargins(0,0,0,0);
+    right_top->setLayout(right_Top);
+    right_top->adjustSize();
+    right_top->setFixedHeight(right_top->height());
+    right_top->setFixedWidth(420);
+    QVBoxLayout *right_bottom = new QVBoxLayout;
+    right_bottom->addLayout(effects_layout);
+    right_bottom->addWidget(materia_edit);
+
+materia_edit->setMaximumWidth(420);
    // QGroupBox *tab_2 = new QGroupBox;
    // tab_2->setLayout(right_Top);
    // main_widget->addItem(tab_2,QString(tr("Equiptment")));
@@ -859,15 +864,29 @@ void CharEditor::init_display()
    // main_widget->addItem(tab_1,QString(tr("Status Info")));
 
 
-    //QVBoxLayout *right_Final = new QVBoxLayout;
-    //right_Final->setContentsMargins(0,0,0,0);
-    // right_Final->addLayout(right_Top);
-    //right_Final->addWidget(materia_edit);
+    QVBoxLayout *right_Final = new QVBoxLayout;
+    right_Final->addWidget(right_top);
+    right_Final->setSpacing(3);
+    right_Final->addLayout(right_bottom);
+
+    QWidget *equipment_stuff = new QWidget;
+    equipment_stuff->setLayout(right_Final);
+    equipment_stuff->setMinimumHeight(650);
+    //equipment_stuff->setMinimumWidth(materia_edit->width());
+    equipment_stuff->adjustSize();
+
+    equipment_section = new QScrollArea;
+    equipment_section->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    equipment_section->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    equipment_section->setWidget(equipment_stuff);
+    equipment_section->setMinimumWidth(460);
+    equipment_section->adjustSize();
 
     QHBoxLayout *Final = new QHBoxLayout;
     Final->setContentsMargins(0,0,0,0);
     Final->addLayout(left_Final);
-    Final->addLayout(right_Top);
+    //Final->addLayout(right_Final);
+    Final->addWidget(equipment_section);
     this->setLayout(Final);
 
     list_limits->setFixedHeight(this->font().pointSize()*14);
@@ -1531,6 +1550,7 @@ void CharEditor::setBaseHp(int baseHp)
         else if(baseHp >32767){data.baseHP=32767;}
         else{data.baseHP=baseHp;}
         emit baseHp_changed(data.baseHP);
+        if(autostatcalc){calc_stats(); }
         //QMessageBox::information(this,"EMIT",QString("baseHp_Changed:%1").arg(QString::number(data.baseHP)));
     }
 }
@@ -1543,6 +1563,7 @@ void CharEditor::setBaseMp(int baseMp)
         else if(baseMp >32767){data.baseMP=32767;}
         else{data.baseMP=baseMp;}
         emit baseMp_changed(data.baseMP);
+        if(autostatcalc){calc_stats();}
         //QMessageBox::information(this,"EMIT",QString("baseMp_Changed:%1").arg(QString::number(data.baseMP)));
     }
 }
@@ -1864,6 +1885,9 @@ void CharEditor::calc_stats(void)
 
     if(hp_bonus !=0){lbl_base_hp_bonus->setText(QString("%1%").arg(QString::number(hp_bonus)));} else{lbl_base_hp_bonus->setText(QString(""));}
     if(mp_bonus!=0){lbl_base_mp_bonus->setText(QString("%1%").arg(QString::number(mp_bonus)));} else{lbl_base_mp_bonus->setText(QString(""));}
+
+    sb_maxHp->setValue(data.baseHP + (data.baseHP * (hp_bonus*.01)));
+    sb_maxMp->setValue(data.baseMP + (data.baseMP *(mp_bonus *.01)));
 }
 
 void CharEditor::level_up(int pre_level)
