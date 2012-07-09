@@ -116,7 +116,6 @@ signals:
     void row_changed(quint8);
     void levelProgress_changed(quint8);
     void sadnessfury_changed(quint8);
-
     void limits_changed(quint16);
     void timesused1_changed(quint16);
     void timesused2_changed(quint16);

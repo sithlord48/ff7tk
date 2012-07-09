@@ -28,15 +28,15 @@ CharEditor::CharEditor(QWidget *parent) :
     editable=true;
     mslotsel =0;
     //init the data..(just incase)
-    _name= "Cloud";
-    QByteArray temp;
-    temp.fill(0x00,132);
-    memcpy(&data,temp,132);
+    //_name= "Cloud";
+    //QByteArray temp;
+    //temp.fill(0x00,132);
+    //memcpy(&data,temp,132);
 
-    data.accessory = 0xFF;
-    data.weapon = 0;
-    data.armor =0;
-    setChar(data,_name);
+    //data.accessory = 0xFF;
+    //data.weapon = 0;
+    //data.armor =0;
+    //setChar(data,_name);
  }
 void CharEditor::init_display()
 {
@@ -81,6 +81,7 @@ void CharEditor::init_display()
     lbl_level_progress = new QLabel(tr("Level Progress"));
     bar_tnl = new QProgressBar;
     bar_tnl->setMaximum(61);//strange indeed..
+    bar_tnl->setTextVisible(false);
     lbl_level_next = new QLabel(tr("Next"));
     sb_total_exp = new QSpinBox;
     sb_total_exp->setMaximum(2147483647);
@@ -108,15 +109,6 @@ void CharEditor::init_display()
     QLabel *lbl_str_equals = new QLabel(tr("="));
     lbl_str_total = new QLabel;
 
-    //lbl_str_plus_1->setFixedWidth(this->font().pointSize());
-    //lbl_str->setFixedWidth(this->font().pointSize()*3);
-    //sb_str->setFixedWidth(this->font().pointSize()*5);
-    //sb_str_bonus->setFixedWidth(this->font().pointSize()*5);
-    //lbl_str_plus_2->setFixedWidth(this->font().pointSize());
-    //lbl_str_mat_bonus->setFixedWidth(this->font().pointSize()*3);
-    //lbl_str_equals->setFixedWidth(this->font().pointSize());
-    //lbl_str_total->setFixedWidth(this->font().pointSize()*5);
-
     lbl_vit = new QLabel(tr("Vit"));
     sb_vit = new QSpinBox;
     sb_vit->setAlignment(Qt::AlignCenter);
@@ -129,16 +121,6 @@ void CharEditor::init_display()
     lbl_vit_mat_bonus = new QLabel;
     QLabel *lbl_vit_equals = new QLabel(tr("="));
     lbl_vit_total = new QLabel;
-
-    //sb_vit_bonus->setFixedWidth(this->font().pointSize()*5);
-    //lbl_vit->setFixedWidth(this->font().pointSize()*3);
-    //sb_vit->setFixedWidth(this->font().pointSize()*5);
-    //lbl_vit_plus_1->setFixedWidth(this->font().pointSize());
-    //lbl_vit_plus_2->setFixedWidth(this->font().pointSize());
-    //lbl_vit_mat_bonus->setFixedWidth(this->font().pointSize()*3);
-    //lbl_vit_plus_1->setFixedWidth(this->font().pointSize());
-    //lbl_vit_total->setFixedWidth(this->font().pointSize()*5);
-
 
     lbl_mag = new QLabel(tr("Mag"));
     sb_mag = new QSpinBox;
@@ -153,17 +135,6 @@ void CharEditor::init_display()
     QLabel *lbl_mag_equals = new QLabel(tr("="));
     lbl_mag_total = new QLabel;
 
-
-    //lbl_mag_total->setFixedWidth(this->font().pointSize()*5);
-    //lbl_mag_plus_1->setFixedWidth(this->font().pointSize());
-    //lbl_mag->setFixedWidth(this->font().pointSize()*3);
-    //sb_mag->setFixedWidth(this->font().pointSize()*5);
-    //sb_mag_bonus->setFixedWidth(this->font().pointSize()*5);
-    //lbl_mag_plus_2->setFixedWidth(this->font().pointSize());
-    //lbl_mag_mat_bonus->setFixedWidth(this->font().pointSize()*3);
-    //lbl_mag_plus_1->setFixedWidth(this->font().pointSize());
-
-
     lbl_spi = new QLabel(tr("Spi"));
     sb_spi = new QSpinBox;
     sb_spi->setAlignment(Qt::AlignCenter);
@@ -176,16 +147,6 @@ void CharEditor::init_display()
     lbl_spi_mat_bonus = new QLabel;
     QLabel *lbl_spi_equals = new QLabel(tr("="));
     lbl_spi_total = new QLabel;
-
-    //lbl_spi_plus_2->setFixedWidth(this->font().pointSize());
-    //lbl_spi_plus_1->setFixedWidth(this->font().pointSize());
-    //lbl_spi->setFixedWidth(this->font().pointSize()*3);
-    //sb_spi->setFixedWidth(this->font().pointSize()*5);
-    //lbl_spi_plus_1->setFixedWidth(this->font().pointSize());
-    //sb_spi_bonus->setFixedWidth(this->font().pointSize()*5);
-    //lbl_spi_mat_bonus->setFixedWidth(this->font().pointSize()*3);
-    //lbl_spi_total->setFixedWidth(this->font().pointSize()*5);
-
 
     lbl_dex = new QLabel(tr("Dex"));
     sb_dex = new QSpinBox;
@@ -200,15 +161,6 @@ void CharEditor::init_display()
     QLabel *lbl_dex_equals = new QLabel(tr("="));
     lbl_dex_total = new QLabel;
 
-    //lbl_dex->setFixedWidth(this->font().pointSize()*3);
-    //sb_dex->setFixedWidth(this->font().pointSize()*5);
-    //lbl_dex_plus_1->setFixedWidth(this->font().pointSize());
-    //sb_dex_bonus->setFixedWidth(this->font().pointSize()*5);
-    //lbl_dex_plus_2->setFixedWidth(this->font().pointSize());
-    //lbl_dex_mat_bonus->setFixedWidth(this->font().pointSize()*3);
-    //lbl_dex_plus_1->setFixedWidth(this->font().pointSize());
-    //lbl_dex_total->setFixedWidth(this->font().pointSize()*5);
-
     lbl_lck = new QLabel(tr("Lck"));
     sb_lck = new QSpinBox;
     sb_lck->setAlignment(Qt::AlignCenter);
@@ -221,15 +173,6 @@ void CharEditor::init_display()
     lbl_lck_mat_bonus = new QLabel;
     QLabel *lbl_lck_equals = new QLabel(tr("="));
     lbl_lck_total = new QLabel;
-
-    //lbl_lck->setFixedWidth(this->font().pointSize()*3);
-    //sb_lck->setFixedWidth(this->font().pointSize()*5);
-    //lbl_lck_plus_1->setFixedWidth(this->font().pointSize());
-    //sb_lck_bonus->setFixedWidth(this->font().pointSize()*5);
-    //lbl_lck_plus_2->setFixedWidth(this->font().pointSize());
-    //lbl_lck_mat_bonus->setFixedWidth(this->font().pointSize()*3);
-    //lbl_lck_plus_1->setFixedWidth(this->font().pointSize());
-    //lbl_lck_total->setFixedWidth(this->font().pointSize()*5);
 
     //Spin Boxes for limit uses.
     sb_uses_limit_1_1 = new QSpinBox;
@@ -525,8 +468,9 @@ void CharEditor::init_display()
     stat_layout->addLayout(lck_layout);
     stat_layout->addLayout(base_hp_mp_layout);
 
-    QGroupBox *stat_box = new QGroupBox;
-    stat_box->setFixedHeight(this->font().pointSize()*22);
+    QGroupBox *stat_box= new QGroupBox;
+    //stat_box->setFixedHeight(this->font().pointSize()*22);
+    stat_box->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::MinimumExpanding);
     stat_box->setLayout(stat_layout);
 
     QHBoxLayout *limit_uses_level_layout = new QHBoxLayout;
@@ -882,7 +826,7 @@ void CharEditor::init_display()
     right_top->setLayout(right_Top);
     right_top->adjustSize();
     right_top->setFixedHeight(right_top->height());
-    right_top->setFixedWidth(420);
+    right_top->setFixedWidth(410);
 
     QVBoxLayout *right_bottom = new QVBoxLayout;
     right_bottom->addWidget(materia_edit);
@@ -890,7 +834,7 @@ void CharEditor::init_display()
     QSpacerItem *rtb_spacer = new QSpacerItem(0,0,QSizePolicy::Fixed,QSizePolicy::Expanding);
     right_bottom->addSpacerItem(rtb_spacer);
 
-    materia_edit->setMaximumWidth(420);
+    materia_edit->setMaximumWidth(410);
 
 
     QVBoxLayout *right_Final = new QVBoxLayout;
@@ -915,7 +859,7 @@ void CharEditor::init_display()
     equipment_section->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     equipment_section->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     equipment_section->setWidget(equipment_stuff);
-    equipment_section->setMinimumWidth(460);
+    equipment_section->setMinimumWidth(440);
     equipment_section->adjustSize();
 
     list_limits->setFixedHeight(this->font().pointSize()*14);
@@ -955,6 +899,7 @@ void CharEditor::init_display()
     btnPage->setText(QString(tr("Equipment")));
 
     main_layout = new QVBoxLayout;
+    main_layout->setContentsMargins(0,0,0,0);
     main_layout->addWidget(btnPage);
     main_layout->addWidget(main_widget);
    this->setLayout(main_layout);
@@ -2392,7 +2337,7 @@ void CharEditor::btn_page_clicked()
     else if (main_widget->currentIndex()==1)
     {
         main_widget->setCurrentIndex(0);
-        btnPage->setText(QString(tr("Equipment")));
+        btnPage->setText(QString(tr("Equipment / Materia")));
         main_layout->removeWidget(btnPage);
         main_layout->removeWidget(main_widget);
         main_layout->addWidget(btnPage);
