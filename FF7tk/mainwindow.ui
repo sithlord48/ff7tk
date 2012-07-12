@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>244</width>
-    <height>18</height>
+    <width>242</width>
+    <height>19</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -167,13 +167,13 @@
        <item>
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
-          <string>setStarSize(int)</string>
+          <string/>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
-           <widget class="QSpinBox" name="sb_charEditor">
-            <property name="maximum">
-             <number>128</number>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Initilze Char Data</string>
             </property>
            </widget>
           </item>

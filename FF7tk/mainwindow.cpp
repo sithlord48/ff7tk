@@ -90,3 +90,12 @@ void MainWindow::on_sb_materia_editor_setStarSize_valueChanged(int size){materia
 void MainWindow::on_cb_materia_editor_setEditable_toggled(bool checked){materia_editor->setEditable(checked);}
 
 void MainWindow::on_cb_charEditor_clicked(bool checked){char_editor->setEditable(checked);}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QByteArray temp;
+    temp.fill(0x00,132);
+    FF7CHAR c_data;
+    memcpy(&c_data,temp,132);
+    char_editor->setChar(c_data,QString("Cloud"));
+}

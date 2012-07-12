@@ -48,6 +48,8 @@ private slots:
 
     void on_cb_charEditor_clicked(bool checked);
 
+    void on_pushButton_clicked();
+
 private:
 
     Ui::MainWindow *ui;
