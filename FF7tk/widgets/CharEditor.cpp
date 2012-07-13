@@ -1278,14 +1278,10 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
 
     if(data.accessory != 0xFF){accessory_selection->setCurrentIndex(data.accessory);}
     else{accessory_selection->setCurrentIndex(32);}
-    //do the unknowns
-    data.z_4[0] =255;
+    //set the unknowns
     lcd_0x34->display(data.z_4[0]);
-    data.z_4[1] =128;
     lcd_0x35->display(data.z_4[1]);
-    data.z_4[2] =64;
     lcd_0x36->display(data.z_4[2]);
-    data.z_4[3] =16;
     lcd_0x37->display(data.z_4[3]);
 
     this->blockSignals(false);
