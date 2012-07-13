@@ -18,7 +18,7 @@
 #define ITEMPREVIEW_H
 
 //Besure to set FF7Item Path!
-#include "static_data/FF7Item.h"
+#include "../static_data/FF7Item.h"
 #include <QtGui/QWidget>
 #include <QtGui/QLabel>
 #include <QtGui/QGroupBox>

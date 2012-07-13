@@ -17,7 +17,7 @@
 #ifndef FF7SAVE_TYPES_H
 #define FF7SAVE_TYPES_H
 
-#include "static_data/Type_FF7CHAR.h"
+#include "Type_FF7CHAR.h"
 //Materia Type is included as part of FF7Char
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~STRUCT TYPES AND SAVE STRUCT~~~~~~~~~~~~~~~~*/
@@ -160,11 +160,11 @@ struct FF7SLOT {		// Save slot - Length 0x10F4
     quint8 z_33[22];            // [0x0EAC] Unknown
     quint8 field_help;          // [0x0EC2] Show field hand 1=on 0=off
     quint8 z_34[1];             // [0x0EC3] UNKNOWN
-    quint8 chocobonames[6][6];  // [0x0EC4] <-OK Chocobo names(ff7 strings)
+    quint8 chocobonames[6][6];  // [0x0EC4] <-OK Chocobo names
     quint16 chocostaminas[6];   // [0x0EE8] Chocobo staminas 12 bytes
     quint8 reg_vinny;           // [0x0EF4] 0xFF for true 0xFB false (vincent a regualar?)
     quint8 z_35[23];            // [0x0EF5] UNKNOWN DATA
-    quint8 location[24];        // [0x0F0C] Location String (ff7 string)
+    quint8 location[24];        // [0x0F0C] Location String
     quint8 z_36[5];             // [0x0F24] UNKNOWN DATA
     quint8 tut_save;            // [0x0F29] Have we seen save tut ? 0x3A true , 0x32 false
     quint8 z_37[50];            // [0x0F2A] UNKNOWN DATA
@@ -195,7 +195,7 @@ struct FF7SLOT {		// Save slot - Length 0x10F4
     quint8 battlemspeed;        // [0x10D9] Battle Message Speed
     quint8 options1;            // [0x10DA] Options 1
     quint8 options2;            // [0x10DB] Options 2
-    quint8 controller_map[16];  // [0x10DC] controller mapping
+    quint8 controller_map[16];  // [0x10DC] controller mapping?
     quint8 fieldmspeed;         // [0x10EC] Message Speed On field
     quint8 z_40[7];             // [0x10ED] UNKNOWN DATA
 }__attribute__((__packed__));

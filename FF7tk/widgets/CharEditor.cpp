@@ -26,6 +26,7 @@ CharEditor::CharEditor(QWidget *parent) :
     autolevel=true;
     autostatcalc=true;
     editable=true;
+    debug=false;
     mslotsel =0;
  }
 void CharEditor::init_display()
@@ -467,6 +468,72 @@ void CharEditor::init_display()
     QGroupBox *stat_box= new QGroupBox;
     stat_box->setLayout(stat_layout);
 
+    QLabel *lbl_0x34= new QLabel(QString(tr("0x34")));
+    lcd_0x34 = new QLCDNumber;
+    lcd_0x34->setNumDigits(2);
+    lcd_0x34->setFixedSize(32,20);
+    lcd_0x34->setHexMode();
+    lcd_0x34->setSegmentStyle(QLCDNumber::Flat);
+    QVBoxLayout *_0x34_layout = new QVBoxLayout;
+    _0x34_layout->setContentsMargins(0,0,0,0);
+    _0x34_layout->setSpacing(0);
+    _0x34_layout->addWidget(lbl_0x34);
+    _0x34_layout->addWidget(lcd_0x34);
+
+    QLabel *lbl_0x35= new QLabel(QString(tr("0x35")));
+    lcd_0x35 = new QLCDNumber;
+    lcd_0x35->setNumDigits(2);
+    lcd_0x35->setFixedSize(32,20);
+    lcd_0x35->setHexMode();
+    lcd_0x35->setSegmentStyle(QLCDNumber::Flat);
+    QVBoxLayout *_0x35_layout = new QVBoxLayout;
+    _0x35_layout->setContentsMargins(0,0,0,0);
+    _0x35_layout->setSpacing(0);
+    _0x35_layout->addWidget(lbl_0x35);
+    _0x35_layout->addWidget(lcd_0x35);
+
+    QLabel *lbl_0x36= new QLabel(QString(tr("0x36")));
+    lcd_0x36 = new QLCDNumber;
+    lcd_0x36->setNumDigits(2);
+    lcd_0x36->setFixedSize(32,20);
+    lcd_0x36->setHexMode();
+    lcd_0x36->setSegmentStyle(QLCDNumber::Flat);
+    QVBoxLayout *_0x36_layout = new QVBoxLayout;
+    _0x36_layout->setContentsMargins(0,0,0,0);
+    _0x36_layout->setSpacing(0);
+    _0x36_layout->addWidget(lbl_0x36);
+    _0x36_layout->addWidget(lcd_0x36);
+
+    QLabel *lbl_0x37= new QLabel(QString(tr("0x37")));
+    lcd_0x37 = new QLCDNumber;
+    lcd_0x37->setNumDigits(2);
+    lcd_0x37->setFixedSize(32,20);
+    lcd_0x37->setHexMode();
+
+    lcd_0x37->setSegmentStyle(QLCDNumber::Flat);
+    QVBoxLayout *_0x37_layout = new QVBoxLayout;
+    _0x37_layout->setContentsMargins(0,0,0,0);
+    _0x37_layout->setSpacing(0);
+    _0x37_layout->addWidget(lbl_0x37);
+    _0x37_layout->addWidget(lcd_0x37);
+
+    QVBoxLayout *unknown_layout = new QVBoxLayout;
+    unknown_layout->setContentsMargins(0,0,0,0);
+    unknown_layout->setSpacing(0);
+    unknown_layout->addLayout(_0x34_layout);
+    unknown_layout->addLayout(_0x35_layout);
+    unknown_layout->addLayout(_0x36_layout);
+    unknown_layout->addLayout(_0x37_layout);
+
+    unknown_box = new QGroupBox;
+    unknown_box->setLayout(unknown_layout);
+    unknown_box->setVisible(false);
+
+    QHBoxLayout *stat_layout_2 = new QHBoxLayout;
+    stat_layout_2->setContentsMargins(0,0,0,0);
+    stat_layout_2->addWidget(stat_box);
+    stat_layout_2->addWidget(unknown_box);
+
     QVBoxLayout *limit_uses_level_layout = new QVBoxLayout;
     limit_uses_level_layout->setContentsMargins(0,0,0,0);
     limit_uses_level_layout->setSpacing(0);
@@ -483,7 +550,7 @@ void CharEditor::init_display()
 
     QVBoxLayout *lower_section = new QVBoxLayout;
     lower_section->setContentsMargins(0,0,0,0);
-    lower_section->addWidget(stat_box);
+    lower_section->addLayout(stat_layout_2);
     lower_section->addLayout(limit_box);
 
 
@@ -1211,6 +1278,16 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
 
     if(data.accessory != 0xFF){accessory_selection->setCurrentIndex(data.accessory);}
     else{accessory_selection->setCurrentIndex(32);}
+    //do the unknowns
+    data.z_4[0] =255;
+    lcd_0x34->display(data.z_4[0]);
+    data.z_4[1] =128;
+    lcd_0x35->display(data.z_4[1]);
+    data.z_4[2] =64;
+    lcd_0x36->display(data.z_4[2]);
+    data.z_4[3] =16;
+    lcd_0x37->display(data.z_4[3]);
+
     this->blockSignals(false);
     update_materia_slots();
     calc_stats();
@@ -1728,6 +1805,12 @@ void CharEditor::setAutoLevel(bool ans){autolevel=ans;}//used to turn off auto c
 bool CharEditor::AutoLevel(void){return autolevel;}
 void CharEditor::setAutoStatCalc(bool ans){autostatcalc=ans;}
 bool CharEditor::AutoStatCalc(void){return autostatcalc;}
+bool CharEditor::Debug(void){return debug;}
+void CharEditor::setDebug(bool new_debug)
+{
+debug = new_debug;
+unknown_box->setVisible(debug);
+}
 void CharEditor::setEditable(bool edit)
 {
     editable = edit;
