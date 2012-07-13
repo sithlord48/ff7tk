@@ -159,7 +159,6 @@ public slots:
     void setBaseHp(int);
     void setBaseMp(int);
     void setExp(int);
-
     void setExpNext(int);
     void setCurMp(int);
     void setCurHp(int);
