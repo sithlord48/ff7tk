@@ -467,6 +467,8 @@ void CharEditor::init_display()
 
     QGroupBox *stat_box= new QGroupBox;
     stat_box->setLayout(stat_layout);
+    stat_box->adjustSize();
+    stat_box->setFixedHeight(this->font().pointSize()*15);
 
     QLabel *lbl_0x34= new QLabel(QString(tr("0x34")));
     lcd_0x34 = new QLCDNumber;
@@ -527,6 +529,7 @@ void CharEditor::init_display()
 
     unknown_box = new QGroupBox;
     unknown_box->setLayout(unknown_layout);
+    unknown_box->setFixedHeight(stat_box->height());
     unknown_box->setVisible(false);
 
     QHBoxLayout *stat_layout_2 = new QHBoxLayout;
