@@ -15,9 +15,9 @@
 /****************************************************************************/
 #include "MateriaEditor.h"
 /* Path To Common Icons For Copy / Paste / Delete icon*/
-#include "static_data/icons/Common_Icons/copy.xpm"
-#include "static_data/icons/Common_Icons/paste.xpm"
-#include "static_data/icons/Common_Icons/quit.xpm"
+#include "../static_data/icons/Common_Icons/copy.xpm"
+#include "../static_data/icons/Common_Icons/paste.xpm"
+#include "../static_data/icons/Common_Icons/quit.xpm"
 
 MateriaEditor::MateriaEditor(QWidget *parent):QWidget(parent)
 {

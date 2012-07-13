@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>242</width>
-    <height>19</height>
+    <width>240</width>
+    <height>24</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -178,14 +178,25 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="cb_charEditor">
-            <property name="text">
-             <string>is Editable</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QCheckBox" name="cb_charEditor">
+              <property name="text">
+               <string>is Editable</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox">
+              <property name="text">
+               <string>Debug</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>

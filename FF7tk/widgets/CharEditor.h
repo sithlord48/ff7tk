@@ -32,12 +32,12 @@
 #include <QFrame>
 
 //set path to FF7Item FF7Materia and FF7Char
-#include "static_data/FF7Item.h"
-#include "static_data/FF7Materia.h"
-#include "static_data/FF7Char.h"
+#include "../static_data/FF7Item.h"
+#include "../static_data/FF7Materia.h"
+#include "../static_data/FF7Char.h"
 
-#include "static_data/Type_FF7CHAR.h"
-#include "widgets/MateriaEditor.h"
+#include "../static_data/Type_FF7CHAR.h"
+#include "MateriaEditor.h"
 
 class CharEditor : public QWidget
 {
@@ -48,6 +48,7 @@ public:
     bool AutoLevel();
     bool AutoStatCalc();
     bool Editable();
+    bool Debug();
     qint8 id();
     qint8 level();
     quint8 str();
@@ -168,6 +169,7 @@ public slots:
     void setAutoLevel(bool);
     void setAutoStatCalc(bool);
     void setEditable(bool);
+    void setDebug(bool);
     //void setZ_4(int,int);
 
 private slots:
@@ -345,6 +347,11 @@ private:
     QLabel *armor_m_link_3;
     QLabel *armor_m_link_4;
     QToolBox *toolbox;
+    QGroupBox *unknown_box;
+    QLCDNumber *lcd_0x34;
+    QLCDNumber *lcd_0x35;
+    QLCDNumber *lcd_0x36;
+    QLCDNumber *lcd_0x37;
 //Data
    FF7Char Chars;
    FF7Item Items;
@@ -354,6 +361,7 @@ private:
    bool autolevel;
    bool autostatcalc;
    bool editable;
+   bool debug;
    int mslotsel;//select materia slot
    qint32 ap;
 };

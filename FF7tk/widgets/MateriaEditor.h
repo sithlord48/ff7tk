@@ -27,7 +27,7 @@
 #include <QLCDNumber>
 
 /* SET FF7Materia PATH ACCORDINGLY*/
-#include "static_data/FF7Materia.h"
+#include "../static_data/FF7Materia.h"
 
 class MateriaEditor : public QWidget
 {

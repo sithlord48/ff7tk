@@ -1,7 +1,7 @@
 #ifndef TYPE_FF7CHAR_H
 #define TYPE_FF7CHAR_H
 
-#include "static_data/Type_materia.h"
+#include "Type_materia.h"
 
 
 struct FF7CHAR {        	// [0x0084] Character info -98% - 1 Unknown

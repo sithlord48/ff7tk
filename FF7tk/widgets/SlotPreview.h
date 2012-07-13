@@ -22,7 +22,7 @@
 #include <QtGui/QHBoxLayout>
 
 //set path to save icon class
-#include "static_data/SaveIcon.h"
+#include "../static_data/SaveIcon.h"
 
 class SlotPreview : public QWidget
 {

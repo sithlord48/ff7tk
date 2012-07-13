@@ -99,3 +99,5 @@ void MainWindow::on_pushButton_clicked()
     memcpy(&c_data,temp,132);
     char_editor->setChar(c_data,QString("Cloud"));
 }
+
+void MainWindow::on_checkBox_toggled(bool checked){char_editor->setDebug(checked);}
