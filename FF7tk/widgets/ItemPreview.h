@@ -25,7 +25,7 @@
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QListWidget>
 
-class ItemPreview : public QMenu
+class ItemPreview : public QWidget
 {
 Q_OBJECT
   public:
