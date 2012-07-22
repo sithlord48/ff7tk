@@ -50,6 +50,7 @@ public:
     bool Editable();
     bool Debug();
     void Slider_Limit_FF7_Style();
+    void MaxChar();
     qint8 id();
     qint8 level();
     quint8 str();
@@ -137,31 +138,6 @@ public slots:
     void setToolBoxStyle(QString);
 
 private slots:
-    void cb_fury_toggled(bool);
-    void cb_sadness_toggled(bool);
-    void cb_idChanger_toggled(bool);
-    void calc_limit_value(QModelIndex);
-    void Level_Changed(int);// used for tracking growth of char
-    void Exp_Changed(int);// used for tracking growth of char
-    void weapon_slot_1_clicked();
-    void weapon_slot_2_clicked();
-    void weapon_slot_3_clicked();
-    void weapon_slot_4_clicked();
-    void weapon_slot_5_clicked();
-    void weapon_slot_6_clicked();
-    void weapon_slot_7_clicked();
-    void weapon_slot_8_clicked();
-    void armor_slot_1_clicked();
-    void armor_slot_2_clicked();
-    void armor_slot_3_clicked();
-    void armor_slot_4_clicked();
-    void armor_slot_5_clicked();
-    void armor_slot_6_clicked();
-    void armor_slot_7_clicked();
-    void armor_slot_8_clicked();
-    void matAp_changed(qint32);
-    void matId_changed(qint8);
-private:
     void setId(int);
     void setLevel(int);
     void setStr(int);
@@ -198,6 +174,31 @@ private:
     void setMaxMp(int);
     void setMaxHp(int);
     void setKills(int);
+    void cb_fury_toggled(bool);
+    void cb_sadness_toggled(bool);
+    void cb_idChanger_toggled(bool);
+    void calc_limit_value(QModelIndex);
+    void Level_Changed(int);// used for tracking growth of char
+    void Exp_Changed(int);// used for tracking growth of char
+    void weapon_slot_1_clicked();
+    void weapon_slot_2_clicked();
+    void weapon_slot_3_clicked();
+    void weapon_slot_4_clicked();
+    void weapon_slot_5_clicked();
+    void weapon_slot_6_clicked();
+    void weapon_slot_7_clicked();
+    void weapon_slot_8_clicked();
+    void armor_slot_1_clicked();
+    void armor_slot_2_clicked();
+    void armor_slot_3_clicked();
+    void armor_slot_4_clicked();
+    void armor_slot_5_clicked();
+    void armor_slot_6_clicked();
+    void armor_slot_7_clicked();
+    void armor_slot_8_clicked();
+    void matAp_changed(qint32);
+    void matId_changed(qint8);
+private:
     void init_display(void);
     void init_connections(void);
     void calc_stats(void);//calc stat changes if autostatcalc == true;

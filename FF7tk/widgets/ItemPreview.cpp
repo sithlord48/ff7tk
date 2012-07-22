@@ -16,7 +16,7 @@
 
 #include "ItemPreview.h"
 
-ItemPreview::ItemPreview(QWidget *parent) :QMenu(parent)
+ItemPreview::ItemPreview(QWidget *parent) :QWidget(parent)
 {
   lbl_name=new QLabel();
   lbl_desc=new QLabel();
