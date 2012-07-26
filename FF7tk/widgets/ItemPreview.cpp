@@ -170,6 +170,15 @@ void ItemPreview::setName(QString text){lbl_name->setText(text);lbl_name->adjust
 void ItemPreview::setDesc(QString text){lbl_desc->setText(text);lbl_desc->adjustSize();}
 void ItemPreview::setIcon(QPixmap picture){lbl_icon->setPixmap(picture);lbl_icon->adjustSize();}
 
+void ItemPreview::setItem(quint16 itemraw)
+{//see FF7Save::itemDecode(quint16) for proper comments.
+    quint16 item;
+    int one = 1;
+    if (*(char *)&one){item=itemraw;}
+    else{item = ((itemraw & 0xFF) << 8) | ((itemraw >> 8) & 0xFF);}
+    int id = (item & 0x1FF);
+    setItem(id);
+}
 void ItemPreview::setItem(int id)
 {
     lbl_slot_8->setHidden(1);

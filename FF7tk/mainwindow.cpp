@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->dialog_preview_box->setHidden(1);
     ui->materia_editor_box->setHidden(1);
+    ui->item_selector_box->setHidden(1);
     ui->item_preview_box->setHidden(1);
     ui->char_editor_box->setHidden(1);
     ui->choco_editor_box->setHidden(1);
@@ -54,17 +55,18 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *choco_editor_layout = new QHBoxLayout();
     choco_editor_layout->addWidget(choco_editor);
     ui->choco_editor_box->setLayout(choco_editor_layout);
+
+    item_selector = new ItemSelector();
+    QHBoxLayout *item_selector_layout = new QHBoxLayout;
+    item_selector_layout->addWidget(item_selector);
+    ui->item_selector_box->setLayout(item_selector_layout);
+
+    connect(this->item_selector,SIGNAL(item_changed(quint16)),item_preview,SLOT(setItem(quint16)));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_btn_set_item_clicked()
-{
-    item_preview->setItem(ui->sb_item_id->value());
-    this->adjustSize();
 }
 
 void MainWindow::on_combo_widget_currentIndexChanged(int index)
@@ -74,12 +76,13 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->item_preview_box->setVisible(0);
     ui->char_editor_box->setVisible(0);
     ui->choco_editor_box->setVisible(0);
+    ui->item_selector_box->setVisible(0);
 
     switch(index)
     {
         case 1:ui->dialog_preview_box->setVisible(1); break;
         case 2:ui->materia_editor_box->setVisible(1); break;
-        case 3:ui->item_preview_box->setVisible(1); break;
+        case 3:ui->item_preview_box->setVisible(1); ui->item_selector_box->setVisible(1);break;
         case 4:ui->char_editor_box->setVisible(1); break;
         case 5:ui->choco_editor_box->setVisible(1); break;
     };
@@ -101,3 +104,4 @@ void MainWindow::on_pushButton_clicked()
 }
 
 void MainWindow::on_checkBox_toggled(bool checked){char_editor->setDebug(checked);}
+void MainWindow::on_sb_item_id_valueChanged(int arg1){item_preview->setItem(arg1);}

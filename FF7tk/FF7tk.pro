@@ -57,7 +57,8 @@ HEADERS += mainwindow.h \
     static_data/Type_materia.h \
     widgets/SlotSelect.h \
     static_data/SaveIcon.h \
-    widgets/ChocoboEditor.h
+    widgets/ChocoboEditor.h \
+    widgets/ItemSelector.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -74,4 +75,5 @@ SOURCES += main.cpp \
     widgets/CharEditor.cpp \
     widgets/SlotSelect.cpp \
     static_data/SaveIcon.cpp \
-    widgets/ChocoboEditor.cpp
+    widgets/ChocoboEditor.cpp \
+    widgets/ItemSelector.cpp
