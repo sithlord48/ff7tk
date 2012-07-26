@@ -27,6 +27,7 @@
 #include "widgets/ItemPreview.h"
 #include "widgets/CharEditor.h"
 #include "widgets/ChocoboEditor.h"
+#include "widgets/ItemSelector.h"
 
 namespace Ui {
     class MainWindow;
@@ -41,16 +42,13 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btn_set_item_clicked();
     void on_combo_widget_currentIndexChanged(int index);
     void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
     void on_cb_materia_editor_setEditable_toggled(bool checked);
-
     void on_cb_charEditor_clicked(bool checked);
-
     void on_pushButton_clicked();
-
     void on_checkBox_toggled(bool checked);
+    void on_sb_item_id_valueChanged(int arg1);
 
 private:
 
@@ -60,6 +58,7 @@ private:
     ItemPreview *item_preview;
     CharEditor *char_editor;
     ChocoboEditor *choco_editor;
+    ItemSelector *item_selector;
 };
 
 #endif // MAINWINDOW_H

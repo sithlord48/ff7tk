@@ -30,6 +30,8 @@ class ItemPreview : public QWidget
 Q_OBJECT
   public:
     ItemPreview(QWidget *parent=0);
+  public slots:
+    void setItem(quint16);
     void setItem(int);
   private:
     void setName(QString);
