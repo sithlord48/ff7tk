@@ -20,6 +20,7 @@ signals:
 
 public slots:
     void setCurrentItem(quint16 ff7item);
+    void setCurrentItem(int id,int qty);
 private slots:
     void setFilter(int type);
     void comboItem_changed(int index);

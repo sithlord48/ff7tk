@@ -59,11 +59,7 @@ void ItemSelector::init_data()
     combo_type->addItem(Items.Icon(242),tr("Guns"));
 
     //Fill Combo_Item
-    for(int i=0;i<320;i++)
-    {if(i==105){i=128;}
-        combo_item->addItem(Items.Icon(i),Items.Name(i));
-    }
-    for(int i=128;i<320;i++){combo_item->addItem(Items.Icon(i),Items.Name(i));}
+    for(int i=0;i<320;i++){combo_item->addItem(Items.Icon(i),Items.Name(i));}
     combo_item->setCurrentIndex(-1);
     current_item=0xFFFF;
 }
@@ -95,11 +91,7 @@ void ItemSelector::setFilter(int type)
                 combo_item->addItem(Items.Icon(i),Items.Name(i));
             }
         }
-        else
-        {
-            if(i==105){i=128;}//Skip the Don't Use items
-            combo_item->addItem(Items.Icon(i),Items.Name(i));
-        }
+        else{combo_item->addItem(Items.Icon(i),Items.Name(i));}
     }
     current_item = itemEncode(id,itemQty(current_item));
     if(current_item != 0xFFFF){combo_item->setCurrentIndex(combo_item->findText(Items.Name(itemId(current_item))));}
@@ -125,16 +117,23 @@ void ItemSelector::comboItem_changed(int index)
         case 11: offset=229; break;
         case 12: offset=242; break;
     }
-    if(combo_type->currentIndex()==0)
-    {//fix the index for skiped "don't use" entries
-        if(index>104){index+=23;}
-    }
     if(index+offset != itemId(current_item))
     {
         current_item=itemEncode(index+offset,itemQty(current_item));
         emit(item_changed(current_item));
     //    QMessageBox::information(this,"Id_Change",QString("Id:%1").arg(QString::number(itemId(current_item))));
     }
+}
+void ItemSelector::setCurrentItem(int id,int qty)
+{
+    if(id<0 || id >319 || qty <0 || qty >127){return;}
+    this->blockSignals(true);
+    combo_type->setCurrentIndex(0);
+    combo_item->setCurrentIndex(id);
+    sb_qty->setValue(qty);
+    current_item=itemEncode(id,qty);
+    this->blockSignals(false);
+
 }
 void ItemSelector::setCurrentItem(quint16 ff7item)
 {
