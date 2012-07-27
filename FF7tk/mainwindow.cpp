@@ -104,4 +104,4 @@ void MainWindow::on_pushButton_clicked()
 }
 
 void MainWindow::on_checkBox_toggled(bool checked){char_editor->setDebug(checked);}
-void MainWindow::on_sb_item_id_valueChanged(int arg1){item_preview->setItem(arg1);}
+void MainWindow::on_sb_item_id_valueChanged(int arg1){item_selector->setCurrentItem(arg1);item_preview->setItem(arg1);}
