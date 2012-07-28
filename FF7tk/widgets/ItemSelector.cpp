@@ -12,17 +12,19 @@ ItemSelector::ItemSelector(QWidget *parent) :
 void ItemSelector::init_display()
 {
     combo_type = new QComboBox;
-    combo_type->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
+    combo_type->setFixedWidth(40);
 
     combo_item = new QComboBox;
+
     sb_qty = new QSpinBox;
-    sb_qty->setFixedSize(this->font().pointSize()*5,24);
+    sb_qty->setFixedWidth(this->font().pointSize()*5);
+    sb_qty->setAlignment(Qt::AlignCenter);
     sb_qty->setMaximum(127);
 
     btn_remove = new QPushButton;
     btn_remove->setIcon(QIcon(QPixmap(quit_xpm)));
-    btn_remove->setFixedSize(24,24);
-    btn_remove->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    btn_remove->setToolTip(tr("Empty Item"));
+    btn_remove->setFixedSize(22,22);
 
     init_data(); //before setting layout set data.
     QHBoxLayout *layout = new QHBoxLayout;
@@ -33,6 +35,8 @@ void ItemSelector::init_display()
     layout->addWidget(sb_qty);
     layout->addWidget(btn_remove);
     this->setLayout(layout);
+    this->setFixedHeight(22);
+    this->adjustSize();
 }
 void ItemSelector::init_connections()
 {
@@ -43,34 +47,34 @@ void ItemSelector::init_connections()
 }
 void ItemSelector::init_data()
 {
-    //Fill Combo_Type
-    combo_type->addItem(tr("No Filter"));
-    combo_type->addItem(Items.Icon(1),tr("Items"));
-    combo_type->addItem(Items.Icon(256),tr("Armor"));
-    combo_type->addItem(Items.Icon(288),tr("Accessories"));
-    combo_type->addItem(Items.Icon(128),tr("Swords"));
-    combo_type->addItem(Items.Icon(160),tr("GunArms"));
-    combo_type->addItem(Items.Icon(144),tr("Gloves"));
-    combo_type->addItem(Items.Icon(176),tr("Clips"));
-    combo_type->addItem(Items.Icon(190),tr("Staves"));
-    combo_type->addItem(Items.Icon(201),tr("Spears"));
-    combo_type->addItem(Items.Icon(215),tr("Shrukens"));
-    combo_type->addItem(Items.Icon(229),tr("MegaPhones"));
-    combo_type->addItem(Items.Icon(242),tr("Guns"));
+    combo_type->addItem(Items.Icon(1),tr(""));
+    combo_type->addItem(Items.Icon(256),tr(""));
+    combo_type->addItem(Items.Icon(288),tr(""));
+    combo_type->addItem(Items.Icon(128),tr(""));
+    combo_type->addItem(Items.Icon(160),tr(""));
+    combo_type->addItem(Items.Icon(144),tr(""));
+    combo_type->addItem(Items.Icon(176),tr(""));
+    combo_type->addItem(Items.Icon(190),tr(""));
+    combo_type->addItem(Items.Icon(201),tr(""));
+    combo_type->addItem(Items.Icon(215),tr(""));
+    combo_type->addItem(Items.Icon(229),tr(""));
+    combo_type->addItem(Items.Icon(242),tr(""));
 
-    //Fill Combo_Item
+    //Fill Combo_Item (all items type is 0 or no filter defalut)
     for(int i=0;i<320;i++){combo_item->addItem(Items.Icon(i),Items.Name(i));}
+    combo_type->setCurrentIndex(-1);
     combo_item->setCurrentIndex(-1);
     current_item=0xFFFF;
 }
 void ItemSelector::btn_remove_clicked()
 {
     combo_item->blockSignals(true);
-    combo_type->setCurrentIndex(0);
+    combo_type->setCurrentIndex(-1);
     combo_item->setCurrentIndex(-1);
     combo_item->blockSignals(false);
 
     sb_qty->blockSignals(true);
+    sb_qty->setValue(-1);
     sb_qty->clear();
     sb_qty->blockSignals(false);
 
@@ -79,6 +83,9 @@ void ItemSelector::btn_remove_clicked()
 }
 void ItemSelector::setFilter(int type)
 {
+    //for hiding no filter.
+    type++;
+
     int id = itemId(current_item);
     combo_item->blockSignals(true);
     combo_item->clear();
@@ -100,23 +107,7 @@ void ItemSelector::setFilter(int type)
 }
 void ItemSelector::comboItem_changed(int index)
 {
-    int offset = 0;
-    switch(combo_type->currentIndex())
-    {//set offset for type.
-        case 0: offset =0; break;
-        case 1: offset =0; break;
-        case 2: offset =256; break;
-        case 3: offset =288; break;
-        case 4: offset =128; break;
-        case 5: offset =160; break;
-        case 6: offset =144; break;
-        case 7: offset =176; break;
-        case 8: offset =190; break;
-        case 9: offset =201; break;
-        case 10: offset=215; break;
-        case 11: offset=229; break;
-        case 12: offset=242; break;
-    }
+    int offset = type_offset(combo_type->currentIndex()+1);
     if(index+offset != itemId(current_item))
     {
         current_item=itemEncode(index+offset,itemQty(current_item));
@@ -126,20 +117,36 @@ void ItemSelector::comboItem_changed(int index)
 }
 void ItemSelector::setCurrentItem(int id,int qty)
 {
-    if(id<0 || id >319 || qty <0 || qty >127){return;}
+
+    if(id<0 || id >319 || qty <0 || qty >127){if(id!=0x1FF){return;}}
     this->blockSignals(true);
-    combo_type->setCurrentIndex(0);
-    combo_item->setCurrentIndex(id);
-    sb_qty->setValue(qty);
-    current_item=itemEncode(id,qty);
+    if(id == 0x1FF)
+    {
+        btn_remove->blockSignals(true);
+        btn_remove_clicked();
+        btn_remove->blockSignals(false);
+    }
+    else
+    {
+        combo_type->setCurrentIndex(Items.Type(id)-1);
+        combo_item->setCurrentIndex(id-type_offset(Items.Type(id)));
+        sb_qty->setValue(qty);
+        current_item=itemEncode(id,qty);
+    }
     this->blockSignals(false);
 
 }
 void ItemSelector::setCurrentItem(quint16 ff7item)
 {
     this->blockSignals(true);
-    combo_type->setCurrentIndex(0);
-    combo_item->setCurrentIndex(itemId(ff7item));
+    if(ff7item == 0xFFFF)
+    {
+        btn_remove->blockSignals(true);
+        btn_remove_clicked();
+        btn_remove->blockSignals(false);
+    }
+    combo_type->setCurrentIndex(Items.Type(itemId(ff7item))-1);
+    combo_item->setCurrentIndex(itemId(ff7item) - type_offset(Items.Type(itemId(ff7item))));
     sb_qty->setValue(itemQty(ff7item));
     current_item=ff7item;
     this->blockSignals(false);
@@ -190,4 +197,27 @@ quint8 ItemSelector::itemQty(quint16 item)
     quint8 qty;
     qty = (new_item & 0xFE00) >> 9;
     return qty;
+}
+
+int ItemSelector::type_offset(int type)
+{
+    int offset = 0;
+    switch(type)
+    {//set offset for type.
+        case 0: offset =0; break;
+        case 1: offset =0; break;
+        case 2: offset =256; break;
+        case 3: offset =288; break;
+        case 4: offset =128; break;
+        case 5: offset =160; break;
+        case 6: offset =144; break;
+        case 7: offset =176; break;
+        case 8: offset =190; break;
+        case 9: offset =201; break;
+        case 10: offset=215; break;
+        case 11: offset=229; break;
+        case 12: offset=242; break;
+        default: offset= -1; break;//ERROR INVALID TYPE.
+    }
+    return offset;
 }
