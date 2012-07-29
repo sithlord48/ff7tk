@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->item_preview_box->setHidden(1);
     ui->char_editor_box->setHidden(1);
     ui->choco_editor_box->setHidden(1);
+    ui->item_list_box->setHidden(1);
 
     dialog_preview= new DialogPreview();
     QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
@@ -61,6 +62,11 @@ MainWindow::MainWindow(QWidget *parent) :
     item_selector_layout->addWidget(item_selector);
     ui->item_selector_box->setLayout(item_selector_layout);
 
+    item_list = new ItemList;
+    QHBoxLayout *item_list_layout = new QHBoxLayout;
+    item_list_layout->addWidget(item_list);
+    ui->item_list_box->setLayout(item_list_layout);
+
     connect(this->item_selector,SIGNAL(item_changed(quint16)),item_preview,SLOT(setItem(quint16)));
 }
 
@@ -77,6 +83,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->char_editor_box->setVisible(0);
     ui->choco_editor_box->setVisible(0);
     ui->item_selector_box->setVisible(0);
+    ui->item_list_box->setVisible(0);
 
     switch(index)
     {
@@ -85,6 +92,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 3:ui->item_preview_box->setVisible(1); ui->item_selector_box->setVisible(1);break;
         case 4:ui->char_editor_box->setVisible(1); break;
         case 5:ui->choco_editor_box->setVisible(1); break;
+        case 6:ui->item_list_box->setVisible(1);break;
     };
     this->adjustSize();
 }
