@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>230</width>
-    <height>19</height>
+    <width>228</width>
+    <height>23</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -51,6 +51,11 @@
       <item>
        <property name="text">
         <string>ChocoboEditor</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ItemList</string>
        </property>
       </item>
      </widget>
@@ -222,6 +227,13 @@
     </item>
     <item>
      <widget class="QGroupBox" name="choco_editor_box">
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="item_list_box">
       <property name="title">
        <string/>
       </property>

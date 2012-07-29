@@ -28,7 +28,7 @@
 #include "widgets/CharEditor.h"
 #include "widgets/ChocoboEditor.h"
 #include "widgets/ItemSelector.h"
-
+#include "widgets/ItemList.h"
 namespace Ui {
     class MainWindow;
 }
@@ -59,6 +59,7 @@ private:
     CharEditor *char_editor;
     ChocoboEditor *choco_editor;
     ItemSelector *item_selector;
+    ItemList *item_list;
 };
 
 #endif // MAINWINDOW_H
