@@ -21,13 +21,9 @@
 
 #include <QMainWindow>
 #include "widgets/DialogPreview.h"
-#include "widgets/SlotPreview.h"
-
 #include "widgets/MateriaEditor.h"
-#include "widgets/ItemPreview.h"
 #include "widgets/CharEditor.h"
 #include "widgets/ChocoboEditor.h"
-#include "widgets/ItemSelector.h"
 #include "widgets/ItemList.h"
 namespace Ui {
     class MainWindow;
@@ -48,17 +44,13 @@ private slots:
     void on_cb_charEditor_clicked(bool checked);
     void on_pushButton_clicked();
     void on_checkBox_toggled(bool checked);
-    void on_sb_item_id_valueChanged(int arg1);
-
 private:
 
     Ui::MainWindow *ui;
     DialogPreview *dialog_preview;
     MateriaEditor *materia_editor;
-    ItemPreview *item_preview;
     CharEditor *char_editor;
     ChocoboEditor *choco_editor;
-    ItemSelector *item_selector;
     ItemList *item_list;
 };
 
