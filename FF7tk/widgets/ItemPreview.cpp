@@ -13,11 +13,14 @@
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-
 #include "ItemPreview.h"
 
-ItemPreview::ItemPreview(QWidget *parent) :QWidget(parent)
+ItemPreview::ItemPreview(QWidget *parent,QFlags<Qt::WindowType> WindowFlags) :QWidget(parent)
 {
+  //keep window flag of Qt:Popup untill we figure out how to destroy tooltips
+  //Possibly with an event filter or type, check Qtooltip code to see how they do it.
+  setWindowFlags(WindowFlags);
+  _id=0x1FF;
   lbl_name=new QLabel();
   lbl_desc=new QLabel();
   lbl_icon=new QLabel();
@@ -202,9 +205,10 @@ void ItemPreview::setItem(int id)
     status_box->setHidden(1);
     elemental_box->setHidden(1);
 
-    if(id<0 || id>319){/*InValid Number..Do Nothing*/}
+    if(id<0 || id>319){_id=0x1FF;/*InValid Number..Do Nothing*/}
     else
     {
+        _id=id;
         if(data.Name(id) !="")
         {
             lbl_name->setHidden(0);
@@ -224,7 +228,7 @@ void ItemPreview::setItem(int id)
         this->status_info(id);
         this->elemental_info(id);
 
-        if(data.Type(id)>1 && data.Type(id)<12)
+        if(data.Type(id)>1 && data.Type(id)!=3)
         {
             if(data.m_growth_rate(id)==0)
             {//no growth slots
@@ -315,11 +319,16 @@ void ItemPreview::elemental_info(int id)
             if(!effect.isNull())
             {
                 elemental_effects->addItem(effect);
-                show=true; y+=this->font().pointSize()*2;
+                show=true; y+=this->font().pointSize()*1.90;
             }
         }//end of for Loop
-        if(elemental_effects->count()<6){elemental_box->setFixedSize(160,y);}
-        else{elemental_box->setFixedSize(160,(this->font().pointSize()*2)*5);}
+       // if(this->windowFlags() !=Qt::Popup && this->windowFlags() !=Qt::ToolTip)
+       // {//make the combo box smaller if not a popup or tooltip
+       //     if(elemental_effects->count()<6){elemental_box->setFixedSize(160,y);}
+       //     else{elemental_box->setFixedSize(160,(this->font().pointSize()*2)*5);}
+       // }
+       // else{elemental_box->setFixedSize(160,y);}
+        elemental_box->setFixedSize(160,y);
    }//end of else
    elemental_box->setVisible(show);
    elemental_box->adjustSize();
@@ -374,12 +383,19 @@ void ItemPreview::status_info(int id)
             if(!effect.isNull())
             {
                 status_effects->addItem(effect);
-                show=true; y+=18;
+                show=true; y+=this->font().pointSize()*1.90;
             }
         }//end of for Loop
-        if(status_effects->count()<6){status_box->setFixedSize(160,y);}
-        else{status_box->setFixedSize(160,(this->font().pointSize()*2)*5);}
+        //if(this->windowFlags() == Qt::Popup || this->windowFlags() ==Qt::ToolTip)
+        //{status_box->setFixedSize(160,y);}
+        //else
+        //{//make the combo box smaller if not a popup or tooltip
+        //    if(status_effects->count()<6){status_box->setFixedSize(160,y);}
+        //    else{status_box->setFixedSize(160,(this->font().pointSize()*2)*5);}
+        //}
+        status_box->setFixedSize(160,y);
     }//end of else
     status_box->setVisible(show);
     status_box->adjustSize();
 }//end of function
+int ItemPreview::id(void){return _id;}
