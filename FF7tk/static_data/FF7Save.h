@@ -21,6 +21,11 @@
 #include <QObject>
 #include<QColor>
 #include <cstdlib>
+#include <QFileInfo>
+#include <QDateTime>
+#include <QVector>
+#include <QtXml/QDomDocument>
+
 class FF7Save{
 
 public:
@@ -41,8 +46,12 @@ public:
   void New_Game_Plus(int s,QString CharFileName,QString fileName="");//new game + in slot s (over load default w/ fileName must be RAW PSX
   bool exportChar(int s,int char_num,QString fileName);// Write slot[s].char[char_num] to fileName
   void importChar(int s,int char_num,QByteArray new_char);//import new_char to slot[s].char[char_num]
-  QString md5sum(QString fileName,QString UserID);
+
+  typedef QVector< QString > SubContainer;
+  QVector< SubContainer >  parsexml(QString fileName,QString metadataPath,QString UserID);
+  QVector< SubContainer >  CreateMetadata(QString fileName, QString UserID);
   //Set/Get Data Parts.
+  bool FixMetaData(QString fileName="",QString OutPath="",QString UserID="");
   quint16 battlePoints(int s);
   void setBattlePoints(int s,quint16);
   quint16 item(int s,int item_num); //return raw ff7item
@@ -233,7 +242,12 @@ public:
   int len_slot_footer(void);//Return slot footer length
   int len_slot(void);//Return Slot length
   int number_slots(void);//Return number of slots in the file_footer_dex
+  QString fileName(void);//return loaded filename
   QString type(void);// Returns the file type loaded.
+  void FileModified(bool,int s);//file changed toggle, with slot called
+  bool isFileModified(void);//has the file changed since load
+  bool isSlotModified(int s);//has slot[s] changed since load.
+  bool isSlotEmpty(int s);//is Slot s empty
   bool isFF7(int s);//valid ff7 slot?
   bool isPAL(int s);//PAL SLOT?
   bool isNTSC(int s);//NTSC SLOT??
@@ -272,7 +286,10 @@ private:
   FF7SLOT buffer_slot;// hold a buffer slot
   QString buffer_region; // hold the buffers region data.
   QString SG_Region_String[15];
+  QString filename;//opened file;
   FF7TEXT Text;
+  bool fileChanged;
+  bool slotChanged[15];
   int SG_SIZE;
   int SG_HEADER;
   int SG_FOOTER;
@@ -283,6 +300,7 @@ private:
   int SG_SLOT_NUMBER;
   QString SG_TYPE;
   //private functions
+  QString md5sum(QString fileName,QString UserID);
   void fix_sum(const QString &fileName);
   int ff7__checksum(void * qw );
   void fix_psv_header(void);
