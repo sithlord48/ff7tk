@@ -79,3 +79,5 @@ SOURCES += main.cpp \
     widgets/ChocoboEditor.cpp \
     widgets/ItemSelector.cpp \
     widgets/ItemList.cpp
+
+QT +=xml
