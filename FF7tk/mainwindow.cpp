@@ -29,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->char_editor_box->setHidden(1);
     ui->choco_editor_box->setHidden(1);
     ui->item_list_box->setHidden(1);
+    ui->metadata_box->setHidden(1);
+
 
     dialog_preview= new DialogPreview();
     QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
@@ -68,6 +70,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->char_editor_box->setVisible(0);
     ui->choco_editor_box->setVisible(0);
     ui->item_list_box->setVisible(0);
+    ui->metadata_box->setVisible(0);
 
     switch(index)
     {
@@ -76,6 +79,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 3:ui->item_list_box->setVisible(1);break;
         case 4:ui->char_editor_box->setVisible(1); break;
         case 5:ui->choco_editor_box->setVisible(1); break;
+        case 6:ui->metadata_box->setVisible(1);break;
     };
     this->adjustSize();
 }
@@ -84,6 +88,7 @@ void MainWindow::on_sb_materia_editor_setStarSize_valueChanged(int size){materia
 void MainWindow::on_cb_materia_editor_setEditable_toggled(bool checked){materia_editor->setEditable(checked);}
 
 void MainWindow::on_cb_charEditor_clicked(bool checked){char_editor->setEditable(checked);}
+void MainWindow::on_checkBox_toggled(bool checked){char_editor->setDebug(checked);}
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -94,4 +99,10 @@ void MainWindow::on_pushButton_clicked()
     char_editor->setChar(c_data,QString("Cloud"));
 }
 
-void MainWindow::on_checkBox_toggled(bool checked){char_editor->setDebug(checked);}
+
+void MainWindow::on_btn_showmetaData_clicked()
+{
+    FF7Save *ff7save = new FF7Save;
+    MetadataCreator Dialog(this,ff7save);
+    Dialog.exec();
+}

@@ -59,7 +59,8 @@ HEADERS += mainwindow.h \
     static_data/SaveIcon.h \
     widgets/ChocoboEditor.h \
     widgets/ItemSelector.h \
-    widgets/ItemList.h
+    widgets/ItemList.h \
+    widgets/MetadataCreator.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -78,6 +79,7 @@ SOURCES += main.cpp \
     static_data/SaveIcon.cpp \
     widgets/ChocoboEditor.cpp \
     widgets/ItemSelector.cpp \
-    widgets/ItemList.cpp
+    widgets/ItemList.cpp \
+    widgets/MetadataCreator.cpp
 
 QT +=xml
