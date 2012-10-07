@@ -25,6 +25,8 @@
 #include "widgets/CharEditor.h"
 #include "widgets/ChocoboEditor.h"
 #include "widgets/ItemList.h"
+#include "widgets/MetadataCreator.h"
+
 namespace Ui {
     class MainWindow;
 }
@@ -44,6 +46,8 @@ private slots:
     void on_cb_charEditor_clicked(bool checked);
     void on_pushButton_clicked();
     void on_checkBox_toggled(bool checked);
+    void on_btn_showmetaData_clicked();
+
 private:
 
     Ui::MainWindow *ui;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>224</width>
-    <height>17</height>
+    <width>220</width>
+    <height>22</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -51,6 +51,11 @@
       <item>
        <property name="text">
         <string>ChocoboEditor</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>MetaData Creator</string>
        </property>
       </item>
      </widget>
@@ -169,6 +174,25 @@
       <property name="title">
        <string/>
       </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="metadata_box">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="btn_showmetaData">
+         <property name="text">
+          <string>Show Dialog</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
