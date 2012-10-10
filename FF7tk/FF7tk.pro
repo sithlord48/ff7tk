@@ -60,7 +60,7 @@ HEADERS += mainwindow.h \
     widgets/ChocoboEditor.h \
     widgets/ItemSelector.h \
     widgets/ItemList.h \
-    widgets/MetadataCreator.h
+    widgets/MetadataCreator.h \
     utils/LZS.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
@@ -81,7 +81,7 @@ SOURCES += main.cpp \
     widgets/ChocoboEditor.cpp \
     widgets/ItemSelector.cpp \
     widgets/ItemList.cpp \
-    widgets/MetadataCreator.cpp
+    widgets/MetadataCreator.cpp \
     utils/LZS.cpp
 
 QT +=xml
