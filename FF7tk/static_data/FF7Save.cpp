@@ -146,7 +146,7 @@ QByteArray FF7Save::slotPsxRawData(int s)
     {
         QByteArray temp;
         temp.append(slotHeader(s));
-        temp.append(slotRawData(s));
+        temp.append(slotFF7Data(s));
         temp.append(slotFooter(s));
         return temp;
     }
@@ -162,7 +162,7 @@ bool FF7Save::setSlotPsxRawData(int s, QByteArray data)
 
     temp.clear();
     temp.append(data.mid(SG_SLOT_HEADER,sizeof(slot[s])));
-    if(setslotRawData(s,temp)){}
+    if(setSlotFF7Data(s,temp)){}
     else{return false;}
 
     temp.clear();
@@ -205,7 +205,7 @@ bool FF7Save::Export_PC(const QString &fileName)
     QString prev_type = SG_TYPE;
     if(SG_TYPE !="PC")
     {
-      /*RESET CONTROLLS LATER WHEN IMPLIMENTED!!!*/
+      for(int i=0;i<15;i++){if(isFF7(i)){setControlMode(i,CONTROL_NORMAL);}}
       setType("PC");
       // Add File Header
       for(int i=0;i<9;i++){file_header_pc[i]= PC_SAVE_GAME_FILE_HEADER[i];}
@@ -239,8 +239,8 @@ bool FF7Save::Export_PSX(int s,const QString &fileName)
     QString prev_type = SG_TYPE;
     if(SG_TYPE != "PSX")
     {
-        /*RESET CONTROLLS LATER WHEN IMPLIMENTED!!!*/
-        setType("PSX");
+       if(isFF7(s)){setControlMode(s,CONTROL_NORMAL);}
+       setType("PSX");
     }
     if(fileName.contains("00867") || fileName.contains("00869") ||
        fileName.contains("00900") || fileName.contains("94163") ||
@@ -286,7 +286,7 @@ bool FF7Save::Export_VMC(const QString &fileName)
   QString prev_type = SG_TYPE;
   if(SG_TYPE != "MC")
   {
-    /* RESET CONTROLS LATER WHEN IMPLIMENTED!!!!!!*/
+    for(int i=0;i<15;i++){if(isFF7(i)){setControlMode(i,CONTROL_NORMAL);}}
     setType("MC");
   }
   fix_vmc_header();
@@ -307,7 +307,7 @@ bool FF7Save::Export_VGS(const QString &fileName)
   QString prev_type = SG_TYPE;
   if(SG_TYPE != "VGS")
   {
-    /* RESET CONTROLS LATER WHEN IMPLIMENTED!!!!!!*/
+     for(int i=0;i<15;i++){if(isFF7(i)){setControlMode(i,CONTROL_NORMAL);}}
     setType("VGS");//fill the Header With The Needed Default
     file_header_vgs[0] =0x56;
     file_header_vgs[1] =0x67;
@@ -335,7 +335,7 @@ bool FF7Save::Export_DEX(const QString &fileName)
   QString prev_type = SG_TYPE;
   if(SG_TYPE != "DEX")
   {
-    /* RESET CONTROLS LATER WHEN IMPLIMENTED!!!!!!*/
+      for(int i=0;i<15;i++){if(isFF7(i)){setControlMode(i,CONTROL_NORMAL);}}
       setType("DEX");
     //default header..
     file_header_dex[0]=0x31;
@@ -2324,20 +2324,28 @@ QString FF7Save::filetimestamp(QString fileName)
     if(tempFile.exists()){QFileInfo file(fileName); return QString::number(file.lastModified().toMSecsSinceEpoch());}
     else {return "";}
 }
-QByteArray FF7Save::slotRawData(int s)
+QByteArray FF7Save::slotFF7Data(int s)
 {
     if(s<0 || s>14){return QByteArray(0x00);}
     QByteArray temp;
     temp.setRawData(reinterpret_cast<char *>(&slot[s]),sizeof(slot[s]));
     return temp;
 }
-bool FF7Save::setslotRawData(int s,QByteArray data)
+bool FF7Save::setSlotFF7Data(int s,QByteArray data)
 {
     if(s<0 || s>14){return false;}
     if(data.size()!=sizeof(slot[s])){return false;}
     memcpy(&slot[s],data,sizeof(slot[s]));
     return true;
 }
+
+bool FF7Save::setSlotFF7Data(int s,FF7SLOT data)
+{
+    if(s<0 || s>14){return false;}
+    slot[s] = data;
+    return true;
+}
+
 QByteArray FF7Save::UnknownVar(int s,int z)
 {
     if(s<0 || s>14){return QByteArray(0x00);}
