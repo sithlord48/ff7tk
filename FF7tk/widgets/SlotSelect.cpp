@@ -62,14 +62,14 @@ void SlotSelect::remove_slot(QString btn_text)
         for (int i=0;  i<size; i++)
         {
             int t=ff7->psx_block_next(s);
-            ff7->clearslot(s);
+            ff7->clearSlot(s);
             ReIntSlot(s);
             s=t;
         }
     }
     else
     {
-        ff7->clearslot(s);
+        ff7->clearSlot(s);
         ReIntSlot(s);
     }
 }
@@ -77,7 +77,7 @@ void SlotSelect::copy_slot(QString btn_text)
 {
     btn_text.remove(0,5);
     int s = btn_text.toInt()-1;
-    if(ff7->isFF7(s)){ff7->CopySlot(s);}
+    if(ff7->isFF7(s)){ff7->copySlot(s);}
     //Can't Copy Non FF7 Slots Since we don't modify their region data
     else{/*NOT FF7 SAVE INGORE*/}
 }
@@ -94,13 +94,13 @@ void SlotSelect::paste_slot(QString btn_text)
         for(int i=0;i<size;i++)
         {
             int t=ff7->psx_block_next(s);
-            ff7->clearslot(s);
+            ff7->clearSlot(s);
             ReIntSlot(s);
             s=t;
         }
        s=old_s;
     }
-    ff7->PasteSlot(s);
+    ff7->pasteSlot(s);
     ReIntSlot(s);
 }
 
