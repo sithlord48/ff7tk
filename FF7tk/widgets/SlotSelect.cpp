@@ -34,26 +34,14 @@ SlotSelect::SlotSelect(QWidget *parent,FF7Save *data):QDialog(parent)
 }
 void SlotSelect::button_clicked(QString btn_text)
 {
-    if(btn_text == QString(tr("Slot:1"))){done(0);}
-    else if(btn_text == QString(tr("Slot:2"))){done(1);}
-    else if(btn_text == QString(tr("Slot:3"))){done(2);}
-    else if(btn_text == QString(tr("Slot:4"))){done(3);}
-    else if(btn_text == QString(tr("Slot:5"))){done(4);}
-    else if(btn_text == QString(tr("Slot:6"))){done(5);}
-    else if(btn_text == QString(tr("Slot:7"))){done(6);}
-    else if(btn_text == QString(tr("Slot:8"))){done(7);}
-    else if(btn_text == QString(tr("Slot:9"))){done(8);}
-    else if(btn_text == QString(tr("Slot:10"))){done(9);}
-    else if(btn_text == QString(tr("Slot:11"))){done(10);}
-    else if(btn_text == QString(tr("Slot:12"))){done(11);}
-    else if(btn_text == QString(tr("Slot:13"))){done(12);}
-    else if(btn_text == QString(tr("Slot:14"))){done(13);}
-    else if(btn_text == QString(tr("Slot:15"))){done(14);}
-    else{this->done(0);}
+
+    btn_text.remove(0,QString(tr("Slot:")).length());
+    this->done(btn_text.toInt()-1);
 }
+
 void SlotSelect::remove_slot(QString btn_text)
 {
-    btn_text.remove(0,5);
+    btn_text.remove(0,QString(tr("Slot:")).length());
     int s = btn_text.toInt()-1;
     if(ff7->type()!="PC")
     {
@@ -75,16 +63,16 @@ void SlotSelect::remove_slot(QString btn_text)
 }
 void SlotSelect::copy_slot(QString btn_text)
 {
-    btn_text.remove(0,5);
+    btn_text.remove(0,QString(tr("Slot:")).length());
     int s = btn_text.toInt()-1;
     if(ff7->isFF7(s)){ff7->copySlot(s);}
-    //Can't Copy Non FF7 Slots Since we don't modify their region data
+    //don't Copy Non FF7 Slots Since we don't modify their region data
     else{/*NOT FF7 SAVE INGORE*/}
 }
 
 void SlotSelect::paste_slot(QString btn_text)
 {
-    btn_text.remove(0,5);
+    btn_text.remove(0,QString(tr("Slot:")).length());
     int s = btn_text.toInt()-1;
     if(ff7->psx_block_type(s)==FF7Save::BLOCK_MIDLINK || ff7->psx_block_type(s)==FF7Save::BLOCK_ENDLINK){return;}//Don't Overwrite parts of other saves.
     if( (!ff7->isFF7(s)) && (ff7->type()!="PC") && (ff7->psx_block_size(s)>1))
