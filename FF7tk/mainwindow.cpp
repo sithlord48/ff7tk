@@ -17,6 +17,7 @@
 //    This Demo Program Just Shows Widgets For Easier Testing               //
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "QFileDialog"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->choco_editor_box->setHidden(1);
     ui->item_list_box->setHidden(1);
     ui->metadata_box->setHidden(1);
-
+    ui->slotSelect_Box->setHidden(1);
 
     dialog_preview= new DialogPreview();
     QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
@@ -71,6 +72,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->choco_editor_box->setVisible(0);
     ui->item_list_box->setVisible(0);
     ui->metadata_box->setVisible(0);
+    ui->slotSelect_Box->setVisible(0);
 
     switch(index)
     {
@@ -80,13 +82,13 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 4:ui->char_editor_box->setVisible(1); break;
         case 5:ui->choco_editor_box->setVisible(1); break;
         case 6:ui->metadata_box->setVisible(1);break;
+        case 7:ui->slotSelect_Box->setVisible(1);break;
     };
     this->adjustSize();
 }
 
 void MainWindow::on_sb_materia_editor_setStarSize_valueChanged(int size){materia_editor->setStarsSize(size);}
 void MainWindow::on_cb_materia_editor_setEditable_toggled(bool checked){materia_editor->setEditable(checked);}
-
 void MainWindow::on_cb_charEditor_clicked(bool checked){char_editor->setEditable(checked);}
 void MainWindow::on_checkBox_toggled(bool checked){char_editor->setDebug(checked);}
 
@@ -102,7 +104,19 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_btn_showmetaData_clicked()
 {
-    FF7Save *ff7save = new FF7Save;
     MetadataCreator Dialog(this,ff7save);
     Dialog.exec();
+}
+
+void MainWindow::on_btn_slotSelect_clicked()
+{
+    FF7Save *ff7save = new FF7Save;
+    QString fileFilter("Multi Slot Save Types (*.ff7 *.vmp *.vgs *.mem *.gme *.mcr *.mcd *.mci *.mc *.ddf *.ps *.psm *.VM1 *.bin);;PC FF7 SaveGame (*.ff7);;Raw PSX FF7 SaveGame (*-S*);;MC SaveGame (*.mcr *.mcd *.mci *.mc *.ddf *.ps *.psm *.VM1 *.bin);;PSP SaveGame (*.vmp);;VGS SaveGame(*.vgs *.mem);;Dex-Drive SaveGame(*.gme)");
+    QString filename = QFileDialog::getOpenFileName(this,"Select A Save To Preview",QDir::homePath(),fileFilter);
+    if(!filename.isEmpty())
+    {
+        ff7save->loadFile(filename);
+        slotSelect = new SlotSelect(this,ff7save);
+        slotSelect->exec();
+    }
 }

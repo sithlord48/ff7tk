@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>220</width>
-    <height>22</height>
+    <width>216</width>
+    <height>23</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -56,6 +56,11 @@
       <item>
        <property name="text">
         <string>MetaData Creator</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SlotSelect</string>
        </property>
       </item>
      </widget>
@@ -189,6 +194,25 @@
         <widget class="QPushButton" name="btn_showmetaData">
          <property name="text">
           <string>Show Dialog</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="slotSelect_Box">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="btn_slotSelect">
+         <property name="text">
+          <string>Select File to Preview</string>
          </property>
         </widget>
        </item>
