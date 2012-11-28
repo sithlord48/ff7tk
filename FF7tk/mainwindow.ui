@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>216</width>
-    <height>23</height>
+    <width>212</width>
+    <height>21</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -63,6 +63,18 @@
         <string>SlotSelect</string>
        </property>
       </item>
+      <item>
+       <property name="text">
+        <string>DoubleCheckBox</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="dlb_checkboxes">
+      <property name="title">
+       <string/>
+      </property>
      </widget>
     </item>
     <item>
