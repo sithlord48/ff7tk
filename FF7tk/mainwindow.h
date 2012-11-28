@@ -32,6 +32,7 @@
 #include "widgets/ItemList.h"
 #include "widgets/MetadataCreator.h"
 #include "widgets/SlotSelect.h"
+#include "widgets/DoubleCheckBox.h"
 
 namespace Ui {
     class MainWindow;
@@ -65,6 +66,7 @@ private:
     ChocoboEditor *choco_editor;
     ItemList *item_list;
     SlotSelect *slotSelect;
+    DoubleCheckBox *dlbBox;
 };
 
 #endif // MAINWINDOW_H
