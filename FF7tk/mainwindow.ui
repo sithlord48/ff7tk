@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>212</width>
-    <height>21</height>
+    <width>208</width>
+    <height>24</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -65,13 +65,25 @@
       </item>
       <item>
        <property name="text">
-        <string>DoubleCheckBox</string>
+        <string>PhsListWidget</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>MenuListWidget</string>
        </property>
       </item>
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="dlb_checkboxes">
+     <widget class="QGroupBox" name="phsListBox">
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="menuListBox">
       <property name="title">
        <string/>
       </property>
