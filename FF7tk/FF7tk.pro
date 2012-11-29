@@ -62,7 +62,9 @@ HEADERS += mainwindow.h \
     widgets/ItemList.h \
     widgets/MetadataCreator.h \
     utils/LZS.h \
-    widgets/DoubleCheckBox.h
+    widgets/DoubleCheckBox.h \
+    widgets/PhsListWidget.h \
+    widgets/MenuListWidget.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -84,6 +86,8 @@ SOURCES += main.cpp \
     widgets/ItemList.cpp \
     widgets/MetadataCreator.cpp \
     utils/LZS.cpp \
-    widgets/DoubleCheckBox.cpp
+    widgets/DoubleCheckBox.cpp \
+    widgets/PhsListWidget.cpp \
+    widgets/MenuListWidget.cpp
 
 QT +=xml

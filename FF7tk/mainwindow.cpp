@@ -32,15 +32,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->item_list_box->setHidden(1);
     ui->metadata_box->setHidden(1);
     ui->slotSelect_Box->setHidden(1);
-    ui->dlb_checkboxes->setHidden(1);
+    ui->phsListBox->setHidden(1);
+    ui->menuListBox->setHidden(1);
 
-    dlbBox = new DoubleCheckBox("SomeText");
-    QHBoxLayout * dlbBoxLayout = new QHBoxLayout;
-    dlbBoxLayout->addWidget(dlbBox);
-    ui->dlb_checkboxes->setLayout(dlbBoxLayout);
-    dlbBox->setBoxToolTip(1,"Box One Tip");
-    dlbBox->setBoxToolTip(2,"Box Two Tip");
-    dlbBox->setToolTip("Label Tip");
+    ListPHS = new PhsListWidget(0);
+    QHBoxLayout *listLayout = new QHBoxLayout;
+    listLayout->addWidget(ListPHS);
+    ui->phsListBox->setLayout(listLayout);
+
+    ListMenu = new MenuListWidget(0);
+    QHBoxLayout *list2Layout = new QHBoxLayout;
+    list2Layout->addWidget(ListMenu);
+    ui->menuListBox->setLayout(list2Layout);
+
     dialog_preview= new DialogPreview();
     QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
     dialog_preview_layout->addWidget(dialog_preview);
@@ -81,6 +85,8 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->item_list_box->setVisible(0);
     ui->metadata_box->setVisible(0);
     ui->slotSelect_Box->setVisible(0);
+    ui->phsListBox->setVisible(0);
+    ui->menuListBox->setVisible(0);
 
     switch(index)
     {
@@ -91,8 +97,8 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 5:ui->choco_editor_box->setVisible(1); break;
         case 6:ui->metadata_box->setVisible(1);break;
         case 7:ui->slotSelect_Box->setVisible(1);break;
-        case 8:ui->dlb_checkboxes->setVisible(1);break;
-
+        case 8:ui->phsListBox->setVisible(1);break;
+        case 9:ui->menuListBox->setVisible(1);break;
     };
     this->adjustSize();
 }
