@@ -19,7 +19,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include "qglobal.h"
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
+    #include <QtWidgets/QMainWindow>
+#else
+    #include <QMainWindow>
+#endif
 
 //Include FF7Save for slot preview.
 
@@ -66,6 +71,7 @@ private:
     CharEditor *char_editor;
     ChocoboEditor *choco_editor;
     ItemList *item_list;
+    MetadataCreator *metadataCreator;
     SlotSelect *slotSelect;
     PhsListWidget *ListPHS;
     MenuListWidget *ListMenu;

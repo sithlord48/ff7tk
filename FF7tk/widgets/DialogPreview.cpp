@@ -22,35 +22,17 @@ DialogPreview::DialogPreview(QWidget *parent) : QLabel(parent)
     btn_ur = new QPushButton(this);
     btn_ll = new QPushButton(this);
     btn_lr = new QPushButton(this);
-
     QString style="QPushButton:enabled{background-color: rgba(0,0,0,0);border:0px solid;} QPushButton:hover{background-color:rgba(0,50,50,96);}";
-
     btn_ul->setStyleSheet(style);
     btn_ur->setStyleSheet(style);
     btn_ll->setStyleSheet(style);
     btn_lr->setStyleSheet(style);
-
     setMinimumSize(60,30);
     draw();
-
-
-    if(QT_VERSION<0x050000)
-    {//QT4 Style Connections.
-        connect(btn_ul,SIGNAL(clicked()),this,SLOT(btn_ul_clicked()));
-        connect(btn_ur,SIGNAL(clicked()),this,SLOT(btn_ur_clicked()));
-        connect(btn_ll,SIGNAL(clicked()),this,SLOT(btn_ll_clicked()));
-        connect(btn_lr,SIGNAL(clicked()),this,SLOT(btn_lr_clicked()));
-    }
-    else
-    {//QT5 Style Connections
-        /*
-        connect(btn_ul::clicked(),this::btn_ul_clicked());
-        connect(btn_ur::clicked(),this::btn_ur_clicked());
-        connect(btn_ll::clicked(),this::btn_ll_clicked());
-        connect(btn_lr::clicked(),this::btn_lr_clicked());
-        */
-    }
-
+    connect(btn_ul,SIGNAL(clicked()),this,SLOT(btn_ul_clicked()));
+    connect(btn_ur,SIGNAL(clicked()),this,SLOT(btn_ur_clicked()));
+    connect(btn_ll,SIGNAL(clicked()),this,SLOT(btn_ll_clicked()));
+    connect(btn_lr,SIGNAL(clicked()),this,SLOT(btn_lr_clicked()));
 }
 
 void DialogPreview::SetLLeft(QColor color)  {lower_left=color;  draw(); emit LL_ColorChanged(lower_left);}
@@ -63,30 +45,10 @@ QColor DialogPreview::lr(){return lower_right;}
 QColor DialogPreview::ul(){return upper_left;}
 QColor DialogPreview::ur(){return upper_right;}
 
-
-void DialogPreview::btn_ll_clicked()
-{
-    QColor color = QColorDialog::getColor(lower_left,this);
-    if(color.isValid()){SetLLeft(color);}
-}
-
-void DialogPreview::btn_lr_clicked()
-{
-    QColor color = QColorDialog::getColor(lower_right,this);
-    if(color.isValid()){SetLRight(color);}
-}
-
-void DialogPreview::btn_ul_clicked()
-{
-    QColor color = QColorDialog::getColor(upper_left,this);
-    if(color.isValid()){SetULeft(color);}
-}
-
-void DialogPreview::btn_ur_clicked()
-{
-    QColor color = QColorDialog::getColor(upper_right,this);
-    if(color.isValid()){SetURight(color);}
-}
+void DialogPreview::btn_ll_clicked(){QColor color = QColorDialog::getColor(lower_left,this);    if(color.isValid()){SetLLeft(color);}}
+void DialogPreview::btn_lr_clicked(){QColor color = QColorDialog::getColor(lower_right,this); if(color.isValid()){SetLRight(color);}}
+void DialogPreview::btn_ul_clicked(){QColor color = QColorDialog::getColor(upper_left,this);  if(color.isValid()){SetULeft(color);}}
+void DialogPreview::btn_ur_clicked(){QColor color = QColorDialog::getColor(upper_right,this);if(color.isValid()){SetURight(color);}}
 
 void DialogPreview::draw()
 {
