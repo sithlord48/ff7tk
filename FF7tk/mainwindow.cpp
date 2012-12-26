@@ -120,8 +120,9 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_btn_showmetaData_clicked()
 {
-    MetadataCreator Dialog(this,ff7save);
-    Dialog.exec();
+    FF7Save *ff7save = new FF7Save;
+    metadataCreator = new MetadataCreator(this,ff7save);
+    metadataCreator->exec();
 }
 
 void MainWindow::on_btn_slotSelect_clicked()
