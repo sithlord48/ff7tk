@@ -65,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     choco_editor_layout->addWidget(choco_editor);
     ui->choco_editor_box->setLayout(choco_editor_layout);
 
-    item_list = new ItemList;
+    item_list = new ItemList();
     QHBoxLayout *item_list_layout = new QHBoxLayout;
     item_list_layout->addWidget(item_list);
     ui->item_list_box->setLayout(item_list_layout);
