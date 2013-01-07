@@ -65,7 +65,9 @@ HEADERS +=  mainwindow.h \
 	    widgets/MetadataCreator.h \
 	    widgets/DoubleCheckBox.h \
 	    widgets/PhsListWidget.h \
-	    widgets/MenuListWidget.h
+	    widgets/MenuListWidget.h \
+    utils/Lgp_p.h \
+    utils/Lgp.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -89,4 +91,6 @@ SOURCES += main.cpp \
     utils/LZS.cpp \
     widgets/DoubleCheckBox.cpp \
     widgets/PhsListWidget.cpp \
-    widgets/MenuListWidget.cpp
+    widgets/MenuListWidget.cpp \
+    utils/Lgp_p.cpp \
+    utils/Lgp.cpp
