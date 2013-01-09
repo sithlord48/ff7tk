@@ -39,6 +39,7 @@
 #include "widgets/SlotSelect.h"
 #include "widgets/PhsListWidget.h"
 #include "widgets/MenuListWidget.h"
+#include "utils/Lgp.h"
 
 namespace Ui {
     class MainWindow;
@@ -62,6 +63,10 @@ private slots:
     void on_btn_showmetaData_clicked();
     void on_btn_slotSelect_clicked();
 
+    void on_btn_lgpSelect_clicked();
+
+    void on_btnExtractLgp_clicked();
+
 private:
 
     Ui::MainWindow *ui;
@@ -75,6 +80,7 @@ private:
     SlotSelect *slotSelect;
     PhsListWidget *ListPHS;
     MenuListWidget *ListMenu;
+    Lgp *lgpFile;
 };
 
 #endif // MAINWINDOW_H
