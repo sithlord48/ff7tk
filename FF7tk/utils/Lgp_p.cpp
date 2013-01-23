@@ -1,18 +1,20 @@
-/****************************************************************************/
-//    copyright 2012  JÃ©rÃ´me Arzel <myst6re@gmail.com>                      //
-//                                                                          //
-//    This file is part of FF7tk                                            //
-//                                                                          //
-//    FF7tk is free software: you can redistribute it and/or modify         //
-//    it under the terms of the GNU General Public License as published by  //
-//    the Free Software Foundation, either version 3 of the License, or     //
-//    (at your option) any later version.                                   //
-//                                                                          //
-//    FF7tk is distributed in the hope that it will be useful,              //
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
-//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
-//    GNU General Public License for more details.                          //
-/****************************************************************************/
+/****************************************************************************
+ ** Makou Reactor Final Fantasy VII Field Script Editor
+ ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
+ **
+ ** This program is free software: you can redistribute it and/or modify
+ ** it under the terms of the GNU General Public License as published by
+ ** the Free Software Foundation, either version 3 of the License, or
+ ** (at your option) any later version.
+ **
+ ** This program is distributed in the hope that it will be useful,
+ ** but WITHOUT ANY WARRANTY; without even the implied warranty of
+ ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ ** GNU General Public License for more details.
+ **
+ ** You should have received a copy of the GNU General Public License
+ ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ****************************************************************************/
 /*
  * This file may contains some code (especially the conflict part)
  * inspired from LGP/UnLGP tool written by Aali.
@@ -22,7 +24,7 @@
 
 LgpHeaderEntry::LgpHeaderEntry(const QString &fileName, quint32 filePosition) :
 	_fileName(fileName), _filePosition(filePosition),
-	_hasFileSize(false), _io(NULL)
+	_hasFileSize(false), _io(NULL), _newIO(NULL)
 {
 }
 
@@ -30,6 +32,9 @@ LgpHeaderEntry::~LgpHeaderEntry()
 {
 	if(_io != NULL) {
 		_io->deleteLater();
+	}
+	if(_newIO != NULL) {
+		_newIO->deleteLater();
 	}
 }
 
@@ -97,9 +102,19 @@ QIODevice *LgpHeaderEntry::file() const
 	return _io;
 }
 
+QIODevice *LgpHeaderEntry::modifiedFile() const
+{
+	return _newIO;
+}
+
 void LgpHeaderEntry::setFile(QIODevice *io)
 {
 	_io = io;
+}
+
+void LgpHeaderEntry::setModifiedFile(QIODevice *io)
+{
+	_newIO = io;
 }
 
 LgpIO::LgpIO(QIODevice *lgp, LgpHeaderEntry *header, QObject *parent) :

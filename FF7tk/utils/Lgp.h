@@ -1,18 +1,20 @@
-/****************************************************************************/
-//    copyright 2012  JÃ©rÃ´me Arzel <myst6re@gmail.com>                      //
-//                                                                          //
-//    This file is part of FF7tk                                            //
-//                                                                          //
-//    FF7tk is free software: you can redistribute it and/or modify         //
-//    it under the terms of the GNU General Public License as published by  //
-//    the Free Software Foundation, either version 3 of the License, or     //
-//    (at your option) any later version.                                   //
-//                                                                          //
-//    FF7tk is distributed in the hope that it will be useful,              //
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
-//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
-//    GNU General Public License for more details.                          //
-/****************************************************************************/
+/****************************************************************************
+ ** Makou Reactor Final Fantasy VII Field Script Editor
+ ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
+ **
+ ** This program is free software: you can redistribute it and/or modify
+ ** it under the terms of the GNU General Public License as published by
+ ** the Free Software Foundation, either version 3 of the License, or
+ ** (at your option) any later version.
+ **
+ ** This program is distributed in the hope that it will be useful,
+ ** but WITHOUT ANY WARRANTY; without even the implied warranty of
+ ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ ** GNU General Public License for more details.
+ **
+ ** You should have received a copy of the GNU General Public License
+ ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ****************************************************************************/
 /*
  * This file may contains some code (especially the conflict part)
  * inspired from LGP/UnLGP tool written by Aali.
@@ -83,6 +85,8 @@ public:
 	bool fileExists(const QString &filePath);
 	QIODevice *file(const QString &filePath);
 	QByteArray fileData(const QString &filePath);
+	QIODevice *modifiedFile(const QString &filePath);
+	QByteArray modifiedFileData(const QString &filePath);
 	bool setFile(const QString &filePath, QIODevice *data);
 	bool setFile(const QString &filePath, const QByteArray &data);
 	bool addFile(const QString &filePath, QIODevice *data);
