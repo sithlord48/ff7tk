@@ -30,7 +30,6 @@
 
 //#include"static_data/FF7Save.h"
 
-#include "widgets/DialogPreview.h"
 #include "widgets/MateriaEditor.h"
 #include "widgets/CharEditor.h"
 #include "widgets/ChocoboEditor.h"
@@ -39,7 +38,10 @@
 #include "widgets/SlotSelect.h"
 #include "widgets/PhsListWidget.h"
 #include "widgets/MenuListWidget.h"
+#include "widgets/OptionsWidget.h"
+
 #include "utils/Lgp.h"
+#include "widgets/LocationViewer.h"
 
 namespace Ui {
     class MainWindow;
@@ -71,7 +73,6 @@ private:
 
     Ui::MainWindow *ui;
     FF7Save *ff7save;
-    DialogPreview *dialog_preview;
     MateriaEditor *materia_editor;
     CharEditor *char_editor;
     ChocoboEditor *choco_editor;
@@ -81,6 +82,8 @@ private:
     PhsListWidget *ListPHS;
     MenuListWidget *ListMenu;
     Lgp *lgpFile;
+    LocationViewer *locViewer;
+    OptionsWidget *optionsWidget;
 };
 
 #endif // MAINWINDOW_H

@@ -35,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuListBox->setHidden(1);
     ui->lgp_Box->setHidden(1);
     ui->groupLgpView->setHidden(1);
+    ui->locListBox->setHidden(1);
+
 
     ListPHS = new PhsListWidget(0);
     QHBoxLayout *listLayout = new QHBoxLayout;
@@ -46,10 +48,10 @@ MainWindow::MainWindow(QWidget *parent) :
     list2Layout->addWidget(ListMenu);
     ui->menuListBox->setLayout(list2Layout);
 
-    dialog_preview= new DialogPreview();
-    QHBoxLayout *dialog_preview_layout = new QHBoxLayout();
-    dialog_preview_layout->addWidget(dialog_preview);
-    ui->dialog_preview_box->setLayout(dialog_preview_layout);
+    optionsWidget= new OptionsWidget();
+    QHBoxLayout *options_layout = new QHBoxLayout();
+    options_layout->addWidget(optionsWidget);
+    ui->dialog_preview_box->setLayout(options_layout);
 
     materia_editor = new MateriaEditor(this);
     QHBoxLayout *materia_editor_layout= new QHBoxLayout();
@@ -70,6 +72,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *item_list_layout = new QHBoxLayout;
     item_list_layout->addWidget(item_list);
     ui->item_list_box->setLayout(item_list_layout);
+
+    locViewer = new LocationViewer(this);
+    QHBoxLayout *locLayout = new QHBoxLayout();
+    locLayout->addWidget(locViewer);
+    ui->locListBox->setLayout(locLayout);
 }
 
 MainWindow::~MainWindow()
@@ -90,6 +97,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->menuListBox->setVisible(0);
     ui->lgp_Box->setVisible(0);
     ui->groupLgpView->setVisible(0);
+    ui->locListBox->setVisible(0);
 
     switch(index)
     {
@@ -103,6 +111,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 8:ui->phsListBox->setVisible(1);break;
         case 9:ui->menuListBox->setVisible(1);break;
         case 10:ui->lgp_Box->setVisible(1);break;
+        case 11:ui->locListBox->setVisible(1);break;
     };
     this->adjustSize();
 }
@@ -144,6 +153,7 @@ void MainWindow::on_btn_slotSelect_clicked()
 
 void MainWindow::on_btn_lgpSelect_clicked()
 {
+    ui->listLgpFile->clear();
     QString fileName = QFileDialog::getOpenFileName(this,"Select Lgp Archive",QDir::homePath(),"Lgp Archive(*.lgp)");
     if(fileName.isEmpty()){return;}
     else

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>245</width>
-    <height>25</height>
+    <height>28</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -30,7 +30,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Dialog Preview</string>
+        <string>OptionsWidget</string>
        </property>
       </item>
       <item>
@@ -76,6 +76,11 @@
       <item>
        <property name="text">
         <string>Lgp Utility</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>LocationViewer</string>
        </property>
       </item>
      </widget>
@@ -320,6 +325,13 @@
         </widget>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="locListBox">
+      <property name="title">
+       <string/>
+      </property>
      </widget>
     </item>
    </layout>
