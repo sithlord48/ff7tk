@@ -63,6 +63,8 @@ public:
     void setBtn9(int btnNumber);
     void setBtn10(int btnNumber);
 
+    void setControllerMappingVisible(bool visible);
+
 
 signals:
     void dialogColorULChanged(QColor);
@@ -171,6 +173,7 @@ private:
    QComboBox *comboBtnPause;
    QComboBox *comboBtn9;
    QComboBox *comboBtn10;
+   QGroupBox *controllerMappingBox;
 };
 
 #endif // OPTIONSWIDGET_H

@@ -565,7 +565,7 @@ void OptionsWidget::init_Display()
     controllerMappingLayout->addLayout(Btn9Layout,2,3);
     controllerMappingLayout->addLayout(Btn10Layout,3,3);
 
-    QGroupBox *controllerMappingBox = new QGroupBox;
+    controllerMappingBox = new QGroupBox;
     controllerMappingBox->setTitle(tr("Custom Controller Mappint (PSX Only)"));
     controllerMappingBox->setLayout(controllerMappingLayout);
 
@@ -867,3 +867,5 @@ void OptionsWidget::setBtn10(int btnNumber)
     comboBtn10->setCurrentIndex(btnNumber);
     connect(comboBtn10,SIGNAL(currentIndexChanged(int)),this,SLOT(btn10Changed(int)));
 }
+
+void OptionsWidget::setControllerMappingVisible(bool visible){controllerMappingBox->setVisible(visible);}
