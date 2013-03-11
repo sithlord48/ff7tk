@@ -41,7 +41,8 @@
 #include "widgets/OptionsWidget.h"
 
 #include "utils/Lgp.h"
-#include "widgets/LocationViewer.h"
+
+//#include "widgets/LocationViewer.h"
 
 namespace Ui {
     class MainWindow;
@@ -82,7 +83,7 @@ private:
     PhsListWidget *ListPHS;
     MenuListWidget *ListMenu;
     Lgp *lgpFile;
-    LocationViewer *locViewer;
+    //LocationViewer *locViewer;
     OptionsWidget *optionsWidget;
 };
 

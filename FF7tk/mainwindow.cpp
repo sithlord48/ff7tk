@@ -72,11 +72,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *item_list_layout = new QHBoxLayout;
     item_list_layout->addWidget(item_list);
     ui->item_list_box->setLayout(item_list_layout);
-
+/*
     locViewer = new LocationViewer(this);
     QHBoxLayout *locLayout = new QHBoxLayout();
     locLayout->addWidget(locViewer);
     ui->locListBox->setLayout(locLayout);
+*/
 }
 
 MainWindow::~MainWindow()
@@ -97,7 +98,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->menuListBox->setVisible(0);
     ui->lgp_Box->setVisible(0);
     ui->groupLgpView->setVisible(0);
-    ui->locListBox->setVisible(0);
+//    ui->locListBox->setVisible(0);
 
     switch(index)
     {
@@ -111,7 +112,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 8:ui->phsListBox->setVisible(1);break;
         case 9:ui->menuListBox->setVisible(1);break;
         case 10:ui->lgp_Box->setVisible(1);break;
-        case 11:ui->locListBox->setVisible(1);break;
+ //       case 11:ui->locListBox->setVisible(1);break;
     };
     this->adjustSize();
 }
