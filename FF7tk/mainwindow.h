@@ -27,7 +27,6 @@
 #endif
 
 //Include FF7Save for slot preview.
-
 //#include"static_data/FF7Save.h"
 
 #include "widgets/MateriaEditor.h"
@@ -39,10 +38,10 @@
 #include "widgets/PhsListWidget.h"
 #include "widgets/MenuListWidget.h"
 #include "widgets/OptionsWidget.h"
+#include "widgets/LocationViewer.h"
 
 #include "utils/Lgp.h"
 
-//#include "widgets/LocationViewer.h"
 
 namespace Ui {
     class MainWindow;
@@ -83,7 +82,7 @@ private:
     PhsListWidget *ListPHS;
     MenuListWidget *ListMenu;
     Lgp *lgpFile;
-    //LocationViewer *locViewer;
+    LocationViewer *locViewer;
     OptionsWidget *optionsWidget;
 };
 
