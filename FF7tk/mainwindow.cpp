@@ -72,12 +72,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *item_list_layout = new QHBoxLayout;
     item_list_layout->addWidget(item_list);
     ui->item_list_box->setLayout(item_list_layout);
-/*
+
     locViewer = new LocationViewer(this);
     QHBoxLayout *locLayout = new QHBoxLayout();
     locLayout->addWidget(locViewer);
     ui->locListBox->setLayout(locLayout);
-*/
 }
 
 MainWindow::~MainWindow()
@@ -98,7 +97,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->menuListBox->setVisible(0);
     ui->lgp_Box->setVisible(0);
     ui->groupLgpView->setVisible(0);
-//    ui->locListBox->setVisible(0);
+    ui->locListBox->setVisible(0);
 
     switch(index)
     {
@@ -112,7 +111,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 8:ui->phsListBox->setVisible(1);break;
         case 9:ui->menuListBox->setVisible(1);break;
         case 10:ui->lgp_Box->setVisible(1);break;
- //       case 11:ui->locListBox->setVisible(1);break;
+        case 11:ui->locListBox->setVisible(1);break;
     };
     this->adjustSize();
 }
@@ -120,7 +119,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
 void MainWindow::on_sb_materia_editor_setStarSize_valueChanged(int size){materia_editor->setStarsSize(size);}
 void MainWindow::on_cb_materia_editor_setEditable_toggled(bool checked){materia_editor->setEditable(checked);}
 void MainWindow::on_cb_charEditor_clicked(bool checked){char_editor->setEditable(checked);}
-void MainWindow::on_checkBox_toggled(bool checked){char_editor->setDebug(checked);}
+void MainWindow::on_checkBox_toggled(bool checked){char_editor->setAdvancedMode(checked);}
 
 void MainWindow::on_pushButton_clicked()
 {

@@ -68,7 +68,8 @@ HEADERS +=  mainwindow.h \
 	    widgets/MenuListWidget.h \
     utils/Lgp_p.h \
     utils/Lgp.h \
-    widgets/OptionsWidget.h
+    widgets/OptionsWidget.h \
+    widgets/LocationViewer.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -95,4 +96,5 @@ SOURCES += main.cpp \
     widgets/MenuListWidget.cpp \
     utils/Lgp_p.cpp \
     utils/Lgp.cpp \
-    widgets/OptionsWidget.cpp
+    widgets/OptionsWidget.cpp \
+    widgets/LocationViewer.cpp
