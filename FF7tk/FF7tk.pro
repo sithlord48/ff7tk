@@ -69,7 +69,8 @@ HEADERS +=  mainwindow.h \
     utils/Lgp_p.h \
     utils/Lgp.h \
     widgets/OptionsWidget.h \
-    widgets/LocationViewer.h
+    widgets/LocationViewer.h \
+    widgets/ChocoLabel.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -97,4 +98,5 @@ SOURCES += main.cpp \
     utils/Lgp_p.cpp \
     utils/Lgp.cpp \
     widgets/OptionsWidget.cpp \
-    widgets/LocationViewer.cpp
+    widgets/LocationViewer.cpp \
+    widgets/ChocoLabel.cpp

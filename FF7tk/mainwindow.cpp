@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lgp_Box->setHidden(1);
     ui->groupLgpView->setHidden(1);
     ui->locListBox->setHidden(1);
+    ui->chocoLabelBox->setHidden(1);
 
 
     ListPHS = new PhsListWidget(0);
@@ -77,6 +78,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *locLayout = new QHBoxLayout();
     locLayout->addWidget(locViewer);
     ui->locListBox->setLayout(locLayout);
+
+    chocoLabel = new ChocoLabel();
+    QHBoxLayout *chocoLayout = new QHBoxLayout();
+    chocoLayout->addWidget(chocoLabel);
+    ui->chocoLabelBoxInner->setLayout(chocoLayout);
+
+    connect(chocoLabel,SIGNAL(clicked()),this,SLOT(chocoLabelClicked()));
 }
 
 MainWindow::~MainWindow()
@@ -98,6 +106,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->lgp_Box->setVisible(0);
     ui->groupLgpView->setVisible(0);
     ui->locListBox->setVisible(0);
+    ui->chocoLabelBox->setVisible(0);
 
     switch(index)
     {
@@ -112,6 +121,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 9:ui->menuListBox->setVisible(1);break;
         case 10:ui->lgp_Box->setVisible(1);break;
         case 11:ui->locListBox->setVisible(1);break;
+        case 12:ui->chocoLabelBox->setVisible(1);break;
     };
     this->adjustSize();
 }
@@ -194,3 +204,21 @@ void MainWindow::on_btnExtractLgp_clicked()
         QMessageBox::information(this,"Lgp Utility",QString("Extracted %1 File(s).").arg(lgpFile->fileList().count()));
     }
 }
+void MainWindow::chocoLabelClicked()
+{
+    QMessageBox::information(this,"Choco Label","Clicked");
+}
+
+void MainWindow::on_comboBox_currentIndexChanged(int index)
+{chocoLabel->setType(index);}
+
+
+void MainWindow::on_checkBox_2_toggled(bool checked)
+{chocoLabel->setSex(checked);}
+
+
+void MainWindow::on_spinBox_valueChanged(int arg1)
+{chocoLabel->setRank(arg1);}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{chocoLabel->setName(arg1);}
