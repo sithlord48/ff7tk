@@ -39,7 +39,7 @@
 #include "widgets/MenuListWidget.h"
 #include "widgets/OptionsWidget.h"
 #include "widgets/LocationViewer.h"
-#include "widgets/ChocoLabel.h"
+#include "widgets/ChocoboLabel.h"
 
 #include "utils/Lgp.h"
 
@@ -57,7 +57,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void chocoLabelClicked(void);
+    void chocoboLabelClicked(void);
     void on_combo_widget_currentIndexChanged(int index);
     void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
     void on_cb_materia_editor_setEditable_toggled(bool checked);
@@ -79,10 +79,10 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
-    void chocoLabelCopyClicked(void);
-    void chocoLabelPasteClicked(void);
-    void chocoLabelRemoveClicked(void);
-    void chocoLabelOccupiedToggled(bool);
+    void chocoboLabelCopyClicked(void);
+    void chocoboLabelPasteClicked(void);
+    void chocoboLabelRemoveClicked(void);
+    void chocoboLabelOccupiedToggled(bool);
 
     void on_checkBox_3_toggled(bool checked);
 
@@ -105,7 +105,7 @@ private:
     Lgp *lgpFile;
     LocationViewer *locViewer;
     OptionsWidget *optionsWidget;
-    ChocoLabel *chocoLabel;
+    ChocoboLabel *chocoboLabel;
 };
 
 #endif // MAINWINDOW_H

@@ -39,7 +39,7 @@ HEADERS +=  mainwindow.h \
     utils/Lgp.h \
     widgets/OptionsWidget.h \
     widgets/LocationViewer.h \
-    widgets/ChocoLabel.h
+    widgets/ChocoboLabel.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -68,6 +68,6 @@ SOURCES += main.cpp \
     utils/Lgp.cpp \
     widgets/OptionsWidget.cpp \
     widgets/LocationViewer.cpp \
-    widgets/ChocoLabel.cpp
+    widgets/ChocoboLabel.cpp
 
 OTHER_FILES +=

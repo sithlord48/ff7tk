@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lgp_Box->setHidden(1);
     ui->groupLgpView->setHidden(1);
     ui->locListBox->setHidden(1);
-    ui->chocoLabelBox->setHidden(1);
+    ui->chocoboLabelBox->setHidden(1);
 
 
     ListPHS = new PhsListWidget(0);
@@ -79,16 +79,16 @@ MainWindow::MainWindow(QWidget *parent) :
     locLayout->addWidget(locViewer);
     ui->locListBox->setLayout(locLayout);
 
-    chocoLabel = new ChocoLabel();
-    QHBoxLayout *chocoLayout = new QHBoxLayout();
-    chocoLayout->addWidget(chocoLabel);
-    ui->chocoLabelBoxInner->setLayout(chocoLayout);
+    chocoboLabel = new ChocoboLabel();
+    QHBoxLayout *chocoboLayout = new QHBoxLayout();
+    chocoboLayout->addWidget(chocoboLabel);
+    ui->chocoboLabelBoxInner->setLayout(chocoboLayout);
 
-    connect(chocoLabel,SIGNAL(clicked()),this,SLOT(chocoLabelClicked()));
-    connect(chocoLabel,SIGNAL(copy()),this,SLOT(chocoLabelCopyClicked()));
-    connect(chocoLabel,SIGNAL(paste()),this,SLOT(chocoLabelPasteClicked()));
-    connect(chocoLabel,SIGNAL(remove()),this,SLOT(chocoLabelRemoveClicked()));
-    connect(chocoLabel,SIGNAL(occupiedToggled(bool)),this,SLOT(chocoLabelOccupiedToggled(bool)));
+    connect(chocoboLabel,SIGNAL(clicked()),this,SLOT(chocoboLabelClicked()));
+    connect(chocoboLabel,SIGNAL(copy()),this,SLOT(chocoboLabelCopyClicked()));
+    connect(chocoboLabel,SIGNAL(paste()),this,SLOT(chocoboLabelPasteClicked()));
+    connect(chocoboLabel,SIGNAL(remove()),this,SLOT(chocoboLabelRemoveClicked()));
+    connect(chocoboLabel,SIGNAL(occupiedToggled(bool)),this,SLOT(chocoboLabelOccupiedToggled(bool)));
 }
 
 MainWindow::~MainWindow()
@@ -110,7 +110,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->lgp_Box->setVisible(0);
     ui->groupLgpView->setVisible(0);
     ui->locListBox->setVisible(0);
-    ui->chocoLabelBox->setVisible(0);
+    ui->chocoboLabelBox->setVisible(0);
 
     switch(index)
     {
@@ -125,7 +125,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 9:ui->menuListBox->setVisible(1);break;
         case 10:ui->lgp_Box->setVisible(1);break;
         case 11:ui->locListBox->setVisible(1);break;
-        case 12:ui->chocoLabelBox->setVisible(1);break;
+        case 12:ui->chocoboLabelBox->setVisible(1);break;
     };
     this->adjustSize();
 }
@@ -208,25 +208,25 @@ void MainWindow::on_btnExtractLgp_clicked()
         QMessageBox::information(this,"Lgp Utility",QString("Extracted %1 File(s).").arg(lgpFile->fileList().count()));
     }
 }
-void MainWindow::chocoLabelClicked()
+void MainWindow::chocoboLabelClicked()
 {
     QMessageBox::information(this,"Choco Label","Clicked");
 }
 
-void MainWindow::on_comboBox_currentIndexChanged(int index){chocoLabel->setType(index);}
-void MainWindow::on_checkBox_2_toggled(bool checked){chocoLabel->setSex(checked);}
-void MainWindow::on_spinBox_valueChanged(int arg1){chocoLabel->setRank(arg1);}
-void MainWindow::on_lineEdit_textChanged(const QString &arg1){chocoLabel->setName(arg1);}
+void MainWindow::on_comboBox_currentIndexChanged(int index){chocoboLabel->setType(index);}
+void MainWindow::on_checkBox_2_toggled(bool checked){chocoboLabel->setSex(checked);}
+void MainWindow::on_spinBox_valueChanged(int arg1){chocoboLabel->setRank(arg1);}
+void MainWindow::on_lineEdit_textChanged(const QString &arg1){chocoboLabel->setName(arg1);}
 
-void MainWindow::chocoLabelCopyClicked(void){QMessageBox::information(this,"Choco Label","Copy");}
-void MainWindow::chocoLabelPasteClicked(void){QMessageBox::information(this,"Choco Label","Paste");}
+void MainWindow::chocoboLabelCopyClicked(void){QMessageBox::information(this,"Choco Label","Copy");}
+void MainWindow::chocoboLabelPasteClicked(void){QMessageBox::information(this,"Choco Label","Paste");}
 
-void MainWindow::chocoLabelRemoveClicked(void)
+void MainWindow::chocoboLabelRemoveClicked(void)
 {
     QMessageBox::information(this,"Choco Label","Remove");
 }
 
-void MainWindow::chocoLabelOccupiedToggled(bool occupied)
+void MainWindow::chocoboLabelOccupiedToggled(bool occupied)
 {
     if(occupied)
     {
@@ -237,7 +237,7 @@ void MainWindow::chocoLabelOccupiedToggled(bool occupied)
         QMessageBox::information(this,"Choco Label","Empty");
     }
 }
-void MainWindow::on_checkBox_3_toggled(bool checked){chocoLabel->setOccupied(checked);}
-void MainWindow::on_lineEdit_2_textChanged(const QString &arg1){chocoLabel->setTitle(arg1);}
+void MainWindow::on_checkBox_3_toggled(bool checked){chocoboLabel->setOccupied(checked);}
+void MainWindow::on_lineEdit_2_textChanged(const QString &arg1){chocoboLabel->setTitle(arg1);}
 
-void MainWindow::on_spinBox_2_valueChanged(int arg1){chocoLabel->setFontSize(arg1);}
+void MainWindow::on_spinBox_2_valueChanged(int arg1){chocoboLabel->setFontSize(arg1);}
