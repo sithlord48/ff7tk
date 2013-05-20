@@ -23,26 +23,44 @@
     #include <QtGui>
 #endif
 
-
-
 class ChocoLabel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChocoLabel(QWidget *parent = 0);
+    explicit ChocoLabel(QWidget *parent = 0,QString titleText="",bool occupied=false);
+    void setCheckBoxStyle(QString styleSheet);
 signals:
     void clicked();
+    void copy();
+    void paste();
+    void remove();
+    void occupiedToggled(bool occupied);
 public slots:
     void setType(int type);
     void setName(QString decodedName);
     void setRank(int wins);
     void setSex(bool Male);
+    void setSex(int sex);
+    void setOccupied(bool occupied);
+    void setTitle(QString title);
+    void setFontSize(int fontSize);
+private slots:
+    void chkOccupiedToggled(bool occupied);
+    void copyPushed(void);
+    void pastePushed(void);
+    void removePushed(void);
 private:
   bool event(QEvent *ev);
+  void enable(bool);
+  QPushButton *btnCopy;
+  QPushButton *btnPaste;
+  QPushButton *btnRemove;
+  QCheckBox *chkOccupied;
   QLabel *lblType;
   QLabel *lblName;
   QLabel *lblRank;
   QLabel *lblSex;
+
 };
 
 #endif // CHOCOLABEL_H

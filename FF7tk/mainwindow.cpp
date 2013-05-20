@@ -85,6 +85,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->chocoLabelBoxInner->setLayout(chocoLayout);
 
     connect(chocoLabel,SIGNAL(clicked()),this,SLOT(chocoLabelClicked()));
+    connect(chocoLabel,SIGNAL(copy()),this,SLOT(chocoLabelCopyClicked()));
+    connect(chocoLabel,SIGNAL(paste()),this,SLOT(chocoLabelPasteClicked()));
+    connect(chocoLabel,SIGNAL(remove()),this,SLOT(chocoLabelRemoveClicked()));
+    connect(chocoLabel,SIGNAL(occupiedToggled(bool)),this,SLOT(chocoLabelOccupiedToggled(bool)));
 }
 
 MainWindow::~MainWindow()
@@ -209,16 +213,31 @@ void MainWindow::chocoLabelClicked()
     QMessageBox::information(this,"Choco Label","Clicked");
 }
 
-void MainWindow::on_comboBox_currentIndexChanged(int index)
-{chocoLabel->setType(index);}
+void MainWindow::on_comboBox_currentIndexChanged(int index){chocoLabel->setType(index);}
+void MainWindow::on_checkBox_2_toggled(bool checked){chocoLabel->setSex(checked);}
+void MainWindow::on_spinBox_valueChanged(int arg1){chocoLabel->setRank(arg1);}
+void MainWindow::on_lineEdit_textChanged(const QString &arg1){chocoLabel->setName(arg1);}
 
+void MainWindow::chocoLabelCopyClicked(void){QMessageBox::information(this,"Choco Label","Copy");}
+void MainWindow::chocoLabelPasteClicked(void){QMessageBox::information(this,"Choco Label","Paste");}
 
-void MainWindow::on_checkBox_2_toggled(bool checked)
-{chocoLabel->setSex(checked);}
+void MainWindow::chocoLabelRemoveClicked(void)
+{
+    QMessageBox::information(this,"Choco Label","Remove");
+}
 
+void MainWindow::chocoLabelOccupiedToggled(bool occupied)
+{
+    if(occupied)
+    {
+        QMessageBox::information(this,"Choco Label","Occupied");
+    }
+    else
+    {
+        QMessageBox::information(this,"Choco Label","Empty");
+    }
+}
+void MainWindow::on_checkBox_3_toggled(bool checked){chocoLabel->setOccupied(checked);}
+void MainWindow::on_lineEdit_2_textChanged(const QString &arg1){chocoLabel->setTitle(arg1);}
 
-void MainWindow::on_spinBox_valueChanged(int arg1)
-{chocoLabel->setRank(arg1);}
-
-void MainWindow::on_lineEdit_textChanged(const QString &arg1)
-{chocoLabel->setName(arg1);}
+void MainWindow::on_spinBox_2_valueChanged(int arg1){chocoLabel->setFontSize(arg1);}
