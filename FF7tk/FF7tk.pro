@@ -17,38 +17,7 @@ HEADERS +=  mainwindow.h \
 	    static_data/FF7Save_Const.h \
 	    static_data/FF7Save_Types.h \
 	    static_data/FF7Text.h \
-	    static_data/SaveIcon.h \
-	    static_data/icons/Materia_Icons/command.xpm \
-	    static_data/icons/Materia_Icons/magic.xpm \
-	    static_data/icons/Materia_Icons/summon.xpm \
-	    static_data/icons/Materia_Icons/support.xpm \
-	    static_data/icons/Materia_Icons/independent.xpm \
-	    static_data/icons/Materia_Icons/command_star_empty.xpm \
-	    static_data/icons/Materia_Icons/magic_star_empty.xpm \
-	    static_data/icons/Materia_Icons/summon_star_empty.xpm \
-	    static_data/icons/Materia_Icons/support_star_empty.xpm \
-	    static_data/icons/Materia_Icons/independent_star_empty.xpm \
-	    static_data/icons/Materia_Icons/command_star_full.xpm \
-	    static_data/icons/Materia_Icons/magic_star_full.xpm \
-	    static_data/icons/Materia_Icons/summon_star_full.xpm \
-	    static_data/icons/Materia_Icons/support_star_full.xpm \
-	    static_data/icons/Materia_Icons/independent_star_full.xpm \
-	    static_data/icons/Item_Icons/accessory.xpm \
-	    static_data/icons/Item_Icons/armor.xpm \
-	    static_data/icons/Item_Icons/clip.xpm \
-	    static_data/icons/Item_Icons/glove.xpm \
-	    static_data/icons/Item_Icons/gun.xpm \
-	    static_data/icons/Item_Icons/gunarm.xpm \
-	    static_data/icons/Item_Icons/item.xpm \
-	    static_data/icons/Item_Icons/mphone.xpm \
-	    static_data/icons/Item_Icons/spear.xpm \
-	    static_data/icons/Item_Icons/staff.xpm \
-	    static_data/icons/Item_Icons/star.xpm \
-	    static_data/icons/Item_Icons/sword.xpm \
-	    static_data/icons/Item_Icons/mlink.xpm \
-	    static_data/icons/Item_Icons/m_no_grow_slot.xpm \
-	    static_data/icons/Item_Icons/m_grow_slot.xpm \
-	    static_data/icons/Materia_Icons/all.xpm \
+            static_data/SaveIcon.h \
 	    static_data/FF7Char.h \
 	    static_data/Type_FF7CHAR.h \
 	    static_data/Type_materia.h \
@@ -100,3 +69,5 @@ SOURCES += main.cpp \
     widgets/OptionsWidget.cpp \
     widgets/LocationViewer.cpp \
     widgets/ChocoLabel.cpp
+
+OTHER_FILES +=

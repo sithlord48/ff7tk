@@ -20,25 +20,68 @@
 #include"../static_data/icons/Chocobo_Icons/green_choco.xpm"
 #include"../static_data/icons/Chocobo_Icons/yellow_choco.xpm"
 #include"../static_data/icons/Chocobo_Icons/gold_choco.xpm"
+#include"../static_data/icons/Common_Icons/copy.xpm"
+#include"../static_data/icons/Common_Icons/paste.xpm"
+#include"../static_data/icons/Common_Icons/delete.xpm"
+
 bool ChocoLabel::event(QEvent *ev)
 {
     if (ev->type()==QEvent::MouseButtonPress){emit(clicked());return true;}
     else{return false;}
 }
-ChocoLabel::ChocoLabel(QWidget *parent) :
+ChocoLabel::ChocoLabel(QWidget *parent,QString titleText,bool occupied) :
     QWidget(parent)
 {
-    lblType = new QLabel("");
-    lblName = new QLabel("Empty");
-    lblSex = new QLabel("");
-    lblRank = new QLabel("Rank:-");
-
+    lblType = new QLabel("");   
     lblType->setFixedSize(48,48);
     lblType->setScaledContents(true);
+
+    lblName = new QLabel("");
+    lblSex = new QLabel("");
+    lblRank = new QLabel("");
+
+    chkOccupied = new QCheckBox();
+    chkOccupied->setText(titleText);
+    chkOccupied->setMaximumHeight(20);
+
+    btnCopy = new QPushButton();
+    btnCopy->setFixedSize(16,16);
+    btnCopy->setIconSize(QSize(16,16));
+    btnCopy->setToolTip(QString(tr("Copy")));
+    btnCopy->setIcon(QIcon(QPixmap(copy_xpm).scaled(QSize(16,16),Qt::KeepAspectRatio,Qt::SmoothTransformation)));
+
+    btnPaste = new QPushButton();
+    btnPaste->setIconSize(QSize(16,16));
+    btnPaste->setFixedSize(16,16);
+    btnPaste->setToolTip(QString(tr("Paste")));
+    btnPaste->setIcon(QIcon(QPixmap(paste_xpm).scaled(QSize(16,16),Qt::KeepAspectRatio,Qt::SmoothTransformation)));
+
+    btnRemove = new QPushButton();
+    btnRemove->setIconSize(QSize(16,16));
+    btnRemove->setFixedSize(16,16);
+    btnRemove->setToolTip(QString(tr("Remove")));
+    btnRemove->setIcon(QIcon(QPixmap(delete_xpm).scaled(QSize(16,16),Qt::KeepAspectRatio,Qt::SmoothTransformation)));
+
+    QString fontStyle =QString("font-size:14pt;");
+    lblName->setStyleSheet(fontStyle);
+    lblSex->setStyleSheet(fontStyle);
+    lblRank->setStyleSheet(fontStyle);
+    chkOccupied->setChecked(occupied);
+
+    QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setContentsMargins(0,0,0,0);
+    btnLayout->addWidget(chkOccupied);
+    btnLayout->addWidget(btnCopy);
+    btnLayout->addWidget(btnPaste);
+    btnLayout->addWidget(btnRemove);
+    btnLayout->setSpacing(1);
+
     QHBoxLayout *NameSexLayout = new QHBoxLayout;
     NameSexLayout->setContentsMargins(0,0,0,0);
     NameSexLayout->addWidget(lblName);
     NameSexLayout->addWidget(lblSex);
+    QSpacerItem *spacer1 = new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred);
+    NameSexLayout->addSpacerItem(spacer1);
     NameSexLayout->setSpacing(1);
 
     QVBoxLayout *rightSideLayout = new QVBoxLayout;
@@ -50,8 +93,20 @@ ChocoLabel::ChocoLabel(QWidget *parent) :
     innerFinalLayout->addWidget(lblType);
     innerFinalLayout->addLayout(rightSideLayout);
 
-    this->setLayout(innerFinalLayout);
+    QVBoxLayout *finalLayout= new QVBoxLayout;
+    finalLayout->setContentsMargins(0,0,0,0);
+    finalLayout->addLayout(btnLayout);
+    finalLayout->addLayout(innerFinalLayout);
+
+    this->setLayout(finalLayout);
+    this->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum);
+    enable(occupied);
+    connect(chkOccupied,SIGNAL(toggled(bool)),this,SLOT(chkOccupiedToggled(bool)));
+    connect(btnCopy,SIGNAL(clicked()),this,SLOT(copyPushed()));
+    connect(btnPaste,SIGNAL(clicked()),this,SLOT(pastePushed()));
+    connect(btnRemove,SIGNAL(clicked()),this,SLOT(removePushed()));
 }
+
 void ChocoLabel::setType(int type)
 {
     if((type<0) || (type>4)) {lblType->setPixmap (QPixmap ( QString("") ) );return;}
@@ -61,11 +116,18 @@ void ChocoLabel::setType(int type)
     else if (type==3){lblType->setPixmap(QPixmap(black_choco_xpm));}
     else {lblType->setPixmap(QPixmap(gold_choco_xpm));}
 }
+void ChocoLabel::setTitle(QString title){chkOccupied->setText(title);}
 void ChocoLabel::setName(QString decodedName){lblName->setText(decodedName);}
 void ChocoLabel::setSex(bool male)
 {
     if(male){lblSex->setText(QString::fromUtf8("♂"));}
     else{lblSex->setText(QString::fromUtf8("♀"));}
+}
+void ChocoLabel::setSex(int sex)
+{
+    if (sex==0){lblSex->setText(QString::fromUtf8("♂"));}
+    else if(sex==1){lblSex->setText(QString::fromUtf8("♀"));}
+    else{lblSex->setText("");}
 }
 void ChocoLabel::setRank(int wins)
 {
@@ -75,3 +137,41 @@ void ChocoLabel::setRank(int wins)
     else if(wins<9){lblRank->setText(tr("Rank:A"));}
     else{lblRank->setText(tr("Rank:S"));}
 }
+void ChocoLabel::setOccupied(bool occupied)
+{
+    chkOccupied->blockSignals(true);
+    chkOccupied->setChecked(occupied);
+    chkOccupied->blockSignals(false);
+    enable(occupied);
+}
+void ChocoLabel::chkOccupiedToggled(bool occupied)
+{
+    emit occupiedToggled(occupied);
+    enable(occupied);
+}
+void ChocoLabel::copyPushed(void){emit copy();}
+void ChocoLabel::pastePushed(void){emit paste();}
+void ChocoLabel::removePushed(void)
+{
+    emit remove();
+    setType(-1);
+    setRank(-1);
+    setName("");
+    setSex(-1);
+    chkOccupied->setChecked(false);
+}
+void ChocoLabel::setFontSize(int fontSize)
+{
+    QString fontStyle =QString("font-size:%1pt;").arg(fontSize);
+    lblName->setStyleSheet(fontStyle);
+    lblSex->setStyleSheet(fontStyle);
+    lblRank->setStyleSheet(fontStyle);
+}
+void ChocoLabel::enable(bool enabled)
+{
+    lblName->setEnabled(enabled);
+    lblType->setEnabled(enabled);
+    lblSex->setEnabled(enabled);
+    lblRank->setEnabled(enabled);
+}
+void ChocoLabel::setCheckBoxStyle(QString styleSheet){chkOccupied->setStyleSheet(styleSheet);}

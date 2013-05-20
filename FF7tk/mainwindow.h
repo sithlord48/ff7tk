@@ -79,6 +79,17 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+    void chocoLabelCopyClicked(void);
+    void chocoLabelPasteClicked(void);
+    void chocoLabelRemoveClicked(void);
+    void chocoLabelOccupiedToggled(bool);
+
+    void on_checkBox_3_toggled(bool checked);
+
+    void on_lineEdit_2_textChanged(const QString &arg1);
+
+    void on_spinBox_2_valueChanged(int arg1);
+
 private:
 
     Ui::MainWindow *ui;
