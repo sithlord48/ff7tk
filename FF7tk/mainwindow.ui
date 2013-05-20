@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>38</width>
-    <height>17</height>
+    <width>174</width>
+    <height>23</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -85,7 +85,7 @@
       </item>
       <item>
        <property name="text">
-        <string>ChocoLabel</string>
+        <string>ChocoboLabel</string>
        </property>
       </item>
      </widget>
@@ -340,7 +340,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="chocoLabelBox">
+     <widget class="QFrame" name="chocoboLabelBox">
       <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -426,7 +426,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QGroupBox" name="chocoLabelBoxInner">
+        <widget class="QGroupBox" name="chocoboLabelBoxInner">
          <property name="title">
           <string/>
          </property>
