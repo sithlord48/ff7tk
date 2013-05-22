@@ -15,7 +15,6 @@
 /****************************************************************************/
 /****************************************************************************/
 //    This Demo Program Just Shows Widgets For Easier Testing               //
-
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -40,9 +39,8 @@
 #include "widgets/OptionsWidget.h"
 #include "widgets/LocationViewer.h"
 #include "widgets/ChocoboLabel.h"
-
+#include "widgets/ChocoboManager.h"
 #include "utils/Lgp.h"
-
 
 namespace Ui {
     class MainWindow;
@@ -106,6 +104,7 @@ private:
     LocationViewer *locViewer;
     OptionsWidget *optionsWidget;
     ChocoboLabel *chocoboLabel;
+    ChocoboManager *chocoboManager;
 };
 
 #endif // MAINWINDOW_H

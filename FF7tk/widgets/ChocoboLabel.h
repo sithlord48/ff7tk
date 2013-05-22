@@ -52,6 +52,7 @@ private slots:
 private:
   bool event(QEvent *ev);
   void enable(bool);
+  bool isEnabled;
   QPushButton *btnCopy;
   QPushButton *btnPaste;
   QPushButton *btnRemove;

@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->groupLgpView->setHidden(1);
     ui->locListBox->setHidden(1);
     ui->chocoboLabelBox->setHidden(1);
+    ui->ChocoboManagerBox->setHidden(1);
 
 
     ListPHS = new PhsListWidget(0);
@@ -83,12 +84,16 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout *chocoboLayout = new QHBoxLayout();
     chocoboLayout->addWidget(chocoboLabel);
     ui->chocoboLabelBoxInner->setLayout(chocoboLayout);
-
     connect(chocoboLabel,SIGNAL(clicked()),this,SLOT(chocoboLabelClicked()));
     connect(chocoboLabel,SIGNAL(copy()),this,SLOT(chocoboLabelCopyClicked()));
     connect(chocoboLabel,SIGNAL(paste()),this,SLOT(chocoboLabelPasteClicked()));
     connect(chocoboLabel,SIGNAL(remove()),this,SLOT(chocoboLabelRemoveClicked()));
     connect(chocoboLabel,SIGNAL(occupiedToggled(bool)),this,SLOT(chocoboLabelOccupiedToggled(bool)));
+
+    chocoboManager = new ChocoboManager();
+    QHBoxLayout *ChocoboManagerLayout = new QHBoxLayout();
+    ChocoboManagerLayout->addWidget(chocoboManager);
+    ui->ChocoboManagerBox->setLayout(ChocoboManagerLayout);
 }
 
 MainWindow::~MainWindow()
@@ -111,6 +116,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     ui->groupLgpView->setVisible(0);
     ui->locListBox->setVisible(0);
     ui->chocoboLabelBox->setVisible(0);
+    ui->ChocoboManagerBox->setVisible(0);
 
     switch(index)
     {
@@ -126,6 +132,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
         case 10:ui->lgp_Box->setVisible(1);break;
         case 11:ui->locListBox->setVisible(1);break;
         case 12:ui->chocoboLabelBox->setVisible(1);break;
+        case 13:ui->ChocoboManagerBox->setVisible(1);break;
     };
     this->adjustSize();
 }
