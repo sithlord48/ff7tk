@@ -26,7 +26,7 @@
 
 bool ChocoboLabel::event(QEvent *ev)
 {
-    if (ev->type()==QEvent::MouseButtonPress){emit(clicked());return true;}
+    if (ev->type()==QEvent::MouseButtonPress && isEnabled){emit(clicked());return true;}
     else{return false;}
 }
 ChocoboLabel::ChocoboLabel(QWidget *parent,QString titleText,bool occupied) :
@@ -182,6 +182,7 @@ void ChocoboLabel::setFontSize(int fontSize)
 }
 void ChocoboLabel::enable(bool enabled)
 {
+    isEnabled=enabled;
     lblName->setEnabled(enabled);
     lblType->setEnabled(enabled);
     lblSex->setEnabled(enabled);

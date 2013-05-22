@@ -39,7 +39,9 @@ HEADERS +=  mainwindow.h \
     utils/Lgp.h \
     widgets/OptionsWidget.h \
     widgets/LocationViewer.h \
-    widgets/ChocoboLabel.h
+    widgets/ChocoboLabel.h \
+    widgets/ChocoboManager.h \
+    static_data/Type_FF7CHOCOBO.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -68,6 +70,7 @@ SOURCES += main.cpp \
     utils/Lgp.cpp \
     widgets/OptionsWidget.cpp \
     widgets/LocationViewer.cpp \
-    widgets/ChocoboLabel.cpp
+    widgets/ChocoboLabel.cpp \
+    widgets/ChocoboManager.cpp
 
 OTHER_FILES +=
