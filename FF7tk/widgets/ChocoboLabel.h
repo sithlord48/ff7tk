@@ -36,6 +36,7 @@ signals:
     void remove();
     void occupiedToggled(bool occupied);
 public slots:
+    void setSelected(bool selected);
     void setType(int type);
     void setName(QString decodedName);
     void setRank(int wins);
@@ -44,6 +45,9 @@ public slots:
     void setOccupied(bool occupied);
     void setTitle(QString title);
     void setFontSize(int fontSize);
+    void clearLabel(void);
+    bool isOccupied(void);
+    void setHoverColorStyle(QString backgroundColor);
 private slots:
     void chkOccupiedToggled(bool occupied);
     void copyPushed(void);
@@ -62,6 +66,8 @@ private:
   QLabel *lblRank;
   QLabel *lblSex;
   QFrame *innerFrame;
+  QFrame *outerFrame;
+  QString SelectedBkStyle;
 };
 
 #endif // ChocoboLABEL_H

@@ -303,8 +303,8 @@ void ChocoboEditor::init_display(void)
     sb_personality->setWrapping(true);
 
     //Fill Combos.
-    combo_sex->addItem(tr("Male"));
-    combo_sex->addItem(tr("Female"));
+    combo_sex->addItem(tr("Male %1").arg(QString::fromUtf8("♂")));
+    combo_sex->addItem(tr("Female %1").arg(QString::fromUtf8("♀")));
     combo_type->addItem(QIcon(QPixmap(yellow_choco_xpm)),tr("Yellow"));
     combo_type->addItem(QIcon(QPixmap(green_choco_xpm)),tr("Green"));
     combo_type->addItem(QIcon(QPixmap(blue_choco_xpm)),tr("Blue"));

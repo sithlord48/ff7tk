@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>279</width>
-    <height>17</height>
+    <height>26</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -50,11 +50,6 @@
       </item>
       <item>
        <property name="text">
-        <string>ChocoboEditor</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
         <string>MetaData Creator</string>
        </property>
       </item>
@@ -81,11 +76,6 @@
       <item>
        <property name="text">
         <string>LocationViewer</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>ChocoboLabel</string>
        </property>
       </item>
       <item>
@@ -212,13 +202,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="choco_editor_box">
-      <property name="title">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QGroupBox" name="item_list_box">
       <property name="title">
        <string/>
@@ -342,102 +325,6 @@
       <property name="title">
        <string/>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="chocoboLabelBox">
-      <layout class="QVBoxLayout" name="verticalLayout_12">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QLineEdit" name="lineEdit_2">
-           <property name="placeholderText">
-            <string>&lt;Title&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkBox_3">
-         <property name="text">
-          <string>Occupied</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinBox">
-         <property name="prefix">
-          <string>wins:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinBox_2">
-         <property name="prefix">
-          <string>fontSize;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLineEdit" name="lineEdit">
-           <property name="placeholderText">
-            <string>&lt;name&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboBox">
-         <item>
-          <property name="text">
-           <string>Yellow</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Green</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Blue</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Black</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Gold</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QCheckBox" name="checkBox_2">
-           <property name="text">
-            <string>Male</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="chocoboLabelBoxInner">
-         <property name="title">
-          <string/>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
     <item>

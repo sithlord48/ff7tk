@@ -30,7 +30,6 @@
 
 #include "widgets/MateriaEditor.h"
 #include "widgets/CharEditor.h"
-#include "widgets/ChocoboEditor.h"
 #include "widgets/ItemList.h"
 #include "widgets/MetadataCreator.h"
 #include "widgets/SlotSelect.h"
@@ -38,7 +37,6 @@
 #include "widgets/MenuListWidget.h"
 #include "widgets/OptionsWidget.h"
 #include "widgets/LocationViewer.h"
-#include "widgets/ChocoboLabel.h"
 #include "widgets/ChocoboManager.h"
 #include "utils/Lgp.h"
 
@@ -55,7 +53,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void chocoboLabelClicked(void);
+    void hideAllBoxes(void);
     void on_combo_widget_currentIndexChanged(int index);
     void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
     void on_cb_materia_editor_setEditable_toggled(bool checked);
@@ -64,37 +62,14 @@ private slots:
     void on_checkBox_toggled(bool checked);
     void on_btn_showmetaData_clicked();
     void on_btn_slotSelect_clicked();
-
     void on_btn_lgpSelect_clicked();
-
     void on_btnExtractLgp_clicked();
-
-    void on_comboBox_currentIndexChanged(int index);
-
-    void on_checkBox_2_toggled(bool checked);
-
-    void on_spinBox_valueChanged(int arg1);
-
-    void on_lineEdit_textChanged(const QString &arg1);
-
-    void chocoboLabelCopyClicked(void);
-    void chocoboLabelPasteClicked(void);
-    void chocoboLabelRemoveClicked(void);
-    void chocoboLabelOccupiedToggled(bool);
-
-    void on_checkBox_3_toggled(bool checked);
-
-    void on_lineEdit_2_textChanged(const QString &arg1);
-
-    void on_spinBox_2_valueChanged(int arg1);
-
 private:
 
     Ui::MainWindow *ui;
     FF7Save *ff7save;
     MateriaEditor *materia_editor;
     CharEditor *char_editor;
-    ChocoboEditor *choco_editor;
     ItemList *item_list;
     MetadataCreator *metadataCreator;
     SlotSelect *slotSelect;
@@ -103,7 +78,6 @@ private:
     Lgp *lgpFile;
     LocationViewer *locViewer;
     OptionsWidget *optionsWidget;
-    ChocoboLabel *chocoboLabel;
     ChocoboManager *chocoboManager;
 };
 

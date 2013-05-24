@@ -23,7 +23,6 @@
     #include <QtGui>
 #endif
 //import friends from ff7tk
-//#include "../static_data/Type_FF7CHOCOBO.h"
 #include "../widgets/ChocoboEditor.h"
 #include "../widgets/ChocoboLabel.h"
 class ChocoboManager : public QWidget
@@ -31,16 +30,14 @@ class ChocoboManager : public QWidget
     Q_OBJECT
 public:
     explicit ChocoboManager(QWidget *parent = 0);
-
 signals:
-    void ownedChanged(int);
+    void ownedChanged(qint8);
     void occupiedChanged(qint8);
     void stableMaskChanged(qint8);
     void setMode(bool advanced);
     void nameChanged(int,QString);
     void sexChanged(int,quint8);
     void typeChanged(int,quint8);
-
     void sprintChanged(int,quint16);
     void mSprintChanged(int,quint16);
     void speedChanged(int,quint16);
@@ -55,13 +52,19 @@ signals:
     void cantMateChanged(int,bool);
 public slots:
     void setAdvancedMode(bool advanced);
+    void setData(FF7CHOCOBO choco[6],QString name[6],quint16 stamina[6],bool cMate[6],qint8 owned,qint8 occupied,qint8 mask);
+    void setData(QList<FF7CHOCOBO> chocos,QList<QString> names,QList<quint16> staminas,QList<bool> cMate,qint8 owned,qint8 occupied,qint8 mask);
+    void setChocobo(int s,FF7CHOCOBO chocoData,QString chocoName,quint16 chocoStamina,bool chocoCmate);
+    void setOwned(int owned);
+    void setOccupied(int occupied,int mask);
+    void setHoverStyle(QString backgroundColor);
 private slots:
-    //void lcdOccupiedChanged(int);
     void sbOwnedChanged(int);
     void copy();
     void paste();
     void remove();
     void clicked();
+    void ChocoboChanged(int s);
     void occupiedToggled(bool occupied);
     void NameChange(QString);
     void SexChange(quint8);
@@ -79,20 +82,19 @@ private slots:
     void WinsChanged(quint8);
     void CantMateChanged(bool);
 private:
+    bool isEmpty(FF7CHOCOBO choco);
     void initDisplay(void);
     void initConnections(void);
     void initData(void);
-
+    void rmChocobo(int s);
     void labelUpdate(int label);
 
     QLabel *lblStablesOwned;
     QSpinBox *sbStablesOwned;
     QLabel *lblStablesOccupied;
     QLCDNumber *lcdStablesOccupied;
-
     ChocoboLabel *chocoboLabel[6];
     ChocoboEditor *chocoboEditor;
-
     qint8 stablesOwned;
     qint8 stablesOccupied;
     qint8 stableMask;
@@ -103,5 +105,4 @@ private:
     bool cantMate[7];
     quint16 chocoboStamina[7];
 };
-
 #endif // CHOCOBOMANAGER_H
