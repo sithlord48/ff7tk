@@ -24,13 +24,19 @@ ChocoboManager::ChocoboManager(QWidget *parent) :
 }
 void ChocoboManager::initDisplay(void)
 {
+
     lblStablesOwned = new QLabel(QString(tr("Stables Owned")));
     sbStablesOwned = new QSpinBox;
     sbStablesOwned->setMaximum(6);
     sbStablesOwned->setWrapping(true);
+    sbStablesOwned->setMaximumHeight(24);
+
     lblStablesOccupied = new QLabel(QString(tr("Stables Occupied")));
     lcdStablesOccupied = new QLCDNumber;
     lcdStablesOccupied->setSegmentStyle(QLCDNumber::Flat);
+    lcdStablesOccupied->setMaximumHeight(24);
+    lcdStablesOccupied->setDigitCount(1);
+    lcdStablesOccupied->setMaximumWidth(24);
 
     QHBoxLayout *ownedLayout = new QHBoxLayout();
     ownedLayout->setContentsMargins(0,0,0,0);
@@ -44,8 +50,12 @@ void ChocoboManager::initDisplay(void)
 
     QHBoxLayout *topLayout = new QHBoxLayout();
     topLayout->setContentsMargins(0,0,0,0);
+    QSpacerItem *topSpacer1 = new QSpacerItem(20,0,QSizePolicy::Preferred,QSizePolicy::Preferred);
+    topLayout->addSpacerItem(topSpacer1);
     topLayout->addLayout(ownedLayout);
     topLayout->addLayout(occupiedLayout);
+    QSpacerItem *topSpacer2 = new QSpacerItem(0,0,QSizePolicy::Expanding,QSizePolicy::Preferred);
+    topLayout->addSpacerItem(topSpacer2);
 
     QGridLayout *stableGridLayout =new QGridLayout();
     stableGridLayout->setContentsMargins(0,0,0,0);
@@ -55,11 +65,11 @@ void ChocoboManager::initDisplay(void)
         chocoboLabel[i]->setObjectName(QString::number(i));
         stableGridLayout->addWidget(chocoboLabel[i],(i/2),(i%2),1,1,Qt::AlignCenter);
         chocoboLabel[i]->setEnabled(false);
+        chocoboLabel[i]->setSelected(false);
     }
     chocoboEditor = new ChocoboEditor;
-    stableGridLayout->addWidget(chocoboEditor,0,3,2,2);
-    chocoboEditor->setEnabled(false);
-
+    stableGridLayout->addWidget(chocoboEditor,0,3,3,2);
+    chocoboEditor->setHidden(true);
     QVBoxLayout *finalLayout = new QVBoxLayout();
     finalLayout->addLayout(topLayout);
     finalLayout->addLayout(stableGridLayout);
@@ -99,24 +109,7 @@ void ChocoboManager::initData(void)
     stablesOwned=0;
     stablesOccupied=0;
     selectedStable=-1;
-    for(int i=0;i<7;i++)
-    {
-        chocoboName[i] = QString("\xff\xff\xff\xff\xff\xff");
-        chocoboStamina[i]=0;
-        cantMate[i] = false;
-        chocoboData[i].accel=0;
-        chocoboData[i].coop=0;
-        chocoboData[i].intelligence=0;
-        chocoboData[i].maxspeed=0;
-        chocoboData[i].maxsprintspd=0;
-        chocoboData[i].pcount=0;
-        chocoboData[i].personality=0;
-        chocoboData[i].raceswon=0;
-        chocoboData[i].sex=0;
-        chocoboData[i].speed=0;
-        chocoboData[i].sprintspd=0;
-        chocoboData[i].type=0;
-    }
+    for(int i=0;i<7;i++){rmChocobo(i);}
 }
 
 void ChocoboManager::sbOwnedChanged(int value)
@@ -127,8 +120,20 @@ void ChocoboManager::sbOwnedChanged(int value)
     {
         for(int i=0;i<6;i++){chocoboLabel[i]->setEnabled(false);}
         for(int i=0;i<value;i++){chocoboLabel[i]->setEnabled(true);}
+
         stablesOwned = value;
-        emit(ownedChanged(value));
+        emit(ownedChanged(value));      
+
+        for(int i=value;i<6;i++)
+        {
+            if(chocoboLabel[i]->isOccupied())
+            {
+                chocoboLabel[i]->setOccupied(false);setOccupied(stablesOccupied-1,stableMask &=~(1<<i));
+                emit(occupiedChanged(stablesOccupied));
+                emit(stableMaskChanged(stableMask));
+                if(i==selectedStable){selectedStable=-1;chocoboEditor->setHidden(true);}
+            }
+        }
     }
 }
 void ChocoboManager::copy(void)
@@ -142,15 +147,23 @@ void ChocoboManager::copy(void)
 void ChocoboManager::paste(void)
 {
     int s=sender()->objectName().toInt();
-    chocoboData[s]=chocoboData[6];
-    chocoboName[s]=chocoboName[6];
-    cantMate[s]=cantMate[6];
-    chocoboStamina[s]=chocoboStamina[6];
-    labelUpdate(s);
+    setChocobo(s,chocoboData[6],chocoboName[6],chocoboStamina[6],cantMate[6]);
+    //emit the changes
+    ChocoboChanged(s);
+    chocoboLabel[s]->setOccupied(true);
+    setOccupied(stablesOccupied+1,stableMask |=(1<<s));
+    emit(occupiedChanged(stablesOccupied));
+    emit(stableMaskChanged(stableMask));
+
 }
+
 void ChocoboManager::remove(void)
 {
     int s=sender()->objectName().toInt();
+    rmChocobo(s);
+}
+void ChocoboManager::rmChocobo(int s)
+{
     chocoboName[s]=QString("\xff\xff\xff\xff\xff\xff");
     chocoboStamina[s]=0;
     cantMate[s]=false;
@@ -166,21 +179,36 @@ void ChocoboManager::remove(void)
     chocoboData[s].speed=0;
     chocoboData[s].sprintspd=0;
     chocoboData[s].type=0;
+    //emit the changes
+    ChocoboChanged(s);
+    if (selectedStable==s){chocoboLabel[s]->setSelected(false);selectedStable=-1;chocoboEditor->setHidden(true);}
 }
 void ChocoboManager::labelUpdate(int label)
 {
-    chocoboLabel[label]->setName(chocoboName[label]);
+    if(!(chocoboName[label].startsWith(QString("\xff")))){chocoboLabel[label]->setName(chocoboName[label]);}
     chocoboLabel[label]->setSex(chocoboData[label].sex);
     chocoboLabel[label]->setRank(chocoboData[label].raceswon);
     chocoboLabel[label]->setType(chocoboData[label].type);
+    chocoboLabel[label]->setOccupied(stableMask & (1<<label));
+
 }
 void ChocoboManager::occupiedToggled(bool occupied)
 {
     int s=sender()->objectName().toInt();
-    if(occupied){stableMask |= (1<<s);lcdStablesOccupied->display(lcdStablesOccupied->value()+1);}
-    else{stableMask &= ~(1<<s);lcdStablesOccupied->display(lcdStablesOccupied->value()-1);}
+    if(occupied)
+    {
+        stableMask |= (1<<s);
+        lcdStablesOccupied->display(lcdStablesOccupied->value()+1);
+        labelUpdate(s);
+    }
+    else
+    {
+        stableMask &= ~(1<<s);
+        lcdStablesOccupied->display(lcdStablesOccupied->value()-1);
+        chocoboLabel[s]->clearLabel();
+        if (selectedStable==s){chocoboLabel[s]->setSelected(false);selectedStable=-1;chocoboEditor->setHidden(true);}
+    }
     stablesOccupied=lcdStablesOccupied->value();
-
     emit(occupiedChanged(stablesOccupied));
     emit(stableMaskChanged(stableMask));
 }
@@ -188,12 +216,16 @@ void ChocoboManager::setAdvancedMode(bool advanced){chocoboEditor->setAdvancedMo
 
 void ChocoboManager::clicked()
 {
-    if(selectedStable ==-1){chocoboEditor->setEnabled(true);}
+    if(selectedStable ==-1){chocoboEditor->setHidden(false);}
+
     selectedStable = sender()->objectName().toInt();
     chocoboEditor->SetChocobo(chocoboData[selectedStable],chocoboName[selectedStable],cantMate[selectedStable],chocoboStamina[selectedStable]);
 
-    if(chocoboName[selectedStable].startsWith(QString("\xff\xff"))){return;}
-    else{labelUpdate(selectedStable);}
+    for(int i=0;i<6;i++)
+    {
+        chocoboLabel[i]->setSelected(false);
+        if(i==selectedStable){chocoboLabel[i]->setSelected(true);}
+    }
 }
 void ChocoboManager::NameChange(QString name)
 {
@@ -210,7 +242,7 @@ void ChocoboManager::SexChange(quint8 sex)
     {
         chocoboData[selectedStable].sex=sex;
         labelUpdate(selectedStable);
-        emit sexChanged(selectedStable,sex);
+        emit sexChanged(selectedStable,sex); 
     }
 }
 void ChocoboManager::TypeChange(quint8 type)
@@ -319,4 +351,125 @@ void ChocoboManager::CantMateChanged(bool cantmate)
         cantMate[selectedStable]=cantmate;
         emit(cantMateChanged(selectedStable,cantmate));
     }
+}
+void ChocoboManager::setData(FF7CHOCOBO chocos[6],QString names[6],quint16 staminas[6],bool cMate[6],qint8 owned,qint8 occupied,qint8 mask)
+{
+    for(int i=0;i<6;i++)
+    {
+        setChocobo(i,chocos[i],names[i],staminas[i],cMate[i]);
+        if(!chocoboLabel[i]->isOccupied()){chocoboLabel[i]->clearLabel();}
+        chocoboLabel[i]->setSelected(false);
+    }
+    setOwned(owned);
+    setOccupied(occupied,mask);
+    selectedStable=-1;//reset
+    chocoboEditor->setHidden(true);
+}
+void ChocoboManager::setData(QList<FF7CHOCOBO> chocos,QList<QString> names,QList<quint16> staminas,QList<bool> cMate,qint8 owned,qint8 occupied,qint8 mask)
+{
+    setOwned(owned);
+    setOccupied(occupied,mask);
+    selectedStable=-1;//reset
+
+    chocoboEditor->setHidden(true);
+
+    for(int i=0;i<6;i++)
+    {
+        setChocobo(i,chocos.at(i),names.at(i),staminas.at(i),cMate.at(i));
+        if(!chocoboLabel[i]->isOccupied()){chocoboLabel[i]->clearLabel();}
+        chocoboLabel[i]->setSelected(false);
+    }
+}
+void ChocoboManager::setChocobo(int s,FF7CHOCOBO chocoData,QString chocoName,quint16 chocoStamina,bool chocoCmate)
+{
+    chocoboLabel[s]->clearLabel();
+    chocoboData[s]= chocoData;
+    chocoboName[s]= chocoName;
+    chocoboStamina[s]=chocoStamina;
+    cantMate[s] = chocoCmate;
+    if(chocoboLabel[s]->isOccupied()){labelUpdate(s);}
+    else{chocoboLabel[s]->clearLabel();}
+}
+void ChocoboManager::setOwned(int owned)
+{
+    if(owned<0 || owned>6){return;}
+    else
+    {
+        stablesOwned=owned;
+        sbStablesOwned->blockSignals(true);
+        sbStablesOwned->setValue(owned);
+        for(int i=0;i<6;i++){chocoboLabel[i]->setEnabled(false);}
+        for(int i=0;i<owned;i++){chocoboLabel[i]->setEnabled(true);}
+        sbStablesOwned->blockSignals(false);
+    }
+}
+void ChocoboManager::setOccupied(int occupied,int mask)
+{
+    if(occupied<0 || occupied>6){return;}
+    else
+    {
+        stablesOccupied = occupied;
+        stableMask=mask;
+
+
+        for(int i=0;i<6;i++)
+        {
+            chocoboLabel[i]->blockSignals(true);
+            if((mask&(1<<i)))
+            {
+                chocoboLabel[i]->setOccupied(true);
+                labelUpdate(i);
+            }
+            else
+            {
+                chocoboLabel[i]->setOccupied(false);
+                chocoboLabel[i]->clearLabel();
+            }
+            chocoboLabel[i]->blockSignals(false);
+
+        }
+        lcdStablesOccupied->blockSignals(true);
+        lcdStablesOccupied->display(occupied);
+        lcdStablesOccupied->blockSignals(false);
+    }
+}
+void ChocoboManager::ChocoboChanged(int s)
+{
+    emit(nameChanged(s,chocoboName[s]));
+    emit(staminaChanged(s,chocoboStamina[s]));
+    emit(cantMateChanged(s,cantMate[s]));
+    emit(sexChanged(s,chocoboData[s].sex));
+    emit(typeChanged(s,chocoboData[s].type));
+    emit(sprintChanged(s,chocoboData[s].sprintspd));
+    emit(mSprintChanged(s,chocoboData[s].maxsprintspd));
+    emit(speedChanged(s,chocoboData[s].speed));
+    emit(mSpeedChanged(s,chocoboData[s].maxspeed));
+    emit(accelChanged(s,chocoboData[s].accel));
+    emit(coopChanged(s,chocoboData[s].coop));
+    emit(intelligenceChanged(s,chocoboData[s].intelligence));
+    emit(personalityChanged(s,chocoboData[s].personality));
+    emit(pCountChanged(s,chocoboData[s].pcount));
+    emit(winsChanged(s,chocoboData[s].raceswon));
+}
+bool ChocoboManager::isEmpty(FF7CHOCOBO choco)
+{
+    int score =0;
+    if(choco.accel!=0){score++;}
+    if(choco.coop!=0){score++;}
+    if(choco.intelligence!=0){score++;}
+    if(choco.maxspeed!=0){score++;}
+    if(choco.maxsprintspd!=0){score++;}
+    if(choco.pcount!=0){score++;}
+    if(choco.personality!=0){score++;}
+    if(choco.raceswon!=0){score++;}
+    if(choco.sex!=0){score++;}
+    if(choco.speed!=0){score++;}
+    if(choco.sprintspd!=0){score++;}
+    if(choco.type!=0){score++;}
+    if(score>5){return false;}
+    else{return true;}
+}
+void ChocoboManager::setHoverStyle(QString backgroundColor)
+{
+    for(int i=0;i<6;i++){chocoboLabel[i]->setHoverColorStyle(backgroundColor);}
 }
