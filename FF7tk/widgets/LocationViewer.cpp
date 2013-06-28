@@ -17,9 +17,6 @@
 
 LocationViewer::LocationViewer(QWidget *parent) :  QWidget(parent)
 {
-    if(QResource::registerResource(QApplication::applicationDirPath().append(QString("/locations.rcc")))){showPreview=true;}
-    else{showPreview=false;}
-
     Locations = new FF7Location();
     init_display();
     init_connections();
@@ -64,22 +61,17 @@ void LocationViewer::init_display(void)
 
     for (int i=0;i<locationTable->rowCount();i++)
     {
+        //set the tooltip to the needed file
+        QString tooltip(QString("<html><head/><body><p><img src=\":/locations/%1_%2\"/></p></body></html>").arg(Locations->mapID(i),Locations->locationID(i)));
+
         newItem = new QTableWidgetItem(Locations->fileName(i),0);
         newItem->setFlags(newItem->flags()&=~Qt::ItemIsEditable);
-        if(showPreview)
-        {//set the tooltip to the needed file if the locations resource is found.
-            QString tooltip(QString("<html><head/><body><p><img src=\":/locations/%1_%2\"/></p></body></html>").arg(Locations->mapID(i),Locations->locationID(i)));
-            newItem->setToolTip(tooltip);
-        }
+        newItem->setToolTip(tooltip);
         locationTable->setItem(i,0,newItem);
 
         newItem = new QTableWidgetItem(Locations->locationString(i),0);
         newItem->setFlags(newItem->flags()&=~Qt::ItemIsEditable);
-        if(showPreview)
-        {//set the tooltip to the needed file if the locations resource is found.
-            QString tooltip(QString("<html><head/><body><p><img src=\":/locations/%1_%2\"/></p></body></html>").arg(Locations->mapID(i),Locations->locationID(i)));
-            newItem->setToolTip(tooltip);
-        }
+        newItem->setToolTip(tooltip);
         locationTable->setItem(i,1,newItem);
 
         newItem = new QTableWidgetItem(Locations->locationID(i),0);

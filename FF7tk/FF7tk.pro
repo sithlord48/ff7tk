@@ -74,3 +74,6 @@ SOURCES += main.cpp \
     widgets/ChocoboManager.cpp
 
 OTHER_FILES +=
+
+RESOURCES += \
+    static_data/icons/Location_Icons/locations.qrc
