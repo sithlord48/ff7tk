@@ -57,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
     locViewer = new LocationViewer(this);
     QHBoxLayout *locLayout = new QHBoxLayout();
     locLayout->addWidget(locViewer);
-    ui->locListBox->setLayout(locLayout);
+    ui->innerLocBox->setLayout(locLayout);
 
     chocoboManager = new ChocoboManager();
     QHBoxLayout *ChocoboManagerLayout = new QHBoxLayout();
@@ -180,4 +180,9 @@ void MainWindow::hideAllBoxes(void)
     ui->groupLgpView->setVisible(0);
     ui->locListBox->setVisible(0);
     ui->ChocoboManagerBox->setVisible(0);
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    locViewer->setSelected(arg1);
 }

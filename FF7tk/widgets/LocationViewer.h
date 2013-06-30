@@ -29,24 +29,45 @@ class LocationViewer : public QWidget
     Q_OBJECT
 public:
     explicit LocationViewer(QWidget *parent = 0);
-
+    void setSelected(QString);
 
 signals:
-    
+    void locationChanged(QString);
+    void xChanged(int x);
+    void yChanged(int y);
+    void tChanged(int t);
+    void dChanged(int d);
+    void mapIdChanged(int mapId);
+    void locIdChanged(int locId);
+
 public slots:
     void setAdvancedMode(bool AdvancedMode);
+    void setLocation(int mapId,int locId);
+
 
 private slots:
     void itemChanged(int currentRow,int currentColumn,int prevRow, int prevColumn);
+    void sbMapIdChanged(int mapId);
+    void sbLocIdChanged(int locId);
+    void sbXChanged(int x);
+    void sbYChanged(int y);
+    void sbTChanged(int t);
+    void sbDChanged(int d);
 
 private:
     void init_display(void);
     void init_connections(void);
-
-
+    void init_disconnect(void);
     QTableWidget *locationTable;
     FF7Location *Locations;
     QLabel * lblLocationPreview;
+    QLineEdit *lineLocationName;
+    QSpinBox *sbMapID;
+    QSpinBox *sbLocID;
+    QSpinBox *sbX;
+    QSpinBox *sbY;
+    QSpinBox *sbT;
+    QSpinBox *sbD;
     bool advancedMode;
     bool showPreview;
 };
