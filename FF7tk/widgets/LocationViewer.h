@@ -29,7 +29,6 @@ class LocationViewer : public QWidget
     Q_OBJECT
 public:
     explicit LocationViewer(QWidget *parent = 0);
-    void setSelected(QString);
 
 signals:
     void locationChanged(QString);
@@ -39,10 +38,19 @@ signals:
     void dChanged(int d);
     void mapIdChanged(int mapId);
     void locIdChanged(int locId);
+    void locationStringChanged(QString);
 
 public slots:
-    void setAdvancedMode(bool AdvancedMode);
-    void setLocation(int mapId,int locId);
+    void setSelected(QString);
+    void setAdvancedMode(bool AdvancedMode);    
+    void setX(int x);
+    void setY(int y);
+    void setT(int t);
+    void setD(int d);
+    void setMapId(int mapId);
+    void setLocationId(int locId);
+    void setLocationString(QString);
+    void setHorizontalHeaderStyle(QString styleSheet);
 
 
 private slots:
@@ -53,7 +61,10 @@ private slots:
     void sbYChanged(int y);
     void sbTChanged(int t);
     void sbDChanged(int d);
-
+    void lineLocationNameChanged(QString);
+    void setLocation(int mapId,int locId);
+protected:
+    void resizeEvent(QResizeEvent *ev);
 private:
     void init_display(void);
     void init_connections(void);
