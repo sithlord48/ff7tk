@@ -64,6 +64,8 @@ private slots:
     void on_btn_slotSelect_clicked();
     void on_btn_lgpSelect_clicked();
     void on_btnExtractLgp_clicked();
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
 
     Ui::MainWindow *ui;
