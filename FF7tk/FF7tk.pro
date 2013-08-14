@@ -41,7 +41,8 @@ HEADERS +=  mainwindow.h \
     widgets/LocationViewer.h \
     widgets/ChocoboLabel.h \
     widgets/ChocoboManager.h \
-    static_data/Type_FF7CHOCOBO.h
+    static_data/Type_FF7CHOCOBO.h \
+    static_data/FF7FieldItemList.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -71,7 +72,8 @@ SOURCES += main.cpp \
     widgets/OptionsWidget.cpp \
     widgets/LocationViewer.cpp \
     widgets/ChocoboLabel.cpp \
-    widgets/ChocoboManager.cpp
+    widgets/ChocoboManager.cpp \
+    static_data/FF7FieldItemList.cpp
 
 OTHER_FILES +=
 
