@@ -14,6 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "LocationViewer.h"
+
 #include "../static_data/icons/Common_Icons/delete.xpm"
 
 LocationViewer::LocationViewer(QWidget *parent) :  QWidget(parent)
@@ -23,6 +24,7 @@ LocationViewer::LocationViewer(QWidget *parent) :  QWidget(parent)
     regExpSearch=false;
     caseSensitive=false;
     Locations = new FF7Location();
+    fItems= new FF7FieldItemList();
     init_display();
     init_connections();
 }
@@ -154,6 +156,9 @@ void LocationViewer::init_display(void)
     sbD->setWrapping(true);
     sbD->setAlignment(Qt::AlignCenter);
 
+    fItemList = new QListWidget();
+    fItemList->setFixedHeight(0);
+
     QHBoxLayout *nameIDs = new QHBoxLayout;
     nameIDs->addWidget(lineLocationName);
     nameIDs->addWidget(sbMapID);
@@ -186,6 +191,7 @@ void LocationViewer::init_display(void)
     QVBoxLayout *RightSideLayout = new QVBoxLayout;
     RightSideLayout->addLayout(CoordsLayout);
     RightSideLayout->addLayout(PreviewLayout);
+    RightSideLayout->addWidget(fItemList);
 
     QHBoxLayout *FinalLayout = new QHBoxLayout;
     FinalLayout->setContentsMargins(6,6,6,6);
@@ -274,9 +280,11 @@ void LocationViewer::setLocation(int mapId,int locId)
     init_disconnect();
     QString fileName = Locations->fileName(mapId,locId);
     setSelected(fileName);
+
     if(fileName.isEmpty()){lblLocationPreview->setPixmap(QString(""));}
     else
     {
+        qWarning()<<"Loading Map:"<<fileName;
         lblLocationPreview->setPixmap(QPixmap(QString("://locations/%1_%2").arg(QString::number(mapId),QString::number(locId))).scaled(lblLocationPreview->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation));
 
         QString oldStr = Locations->locationString(fileName);
@@ -289,6 +297,7 @@ void LocationViewer::setLocation(int mapId,int locId)
         sbT->setValue(Locations->t(fileName).toInt());
         sbD->setValue(Locations->d(fileName).toInt());
         lineLocationName->setText(newStr);
+        init_fItems();
     }
     init_connections();
 }
@@ -312,8 +321,8 @@ void LocationViewer::setRegion(QString newRegion){region=newRegion;setLocation(s
 void LocationViewer::setTranslationBaseFile(QString basePathName){transBasePath= basePathName;}
 QString LocationViewer::translate(QString text)
 {
-    if(region ==""){qWarning()<<"Locations Translate Called With No Region";return text;}
-    if(transBasePath==""){qWarning()<<"No Base Path/FileName for translations";return text;}
+    if(region ==""){qWarning()<<"Translate: No Region";return text;}
+    if(transBasePath==""){qWarning()<<"Translate: No Base Path";return text;}
     else
     {
         QString lang = transBasePath;
@@ -363,4 +372,63 @@ void LocationViewer::actionCaseSensitiveToggled(bool checked)
     caseSensitive=checked;
     if(lineTableFilter->text().isEmpty()){return;}
     else{filterLocations(lineTableFilter->text());}
+}
+
+void LocationViewer::init_fItems(void)
+{
+    fItemList->clear();
+    for(int i=0;i<fItems->count();i++)
+    {
+        for(int j=0;j<fItems->maps(i).count();j++)
+        {
+            if(fItems->maps(i).at(j)== locationTable->item(locationTable->currentRow(),0)->text())
+            {
+                QListWidgetItem *newItem = new QListWidgetItem(fItems->text(i));
+                newItem->setCheckState(Qt::Unchecked);
+                fItemList->addItem(newItem);
+                //Some Emit Needed Here, used to connect to data
+                //this output does not account for items that set more then one bit (on same of different offsets)
+                //this output also does not consider cases where an item is shown on more then one map with same offset and bit used for each map
+                if( (fItems->offset(i).count()==1) && (fItems->bit(i).count()==1) && (fItems->maps(i).count()==1))
+                {
+                    qWarning()<<QString("Item:%1 -> Offset:%2 Bit:%3")
+                     .arg(QString::number(fItemList->count()-1),QString::number(fItems->offset(i).at(j)),QString::number(fItems->bit(i).at(j)));
+                }
+                else
+                {
+                    if(fItems->offset(i).count() == fItems->bit(i).count())
+                    {
+                        for(int k=0;k<fItems->offset(i).count();k++)
+                        {
+                            qWarning()<<QString("Item:%1 -> Offset:%2 Bit:%3")
+                             .arg(QString::number(fItemList->count()-1),QString::number(fItems->offset(i).at(k)),QString::number(fItems->bit(i).at(k)));
+                        }
+
+                    }
+                    else
+                    {
+                        qWarning()<<QString("Item:%1 -> Special Case").arg(QString::number(fItemList->count()-1));
+                    }
+                }
+            }
+        }
+    }
+    if(fItemList->count()<=0){fItemList->setFixedHeight(0);}
+    else if(fItemList->count()<5)
+    {
+        fItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        fItemList->setFixedHeight((locationTable->rowHeight(0) *fItemList->count())+6);
+    }
+    else if(fItemList->count()==5)
+    {
+        fItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        fItemList->setFixedHeight((locationTable->rowHeight(0) *5)+9);
+    }
+    else
+    {
+        fItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        fItemList->setFixedHeight((locationTable->rowHeight(0)*5)+9);
+    }
+    qWarning()<<"ItemBox Height:"<<QString::number(fItemList->size().height());
+    //need to check save data and mark the stuff that is picked up
 }

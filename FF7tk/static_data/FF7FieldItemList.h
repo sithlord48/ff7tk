@@ -36,10 +36,11 @@ public:
     QList<quint8> bit(int index);
     QStringList maps(int index);
     QString text(int index);
+    int count();
 };
 
 static FieldItemList FILIST[]=
-{
+{//don't forget to update count on entry
     {QList<quint16>()<<0xFC4,QList<quint8>()<<0,QStringList()<<"md1stin",QT_TRANSLATE_NOOP("Items","Potion")},
     {QList<quint16>()<<0xFC4,QList<quint8>()<<1,QStringList()<<"md1stin",QT_TRANSLATE_NOOP("Items","Potion")},
     {QList<quint16>()<<0xFC4,QList<quint8>()<<2,QStringList()<<"nmkin_3",QT_TRANSLATE_NOOP("Items","Potion")},
@@ -62,6 +63,38 @@ static FieldItemList FILIST[]=
     {QList<quint16>()<<0xFC6<<0xFC6,QList<quint8>()<<2<<3,QStringList()<<"blin68_1"<<"blin68_2",QT_TRANSLATE_NOOP("Materia_Names","Enemy Skill")},
     {QList<quint16>()<<0xFC6<<0xFC6,QList<quint8>()<<4<<5,QStringList()<<"sinin2_1",QT_TRANSLATE_NOOP("Materia_Names","Odin")},
     {QList<quint16>()<<0xFC6,QList<quint8>()<<6,QStringList()<<"nvdun1",QT_TRANSLATE_NOOP("Materia_Names","Counter")},
-    {QList<quint16>()<<0xFC6,QList<quint8>()<<7,QStringList()<<"sandun_1",QT_TRANSLATE_NOOP("Materia_Names","Magic Plus")}
+    {QList<quint16>()<<0xFC6,QList<quint8>()<<7,QStringList()<<"sandun_1",QT_TRANSLATE_NOOP("Materia_Names","Magic Plus")},
+
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<0,QStringList()<<"colne_b1",QT_TRANSLATE_NOOP("Materia_Names","Steal")},
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<1,QStringList()<<"sinin1_2",QT_TRANSLATE_NOOP("Items","Twin Viper")},
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<2,QStringList()<<"sinin1_2",QT_TRANSLATE_NOOP("Items","Silver M-Phone")},
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<3,QStringList()<<"sinin2_1",QT_TRANSLATE_NOOP("Items","Enemy Launcher")},
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<4,QStringList()<<"sinin2_2",QT_TRANSLATE_NOOP("Items","Magic Source")},
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<5,QStringList()<<"bonevil",QT_TRANSLATE_NOOP("Items","Buntline")},
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<6,QStringList()<<"loslake1",QT_TRANSLATE_NOOP("Items","Aurora Armlet")},
+    {QList<quint16>()<<0xFC7,QList<quint8>()<<7,QStringList()<<"sango3",QT_TRANSLATE_NOOP("Items","Viper Halberd")},
+
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<0,QStringList()<<"mtnvl2",QT_TRANSLATE_NOOP("Items","Rune Blade")},
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<1,QStringList()<<"mtnvl2",QT_TRANSLATE_NOOP("Items","Plus Barrette")},
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<2,QStringList()<<"nvdun1",QT_TRANSLATE_NOOP("Items","Powersoul")},
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<3,QStringList()<<"nvdun4",QT_TRANSLATE_NOOP("Items","Sniper CR")},
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<4,QStringList()<<"nvdun2",QT_TRANSLATE_NOOP("Items","Elixir")},
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<5,QStringList()<<"nvdun1",QT_TRANSLATE_NOOP("Materia_Names","All")},
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<6,QStringList()<<"nvdun3",QT_TRANSLATE_NOOP("Materia_Names","Elemental")},
+    {QList<quint16>()<<0xFC8,QList<quint8>()<<7,QStringList()<<"",""},
+
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<0,QStringList()<<"sundun_2",QT_TRANSLATE_NOOP("Items","Power Source")},
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<1,QStringList()<<"sango1",QT_TRANSLATE_NOOP("Items","Water Ring")},
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<2,QStringList()<<"anfrst_2",QT_TRANSLATE_NOOP("Materia_Names","Typoon")},
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<3,QStringList()<<"anfrst_3",QT_TRANSLATE_NOOP("Items","Supershot ST")},
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<4,QStringList()<<"anfrst_1",QT_TRANSLATE_NOOP("Materia_Names","Slash-All")},
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<5,QStringList()<<"anfrst_1",QT_TRANSLATE_NOOP("Items","Minerva Band")},
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<6,QStringList()<<"anfrst_5",QT_TRANSLATE_NOOP("Items","Apocalypse")},
+    {QList<quint16>()<<0xFC9,QList<quint8>()<<7,QStringList()<<"anfrst_5",QT_TRANSLATE_NOOP("Items","Elixir")},
+
+    {QList<quint16>()<<0xFCA,QList<quint8>()<<0,QStringList()<<"anfrst_3",QT_TRANSLATE_NOOP("Items","Spring Gun Clip")},
+    {QList<quint16>()<<0xFCA,QList<quint8>()<<1,QStringList()<<"bonevil",QT_TRANSLATE_NOOP("Items","Mop")},
+    {QList<quint16>()<<0xFCA,QList<quint8>()<<2,QStringList()<<"bonevil",QT_TRANSLATE_NOOP("Items","Megalixir")},
+    {QList<quint16>()<<0xFCA,QList<quint8>()<<3,QStringList()<<"blackbg1"<<"mds5_5"<<"bonevil",QT_TRANSLATE_NOOP("KeyItems","Key To Sector 5")}
 };
 #endif // FF7FIELDITEMLIST_H

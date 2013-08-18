@@ -24,6 +24,7 @@
 #endif
 // Include FF7tk Items.
 #include "../static_data/FF7Location.h"
+#include "../static_data/FF7FieldItemList.h"
 class LocationViewer : public QWidget
 {
     Q_OBJECT
@@ -73,6 +74,7 @@ private:
     void init_display(void);
     void init_connections(void);
     void init_disconnect(void);
+    void init_fItems(void);
     QString translate(QString text);
     QTableWidget *locationTable;
     QLineEdit *lineTableFilter;
@@ -80,6 +82,7 @@ private:
     QAction *actionCaseSensitive;
     QToolButton *btnSearchOptions;
     FF7Location *Locations;
+    FF7FieldItemList *fItems;
     QLabel * lblLocationPreview;
     QLineEdit *lineLocationName;
     QSpinBox *sbMapID;
@@ -90,6 +93,7 @@ private:
     QSpinBox *sbD;
     QString region;
     QString transBasePath;
+    QListWidget *fItemList;
     bool regExpSearch;
     bool caseSensitive;
 };
