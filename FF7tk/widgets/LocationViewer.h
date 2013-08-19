@@ -40,8 +40,9 @@ signals:
     void mapIdChanged(int mapId);
     void locIdChanged(int locId);
     void locationStringChanged(QString);
-    void fItemConnectRequest(quint8 index,quint16 offset,quint8 bit);
-    void fItemCheck(int index);
+    void fieldItemConnectRequest(quint8 index,QList<quint16> offset,QList<quint8>bit);
+    void fieldItemCheck(int index);
+    void fieldItemChanged(int index,bool checked);
 
 public slots:
     void setSelected(QString);
@@ -56,6 +57,8 @@ public slots:
     void setLocationString(QString);
     void setHorizontalHeaderStyle(QString styleSheet);
     void setFieldItemChecked(int row,bool checked);
+    void init_fieldItems(void);
+
 private slots:
     void itemChanged(int currentRow,int currentColumn,int prevRow, int prevColumn);
     void sbMapIdChanged(int mapId);
@@ -70,14 +73,13 @@ private slots:
     void actionRegExpSearchToggled(bool checked);
     void actionCaseSensitiveToggled(bool checked);
     void btnSearchOptionsClicked(void);
-    void fItemChanged(QModelIndex index);
+    void fieldItemListItemChanged(QModelIndex index);
 protected:
     void resizeEvent(QResizeEvent *ev);
 private:
     void init_display(void);
     void init_connections(void);
     void init_disconnect(void);
-    void init_fItems(void);
     QString translate(QString text);
     QTableWidget *locationTable;
     QLineEdit *lineTableFilter;
@@ -85,7 +87,7 @@ private:
     QAction *actionCaseSensitive;
     QToolButton *btnSearchOptions;
     FF7Location *Locations;
-    FF7FieldItemList *fItems;
+    FF7FieldItemList *fieldItems;
     QLabel * lblLocationPreview;
     QLineEdit *lineLocationName;
     QSpinBox *sbMapID;
@@ -96,7 +98,7 @@ private:
     QSpinBox *sbD;
     QString region;
     QString transBasePath;
-    QListWidget *fItemList;
+    QListWidget *fieldItemList;
     bool regExpSearch;
     bool caseSensitive;
 };

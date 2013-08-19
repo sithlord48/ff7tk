@@ -46,7 +46,7 @@ static FieldItemList FILIST[]=
     {QList<quint16>()<<0x0BD4,QList<quint8>()<<2,QStringList()<<"eals_1",QT_TRANSLATE_NOOP("Items","Ether")},
     {QList<quint16>()<<0x0BD4,QList<quint8>()<<3,QStringList()<<"eals_1",QT_TRANSLATE_NOOP("Materia_Names","Cover")},
     {QList<quint16>()<<0x0BD4,QList<quint8>()<<4,QStringList()<<"farm",QT_TRANSLATE_NOOP("Materia_Names","Choco-Mog")},
-    {QList<quint16>()<<0x0BD4,QList<quint8>()<<5,QStringList()<<"mds_6",QT_TRANSLATE_NOOP("Materia_Names","Sence")},
+    {QList<quint16>()<<0x0BD4,QList<quint8>()<<5,QStringList()<<"mds6_22",QT_TRANSLATE_NOOP("Materia_Names","Sence")},
     {QList<quint16>()<<0x0BD4,QList<quint8>()<<6,QStringList()<<"crcin_2",QT_TRANSLATE_NOOP("Materia_Names","Ramuh")},
     {QList<quint16>()<<0x0BD4,QList<quint8>()<<7,QStringList()<<"zz1",QT_TRANSLATE_NOOP("KeyItems","Mythril")},
 
