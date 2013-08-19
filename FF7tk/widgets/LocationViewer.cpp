@@ -24,7 +24,7 @@ LocationViewer::LocationViewer(QWidget *parent) :  QWidget(parent)
     regExpSearch=false;
     caseSensitive=false;
     Locations = new FF7Location();
-    fItems= new FF7FieldItemList();
+    fieldItems= new FF7FieldItemList();
     init_display();
     init_connections();
 }
@@ -156,10 +156,10 @@ void LocationViewer::init_display(void)
     sbD->setWrapping(true);
     sbD->setAlignment(Qt::AlignCenter);
 
-    fItemList = new QListWidget();
-    fItemList->setFixedHeight(0);
-    fItemList->setUniformItemSizes(true);
-    fItemList->setSelectionMode(QAbstractItemView::NoSelection);
+    fieldItemList = new QListWidget();
+    fieldItemList->setFixedHeight(0);
+    fieldItemList->setUniformItemSizes(true);
+    fieldItemList->setSelectionMode(QAbstractItemView::NoSelection);
 
     QHBoxLayout *nameIDs = new QHBoxLayout;
     nameIDs->addWidget(lineLocationName);
@@ -193,7 +193,7 @@ void LocationViewer::init_display(void)
     QVBoxLayout *RightSideLayout = new QVBoxLayout;
     RightSideLayout->addLayout(CoordsLayout);
     RightSideLayout->addLayout(PreviewLayout);
-    RightSideLayout->addWidget(fItemList);
+    RightSideLayout->addWidget(fieldItemList);
 
     QHBoxLayout *FinalLayout = new QHBoxLayout;
     FinalLayout->setContentsMargins(6,6,6,6);
@@ -216,7 +216,7 @@ void LocationViewer::init_connections(void)
     connect(sbT,SIGNAL(valueChanged(int)),this,SLOT(sbTChanged(int)));
     connect(sbD,SIGNAL(valueChanged(int)),this,SLOT(sbDChanged(int)));
     connect(lineLocationName,SIGNAL(textChanged(QString)),this,SLOT(lineLocationNameChanged(QString)));
-    connect(fItemList,SIGNAL(clicked(QModelIndex)),this,SLOT(fItemChanged(QModelIndex)));
+    connect(fieldItemList,SIGNAL(clicked(QModelIndex)),this,SLOT(fieldItemListItemChanged(QModelIndex)));
 }
 void LocationViewer::init_disconnect(void)
 {
@@ -231,7 +231,7 @@ void LocationViewer::init_disconnect(void)
     disconnect(sbT,SIGNAL(valueChanged(int)),this,SLOT(sbTChanged(int)));
     disconnect(sbD,SIGNAL(valueChanged(int)),this,SLOT(sbDChanged(int)));
     disconnect(lineLocationName,SIGNAL(textChanged(QString)),this,SLOT(lineLocationNameChanged(QString)));
-    disconnect(fItemList,SIGNAL(clicked(QModelIndex)),this,SLOT(fItemChanged(QModelIndex)));
+    disconnect(fieldItemList,SIGNAL(clicked(QModelIndex)),this,SLOT(fieldItemListItemChanged(QModelIndex)));
 }
 
 void LocationViewer::itemChanged(int currentRow, int currentColumn, int prevRow, int prevColumn)
@@ -290,7 +290,6 @@ void LocationViewer::setLocation(int mapId,int locId)
     {
         qWarning()<<"Loading Map:"<<fileName;
         lblLocationPreview->setPixmap(QPixmap(QString("://locations/%1_%2").arg(QString::number(mapId),QString::number(locId))).scaled(lblLocationPreview->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation));
-
         QString oldStr = Locations->locationString(fileName);
         QString newStr = translate(oldStr);
         if(oldStr !=newStr){emit(locationStringChanged(newStr));}
@@ -301,7 +300,7 @@ void LocationViewer::setLocation(int mapId,int locId)
         sbT->setValue(Locations->t(fileName).toInt());
         sbD->setValue(Locations->d(fileName).toInt());
         lineLocationName->setText(newStr);
-        init_fItems();
+        init_fieldItems();
     }
     init_connections();
 }
@@ -378,80 +377,59 @@ void LocationViewer::actionCaseSensitiveToggled(bool checked)
     else{filterLocations(lineTableFilter->text());}
 }
 
-void LocationViewer::init_fItems(void)
+void LocationViewer::init_fieldItems(void)
 {
-    fItemList->clear(); 
-    for(int i=0;i<fItems->count();i++)
+    fieldItemList->clear();
+    for(int i=0;i<fieldItems->count();i++)
     {
-        for(int j=0;j<fItems->maps(i).count();j++)
+        for(int j=0;j<fieldItems->maps(i).count();j++)
         {
-            if(fItems->maps(i).at(j)== locationTable->item(locationTable->currentRow(),0)->text())
+            if(fieldItems->maps(i).at(j)== Locations->fileName(sbMapID->value(),sbLocID->value()))
             {
-                QListWidgetItem *newItem = new QListWidgetItem(fItems->text(i));
+                QListWidgetItem *newItem = new QListWidgetItem(fieldItems->text(i));
                 newItem->setCheckState(Qt::Unchecked);
-                fItemList->addItem(newItem);
-                //Some Emit Needed Here, used to connect to data
-                //this output does not account for items that set more then one bit (on same of different offsets)
-                //this output also does not consider cases where an item is shown on more then one map with same offset and bit used for each map
-                if( (fItems->offset(i).count()==1) && (fItems->bit(i).count()==1) && (fItems->maps(i).count()==1))
-                {
-                    qWarning()<<"Emit "<< QString("Item:%1 -> Offset:0x%2 Bit:%3")
-                                .arg(QString::number(fItemList->count()-1),QString::number(fItems->offset(i).at(j),16).toUpper(),QString::number(fItems->bit(i).at(j)));
-                    emit fItemConnectRequest(fItemList->count()-1,fItems->offset(i).at(j),fItems->bit(i).at(j));
-                }
-                else
-                {
-                    if(fItems->offset(i).count() == fItems->bit(i).count())
-                    {
-                        for(int k=0;k<fItems->offset(i).count();k++)
-                        {
-                            qWarning()<<QString("Item:%1 -> Offset:0x%2 Bit:%3")
-                             .arg(QString::number(fItemList->count()-1),QString::number(fItems->offset(i).at(k),16).toUpper(),QString::number(fItems->bit(i).at(k)));
-                            emit fItemConnectRequest(fItemList->count()-1,fItems->offset(i).at(k),fItems->bit(i).at(k));
-                        }
-                    }
-                    else
-                    {
-                        qWarning()<<QString("Item:%1 -> Special Case").arg(QString::number(fItemList->count()-1));
-                    }
-                }
+                fieldItemList->addItem(newItem);
+                emit fieldItemConnectRequest(fieldItemList->count()-1,fieldItems->offset(i),fieldItems->bit(i));
                 //emit to check the item
-                emit fItemCheck(fItemList->count()-1);
-                qWarning()<<"Checked Item:"<<QString::number(fItemList->count()-1);
+                emit fieldItemCheck(fieldItemList->count()-1);
             }
         }        
     }
-    if(fItemList->count()<=0){fItemList->setFixedHeight(0);}
-    else if(fItemList->count()<5)
+    if(fieldItemList->count()<=0){fieldItemList->setFixedHeight(0);}
+    else if(fieldItemList->count()<5)
     {
-        fItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);       
-        fItemList->setFixedHeight((locationTable->rowHeight(0) *fItemList->count())+6);
-        fItemList->viewport()->setFixedHeight(fItemList->height()-4);
+        fieldItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        fieldItemList->setFixedHeight((fieldItemList->sizeHintForRow(0) * fieldItemList->count())+3);
+        fieldItemList->viewport()->setFixedHeight(fieldItemList->height());
     }
-    else if(fItemList->count()==5)
+    else if(fieldItemList->count()==5)
     {
-        fItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        fItemList->setFixedHeight((locationTable->rowHeight(0) *5)+9);
-        fItemList->viewport()->setFixedHeight(fItemList->height()-4);
+        fieldItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        fieldItemList->setFixedHeight((fieldItemList->sizeHintForRow(0) * fieldItemList->count())+3);
+        fieldItemList->viewport()->setFixedHeight(fieldItemList->height());
     }
     else
     {
-        fItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        fItemList->setFixedHeight((locationTable->rowHeight(0)*5)+9);
-        fItemList->viewport()->setFixedHeight((locationTable->rowHeight(0)*fItemList->count())+5);
+        fieldItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        fieldItemList->setFixedHeight((fieldItemList->sizeHintForRow(0) * 5 )+3);
+        fieldItemList->viewport()->setFixedHeight((fieldItemList->sizeHintForRow(0) * fieldItemList->count()));
     }
-    qWarning()<<"ItemBox Height:"<<QString::number(fItemList->size().height());
-    //need to check save data and mark the stuff that is picked up
 }
-void LocationViewer::fItemChanged(QModelIndex index)
+void LocationViewer::fieldItemListItemChanged(QModelIndex index)
 {
-    qWarning()<<QString("Item:%1 Changed").arg(QString::number(index.row()));
+    bool checked;
+    if(fieldItemList->item(index.row())->checkState() ==Qt::Checked){checked=true;}
+    else{checked=false;}
+    emit fieldItemChanged(index.row(),checked);
+
 }
 void LocationViewer::setFieldItemChecked(int row,bool checked)
 {
-    if(fItemList->count()>row)
+    init_disconnect();
+    if(fieldItemList->count()>row)
     {
-        if(checked){fItemList->item(row)->setCheckState(Qt::Checked);}
-        else{fItemList->item(row)->setCheckState(Qt::Unchecked);}
+        if(checked){fieldItemList->item(row)->setCheckState(Qt::Checked);}
+        else{fieldItemList->item(row)->setCheckState(Qt::Unchecked);}
     }
+    init_connections();
 }
