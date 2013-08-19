@@ -40,6 +40,8 @@ signals:
     void mapIdChanged(int mapId);
     void locIdChanged(int locId);
     void locationStringChanged(QString);
+    void fItemConnectRequest(quint8 index,quint16 offset,quint8 bit);
+    void fItemCheck(int index);
 
 public slots:
     void setSelected(QString);
@@ -53,7 +55,7 @@ public slots:
     void setLocationId(int locId);
     void setLocationString(QString);
     void setHorizontalHeaderStyle(QString styleSheet);
-
+    void setFieldItemChecked(int row,bool checked);
 private slots:
     void itemChanged(int currentRow,int currentColumn,int prevRow, int prevColumn);
     void sbMapIdChanged(int mapId);
@@ -68,6 +70,7 @@ private slots:
     void actionRegExpSearchToggled(bool checked);
     void actionCaseSensitiveToggled(bool checked);
     void btnSearchOptionsClicked(void);
+    void fItemChanged(QModelIndex index);
 protected:
     void resizeEvent(QResizeEvent *ev);
 private:
