@@ -13,7 +13,6 @@
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-
 #include "FF7Save.h"
 #include <QObject>
 #include <QFile>
@@ -3311,7 +3310,7 @@ void FF7Save::setMenuLocked(int s, int index, bool checked)
     else if(index<0 || index >9){return;}
     else
     {
-        if(checked){ slot[s].menu_locked |= (1<<index);}
+        if(checked){slot[s].menu_locked |= (1<<index);}
         else {slot[s].menu_locked &= ~(1<<index);}
         setFileModified(true,s);
     }
@@ -4585,6 +4584,95 @@ void FF7Save::setWorldCoordsDurwZ(int s,int value)
     if(value != worldCoordsDurwZ(s))
     {
         slot[s].durw_world2 = (worldCoordsDurwY(s) | value << 18);
+        setFileModified(true,s);
+    }
+}
+quint16 FF7Save::craterSavePointMapID(int s)
+{
+    if(s<0 || s>14){return 0;}
+    else
+    {
+        quint8 a=slotFF7Data(s).at(0xE5C);
+        quint8 b=slotFF7Data(s).at(0xE5D);
+        quint16 map = (a | (b <<8));
+        return map;
+    }
+}
+void FF7Save::setCraterSavePointMapID(int s, int value)
+{
+    if(s<0 || s>14){return;}
+    else if(value<0 || value>999){return;}
+    else
+    {
+        slot[s].z_30[33]=(value & 0xff);
+        slot[s].z_30[34]=(value & 0xff00) >> 8;
+        setFileModified(true,s);
+    }
+}
+qint16 FF7Save::craterSavePointX(int s)
+{
+    if(s<0 || s>14){return 0;}
+    else
+    {
+        int a=slotFF7Data(s).at(0xE5E);
+        int b=slotFF7Data(s).at(0xE5F);
+        qint16 x = (a | (b <<8));
+        return x;
+    }
+}
+void FF7Save::setCraterSavePointX(int s,int value)
+{
+    if(s<0 || s>14){return;}
+    else if(value<-32767 || value< 32767){return;}
+    else
+    {
+        slot[s].z_30[35]=(value & 0xFF);
+        slot[s].z_30[36]=(value & 0xFF00) >> 8;
+        setFileModified(true,s);
+    }
+}
+
+qint16 FF7Save::craterSavePointY(int s)
+{
+    if(s<0 || s>14){return 0;}
+    else
+    {
+        int a=slotFF7Data(s).at(0xE60);
+        int b=slotFF7Data(s).at(0xE61);
+        qint16 y = (a | (b <<8));
+        return y;
+    }
+}
+void FF7Save::setCraterSavePointY(int s,int value)
+{
+    if(s<0 || s>14){return;}
+    else if(value<-32767 || value< 32767){return;}
+    else
+    {
+        slot[s].z_30[37]=(value & 0xFF);
+        slot[s].z_30[38]=(value & 0xFF00) >> 8;
+        setFileModified(true,s);
+    }
+}
+qint16 FF7Save::craterSavePointZ(int s)
+{
+    if(s<0 || s>14){return 0;}
+    else
+    {
+        int a=slotFF7Data(s).at(0xE62);
+        int b=slotFF7Data(s).at(0xE63);
+        qint16 z = (a | (b <<8));
+        return z;
+    }
+}
+void FF7Save::setCraterSavePointZ(int s,int value)
+{
+    if(s<0 || s>14){return;}
+    else if(value<-32767 || value< 32767){return;}
+    else
+    {
+        slot[s].z_30[39]=(value & 0xFF);
+        slot[s].z_30[40]=(value & 0xFF00) >> 8;
         setFileModified(true,s);
     }
 }
