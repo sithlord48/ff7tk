@@ -38,6 +38,8 @@
 #include "widgets/OptionsWidget.h"
 #include "widgets/LocationViewer.h"
 #include "widgets/ChocoboManager.h"
+#include "widgets/AchievementEditor.h"
+
 #include "utils/Lgp.h"
 
 namespace Ui {
@@ -66,6 +68,10 @@ private slots:
     void on_btnExtractLgp_clicked();
     void on_lineEdit_textChanged(const QString &arg1);
 
+    void on_btn_loadAchievement_clicked();
+
+    void on_btn_saveAchievement_clicked();
+
 private:
 
     Ui::MainWindow *ui;
@@ -81,6 +87,7 @@ private:
     LocationViewer *locViewer;
     OptionsWidget *optionsWidget;
     ChocoboManager *chocoboManager;
+    AchievementEditor *achievementEditor;
 };
 
 #endif // MAINWINDOW_H
