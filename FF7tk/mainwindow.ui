@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>279</width>
-    <height>21</height>
+    <height>23</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -81,6 +81,11 @@
       <item>
        <property name="text">
         <string>ChocoboManager</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AchievementEditor</string>
        </property>
       </item>
      </widget>
@@ -345,6 +350,42 @@
     </item>
     <item>
      <widget class="QFrame" name="ChocoboManagerBox"/>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="AchievementEditor_Box">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_13">
+       <item>
+        <widget class="QPushButton" name="btn_loadAchievement">
+         <property name="text">
+          <string>Select Achievement to Preview</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="achievementEditor_Frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_saveAchievement">
+         <property name="text">
+          <string>Save File</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>

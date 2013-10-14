@@ -1,0 +1,40 @@
+<RCC>
+   <qresource prefix="/achievements">
+        <file alias="63">63.png</file>
+        <file alias="62">62.png</file>
+	<file alias="61">61.png</file>
+	<file alias="60">60.png</file>
+	<file alias="59">59.png</file>
+	<file alias="58">58.png</file>
+	<file alias="57">57.png</file>
+	<file alias="56">56.png</file>
+	<file alias="55">55.png</file>
+	<file alias="54">54.png</file>
+	<file alias="53">53.png</file>
+        <file alias="52">52.png</file>
+	<file alias="51">51.png</file>
+	<file alias="50">50.png</file>
+	<file alias="49">49.png</file>
+	<file alias="48">48.png</file>
+	<file alias="47">47.png</file>
+	<file alias="46">46.png</file>
+	<file alias="45">45.png</file>
+	<file alias="44">44.png</file>
+	<file alias="43">43.png</file>
+        <file alias="42">42.png</file>
+	<file alias="41">41.png</file>
+	<file alias="40">40.png</file>
+	<file alias="39">39.png</file>
+	<file alias="38">38.png</file>
+	<file alias="37">37.png</file>
+	<file alias="36">36.png</file>
+	<file alias="35">35.png</file>
+	<file alias="34">34.png</file>
+	<file alias="33">33.png</file>
+        <file alias="32">32.png</file>
+	<file alias="31">31.png</file>
+	<file alias="30">30.png</file>
+	<file alias="29">29.png</file>
+	<file alias="28">28.png</file>	
+      </qresource>
+</RCC>

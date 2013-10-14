@@ -42,7 +42,9 @@ HEADERS +=  mainwindow.h \
     widgets/ChocoboLabel.h \
     widgets/ChocoboManager.h \
     static_data/Type_FF7CHOCOBO.h \
-    static_data/FF7FieldItemList.h
+    static_data/FF7FieldItemList.h \
+    static_data/FF7Achievements.h \
+    widgets/AchievementEditor.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -73,9 +75,12 @@ SOURCES += main.cpp \
     widgets/LocationViewer.cpp \
     widgets/ChocoboLabel.cpp \
     widgets/ChocoboManager.cpp \
-    static_data/FF7FieldItemList.cpp
+    static_data/FF7FieldItemList.cpp \
+    static_data/FF7Achievements.cpp \
+    widgets/AchievementEditor.cpp
 
 OTHER_FILES +=
 
 RESOURCES += \
-    static_data/icons/Location_Icons/locations.qrc
+    static_data/icons/Location_Icons/locations.qrc \
+    static_data/icons/Achievement_Icons/achievements.qrc
