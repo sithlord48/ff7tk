@@ -79,8 +79,6 @@ SOURCES += main.cpp \
     static_data/FF7Achievements.cpp \
     widgets/AchievementEditor.cpp
 
-OTHER_FILES +=
-
 RESOURCES += \
     static_data/icons/Location_Icons/locations.qrc \
     static_data/icons/Achievement_Icons/achievements.qrc

@@ -28,15 +28,10 @@ public:
     bool openFile(QString fileName="");
     bool saveFile(QString fileName="");
     QString name(int bit);
-
-signals:   
-
-public slots:
-
-
 private:
  QByteArray Achievements;
  QString FileName;
 };
+
 
 #endif // FF7ACHIEVEMENTS_H
