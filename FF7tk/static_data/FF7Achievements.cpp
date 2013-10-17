@@ -15,6 +15,8 @@
 /****************************************************************************/
 #include "FF7Achievements.h"
 #include <QFile>
+#include <QCoreApplication>
+
 FF7Achievements::FF7Achievements(QObject *parent) :
     QObject(parent)
 {
@@ -69,42 +71,42 @@ QString FF7Achievements::name(int bit)
 {
     switch(bit)
     {
-    case 63: return QString(tr("End of Part I")); break;
-    case 62: return QString(tr("End of Part II")); break;
-    case 61: return QString(tr("End of Game")); break;
-    case 60: return QString(tr("Master Materia")); break;
-    case 59: return QString(tr("Master of Gil")); break;
-    case 58: return QString(tr("Top Level")); break;
-    case 57: return QString(tr("Knights of the Round")); break;
-    case 56: return QString(tr("Onmislash")); break;
-    case 55: return QString(tr("Catastrophe")); break;
-    case 54: return QString(tr("Chaos")); break;
-    case 53: return QString(tr("Great Gospel")); break;
-    case 52: return QString(tr("Highwind")); break;
-    case 51: return QString(tr("Final Heaven")); break;
-    case 50: return QString(tr("All Creation")); break;
-    case 49: return QString(tr("Cosmo Memory")); break;
-    case 48: return QString(tr("Slots")); break;
-    case 47: return QString(tr("Bahamut Zero")); break;
-    case 46: return QString(tr("Ultimate Weapon")); break;
-    case 45: return QString(tr("Diamond Weapon")); break;
-    case 44: return QString(tr("Ruby Weapon")); break;
-    case 43: return QString(tr("Emerald Weapon")); break;
-    case 42: return QString(tr("Vincent")); break;
-    case 41: return QString(tr("Yuffie")); break;
-    case 40: return QString(tr("Materia Overlord")); break;
-    case 39: return QString(tr("Battle Square")); break;
-    case 38: return QString(tr("Gold Chocobo")); break;
-    case 37: return QString(tr("First Battle")); break;
-    case 36: return QString(tr("Braver")); break;
-    case 35: return QString(tr("Big Shot")); break;
-    case 34: return QString(tr("Galian Beast")); break;
-    case 33: return QString(tr("Healing Wind")); break;
-    case 32: return QString(tr("Boost Jump")); break;
-    case 31: return QString(tr("Beat Rush")); break;
-    case 30: return QString(tr("Greased Lightning")); break;
-    case 29: return QString(tr("Sled Fang")); break;
-    case 28: return QString(tr("Dice")); break;
+    case 63: return qApp->translate("Achievement_Names","End of Part I"); break;
+    case 62: return qApp->translate("Achievement_Names","End of Part II"); break;
+    case 61: return qApp->translate("Achievement_Names","End of Game"); break;
+    case 60: return qApp->translate("Achievement_Names","Master Materia"); break;
+    case 59: return qApp->translate("Achievement_Names","Master of Gil"); break;
+    case 58: return qApp->translate("Achievement_Names","Top Level"); break;
+    case 57: return qApp->translate("Achievement_Names","Knights of the Round"); break;
+    case 56: return qApp->translate("Achievement_Names","Onmislash"); break;
+    case 55: return qApp->translate("Achievement_Names","Catastrophe"); break;
+    case 54: return qApp->translate("Achievement_Names","Chaos"); break;
+    case 53: return qApp->translate("Achievement_Names","Great Gospel"); break;
+    case 52: return qApp->translate("Achievement_Names","Highwind"); break;
+    case 51: return qApp->translate("Achievement_Names","Final Heaven"); break;
+    case 50: return qApp->translate("Achievement_Names","All Creation"); break;
+    case 49: return qApp->translate("Achievement_Names","Cosmo Memory"); break;
+    case 48: return qApp->translate("Achievement_Names","Slots"); break;
+    case 47: return qApp->translate("Achievement_Names","Bahamut Zero"); break;
+    case 46: return qApp->translate("Achievement_Names","Ultimate Weapon"); break;
+    case 45: return qApp->translate("Achievement_Names","Diamond Weapon"); break;
+    case 44: return qApp->translate("Achievement_Names","Ruby Weapon"); break;
+    case 43: return qApp->translate("Achievement_Names","Emerald Weapon"); break;
+    case 42: return qApp->translate("Achievement_Names","Vincent"); break;
+    case 41: return qApp->translate("Achievement_Names","Yuffie"); break;
+    case 40: return qApp->translate("Achievement_Names","Materia Overlord"); break;
+    case 39: return qApp->translate("Achievement_Names","Battle Square"); break;
+    case 38: return qApp->translate("Achievement_Names","Gold Chocobo"); break;
+    case 37: return qApp->translate("Achievement_Names","First Battle"); break;
+    case 36: return qApp->translate("Achievement_Names","Braver"); break;
+    case 35: return qApp->translate("Achievement_Names","Big Shot"); break;
+    case 34: return qApp->translate("Achievement_Names","Galian Beast"); break;
+    case 33: return qApp->translate("Achievement_Names","Healing Wind"); break;
+    case 32: return qApp->translate("Achievement_Names","Boost Jump"); break;
+    case 31: return qApp->translate("Achievement_Names","Beat Rush"); break;
+    case 30: return qApp->translate("Achievement_Names","Greased Lightning"); break;
+    case 29: return qApp->translate("Achievement_Names","Sled Fang"); break;
+    case 28: return qApp->translate("Achievement_Names","Dice"); break;
     default: return QString(""); break;
     }
 }
