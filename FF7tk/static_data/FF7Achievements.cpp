@@ -33,7 +33,6 @@ bool FF7Achievements::openFile(QString fileName)
             data.close();
         }
         else{return false;}
-        FileName=fileName;
         return true;
     }
     return false;
@@ -50,11 +49,6 @@ bool FF7Achievements::saveFile(QString fileName)
             data.close();
         }
         else{return false;}
-        return true;
-    }
-    else
-    {
-        saveFile(FileName);
         return true;
     }
     return false;
@@ -78,7 +72,7 @@ QString FF7Achievements::name(int bit)
     case 59: return qApp->translate("Achievement_Names","Master of Gil"); break;
     case 58: return qApp->translate("Achievement_Names","Top Level"); break;
     case 57: return qApp->translate("Achievement_Names","Knights of the Round"); break;
-    case 56: return qApp->translate("Achievement_Names","Onmislash"); break;
+    case 56: return qApp->translate("Achievement_Names","Omnislash"); break;
     case 55: return qApp->translate("Achievement_Names","Catastrophe"); break;
     case 54: return qApp->translate("Achievement_Names","Chaos"); break;
     case 53: return qApp->translate("Achievement_Names","Great Gospel"); break;
