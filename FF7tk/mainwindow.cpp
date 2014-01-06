@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
     QHBoxLayout *ChocoboManagerLayout = new QHBoxLayout();
     ChocoboManagerLayout->addWidget(chocoboManager);
     ui->ChocoboManagerBox->setLayout(ChocoboManagerLayout);
-    chocoboManager->setHoverStyle(QString("rgba(96,135,192,128);"));
+    chocoboManager->setHoverStyle(QString("rgba(%1,%2,%3,128);").arg(QString::number(this->palette().highlight().color().red()),QString::number(this->palette().highlight().color().green()),QString::number(this->palette().highlight().color().blue())));
 
     achievementEditor = new AchievementEditor();
     QVBoxLayout *AchievementLayout = new QVBoxLayout();
@@ -189,11 +189,6 @@ void MainWindow::hideAllBoxes(void)
     ui->AchievementEditor_Box->setVisible(0);
 }
 
-void MainWindow::on_lineEdit_textChanged(const QString &arg1)
-{
-    locViewer->setSelected(arg1);
-}
-
 void MainWindow::on_btn_loadAchievement_clicked()
 {
     QString fileFilter("*.dat (*.dat);");
@@ -205,4 +200,9 @@ void MainWindow::on_btn_saveAchievement_clicked()
 {
     QString fileName=QFileDialog::getSaveFileName(this,"Select File to Save",QDir::home().absolutePath(),"*.dat (*.dat);");
     if(!fileName.isEmpty()){achievementEditor->saveFile(fileName);}
+}
+
+void MainWindow::on_lineEdit_editingFinished()
+{
+    locViewer->setSelected(ui->lineEdit->text());
 }
