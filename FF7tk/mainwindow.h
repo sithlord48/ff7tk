@@ -66,11 +66,9 @@ private slots:
     void on_btn_slotSelect_clicked();
     void on_btn_lgpSelect_clicked();
     void on_btnExtractLgp_clicked();
-    void on_lineEdit_textChanged(const QString &arg1);
-
     void on_btn_loadAchievement_clicked();
-
     void on_btn_saveAchievement_clicked();
+    void on_lineEdit_editingFinished();
 
 private:
 
