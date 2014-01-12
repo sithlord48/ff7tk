@@ -626,7 +626,6 @@ void OptionsWidget::resizeEvent(QResizeEvent*)
     int margins =contentsMargins().right() + contentsMargins().left();
     if(!verticalScrollBar()->isVisible()){centerWidget->setFixedWidth( width() - margins);}
     else{centerWidget->setFixedWidth(width()- (margins + verticalScrollBar()->width()));}
-//    centerWidget->setFixedWidth( width() - margins);
     dialogBox->setFixedSize(centerWidget->width()-20,centerWidget->width()/4);
     centerWidget->adjustSize();
 }
