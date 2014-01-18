@@ -80,5 +80,8 @@ SOURCES += main.cpp \
     widgets/AchievementEditor.cpp
 
 RESOURCES += \
-    static_data/icons/Location_Icons/locations.qrc \
-    static_data/icons/Achievement_Icons/achievements.qrc
+	static_data/icons/Common_Icons/common.qrc \
+        static_data/icons/Chocobo_Icons/chocobo.qrc \
+        static_data/icons/Location_Icons/locations.qrc \
+        static_data/icons/Psx_Button_Icons/psxButtons.qrc \
+	static_data/icons/Achievement_Icons/achievements.qrc
