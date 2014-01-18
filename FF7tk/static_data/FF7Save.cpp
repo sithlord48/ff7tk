@@ -906,7 +906,6 @@ void FF7Save::fix_vmc_header(void)
                     else{hf[i].sl_header[P]= 0x00;}
                }
            }
-
            if(region(i).endsWith("FF7-S02"))
            {for(int P=0;P<512;P++)
                 {
@@ -1017,7 +1016,7 @@ void FF7Save::fix_vmc_header(void)
                 if(SG_TYPE =="DEX"){for(int j=0;j<128;j++){mc_header_2.append(file_header_dex[index+j]);}}
             }
             else if((region(i).isEmpty() || region(i).isNull()))
-            {
+            {               
                 //QString empty_header = ;
                 mc_header_2.append("\xA0\x00\x00\x00\x00\x00\x00\x00\xFF\xFF",10);
                 for (int j=0;j<117;j++){mc_header_2.append('\x00');}
@@ -1066,7 +1065,7 @@ void FF7Save::setRegion(int s ,QString new_region)
 {
     if( (new_region =="USA") || (new_region == "NTSC-U") || (new_region =="1") )
     {
-        SG_Region_String[s]= QString("BASCUS-94163FF7-S%1").arg(QString::number(s+1),2,QChar('0'));
+        SG_Region_String[s]= QString("BASCUS-94163FF7-S%1").arg(QString::number(s+1),2,QChar('0'));        
     }
     else if( (new_region =="UK") || (new_region =="PAL-E") || (new_region =="2") )
     {
@@ -1093,6 +1092,12 @@ void FF7Save::setRegion(int s ,QString new_region)
         SG_Region_String[s]= QString("BISLPS-01057FF7-S%1").arg(QString::number(s+1),2,QChar('0'));
     }
     else{SG_Region_String[s]=new_region;}
+
+    if( (SG_TYPE =="MC") || (SG_TYPE =="PSP") || (SG_TYPE =="VGS") || (SG_TYPE =="DEX") )
+    {
+        fix_vmc_header();
+        setFileModified(true,s);
+    }
     setFileModified(true,s);
 }
 void FF7Save::copySlot(int s){buffer_slot=slot[s]; buffer_region = SG_Region_String[s];}
@@ -1372,7 +1377,7 @@ void FF7Save::newGame(int s,QString fileName)
         setDescLocation(s,QString::fromUtf8("１番街駅ホーム"));
         setLocation(s,QString::fromUtf8("１番街駅ホーム"));
     }
-    else if(region(s).isEmpty()){setRegion(s,"BASCUS-94163FF7-S01");Text.init(0);}
+    else if(region(s).isEmpty()){setRegion(s,QString("BASCUS-94163FF7-S%1").arg(QString::number(s+1),2,QChar('0')));Text.init(0);}
     setFileModified(true,s);
 }
 
