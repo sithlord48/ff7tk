@@ -10,17 +10,17 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # Input
 HEADERS +=  mainwindow.h \
-	    static_data/FF7Item.h \
-	    static_data/FF7Location.h \
-	    static_data/FF7Materia.h \
-	    static_data/FF7Save.h \
-	    static_data/FF7Save_Const.h \
-	    static_data/FF7Save_Types.h \
-	    static_data/FF7Text.h \
-            static_data/SaveIcon.h \
-	    static_data/FF7Char.h \
-	    static_data/Type_FF7CHAR.h \
-	    static_data/Type_materia.h \
+            data/FF7Item.h \
+            data/FF7Location.h \
+            data/FF7Materia.h \
+            data/FF7Save.h \
+            data/FF7Save_Const.h \
+            data/FF7Save_Types.h \
+            data/FF7Text.h \
+            data/SaveIcon.h \
+            data/FF7Char.h \
+            data/Type_FF7CHAR.h \
+            data/Type_materia.h \
 	    utils/LZS.h \
 	    widgets/SlotPreview.h \
 	    widgets/MateriaEditor.h \
@@ -41,26 +41,26 @@ HEADERS +=  mainwindow.h \
     widgets/LocationViewer.h \
     widgets/ChocoboLabel.h \
     widgets/ChocoboManager.h \
-    static_data/Type_FF7CHOCOBO.h \
-    static_data/FF7FieldItemList.h \
-    static_data/FF7Achievements.h \
+    data/Type_FF7CHOCOBO.h \
+    data/FF7FieldItemList.h \
+    data/FF7Achievements.h \
     widgets/AchievementEditor.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
-           static_data/FF7Item.cpp \
-           static_data/FF7Location.cpp \
-           static_data/FF7Materia.cpp \
-           static_data/FF7Save.cpp \
-           static_data/FF7Text.cpp \
+           data/FF7Item.cpp \
+           data/FF7Location.cpp \
+           data/FF7Materia.cpp \
+           data/FF7Save.cpp \
+           data/FF7Text.cpp \
            widgets/DialogPreview.cpp \
            widgets/ItemPreview.cpp \
            widgets/MateriaEditor.cpp \
            widgets/SlotPreview.cpp \
-    static_data/FF7Char.cpp \
+    data/FF7Char.cpp \
     widgets/CharEditor.cpp \
     widgets/SlotSelect.cpp \
-    static_data/SaveIcon.cpp \
+    data/SaveIcon.cpp \
     widgets/ChocoboEditor.cpp \
     widgets/ItemSelector.cpp \
     widgets/ItemList.cpp \
@@ -75,13 +75,16 @@ SOURCES += main.cpp \
     widgets/LocationViewer.cpp \
     widgets/ChocoboLabel.cpp \
     widgets/ChocoboManager.cpp \
-    static_data/FF7FieldItemList.cpp \
-    static_data/FF7Achievements.cpp \
+    data/FF7FieldItemList.cpp \
+    data/FF7Achievements.cpp \
     widgets/AchievementEditor.cpp
 
 RESOURCES += \
-	static_data/icons/Common_Icons/common.qrc \
-        static_data/icons/Chocobo_Icons/chocobo.qrc \
-        static_data/icons/Location_Icons/locations.qrc \
-        static_data/icons/Psx_Button_Icons/psxButtons.qrc \
-	static_data/icons/Achievement_Icons/achievements.qrc
+        icons/achievements.qrc \
+        icons/psxButtons.qrc \
+        icons/locations.qrc \
+        icons/characters.qrc \
+        icons/chocobo.qrc \
+        icons/common.qrc \
+        icons/items.qrc  \
+        icons/materia.qrc 

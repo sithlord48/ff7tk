@@ -25,9 +25,6 @@
     #include <QMainWindow>
 #endif
 
-//Include FF7Save for slot preview.
-//#include"static_data/FF7Save.h"
-
 #include "widgets/MateriaEditor.h"
 #include "widgets/CharEditor.h"
 #include "widgets/ItemList.h"
