@@ -1,6 +1,6 @@
 /****************************************************************************
  ** Makou Reactor Final Fantasy VII Field Script Editor
- ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
+ ** Copyright (C) 2009-2012 Arzel JÃ©rÃ´me <myst6re@gmail.com>
  **
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
@@ -97,7 +97,7 @@ void LgpHeaderEntry::setFileSize(quint32 fileSize)
 	_hasFileSize = true;
 }
 
-QIODevice *LgpHeaderEntry::file(QFile *lgp)
+QIODevice *LgpHeaderEntry::file(QIODevice *lgp)
 {
 	if(_io) {
 		_io->close();
@@ -107,7 +107,7 @@ QIODevice *LgpHeaderEntry::file(QFile *lgp)
 	}
 }
 
-QIODevice *LgpHeaderEntry::modifiedFile(QFile *lgp)
+QIODevice *LgpHeaderEntry::modifiedFile(QIODevice *lgp)
 {
 	if(_newIO) {
 		_newIO->close();
@@ -127,7 +127,7 @@ void LgpHeaderEntry::setModifiedFile(QIODevice *io)
 	_newIO = io;
 }
 
-QIODevice *LgpHeaderEntry::createFile(QFile *lgp)
+QIODevice *LgpHeaderEntry::createFile(QIODevice *lgp)
 {
 	if(!lgp->seek(filePosition())) {
 		return NULL;
@@ -136,6 +136,11 @@ QIODevice *LgpHeaderEntry::createFile(QFile *lgp)
 	if(name.size() != 20) {
 		return NULL;
 	}
+	if(QString(name).compare(fileName(), Qt::CaseInsensitive) != 0) {
+		qWarning() << "different name";
+		return NULL;
+	}
+
 	quint32 size;
 	if(lgp->read((char *)&size, 4) != 4) {
 		return NULL;
@@ -223,6 +228,10 @@ bool LgpToc::addEntry(LgpHeaderEntry *entry)
 		return false;
 	}
 
+	if(contains(entry->fileName())) {
+		return false;
+	}
+
 	_header.insert(v, entry);
 
 	return true;
@@ -271,7 +280,7 @@ bool LgpToc::removeEntry(const QString &filePath)
 		return false; // invalid file name
 	}
 
-	LgpHeaderEntry *e = entry(filePath, v);
+	LgpHeaderEntry *e = entry(filePath);
 	if(e == NULL) {
 		return false; // file not found
 	}
@@ -279,6 +288,42 @@ bool LgpToc::removeEntry(const QString &filePath)
 	delete e;
 
 	return _header.remove(v, e) > 0;
+}
+
+bool LgpToc::renameEntry(const QString &filePath, const QString &newFilePath)
+{
+	// Get file
+
+	qint32 v = lookupValue(filePath);
+	if(v < 0) {
+		return false; // invalid file name
+	}
+
+	LgpHeaderEntry *e = entry(filePath, v);
+	if(e == NULL) {
+		return false; // file not found
+	}
+
+	// Get new file
+
+	qint32 newV = lookupValue(newFilePath);
+	if(newV < 0) {
+		return false; // invalid file name
+	}
+
+	if(entry(newFilePath, newV) != NULL) {
+		return false; // file found
+	}
+
+	// Move file
+
+	if(_header.remove(v, e) <= 0) {
+		return false;
+	}
+
+	_header.insert(newV, e);
+
+	return true;
 }
 
 bool LgpToc::contains(const QString &filePath) const
@@ -350,7 +395,7 @@ qint32 LgpToc::lookupValue(const QString &filePath)
 
 	char c2 = lookupValue(filePath.at(index + 1));
 
-	if(c1 > LOOKUP_VALUE_MAX) {
+	if(c2 > LOOKUP_VALUE_MAX) {
 		return -1;
 	}
 

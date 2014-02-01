@@ -1,6 +1,6 @@
 /****************************************************************************
  ** Makou Reactor Final Fantasy VII Field Script Editor
- ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
+ ** Copyright (C) 2009-2012 Arzel JÃ©rÃ´me <myst6re@gmail.com>
  **
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
@@ -68,12 +68,12 @@ public:
 	void setFileDir(const QString &fileDir);
 	void setFilePosition(quint32 filePosition);
 	void setFileSize(quint32 fileSize);
-	QIODevice *file(QFile *lgp);
-	QIODevice *modifiedFile(QFile *lgp);
+	QIODevice *file(QIODevice *lgp);
+	QIODevice *modifiedFile(QIODevice *lgp);
 	void setFile(QIODevice *io);
 	void setModifiedFile(QIODevice *io);
 private:
-	QIODevice *createFile(QFile *lgp);
+	QIODevice *createFile(QIODevice *lgp);
 	QString _fileName;
 	QString _fileDir;
 	quint32 _filePosition;
@@ -112,6 +112,7 @@ public:
 	const QMultiHash<quint16, LgpHeaderEntry *> &table() const;
 	bool hasEntries(quint16 id) const;
 	bool removeEntry(const QString &filePath);
+	bool renameEntry(const QString &filePath, const QString &newFilePath);
 	bool contains(const QString &filePath) const;
 	void clear();
 	bool isEmpty() const;
