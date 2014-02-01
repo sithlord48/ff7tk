@@ -142,7 +142,7 @@ void MainWindow::on_btn_lgpSelect_clicked()
         {
             ui->listLgpFile->addItems(lgpFile->fileList());
             ui->lblLgpCompany->setText(QString("Company: %1").arg(lgpFile->companyName()));
-            ui->lblLgpProduct->setText(QString("Product:%1").arg(lgpFile->productName()));
+			ui->lblLgpProduct->setText(QString("Product: %1").arg(lgpFile->productName()));
             QString title = fileName;
             title.remove(0,fileName.lastIndexOf("/")+1);
             title.append(QString (" (%1 files)").arg(lgpFile->fileList().count()));
