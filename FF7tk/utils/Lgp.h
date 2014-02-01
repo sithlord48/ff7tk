@@ -1,6 +1,6 @@
 /****************************************************************************
  ** Makou Reactor Final Fantasy VII Field Script Editor
- ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
+ ** Copyright (C) 2009-2012 Arzel JÃ©rÃ´me <myst6re@gmail.com>
  **
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
@@ -28,18 +28,19 @@
 struct LgpObserver
 {
 	LgpObserver() {}
-	virtual bool observerWasCanceled()=0;
+	virtual bool observerWasCanceled() const=0;
 	virtual void setObserverMaximum(unsigned int max)=0;
 	virtual void setObserverValue(int value)=0;
 };
 
 class LgpHeaderEntry;
 class LgpToc;
+class Lgp;
 
 class LgpIterator
 {
+	friend class Lgp;
 public:
-	LgpIterator(LgpToc *toc, QFile *lgp);
 	bool hasNext() const;
 	bool hasPrevious() const;
 	void next();
@@ -52,6 +53,7 @@ public:
 	const QString &fileDir() const;
 	QString filePath() const;
 private:
+	LgpIterator(LgpToc *toc, QFile *lgp);
 	QHashIterator<quint16, LgpHeaderEntry *> it;
 	QFile *_lgp;
 };
@@ -93,6 +95,7 @@ public:
 	bool addFile(const QString &filePath, QIODevice *data);
 	bool addFile(const QString &filePath, const QByteArray &data);
 	bool removeFile(const QString &filePath);
+	bool renameFile(const QString &filePath, const QString &newFilePath);
 	const QString &companyName();
 	void setCompanyName(const QString &companyName);
 	const QString &productName();
