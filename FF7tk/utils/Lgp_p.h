@@ -66,6 +66,7 @@ public:
 	qint64 fileSize() const;
 	void setFileName(const QString &fileName);
 	void setFileDir(const QString &fileDir);
+	void setFilePath(const QString &filePath);
 	void setFilePosition(quint32 filePosition);
 	void setFileSize(quint32 fileSize);
 	QIODevice *file(QIODevice *lgp);
@@ -112,6 +113,7 @@ public:
 	const QMultiHash<quint16, LgpHeaderEntry *> &table() const;
 	bool hasEntries(quint16 id) const;
 	bool removeEntry(const QString &filePath);
+	static bool isNameValid(const QString &filePath);
 	bool renameEntry(const QString &filePath, const QString &newFilePath);
 	bool contains(const QString &filePath) const;
 	void clear();

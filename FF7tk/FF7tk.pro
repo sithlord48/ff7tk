@@ -44,7 +44,8 @@ HEADERS +=  mainwindow.h \
     data/Type_FF7CHOCOBO.h \
     data/FF7FieldItemList.h \
     data/FF7Achievements.h \
-    widgets/AchievementEditor.h
+    widgets/AchievementEditor.h \
+    utils/Archive.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -77,7 +78,8 @@ SOURCES += main.cpp \
     widgets/ChocoboManager.cpp \
     data/FF7FieldItemList.cpp \
     data/FF7Achievements.cpp \
-    widgets/AchievementEditor.cpp
+    widgets/AchievementEditor.cpp \
+    utils/Archive.cpp
 
 RESOURCES += \
         icons/achievements.qrc \

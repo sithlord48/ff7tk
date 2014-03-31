@@ -86,6 +86,18 @@ void LgpHeaderEntry::setFileDir(const QString &fileDir)
 	}
 }
 
+void LgpHeaderEntry::setFilePath(const QString &filePath)
+{
+	int index = filePath.lastIndexOf('/');
+
+	if(index < 0) {
+		setFileName(filePath);
+	} else {
+		setFileDir(filePath.left(index));
+		setFileName(filePath.mid(index + 1));
+	}
+}
+
 void LgpHeaderEntry::setFilePosition(quint32 filePosition)
 {
 	_filePosition = filePosition;
@@ -290,6 +302,11 @@ bool LgpToc::removeEntry(const QString &filePath)
 	return _header.remove(v, e) > 0;
 }
 
+bool LgpToc::isNameValid(const QString &filePath)
+{
+	return lookupValue(filePath) >= 0;
+}
+
 bool LgpToc::renameEntry(const QString &filePath, const QString &newFilePath)
 {
 	// Get file
@@ -321,6 +338,7 @@ bool LgpToc::renameEntry(const QString &filePath, const QString &newFilePath)
 		return false;
 	}
 
+	e->setFilePath(newFilePath);
 	_header.insert(newV, e);
 
 	return true;
