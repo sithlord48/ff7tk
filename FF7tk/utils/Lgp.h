@@ -24,14 +24,7 @@
 #define LGP_H
 
 #include <QtCore>
-
-struct LgpObserver
-{
-	LgpObserver() {}
-	virtual bool observerWasCanceled() const=0;
-	virtual void setObserverMaximum(unsigned int max)=0;
-	virtual void setObserverValue(int value)=0;
-};
+#include "Archive.h"
 
 class LgpHeaderEntry;
 class LgpToc;
@@ -58,7 +51,7 @@ private:
 	QFile *_lgp;
 };
 
-class Lgp
+class Lgp : public Archive
 {
 public:
 	enum LgpError {
@@ -67,7 +60,6 @@ public:
 		WriteError,
 		OpenError,
 		AbortError,
-		TimeOutError,
 		RemoveError,
 		RenameError,
 		PositionError,
@@ -79,49 +71,40 @@ public:
 	};
 
 	Lgp();
-	Lgp(const QString &name);
+	explicit Lgp(const QString &name);
+	explicit Lgp(QFile *device);
 	virtual ~Lgp();
 	void clear();
-	QStringList fileList();
-	int fileCount();
+	QStringList fileList() const;
+	int fileCount() const;
 	LgpIterator iterator();
-	bool fileExists(const QString &filePath);
+	bool fileExists(const QString &filePath) const;
 	QIODevice *file(const QString &filePath);
-	QByteArray fileData(const QString &filePath);
 	QIODevice *modifiedFile(const QString &filePath);
-	QByteArray modifiedFileData(const QString &filePath);
 	bool setFile(const QString &filePath, QIODevice *data);
-	bool setFile(const QString &filePath, const QByteArray &data);
 	bool addFile(const QString &filePath, QIODevice *data);
-	bool addFile(const QString &filePath, const QByteArray &data);
 	bool removeFile(const QString &filePath);
+	bool isNameValid(const QString &filePath) const;
 	bool renameFile(const QString &filePath, const QString &newFilePath);
 	const QString &companyName();
 	void setCompanyName(const QString &companyName);
 	const QString &productName();
 	void setProductName(const QString &productName);
-	bool open();
-	bool isOpen() const;
-	void close();
-	QString fileName() const;
-	void setFileName(const QString &fileName);
-	bool pack(const QString &destination=QString(), LgpObserver *observer=NULL);
+	bool pack(const QString &destination=QString(), ArchiveObserver *observer=NULL);
 	LgpError error() const;
 	void unsetError();
-	QString errorString() const;
 private:
+	Q_DISABLE_COPY(Lgp)
 	bool openHeader();
 	bool openCompanyName();
 	bool openProductName();
-	LgpHeaderEntry *headerEntry(const QString &filePath);
+	LgpHeaderEntry *headerEntry(const QString &filePath) const;
 	void setError(LgpError error, const QString &errorString=QString());
 
 	QString _companyName;
 	LgpToc *_files;
 	QString _productName;
-	QFile _file;
 	LgpError _error;
-	QString _errorString;
 
 };
 
