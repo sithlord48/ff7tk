@@ -19,6 +19,7 @@
 #include <QObject>
 /*!
  * \class FF7Achievements
+ * \todo need more icons for the achievements.
  * \brief Work with achievements.dat
  *
  * Open Edit and Save achievements.dat found with the 2012 Square and 2013 Steam Releases of Final Fantasy VII
