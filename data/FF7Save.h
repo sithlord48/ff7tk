@@ -67,28 +67,304 @@ class FF7Save: public QObject{
 		COUPON_C/**< 47*/,BLACKMATERIA/**< 48*/,MYTHRIL/**< 49*/,SNOWBOARD/**< 50*/
 	};
 	//Functions
-	explicit FF7Save();
+	explicit FF7Save(); /**< \brief create a new FF7Save object */
+	//File Members
+	/**	\brief attempt to load fileName as ff7save
+	 *	\param fileName file that will be loaded
+	 *	\return True if Successful
+	*/
+	bool loadFile(const QString &fileName);
+
+	/**	\brief attempt to save fileName as ff7save
+	 *	\param fileName file that will be saved
+	 *	\return True if Successful
+	*/
+	bool saveFile(const QString &fileName);
+
+	 /** \brief attempt to export a file as ff7save. A convenance function to call the proper export function
+	 *	\param fileName file that will be saved
+	 *	\param newType Type of file to be saved	 "PC","PSX","MC","VGS","DEX" are valid
+	 *	\param s Slot to export if exporting to a multi slot save type
+	 *	\return True if Successful
+	 *	\sa exportPC(),exportPSX(),exportVMC(),exportDEX(),exportVGS()
+	*/
+	bool exportFile(const QString &fileName,QString newType="",int s=0);
+
+	/**	\brief attempt to save fileName as a PC ff7save
+	 *	\param fileName file that will be saved
+	 *	\return True if Successful
+	*/
+	bool exportPC(const QString &fileName);
+
+	/**	\brief attempt to save fileName as a PC ff7save
+	 *	\param s slot in loaded file to export as psx
+	*	\param fileName file that will be saved
+	 *	\return True if Successful
+	*/
+	bool exportPSX(int s,const QString &fileName);
+
+	/**	\brief attempt to save fileName as a Virtual Memory Card (slots without a region string will not be exported)
+	 *	\param fileName file that will be saved
+	 *	\return True if Successful
+	*/
+	bool exportVMC(const QString &fileName);
+
+	/**	\brief attempt to save fileName as a DEX Drive format memory card file
+	 *	\param fileName file that will be saved
+	 *	\return True if Successful
+	*/
+	bool exportDEX(const QString &fileName);
+
+	/**	\brief attempt to save fileName as a Virtual Game Station format memory card file
+	 *	\param fileName file that will be saved
+	 *	\return True if Successful
+	*/
+	bool exportVGS(const QString &fileName);
+
+	/**	\brief import from a file into a slot
+	 *
+	 *	 Will import a slot from a file(fileName) into slot (s). when importing from a multi slot save type slot # (fileSlot) in the file will be imported.
+	 *	\param s slot to import into
+	 *	\param fileName file that will be imported
+	 *	\param fileSlot slot to import from fileName
+	*/
+	void importSlot(int s=0, QString fileName="",int fileSlot=0);
+
+	/** \brief clear a slot
+	 * \param s slot number (0-14)
+	 */
+	void clearSlot(int s);
+
+	/** \brief copy a slot Sin to the buffer
+	 * \param s slot number (0-14)
+	 */
+	void copySlot(int s);
+
+	/** \brief paste from the buffer into a slot
+	 * \param s slot number (0-14)
+	 */
+	void pasteSlot(int s);
+
+	/** \brief creates a new game in a slot
+	 * \param s slot number (0-14)
+	 * \param fileName Raw PSX file to use instead of defalut data
+	 */
+	void newGame(int s,QString fileName=""); //new game in slot s (over load default w/ fileName must be RAW PSX)
+
+	/** \brief creates a new game + in a slot
+	 *
+	 * When creating a new game+ two char files will be exported. one for cait sith and another for vincent. those characters have to be reset to correctly set a new game. You can reimport the char files when you aquire the character in your new game +
+	 * \param s slot number (0-14)
+	 * \param CharFileName base filename to use for saving char files vincent and
+	 * \param fileName Raw PSX file to use instead of defalut data
+	 */
+	void newGamePlus(int s,QString CharFileName,QString fileName="");//new game + in slot s (over load default w/ fileName must be RAW PSX
+
+	/** \brief export a character
+	 * \param s slot number (0-14)
+	 * \param char_num character slot (0-8)
+	 * \param fileName file to write
+	 * \return true is successful
+	 */
+	bool exportCharacter(int s,int char_num,QString fileName);// Write slot[s].char[char_num] to fileName
+
+	/** \brief export a character
+	 * \param s slot number (0-14)
+	 * \param char_num character slot (0-8)
+	 * \param new_char raw bytes for a character in ff7
+	 * \return true is successful
+	 */
+	void importCharacter(int s,int char_num,QByteArray new_char);//import new_char to slot[s].char[char_num]
+
+	typedef QVector< QString > SubContainer; /** <\typedef QVector<QString> SubContainer \brief used to hold more xml style string in metadata signing*/
+
+	/** \brief parse the metadata for 2012 / 2013 release
+	 *	\param fileName name of the file to output
+	 *	\param OutPath to metadata
+	 *	\param UserID squaresoft id number to when signing
+	 *	\return True is Successful
+	*/
+	bool fixMetaData(QString fileName="",QString OutPath="",QString UserID="");
+
+	QByteArray fileHeader(void);/**< \brief file Header as QByteArray*/
+
+	/** \brief set the file header
+	 *	\param data: replace exsisting data with these bytes
+	 *	\return True is Successful
+	*/
+	bool setFileHeader(QByteArray data);
+
+	QByteArray fileFooter(void);/**< \brief file Footer as QByteArray*/
+
+	/** \brief set the file footer
+	 *	\param data: replace exsisting data with these bytes
+	 *	\return True is Successful
+	*/
+	bool setFileFooter(QByteArray data);
+
+	QByteArray slotHeader(int s); /**< \brief Header for a slot as QByteArray \param s slot number (0-14)*/
+
+	/** \brief set the slot header
+	 *	\param s slot number (0-14)
+	 *	\param data: replace exsisting data with these bytes
+	 *	\return True is Successful
+	*/
+	bool setSlotHeader(int s,QByteArray data);
+
+	QByteArray slotFooter(int s);/**< \brief Footer for a slot as QByteArray \param s slot number (0-14)*/
+
+	/** \brief set the slot footer
+	 *	\param s slot number (0-14)
+	 *	\param data: replace exsisting data with these bytes
+	 *	\return True is Successful
+	*/
+	bool setSlotFooter(int s,QByteArray data);
+
+	QByteArray slotPsxRawData(int s);/**< \brief QByteArray of a psx save (multiblock saves are ok)\param s slot number (0-14); if a multi block set s should be the first block used*/
+
+	/** \brief set the slots raw psx data
+	 *
+	 *	Most Useful when connected to a hexEditor, This function will set the slot(s) raw data as if writing to a psx card directly. even if more then one slot and correctly update the save index based on whats in the data.
+	 *	\param s slot number (0-14)
+	 *	\param data: replace exsisting data with these bytes
+	 *	\return True is Successful
+	*/
+	bool setSlotPsxRawData(int s,QByteArray data);
+
+	QByteArray slotFF7Data(int s); /**< \brief Return Raw data from the slot \param s slot number (0-14)*/
+
+	/** \brief
+	 *	\param s slot number (0-14)
+	 *	\param data: replace exsisting data with these bytes
+	 *	\overload setSlotFF7Data(int,FF7SLOT)
+	 */
+	bool setSlotFF7Data(int s, QByteArray data);
+	bool setSlotFF7Data(int s, FF7SLOT data);
+
+	QList<QByteArray> slotIcon(int s); /**< \brief return slots save icon. each new frame will be appended to the list.*/
+
+	/** \brief return the chocobos in the pen outside of the chocobo farm
+	 *	\param s slot number (0-14)
+	 *	\return list of chocobo in then pen.
+	*/
 	QList<qint8> chocoboPens(int s);
+
+	/** \brief return the chocobos in the pen outside of the chocobo farm
+	 *	\param s slot number (0-14)
+	 *	\param pen the slot in the pen to assign to (0-3)
+	 *	\param value rating of the chocobo (0:Empty 1:Wonderful 2:Great 3:Good 4:Fair 5:Average 6:Poor 7:Bad 8:Terrible)
+	*/
 	void setChocoboPen(int s,int pen,qint8 value);
+
+	/** \brief wins in fort condor mini game
+	 *	\param s slot number (0-14)
+	 *	\return number of wins at fort condor
+	*/
 	quint8 condorWins(int s);
+
+	/** \brief set how many time you have won the fort condor mini game
+	 *	\param s slot number (0-14)
+	 *	\param wins number of wins in the fort condor mini game
+	 *	\return number of wins at fort condor
+	*/
 	void setCondorWins(int s,quint8 wins);
-	quint8 condorLoses(int s);
-	void setCondorLoses(int s, quint8 loses);
+
+	/** \brief losses in fort condor mini game
+	 *	\param s slot number (0-14)
+	 *	\return number of losses at fort condor
+	*/
+	quint8 condorLosses(int s);
+
+	/** \brief set how many time you have lost the fort condor mini game
+	 *	\param s slot number (0-14)
+	 *	\param losses number of losses in the fort condor mini game
+	*/
+	void setCondorLosses(int s, quint8 losses);
+
+	/** \return amount of gil you have donated to fort condor
+	 *	\param s slot number (0-14)
+	*/
 	quint16 condorFunds(int s);
+
+	/** \brief set how gil you have donated to  fort condor
+	 *	\param s slot number (0-14)
+	 *	\param value amount of gil donated
+	*/
 	void setCondorFunds(int s,quint16 value);
 	//Field Location
+
+	/**	\brief Id of the location save is located on
+	 *	\param s slot number (0-14)
+	 *	\return location id
+	 */
 	quint16 locationId(int s);
+
+	/**	\brief set location id save is located on
+	 *	\param s slot number (0-14)
+	 *	\param locationID new locationID
+	 */
 	void setLocationId(int s, quint16 locationID);
+
+	/** \brief map id save is on
+	 * \param s slot number (0-14)
+	 * \return map id
+	*/
 	quint16 mapId(int s);
+
+	/**	\brief set map id save is located on
+	 *	\param s slot number (0-14)
+	 *	\param mapID new mapID
+	 */
 	void setMapId(int s, quint16 mapID);
+
+	/** \brief x coordinate on field map
+	 * \param s slot number (0-14)
+	 * \return x coordinate
+	*/
 	qint16 locationX(int s);
+
+	/** \brief set x coordinate on field map
+	 * \param s slot number (0-14)
+	 * \param x new x coordinate
+	*/
 	void setLocationX(int s, qint16 x);
+
+	/** \brief y coordinate on field map
+	 * \param s slot number (0-14)
+	 * \return y coordinate
+	*/
 	qint16 locationY(int s);
+
+	/** \brief set y coordinate on field map
+	 * \param s slot number (0-14)
+	 * \param y new y coordinate
+	*/
 	void setLocationY(int s, qint16 y);
+
+	/** \brief triangle play is standing on. field map
+	 * \param s slot number (0-14)
+	 * \return triangle
+	*/
 	quint16 locationT(int s);
+
+	/** \brief set t coordinate on field map
+	 * \param s slot number (0-14)
+	 * \param t new t coordinate
+	*/
 	void setLocationT(int s, quint16 t);
+
+	/** \brief direction player is facing on field map
+	 * \param s slot number (0-14)
+	 * \return direction
+	*/
 	quint8 locationD (int s);
+
+	/** \brief set direction player is facing on field map
+	 * \param s slot number (0-14)
+	 * \param d new directione
+	*/
 	void setLocationD(int s,quint8 d);
+
 
 	quint16 craterSavePointMapID(int s);
 	qint16 craterSavePointX(int s);
@@ -150,39 +426,6 @@ class FF7Save: public QObject{
 	void setMenuLocked(int s, int index , bool checked);
 	quint16 menuLocked(int s);
 	void setMenuLocked(int s, quint16 menu_visible);
-	//File Members
-	bool loadFile(const QString &fileName);
-	bool saveFile(const QString &fileName);
-	bool exportFile(const QString &fileName,QString newType="",int s=0);
-	bool exportPC(const QString &fileName);
-	bool exportPSX(int s,const QString &fileName);
-	bool exportVMC(const QString &fileName);
-	bool exportDEX(const QString &fileName);
-	bool exportVGS(const QString &fileName);
-	void importFromFileToSlot(int s=0, QString fileName="",int fileSlot=0);
-	void importPSX(int s,const QString &fileName);
-	void importPSV(int s,const QString &fileName);
-	void clearSlot(int s);
-	void copySlot(int s);
-	void pasteSlot(int s);
-	void newGame(int s,QString fileName=""); //new game in slot s (over load default w/ fileName must be RAW PSX)
-	void newGamePlus(int s,QString CharFileName,QString fileName="");//new game + in slot s (over load default w/ fileName must be RAW PSX
-	bool exportCharacter(int s,int char_num,QString fileName);// Write slot[s].char[char_num] to fileName
-	void importCharacter(int s,int char_num,QByteArray new_char);//import new_char to slot[s].char[char_num]
-	typedef QVector< QString > SubContainer;
-	QVector< SubContainer > parseXML(QString fileName,QString metadataPath,QString UserID);
-	QVector< SubContainer > createMetadata(QString fileName, QString UserID);
-	bool fixMetaData(QString fileName="",QString OutPath="",QString UserID="");
-	QByteArray fileHeader(void);
-	bool setFileHeader(QByteArray data);
-	QByteArray fileFooter(void);
-	bool setFileFooter(QByteArray data);
-	QByteArray slotHeader(int s);
-	bool setSlotHeader(int s,QByteArray data);
-	QByteArray slotFooter(int s);
-	bool setSlotFooter(int s,QByteArray data);
-	QByteArray slotPsxRawData(int s);
-	bool setSlotPsxRawData(int s,QByteArray data);
 	//item info
 	quint16 item(int s,int item_num); //return raw ff7item
 	QList<quint16> items(int s);// return all items
@@ -390,6 +633,7 @@ class FF7Save: public QObject{
 	QString fileName(void);//return loaded filename
 	QString type(void);// Returns the file type loaded.
 	void setFileModified(bool,int s);//file changed toggle, with slot called
+	void setRegion(int s ,QString region);
 	bool isFileModified(void);//has the file changed since load
 	bool isSlotModified(int s);//has slot[s] changed since load.
 	bool isSlotEmpty(int s);//is Slot s empty
@@ -400,8 +644,7 @@ class FF7Save: public QObject{
 	QString region(int s);// region string of slot s
 	//Set Needed Info Stuffs
 	void setType(QString);//allows for slot change.
-	void setRegion(int s ,QString region);
-	QByteArray slot_header(int s); //return slot header.
+
 	quint8 psx_block_type(int s);//mask of psx slot (used by index)
 	void setPsx_block_type(int s,FF7Save::PSXBLOCKTYPE block_type);
 	quint8 psx_block_next(int s);// if using more then one block return location of next block
@@ -409,9 +652,6 @@ class FF7Save: public QObject{
 	quint8 psx_block_size(int s);//how many blocks save uses.
 	void setPsx_block_size(int s,int blockSize);
 	void fix_pc_bytemask(int s);// update so last slot is shown selected on load (must be public to set to currently viewed slot).
-	QByteArray slotFF7Data(int s); //Return Raw data from the slot
-	bool setSlotFF7Data(int s, QByteArray data);
-	bool setSlotFF7Data(int s, FF7SLOT data);
 	//more data members
 	QByteArray unknown(int s,int z);
 	bool setUnknown(int s,int z,QByteArray data);
@@ -554,11 +794,9 @@ class FF7Save: public QObject{
 	void setWorldCoordsDurwZ(int s,int value);
 	void setSaveNumber(int s,int saveNum);
 signals:
-	/*! \brief emits when internal data changes */
-	void fileChanged(bool);
+	void fileChanged(bool);/**< \brief emits when internal data changes */
 private:
 	//methods
-	void vmcRegionEval(int s);
 	//data members
 	FF7SLOT slot[15]; //core slot data.
 	FF7HEADFOOT hf[15]; //slot header and footer.
@@ -605,5 +843,8 @@ private:
 	void fix_vmc_header(void);
 	quint16 itemDecode( quint16 itemraw );
 	quint16 itemEncode( quint16 id, quint8 qty );
+	void vmcRegionEval(int s);
+	QVector< SubContainer > parseXML(QString fileName,QString metadataPath,QString UserID);
+	QVector< SubContainer > createMetadata(QString fileName, QString UserID);
 };
 #endif //FF7Save

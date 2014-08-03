@@ -26,7 +26,7 @@
 struct FieldItemList
 {
 	QList<quint16> Offset; /**< list of offsets to change */
-	QList<quint8> Bit;	/**< list of bits to change (@offset of same index) */
+	QList<quint8> Bit;	/**< list of bits to change (at offset of same index) */
 	QStringList Maps;	/**< list of maps (filename) the item is shown on */
 	QString Text;    /**< text to show. */
 };

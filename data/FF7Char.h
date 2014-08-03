@@ -121,7 +121,7 @@ public:
 	 * \param next_lvl level the character is becoming
 	 * \return how many points to be put in stat.
 	 */
-	int statGain(int who,int stat,int stat_amout,int current_lvl, int next_lvl);
+	int statGain(int who,int stat,int stat_amount,int current_lvl, int next_lvl);
 private:
 
 	 /*! \brief characters grade in a stat
@@ -174,15 +174,15 @@ private:
 	quint8 luck_gradent (int who, int lvl_bracket);
 
 	/*! \brief base stat for rank in a set of levels
-	* \param who Characters id number
 	* \param rank Rank character is at start (grade)
+	* \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
 	* \return base stat for that bracket
 	*/
 	quint8 stat_base (int rank,int lvl_bracket);
 
 	/*! \brief characters mp gradent for set of levels
-	* \param who Characters id number
 	* \param rank Rank character is at start (grade)
+	* \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
 	* \return stat gradent for bracket
 	*/
 	quint8 stat_gradent (int rank,int lvl_bracket);

@@ -464,7 +464,7 @@ bool FF7Save::exportDEX(const QString &fileName)
 		return false;
   }
 }
-void FF7Save::importFromFileToSlot(int s, QString fileName,int fileSlot)
+void FF7Save::importSlot(int s, QString fileName,int fileSlot)
 {
 	QString inType="";
 	int offset=0;
@@ -484,9 +484,8 @@ void FF7Save::importFromFileToSlot(int s, QString fileName,int fileSlot)
 	}
 	else if((file_size == FF7_PSX_SAVE_GAME_SIZE)&& (file.peek(PSX_SAVE_GAME_FILE_ID.length()))==PSX_SAVE_GAME_FILE_ID)
 	{
-		file.close();
-		importPSX(s,fileName);
-		return;
+		inType="PSX";
+		offset = FF7_PSX_SAVE_GAME_SLOT_HEADER;
 	}
 	else if((file_size == FF7_MC_SAVE_GAME_SIZE)&& (file.peek(MC_SAVE_GAME_FILE_ID.length()))==MC_SAVE_GAME_FILE_ID)
 	{
@@ -496,9 +495,8 @@ void FF7Save::importFromFileToSlot(int s, QString fileName,int fileSlot)
 	}
 	else if((file_size == FF7_PSV_SAVE_GAME_SIZE)&& (file.peek(PSV_SAVE_GAME_FILE_ID.length()))==PSV_SAVE_GAME_FILE_ID)
 	{
-		file.close();
-		importPSV(s,fileName);
-		return;
+		inType="PSV";
+		offset = FF7_PSV_SAVE_GAME_SLOT_HEADER + FF7_PSV_SAVE_GAME_HEADER;
 	}
 	else if((file_size ==FF7_PSP_SAVE_GAME_SIZE)&& (file.peek(PSP_SAVE_GAME_FILE_ID.length()))==PSP_SAVE_GAME_FILE_ID)
 	{
@@ -523,6 +521,7 @@ void FF7Save::importFromFileToSlot(int s, QString fileName,int fileSlot)
 	setSlotFF7Data(s,file.read(0x10F4));
 	/*~~~~~~~End Load~~~~~~~~~~~~~~*/
 
+	/*~~~~~Set Region Data~~~~~~~~~*/
 	if (inType == "PC")
 	{
 		if(slot[s].checksum != 0x0000 && slot[s].checksum != 0x4D1D)
@@ -546,59 +545,31 @@ void FF7Save::importFromFileToSlot(int s, QString fileName,int fileSlot)
 		index = (128*fileSlot) +138;
 		setRegion(s,QString(mc_header.mid(index,19)));
 	}
-	else{return;}
+	else if (inType == "PSX")
+	{
+		if((file.fileName().contains("00867")) || (file.fileName().contains("00869")) || (file.fileName().contains("00900")) ||
+		  (file.fileName().contains("94163")) || (file.fileName().contains("00700")) || (file.fileName().contains("01057")) || (file.fileName().contains("00868")))
+		{
+			QString string;
+			string = file.fileName().mid(file.fileName().lastIndexOf("/")+1,file.fileName().lastIndexOf(".")-1-file.fileName().lastIndexOf("/"));
+			setRegion(s,string.mid(string.lastIndexOf("BA")-1,string.lastIndexOf("FF7-S")+8));
+		}
+		else {setRegion(s,"");}
+	}
+	else if (inType=="PSV")
+	{
+		file.seek(0x64);
+		setRegion(s,QString(file.read(19)));
+	}
+	else
+	{//Unknown or Unspecified Type Abort.
+		file.close();
+		return;
+	}
 	file.close();
 	setFileModified(true,s);
 }
-void FF7Save::importPSX(int s,const QString &fileName)
-{
-	if(fileName.isEmpty()){return;}
-	else
-	{
-		QFile file(fileName);
-		if(!file.open(QFile::ReadOnly)){return;}
-		QByteArray ff7file;
-		ff7file = file.readAll(); //put all data in temp raw file
-		if((file.size() ==FF7_PSX_SAVE_GAME_SIZE) && ff7file.startsWith(PSX_SAVE_GAME_FILE_ID))
-		{
-			QByteArray temp; // create a temp to be used when needed
-			int index = 0x200;
-			temp = ff7file.mid(index,0x10f4);
-			memcpy(&slot[s],temp,0x10f4);
-			if((fileName.contains("00867")) || (fileName.contains("00869")) || (fileName.contains("00900")) ||
-			  (fileName.contains("94163")) || (fileName.contains("00700")) || (fileName.contains("01057")) || (fileName.contains("00868")))
-			{
-				QString string;
-				string = fileName.mid(fileName.lastIndexOf("/")+1,fileName.lastIndexOf(".")-1-fileName.lastIndexOf("/"));
-				setRegion(s,string.mid(string.lastIndexOf("BA")-1,string.lastIndexOf("FF7-S")+8));
-			}
-			else {setRegion(s,"");}
-			setFileModified(true,s);
-		 }
-		 else{return;}
-	 }
-}
-void FF7Save::importPSV(int s,const QString &fileName)
-{
-	if(fileName.isEmpty()){return;}
-	else
-	{
-		QFile file(fileName);
-		if(!file.open(QFile::ReadOnly)){return;}
-		QByteArray ff7file;
-		ff7file = file.readAll(); //put all data in temp raw file
-		QByteArray temp; // create a temp to be used when needed
-		if((file.size() ==FF7_PSV_SAVE_GAME_SIZE) && ff7file.startsWith(PSV_SAVE_GAME_FILE_ID))
-		{
-			int index = 0x284;
-			temp = ff7file.mid(index,0x10f4);
-			memcpy(&slot[s],temp,0x10f4);
-			setRegion(s,QString(ff7file.mid(0x64,19)));
-			setFileModified(true,s);
-		}//Parse slot data....
-		else{return;}
-	}
-}
+
 void FF7Save::clearSlot(int rmslot)
 {
 	if(isSlotEmpty(rmslot)){return;}
@@ -1498,14 +1469,28 @@ void FF7Save::setMainProgress(int s,int mProgress)
 	}
 }
 
-QByteArray FF7Save::slot_header(int s)
+QList<QByteArray> FF7Save::slotIcon(int s)
 {
-	QByteArray icon;
-	if (type() != "PC") //we could have an icon. for all formats except for pc
+	QList<QByteArray> icon;
+
+	if(slotHeader(s).at(2) >= 0x11)
 	{
-		for(int i=0;i<0x200;i++){icon.append(hf[s].sl_header[i]);}
+		icon.append(slotHeader(s).mid(96,160));
+		if(slotHeader(s).at(2) >= 0x12)
+		{
+			icon.append(slotHeader(s).mid(256,128));
+			if(slotHeader(s).at(2) == 0x13)
+			{
+				icon.append(slotHeader(s).mid(384,128));
+			}
+		}
 	}
-	else{icon.fill(0x00,0x200);}//fill with nothing if pc
+	else
+	{
+		QByteArray tmp;
+		tmp.fill(00,0x200);
+		icon.append(tmp);
+	}
 	return icon;
 }
 QString FF7Save::charName(int s,int char_num)
@@ -2414,6 +2399,7 @@ bool FF7Save::fixMetaData(QString fileName,QString OutPath,QString UserID)
 	return 1;
 }
 QString FF7Save::fileName(void){return filename;}
+
 QString FF7Save::fileblock(QString fileName)
 {
 		QString number = fileName;
@@ -3346,15 +3332,15 @@ void FF7Save::setCondorWins(int s,quint8 wins)
 	if(wins ==condorWins(s)){return;}
 	else{slot[s].z_16[39] = wins;setFileModified(true,s);}
 }
-quint8 FF7Save::condorLoses(int s)
+quint8 FF7Save::condorLosses(int s)
 {
 	if(s<0 || s>14){return 0;}
 	else{return  quint8(slot[s].z_16[38]);}
 }
-void FF7Save::setCondorLoses(int s, quint8 loses)
+void FF7Save::setCondorLosses(int s, quint8 losses)
 {
-	if(loses ==condorLoses(s)){return;}
-	else{slot[s].z_16[38] = loses;setFileModified(true,s);}
+	if(losses ==condorLosses(s)){return;}
+	else{slot[s].z_16[38] = losses;setFileModified(true,s);}
 }
 
 QList<FF7CHOCOBO> FF7Save::chocobos(int s)

@@ -26,7 +26,7 @@
 #include "../data/FF7Achievements.h"
 
 /*!	\class AchievementEditor
- *	\breif A QWidget editor for achievements.dat file from 2012 and 2013 release of Final Fantasy 7.
+ *	\brief A QWidget editor for achievements.dat file from 2012 and 2013 release of Final Fantasy 7.
  *
  *	This widget uses FF7Achievements to do everything for us we only need to tell it what file to open and what file to save.
  *	The list will contain icons for each achievement so be sure to include achievements.qrc in your projects resources

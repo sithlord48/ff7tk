@@ -44,7 +44,6 @@ public:
 	 */
 	QString fileName(int i);
 
-
 	 /*! \brief get filename for location (flevel file)
 	 * 	\param MapID Map Number location is on
 	 *  \param LocID Location Id for location
@@ -54,11 +53,11 @@ public:
 	QString fileName(int MapID,int LocID);
 
 	/*! \brief locations String showing menu
-	 * \param int Number on the locations list
+	 * \param i Number on the locations list
 	 * \return Translated location string (as shown in menu/save preview)
 	 * \sa locationString(QString)
 	 */
-	QString locationString(int);
+	QString locationString(int i);
 
 	/*! \brief locations String showing menu
 	 * \param fileName fileName of location
@@ -68,11 +67,11 @@ public:
 	QString locationString(QString fileName);
 
 	/*! \brief get map id number
-	 *  \param int Number on the locations list
+	 *  \param i Number on the locations list
 	 * 	\return MapID as QString
 	 *  \sa mapID(QString)
 	 */
-	QString mapID(int);
+	QString mapID(int i);
 
 	/*! \brief get map id number
 	 *  \param fileName fileName of location
@@ -82,11 +81,11 @@ public:
 	QString mapID(QString fileName);
 
 	/*! \brief get location id number
-	 *  \param int Number on the locations list
+	 *  \param i Number on the locations list
 	 * 	\return location id as QString
 	 *  \sa locationID(QString)
 	 */
-	QString locationID(int);
+	QString locationID(int i);
 
 	/*! \brief get location id number
 	 *  \param fileName fileName of location
@@ -96,11 +95,11 @@ public:
 	QString locationID(QString fileName);
 
 	/*! \brief x coord of save or valid placment
-	 *  \param int Number on the locations list
+	 *  \param i Number on the locations list
 	 * 	\return x as QString
 	 *  \sa x(QString)
 	 */
-	QString x(int);
+	QString x(int i);
 
 	/*! \brief x coord of save or valid placment
 	 *  \param fileName fileName of location
@@ -110,11 +109,11 @@ public:
 	QString x(QString fileName);
 
 	/*! \brief y coord of save or valid placment
-	 *  \param int Number on the locations list
+	 *  \param i Number on the locations list
 	 * 	\return y as QString
 	 *  \sa y(QString)
 	 */
-	QString y(int);
+	QString y(int i);
 
 	/*! \brief y coord of save or valid placment
 	 *  \param fileName fileName of location
@@ -124,11 +123,11 @@ public:
 	QString y(QString fileName);
 
 	/*! \brief triangle of save or valid placment
-	 *  \param int Number on the locations list
+	 *  \param i Number on the locations list
 	 * 	\return triangle as QString
 	 *  \sa t(QString)
 	 */
-	QString t(int);
+	QString t(int i);
 
 	 /*! \brief triangle of save or valid placment
 	 *  \param fileName fileName of location
@@ -138,11 +137,11 @@ public:
 	QString t(QString fileName);
 
 	/*! \brief direction your facing
-	 *  \param int Number on the locations list
+	 *  \param i Number on the locations list
 	 * 	\return d as QString
 	 *  \sa d(QString)
 	 */
-	QString d(int);
+	QString d(int i);
 
 	 /*! \brief direction your facing
 	 *  \param fileName fileName of location

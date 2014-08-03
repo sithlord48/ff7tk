@@ -5,12 +5,13 @@
 
 TEMPLATE= app
 TARGET = FF7tkDemo
-
 QT+= core gui xml
 greaterThan(QT_MAJOR_VERSION, 4):	QT += widgets
 
 # Input
-HEADERS +=	mainwindow.h \
+HEADERS+=	mainwindow.h\
+			data/FF7Achievements.h\
+			data/FF7FieldItemList.h\
 			data/FF7Item.h \
 			data/FF7Location.h \
 			data/FF7Materia.h\
@@ -21,32 +22,30 @@ HEADERS +=	mainwindow.h \
 			data/SaveIcon.h\
 			data/FF7Char.h\
 			data/Type_FF7CHAR.h\
-			data/Type_materia.h\
-			utils/LZS.h\
-			widgets/SlotPreview.h\
-			widgets/MateriaEditor.h\
-			widgets/ItemPreview.h\
-			widgets/DialogPreview.h\
-			widgets/SlotSelect.h\
-			widgets/ChocoboEditor.h\
-			widgets/ItemSelector.h\
-			widgets/ItemList.h\
-			widgets/CharEditor.h\
-			widgets/MetadataCreator.h\
-			widgets/DoubleCheckBox.h\
-			widgets/PhsListWidget.h\
-			widgets/MenuListWidget.h\
-			utils/Lgp_p.h\
-			utils/Lgp.h\
-			widgets/OptionsWidget.h\
-			widgets/LocationViewer.h\
-			widgets/ChocoboLabel.h\
-			widgets/ChocoboManager.h\
 			data/Type_FF7CHOCOBO.h\
-			data/FF7FieldItemList.h\
-			data/FF7Achievements.h\
+			data/Type_materia.h\
+			utils/Archive.h \
+			utils/Lgp.h\
+			utils/Lgp_p.h\
+			utils/LZS.h\
 			widgets/AchievementEditor.h\
-			utils/Archive.h
+			widgets/CharEditor.h\
+			widgets/ChocoboEditor.h\
+			widgets/ChocoboLabel.h\
+			widgets/ChocoboManager.h \
+			widgets/DialogPreview.h\
+			widgets/DoubleCheckBox.h\
+			widgets/ItemList.h\
+			widgets/ItemPreview.h\
+			widgets/ItemSelector.h\
+			widgets/LocationViewer.h\
+			widgets/MateriaEditor.h\
+			widgets/MenuListWidget.h\
+			widgets/MetadataCreator.h\
+			widgets/OptionsWidget.h\
+			widgets/PhsListWidget.h\
+			widgets/SlotPreview.h\
+			widgets/SlotSelect.h
 
 FORMS+=		mainwindow.ui
 
@@ -86,13 +85,14 @@ SOURCES+=	main.cpp\
 
 RESOURCES+=\
 			icons/achievements.qrc\
-			icons/psxButtons.qrc\
-			icons/locations.qrc\
 			icons/characters.qrc\
 			icons/chocobo.qrc\
 			icons/common.qrc\
 			icons/items.qrc\
-			icons/materia.qrc
+			icons/locations.qrc\
+			icons/materia.qrc\
+			icons/psxButtons.qrc
+
 #Uncomment Below to Generate translations (currently part of black chocobo)
 #TRANSLATIONS+=\
 #			lang/FF7tk_de.ts \
