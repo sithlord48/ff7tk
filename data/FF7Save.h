@@ -37,9 +37,10 @@
  *	the following are supported formats:
  *	|Flie	| Description |
  *	|-------|-------------|
- *	|*.ff7	|PC Format Save if a 2012 or 2013 release will sign metadata automaticly for you|
+ *	|*.ff7	|PC Format Save if with a metadata.xml file will attempt to sign it|
  *	|*.mcr	|Common Emulator format (Virtual Memory Card)|
  *	|*.mcd	|Common Emulator format (Virtual Memory Card)|
+ *	|*.mci	|Common Emulator format (Virtual Memory Card)|
  *	|*.mc	|Common Emulator format (Virtual Memory Card)|
  *	|*.ddf	|Common Emulator format (Virtual Memory Card)|
  *	|*.ps	|Common Emulator format (Virtual Memory Card)|
@@ -67,7 +68,10 @@ class FF7Save: public QObject{
 	enum ATBMODE{ATB_ACTIVE/**< 0*/,ATB_RECOMMENED,ATB_WAIT/**< 1*/};
 	enum CAMERAMODE {CAMERA_AUTO/**< 0*/,CAMERA_FIXED/**< 1*/};
 	enum MAGICORDER {MAGIC_RAI/**< 0*/,MAGIC_RIA/**< 1*/,MAGIC_AIR/**< 2*/,MAGIC_ARI/**< 3*/,MAGIC_IRA/**< 4*/,MAGIC_IAR/**< 5*/};
-
+	/** \enum MENUITEMS
+	 *	\brief Menu items for ff7.
+	 */
+	enum MENUITEMS {MENUITEM/**< 0*/,MENUMAGIC/**< 1*/,MENUMATERIA/**< 2*/,MENUEQUIPMENT/**< 3*/,MENUSTATUS/**< 4*/,MENUFORM/**< 5*/,MENULIMIT/**< 6*/,MENUCONFIG/**< 7*/,MENUPHS/**< 8*/,MENUSAVE/**< 9*/};
 	/** \enum CONTROLACTION
 	 *	\brief Possible Actions the user can input
 	 */
