@@ -99,4 +99,5 @@ RESOURCES+=\
 #			lang/FF7tk_en.ts \
 #			lang/FF7tk_es.ts \
 #			lang/FF7tk_fr.ts \
-#			lang/FF7tk_jp.ts
+#			lang/FF7tk_jp.ts \
+#			lang/FF7tk_re.ts
