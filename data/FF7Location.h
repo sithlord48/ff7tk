@@ -645,6 +645,7 @@ static const LOCATION Locations[]=
 	{"kuro_1",QT_TRANSLATE_NOOP("Locations","Temple of the Ancients"),"1","604","0","0","0","32"},
 	{"kuro_2",QT_TRANSLATE_NOOP("Locations","Temple of the Ancients"),"1","605","-59","39","30","32"},
 	{"kuro_3",QT_TRANSLATE_NOOP("Locations","Temple of the Ancients"),"1","606","-75","1430","61","32"},
+	{"kuro_5",QT_TRANSLATE_NOOP("Locations","Temple of the Ancients"),"1","608","-126","-494","6","32"},
 	{"kuro_6",QT_TRANSLATE_NOOP("Locations","Temple of the Ancients"),"1","609","-3","-191","2","32"},
 
 	{"kuro_7",QT_TRANSLATE_NOOP("Locations","Temple of the Ancients"),"1","610","-345","314","127","32"},
