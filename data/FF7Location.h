@@ -432,6 +432,7 @@ static const LOCATION Locations[]=
 	{"jun_i2",QT_TRANSLATE_NOOP("Locations","Materia Store"),"1","375","10","-348","46","32"},
 	{"juninn",QT_TRANSLATE_NOOP("Locations","Junon Inn"),"1","376","45","197","21","32"},
 	{"junpb_1",QT_TRANSLATE_NOOP("Locations","Shinra Member's Bar"),"1","377","82","-241","18","32"},
+	{"junpb_2",QT_TRANSLATE_NOOP("Locations","Respectable Inn"),"1","378","-135","107","34","32"},
 	{"junpb_3",QT_TRANSLATE_NOOP("Locations","Bar"),"1","379","17","-156","39","32"},
 
 	{"junmin4",QT_TRANSLATE_NOOP("Locations","Barracks"),"1","380","182","-170","2","32"},

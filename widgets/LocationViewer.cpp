@@ -103,7 +103,7 @@ void LocationViewer::init_display(void)
 	actionNameSearch = new QAction(tr("Filter Mode: Name / Location String"),btnSearchOptions);
 	actionNameSearch->setCheckable(true);
 
-	actionItemSearch = new QAction(tr("Filter Mode: Items Found At Location"),btnSearchOptions);
+	actionItemSearch = new QAction(tr("Filter Mode: Items Found at Location"),btnSearchOptions);
 	actionItemSearch->setCheckable(true);
 
 	actionRegExpSearch = new QAction(tr("Process Regular Expressions"),btnSearchOptions);
@@ -415,7 +415,7 @@ void LocationViewer::actionNameSearchToggled(bool checked)
 	{
 		actionItemSearchToggled(false);
 		searchMode = NAME;
-		lineTableFilter->setPlaceholderText(QString(tr("Filter Mode: Name / Location Name...")));
+		lineTableFilter->setPlaceholderText(actionNameSearch->text());
 		if(!lineTableFilter->text().isEmpty()){filterLocations(lineTableFilter->text());}
 	}
 	else{actionNameSearch->setChecked(false);}
@@ -428,7 +428,7 @@ void LocationViewer::actionItemSearchToggled(bool checked)
 	{
 		actionNameSearchToggled(false);
 		searchMode = ITEM;
-		lineTableFilter->setPlaceholderText(QString(tr("Filter Mode: Items Found at Location...")));
+		lineTableFilter->setPlaceholderText(actionItemSearch->text());
 		if(!lineTableFilter->text().isEmpty()){filterLocations(lineTableFilter->text());}
 	}
 	else{actionItemSearch->setChecked(false);}
