@@ -65,7 +65,7 @@ public:
 	/*! \brief total entries in FILIST
 	 *  \return number of entries in FILIST
 	 */
-	int count();
+	inline int count(){return 352;}
 };
 
 static const FieldItemList FILIST[]=
