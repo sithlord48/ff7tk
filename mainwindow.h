@@ -66,18 +66,16 @@ private slots:
 	void on_btn_loadAchievement_clicked();
 	void on_btn_saveAchievement_clicked();
 	void on_lineEdit_editingFinished();
-
 	void on_checkBox_2_toggled(bool checked);
 
 private:
 
 	Ui::MainWindow *ui;
-	FF7Save *ff7save;
 	MateriaEditor *materia_editor;
 	CharEditor *char_editor;
 	ItemList *item_list;
 	MetadataCreator *metadataCreator;
-	SlotSelect *slotSelect;
+	//SlotSelect *slotSelect;
 	PhsListWidget *ListPHS;
 	MenuListWidget *ListMenu;
 	Lgp *lgpFile;

@@ -111,20 +111,20 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_btn_showmetaData_clicked()
 {
-	FF7Save *ff7save = new FF7Save;
+	FF7Save *ff7save = new FF7Save();
 	metadataCreator = new MetadataCreator(this,ff7save);
 	metadataCreator->exec();
 }
 
 void MainWindow::on_btn_slotSelect_clicked()
 {
-	FF7Save *ff7save = new FF7Save;
+	FF7Save *ff7save = new FF7Save();
 	QString fileFilter("Multi Slot Save Types (*.ff7 *.vmp *.vgs *.mem *.gme *.mcr *.mcd *.mci *.mc *.ddf *.ps *.psm *.VM1 *.bin);;PC FF7 SaveGame (*.ff7);;MC SaveGame (*.mcr *.mcd *.mci *.mc *.ddf *.ps *.psm *.VM1 *.bin);;PSP SaveGame (*.vmp);;VGS SaveGame(*.vgs *.mem);;Dex-Drive SaveGame(*.gme)");
 	QString filename = QFileDialog::getOpenFileName(this,"Select A Save To Preview",QDir::homePath(),fileFilter);
 	if(!filename.isEmpty())
 	{
 		ff7save->loadFile(filename);
-		slotSelect = new SlotSelect(this,ff7save,ui->cbShowLoad->isChecked());
+		SlotSelect *slotSelect = new SlotSelect(this,ff7save,ui->cbShowLoad->isChecked());
 		if (slotSelect->exec()== -1){on_btn_slotSelect_clicked();}
 		else{return;}
 	}
