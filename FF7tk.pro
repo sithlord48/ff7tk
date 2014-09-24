@@ -101,3 +101,14 @@ RESOURCES+=\
 #			lang/FF7tk_fr.ts \
 #			lang/FF7tk_jp.ts \
 #			lang/FF7tk_re.ts
+
+static:{ # everything below takes effect with CONFIG += static
+        CONFIG += static
+        CONFIG += staticlib # this is needed if you create a static library, not a static executable
+        QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs
+        DEFINES += STATIC
+        message("Static Build") # this is for information, that the static build is done
+        TARGET = $$join(TARGET,,,-static) #this adds an s in the end, so you can seperate static build from non static build
+}
+# change the name of the binary, if it is build in debug mode
+CONFIG(debug, debug|release) {TARGET = $$join(TARGET,,,-debug)}

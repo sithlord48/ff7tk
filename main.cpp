@@ -22,6 +22,15 @@
 #endif
 #include "mainwindow.h"
 
+#ifdef STATIC
+#include <QtPlugin> //FOR STATIC BUILD. Q_IMPORT_PLUGIN: Allow to make use of a static plugins (qjpcodecs)
+//FOR STATIC BUILD.(WILL FAIL HERE IF NOT STATICLY BUILT QT!)
+Q_IMPORT_PLUGIN(qcncodecs)
+Q_IMPORT_PLUGIN(qjpcodecs)  //(Japanese Text Support)
+Q_IMPORT_PLUGIN(qtwcodecs)
+Q_IMPORT_PLUGIN(qkrcodecs)
+#endif
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
