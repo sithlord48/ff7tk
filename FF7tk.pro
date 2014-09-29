@@ -101,7 +101,13 @@ RESOURCES+=\
 #			lang/FF7tk_fr.ts \
 #			lang/FF7tk_jp.ts \
 #			lang/FF7tk_re.ts
-
+unix:{
+	LIBS += -lcrypto
+}
+win32:{
+        INCLUDEPATH += C:/OpenSSL-Win32/include # Be Sure Path is openSSL .
+	LIBS += -L"C:/OpenSSL-Win32/lib" -llibeay32 #besure to update path to installed openSSL 
+}
 static:{ # everything below takes effect with CONFIG += static
         CONFIG += static
         CONFIG += staticlib # this is needed if you create a static library, not a static executable
