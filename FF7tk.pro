@@ -105,16 +105,18 @@ unix:{
 	LIBS += -lcrypto
 }
 win32:{
-        INCLUDEPATH += C:/OpenSSL-Win32/include # Be Sure Path is openSSL .
-	LIBS += -L"C:/OpenSSL-Win32/lib" -llibeay32 #besure to update path to installed openSSL 
+	#Set OpenSSL include & lib paths
+	#THIS MUST BE CHANGED WITH YOUR OPENSSL PATHS OR YOUR BUILD WILL FAIL!!!
+	INCLUDEPATH += C:/OpenSSL-Win32/include # Be Sure Path is openSSL
+	LIBS += -L"C:/OpenSSL-Win32/lib" -llibeay32 #Be sure to update path to installed openSSL
 }
 static:{ # everything below takes effect with CONFIG += static
-        CONFIG += static
-        CONFIG += staticlib # this is needed if you create a static library, not a static executable
-        QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs
-        DEFINES += STATIC
-        message("Static Build") # this is for information, that the static build is done
-        TARGET = $$join(TARGET,,,-static) #this adds an s in the end, so you can seperate static build from non static build
+	CONFIG += static
+	CONFIG += staticlib # this is needed if you create a static library, not a static executable
+	lessThan(QT_MAJOR_VERSION, 5): QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs
+	DEFINES += STATIC
+	message("Static Build") # this is for information, that the static build is done
+	TARGET = $$join(TARGET,,,-static) #this adds an s in the end, so you can seperate static build from non static build
 }
 # change the name of the binary, if it is build in debug mode
 CONFIG(debug, debug|release) {TARGET = $$join(TARGET,,,-debug)}
