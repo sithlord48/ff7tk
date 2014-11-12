@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>49</width>
-    <height>32</height>
+    <width>114</width>
+    <height>21</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,7 +20,7 @@
    <string>FF7tk Widget Demo</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_11">
+   <layout class="QVBoxLayout" name="verticalLayout_14">
     <item>
      <widget class="QComboBox" name="combo_widget">
       <item>
@@ -91,17 +91,26 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="phsListBox">
+     <widget class="QGroupBox" name="item_list_box">
       <property name="title">
        <string/>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="menuListBox">
-      <property name="title">
-       <string/>
-      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <widget class="QCheckBox" name="checkBox_4">
+         <property name="text">
+          <string>Editable Item Combo</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="itemList_box">
+         <property name="title">
+          <string>GroupBox</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>
@@ -136,13 +145,32 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="cb_materia_editor_setEditable">
-            <property name="text">
-             <string>is Editable</string>
+           <widget class="QFrame" name="frame">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
             </property>
-            <property name="checked">
-             <bool>true</bool>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QCheckBox" name="cbEditableMateriaCombos">
+               <property name="text">
+                <string>Editable Combo</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="cb_materia_editor_setEditable">
+               <property name="text">
+                <string>is Editable</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
@@ -156,13 +184,6 @@
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="dialog_preview_box">
-      <property name="title">
-       <string/>
-      </property>
      </widget>
     </item>
     <item>
@@ -205,6 +226,13 @@
             </item>
            </layout>
           </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_3">
+            <property name="text">
+             <string>Editable Combos </string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -219,7 +247,21 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="item_list_box">
+     <widget class="QGroupBox" name="phsListBox">
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="menuListBox">
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="dialog_preview_box">
       <property name="title">
        <string/>
       </property>

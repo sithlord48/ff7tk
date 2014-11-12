@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	item_list = new ItemList();
 	QHBoxLayout *item_list_layout = new QHBoxLayout;
 	item_list_layout->addWidget(item_list);
-	ui->item_list_box->setLayout(item_list_layout);
+    ui->itemList_box->setLayout(item_list_layout);
 
 	locViewer = new LocationViewer(this);
 	QHBoxLayout *locLayout = new QHBoxLayout();
@@ -205,3 +205,7 @@ void MainWindow::on_btn_saveAchievement_clicked()
 
 void MainWindow::on_lineEdit_editingFinished(){locViewer->setSelected(ui->lineEdit->text());}
 void MainWindow::on_checkBox_2_toggled(bool checked){locViewer->setAdvancedMode(checked);}
+
+void MainWindow::on_checkBox_3_clicked(bool checked){char_editor->setEditableComboBoxes(checked);}
+void MainWindow::on_cbEditableMateriaCombos_clicked(bool checked){materia_editor->setEditableMateriaCombo(checked);}
+void MainWindow::on_checkBox_4_clicked(bool checked){item_list->setEditableItemCombo(checked);}
