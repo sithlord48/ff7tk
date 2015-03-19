@@ -2215,56 +2215,43 @@ void FF7Save::setParty(int s,int pos, int new_id)
 		setFileModified(true,s);
 	}
 }
-quint32 FF7Save::snowboardTime(int s, int course)
+String FF7Save::snowboardTime(int s, int course)
 {
 	quint32 time=0;
 	switch(course)
 	{
 	case 0:
-		time = ((slot[s].SnowBegFastTime[1]) | (slot[s].SnowBegFastTime[2]<< 8) | (slot[s].SnowBegFastTime[3] <<16));
+		time = slot[s].SnowBegFastTime;
 		break;
-
 	case 1:
-		time = ((slot[s].SnowExpFastTime[1]) | (slot[s].SnowExpFastTime[2]<< 8) | (slot[s].SnowExpFastTime[3] <<16));
-	   break;
-
+		time = slot[s].SnowExpFastTime;
+		break;
 	case 2:
-		time = ((slot[s].SnowCrazyFastTime[1]) | (slot[s].SnowCrazyFastTime[2]<< 8) | (slot[s].SnowCrazyFastTime[3] <<16));
-	   break;
-
-	   default: break;
-	 }
-	return time;
+		time = slot[s].SnowCrazyFastTime;
+		break;
+	default: break;
+	}
+	return QString("%1").arg(time, 8, 16, QChar('0'));
 }
-
-void FF7Save::setSnowboardTime(int s, int course,quint32 value)
+void FF7Save::setSnowboardTime(int s, int course,QString value)
 {
-	int a = (value & 0xff);
-	int b = (value & 0xff00) >> 8;
-	int c = (value & 0xff0000) >> 16;
 	switch(course)
 	{
 	case 0:
-		slot[s].SnowBegFastTime[1]=a;
-		slot[s].SnowBegFastTime[2]=b;
-		slot[s].SnowBegFastTime[3]=c;
+		slot[s].SnowBegFastTime= value.toInt(0,16);
 		setFileModified(true,s);
 		break;
 	case 1:
-		slot[s].SnowExpFastTime[1]=a;
-		slot[s].SnowExpFastTime[2]=b;
-		slot[s].SnowExpFastTime[3]=c;
+		slot[s].SnowExpFastTime= value.toInt(0,16);
 		setFileModified(true,s);
 		break;
 	case 2:
-		slot[s].SnowCrazyFastTime[1]=a;
-		slot[s].SnowCrazyFastTime[2]=b;
-		slot[s].SnowCrazyFastTime[3]=c;
+		slot[s].SnowCrazyFastTime= value.toInt(0,16);
 		setFileModified(true,s);
 		break;
-		default: break;
-	 }
-}
+	default: break;
+	}
+} 
 
 quint8 FF7Save::snowboardScore(int s, int course)
 {
