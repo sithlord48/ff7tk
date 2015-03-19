@@ -2355,7 +2355,7 @@ QVector< SubContainer > FF7Save::parseXML(QString fileName, QString metadataPath
 		QDomElement el = nodeList.at(ii).toElement();               //Get the current one as QDomElement
 		QDomNode pEntries = el.firstChild();                        //Get all data for the element, by looping through all child elements
 		int iii = 0;
-		while(!pEntries.isNull())
+		while(!pEntries.isNull() && iii <= 15)
 		{
 			QDomElement peData = pEntries.toElement();
 			vector[ii][iii] = peData.text();
