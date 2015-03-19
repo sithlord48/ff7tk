@@ -28,3 +28,19 @@ script:
 - make -j2
 
 language: cpp
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "eqXxhT2R/eCXwaQC0dn14iB6Rvd7KdEsz9lvcqo/ZCSduHVdQbIcLKxI/gLXjYyPOurAgMDGlbiqe/Sz/29eH+jcYlNsLtDpSoJFsgnWe9KlEqBrbO+eGH5OoAabgJthcGygTwbFnpsiY7SvLG62pSYUrSfToCVkouSiUXeZb5Q="
+
+addons:
+  coverity_scan:
+    project:
+      name: "sithlord48/ff7tk"
+      description: "Build submitted via Travis CI"
+    notification_email: sithlord48@gmail.com
+    build_command_prepend: "qmake FF7tk.pro"
+    build_command:   "make -j 4"
+    branch_pattern: coverity_scan
