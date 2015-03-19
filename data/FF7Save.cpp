@@ -2215,7 +2215,7 @@ void FF7Save::setParty(int s,int pos, int new_id)
 		setFileModified(true,s);
 	}
 }
-String FF7Save::snowboardTime(int s, int course)
+QString FF7Save::snowboardTime(int s, int course)
 {
 	quint32 time=0;
 	switch(course)
