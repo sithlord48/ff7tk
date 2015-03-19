@@ -24,7 +24,7 @@ before_script:
 script: 
 - mkdir build_ff7tk
 - cd build_ff7tk
-- qmake ../ff7tk.pro
+- qmake ../FF7tk.pro
 - make -j2
 
 language: cpp
