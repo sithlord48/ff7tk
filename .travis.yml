@@ -24,7 +24,7 @@ before_script:
 script: 
 - mkdir build_ff7tk
 - cd build_ff7tk
-- qmake ../FF7tk.pro
+- qmake ../ff7tkDemo/ff7tkDemo.pro
 - make -j2
 
 language: cpp
@@ -41,6 +41,6 @@ addons:
       name: "sithlord48/ff7tk"
       description: "Build submitted via Travis CI"
     notification_email: sithlord48@gmail.com
-    build_command_prepend: "qmake FF7tk.pro"
+    build_command_prepend: "qmake ../ff7tkDemo/ff7tkDemo.pro"
     build_command:   "make -j 4"
     branch_pattern: coverity_scan
