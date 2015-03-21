@@ -21,7 +21,10 @@
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
+	//init the pointers
 	lgpFile=0;
+	metadataCreator=0;
+	achievementEditor=0;
 	hideAllBoxes();
 
 	ListPHS = new PhsListWidget(0);
