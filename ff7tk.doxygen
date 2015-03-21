@@ -4,7 +4,7 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = FF7tk
+PROJECT_NAME           = ff7tk
 PROJECT_NUMBER         = 0.01
 PROJECT_BRIEF          = "Toolkit for making FF7 Tools"
 PROJECT_LOGO           = 
@@ -201,7 +201,7 @@ HTML_DYNAMIC_SECTIONS  = NO
 HTML_INDEX_NUM_ENTRIES = 100
 GENERATE_DOCSET        = NO
 DOCSET_FEEDNAME        = "Doxygen generated docs"
-DOCSET_BUNDLE_ID       = org.doxygen.FF7tk
+DOCSET_BUNDLE_ID       = org.doxygen.ff7tk
 DOCSET_PUBLISHER_ID    = org.doxygen.Sithlord48
 DOCSET_PUBLISHER_NAME  = Sithlord48
 GENERATE_HTMLHELP      = NO

@@ -25,19 +25,19 @@
 	#include <QMainWindow>
 #endif
 
-#include "widgets/MateriaEditor.h"
-#include "widgets/CharEditor.h"
-#include "widgets/ItemList.h"
-#include "widgets/MetadataCreator.h"
-#include "widgets/SlotSelect.h"
-#include "widgets/PhsListWidget.h"
-#include "widgets/MenuListWidget.h"
-#include "widgets/OptionsWidget.h"
-#include "widgets/LocationViewer.h"
-#include "widgets/ChocoboManager.h"
-#include "widgets/AchievementEditor.h"
+#include "../widgets/MateriaEditor.h"
+#include "../widgets/CharEditor.h"
+#include "../widgets/ItemList.h"
+#include "../widgets/MetadataCreator.h"
+#include "../widgets/SlotSelect.h"
+#include "../widgets/PhsListWidget.h"
+#include "../widgets/MenuListWidget.h"
+#include "../widgets/OptionsWidget.h"
+#include "../widgets/LocationViewer.h"
+#include "../widgets/ChocoboManager.h"
+#include "../widgets/AchievementEditor.h"
 
-#include "utils/Lgp.h"
+#include "../utils/Lgp.h"
 
 namespace Ui {
 	class MainWindow;
@@ -68,11 +68,11 @@ private slots:
 	void on_lineEdit_editingFinished();
 	void on_checkBox_2_toggled(bool checked);
 
-    void on_checkBox_3_clicked(bool checked);
+	void on_checkBox_3_clicked(bool checked);
 
-    void on_cbEditableMateriaCombos_clicked(bool checked);
+	void on_cbEditableMateriaCombos_clicked(bool checked);
 
-    void on_checkBox_4_clicked(bool checked);
+	void on_checkBox_4_clicked(bool checked);
 
 private:
 
