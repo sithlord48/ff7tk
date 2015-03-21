@@ -36,6 +36,7 @@
 #include "../widgets/LocationViewer.h"
 #include "../widgets/ChocoboManager.h"
 #include "../widgets/AchievementEditor.h"
+#include "../widgets/CharManager.h"
 
 #include "../utils/Lgp.h"
 
@@ -68,11 +69,11 @@ private slots:
 	void on_lineEdit_editingFinished();
 	void on_checkBox_2_toggled(bool checked);
 
-	void on_checkBox_3_clicked(bool checked);
+    void on_checkBox_3_clicked(bool checked);
 
-	void on_cbEditableMateriaCombos_clicked(bool checked);
+    void on_cbEditableMateriaCombos_clicked(bool checked);
 
-	void on_checkBox_4_clicked(bool checked);
+    void on_checkBox_4_clicked(bool checked);
 
 private:
 
@@ -84,11 +85,12 @@ private:
 	//SlotSelect *slotSelect;
 	PhsListWidget *ListPHS;
 	MenuListWidget *ListMenu;
-	Lgp *lgpFile;
+    Lgp *lgpFile;
 	LocationViewer *locViewer;
 	OptionsWidget *optionsWidget;
 	ChocoboManager *chocoboManager;
 	AchievementEditor *achievementEditor;
+    CharManager *charManager;
 };
 
 #endif // MAINWINDOW_H

@@ -21,10 +21,7 @@
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-	//init the pointers
-	lgpFile=0;
-	metadataCreator=0;
-	achievementEditor=0;
+
 	hideAllBoxes();
 
 	ListPHS = new PhsListWidget(0);
@@ -72,6 +69,13 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	QVBoxLayout *AchievementLayout = new QVBoxLayout();
 	AchievementLayout->addWidget(achievementEditor);
 	ui->achievementEditor_Frame->setLayout(AchievementLayout);
+
+    charManager = new CharManager;
+    QVBoxLayout *charManagerLayout =new QVBoxLayout;
+    charManagerLayout->addWidget(charManager);
+    ui->CharManager_Box->setLayout(charManagerLayout);
+
+    lgpFile=0;
 }
 
 MainWindow::~MainWindow(){delete ui;}
@@ -93,6 +97,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
 		case 10:ui->locListBox->setVisible(1);break;
 		case 11:ui->ChocoboManagerBox->setVisible(1);break;
 		case 12:ui->AchievementEditor_Box->setVisible(1);break;
+        case 13:ui->CharManager_Box->setVisible(1);break;
 	};
 	this->adjustSize();
 }
@@ -191,6 +196,7 @@ void MainWindow::hideAllBoxes(void)
 	ui->locListBox->setVisible(0);
 	ui->ChocoboManagerBox->setVisible(0);
 	ui->AchievementEditor_Box->setVisible(0);
+    ui->CharManager_Box->setVisible(0);
 }
 
 void MainWindow::on_btn_loadAchievement_clicked()
