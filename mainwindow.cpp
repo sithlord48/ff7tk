@@ -21,7 +21,7 @@
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-
+	lgpFile=0;
 	hideAllBoxes();
 
 	ListPHS = new PhsListWidget(0);
