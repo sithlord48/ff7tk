@@ -30,6 +30,7 @@ HEADERS+=	mainwindow.h\
 			../utils/LZS.h\
 			../widgets/AchievementEditor.h\
 			../widgets/CharEditor.h\
+			../widgets/CharManager.h\
 			../widgets/ChocoboEditor.h\
 			../widgets/ChocoboLabel.h\
 			../widgets/ChocoboManager.h \
@@ -66,6 +67,7 @@ SOURCES+=	main.cpp\
 			../utils/Lgp_p.cpp\
 			../widgets/AchievementEditor.cpp\
 			../widgets/CharEditor.cpp\
+			../widgets/CharManager.cpp\
 			../widgets/ChocoboEditor.cpp\
 			../widgets/ChocoboLabel.cpp\
 			../widgets/ChocoboManager.cpp\
