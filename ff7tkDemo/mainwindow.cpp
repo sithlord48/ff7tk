@@ -55,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	item_list = new ItemList();
 	QHBoxLayout *item_list_layout = new QHBoxLayout;
 	item_list_layout->addWidget(item_list);
-    ui->itemList_box->setLayout(item_list_layout);
+	ui->itemList_box->setLayout(item_list_layout);
 
 	locViewer = new LocationViewer(this);
 	QHBoxLayout *locLayout = new QHBoxLayout();
@@ -126,10 +126,13 @@ void MainWindow::on_btn_slotSelect_clicked()
 	QString filename = QFileDialog::getOpenFileName(this,"Select A Save To Preview",QDir::homePath(),fileFilter);
 	if(!filename.isEmpty())
 	{
-		ff7save->loadFile(filename);
-		SlotSelect *slotSelect = new SlotSelect(this,ff7save,ui->cbShowLoad->isChecked());
-		if (slotSelect->exec()== -1){on_btn_slotSelect_clicked();}
-		else{return;}
+		if(ff7save->loadFile(filename))
+		{
+			SlotSelect *slotSelect = new SlotSelect(this,ff7save,ui->cbShowLoad->isChecked());
+			if (slotSelect->exec()== -1){on_btn_slotSelect_clicked();}
+			else{return;}
+		}
+		else {QMessageBox::critical(this,QString(tr("File Error")),QString(tr("Error Loading File: %1")).arg(filename));}
 	}
 }
 
