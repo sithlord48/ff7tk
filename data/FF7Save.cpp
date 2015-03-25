@@ -28,8 +28,6 @@
 
 FF7Save::FF7Save()
 {
-	fileHasChanged = false;
-	for(int i=0;i<15;i++){slotChanged[i]=false;}
 	SG_SIZE=0;
 	SG_HEADER=0;
 	SG_FOOTER=0;
@@ -42,6 +40,12 @@ FF7Save::FF7Save()
 	file_footerp=0;
 	file_headerp=0;
 	memcpy(&buffer_slot,&default_save,0x10F4);
+    for(int i=0;i<15;i++)
+    {
+        slot[i]=buffer_slot;
+        slotChanged[i]=false;
+    }
+    fileHasChanged = false;
 }
 bool FF7Save::loadFile(const QString &fileName)
 {
