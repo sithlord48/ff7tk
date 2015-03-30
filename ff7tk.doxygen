@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = ff7tk
-PROJECT_NUMBER         = 0.01
+PROJECT_NUMBER         = 0.02
 PROJECT_BRIEF          = "Toolkit for making FF7 Tools"
 PROJECT_LOGO           = 
 OUTPUT_DIRECTORY       = docs

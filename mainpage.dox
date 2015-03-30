@@ -1,20 +1,20 @@
 
-/*! \mainpage FF7tk
+/*! \mainpage ff7tk
  *
  * \section intro Introduction
  *
- * Welcome to the documentation for the FF7tk (Final Fantasy 7 toolkit). FF7tk is a Cross Platform toolkit for creating programs that can edit the data from Final Fantasy 7. The Goal is to create a set of data objects and gui widgets that make the creation of new tools for final fantasy 7 editing easier to create.
+ * Welcome to the documentation for the ff7tk (Final Fantasy 7 toolkit). ff7tk is a Cross Platform toolkit for creating programs that can edit the data from Final Fantasy 7. The Goal is to create a set of data objects and gui widgets that make the creation of new tools for final fantasy 7 editing easier to create.
  *
  * \subsection step1 Getting the code
  *	the code is hosted on git hub http://github.com/sithlord48/ff7tk
  
  * \subsection step2 Building the demo app
- *	FF7tk is built on top of Qt (<http://qt-project.org>) . Will build using Qt4 or Qt5 
- * 	FF7tk requires OpenSSL (<http://openssl.org>). OpenSSL is only required for the FF7Save.If your project doesn't use FF7Save it will not need OpenSSL.
-	The Demo App included can be compiled easily if you have QtCreator installed open the FF7tk.pro file and run it the demo will load and you can play with the widgets and try some of the utilities.
+ *	ff7tk is built on top of Qt (<http://qt-project.org>) . Will build using Qt4 or Qt5 
+ * 	ff7tk requires OpenSSL (<http://openssl.org>). OpenSSL is only required for the FF7Save.If your project doesn't use FF7Save it will not need OpenSSL.
+	The Demo App included can be compiled easily if you have QtCreator installed open the ff7tkDemo.pro file and run it the demo will load and you can play with the widgets and try some of the utilities.
  
  \subsection step3 Getting Involved
-    You can help FF7tk by writing applications with it to expose bugs and missing items. Contribute new items where lacking.             
+    You can help ff7tk by writing applications with it to expose bugs and missing items and/or contribute new items where lacking.             
 */
  
   
