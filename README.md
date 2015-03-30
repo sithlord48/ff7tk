@@ -8,7 +8,8 @@ A Toolkit for making programs that edit final fantasy 7
 </a>
 
 
-Requires: Qt and OpenSSL (to sign some save types)
+Requires: Qt and OpenSSL (to sign some save types)<br>
+Doxygen Generated <a href="http://www.blackchocobo.com/ff7tk/index.html">Documentation </a> 
 
 Linux Building: 
 ====
