@@ -36,12 +36,12 @@ protected:
 public:
 	explicit OptionsWidget(QWidget *parent = 0);
 public slots:
-	void setSliderStyle(QString styleSheet);/**< \brief set style for the sliders on this widget \param style valid styleSheet for QSlider */
-	void setScrollAreaStyleSheet(QString styleSheet); /**< \brief set style for the center widget \param style valid styleSheet for QWidget */
+	void setSliderStyle(QString styleSheet);/**< \brief set style for the sliders on this widget \param styleSheet valid styleSheet for QSlider */
+	void setScrollAreaStyleSheet(QString styleSheet); /**< \brief set style for the center widget \param styleSheet valid styleSheet for QWidget */
 	void setDialogColors(QColor ul,QColor ur,QColor ll,QColor lr); /**< \brief set colors for dialog/menu background preview \param ul Upper Left Color \param ur Upper Right Color \param ll Lower Left Color \param lr Lower Right Color */
 	void setAtb(int mode); /**< \brief Set Atb Mode \param mode Button must be valid FF7Save::ATBMODE */
 	void setSoundMode(int mode); /**< \brief Set Sound Mode \param mode Button must be valid FF7Save::SOUNDMODE */
-	void setMagicOrder(int order); /**< \brief Set Magic Order \param mode Button must be valid FF7Save::MAGICORDER */
+	void setMagicOrder(int order); /**< \brief Set Magic Order \param order  must be valid FF7Save::MAGICORDER */
 	void setCursor(int mode); /**< \brief Set Cursor Mode \param mode Button must be valid FF7Save::CURSORMODE */
 	void setCamera(int mode); /**< \brief Set Camera Mode \param mode Button must be valid FF7Save::CAMERAMODE */
 	void setControllerMode(int mode); /**< \brief Set Controller Mode \param mode Button must be valid FF7Save::CONTROLMODE */

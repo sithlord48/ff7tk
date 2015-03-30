@@ -45,7 +45,7 @@ FF7Save::FF7Save()
 	  slot[i]= buffer_slot;
 	  slotChanged[i]=false;
 	}
-	
+
 	fileHasChanged = false;
 }
 bool FF7Save::loadFile(const QString &fileName)
@@ -2891,11 +2891,11 @@ void FF7Save::setSoundMode(int s,int mode)
 		setFileModified(true,s);
 	 }
 }
-void FF7Save::setSoundMode(int s,bool mode)
+void FF7Save::setSoundMode(int s,bool stereo)
 {
-	if(!(mode && soundMode(s)))
+	if(!(stereo && soundMode(s)))
 	{
-		if(mode){slot[s].options |= (1<<0);}
+		if(stereo){slot[s].options |= (1<<0);}
 		else{slot[s].options &=~(1<<0);}
 		setFileModified(true,s);
 	}
@@ -2916,11 +2916,11 @@ void FF7Save::setControlMode(int s, int mode)
 	 }
 }
 
-void FF7Save::setControlMode(int s, bool mode)
+void FF7Save::setControlMode(int s, bool custom)
 {
-	if(!(mode && controlMode(s)))
+	if(!(custom && controlMode(s)))
 	{
-		if(mode){slot[s].options |= (1<<2);}
+		if(custom){slot[s].options |= (1<<2);}
 		else{slot[s].options &=~(1<<2);}
 		setFileModified(true,s);
 	}
