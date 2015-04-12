@@ -88,7 +88,7 @@ bool FF7Save::loadFile(const QString &fileName)
 			string = fileName.mid(fileName.lastIndexOf("/")+1,fileName.lastIndexOf(".")-1-fileName.lastIndexOf("/"));
 			SG_Region_String[0]= string.mid(string.lastIndexOf("BA")-1,string.lastIndexOf("FF7-S")+8);
 		}
-		else {SG_Region_String[0].clear();}
+		else {SG_Region_String[0] = file.fileName();}
 		for(int i=1;i<14;i++){clearSlot(i);}
 	}
 
