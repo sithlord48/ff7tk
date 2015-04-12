@@ -28,6 +28,8 @@
 
 FF7Save::FF7Save()
 {
+	fileHasChanged = false;
+	for(int i=0;i<15;i++){slotChanged[i]=false;}
 	SG_SIZE=0;
 	SG_HEADER=0;
 	SG_FOOTER=0;
@@ -40,13 +42,6 @@ FF7Save::FF7Save()
 	file_footerp=0;
 	file_headerp=0;
 	memcpy(&buffer_slot,&default_save,0x10F4);
-	for(int i=0;i<15;i++)
-	{
-	  slot[i]= buffer_slot;
-	  slotChanged[i]=false;
-	}
-
-	fileHasChanged = false;
 }
 bool FF7Save::loadFile(const QString &fileName)
 {
@@ -58,12 +53,12 @@ bool FF7Save::loadFile(const QString &fileName)
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~Set File Type Vars ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	//decide the file type
 	if((file_size == FF7_PC_SAVE_GAME_SIZE)&& (file.peek(PC_SAVE_GAME_FILE_ID.length()))==PC_SAVE_GAME_FILE_ID){setType("PC");}
-	else if((file_size == FF7_PSX_SAVE_GAME_SIZE)&& (file.peek(PSX_SAVE_GAME_FILE_ID.length()))==PSX_SAVE_GAME_FILE_ID){setType("PSX");}
 	else if((file_size == FF7_MC_SAVE_GAME_SIZE)&& (file.peek(MC_SAVE_GAME_FILE_ID.length()))==MC_SAVE_GAME_FILE_ID){setType("MC");}
 	else if((file_size == FF7_PSV_SAVE_GAME_SIZE)&& (file.peek(PSV_SAVE_GAME_FILE_ID.length()))==PSV_SAVE_GAME_FILE_ID){setType("PSV");}
 	else if((file_size ==FF7_PSP_SAVE_GAME_SIZE)&& (file.peek(PSP_SAVE_GAME_FILE_ID.length()))==PSP_SAVE_GAME_FILE_ID){setType("PSP");}
 	else if((file_size ==FF7_VGS_SAVE_GAME_SIZE)&& (file.peek(VGS_SAVE_GAME_FILE_ID.length()))==VGS_SAVE_GAME_FILE_ID){setType("VGS");}
 	else if((file_size ==FF7_DEX_SAVE_GAME_SIZE)&& (file.peek(DEX_SAVE_GAME_FILE_ID.length()))==DEX_SAVE_GAME_FILE_ID){setType("DEX");}
+	else if(file_size % FF7_PSX_SAVE_GAME_SIZE ==0) {setType("PSX");}
 	else{return false;}
 	/*~~~~~~~~~~Start Load~~~~~~~~~~*/
 	setFileHeader(file.read(SG_HEADER));
@@ -2891,11 +2886,11 @@ void FF7Save::setSoundMode(int s,int mode)
 		setFileModified(true,s);
 	 }
 }
-void FF7Save::setSoundMode(int s,bool stereo)
+void FF7Save::setSoundMode(int s,bool mode)
 {
-	if(!(stereo && soundMode(s)))
+	if(!(mode && soundMode(s)))
 	{
-		if(stereo){slot[s].options |= (1<<0);}
+		if(mode){slot[s].options |= (1<<0);}
 		else{slot[s].options &=~(1<<0);}
 		setFileModified(true,s);
 	}
@@ -2916,11 +2911,11 @@ void FF7Save::setControlMode(int s, int mode)
 	 }
 }
 
-void FF7Save::setControlMode(int s, bool custom)
+void FF7Save::setControlMode(int s, bool mode)
 {
-	if(!(custom && controlMode(s)))
+	if(!(mode && controlMode(s)))
 	{
-		if(custom){slot[s].options |= (1<<2);}
+		if(mode){slot[s].options |= (1<<2);}
 		else{slot[s].options &=~(1<<2);}
 		setFileModified(true,s);
 	}
