@@ -24,6 +24,7 @@
 #include <QDateTime>
 #include <QVector>
 #include <QtXml/QDomDocument>
+#include <QTextCodec>
 //FF7tk Includes
 #include "FF7Save_Const.h" //All consts placed here
 #include "FF7Save_Types.h" //All Custom Types for this class here.
@@ -57,7 +58,7 @@
 class FF7Save: public QObject{
 	Q_OBJECT
 	public:
-	/*********************************** Enums *****************************/
+	//Enums
 	enum WORLDVEHICLE {WVEHCILE_BUGGY=0/**< 0*/,WVEHCILE_TBRONCO/**< 2*/=2,WVEHCILE_HIGHWIND=4/**< 4*/};
 	enum WORLDCHOCOBO {WCHOCO_WILD/**< 0*/,WCHOCO_YELLOW=2/**< 2*/,WCHOCO_GREEN=3/**< 3*/,WCHOCO_BLUE=4/**< 4*/,WCHOCO_BLACK=5/**< 5*/,WCHOCO_GOLD=6/**< 6*/};
 	enum LOVER{LOVE_BARRET/**< 0*/,LOVE_TIFA/**< 1*/,LOVE_AERIS/**< 2*/,LOVE_YUFFIE/**< 3*/};
@@ -65,15 +66,13 @@ class FF7Save: public QObject{
 	enum SOUNDMODE{SOUND_MONO/**< 0*/,SOUND_STEREO/**< 1*/};
 	enum CONTROLMODE {CONTROL_NORMAL/**< 0*/,CONTROL_CUSTOM/**< 1*/};
 	enum CURSORMODE{CURSOR_INITIAL/**< 0*/, CURSOR_MEMORY/**< 1*/};
-	enum ATBMODE{ATB_ACTIVE/**< 0*/, ATB_RECOMMENED/**< 1*/, ATB_WAIT/**< 2*/};
+	enum ATBMODE{ATB_ACTIVE/**< 0*/,ATB_RECOMMENED,ATB_WAIT/**< 1*/};
 	enum CAMERAMODE {CAMERA_AUTO/**< 0*/,CAMERA_FIXED/**< 1*/};
 	enum MAGICORDER {MAGIC_RAI/**< 0*/,MAGIC_RIA/**< 1*/,MAGIC_AIR/**< 2*/,MAGIC_ARI/**< 3*/,MAGIC_IRA/**< 4*/,MAGIC_IAR/**< 5*/};
-
 	/** \enum MENUITEMS
 	 *	\brief Menu items for ff7.
 	 */
 	enum MENUITEMS {MENUITEM/**< 0*/,MENUMAGIC/**< 1*/,MENUMATERIA/**< 2*/,MENUEQUIPMENT/**< 3*/,MENUSTATUS/**< 4*/,MENUFORM/**< 5*/,MENULIMIT/**< 6*/,MENUCONFIG/**< 7*/,MENUPHS/**< 8*/,MENUSAVE/**< 9*/};
-
 	/** \enum CONTROLACTION
 	 *	\brief Possible Actions the user can input
 	 */
@@ -110,7 +109,7 @@ class FF7Save: public QObject{
 		KEYCARD68/**< 34*/,MIDGARPARTS1/**< 35*/,MIDGARPARTS2/**< 36*/,MIDGARPARTS3/**< 37*/,MIDGARPARTS4/**< 38*/,MIDGARPARTS5/**< 39*/,PHS/**< 40*/,GOLDTICKET/**< 41*/,KEYSTONE/**< 42*/,LEIATHANSCALES/**< 43*/,GLACIERMAP/**< 44*/,COUPON_A/**< 45*/,COUPON_B/**< 46*/,
 		COUPON_C/**< 47*/,BLACKMATERIA/**< 48*/,MYTHRIL/**< 49*/,SNOWBOARD/**< 50*/
 	};
-	/*****************************************Functions *********************************/
+	//Functions
 	explicit FF7Save(); /**< \brief create a new FF7Save object */
 	//File Members
 	/**	\brief attempt to load fileName as ff7save
@@ -201,7 +200,7 @@ class FF7Save: public QObject{
 	 * When creating a new game+ two char files will be exported. one for cait sith and another for vincent. those characters have to be reset to correctly set a new game. You can reimport the char files when you aquire the character in your new game +
 	 * \param s slot number (0-14)
 	 * \param CharFileName base filename to use for saving char files vincent and
-	 * \param fileName Raw PSX file to use instead of default data
+	 * \param fileName Raw PSX file to use instead of defalut data
 	 */
 	void newGamePlus(int s,QString CharFileName,QString fileName="");//new game + in slot s (over load default w/ fileName must be RAW PSX
 
@@ -336,8 +335,7 @@ class FF7Save: public QObject{
 	 *	\param value amount of gil donated
 	*/
 	void setCondorFunds(int s,quint16 value);
-
-	/****************************** Field Location ****************************/
+	//Field Location
 
 	/**	\brief Id of the location save is located on
 	 *	\param s slot number (0-14)
@@ -459,7 +457,7 @@ class FF7Save: public QObject{
 	*/
 	void setCraterSavePointZ(int s,int value);
 
-	/************************************* OPTIONS *********************************/
+	//options
 	/** \brief get controller mapping for a slot
 	 *
 	 *  The controller mapping while stored in the pc save is not used? and shouln't be edited
@@ -506,172 +504,43 @@ class FF7Save: public QObject{
 	 */
 	void setOptions(int s, int opt);
 
-	/** \brief sound Mode mono or stereo
+	/** \brief soundMode mono or stero
 	 *  \param s slot number (0-14)
-	 *	\return TRUE if Stereo mode; FALSE for Mono
+	 *	return TRUE if Stero mode; FALSE for Mono
 	 */
 	bool soundMode(int s);
 
-	/** \brief set Sound mode for a slot
+	/** \brief setSound mode for a slot
 	 *  \param s slot number (0-14)
-	 *	\param mode new soundMode FF7Save::SOUNDMODE
+	 *	\param new soundMode FF7Save::SOUNDMODE
 	 */
 	void setSoundMode(int s, int mode);
 
-	/** \brief set Sound mode for a slot
-	 *  \param s slot number (0-14)
-	 *	\param stereo TRUE if stereo mode; FALSE for Mono
-	 */
-	void setSoundMode(int s, bool stereo);
-
-	/** \brief control Mode normal or custom
-	 *  \param s slot number (0-14)
-	 *  \return TRUE if Custom mode; FALSE for Normal
-	 */
+	void setSoundMode(int s, bool mode);
 	bool controlMode(int s);
-
-	/** \brief set Control mode for a slot
-	 *  \param s slot number (0-14)
-	 *  \param mode new controlMode FF7Save::CONTROLMODE
-	 */
 	void setControlMode(int s, int mode);
-
-	/** \brief set Control mode for a slot
-	 *  \param s slot number (0-14)
-	 *  \param custom TRUE if custom mode; FALSE for normal
-	 */
-	void setControlMode(int s, bool custom);
-
-	/** \brief cursor Mode Memory or Inital
-	 *  \param s slot number (0-14)
-	 *  \return TRUE if Memory mode; FALSE for Inital
-	 */
+	void setControlMode(int s, bool mode);
 	bool cursorMode(int s);
-
-	/** \brief set Cursor mode for a slot
-	 *  \param s slot number (0-14)
-	 *  \param mode new controlMode FF7Save::CURSORMODE
-	 */
 	void setCursorMode(int s, int mode);
-
-	/** \brief set Cursor mode for a slot
-	 *  \param s slot number (0-14)
-	 *  \param mode TRUE if Memory mode; FALSE for initial
-	 */
 	void setCursorMode(int s, bool mode);
-
-	/** \brief ATB Mode Active Recommended or Wait
-	 *  \param s slot number (0-14)
-	 *  \return ATBMODE 0-Active, 1-Recommended, 2-Wait
-	 */
 	int atbMode(int s);
-
-	/** \brief set ATB mode for a slot
-	 *  \param s slot number (0-14)
-	 *  \param mode new controlMode FF7Save::ATBMODE
-	 */
 	void setAtbMode(int s, int mode);
-
-	/** \brief Camera Mode Auto or Fixed
-	 *  \param s slot number (0-14)
-	 *  \return CameraMODE TRUE:FIXED ; FALSE:AUTO
-	 */
 	bool cameraMode(int s);
-
-	/** \brief set Camera Mode for a slot
-	 *  \param s slot number (0-14)
-	 *  \param mode new Camera Mode FF7Save::CAMERAMODE
-	 */
 	void setCameraMode(int s, int mode);
-
-	/** \brief set Camera mode for a slot
-	 *  \param s slot number (0-14)
-	 *  \param mode TRUE if Fixed; FALSE for Auto
-	 */
 	void setCameraMode(int s, bool mode);
-
-	/** \brief Magic Sort Mode
-	 *  \param s slot number (0-14)
-	 *  \return Magic Order See FF7Save::MAGICORDER
-	 */
 	int magicOrder(int s);
-
-	/** \brief set Magic Sort Order for a slot
-	 *  \param s slot number (0-14)
-	 *  \param order new Magic Order FF7Save::MAGICORDER
-	 */
 	void setMagicOrder(int s , int order);
-
-	/** \brief Battle Help
-	 *  \param s slot number (0-14)
-	 *  \return is Battle Help Shown
-	 */
 	bool battleHelp(int s);
-
-	/** \brief set Battle Help for a slot
-	 *  \param s slot number (0-14)
-	 *  \param shown Show Battle Help
-	 */
 	void setBattleHelp(int s, bool shown);
-
-	/** \brief Battle Speed
-	 *  \param s slot number (0-14)
-	 *  \return battle Speed 0:Fastest - 255:Slowest
-	 */
 	int battleSpeed(int s);
-
-	/** \brief set Battle Speed for a slot
-	 *  \param s slot number (0-14)
-	 *  \param speed Battle Speed 0:Fastest - 255:Slowest
-	 */
 	void setBattleSpeed(int s,int speed);
-
-	/** \brief Battle Message Speed
-	 *  \param s slot number (0-14)
-	 *  \return Battle Message Speed 0:Fastest - 255:Slowest
-	 */
 	int battleMessageSpeed(int s);
-
-	/** \brief set Battle Message Speed for a slot
-	 *  \param s slot number (0-14)
-	 *  \param speed Battle Message Speed 0:Fastest - 255:Slowest
-	 */
 	void setBattleMessageSpeed(int s, int speed);
-
-	/** \brief Message Speed
-	 *  \param s slot number (0-14)
-	 *  \return message Speed 0:Fastest - 255:Slowest
-	 */
 	int messageSpeed(int s);
-
-	/** \brief set Message Speed for a slot
-	 *  \param s slot number (0-14)
-	 *  \param speed Message Speed 0:Fastest - 255:Slowest
-	 */
 	void setMessageSpeed(int s, int speed);
-
-	/** \brief Field Help
-	 *  \param s slot number (0-14)
-	 *  \return is Field Help Shown
-	 */
 	bool fieldHelp(int s);
-
-	/** \brief set Field Help for a slot
-	 *  \param s slot number (0-14)
-	 *  \param shown Show Field Help
-	 */
 	void setFieldHelp(int s, bool shown);
-
-	/** \brief Battle Targets
-	 *  \param s slot number (0-14)
-	 *  \return are Battle Targets Shown
-	 */
 	bool battleTargets(int s);
-
-	/** \brief set Battle Targets shown for a slot
-	 *  \param s slot number (0-14)
-	 *  \param shown Show Battle Targets
-	 */
 	void setBattleTargets(int s, bool shown);
 
 	//Phs/Menu
@@ -1078,6 +947,21 @@ class FF7Save: public QObject{
 
 	bool subMiniGameVictory(int s);
 	void setSubMiniGameVictory(int s,bool won);
+
+	/**	\brief Get Description Text for PSX Slot.
+	 *
+	 * This text is the text shown when you view the save slot in the memory manager on the playstation. It is also visible in many programs that work with psx memory cards.
+	 * \param s slot number (0-14)
+	 */
+	QString psxDesc(int s);
+
+	/**	\brief Set The Description Text for PSX Slot (text shows in memory card manager of playstation)
+	 *
+	 * This text is the text shown when you view the save slot in the memory manager on the playstation. It is also visible in many programs that work with psx memory cards.
+	 * \param newDesc your new text
+	 * \param s slot number (0-14)
+	 */
+	void setPsxDesc(QString newDesc, int s);
 
 	inline void setPs3Key(QByteArray key){PS3Key=key;}
 	inline void setPs3Seed(QByteArray seed){PS3Seed=seed;}
