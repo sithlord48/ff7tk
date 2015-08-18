@@ -24,12 +24,14 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 
 	hideAllBoxes();
 
-	ListPHS = new PhsListWidget(0);
+	scale = qApp->desktop()->logicalDpiX()/96;
+
+	ListPHS = new PhsListWidget(scale,0);
 	QHBoxLayout *listLayout = new QHBoxLayout;
 	listLayout->addWidget(ListPHS);
 	ui->phsListBox->setLayout(listLayout);
 
-	ListMenu = new MenuListWidget(0);
+	ListMenu = new MenuListWidget(scale,0);
 	QHBoxLayout *list2Layout = new QHBoxLayout;
 	list2Layout->addWidget(ListMenu);
 	ui->menuListBox->setLayout(list2Layout);
@@ -39,38 +41,38 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	options_layout->addWidget(optionsWidget);
 	ui->dialog_preview_box->setLayout(options_layout);
 
-	materia_editor = new MateriaEditor(this);
+	materia_editor = new MateriaEditor(scale,this);
 	QHBoxLayout *materia_editor_layout= new QHBoxLayout();
 	materia_editor_layout->addWidget(materia_editor);
 	ui->editor_box->setLayout(materia_editor_layout);
 
-	char_editor = new CharEditor();
+	char_editor = new CharEditor(scale);
 	QHBoxLayout * char_editor_layout = new QHBoxLayout();
 	char_editor_layout->addWidget(char_editor);
 	ui->charEditor_box->setLayout(char_editor_layout);
 
-	item_list = new ItemList();
+	item_list = new ItemList(scale);
 	QHBoxLayout *item_list_layout = new QHBoxLayout;
 	item_list_layout->addWidget(item_list);
 	ui->itemList_box->setLayout(item_list_layout);
 
-	locViewer = new LocationViewer(this);
+	locViewer = new LocationViewer(scale,this);
 	QHBoxLayout *locLayout = new QHBoxLayout();
 	locLayout->addWidget(locViewer);
 	ui->innerLocBox->setLayout(locLayout);
 
-	chocoboManager = new ChocoboManager();
+	chocoboManager = new ChocoboManager(scale);
 	QHBoxLayout *ChocoboManagerLayout = new QHBoxLayout();
 	ChocoboManagerLayout->addWidget(chocoboManager);
 	ui->ChocoboManagerBox->setLayout(ChocoboManagerLayout);
 	chocoboManager->setHoverStyle(QString("rgba(%1,%2,%3,128);").arg(QString::number(this->palette().highlight().color().red()),QString::number(this->palette().highlight().color().green()),QString::number(this->palette().highlight().color().blue())));
 
-	achievementEditor = new AchievementEditor();
+	achievementEditor = new AchievementEditor(scale);
 	QVBoxLayout *AchievementLayout = new QVBoxLayout();
 	AchievementLayout->addWidget(achievementEditor);
 	ui->achievementEditor_Frame->setLayout(AchievementLayout);
 
-    charManager = new CharManager;
+	charManager = new CharManager(scale);
     QVBoxLayout *charManagerLayout =new QVBoxLayout;
     charManagerLayout->addWidget(charManager);
     ui->CharManager_Box->setLayout(charManagerLayout);
@@ -133,7 +135,7 @@ void MainWindow::on_btn_slotSelect_clicked()
 	{
 		if(ff7save->loadFile(filename))
 		{
-			SlotSelect *slotSelect = new SlotSelect(this,ff7save,ui->cbShowLoad->isChecked());
+			SlotSelect *slotSelect = new SlotSelect(scale,ff7save,ui->cbShowLoad->isChecked());
 			if (slotSelect->exec()== -1){on_btn_slotSelect_clicked();}
 			else{return;}
 		}

@@ -1,8 +1,9 @@
 #include "CharManager.h"
 
-CharManager::CharManager(QWidget *parent) :
+CharManager::CharManager(qreal Scale,QWidget *parent) :
     QWidget(parent)
 {
+	scale=Scale;
     initDisplay();
     connectAll();
 }
@@ -34,7 +35,7 @@ void CharManager::initDisplay(void)
     tabWidget =new QTabWidget;
     for(int i=0;i<9;i++)
     {
-        charEditor[i]= new CharEditor();
+		charEditor[i]= new CharEditor(scale);
         tabWidget->addTab(charEditor[i],QString("%1").arg(QString::number(i+1)));
     }
 
@@ -67,4 +68,12 @@ void CharManager::setParty(qint8 member1, qint8 member2, qint8 member3)
     comboParty[1]->setCurrentIndex(member2);
     comboParty[2]->setCurrentIndex(member3);
     load=false;
+}
+
+void CharManager::setChar(int charSlot, FF7CHAR Chardata,QString Processed_Name)
+{
+	if(charSlot>-1 && charSlot <9)
+	{
+		charEditor[charSlot]->setChar(Chardata,Processed_Name);
+	}
 }

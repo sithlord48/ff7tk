@@ -25,12 +25,13 @@
 
 #include "CharEditor.h"
 #include "../data/FF7Char.h"
+#include "../data/Type_FF7CHAR.h"
 
 class CharManager : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CharManager(QWidget *parent = 0);
+	explicit CharManager(qreal Scale=1,QWidget *parent=0);
 
 signals:
     void comboParty1_changed(qint8);
@@ -39,6 +40,7 @@ signals:
 
 public slots:
     void setParty(qint8 member1,qint8 member2,qint8 member3);
+	void setChar(int charSlot, FF7CHAR Chardata,QString Processed_Name="");
 private slots:
         void party1Changed(int);
         void party2Changed(int);
@@ -50,8 +52,9 @@ private:
     FF7Char *charData;
     QTabWidget *tabWidget;
     CharEditor *charEditor[9];
-    QComboBox * comboParty[3];
-    bool load;
+	QComboBox *comboParty[3];
+	bool load;
+	qreal scale;
 };
 
 #endif // CHARMANAGER_H

@@ -78,6 +78,7 @@ private slots:
 private:
 
 	Ui::MainWindow *ui;
+	qreal scale;
 	MateriaEditor *materia_editor;
 	CharEditor *char_editor;
 	ItemList *item_list;
