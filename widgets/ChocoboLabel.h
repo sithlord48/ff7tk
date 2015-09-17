@@ -37,7 +37,7 @@ public:
 	 * \param titleText Name for the box something like "Stable 1 "
 	 * \param occupied Is there a chocobo here? else set a blank label
 	 */
-	explicit ChocoboLabel(QWidget *parent = 0,QString titleText="",bool occupied=false,qreal Scale=1);
+	explicit ChocoboLabel(qreal Scale=1,QString titleText="",bool occupied=false,QWidget *parent = 0);
 	/** \brief style the checkboxes of this widget easily. */
 	void setCheckBoxStyle(QString styleSheet);
 signals:

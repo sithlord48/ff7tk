@@ -14,7 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "CharEditor.h"
-#include <QDebug>
+//#include <QDebug>
 CharEditor::CharEditor(qreal Scale,QWidget *parent) : QWidget(parent)
 {
 	scale = Scale;

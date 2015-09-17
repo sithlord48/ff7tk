@@ -3,6 +3,7 @@
 CharManager::CharManager(qreal Scale,QWidget *parent) :
     QWidget(parent)
 {
+	charData = new FF7Char;
 	scale=Scale;
     initDisplay();
     connectAll();
@@ -11,13 +12,12 @@ CharManager::CharManager(qreal Scale,QWidget *parent) :
 void CharManager::initDisplay(void)
 {
     load= true;
-    charData= new FF7Char;
     for(int i=0;i<3;i++)
     {
         comboParty[i] = new QComboBox();
         for (int j=0;j<11;j++)
         {
-            comboParty[i]->addItem(charData->icon(j),charData->defaultName(j));
+			comboParty[i]->addItem(charData->icon(j),charData->defaultName(j));
         }
         comboParty[i]->addItem("0x0B");
         comboParty[i]->addItem(tr("-Empty-"));
@@ -32,24 +32,32 @@ void CharManager::initDisplay(void)
     QGroupBox *partyBox =new QGroupBox(tr("Party Members"));
     partyBox->setLayout(partyLayout);
 
-    tabWidget =new QTabWidget;
-    for(int i=0;i<9;i++)
-    {
-		charEditor[i]= new CharEditor(scale);
-        tabWidget->addTab(charEditor[i],QString("%1").arg(QString::number(i+1)));
-    }
+	QVBoxLayout *charBox = new QVBoxLayout;
+	for(int i=0;i<9;i++)
+	{
+		QPushButton *button = new QPushButton;
+		button->setIcon(charData->icon(i));
+		button->setIconSize(QSize(32+scale,32*scale));
+		charBox->addWidget(button);
+	}
+	charEditor= new CharEditor(scale);
+
+	QHBoxLayout *lowerBox = new QHBoxLayout;
+	lowerBox->addLayout(charBox);
+	lowerBox->addWidget(charEditor);
 
     QVBoxLayout * mainLayout = new QVBoxLayout;
     mainLayout->addWidget(partyBox);
-    mainLayout->addWidget(tabWidget);
+	mainLayout->addLayout(lowerBox);
     this->setLayout(mainLayout);
     load=false;
 }
 void CharManager::connectAll(void)
 {
-    connect(comboParty[0],SIGNAL(currentIndexChanged(int)),this,SLOT(party1Changed(int)));
-    connect(comboParty[1],SIGNAL(currentIndexChanged(int)),this,SLOT(party2Changed(int)));
-    connect(comboParty[2],SIGNAL(currentIndexChanged(int)),this,SLOT(party3Changed(int)));
+	connect(comboParty[0],SIGNAL(currentIndexChanged(int)),this,SLOT(party1Changed(int)));
+	connect(comboParty[1],SIGNAL(currentIndexChanged(int)),this,SLOT(party2Changed(int)));
+	connect(comboParty[2],SIGNAL(currentIndexChanged(int)),this,SLOT(party3Changed(int)));
+
 }
 void CharManager::disconnectAll(void)
 {
@@ -68,12 +76,4 @@ void CharManager::setParty(qint8 member1, qint8 member2, qint8 member3)
     comboParty[1]->setCurrentIndex(member2);
     comboParty[2]->setCurrentIndex(member3);
     load=false;
-}
-
-void CharManager::setChar(int charSlot, FF7CHAR Chardata,QString Processed_Name)
-{
-	if(charSlot>-1 && charSlot <9)
-	{
-		charEditor[charSlot]->setChar(Chardata,Processed_Name);
-	}
 }
