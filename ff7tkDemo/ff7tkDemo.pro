@@ -104,13 +104,15 @@ RESOURCES+=\
 #			../lang/ff7tk_jp.ts \
 #			../lang/ff7tk_re.ts
 unix:{
-	LIBS += -lcrypto
+	#DEFINES += OPENSSL=1							# Enable openSSL support
+	#LIBS += -lcrypto								# Enable crypto lib
 }
 win32:{
 	#Set OpenSSL include & lib paths
 	#THIS MUST BE CHANGED WITH YOUR OPENSSL PATHS OR YOUR BUILD WILL FAIL!!!
-	INCLUDEPATH += C:/OpenSSL-Win32/include # Be Sure Path is openSSL
-	LIBS += -L"C:/OpenSSL-Win32/lib" -llibeay32 #Be sure to update path to installed openSSL
+	#DEFINES += OPENSSL=1							# Enable openSSL support
+	#INCLUDEPATH += C:/OpenSSL-Win32/include		# Be sure to change this to your openSSL include path
+	#LIBS += -L"C:/OpenSSL-Win32/lib" -llibeay32	# Be sure to update this to your openSSL lib path
 }
 static:{ # everything below takes effect with CONFIG += static
 	CONFIG += static
