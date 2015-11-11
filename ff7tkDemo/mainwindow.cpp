@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	ui->setupUi(this);
 
 	hideAllBoxes();
-
+	ui->sb_scale->setValue(qApp->desktop()->logicalDpiX()/96);
 	scale = qApp->desktop()->logicalDpiX()/96;
 
 	ListPHS = new PhsListWidget(scale,0);
@@ -73,11 +73,11 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	ui->achievementEditor_Frame->setLayout(AchievementLayout);
 
 	charManager = new CharManager(scale);
-    QVBoxLayout *charManagerLayout =new QVBoxLayout;
-    charManagerLayout->addWidget(charManager);
-    ui->CharManager_Box->setLayout(charManagerLayout);
+	QVBoxLayout *charManagerLayout =new QVBoxLayout;
+	charManagerLayout->addWidget(charManager);
+	ui->CharManager_Box->setLayout(charManagerLayout);
 
-    lgpFile=0;
+	lgpFile=0;
 }
 
 MainWindow::~MainWindow(){delete ui;}
@@ -99,7 +99,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
 		case 10:ui->locListBox->setVisible(1);break;
 		case 11:ui->ChocoboManagerBox->setVisible(1);break;
 		case 12:ui->AchievementEditor_Box->setVisible(1);break;
-        case 13:ui->CharManager_Box->setVisible(1);break;
+		case 13:ui->CharManager_Box->setVisible(1);break;
 	};
 	this->adjustSize();
 }

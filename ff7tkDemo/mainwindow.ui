@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>99</width>
-    <height>36</height>
+    <width>141</width>
+    <height>56</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -93,6 +93,13 @@
         <string>CharManager</string>
        </property>
       </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDoubleSpinBox" name="sb_scale">
+      <property name="prefix">
+       <string>Widget Scale : </string>
+      </property>
      </widget>
     </item>
     <item>
