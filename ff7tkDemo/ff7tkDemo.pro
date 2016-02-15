@@ -113,6 +113,10 @@ win32:{
 	#DEFINES += OPENSSL=1							# Enable openSSL support
 	#INCLUDEPATH += C:/OpenSSL-Win32/include		# Be sure to change this to your openSSL include path
 	#LIBS += -L"C:/OpenSSL-Win32/lib" -llibeay32	# Be sure to update this to your openSSL lib path
+	#Prevent ms padding on packed structures on gcc compiler
+	contains(QMAKE_COMPILER, gcc) {
+	QMAKE_CXXFLAGS += -mno-ms-bitfields
+	}
 }
 static:{ # everything below takes effect with CONFIG += static
 	CONFIG += static
@@ -124,8 +128,3 @@ static:{ # everything below takes effect with CONFIG += static
 }
 # change the name of the binary, if it is build in debug mode
 CONFIG(debug, debug|release) {TARGET = $$join(TARGET,,,-debug)}
-
-#Prevent ms padding on packed structures on gcc compiler
-contains(QMAKE_COMPILER, gcc) {
-QMAKE_CXXFLAGS += -mno-ms-bitfields
-}
