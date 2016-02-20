@@ -53,6 +53,7 @@ void CharManager::initDisplay(void)
 		QPushButton *button = new QPushButton;
 		button->setIcon(charData->icon(i));
 		button->setIconSize(QSize(32+scale,32*scale));
+		button->setMaximumWidth(32*scale);
 		charBox->addWidget(button);
 	}
 	charEditor= new CharEditor(scale);
