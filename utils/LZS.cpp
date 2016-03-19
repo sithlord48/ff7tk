@@ -41,10 +41,23 @@ const QByteArray &LZS::decompress(const char *data, int fileSize, int max)
 	int curResult=0, sizeAlloc=max+10;
 	quint16 curBuff=4078, adresse, premOctet=0, i, length;
 	const quint8 *fileData = (const quint8 *)data;
-	const quint8 *endFileData = &fileData[fileSize-1] + 1;
+	const quint8 *endFileData = fileData + fileSize;
 
-	if(result.size() < sizeAlloc)
-		result.resize(sizeAlloc);
+	// Impossible case
+	if(quint64(sizeAlloc) > 2000 * quint64(fileSize)) {
+		qWarning() << "LZS::decompress impossible ratio case" << sizeAlloc << 2000 * quint64(fileSize);
+		result.clear();
+		return result;
+	}
+
+	if(result.size() < sizeAlloc) {
+		try {
+			result.resize(sizeAlloc);
+		} catch(std::bad_alloc) {
+			result.clear();
+			return result;
+		}
+	}
 
 	memset(text_buf, 0, 4078);//Le buffer de 4096 octets est initialisé à 0
 
@@ -97,10 +110,16 @@ const QByteArray &LZS::decompressAll(const char *data, int fileSize)
 	int curResult=0, sizeAlloc=fileSize*5;
 	quint16 curBuff=4078, adresse, premOctet=0, i, length;
 	const quint8 *fileData = (const quint8 *)data;
-	const quint8 *endFileData = &fileData[fileSize-1] + 1;
+	const quint8 *endFileData = fileData + fileSize;
 
-	if(result.size() < sizeAlloc)
-		result.resize(sizeAlloc);
+	if(result.size() < sizeAlloc) {
+		try {
+			result.resize(sizeAlloc);
+		} catch(std::bad_alloc) {
+			result.clear();
+			return result;
+		}
+	}
 
 	memset(text_buf, 0, 4078);//Le buffer de 4096 octets est initialisé à 0
 
@@ -141,6 +160,29 @@ const QByteArray &LZS::decompressAll(const char *data, int fileSize)
 			}
 		}
 	}
+}
+
+const QByteArray &LZS::decompressAllWithHeader(const QByteArray &data)
+{
+	return decompressAllWithHeader(data.constData(), data.size());
+}
+
+const QByteArray &LZS::decompressAllWithHeader(const char *data, int size)
+{
+	if (size < 4) {
+		result.clear();
+		return result;
+	}
+
+	qint32 lzsSize;
+	memcpy(&lzsSize, data, 4);
+
+	if (lzsSize != size - 4) {
+		result.clear();
+		return result;
+	}
+
+	return LZS::decompressAll(data + 4, lzsSize);
 }
 
 void LZS::InsertNode(qint32 r)
@@ -263,6 +305,19 @@ void LZS::DeleteNode(qint32 p)//deletes node p from tree
 	dad[p] = 4096;
 }
 
+const QByteArray &LZS::compressWithHeader(const QByteArray &fileData)
+{
+	return compressWithHeader(fileData.constData(), fileData.size());
+}
+
+const QByteArray &LZS::compressWithHeader(const char *data, int sizeData)
+{
+	compress(data, sizeData);
+	quint32 lzsSize = result.size();
+	result.prepend((char *)&lzsSize, 4);
+	return result;
+}
+
 const QByteArray &LZS::compress(const QByteArray &fileData)
 {
 	return compress(fileData.constData(), fileData.size());
@@ -270,10 +325,10 @@ const QByteArray &LZS::compress(const QByteArray &fileData)
 
 const QByteArray &LZS::compress(const char *data, int sizeData)
 {
-	int i, c, len, r, s, last_match_length, code_buf_ptr,
+	int i, c, len, r, s, code_buf_ptr,
 			curResult = 0, sizeAlloc = sizeData / 2;
 	unsigned char code_buf[17], mask;
-	const char *dataEnd = &data[sizeData-1] + 1;
+	const char *dataEnd = data + sizeData;
 
 	if(result.size() < sizeAlloc) {
 		result.resize(sizeAlloc);
@@ -341,7 +396,7 @@ const QByteArray &LZS::compress(const char *data, int sizeData)
 			code_buf_ptr = mask = 1;
 		}
 		
-		last_match_length = match_length;
+		int last_match_length = match_length;
 		for(i=0 ; i < last_match_length && data<dataEnd ; ++i)
 		{
 			c = *data++;
