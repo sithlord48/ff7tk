@@ -28,6 +28,7 @@ HEADERS+=	mainwindow.h\
 			../formats/Lgp.h\
 			../formats/Lgp_p.h\
 			../utils/LZS.h\
+			../utils/QLockedFile.h\
 			../widgets/AchievementEditor.h\
 			../widgets/CharEditor.h\
 			../widgets/CharManager.h\
@@ -63,6 +64,7 @@ SOURCES+=	main.cpp\
 			../data/SaveIcon.cpp\
 			../formats/Archive.cpp\
 			../utils/LZS.cpp\
+			../utils/QLockedFile.cpp\
 			../formats/Lgp.cpp\
 			../formats/Lgp_p.cpp\
 			../widgets/AchievementEditor.cpp\

@@ -30,7 +30,7 @@
  * Constructs a new empty archive.
  */
 Archive::Archive() :
-	_archiveIO(new QFile())
+	_error(NoError), _archiveIO(new QFile())
 {
 }
 
@@ -38,7 +38,7 @@ Archive::Archive() :
  * Constructs a new archive object to represent the archive with the given \a filename.
  */
 Archive::Archive(const QString &filename) :
-	_archiveIO(new QFile(filename))
+	_error(NoError), _archiveIO(new QFile(filename))
 {
 }
 
@@ -46,7 +46,7 @@ Archive::Archive(const QString &filename) :
  * Constructs a new archive object to represent the archive with the given \a device.
  */
 Archive::Archive(QFile *device) :
-	_archiveIO(device)
+	_error(NoError), _archiveIO(device)
 {
 }
 
@@ -180,4 +180,23 @@ QString Archive::errorString() const
 	return _errorString.isEmpty()
 			? QLatin1String(QT_TRANSLATE_NOOP(Archive, ("Unknown error")))
 			: _errorString;
+}
+
+/*!
+ * Returns the last error status.
+ * \sa unsetError(), errorString()
+ */
+Archive::ArchiveError Archive::error() const
+{
+	return _error;
+}
+
+/*!
+ * Sets the file's error type and text.
+ * \sa error(), errorString()
+ */
+void Archive::setError(ArchiveError error, const QString &errorString)
+{
+	_error = error;
+	setErrorString(errorString);
 }

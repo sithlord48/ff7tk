@@ -25,16 +25,29 @@
 
 #include <QtCore>
 
+#define LGP_COMPANY_NAME_SIZE	12
+#define LGP_PRODUCT_NAME_SIZE	14
+
 #define LOOKUP_VALUE_MAX 30
 #define LOOKUP_TABLE_ENTRIES LOOKUP_VALUE_MAX * LOOKUP_VALUE_MAX
 
 #define MAX_CONFLICTS 4096
 
+#ifdef _MSC_VER
+#	define PACK(structure)			\
+		__pragma(pack(push, 1))		\
+		structure					\
+		__pragma(pack(pop))
+#else
+#	define PACK(structure) structure Q_PACKED
+#endif
+
+PACK(
 struct LgpLookupTableEntry
 {
 	quint16 tocOffset;
 	quint16 fileCount;
-} Q_PACKED;
+});
 
 struct LgpConflictEntry
 {
