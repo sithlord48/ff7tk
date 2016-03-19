@@ -38,7 +38,7 @@
 #include "../widgets/AchievementEditor.h"
 #include "../widgets/CharManager.h"
 
-#include "../utils/Lgp.h"
+#include "../formats/Lgp.h"
 
 namespace Ui {
 	class MainWindow;

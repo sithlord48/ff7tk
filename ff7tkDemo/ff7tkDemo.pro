@@ -24,9 +24,9 @@ HEADERS+=	mainwindow.h\
 			../data/Type_FF7CHAR.h\
 			../data/Type_FF7CHOCOBO.h\
 			../data/Type_materia.h\
-			../utils/Archive.h \
-			../utils/Lgp.h\
-			../utils/Lgp_p.h\
+			../formats/Archive.h \
+			../formats/Lgp.h\
+			../formats/Lgp_p.h\
 			../utils/LZS.h\
 			../widgets/AchievementEditor.h\
 			../widgets/CharEditor.h\
@@ -61,10 +61,10 @@ SOURCES+=	main.cpp\
 			../data/FF7Save.cpp\
 			../data/FF7Text.cpp\
 			../data/SaveIcon.cpp\
-			../utils/Archive.cpp\
+			../formats/Archive.cpp\
 			../utils/LZS.cpp\
-			../utils/Lgp.cpp\
-			../utils/Lgp_p.cpp\
+			../formats/Lgp.cpp\
+			../formats/Lgp_p.cpp\
 			../widgets/AchievementEditor.cpp\
 			../widgets/CharEditor.cpp\
 			../widgets/CharManager.cpp\
