@@ -145,7 +145,7 @@ void ChocoboManager::initData(void)
     stablesOwned=0;
     stablesOccupied=0;
     selectedStable=-1;
-    for(int i=0;i<7;i++){rmChocobo(i);}
+	for(int i=0;i<6;i++){rmChocobo(i);}
 }
 
 void ChocoboManager::sbOwnedChanged(int value)
@@ -203,7 +203,7 @@ void ChocoboManager::remove(void)
 }
 void ChocoboManager::rmChocobo(int s)
 {
-    chocoboName[s]=QString("\xff\xff\xff\xff\xff\xff");
+	chocoboName[s]=QString("\xFF\xFF\xFF\xFF\xFF\xFF");
     chocoboStamina[s]=0;
     cantMate[s]=false;
     chocoboData[s].accel=0;
