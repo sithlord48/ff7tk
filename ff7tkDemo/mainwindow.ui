@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>141</width>
-    <height>56</height>
+    <width>139</width>
+    <height>54</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -408,13 +408,6 @@
         <widget class="QCheckBox" name="checkBox_2">
          <property name="text">
           <string>Advanced Mode</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit">
-         <property name="placeholderText">
-          <string>LocationViewer::setSelected(QString filename)</string>
          </property>
         </widget>
        </item>

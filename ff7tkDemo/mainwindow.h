@@ -66,14 +66,13 @@ private slots:
 	void on_btnExtractLgp_clicked();
 	void on_btn_loadAchievement_clicked();
 	void on_btn_saveAchievement_clicked();
-	void on_lineEdit_editingFinished();
 	void on_checkBox_2_toggled(bool checked);
 
-    void on_checkBox_3_clicked(bool checked);
+	void on_checkBox_3_clicked(bool checked);
 
-    void on_cbEditableMateriaCombos_clicked(bool checked);
+	void on_cbEditableMateriaCombos_clicked(bool checked);
 
-    void on_checkBox_4_clicked(bool checked);
+	void on_checkBox_4_clicked(bool checked);
 
 private:
 
@@ -86,12 +85,12 @@ private:
 	//SlotSelect *slotSelect;
 	PhsListWidget *ListPHS;
 	MenuListWidget *ListMenu;
-    Lgp *lgpFile;
+	Lgp *lgpFile;
 	LocationViewer *locViewer;
 	OptionsWidget *optionsWidget;
 	ChocoboManager *chocoboManager;
 	AchievementEditor *achievementEditor;
-    CharManager *charManager;
+	CharManager *charManager;
 };
 
 #endif // MAINWINDOW_H

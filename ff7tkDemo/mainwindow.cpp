@@ -217,7 +217,6 @@ void MainWindow::on_btn_saveAchievement_clicked()
 	if(!fileName.isEmpty()){achievementEditor->saveFile(fileName);}
 }
 
-void MainWindow::on_lineEdit_editingFinished(){locViewer->setSelected(ui->lineEdit->text());}
 void MainWindow::on_checkBox_2_toggled(bool checked){locViewer->setAdvancedMode(checked);}
 
 void MainWindow::on_checkBox_3_clicked(bool checked){char_editor->setEditableComboBoxes(checked);}
