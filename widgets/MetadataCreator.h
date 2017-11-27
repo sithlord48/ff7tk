@@ -18,14 +18,8 @@
 #ifndef METADATACREATOR_H
 #define METADATACREATOR_H
 
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-    #include <QtWidgets>
-#else
-    #include <QtGui>
-#endif
+#include <QtWidgets>
 #include "../data/FF7Save.h"
-
 
 class MetadataCreator : public QDialog
 {

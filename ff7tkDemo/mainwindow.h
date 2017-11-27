@@ -18,12 +18,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-	#include <QtWidgets/QMainWindow>
-#else
-	#include <QMainWindow>
-#endif
+#include <QtWidgets/QMainWindow>
 
 #include "../widgets/MateriaEditor.h"
 #include "../widgets/CharEditor.h"

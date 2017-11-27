@@ -5,8 +5,7 @@
 
 TEMPLATE= app
 TARGET = ff7tkDemo
-QT+= core gui xml
-greaterThan(QT_MAJOR_VERSION, 4):	QT += widgets
+QT+= core gui xml widgets
 
 # Input
 HEADERS+=	mainwindow.h\

@@ -16,13 +16,7 @@
 #ifndef CHOCOBOEDITOR_H
 #define CHOCOBOEDITOR_H
 
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-    #include <QtWidgets>
-#else
-    #include <QtGui>
-#endif
-
+#include <QtWidgets>
 //Be sure to set paths correctly for below.
 //ALSO CHECK ChocoboEditor.cpp for icons includes.
 #include "../data/Type_FF7CHOCOBO.h"

@@ -16,12 +16,7 @@
 #ifndef LOCATIONVIEWER_H
 #define LOCATIONVIEWER_H
 
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-	#include <QtWidgets>
-#else
-	#include <QtGui>
-#endif
+#include <QtWidgets>
 // Include FF7tk Items.
 #include "../data/FF7Location.h"
 #include "../data/FF7FieldItemList.h"

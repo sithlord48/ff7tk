@@ -16,12 +16,7 @@
 #ifndef CHOCOBOMANAGER_H
 #define CHOCOBOMANAGER_H
 
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-    #include <QtWidgets>
-#else
-    #include <QtGui>
-#endif
+#include <QtWidgets>
 //import friends from ff7tk
 #include "../widgets/ChocoboEditor.h"
 #include "../widgets/ChocoboLabel.h"

@@ -16,14 +16,9 @@
 #ifndef OPTIONSWIDGET_H
 #define OPTIONSWIDGET_H
 
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-	#include <QtWidgets>
-#else
-	#include <QtGui>
-#endif
+#include <QtWidgets>
 #include "DialogPreview.h"
-/*~~~~~~~~~Icons~~~~~~~~~~~~~~~*/
+
 /** \class OptionsWidget
  *	\brief A Single widget to allow you to set all the options for the game
  *   will save emit a signal when any option changes.
