@@ -94,10 +94,11 @@ struct ITEM {
 		qint8 s_resist;/**< Resist status effect type */
 };
 /*! \class FF7Item
- * \brief Class containg all kinds of info about items in FF7
+ * \brief Information about items in FF7
  */
-class FF7Item
+class FF7Item: public QObject
 {
+	Q_OBJECT
 	public:
 	/** \enum ItemType
 	 *  \brief Item types in Final Fantasy 7
@@ -106,8 +107,9 @@ class FF7Item
 	{
 		Unknown/**< 0*/,Item/**< 1*/,Armor/**< 2*/,Accessory/**< 3*/,WeaponCloud/**< 4*/,
 		WeaponBarret/**< 5*/,WeaponTifa/**< 6*/,WeaponRed/**< 7*/,WeaponAerith/**< 8*/,WeaponCid/**< 9*/,
-		WeaponYuffie/**< 10*/,WeaponCait/**< 11*/,WeaponVincent/**< 12*/};
-
+		WeaponYuffie/**< 10*/,WeaponCait/**< 11*/,WeaponVincent/**< 12*/
+	};
+	Q_ENUM(ItemType)
 	/*!	\enum ItemEffect
 	 *	\brief Possible Elemental Effects and Status Effects for items
 	 */
@@ -123,6 +125,7 @@ class FF7Item
 		Infilict=0x01, /**< \brief Inflict Status On Another (value:1) */
 		SelfCast=0x02  /**< \brief Inflict Status On Self (value:2) */
 	};
+	Q_ENUM(ItemEffect)
 	/*! \enum ItemId
 	 *  \brief Item Name to ID
 	 */
@@ -150,6 +153,7 @@ class FF7Item
 		SprintShoes=0x130,/**< 0x130 */PeaceRing=0x131,/**< 0x131 */Ribbon=0x132,/**< 0x132 */FireRing=0x133,/**< 0x133 */IceRing=0x134,/**< 0x134 */BoltRing=0x135,/**< 0x135 */TetraElemental=0x136,/**< 0x136 */SafetyBit=0x137,/**< 0x137 */FuryRing=0x138,/**< 0x138 */CurseRing=0x139,/**< 0x139 */ProtectRing=0x13A,/**< 0x13A */CatsBell=0x13B,/**< 0x13B */ReflectRing=0x13C,/**< 0x13C */WaterRing=0x13D,/**< 0x13D */SneakGlove=0x13E,/**< 0x13E */HypnoCrown=0x13F,/**< 0x13F */
 		EmptyItem=0x1FF,/**< 0x1FF */EmptyItemData=0xFFFF/**< 0xFFFF */
 	};
+	Q_ENUM(ItemId)
 	/*!	\brief Decode rawitem to quint16
 	*	\param itemraw raw 2byte item from ff7 Save
 	*	\return quint16 holding an item
@@ -181,20 +185,20 @@ class FF7Item
 	*	\param id valid FF7Item::ItemId
 	*	\return translated item Name
 	*/
-	QString name(int id);
+	Q_INVOKABLE QString name(int id);
 
 	/*!	\brief get an items description
 	*	\param id valid FF7Item::ItemId
 	*	\return translated item description
 	*/
-	QString desc(int id);
+	Q_INVOKABLE QString desc(int id);
 
 	/*!	\brief get an items type
 	*	\param id valid FF7Item::ItemId
 	*	\return Items type
 	*	\sa ItemType
 	*/
-	qint8 type(int id);
+	Q_INVOKABLE int type(int id);
 
 	/*!	\brief get an items picture as qicon
 	*	\param id valid FF7Item::ItemId
@@ -202,6 +206,32 @@ class FF7Item
 	*	\sa image()
 	*/
 	QIcon icon(int id);
+
+	/*!	\brief get an items picture as qstring
+	*	\param id valid FF7Item::ItemId
+	*	\return Items icon in qstring form
+	*	\sa image()
+	*/
+	Q_INVOKABLE QString iconResource (int id);
+
+	/*!	\brief get materia no growth slot picture as qstring
+	*	\return Image resource in qstring form
+	*	\sa materiaSlotResource(), materiaLinkResource()
+	*/
+	Q_INVOKABLE QString materiaSlotNoGrowthResource(void);
+
+	/*!	\brief get materia slot picture as qstring
+	*	\return Image resource in qstring form
+	*	\sa materiaSlotNoGrowthResource(), materiaLinkResource()
+	*/
+	Q_INVOKABLE QString materiaSlotResource(void);
+
+	/*!	\brief get materia no growth slot picture as qstring
+	*	\return Image resource in qstring form
+	*	\sa materiaSlotResource(), materiaSlotNoGrowthResource()
+	*/
+	Q_INVOKABLE QString materiaLinkResource(void);
+
 
 	/*!	\brief get an items picture as qimage
 	*	\param id valid FF7Item::ItemId
@@ -215,84 +245,90 @@ class FF7Item
 	*	\return number of materia slots in an item
 	*	\sa linkedSlots() ,ItemId
 	*/
-	qint8 materiaSlots(int id);
+	Q_INVOKABLE int materiaSlots(int id);
 
 	/*!	\brief total number  materia links in item
 	*	\param id valid FF7Item::ItemId
 	*	\return number of materia links in an item
 	*	\sa materiaSlots()
 	*/
-	qint8 linkedSlots(int id);
+	Q_INVOKABLE int linkedSlots(int id);
 
 	/*!	\brief ap multiplier for an item
 	*	\param id valid FF7Item::ItemId
 	*	\return ap muliplier for given item
 	*/
-	qint8 materiaGrowthRate(int id);
+	Q_INVOKABLE int materiaGrowthRate(int id);
 
 	/*!	\brief change to HP when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount HP is changed when item is equipped
 	*/
-	qint8 statHP(int id);
+	int statHP(int id);
 
 
 	/*!	\brief change to MP when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount MP is changed when item is equipped
 	*/
-	qint8 statMP(int id);
+	int statMP(int id);
 
 	/*!	\brief change to strength when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount strength is changed when item is equipped
 	*/
-	qint8 statSTR(int id);
+	int statSTR(int id);
 
 	/*!	\brief change to vitality when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount vitality is changed when item is equipped
 	*/
-	qint8 statVIT(int id);
+	int statVIT(int id);
 
 	/*!	\brief change to dexterity when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount dexterity is changed when item is equipped
 	*/
-	qint8 statDEX(int id);
+	int statDEX(int id);
 
 	/*!	\brief change to luck when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount luck is changed when item is equipped
 	*/
-	qint8 statLCK(int id);
+	int statLCK(int id);
 
 	/*!	\brief change to magic when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount magic is changed when item is equipped
 	*/
-	qint8 statMAG(int id);
+	int statMAG(int id);
 
 	/*!	\brief change to spirit when equipped
 	*	\param id valid FF7Item::ItemId
 	*	\return amount spirit is changed when item is equipped
 	*/
-	qint8 statSPI(int id);
+	int statSPI(int id);
 
 	//Elemental Functions
+	/*!	\brief get a list of the items elemental properties
+	*	\param id valid FF7Item::ItemId
+	*	\return QList of elemental effects of the item in TYPE:ELEMENT format (ABSORB:WIND)
+	*/
+	Q_INVOKABLE QStringList elementalEffects(int id);
+
 	/*!	\brief restoration elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Restoration
 	*	\sa ItemType
 	*/
-	qint8 elementRestoration(int id);
+	int elementRestoration(int id);
 
 	/*!	\brief fire elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Fire
 	*	\sa ItemEffect
 	*/
-	qint8 elementFire(int id);
+	int elementFire(int id);
 
 
 	/*!	\brief cold elemental effect of an item
@@ -300,254 +336,260 @@ class FF7Item
 	*	\return Type of Effect for Element Cold
 	*	\sa ItemEffect
 	*/
-	qint8 elementCold(int id);
+	int elementCold(int id);
 
 	/*!	\brief lightning elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Lightning
 	*	\sa ItemEffect
 	*/
-	qint8 elementLightning(int id);
+	int elementLightning(int id);
 
 	/*!	\brief earth elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Earth
 	*	\sa ItemEffect
 	*/
-	qint8 elementEarth(int id);
+	int elementEarth(int id);
 
 	/*!	\brief wind elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Wind
 	*	\sa ItemEffect
 	*/
-	qint8 elementWind(int id);
+	int elementWind(int id);
 
 	/*!	\brief water elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Water
 	*	\sa ItemEffect
 	*/
-	qint8 elementWater(int id);
+	int elementWater(int id);
 
 	/*!	\brief gravity elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Gravity
 	*	\sa ItemEffect
 	*/
-	qint8 elementGravity(int id);
+	int elementGravity(int id);
 
 	/*!	\brief ho;y elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Holy
 	*	\sa ItemEffect
 	*/
-	qint8 elementHoly(int id);
+	int elementHoly(int id);
 
 	/*!	\brief poison elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Poison
 	*	\sa ItemEffect
 	*/
-	qint8 elementPoison(int id);
+	int elementPoison(int id);
 
 	/*!	\brief cut elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Cut
 	*	\sa ItemEffect
 	*/
-	qint8 elementCut(int id);
+	int elementCut(int id);
 
 	/*!	\brief shoot elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Shoot
 	*	\sa ItemEffect
 	*/
-	qint8 elementShoot(int id);
+	int elementShoot(int id);
 
 	/*!	\brief punch elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Punch
 	*	\sa ItemEffect
 	*/
-	qint8 elementPunch(int id);
+	int elementPunch(int id);
 
 	/*!	\brief hit elemental effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Element Hit
 	*	\sa ItemEffect
 	*/
-	qint8 elementHit(int id);
+	int elementHit(int id);
 
 	//Status Functions
+
+	/*!	\brief get a list of the items status properties
+	*	\param id valid FF7Item::ItemId
+	*	\return QList of status effects of the item in TYPE:STATUS format (PROTECT:POISION)
+	*/
+	Q_INVOKABLE QStringList statusEffects(int id);
+
 	/*!	\brief death status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Death
 	*	\sa ItemEffect
 	*/
-	qint8 statusDeath(int id);
+	int statusDeath(int id);
 
 	/*!	\brief slow numb status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Slow Numb
 	*	\sa ItemEffect
 	*/
-	qint8 statusSlowNumb(int id);
+	int statusSlowNumb(int id);
 
 	/*!	\brief death sentence status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Death Sentence
 	*	\sa ItemEffect
 	*/
-	qint8 statusDeathSentence(int id);
+	int statusDeathSentence(int id);
 
 	/*!	\brief paralysis status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Paralysis
 	*	\sa ItemEffect
 	*/
-	qint8 statusParalysis(int id);
+	int statusParalysis(int id);
 
 	/*!	\brief petrify status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Petrify
 	*	\sa ItemEffect
 	*/
-	qint8 statusPetrify(int id);
+	int statusPetrify(int id);
 
 	/*!	\brief silence status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Silence
 	*	\sa ItemEffect
 	*/
-	qint8 statusSilence(int id);
+	int statusSilence(int id);
 
 	/*!	\brief sleep status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Sleep
 	*	\sa ItemEffect
 	*/
-	qint8 statusSleep(int id);
+	int statusSleep(int id);
 
 	/*!	\brief confusion status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Confusion
 	*	\sa ItemEffect
 	*/
-	qint8 statusConfusion(int id);
+	int statusConfusion(int id);
 
 	/*!	\brief berserk status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Berserk
 	*	\sa ItemEffect
 	*/
-	qint8 statusBerserk(int id);
+	int statusBerserk(int id);
 
 	/*!	\brief frog status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Frog
 	*	\sa ItemEffect
 	*/
-	qint8 statusFrog(int id);
+	int statusFrog(int id);
 
 	/*!	\brief mini status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Mini
 	*	\sa ItemEffect
 	*/
-	qint8 statusMini(int id);
+	int statusMini(int id);
 
 	/*!	\brief poison status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Poison
 	*	\sa ItemEffect
 	*/
-	qint8 statusPoison(int id);
+	int statusPoison(int id);
 
 	/*!	\brief fury status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Fury
 	*	\sa ItemEffect
 	*/
-	qint8 statusFury(int id);
+	int statusFury(int id);
 
 	/*!	\brief sadness status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Sadness
 	*	\sa ItemEffect
 	*/
-	qint8 statusSadness(int id);
+	int statusSadness(int id);
 
 	/*!	\brief darkness status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Darkness
 	*	\sa ItemEffect
 	*/
-	qint8 statusDarkness(int id);
+	int statusDarkness(int id);
 
 	/*!	\brief haste status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Haste
 	*	\sa ItemEffect
 	*/
-	qint8 statusHaste(int id);
+	int statusHaste(int id);
 
 	/*!	\brief slow status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Slow
 	*	\sa ItemEffect
 	*/
-	qint8 statusSlow(int id);
+	int statusSlow(int id);
 
 	/*!	\brief stop status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Stop
 	*	\sa ItemEffect
 	*/
-	qint8 statusStop(int id);
+	int statusStop(int id);
 
 	/*!	\brief barrier status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Barrier
 	*	\sa ItemEffect
 	*/
-	qint8 statusBarrier(int id);
+	int statusBarrier(int id);
 
 	/*!	\brief magic barrier status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Magic Barrier
 	*	\sa ItemEffect
 	*/
-	qint8 statusMagicBarrier(int id);
+	int statusMagicBarrier(int id);
 
 	/*!	\brief reflect status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Reflect
 	*	\sa ItemEffect
 	*/
-	qint8 statusReflect(int id);
+	int statusReflect(int id);
 
 	/*!	\brief shield status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Shield
 	*	\sa ItemEffect
 	*/
-	qint8 statusShield(int id);
+	int statusShield(int id);
 
 	/*!	\brief regen status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Regen
 	*	\sa ItemEffect
 	*/
-	qint8 statusRegen(int id);
+	int statusRegen(int id);
 
 	/*!	\brief resist status effect of an item
 	*	\param id valid FF7Item::ItemId
 	*	\return Type of Effect for Status Resist
 	*	\sa ItemEffect
 	*/
-	qint8 statusResist(int id);
-
+	int statusResist(int id);
 
 	/*!	\brief Image of a no growth materia slot
 	*	\return QImage of a no growth materia slot
