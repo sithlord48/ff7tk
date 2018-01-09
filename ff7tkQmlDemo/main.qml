@@ -5,11 +5,21 @@ import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     visible: true
-    width: 600
-    height: 1000
     ColumnLayout {
+        anchors.fill: parent
+        ComboBox {
+            id: combo_Selector
+            model: ["", "Text Demo", "ItemPreview"]
+            style: ComboBoxStyle {
+                textColor: SystemPalette.text
+            }
+            Layout.fillWidth: true
+            onCurrentIndexChanged: indexChanged(combo_Selector.currentIndex)
+        }
+
         GroupBox {
             id:group_TextDemo
+            visible: false
             title: "FF7Text Demo"
             TextDemo {
                 id:txtDemo
@@ -17,6 +27,7 @@ ApplicationWindow {
         }
         GroupBox {
             id:group_ItemDemo
+            visible: false
             title: "FF7ItemPreview"
             ColumnLayout {
                 SpinBox {
@@ -29,9 +40,24 @@ ApplicationWindow {
                 }
                 ItemPreview {
                     id:itemDemo
-                    Layout.fillHeight: true
                 }
             }
+            Layout.fillHeight: true
+            Layout.fillWidth: true
         }
+    }
+    function indexChanged(newIndex) {
+        group_ItemDemo.visible = false
+        group_TextDemo.visible = false
+
+        switch(newIndex) {
+            case 1:
+                group_TextDemo.visible = true
+                break;
+            case 2:
+                group_ItemDemo.visible = true
+                break;
+        }
+
     }
 }
