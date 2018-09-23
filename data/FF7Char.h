@@ -193,7 +193,7 @@ private:
  *  \sa Chars[]
  */
 struct Character {
-	qint8 _id; /**< CharacterID */
+    quint8 _id; /**< CharacterID */
 	int _starting_weapon_id; /**< first item id for characters weapon*/
 	int _num_weapons; /**< how many weapons the character has*/
 	int _weapon_offset;/**< weapon offset of characters first weapon */
