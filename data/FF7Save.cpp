@@ -1565,8 +1565,8 @@ void FF7Save::setMainProgress(int s,int mProgress)
 	if(s<0 || s>14){return;}
 	else
 	{
-		if(mProgress<0){mProgress =0;}
-		else if(mProgress>0xFFFF){mProgress=0xFFFF;}
+        mProgress = std::max<int>(mProgress,0);
+        mProgress = std::min<int>(mProgress, 0XFFFF);
 		if(mProgress != slot[s].mprogress)
 		{
 			slot[s].mprogress = mProgress;
@@ -1601,17 +1601,15 @@ QList<QByteArray> FF7Save::slotIcon(int s)
 }
 QString FF7Save::charName(int s,int char_num)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
-	QByteArray text;
+    Text.init(isJPN(s));
+    QByteArray text;
 	for (int n=0;n<12;n++){text.append(slot[s].chars[char_num].name[n]);}
 	return Text.toPC(text);
 }
 void FF7Save::setCharName(int s,int char_num,QString new_name)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
-	for (int i=0;i<12;i++){slot[s].chars[char_num].name[i] =0xFF;}
+    Text.init(isJPN(s));
+    for (int i=0;i<12;i++){slot[s].chars[char_num].name[i] =0xFF;}
 	QByteArray temp = Text.toFF7(new_name);
 	memcpy(slot[s].chars[char_num].name,temp,temp.length());
 	setFileModified(true,s);
@@ -1619,16 +1617,14 @@ void FF7Save::setCharName(int s,int char_num,QString new_name)
 
 QString FF7Save::descName(int s)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	QByteArray text;
 	for (int n=0;n<16;n++){text.append(slot[s].desc.name[n]);}
 	return Text.toPC(text);
 }
 void FF7Save::setDescName(int s,QString new_name)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	for (int i=0;i<16;i++){slot[s].desc.name[i] =0xFF;}
 	QByteArray temp = Text.toFF7(new_name);
 	memcpy(slot[s].desc.name,temp,temp.length());
@@ -1637,8 +1633,7 @@ void FF7Save::setDescName(int s,QString new_name)
 
 QString FF7Save::descLocation(int s)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	QByteArray text;
 	for (int n=0;n<24;n++){text.append(slot[s].desc.location[n]);}
 	return Text.toPC(text);
@@ -1646,8 +1641,7 @@ QString FF7Save::descLocation(int s)
 
 void FF7Save::setDescLocation(int s, QString new_desc_location)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	QByteArray text;
 	for (int i=0;i<32;i++){slot[s].desc.location[i] =0xFF;}
 	QByteArray temp = Text.toFF7(new_desc_location);
@@ -1689,16 +1683,14 @@ void FF7Save::setTime(int s,quint32 new_time)
 QString FF7Save::location(int s)
 {
 
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	QByteArray text;
 	for (int n=0;n<24;n++){text.append(slot[s].location[n]);}
 	return Text.toPC(text);
 }
 void FF7Save::setLocation(int s, QString new_location)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	QByteArray text;
 	for (int i=0;i<24;i++){slot[s].location[i] =0xFF;}
 	QByteArray temp = Text.toFF7(new_location);
@@ -1713,22 +1705,20 @@ quint8 FF7Save::love(int s,bool battle, FF7Save::LOVER who)
 	{
 		switch(who)
 		{
-			case FF7Save::LOVE_BARRET: return slot[s].b_love.barret; break;
-			case FF7Save::LOVE_TIFA: return slot[s].b_love.tifa; break;
-			case FF7Save::LOVE_AERIS: return slot[s].b_love.aeris; break;
-			case FF7Save::LOVE_YUFFIE: return slot[s].b_love.yuffie; break;
-			default:  return 0; break;
+            case FF7Save::LOVE_BARRET: return slot[s].b_love.barret;
+            case FF7Save::LOVE_TIFA: return slot[s].b_love.tifa;
+            case FF7Save::LOVE_AERIS: return slot[s].b_love.aeris;
+            case FF7Save::LOVE_YUFFIE: return slot[s].b_love.yuffie;
 		}
 	}
 	else
 	{
 		switch(who)
 		{
-			case FF7Save::LOVE_BARRET: return slot[s].love.barret; break;
-			case FF7Save::LOVE_TIFA: return slot[s].love.tifa; break;
-			case FF7Save::LOVE_AERIS: return slot[s].love.aeris; break;
-			case FF7Save::LOVE_YUFFIE: return slot[s].love.yuffie; break;
-			default:  return 0; break;
+            case FF7Save::LOVE_BARRET: return slot[s].love.barret;
+            case FF7Save::LOVE_TIFA: return slot[s].love.tifa;
+            case FF7Save::LOVE_AERIS: return slot[s].love.aeris;
+            case FF7Save::LOVE_YUFFIE: return slot[s].love.yuffie;
 		}
 	}
 }
@@ -1741,19 +1731,17 @@ void FF7Save::setLove(int s,bool battle, FF7Save::LOVER who ,quint8 love)
 			case FF7Save::LOVE_BARRET: slot[s].b_love.barret = love;setFileModified(true,s); break;
 			case FF7Save::LOVE_TIFA: slot[s].b_love.tifa=love;setFileModified(true,s); break;
 			case FF7Save::LOVE_AERIS:  slot[s].b_love.aeris=love;setFileModified(true,s); break;
-			case FF7Save::LOVE_YUFFIE:  slot[s].b_love.yuffie=love;setFileModified(true,s); break;
-			default: break;
+            case FF7Save::LOVE_YUFFIE:  slot[s].b_love.yuffie=love;setFileModified(true,s); break;
 		}
 	}
 	else
 	{
 		switch(who)
 		{
-			case FF7Save::LOVE_BARRET: slot[s].love.barret = love;setFileModified(true,s); break;
-			case FF7Save::LOVE_TIFA: slot[s].love.tifa=love;setFileModified(true,s); break;
+            case FF7Save::LOVE_BARRET: slot[s].love.barret = love;setFileModified(true,s); break;
+            case FF7Save::LOVE_TIFA: slot[s].love.tifa=love;setFileModified(true,s); break;
 			case FF7Save::LOVE_AERIS:  slot[s].love.aeris=love;setFileModified(true,s); break;
 			case FF7Save::LOVE_YUFFIE:  slot[s].love.yuffie=love;setFileModified(true,s); break;
-			default: break;
 		}
 	}
 }
@@ -1761,11 +1749,10 @@ bool  FF7Save::materiaCave(int s, FF7Save::MATERIACAVE cave)
 {
 	switch(cave)
 	{
-		case FF7Save::CAVE_MIME: return (slot[s].materiacaves &(1<<0)); break;
-		case FF7Save::CAVE_HPMP: return (slot[s].materiacaves &(1<<1)); break;
-		case FF7Save::CAVE_QUADMAGIC: return (slot[s].materiacaves & (1<<2)); break;
-		case FF7Save::CAVE_KOTR: return (slot[s].materiacaves & (1<<3)); break;
-		default: return false;
+        case FF7Save::CAVE_MIME: return (slot[s].materiacaves &(1<<0));
+        case FF7Save::CAVE_HPMP: return (slot[s].materiacaves &(1<<1));
+        case FF7Save::CAVE_QUADMAGIC: return (slot[s].materiacaves & (1<<2));
+        case FF7Save::CAVE_KOTR: return (slot[s].materiacaves & (1<<3));
 	}
 }
 void FF7Save::setMateriaCave(int s, FF7Save::MATERIACAVE cave, bool isEmpty)
@@ -1795,18 +1782,16 @@ void FF7Save::setMateriaCave(int s, FF7Save::MATERIACAVE cave, bool isEmpty)
 			else{slot[s].materiacaves &= ~(1<<3);}
 			setFileModified(true,s);
 			break;
-
-		default: break;
 	}
 }
 quint16 FF7Save::speedScore(int s, int rank)
 {
 	switch(rank)
 	{
-		case 1: return slot[s].coster_1; break;
-		case 2: return slot[s].coster_2; break;
-		case 3: return slot[s].coster_3; break;
-		default:  return 0; break;
+        case 1: return slot[s].coster_1;
+        case 2: return slot[s].coster_2;
+        case 3: return slot[s].coster_3;
+        default:  return 0;
 	 }
 }
 void FF7Save::setSpeedScore(int s, int rank,quint16 score)
@@ -1822,16 +1807,14 @@ void FF7Save::setSpeedScore(int s, int rank,quint16 score)
 
 QString FF7Save::chocoName(int s,int choco_num)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	QByteArray text;
 	for (int n=0;n<6;n++){text.append(slot[s].chocobonames[choco_num][n]);}
 	return Text.toPC(text);
 }
 void FF7Save::setChocoName(int s,int choco_num,QString new_name)
 {
-	if(isJPN(s)){Text.init(1);}//Japanese
-	else{Text.init(0);}// not japanese save.
+    Text.init(isJPN(s));
 	QByteArray temp = Text.toFF7(new_name);
 	for (int i=0;i<6;i++){slot[s].chocobonames[choco_num][i] =0xFF;}
 	memcpy(slot[s].chocobonames[choco_num],temp,temp.length());
@@ -1962,9 +1945,9 @@ quint16 FF7Save::charTimesLimitUsed(int s,int char_num,int level)
 {
 	switch(level)
 	{
-		case 1:return slot[s].chars[char_num].timesused1;break;
-		case 2:return slot[s].chars[char_num].timesused2;break;
-		case 3:return slot[s].chars[char_num].timesused3;break;
+        case 1:return slot[s].chars[char_num].timesused1;
+        case 2:return slot[s].chars[char_num].timesused2;
+        case 3:return slot[s].chars[char_num].timesused3;
 		default:return 0;
 	}
 }
@@ -2232,7 +2215,7 @@ void FF7Save::setChocoCantMate(int s,int chocoSlot,bool cantMate)
 quint32 FF7Save::gil(int s){return slot[s].gil;}
 void FF7Save::setGil(int s,quint32 gil)
 {
-	if(gil<0){gil =0;}
+    gil = std::max<quint32>(gil, 0);
 	slot[s].gil = gil;
 	setDescGil(s,gil);//Update Desc
 	setFileModified(true,s);
@@ -2240,25 +2223,26 @@ void FF7Save::setGil(int s,quint32 gil)
 quint16 FF7Save::gp (int s){return slot[s].gp;}
 void FF7Save::setGp(int s,int gp)
 {
-	if(gp <0){gp = 0;}
-	if(gp >65535){gp = 65535;}
+    gp = std::max<int>(gp, 0);
+    gp = std::min<int>(gp, 65535);
 	slot[s].gp = gp;
 	setFileModified(true,s);
 }
 quint16 FF7Save::battles (int s){return slot[s].battles;}
 void FF7Save::setBattles(int s,int battles)
 {
-	if(battles <0){battles = 0;}
-	if(battles >65535){battles = 65535;}
+
+    battles = std::max<int>(battles, 0);
+    battles = std::min<int>(battles, 65535);
 	slot[s].battles = battles;
 	setFileModified(true,s);
 }
 quint16 FF7Save::runs (int s){return slot[s].runs;}
 void FF7Save::setRuns(int s,int runs)
 {
-	if(runs <0){runs = 0;}
-	if(runs >65535){runs = 65535;}
-	slot[s].runs = runs;
+    runs = std::max<int>(runs, 0);
+    runs = std::min<int>(runs, 65535);
+    slot[s].runs = runs;
 	setFileModified(true,s);
 }
 quint8 FF7Save::party(int s,int pos){return slot[s].party[pos];}
@@ -2313,9 +2297,9 @@ quint8 FF7Save::snowboardScore(int s, int course)
 {
 	switch(course)
 	{
-		case 0: return slot[s].SnowBegScore; break;
-		case 1: return slot[s].SnowExpScore; break;
-		case 2: return slot[s].SnowCrazyScore; break;
+        case 0: return slot[s].SnowBegScore;
+        case 1: return slot[s].SnowExpScore;
+        case 2: return slot[s].SnowCrazyScore;
 		default: return 0; break;
 	 }
 }
@@ -2453,8 +2437,6 @@ bool FF7Save::fixMetaData(QString fileName,QString OutPath,QString UserID)
 	Path.chop(Path.length()-Path.lastIndexOf("/"));
 	QString metadataPath = Path;
 	metadataPath.append("/metadata.xml");
-
-
 
 	QFile Metadata(metadataPath);
 	//is a New PC saveFile then
@@ -2605,8 +2587,8 @@ void FF7Save::setBmProgress1(int s, int value)
 	if(s<0 ||s>14){return;}
 	else
 	{
-		if(value<0){value=0;}
-		else if(value>0xFF){value=0xFF;}
+        value = std::max<int>(value, 0);
+        value = std::min<int>(value, 0xFF);
 		if(value != slot[s].bm_progress1)
 		{
 			slot[s].bm_progress1 = value;
@@ -2635,8 +2617,8 @@ void FF7Save::setBmProgress2(int s, int value)
 	if(s<0 ||s>14){return;}
 	else
 	{
-		if(value<0){value=0;}
-		else if(value>0xFF){value=0xFF;}
+        value = std::max<int>(value, 0);
+        value = std::min<int>(value, 0xFF);
 		if(value != slot[s].bm_progress3)
 		{
 			slot[s].bm_progress2 = value;
@@ -2665,8 +2647,8 @@ void FF7Save::setBmProgress3(int s, int value)
 	if(s<0 ||s>14){return;}
 	else
 	{
-		if(value<0){value=0;}
-		else if(value>0xFF){value=0xFF;}
+        value = std::max<int>(value, 0);
+        value = std::min<int>(value, 0xFF);
 		if(value != slot[s].bm_progress3)
 		{
 			slot[s].bm_progress3 = value;
@@ -2696,8 +2678,8 @@ void FF7Save::setMidgarTrainFlags(int s, int value)
 	if(s<0 ||s>14){return;}
 	else
 	{
-		if(value<0){value=0;}
-		else if(value>0xFF){value=0xFF;}
+        value = std::max<int>(value, 0);
+        value = std::min<int>(value, 0xFF);
 		if(value != slot[s].midgartrainflags)
 		{
 			slot[s].midgartrainflags = value;
@@ -2750,7 +2732,6 @@ QByteArray FF7Save::unknown(int s,int z)
 	QByteArray temp;
 	switch(z)
 	{
-		case 0: temp.setRawData(0x00,1); break;
 		case 1: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_1),sizeof(slot[s].z_1)); break;
 		case 2: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_2),sizeof(slot[s].z_2)); break;
 		case 3: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_3),sizeof(slot[s].z_3)); break;
@@ -2808,7 +2789,6 @@ bool FF7Save::setUnknown(int s,int z,QByteArray data)
 	bool result;
 	switch(z)
 	{
-		case 0: result=false; break;
 		case 1:
 					if(data.size() != sizeof(slot[s].z_1)) {result=false; break;}
 					else{memcpy(&slot[s].z_1,data,sizeof(slot[s].z_1)); result=true;break;}
@@ -3579,9 +3559,9 @@ void FF7Save::setSteps(int s,int steps)
 	if(s<0 || s>14){return;}
 	else
 	{
-		if(steps<0){steps=0;}
-		else if(steps>0xFFFF){steps=0xFFFF;}
-		if(steps != slot[s].mprogress)
+        steps = std::max<int>(steps, 0);
+        steps = std::min<int>(steps, 0xFFFF);
+        if(steps != slot[s].mprogress)
 		{
 			slot[s].steps = steps;
 			setFileModified(true,s);
@@ -3598,8 +3578,8 @@ void FF7Save::setChurchProgress(int s,int progress)
 	if(s<0 || s>14){return;}
 	else
 	{
-		if(progress<0){progress=0;}
-		if(progress>0xFF){progress=0xFF;}
+        progress = std::max<int>(progress, 0);
+        progress = std::min<int>(progress, 0xFF);
 		if(progress != slot[s].aeris_church)
 		{
 			slot[s].aeris_church = progress;
@@ -3618,8 +3598,8 @@ void FF7Save::setDonProgress(int s,int progress)
 	if(s<0 || s>14){return;}
 	else
 	{
-		if(progress<0){progress=0;}
-		if(progress>0xFF){progress=0xFF;}
+        progress = std::max<int>(progress, 0);
+        progress = std::min<int>(progress, 0xFF);
 		if(progress != slot[s].donprogress)
 		{
 			slot[s].donprogress = progress;
@@ -3733,8 +3713,8 @@ quint8 FF7Save::tutSave(int s)
 void FF7Save::setTutSave(int s, int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value =0;}
-	if(value>0xFF){value =0xFF;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 0xFF);
 	if(value != slot[s].tut_save)
 	{
 		slot[s].tut_save=value;
@@ -3786,8 +3766,8 @@ void FF7Save::setTutSub(int s, int value)
 	if(s<0||s>14){return;}
 	else
 	{
-		if(value<0){value=0;}
-		else if(value>0xFF){value=0xFF;}
+        value = std::max<int>(value, 0);
+        value = std::min<int>(value, 0xFF);
 		if(value != slot[s].tut_sub)
 		{
 			slot[s].tut_sub = value;
@@ -3900,8 +3880,8 @@ int FF7Save::worldCoordsLeaderZ(int s)
 void FF7Save::setWorldCoordsLeader(int s,bool firstChunk,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value =0;}
-	if(value>0xFFFF){value =0xFFFF;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 0xFFFF);
 	if(firstChunk && quint32(value) != worldCoordsLeader(s,true))
 	{
 		slot[s].l_world=value;
@@ -3919,8 +3899,8 @@ void FF7Save::setWorldCoordsLeader(int s,bool firstChunk,int value)
 void FF7Save::setWorldCoordsLeaderX(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>295000){value=295000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 295000);
 	if(value != worldCoordsLeaderX(s))
 	{
 		slot[s].l_world = (value | worldCoordsLeaderID(s) << 19 | worldCoordsLeaderAngle(s) << 24);
@@ -3930,8 +3910,8 @@ void FF7Save::setWorldCoordsLeaderX(int s,int value)
 void FF7Save::setWorldCoordsLeaderID(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsLeaderID(s))
 	{
 		slot[s].l_world = (worldCoordsLeaderX(s) | value << 19 | worldCoordsLeaderAngle(s) << 24);
@@ -3941,8 +3921,8 @@ void FF7Save::setWorldCoordsLeaderID(int s,int value)
 void FF7Save::setWorldCoordsLeaderAngle(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>360){value=360;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 360);
 	if(value != worldCoordsLeaderAngle(s))
 	{
 		slot[s].l_world = (worldCoordsLeaderX(s) | worldCoordsLeaderID(s) << 19 | value << 24);
@@ -3952,8 +3932,8 @@ void FF7Save::setWorldCoordsLeaderAngle(int s,int value)
 void FF7Save::setWorldCoordsLeaderY(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>230000){value=230000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 230000);
 	if(value != worldCoordsLeaderY(s))
 	{
 		slot[s].l_world2 = (value | worldCoordsLeaderZ(s) << 18);
@@ -3964,9 +3944,9 @@ void FF7Save::setWorldCoordsLeaderY(int s,int value)
 void FF7Save::setWorldCoordsLeaderZ(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
-	if(value != worldCoordsLeaderZ(s))
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
+    if(value != worldCoordsLeaderZ(s))
 	{
 		slot[s].l_world2 = (worldCoordsLeaderY(s) | value << 18);
 		setFileModified(true,s);
@@ -4009,8 +3989,8 @@ int FF7Save::worldCoordsTcZ(int s)
 void FF7Save::setWorldCoordsTc(int s,bool firstChunk,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value =0;}
-	if(value>0xFFFF){value =0xFFFF;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 0xFFFF);
 	if(firstChunk && quint32(value) != worldCoordsTc(s,true))
 	{
 		slot[s].tc_world=value;
@@ -4028,8 +4008,8 @@ void FF7Save::setWorldCoordsTc(int s,bool firstChunk,int value)
 void FF7Save::setWorldCoordsTcX(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>295000){value=295000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 295000);
 	if(value != worldCoordsTcX(s))
 	{
 		slot[s].tc_world = (value | worldCoordsTcID(s) << 19 | worldCoordsTcAngle(s) << 24);
@@ -4039,9 +4019,9 @@ void FF7Save::setWorldCoordsTcX(int s,int value)
 void FF7Save::setWorldCoordsTcID(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
-	if(value != worldCoordsTcID(s))
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
+    if(value != worldCoordsTcID(s))
 	{
 		slot[s].tc_world = (worldCoordsTcX(s) | value << 19 | worldCoordsTcAngle(s) << 24);
 		setFileModified(true,s);
@@ -4050,8 +4030,8 @@ void FF7Save::setWorldCoordsTcID(int s,int value)
 void FF7Save::setWorldCoordsTcAngle(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>360){value=360;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 360);
 	if(value != worldCoordsTcAngle(s))
 	{
 		slot[s].tc_world = (worldCoordsTcX(s) | worldCoordsTcID(s) << 19 | value << 24);
@@ -4061,8 +4041,8 @@ void FF7Save::setWorldCoordsTcAngle(int s,int value)
 void FF7Save::setWorldCoordsTcY(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>230000){value=230000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 230000);
 	if(value != worldCoordsTcY(s))
 	{
 		slot[s].tc_world2 = (value | worldCoordsTcZ(s) << 18);
@@ -4073,8 +4053,8 @@ void FF7Save::setWorldCoordsTcY(int s,int value)
 void FF7Save::setWorldCoordsTcZ(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsTcZ(s))
 	{
 		slot[s].tc_world2 = (worldCoordsTcY(s) | value << 18);
@@ -4118,8 +4098,8 @@ int FF7Save::worldCoordsBhZ(int s)
 void FF7Save::setWorldCoordsBh(int s,bool firstChunk,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value =0;}
-	if(value>0xFFFF){value =0xFFFF;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 0xFFFF);
 	if(firstChunk && quint32(value) != worldCoordsBh(s,true))
 	{
 		slot[s].bh_world=value;
@@ -4137,8 +4117,8 @@ void FF7Save::setWorldCoordsBh(int s,bool firstChunk,int value)
 void FF7Save::setWorldCoordsBhX(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>295000){value=295000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 295000);
 	if(value != worldCoordsBhX(s))
 	{
 		slot[s].bh_world = (value | worldCoordsBhID(s) << 19 | worldCoordsBhAngle(s) << 24);
@@ -4148,8 +4128,8 @@ void FF7Save::setWorldCoordsBhX(int s,int value)
 void FF7Save::setWorldCoordsBhID(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsBhID(s))
 	{
 		slot[s].bh_world = (worldCoordsBhX(s) | value << 19 | worldCoordsBhAngle(s) << 24);
@@ -4159,8 +4139,8 @@ void FF7Save::setWorldCoordsBhID(int s,int value)
 void FF7Save::setWorldCoordsBhAngle(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>360){value=360;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 360);
 	if(value != worldCoordsBhAngle(s))
 	{
 		slot[s].bh_world = (worldCoordsBhX(s) | worldCoordsBhID(s) << 19 | value << 24);
@@ -4170,8 +4150,8 @@ void FF7Save::setWorldCoordsBhAngle(int s,int value)
 void FF7Save::setWorldCoordsBhY(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>230000){value=230000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 230000);
 	if(value != worldCoordsBhY(s))
 	{
 		slot[s].bh_world2 = (value | worldCoordsBhZ(s) << 18);
@@ -4182,8 +4162,8 @@ void FF7Save::setWorldCoordsBhY(int s,int value)
 void FF7Save::setWorldCoordsBhZ(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsBhZ(s))
 	{
 		slot[s].bh_world2 = (worldCoordsBhY(s) | value << 18);
@@ -4228,8 +4208,8 @@ int FF7Save::worldCoordsSubZ(int s)
 void FF7Save::setWorldCoordsSub(int s,bool firstChunk,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value =0;}
-	if(value>0xFFFF){value =0xFFFF;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 0xFFFF);
 	if(firstChunk && quint32(value) != worldCoordsSub(s,true))
 	{
 		slot[s].sub_world=value;
@@ -4247,8 +4227,8 @@ void FF7Save::setWorldCoordsSub(int s,bool firstChunk,int value)
 void FF7Save::setWorldCoordsSubX(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>295000){value=295000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 295000);
 	if(value != worldCoordsSubX(s))
 	{
 		slot[s].sub_world = (value | worldCoordsSubID(s) << 19 | worldCoordsSubAngle(s) << 24);
@@ -4258,8 +4238,8 @@ void FF7Save::setWorldCoordsSubX(int s,int value)
 void FF7Save::setWorldCoordsSubID(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsSubID(s))
 	{
 		slot[s].sub_world = (worldCoordsSubX(s) | value << 19 | worldCoordsSubAngle(s) << 24);
@@ -4269,8 +4249,8 @@ void FF7Save::setWorldCoordsSubID(int s,int value)
 void FF7Save::setWorldCoordsSubAngle(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>360){value=360;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 360);
 	if(value != worldCoordsSubAngle(s))
 	{
 		slot[s].sub_world = (worldCoordsSubX(s) | worldCoordsSubID(s) << 19 | value << 24);
@@ -4280,8 +4260,8 @@ void FF7Save::setWorldCoordsSubAngle(int s,int value)
 void FF7Save::setWorldCoordsSubY(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>230000){value=230000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 230000);
 	if(value != worldCoordsSubY(s))
 	{
 		slot[s].sub_world2 = (value | worldCoordsSubZ(s) << 18);
@@ -4292,8 +4272,8 @@ void FF7Save::setWorldCoordsSubY(int s,int value)
 void FF7Save::setWorldCoordsSubZ(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsSubZ(s))
 	{
 		slot[s].sub_world2 = (worldCoordsSubY(s) | value << 18);
@@ -4338,8 +4318,8 @@ int FF7Save::worldCoordsWchocoZ(int s)
 void FF7Save::setWorldCoordsWchoco(int s,bool firstChunk,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value =0;}
-	if(value>0xFFFF){value =0xFFFF;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 0xFFFF);
 	if(firstChunk && quint32(value) != worldCoordsWchoco(s,true))
 	{
 		slot[s].wc_world=value;
@@ -4357,8 +4337,8 @@ void FF7Save::setWorldCoordsWchoco(int s,bool firstChunk,int value)
 void FF7Save::setWorldCoordsWchocoX(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>295000){value=295000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 295000);
 	if(value != worldCoordsWchocoX(s))
 	{
 		slot[s].wc_world = (value | worldCoordsWchocoID(s) << 19 | worldCoordsWchocoAngle(s) << 24);
@@ -4368,8 +4348,8 @@ void FF7Save::setWorldCoordsWchocoX(int s,int value)
 void FF7Save::setWorldCoordsWchocoID(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsWchocoID(s))
 	{
 		slot[s].wc_world = (worldCoordsWchocoX(s) | value << 19 | worldCoordsWchocoAngle(s) << 24);
@@ -4379,8 +4359,8 @@ void FF7Save::setWorldCoordsWchocoID(int s,int value)
 void FF7Save::setWorldCoordsWchocoAngle(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>360){value=360;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 360);
 	if(value != worldCoordsWchocoAngle(s))
 	{
 		slot[s].wc_world = (worldCoordsWchocoX(s) | worldCoordsWchocoID(s) << 19 | value << 24);
@@ -4390,8 +4370,8 @@ void FF7Save::setWorldCoordsWchocoAngle(int s,int value)
 void FF7Save::setWorldCoordsWchocoY(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>230000){value=230000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 230000);
 	if(value != worldCoordsWchocoY(s))
 	{
 		slot[s].wc_world2 = (value | worldCoordsWchocoZ(s) << 18);
@@ -4402,8 +4382,8 @@ void FF7Save::setWorldCoordsWchocoY(int s,int value)
 void FF7Save::setWorldCoordsWchocoZ(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsWchocoZ(s))
 	{
 		slot[s].wc_world2 = (worldCoordsWchocoY(s) | value << 18);
@@ -4449,8 +4429,8 @@ int FF7Save::worldCoordsDurwZ(int s)
 void FF7Save::setWorldCoordsDurw(int s,bool firstChunk,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value =0;}
-	if(value>0xFFFF){value =0xFFFF;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 0xFFFF);
 	if(firstChunk && quint32(value) != worldCoordsDurw(s,true))
 	{
 		slot[s].durw_world=value;
@@ -4468,8 +4448,8 @@ void FF7Save::setWorldCoordsDurw(int s,bool firstChunk,int value)
 void FF7Save::setWorldCoordsDurwX(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>295000){value=295000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 295000);
 	if(value != worldCoordsDurwX(s))
 	{
 		slot[s].durw_world = (value | worldCoordsDurwID(s) << 19 | worldCoordsDurwAngle(s) << 24);
@@ -4479,8 +4459,8 @@ void FF7Save::setWorldCoordsDurwX(int s,int value)
 void FF7Save::setWorldCoordsDurwID(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsDurwID(s))
 	{
 		slot[s].durw_world = (worldCoordsDurwX(s) | value << 19 | worldCoordsDurwAngle(s) << 24);
@@ -4490,8 +4470,8 @@ void FF7Save::setWorldCoordsDurwID(int s,int value)
 void FF7Save::setWorldCoordsDurwAngle(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>360){value=360;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 360);
 	if(value != worldCoordsDurwAngle(s))
 	{
 		slot[s].durw_world = (worldCoordsDurwX(s) | worldCoordsDurwID(s) << 19 | value << 24);
@@ -4501,8 +4481,8 @@ void FF7Save::setWorldCoordsDurwAngle(int s,int value)
 void FF7Save::setWorldCoordsDurwY(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>230000){value=230000;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 230000);
 	if(value != worldCoordsDurwY(s))
 	{
 		slot[s].durw_world2 = (value | worldCoordsDurwZ(s) << 18);
@@ -4513,8 +4493,8 @@ void FF7Save::setWorldCoordsDurwY(int s,int value)
 void FF7Save::setWorldCoordsDurwZ(int s,int value)
 {
 	if(s<0 || s>14){return;}
-	if(value<0){value=0;}
-	if(value>255){value=255;}
+    value = std::max<int>(value, 0);
+    value = std::min<int>(value, 255);
 	if(value != worldCoordsDurwZ(s))
 	{
 		slot[s].durw_world2 = (worldCoordsDurwY(s) | value << 18);
