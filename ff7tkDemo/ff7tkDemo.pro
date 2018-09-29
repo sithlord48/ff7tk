@@ -5,6 +5,7 @@
 
 TEMPLATE= app
 TARGET = ff7tkDemo
+CONFIG += c++11
 QT+= core gui xml widgets
 
 # Input
