@@ -16,9 +16,10 @@ compiler:
 
 before_script: 
 - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-- sudo add-apt-repository --yes ppa:beineri/opt-qt591-trusty
+- sudo add-apt-repository --yes ppa:beineri/opt-qt-5.10.1-trusty
 - sudo apt-get update -qq
-- sudo apt-get -y install build-essential qt5-default qt59tools qt59base g++-4.8 libssl-dev
+- sudo apt-get -y install build-essential qt5-default qt510tools qt510base g++-7 libssl-dev
+- export CXX="g++-7"
 
 script: 
 - mkdir build_ff7tk
