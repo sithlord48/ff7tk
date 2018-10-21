@@ -16,7 +16,14 @@
 #ifndef CHAREDITOR_H
 #define CHAREDITOR_H
 
-#include <QtWidgets>
+#include "qglobal.h"
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
+	#include <QtWidgets>
+#else
+	#include <QtGui>
+#endif
+
+
 //set path to FF7Item FF7Materia and FF7Char
 #include "../data/FF7Item.h"
 #include "../data/FF7Materia.h"
@@ -40,8 +47,8 @@ public:
 	void setSliderStyle(QString style);
 	void MaxStats();
 	void MaxEquip();
-	qint8 id();
-	qint8 level();
+    quint8 id();
+    quint8 level();
 	quint8 str();
 	quint8 vit();
 	quint8 mag();
