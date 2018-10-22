@@ -34,8 +34,11 @@ MateriaEditor::MateriaEditor(quint8 materia_id,qint32 materia_ap,qreal Scale,QWi
 void MateriaEditor::init_display()
 {//Make Widgets and set Properties.
 	//Widget Creation.
+    QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
 	combo_type =new QComboBox;
+    combo_type->setIconSize(iconSize);
 	combo_materia = new QComboBox;
+    combo_materia->setIconSize(iconSize);
 	sb_ap = new QSpinBox;
 	lbl_slash = new QLabel("/");
 	lbl_max_ap = new QLabel;
@@ -71,7 +74,6 @@ void MateriaEditor::init_display()
 	//Special Properties Of Above Widgets
 	sb_ap->setWrapping(1);
 	sb_ap->setAlignment(Qt::AlignCenter);
-    QSize iconSize = QSize(fontMetrics().height(),fontMetrics().height());
     btn_rm_materia->setIconSize(iconSize);
     btn_rm_materia->setIcon(QIcon::fromTheme(QString("edit-clear"),QPixmap(":/common/edit-clear")));
     btn_copy_materia->setIconSize(iconSize);
@@ -478,10 +480,10 @@ void MateriaEditor::setSkills()
 		eskill_group->setHidden(true);
 		v_spacer->changeSize(0,0,QSizePolicy::Preferred,QSizePolicy::Expanding);
 		v_spacer->invalidate();
-		switch (_level)
+        switch (_level)
 		{// no breaks on purpose
-			case 5:if(data->skills(_id).count()>4){list_skills->insertItem(0,data->skills(_id).at(4));}
-			case 4:if(data->skills(_id).count()>3){list_skills->insertItem(0,data->skills(_id).at(3));}
+            case 5: if(data->skills(_id).count()>4){list_skills->insertItem(0,data->skills(_id).at(4));}
+            case 4:if(data->skills(_id).count()>3){list_skills->insertItem(0,data->skills(_id).at(3));}
 			case 3:if(data->skills(_id).count()>2){list_skills->insertItem(0,data->skills(_id).at(2));}
 			case 2:if(data->skills(_id).count()>1){list_skills->insertItem(0,data->skills(_id).at(1));}
 			case 1:if(data->skills(_id).count()>0){list_skills->insertItem(0,data->skills(_id).at(0));}
