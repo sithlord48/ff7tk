@@ -33,6 +33,7 @@
 FF7Save::FF7Save()
 {
 	fileHasChanged = false;
+    Text = new FF7TEXT;
 	for(int i=0;i<15;i++){slotChanged[i]=false;}
 	SG_SIZE=0;
 	SG_HEADER=0;
@@ -1450,7 +1451,7 @@ void FF7Save::newGame(int s,QString fileName)
 	if(isJPN(s))
 	{
 		for(int c=0;c<9;c++){setCharName(s,c,"\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff");}// clear all names.
-		Text.init(1);
+        Text->init(1);
 		setCharName(s,0,QString::fromUtf8("元ソルジャー"));
 		setCharName(s,1,QString::fromUtf8("バレット"));
 		setCharName(s,2,QString::fromUtf8("ティファ"));
@@ -1464,7 +1465,7 @@ void FF7Save::newGame(int s,QString fileName)
 		setDescLocation(s,QString::fromUtf8("１番街駅ホーム"));
 		setLocation(s,QString::fromUtf8("１番街駅ホーム"));
 	}
-	else if(region(s).isEmpty()){setRegion(s,QString("BASCUS-94163FF7-S%1").arg(QString::number(s+1),2,QChar('0')));Text.init(0);}
+    else if(region(s).isEmpty()){setRegion(s,QString("BASCUS-94163FF7-S%1").arg(QString::number(s+1),2,QChar('0')));Text->init(0);}
 	setFileModified(true,s);
 }
 
@@ -1601,50 +1602,50 @@ QList<QByteArray> FF7Save::slotIcon(int s)
 }
 QString FF7Save::charName(int s,int char_num)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
     QByteArray text;
-	for (int n=0;n<12;n++){text.append(slot[s].chars[char_num].name[n]);}
-	return Text.toPC(text);
+    for (int n=0;n<12;n++){text.append(slot[s].chars[char_num].name[n]);}
+    return Text->toPC(text);
 }
 void FF7Save::setCharName(int s,int char_num,QString new_name)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
     for (int i=0;i<12;i++){slot[s].chars[char_num].name[i] =0xFF;}
-	QByteArray temp = Text.toFF7(new_name);
+    QByteArray temp = Text->toFF7(new_name);
 	memcpy(slot[s].chars[char_num].name,temp,temp.length());
 	setFileModified(true,s);
 }
 
 QString FF7Save::descName(int s)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
 	QByteArray text;
-	for (int n=0;n<16;n++){text.append(slot[s].desc.name[n]);}
-	return Text.toPC(text);
+    for (int n=0;n<16;n++){text.append(slot[s].desc.name[n]);}
+    return Text->toPC(text);
 }
 void FF7Save::setDescName(int s,QString new_name)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
 	for (int i=0;i<16;i++){slot[s].desc.name[i] =0xFF;}
-	QByteArray temp = Text.toFF7(new_name);
+    QByteArray temp = Text->toFF7(new_name);
 	memcpy(slot[s].desc.name,temp,temp.length());
 	setFileModified(true,s);
 }
 
 QString FF7Save::descLocation(int s)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
 	QByteArray text;
 	for (int n=0;n<24;n++){text.append(slot[s].desc.location[n]);}
-	return Text.toPC(text);
+    return Text->toPC(text);
 }
 
 void FF7Save::setDescLocation(int s, QString new_desc_location)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
 	QByteArray text;
 	for (int i=0;i<32;i++){slot[s].desc.location[i] =0xFF;}
-	QByteArray temp = Text.toFF7(new_desc_location);
+    QByteArray temp = Text->toFF7(new_desc_location);
 	memcpy(slot[s].desc.location,temp,temp.length());
 	setFileModified(true,s);
 }
@@ -1683,17 +1684,17 @@ void FF7Save::setTime(int s,quint32 new_time)
 QString FF7Save::location(int s)
 {
 
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
 	QByteArray text;
 	for (int n=0;n<24;n++){text.append(slot[s].location[n]);}
-	return Text.toPC(text);
+    return Text->toPC(text);
 }
 void FF7Save::setLocation(int s, QString new_location)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
 	QByteArray text;
 	for (int i=0;i<24;i++){slot[s].location[i] =0xFF;}
-	QByteArray temp = Text.toFF7(new_location);
+    QByteArray temp = Text->toFF7(new_location);
 	memcpy(slot[s].location,temp,temp.length());
 	//and the description.
 	setDescLocation(s,new_location);
@@ -1807,15 +1808,15 @@ void FF7Save::setSpeedScore(int s, int rank,quint16 score)
 
 QString FF7Save::chocoName(int s,int choco_num)
 {
-    Text.init(isJPN(s));
+    Text->init(isJPN(s));
 	QByteArray text;
 	for (int n=0;n<6;n++){text.append(slot[s].chocobonames[choco_num][n]);}
-	return Text.toPC(text);
+    return Text->toPC(text);
 }
 void FF7Save::setChocoName(int s,int choco_num,QString new_name)
 {
-    Text.init(isJPN(s));
-	QByteArray temp = Text.toFF7(new_name);
+    Text->init(isJPN(s));
+    QByteArray temp = Text->toFF7(new_name);
 	for (int i=0;i<6;i++){slot[s].chocobonames[choco_num][i] =0xFF;}
 	memcpy(slot[s].chocobonames[choco_num],temp,temp.length());
 	setFileModified(true,s);
@@ -2936,16 +2937,16 @@ bool FF7Save::soundMode(int s){return (slot[s].options & (1<<0));}
 
 void FF7Save::setSoundMode(int s,int mode)
 {
-	if(mode !=soundMode(s))
-	{
-		switch(mode)
-		{
-			case SOUND_MONO: slot[s].options &= ~(1<<0); break;
-			case SOUND_STEREO: slot[s].options |= (1<<0);   break;
-			default: slot[s].options &= ~(1<<0) ; break;
-		}
-		setFileModified(true,s);
-	 }
+    if(!(mode && soundMode(s)))
+    {
+        switch(mode)
+        {
+            case SOUND_MONO: slot[s].options &= ~(1<<0); break;
+            case SOUND_STEREO: slot[s].options |= (1<<0);   break;
+            default: slot[s].options &= ~(1<<0) ; break;
+        }
+        setFileModified(true,s);
+     }
 }
 void FF7Save::setSoundMode(int s,bool mode)
 {
@@ -2960,7 +2961,7 @@ void FF7Save::setSoundMode(int s,bool mode)
 bool FF7Save::controlMode(int s){return (slot[s].options& (1<<2));}
 void FF7Save::setControlMode(int s, int mode)
 {
-	if(mode !=controlMode(s))
+    if(!(mode && controlMode(s)))
 	{
 		switch(mode)
 		{
@@ -3030,7 +3031,7 @@ bool FF7Save::cameraMode(int s){return (slot[s].options&(1<<8));}
 
 void FF7Save::setCameraMode(int s, int mode)
 {
-	if(mode != cameraMode(s))
+    if(!(mode && cameraMode(s)))
 	{
 		switch(mode)
 		{

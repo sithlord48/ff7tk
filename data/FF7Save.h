@@ -512,12 +512,12 @@ class FF7Save: public QObject{
 
 	/** \brief setSound mode for a slot
 	 *  \param s slot number (0-14)
-	 *	\param new soundMode FF7Save::SOUNDMODE
-	 */
-	void setSoundMode(int s, int mode);
+     *	\param new soundMode FF7Save::SOUNDMODE
+     */
+    void setSoundMode(int s, int mode);
 
 	void setSoundMode(int s, bool mode);
-	bool controlMode(int s);
+    bool controlMode(int s);
 	void setControlMode(int s, int mode);
 	void setControlMode(int s, bool mode);
 	bool cursorMode(int s);
@@ -1029,7 +1029,7 @@ private:
 	QString buffer_region; // hold the buffers region data.
 	QString SG_Region_String[15];
 	QString filename;//opened file;
-	FF7TEXT Text;
+    FF7TEXT *Text;
 	bool fileHasChanged;
 	bool slotChanged[15];
 	int SG_SIZE;
