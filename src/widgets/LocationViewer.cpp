@@ -59,7 +59,7 @@ void LocationViewer::init_display(void)
 
 	locationTable = new QTableWidget;
 	locationTable->setColumnCount(3);
-	locationTable->setRowCount(Locations->len());
+    locationTable->setRowCount(Locations->size());
 	locationTable->verticalHeader()->setHidden(true);
 	locationTable->setSelectionBehavior(QAbstractItemView::SelectRows);
 	locationTable->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -298,7 +298,7 @@ void LocationViewer::setSelected(QString locFilename)
 {
 	//if(locFilename == locationTable->item(locationTable->currentRow(),0)->text()){return;}
 	locationTable->setCurrentItem(locationTable->item(-1,-1));
-	for(int i=0;i<Locations->len();i++)
+    for(int i=0;i<Locations->size();i++)
 	{
 		if(locationTable->item(i,0)->text()== locFilename)
 		{
