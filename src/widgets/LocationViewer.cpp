@@ -467,7 +467,7 @@ void LocationViewer::init_fieldItems(void)
 	if(fieldFileName.isEmpty()){fieldItemList->setFixedHeight(0);return;}
 	else
 	{
-		for(int i=0;i<fieldItems->count();i++)
+        for(int i=0;i<fieldItems->size();i++)
 		{
 			for(int j=0;j<fieldItems->maps(i).count();j++)
 			{
@@ -530,7 +530,7 @@ void LocationViewer::searchName(QRegExp exp)
 void LocationViewer::searchItem(QRegExp exp)
 {
 	QStringList locationNames;
-	for (int i=0 ; i<fieldItems->count();i++)
+    for (int i=0 ; i<fieldItems->size();i++)
 	{
 		for(int j=0;j<fieldItems->maps(i).length();j++)
 		{
