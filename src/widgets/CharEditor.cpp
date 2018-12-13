@@ -1351,7 +1351,7 @@ void CharEditor::setChar(FF7CHAR Chardata,QString Processed_Name)
 		if(list_limits->item(i)->text()=="") {list_limits->item(i)->setHidden(true);}
 		else{list_limits->item(i)->setHidden(false);}
 
-		if(data.limits & (1<< _limitbitarray[i])){list_limits->item(i)->setCheckState(Qt::Checked);} //Vegeta_Ss4: Fixed list_limits GUI
+        if(data.limits & (1<< Chars.limitBitConvert(i))){list_limits->item(i)->setCheckState(Qt::Checked);}
 		else{list_limits->item(i)->setCheckState(Qt::Unchecked);}
 	}
 	list_limits->setFixedHeight(list_limits->sizeHintForRow(0)*list_limits->count() +list_limits->contentsMargins().top()+list_limits->contentsMargins().bottom());
@@ -1839,8 +1839,8 @@ void CharEditor::calc_limit_value(QModelIndex item)
 {
 	int row = item.row();
 	int limits = data.limits;
-	if(list_limits->item(row)->checkState()==Qt::Checked){limits |= (1<< _limitbitarray[row]);}
-	else{limits &= ~(1<<_limitbitarray[row]);}
+    if(list_limits->item(row)->checkState()==Qt::Checked){limits |= (1<< Chars.limitBitConvert(row));}
+    else{limits &= ~(1<< Chars.limitBitConvert(row));}
 	setLimits(limits);
 }
 void CharEditor::setAutoLevel(bool ans){autolevel=ans;if(ans){Level_Changed(data.level);}}//used to turn off auto char leveling
