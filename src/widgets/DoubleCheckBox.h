@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2016 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2018 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -14,8 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 
-#ifndef DOUBLECHECKBOX_H
-#define DOUBLECHECKBOX_H
+#pragma once
 
 #include <QtWidgets>
 
@@ -27,19 +26,21 @@ class DoubleCheckBox : public QWidget
 	Q_OBJECT
 public:
 	/** \brief create a new empty Double Checkbox
+     *  \param scale scale of pixmaps.
 	 *	\param parent parent of this widget
 	*/
-	explicit DoubleCheckBox(qreal Scale=1,QWidget *parent = 0);
+    explicit DoubleCheckBox(qreal scale=1, QWidget *parent = nullptr);
 	/** \brief create a new empty Double Checkbox
 	 *	\param text Text for this checkbox
+	 *  \param scale scale of pixmaps.
 	 *	\param parent parent of this widget
 	 */
-	explicit DoubleCheckBox(const QString &text,qreal Scale=1,QWidget *parent = 0);
-
+    explicit DoubleCheckBox(const QString &text, qreal scale=1, QWidget *parent = nullptr);
+    ~DoubleCheckBox() = default;
 	/** \brief set the text displayed
 	 *	\param text Text for this checkbox
 	 */
-	void setText(QString text);
+    void setText(const QString& text);
 
 	/** \brief set if a box is checked
 	 *	\param box checkbox (1-2) 1 is closest to text
@@ -51,18 +52,18 @@ public:
 	 *	\param box checkbox (1-2) 1 is closest to text
 	 *	\return checkbox checked ?
 	 */
-	bool checked(int box);
+    bool isChecked(int box);
 
 	/** \brief Set the tooltip for a checkbox
 	 *	\param box checkbox (1-2) 1 is closest to text
 	 *	\param text tooltip text
 	 */
-	void setBoxToolTip(int box,QString text);
+    void setBoxToolTip(int box, const QString& text);
 
 	/** \brief Set the tooltip for the widget
 	 *	\param text tooltip text
 	 */
-	void setToolTip(QString text);
+    void setToolTip(const QString& text);
 signals:
 	/** \brief Signal: box1 has had its state changed
 	 *	\param checked checked state
@@ -73,17 +74,9 @@ signals:
 	 *	\param checked checked state
 	 */
 	void box2_toggled(bool checked);
-
-private slots:
-	void cb_one_toggled(bool checked);
-	void cb_two_toggled(bool checked);
 private:
-	void init_display();
-	void init_connections();
-	QCheckBox *cb_one;
-	QCheckBox *cb_two;
-	QLabel * label;
-	qreal scale;
+    void init_display(qreal scale);
+    QCheckBox *cb_one = nullptr;
+    QCheckBox *cb_two = nullptr;
+    QLabel * label = nullptr;
 };
-
-#endif // DOUBLECHECKBOX_H
