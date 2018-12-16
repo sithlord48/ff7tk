@@ -6,16 +6,20 @@ ff7tk  [![Build Status](https://travis-ci.org/sithlord48/ff7tk.svg?branch=master
 ===
 A Toolkit for making programs that edit final fantasy 7
 
-Requires: Qt and OpenSSL (to sign some save types)<br>
-Doxygen Generated <a href="http://www.blackchocobo.com/ff7tk/index.html">Documentation </a> 
+This project is under [LGPL-3.0]+
 
-Linux Building
----
-Install Qt Dev Package(s) Qt4 or Qt5
-Install OpenSSl Development Package(s)
+## Building with ff7tk
+ - [Building]
+ - ff7tk [Documentation]
 
-Windows Building
----
-Install Qt Dev Tools 
-Install OpenSSL Full
-Adjust the win32 INCLUDEPATH and LIBS path to your openSSL Installed path.
+## Getting Involved
+ - Report [Bugs].
+ - Support us by making a [Donation].
+ - [Contribute] to ff7tk.
+
+[Bugs]:https://github.com/sithlord48/ff7tk/issues
+[Documentation]:http://sithlord48.github.io/ff7tk/
+[LGPL-3.0]:https://www.gnu.org/licenses/lgpl.html
+[Building]:http://sithlord48.github.io/ff7tk/md_build.html
+[Contribute]:http://sithlord48.github.io/ff7tk/md_contrib.html
+[Donation]:http://sourceforge.net/p/blackchocobo/donate/

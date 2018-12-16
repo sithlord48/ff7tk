@@ -14,7 +14,7 @@
  * \subsection Building Demo Appliction
  *	Two Demos are included with ff7tk on showing QWidgets and one with QML. Both are examples of how to use ff7tk parts, Each contains a qmake and cmake project file.
  *  The Demo App included can be compiled easily if you have QtCreator installed by opening the pro file for either ff7tkWidgetGallery or ff7tkQmlGallery. The demo applications do not require OpenSSL to be build when loading the pro files.Each Demo also includes a CMake Example
- 
+
  \subsection step3 Getting Involved
     You can help ff7tk by writing applications with it to expose bugs and missing items and/or contribute new items where lacking.
 */
