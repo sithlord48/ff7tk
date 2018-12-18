@@ -106,8 +106,8 @@ RESOURCES+=\
 #			../lang/ff7tk_jp.ts \
 #			../lang/ff7tk_re.ts
 unix:{
-	#DEFINES += OPENSSL=1							# Enable openSSL support
-	#LIBS += -lcrypto								# Enable crypto lib
+	DEFINES += OPENSSL=1							# Enable openSSL support
+	LIBS += -lcrypto								# Enable crypto lib
 }
 win32:{
 	#Set OpenSSL include & lib paths

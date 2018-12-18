@@ -19,11 +19,10 @@
 #include <QFile>
 #include <QDataStream>
 #include <QTextStream>
-#include <QCryptographicHash>
+#include <QMessageAuthenticationCode>
 //Includes From OpenSSL
 #if defined(OPENSSL) && (OPENSSL == 1)
 #include <openssl/evp.h>
-#include <openssl/hmac.h>
 #include <openssl/aes.h>
 #else
 #define OPENSSL 0
@@ -121,10 +120,10 @@ bool FF7Save::loadFile(const QString &fileName)
 
 	}
 	else{return false;}
-	file.close();
+    file.close();
 	filename=fileName;
 	setFileModified(false,0);
-	return true;
+    return true;
 }
 QByteArray FF7Save::fileHeader(void)
 {
@@ -845,51 +844,32 @@ void FF7Save::fix_psx_header(int s)
 
 void FF7Save::fix_psv_header(int s)
 {
-	fix_psx_header(s);//adjust time.
-	#if (OPENSSL == 1)
+#if (OPENSSL == 1)
 		/* do signing stuff */
-		//qDebug() << QString("key:	%1 (%2 bytes)").arg(ps3Key().toHex().toUpper(),QString::number(ps3Key().length()));
-		//qDebug() << QString("Ps3Seed:	%1 (%2 bytes)").arg(ps3Seed().toHex().toUpper(),QString::number(ps3Seed().length()));
-
 		QByteArray keySeed = fileHeader().mid(0x08,20);
-		//qDebug() << QString("Encrypted KeySeed:    %1 (%2 bytes)").arg(keySeed.toHex().toUpper(),QString::number(keySeed.length()));
 
+        fix_psx_header(s);//adjust time.
 		QByteArray hmacDigest = fileHeader().mid(0x1C,20);
 		QByteArray signedData = fileHeader().mid(0x30);
-		signedData.append(slotPsxRawData(0));
-		QByteArray decryptedKeySeed;decryptedKeySeed.resize(keySeed.size()+16);
+        signedData.append(slotPsxRawData(0));
+        QByteArray decryptedKeySeed;
 
-		const EVP_CIPHER *cipher = EVP_aes_128_cbc();
 		int inLen=keySeed.length();
 		int outLen=0x10;
 
-		EVP_CIPHER_CTX ctx;
-		EVP_CIPHER_CTX_init(&ctx);
-		EVP_DecryptInit(&ctx, cipher, (const unsigned char*)ps3Key().data(), (const unsigned char*)ps3Seed().data()); //Working on unix
-		EVP_DecryptUpdate(&ctx, (unsigned char*)decryptedKeySeed.data(), &outLen, (const unsigned char*)keySeed.data(), inLen);
+        EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+        EVP_DecryptInit_ex(ctx, EVP_aes_128_cbc(), NULL, (const unsigned char*)ps3Key().data(), (const unsigned char*)ps3Seed().data());
+        EVP_DecryptUpdate(ctx, (unsigned char*)decryptedKeySeed.data(), &outLen, (const unsigned char*)keySeed.data(), inLen);
 		int tempLen=outLen;
-		EVP_DecryptFinal(&ctx,(unsigned char*)decryptedKeySeed.data()+tempLen,&outLen);
-		EVP_CIPHER_CTX_cleanup(&ctx);
+        EVP_DecryptFinal(ctx, (unsigned char*)decryptedKeySeed.data()+tempLen, &outLen);
+        EVP_CIPHER_CTX_free(ctx);
 
 		decryptedKeySeed.resize(tempLen);
+        QByteArray newHMAC = QMessageAuthenticationCode::hash(signedData, decryptedKeySeed, QCryptographicHash::Sha1).toHex();
+        qDebug() << QString("New HMAC Digest:	%1 (%2 bytes)").arg(newHMAC.toHex().toUpper(), QString::number(newHMAC.length()));
 
-		//qDebug() << QString("Decrypted KeySeed:	%1 (%2 bytes)").arg(decryptedKeySeed.toHex().toUpper(),QString::number(decryptedKeySeed.length()));
-
-		QByteArray newHMAC; newHMAC.resize(0x14);
-		unsigned int result_len = 0x14;
-		//qDebug() << QString("Signed Data Size:%1 bytes").arg(QString::number(signedData.length()));
-
-		HMAC_CTX ctx2;
-		HMAC_CTX_init(&ctx2);
-		HMAC_Init(&ctx2, decryptedKeySeed.data(), decryptedKeySeed.length(), EVP_sha1());
-		HMAC_Update(&ctx2, (unsigned char *)signedData.data(), signedData.length());
-		HMAC_Final(&ctx2, ( unsigned char*)newHMAC.data(), &result_len);
-		HMAC_CTX_cleanup(&ctx2);
-		//qDebug() << QString("Files HMAC Digest:	%1 (%2 bytes)").arg(hmacDigest.toHex().toUpper(),QString::number(hmacDigest.length()));
-		//qDebug() << QString("New HMAC Digest:	%1 (%2 bytes)").arg(newHMAC.toHex().toUpper(), QString::number(newHMAC.length()));
-
-	 QByteArray temp = fileHeader().replace(0x1C,0x14,newHMAC);
-	 setFileHeader(temp);
+    QByteArray temp = fileHeader().replace(0x1C,0x14,newHMAC);
+    setFileHeader(temp);
 	#endif
 }
 
@@ -2350,6 +2330,7 @@ QString FF7Save::md5sum(QString fileName, QString UserID)
 			ff7file.append(UserID.toLatin1());//append the user's ID
 		}
 	}
+
 	QCryptographicHash md5(QCryptographicHash::Md5);
 	md5.addData(ff7file);
 	return md5.result().toHex().toLower();
