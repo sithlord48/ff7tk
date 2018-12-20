@@ -1,0 +1,24 @@
+
+/*! \mainpage ff7tk
+ *
+ * \section intro Introduction
+ *
+ * Welcome to the documentation for the ff7tk (Final Fantasy 7 toolkit). ff7tk is a Cross Platform toolkit for creating programs that can edit the data from Final Fantasy 7. With ff7tk you can create new tools for final fantasy 7 easily.
+ *
+ * \subsection Getting the code
+ *	the code is hosted on git hub http://github.com/sithlord48/ff7tk
+ 
+ * \subsection Dependencies
+    ff7tk is built on top of Qt (<http://qt-project.org>) and Qt libraries are required to build it.
+    Optionally ff7tk can link to OpenSSL (<http://openssl.org>)  to use cryptographic functions needed for same save types. Inclusion of OPENSSL can be controlled with the Option `OPENSSL`. See ff7tkDemo.pro for an example of how  you could enable it.
+ * \subsection Building Demo Appliction
+ *	Two Demos are included with ff7tk on showing QWidgets and one with QML. Both are examples of how to use ff7tk parts, Each contains a qmake and cmake project file.
+ *  The Demo App included can be compiled easily if you have QtCreator installed by opening the pro file for either ff7tkWidgetGallery or ff7tkQmlDemo.
+ The demo applications do not require OpenSSL to be build when loading the pro files.
+ Each Demo also includes a CMakeLists.txt to configure your project with cmake This needs ZLib. 
+ 
+ \subsection step3 Getting Involved
+    You can help ff7tk by writing applications with it to expose bugs and missing items and/or contribute new items where lacking.
+*/
+ 
+  

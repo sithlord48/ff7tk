@@ -3,8 +3,8 @@
 ######################################################################
 
 TEMPLATE= app
-TARGET = ff7tkDemo
-QMAKE_CXXFLAGS += -std=c++17
+TARGET = ff7tkWidgetGallery
+CONFIG+= c++1z
 QT+= core gui xml widgets
 
 # Input
