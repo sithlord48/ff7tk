@@ -7,6 +7,7 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     qmlRegisterType<FF7TEXT>("FF7Text", 1, 0, "FF7Text");

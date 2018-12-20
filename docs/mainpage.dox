@@ -13,9 +13,7 @@
     Optionally ff7tk can link to OpenSSL (<http://openssl.org>)  to use cryptographic functions needed for same save types. Inclusion of OPENSSL can be controlled with the Option `OPENSSL`. See ff7tkDemo.pro for an example of how  you could enable it.
  * \subsection Building Demo Appliction
  *	Two Demos are included with ff7tk on showing QWidgets and one with QML. Both are examples of how to use ff7tk parts, Each contains a qmake and cmake project file.
- *  The Demo App included can be compiled easily if you have QtCreator installed by opening the pro file for either ff7tkWidgetGallery or ff7tkQmlDemo.
- The demo applications do not require OpenSSL to be build when loading the pro files.
- Each Demo also includes a CMakeLists.txt to configure your project with cmake This needs ZLib. 
+ *  The Demo App included can be compiled easily if you have QtCreator installed by opening the pro file for either ff7tkWidgetGallery or ff7tkQmlGallery. The demo applications do not require OpenSSL to be build when loading the pro files.Each Demo also includes a CMake Example
  
  \subsection step3 Getting Involved
     You can help ff7tk by writing applications with it to expose bugs and missing items and/or contribute new items where lacking.
