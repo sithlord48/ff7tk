@@ -21,11 +21,9 @@
 #include <QTextStream>
 #include <QMessageAuthenticationCode>
 //Includes From OpenSSL
-#if defined(OPENSSL) && (OPENSSL == 1)
-#include <openssl/evp.h>
-#include <openssl/aes.h>
-#else
-#define OPENSSL 0
+#if defined(EnableOpenSSL)
+    #include <openssl/evp.h>
+    #include <openssl/aes.h>
 #endif
 // This Class should contain NO Gui Parts
 
@@ -844,33 +842,32 @@ void FF7Save::fix_psx_header(int s)
 
 void FF7Save::fix_psv_header(int s)
 {
-#if (OPENSSL == 1)
-		/* do signing stuff */
-		QByteArray keySeed = fileHeader().mid(0x08,20);
+#if defined(EnableOpenSSL)
+    /* do signing stuff */
+    QByteArray keySeed = fileHeader().mid(0x08,20);
+    fix_psx_header(s);//adjust time.
+    QByteArray hmacDigest = fileHeader().mid(0x1C,20);
+    QByteArray signedData = fileHeader().mid(0x30);
+    signedData.append(slotPsxRawData(0));
+    QByteArray decryptedKeySeed;
 
-        fix_psx_header(s);//adjust time.
-		QByteArray hmacDigest = fileHeader().mid(0x1C,20);
-		QByteArray signedData = fileHeader().mid(0x30);
-        signedData.append(slotPsxRawData(0));
-        QByteArray decryptedKeySeed;
+    int inLen=keySeed.length();
+    int outLen=0x10;
 
-		int inLen=keySeed.length();
-		int outLen=0x10;
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    EVP_DecryptInit_ex(ctx, EVP_aes_128_cbc(), NULL, (const unsigned char*)ps3Key().data(), (const unsigned char*)ps3Seed().data());
+    EVP_DecryptUpdate(ctx, (unsigned char*)decryptedKeySeed.data(), &outLen, (const unsigned char*)keySeed.data(), inLen);
+    int tempLen=outLen;
+    EVP_DecryptFinal(ctx, (unsigned char*)decryptedKeySeed.data()+tempLen, &outLen);
+    EVP_CIPHER_CTX_free(ctx);
 
-        EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
-        EVP_DecryptInit_ex(ctx, EVP_aes_128_cbc(), NULL, (const unsigned char*)ps3Key().data(), (const unsigned char*)ps3Seed().data());
-        EVP_DecryptUpdate(ctx, (unsigned char*)decryptedKeySeed.data(), &outLen, (const unsigned char*)keySeed.data(), inLen);
-		int tempLen=outLen;
-        EVP_DecryptFinal(ctx, (unsigned char*)decryptedKeySeed.data()+tempLen, &outLen);
-        EVP_CIPHER_CTX_free(ctx);
-
-		decryptedKeySeed.resize(tempLen);
-        QByteArray newHMAC = QMessageAuthenticationCode::hash(signedData, decryptedKeySeed, QCryptographicHash::Sha1).toHex();
-        qDebug() << QString("New HMAC Digest:	%1 (%2 bytes)").arg(newHMAC.toHex().toUpper(), QString::number(newHMAC.length()));
+    decryptedKeySeed.resize(tempLen);
+    QByteArray newHMAC = QMessageAuthenticationCode::hash(signedData, decryptedKeySeed, QCryptographicHash::Sha1).toHex();
+    qDebug() << QString("New HMAC Digest: %1 (%2 bytes)").arg(newHMAC.toHex().toUpper(), QString::number(newHMAC.length()));
 
     QByteArray temp = fileHeader().replace(0x1C,0x14,newHMAC);
     setFileHeader(temp);
-	#endif
+#endif
 }
 
 void FF7Save::fix_vmc_header(void)

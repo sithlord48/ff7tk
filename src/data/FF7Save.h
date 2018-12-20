@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2016  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2018  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -32,28 +32,29 @@
 /** \class FF7Save
  *	\todo add support for signing psv files.
  *	\todo add support for signing vmp files.
+ *  \todo add support for ps4 format saves.
  *	\brief edit saves from Final Fantasy 7
  *
  *	FF7Save does it all for you open the file , edit then save. All of the file handling will be taken care of for you.
  *	the following are supported formats:
- *	|Flie	| Description |
- *	|-------|-------------|
- *	|*.ff7	|PC Format Save if with a metadata.xml file will attempt to sign it|
- *	|*.mcr	|Common Emulator format (Virtual Memory Card)|
- *	|*.mcd	|Common Emulator format (Virtual Memory Card)|
- *	|*.mci	|Common Emulator format (Virtual Memory Card)|
- *	|*.mc	|Common Emulator format (Virtual Memory Card)|
- *	|*.ddf	|Common Emulator format (Virtual Memory Card)|
- *	|*.ps	|Common Emulator format (Virtual Memory Card)|
- *	|*.psm	|Common Emulator format (Virtual Memory Card)|
- *	|*.bin	|Common Emulator format (Virtual Memory Card)|
- *	|*.vgs	|Memory Card from Virtual Game Station|
- *	|*.mem	|Memory Card from Virtual Game Station|
- *	|*.gme	|Dex drive format virtual memory card|
- *	|*.VM1	|Internal PSX Memory Card on PS3 (Virtual Memory Card)|
- *	|*.vmp	| VMC format used by the PSP/PsVita. Can not sign this type yet;reimport to console will fail|
- *	|*.psv	| Saves "Exported" by a PS3. can not sign this type yet;reimport to console will fail|
- *	|*FF7-S*| A Raw PSX memory card "file" extracted from a real or virtual memory card|
+ *	|Flie	| Description 
+ *	|-------|-------------
+ *	|*.ff7	|PC Format Save if with a metadata.xml file will attempt to sign it
+ *	|*.mcr	|Common Emulator format (Virtual Memory Card)
+ *	|*.mcd	|Common Emulator format (Virtual Memory Card)
+ *	|*.mci	|Common Emulator format (Virtual Memory Card)
+ *	|*.mc	|Common Emulator format (Virtual Memory Card)
+ *	|*.ddf	|Common Emulator format (Virtual Memory Card)
+ *	|*.ps	|Common Emulator format (Virtual Memory Card)
+ *	|*.psm	|Common Emulator format (Virtual Memory Card)
+ *	|*.bin	|Common Emulator format (Virtual Memory Card)
+ *	|*.vgs	|Memory Card from Virtual Game Station
+ *	|*.mem	|Memory Card from Virtual Game Station
+ *	|*.gme	|Dex drive format virtual memory card
+ *	|*.VM1	|Internal PSX Memory Card on PS3 (Virtual Memory Card)
+ *	|*.vmp	|VMC format used by the PSP/PsVita. Can not sign this type yet;reimport to console will fail
+ *	|*.psv	|Saves "Exported" by a PS3. Can sign this type with OpenSSL; Correct keys is unknown.
+ *	|*FF7-S*|A Raw PSX memory card "file" extracted from a real or virtual memory card
  */
 class FF7Save: public QObject{
 	Q_OBJECT
