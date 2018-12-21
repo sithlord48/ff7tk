@@ -25,12 +25,12 @@ if (OPENSSL)
 endif()
 
 set ( ff7tkData
-    ../data/FF7Text.cpp
-    ../data/FF7Item.cpp
+    ../src/data/FF7Text.cpp
+    ../src/data/FF7Item.cpp
     )
 
 set ( ff7tkIcons
-    ../icons/items.qrc
+    ../src/icons/items.qrc
     )
 
 add_executable ( ff7tkQmlGallery

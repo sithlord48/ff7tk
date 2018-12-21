@@ -9,101 +9,101 @@ QT+= core gui xml widgets
 
 # Input
 HEADERS+=	mainwindow.h\
-			../data/FF7Achievements.h\
-			../data/FF7FieldItemList.h\
-			../data/FF7Item.h \
-			../data/FF7Location.h \
-			../data/FF7Materia.h\
-			../data/FF7Save.h\
-			../data/FF7Save_Const.h\
-			../data/FF7Save_Types.h\
-			../data/FF7Text.h\
-			../data/SaveIcon.h\
-			../data/FF7Char.h\
-			../data/Type_FF7CHAR.h\
-			../data/Type_FF7CHOCOBO.h\
-			../data/Type_materia.h\
-			../formats/Archive.h \
-			../formats/Lgp.h\
-			../formats/Lgp_p.h\
-			../utils/LZS.h\
-			../utils/QLockedFile.h\
-			../widgets/AchievementEditor.h\
-			../widgets/CharEditor.h\
-			../widgets/CharManager.h\
-			../widgets/ChocoboEditor.h\
-			../widgets/ChocoboLabel.h\
-			../widgets/ChocoboManager.h \
-			../widgets/DialogPreview.h\
-			../widgets/DoubleCheckBox.h\
-			../widgets/ItemList.h\
-			../widgets/ItemPreview.h\
-			../widgets/ItemSelector.h\
-			../widgets/LocationViewer.h\
-			../widgets/MateriaEditor.h\
-			../widgets/MenuListWidget.h\
-			../widgets/MetadataCreator.h\
-			../widgets/OptionsWidget.h\
-			../widgets/PhsListWidget.h\
-			../widgets/SlotPreview.h\
-			../widgets/SlotSelect.h
+			../src/data/FF7Achievements.h\
+			../src/data/FF7FieldItemList.h\
+			../src/data/FF7Item.h \
+			../src/data/FF7Location.h \
+			../src/data/FF7Materia.h\
+			../src/data/FF7Save.h\
+			../src/data/FF7Save_Const.h\
+			../src/data/FF7Save_Types.h\
+			../src/data/FF7Text.h\
+			../src/data/SaveIcon.h\
+			../src/data/FF7Char.h\
+			../src/data/Type_FF7CHAR.h\
+			../src/data/Type_FF7CHOCOBO.h\
+			../src/data/Type_materia.h\
+			../src/formats/Archive.h \
+			../src/formats/Lgp.h\
+			../src/formats/Lgp_p.h\
+			../src/utils/LZS.h\
+			../src/utils/QLockedFile.h\
+			../src/widgets/AchievementEditor.h\
+			../src/widgets/CharEditor.h\
+			../src/widgets/CharManager.h\
+			../src/widgets/ChocoboEditor.h\
+			../src/widgets/ChocoboLabel.h\
+			../src/widgets/ChocoboManager.h \
+			../src/widgets/DialogPreview.h\
+			../src/widgets/DoubleCheckBox.h\
+			../src/widgets/ItemList.h\
+			../src/widgets/ItemPreview.h\
+			../src/widgets/ItemSelector.h\
+			../src/widgets/LocationViewer.h\
+			../src/widgets/MateriaEditor.h\
+			../src/widgets/MenuListWidget.h\
+			../src/widgets/MetadataCreator.h\
+			../src/widgets/OptionsWidget.h\
+			../src/widgets/PhsListWidget.h\
+			../src/widgets/SlotPreview.h\
+			../src/widgets/SlotSelect.h
 
 FORMS+=		mainwindow.ui
 
 SOURCES+=	main.cpp\
 			mainwindow.cpp\
-			../data/FF7Achievements.cpp\
-			../data/FF7Char.cpp\
-			../data/FF7FieldItemList.cpp\
-			../data/FF7Item.cpp\
-			../data/FF7Location.cpp\
-			../data/FF7Materia.cpp\
-			../data/FF7Save.cpp\
-			../data/FF7Text.cpp\
-			../data/SaveIcon.cpp\
-			../formats/Archive.cpp\
-			../utils/LZS.cpp\
-			../utils/QLockedFile.cpp\
-			../formats/Lgp.cpp\
-			../formats/Lgp_p.cpp\
-			../widgets/AchievementEditor.cpp\
-			../widgets/CharEditor.cpp\
-			../widgets/CharManager.cpp\
-			../widgets/ChocoboEditor.cpp\
-			../widgets/ChocoboLabel.cpp\
-			../widgets/ChocoboManager.cpp\
-			../widgets/DialogPreview.cpp\
-			../widgets/DoubleCheckBox.cpp\
-			../widgets/ItemList.cpp\
-			../widgets/ItemPreview.cpp\
-			../widgets/ItemSelector.cpp\
-			../widgets/LocationViewer.cpp\
-			../widgets/MenuListWidget.cpp\
-			../widgets/MateriaEditor.cpp\
-			../widgets/MetadataCreator.cpp\
-			../widgets/OptionsWidget.cpp\
-			../widgets/PhsListWidget.cpp\
-			../widgets/SlotPreview.cpp\
-			../widgets/SlotSelect.cpp
+			../src/data/FF7Achievements.cpp\
+			../src/data/FF7Char.cpp\
+			../src/data/FF7FieldItemList.cpp\
+			../src/data/FF7Item.cpp\
+			../src/data/FF7Location.cpp\
+			../src/data/FF7Materia.cpp\
+			../src/data/FF7Save.cpp\
+			../src/data/FF7Text.cpp\
+			../src/data/SaveIcon.cpp\
+			../src/formats/Archive.cpp\
+			../src/utils/LZS.cpp\
+			../src/utils/QLockedFile.cpp\
+			../src/formats/Lgp.cpp\
+			../src/formats/Lgp_p.cpp\
+			../src/widgets/AchievementEditor.cpp\
+			../src/widgets/CharEditor.cpp\
+			../src/widgets/CharManager.cpp\
+			../src/widgets/ChocoboEditor.cpp\
+			../src/widgets/ChocoboLabel.cpp\
+			../src/widgets/ChocoboManager.cpp\
+			../src/widgets/DialogPreview.cpp\
+			../src/widgets/DoubleCheckBox.cpp\
+			../src/widgets/ItemList.cpp\
+			../src/widgets/ItemPreview.cpp\
+			../src/widgets/ItemSelector.cpp\
+			../src/widgets/LocationViewer.cpp\
+			../src/widgets/MenuListWidget.cpp\
+			../src/widgets/MateriaEditor.cpp\
+			../src/widgets/MetadataCreator.cpp\
+			../src/widgets/OptionsWidget.cpp\
+			../src/widgets/PhsListWidget.cpp\
+			../src/widgets/SlotPreview.cpp\
+			../src/widgets/SlotSelect.cpp
 
 RESOURCES+=\
-			../icons/achievements.qrc\
-			../icons/characters.qrc\
-			../icons/chocobo.qrc\
-			../icons/common.qrc\
-			../icons/items.qrc\
-			../icons/locations.qrc\
-			../icons/materia.qrc\
-			../icons/psxButtons.qrc
+			../src/icons/achievements.qrc\
+			../src/icons/characters.qrc\
+			../src/icons/chocobo.qrc\
+			../src/icons/common.qrc\
+			../src/icons/items.qrc\
+			../src/icons/locations.qrc\
+			../src/icons/materia.qrc\
+			../src/icons/psxButtons.qrc
 
 #Uncomment Below to Generate translations (currently part of black chocobo)
 #TRANSLATIONS+=\
-#			../lang/ff7tk_de.ts \
-#			../lang/ff7tk_en.ts \
-#			../lang/ff7tk_es.ts \
-#			../lang/ff7tk_fr.ts \
-#			../lang/ff7tk_jp.ts \
-#			../lang/ff7tk_re.ts
+#			../src/lang/ff7tk_de.ts \
+#			../src/lang/ff7tk_en.ts \
+#			../src/lang/ff7tk_es.ts \
+#			../src/lang/ff7tk_fr.ts \
+#			../src/lang/ff7tk_jp.ts \
+#			../src/lang/ff7tk_re.ts
 unix:{
 	#DEFINES += OPENSSL=1	# Enable openSSL support
 	#LIBS += -lcrypto		# Enable crypto lib

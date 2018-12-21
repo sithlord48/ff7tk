@@ -1,8 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "../data/FF7Text.h"
-#include "../data/FF7Item.h"
+#include "../src/data/FF7Text.h"
+#include "../src/data/FF7Item.h"
 
 int main(int argc, char *argv[])
 {

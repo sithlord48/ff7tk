@@ -20,20 +20,20 @@
 
 #include <QtWidgets/QMainWindow>
 
-#include "../widgets/MateriaEditor.h"
-#include "../widgets/CharEditor.h"
-#include "../widgets/ItemList.h"
-#include "../widgets/MetadataCreator.h"
-#include "../widgets/SlotSelect.h"
-#include "../widgets/PhsListWidget.h"
-#include "../widgets/MenuListWidget.h"
-#include "../widgets/OptionsWidget.h"
-#include "../widgets/LocationViewer.h"
-#include "../widgets/ChocoboManager.h"
-#include "../widgets/AchievementEditor.h"
-#include "../widgets/CharManager.h"
+#include "../src/widgets/MateriaEditor.h"
+#include "../src/widgets/CharEditor.h"
+#include "../src/widgets/ItemList.h"
+#include "../src/widgets/MetadataCreator.h"
+#include "../src/widgets/SlotSelect.h"
+#include "../src/widgets/PhsListWidget.h"
+#include "../src/widgets/MenuListWidget.h"
+#include "../src/widgets/OptionsWidget.h"
+#include "../src/widgets/LocationViewer.h"
+#include "../src/widgets/ChocoboManager.h"
+#include "../src/widgets/AchievementEditor.h"
+#include "../src/widgets/CharManager.h"
 
-#include "../formats/Lgp.h"
+#include "../src/formats/Lgp.h"
 
 namespace Ui {
 	class MainWindow;

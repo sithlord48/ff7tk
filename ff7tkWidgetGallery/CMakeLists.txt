@@ -34,63 +34,63 @@ set ( ff7tkWidgetGallery_SRCS
 	)
 
 set ( ff7tkData
-    ../data/FF7Achievements.cpp
-    ../data/FF7Char.cpp
-    ../data/FF7FieldItemList.cpp
-    ../data/FF7Item.cpp
-    ../data/FF7Location.cpp
-    ../data/FF7Materia.cpp
-    ../data/FF7Save.cpp #CAN USE OPENSSL TO SIGN PS3 SAVES.
-    ../data/FF7Text.cpp
-    ../data/SaveIcon.cpp
+    ../src/data/FF7Achievements.cpp
+    ../src/data/FF7Char.cpp
+    ../src/data/FF7FieldItemList.cpp
+    ../src/data/FF7Item.cpp
+    ../src/data/FF7Location.cpp
+    ../src/data/FF7Materia.cpp
+    ../src/data/FF7Save.cpp #CAN USE OPENSSL TO SIGN PS3 SAVES.
+    ../src/data/FF7Text.cpp
+    ../src/data/SaveIcon.cpp
 	)
 
 set ( ff7tkFormats
-    ../formats/Archive.cpp
-    ../formats/IsoArchive.cpp
-    ../formats/Lgp_p.cpp
-    ../formats/Lgp.cpp
+    ../src/formats/Archive.cpp
+    ../src/formats/IsoArchive.cpp
+    ../src/formats/Lgp_p.cpp
+    ../src/formats/Lgp.cpp
     )
 
 set ( ff7tkIcons
-    ../icons/achievements.qrc
-    ../icons/characters.qrc
-    ../icons/chocobo.qrc
-    ../icons/common.qrc
-    ../icons/items.qrc
-    ../icons/locations.qrc
-    ../icons/materia.qrc
-    ../icons/psxButtons.qrc
+    ../src/icons/achievements.qrc
+    ../src/icons/characters.qrc
+    ../src/icons/chocobo.qrc
+    ../src/icons/common.qrc
+    ../src/icons/items.qrc
+    ../src/icons/locations.qrc
+    ../src/icons/materia.qrc
+    ../src/icons/psxButtons.qrc
     )
 
 set ( ff7tkUtils
-    ../utils/GZIP.cpp #NEEDS ZLIB
-    ../utils/GZIPPS.cpp 
-    ../utils/LZS.cpp
-    ../utils/PsColor.cpp
-    ../utils/QLockedFile.cpp
+    ../src/utils/GZIP.cpp #NEEDS ZLIB
+    ../src/utils/GZIPPS.cpp 
+    ../src/utils/LZS.cpp
+    ../src/utils/PsColor.cpp
+    ../src/utils/QLockedFile.cpp
     )
 
 set ( ff7tkWidgets
-    ../widgets/AchievementEditor.cpp
-    ../widgets/CharEditor.cpp
-    ../widgets/CharManager.cpp
-    ../widgets/ChocoboEditor.cpp
-    ../widgets/ChocoboLabel.cpp
-    ../widgets/ChocoboManager.cpp
-    ../widgets/DialogPreview.cpp
-    ../widgets/DoubleCheckBox.cpp
-    ../widgets/ItemList.cpp
-    ../widgets/ItemPreview.cpp
-    ../widgets/ItemSelector.cpp
-    ../widgets/LocationViewer.cpp
-    ../widgets/MateriaEditor.cpp
-    ../widgets/MenuListWidget.cpp
-    ../widgets/MetadataCreator.cpp
-    ../widgets/OptionsWidget.cpp
-    ../widgets/PhsListWidget.cpp
-    ../widgets/SlotPreview.cpp
-    ../widgets/SlotSelect.cpp
+    ../src/widgets/AchievementEditor.cpp
+    ../src/widgets/CharEditor.cpp
+    ../src/widgets/CharManager.cpp
+    ../src/widgets/ChocoboEditor.cpp
+    ../src/widgets/ChocoboLabel.cpp
+    ../src/widgets/ChocoboManager.cpp
+    ../src/widgets/DialogPreview.cpp
+    ../src/widgets/DoubleCheckBox.cpp
+    ../src/widgets/ItemList.cpp
+    ../src/widgets/ItemPreview.cpp
+    ../src/widgets/ItemSelector.cpp
+    ../src/widgets/LocationViewer.cpp
+    ../src/widgets/MateriaEditor.cpp
+    ../src/widgets/MenuListWidget.cpp
+    ../src/widgets/MetadataCreator.cpp
+    ../src/widgets/OptionsWidget.cpp
+    ../src/widgets/PhsListWidget.cpp
+    ../src/widgets/SlotPreview.cpp
+    ../src/widgets/SlotSelect.cpp
     )
 add_executable ( ff7tkWidgetGallery ${ff7tkWidgetGallery_SRCS} ${ff7tkData} ${ff7tkFormats} ${ff7tkIcons} ${ff7tkUtils} ${ff7tkWidgets})
 
