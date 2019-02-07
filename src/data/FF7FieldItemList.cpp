@@ -40,3 +40,8 @@ QString FF7FieldItemList::text(int index)
     index = std::clamp(index, 0, size() -1);
     return qApp->translate(_group.toLocal8Bit(), _fieldItemList.at(index).Text.toLocal8Bit());
 }
+
+const QList<FieldItem>& FF7FieldItemList::fieldItemList() const
+{
+    return _fieldItemList;
+}

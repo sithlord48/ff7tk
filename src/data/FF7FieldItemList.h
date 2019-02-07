@@ -18,6 +18,14 @@
 #include<QObject>
 #include<QStringList>
 
+struct FieldItem
+{
+    QList<quint16> Offset; /**< list of offsets to change */
+    QList<quint8> Bit;	/**< list of bits to change (at offset of same index) */
+    QStringList Maps;	/**< list of maps (filename) the item is shown on */
+    QString Text;    /**< text to show. */
+};
+
 /*! \class FF7FieldItemList
 *\todo add more field items
  *  \brief Data Class to allow the tracking and changing of items being picked up on the field
@@ -27,6 +35,9 @@ class FF7FieldItemList : public QObject
     Q_OBJECT
     Q_PROPERTY(int size READ size)
 public:
+    /*! \brief data structure to hold field item  changes
+    */
+
     FF7FieldItemList() = default;
     ~FF7FieldItemList() = default;
 	/*! \brief offset list for an entry (offset[x] bit[x] are pairs needed to read/write correctly
@@ -57,19 +68,17 @@ public:
 	 */
     inline int size() const {return _fieldItemList.size();}
 
+    /*!
+     * \brief Referance to a fieldItem
+     * \param index of item
+     * \return info for one field item
+     */
+    const QList<FieldItem>& fieldItemList() const;
+
 private:
-    /*! \brief data structure to hold field item  changes
-    */
-    struct FieldItemList
-    {
-        QList<quint16> Offset; /**< list of offsets to change */
-        QList<quint8> Bit;	/**< list of bits to change (at offset of same index) */
-        QStringList Maps;	/**< list of maps (filename) the item is shown on */
-        QString Text;    /**< text to show. */
-    };
 
     inline static const auto _group = QStringLiteral("FieldItems");
-    inline static const QList<FieldItemList> _fieldItemList {
+    inline static const QList<FieldItem> _fieldItemList {
         {{quint16(0x0BC8)}, {quint8(0)}, {QStringLiteral("mds7st1")}, QT_TRANSLATE_NOOP(_group, QStringLiteral("Hi-Potion"))}
         , {{quint16(0x0BC8)}, {quint8(1)}, {QStringLiteral("mds7st1")}, QT_TRANSLATE_NOOP(_group, QStringLiteral("Echo Screen"))}
         , {{quint16(0x0BC8)}, {quint8(2)}, {QStringLiteral("mds7st2")}, QT_TRANSLATE_NOOP(_group, QStringLiteral("Potion"))}
