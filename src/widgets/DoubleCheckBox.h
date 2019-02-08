@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2018 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2019 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -26,16 +26,14 @@ class DoubleCheckBox : public QWidget
 	Q_OBJECT
 public:
 	/** \brief create a new empty Double Checkbox
-     *  \param scale scale of pixmaps.
 	 *	\param parent parent of this widget
 	*/
-    explicit DoubleCheckBox(qreal scale=1, QWidget *parent = nullptr);
+    explicit DoubleCheckBox(QWidget *parent = nullptr);
 	/** \brief create a new empty Double Checkbox
 	 *	\param text Text for this checkbox
-	 *  \param scale scale of pixmaps.
 	 *	\param parent parent of this widget
 	 */
-    explicit DoubleCheckBox(const QString &text, qreal scale=1, QWidget *parent = nullptr);
+    explicit DoubleCheckBox(const QString &text, QWidget *parent = nullptr);
     ~DoubleCheckBox() = default;
 	/** \brief set the text displayed
 	 *	\param text Text for this checkbox
@@ -64,6 +62,7 @@ public:
 	 *	\param text tooltip text
 	 */
     void setToolTip(const QString& text);
+
 signals:
 	/** \brief Signal: box1 has had its state changed
 	 *	\param checked checked state
@@ -75,8 +74,9 @@ signals:
 	 */
 	void box2_toggled(bool checked);
 private:
-    void init_display(qreal scale);
+    void init_display();
     QCheckBox *cb_one = nullptr;
     QCheckBox *cb_two = nullptr;
     QLabel * label = nullptr;
+    qreal _scale = 1;
 };

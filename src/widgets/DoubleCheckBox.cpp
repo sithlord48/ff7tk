@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2018  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2019  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -15,26 +15,27 @@
 /****************************************************************************/
 
 #include "DoubleCheckBox.h"
-DoubleCheckBox::DoubleCheckBox(qreal scale,QWidget *parent) :
+DoubleCheckBox::DoubleCheckBox(QWidget *parent) :
 	QWidget(parent)
 {
-    init_display(scale);
+    init_display();
 }
 
-DoubleCheckBox::DoubleCheckBox(const QString &text,qreal scale,QWidget *parent ) :
+DoubleCheckBox::DoubleCheckBox(const QString &text, QWidget *parent ) :
     QWidget(parent)
 {
-    init_display(scale);
+    init_display();
     setText(text);
 }
-void DoubleCheckBox::init_display(qreal scale)
+void DoubleCheckBox::init_display()
 {
+    QString style = QStringLiteral("QCheckBox::indicator{width: %1px; height: %1px;}").arg(fontMetrics().height());
     cb_one = new QCheckBox(this);
-    cb_one->setMaximumSize(int(22*scale), int(22*scale));
+    cb_one->setStyleSheet(style);
     connect(cb_one, &QCheckBox::toggled, this, &DoubleCheckBox::box1_toggled);
 
     cb_two = new QCheckBox(this);
-    cb_two->setMaximumSize(int(22*scale), int(22*scale));
+    cb_two->setStyleSheet(style);
     connect(cb_two, &QCheckBox::toggled, this, &DoubleCheckBox::box2_toggled);
     label = new QLabel(this);
 
@@ -88,3 +89,4 @@ void DoubleCheckBox::setToolTip(const QString& text)
 {
     label->setToolTip(text);
 }
+

@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2016 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2019 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -26,12 +26,12 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	ui->sb_scale->setValue(qApp->desktop()->logicalDpiX()/96);
 	scale = qApp->desktop()->logicalDpiX()/96;
 
-	ListPHS = new PhsListWidget(scale,0);
+    ListPHS = new PhsListWidget(this);
 	QHBoxLayout *listLayout = new QHBoxLayout;
 	listLayout->addWidget(ListPHS);
 	ui->phsListBox->setLayout(listLayout);
 
-	ListMenu = new MenuListWidget(scale,0);
+    ListMenu = new MenuListWidget(this);
 	QHBoxLayout *list2Layout = new QHBoxLayout;
 	list2Layout->addWidget(ListMenu);
 	ui->menuListBox->setLayout(list2Layout);
