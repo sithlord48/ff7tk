@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2018  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2019  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -29,7 +29,7 @@ class AchievementEditor : public QWidget
 {
 	Q_OBJECT
 public:
-    explicit AchievementEditor(qreal Scale = 1, QWidget *parent = nullptr); /**< \brief create a new AchievementEditor */
+    explicit AchievementEditor(QWidget *parent = nullptr); /**< \brief create a new AchievementEditor */
     ~AchievementEditor() = default;
 public slots:
 	/*!	\brief open a file.
@@ -49,7 +49,7 @@ private slots:
 	 */
     void itemToggled(const QModelIndex& index);
 private:
-    void initDisplay(qreal scale); /**< \brief create this items widgets*/
+    void initDisplay(); /**< \brief create this items widgets*/
 	FF7Achievements achievements; /**< \brief data class for widget*/
     QListWidget *achievementList = nullptr; /**< \brief QListWidget that will contain the list of achievements.*/
 };

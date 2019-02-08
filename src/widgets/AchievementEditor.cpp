@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2018  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2019  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -15,17 +15,18 @@
 /****************************************************************************/
 #include "AchievementEditor.h"
 
-AchievementEditor::AchievementEditor(qreal scale,QWidget *parent) :
+AchievementEditor::AchievementEditor(QWidget *parent) :
 	QWidget(parent)
 {
-    initDisplay(scale);
+    initDisplay();
     connect(achievementList, &QListWidget::clicked, this, &AchievementEditor::itemToggled);
 }
 
-void AchievementEditor::initDisplay(qreal scale)
+void AchievementEditor::initDisplay()
 {
     achievementList = new QListWidget;
-    achievementList->setIconSize(QSize(int(24*scale), int(24*scale)));
+    achievementList->setIconSize(QSize(fontMetrics().height(), fontMetrics().height()));
+    achievementList->setStyleSheet(QStringLiteral("QListView::indicator{width: %1px; height:%1px} QListView::item{padding: 0px;}").arg(QString::number(fontMetrics().height())));
     auto layout = new QGridLayout;
     for(int i=63;i>27;--i) {
         QPixmap pix(QString(":/achievements/%1").arg(QString::number(i)));
@@ -34,8 +35,6 @@ void AchievementEditor::initDisplay(qreal scale)
 	}
 	layout->addWidget(achievementList);
     setLayout(layout);
-    setFixedWidth(achievementList->width());
-
 }
 
 bool AchievementEditor::openFile(const QString &fileName)
@@ -64,3 +63,4 @@ bool AchievementEditor::saveFile(const QString &fileName)
 {
 	return achievements.saveFile(fileName);
 }
+
