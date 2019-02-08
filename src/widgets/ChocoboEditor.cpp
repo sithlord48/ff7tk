@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2018  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2019  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -31,6 +31,7 @@ ChocoboEditor::ChocoboEditor(QWidget *parent) :
     , cb_cantMate(new QCheckBox(tr("Unable To Mate"), this))
     , lbl_rank(new QLabel(this))
 {
+    cb_cantMate->setStyleSheet(QStringLiteral("QCheckBox::indicator {width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
     //create Gui Widgets.
     sb_speed = makeSpinBox(9999);
     sb_mSpeed = makeSpinBox(9999);

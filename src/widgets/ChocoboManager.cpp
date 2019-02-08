@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2018  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2019  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -15,20 +15,17 @@
 /****************************************************************************/
 #include "ChocoboManager.h"
 
-ChocoboManager::ChocoboManager(qreal scale,QWidget *parent) :
+ChocoboManager::ChocoboManager(QWidget *parent) :
     QWidget(parent)
 {
-    int scaledSize = int(scale * 24);
 
     sbStablesOwned = new QSpinBox(this);
     sbStablesOwned->setMaximum(6);
     sbStablesOwned->setWrapping(true);
-    sbStablesOwned->setMaximumHeight(scaledSize);
     connect(sbStablesOwned, QOverload<int>::of(&QSpinBox::valueChanged), this, &ChocoboManager::setStablesOwned);
 
     lcdStablesOccupied = new QLCDNumber(1, this);
     lcdStablesOccupied->setSegmentStyle(QLCDNumber::Flat);
-    lcdStablesOccupied->setMaximumSize(QSize(scaledSize, scaledSize));
 
     chocoboEditor = new ChocoboEditor(this);
     chocoboEditor->setHidden(true);
@@ -56,11 +53,10 @@ ChocoboManager::ChocoboManager(qreal scale,QWidget *parent) :
     auto leftSideLayout = new QVBoxLayout;
     leftSideLayout->setSpacing(0);
     leftSideLayout->addLayout(topLayout);
-    leftSideLayout->addLayout(createChocoboLabelGrid(scale));
+    leftSideLayout->addLayout(createChocoboLabelGrid());
     leftSideLayout->addSpacerItem(new QSpacerItem(0,0,QSizePolicy::Preferred,QSizePolicy::MinimumExpanding));
 
-    auto penBox = new QGroupBox(tr("Fenced Chocobos"), this);
-    penBox->setMaximumHeight(int(80*scale));
+    penBox = new QGroupBox(tr("Fenced Chocobos"), this);
     penBox->setLayout(createChocoboPenGrid());
 
     auto rightSideLayout = new QVBoxLayout;
@@ -410,12 +406,12 @@ void ChocoboManager::enableChocoboLabels(int count)
         chocoboLabel[i]->setEnabled(true);
     }
 }
-QGridLayout *ChocoboManager::createChocoboLabelGrid(qreal scale)
+QGridLayout *ChocoboManager::createChocoboLabelGrid()
 {
     auto gridLayout = new QGridLayout;
     gridLayout->setContentsMargins(0,0,0,0);
     for(int i=0; i<6; i++) {
-        chocoboLabel[i] = new ChocoboLabel(scale, tr("Stable:%1").arg(QString::number(i+1)), false, this);
+        chocoboLabel[i] = new ChocoboLabel(tr("Stable:%1").arg(QString::number(i+1)), false, this);
         chocoboLabel[i]->setObjectName(QString::number(i));
         gridLayout->addWidget(chocoboLabel[i], (i/2), (i%2), 1, 1, Qt::AlignCenter);
         chocoboLabel[i]->setEnabled(false);
@@ -472,7 +468,7 @@ QGridLayout *ChocoboManager::createChocoboLabelGrid(qreal scale)
             stablesOccupied = qint8(lcdStablesOccupied->intValue());
             emit occupiedChanged(stablesOccupied);
             emit stableMaskChanged(stableMask);
-    });
+        });
     rmChocobo(i);
     }
     return gridLayout;

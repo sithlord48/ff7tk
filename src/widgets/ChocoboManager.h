@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2018 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2013 - 2019 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -23,7 +23,7 @@ class ChocoboManager : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChocoboManager(qreal scale=1,QWidget *parent=nullptr);
+    explicit ChocoboManager(QWidget *parent = nullptr);
 signals:
     void ownedChanged(qint8);
     void occupiedChanged(qint8);
@@ -55,7 +55,6 @@ public slots:
     void setOwned(int owned);
     void setOccupied(int occupied,int mask);
     void setHoverStyle(QString Color);
-
 private slots:
     void ChocoboChanged(int s);
     void setStablesOwned(int value);
@@ -68,11 +67,12 @@ private:
     void labelUpdate(int label);
     void connectEditor();
     QGridLayout* createChocoboPenGrid();
-    QGridLayout* createChocoboLabelGrid(qreal scale);
+    QGridLayout* createChocoboLabelGrid();
     QSpinBox *sbStablesOwned = nullptr;
     QLCDNumber *lcdStablesOccupied = nullptr;
     ChocoboLabel *chocoboLabel[6] = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
     ChocoboEditor *chocoboEditor = nullptr;
+    QGroupBox *penBox = nullptr;
     qint8 stablesOwned = 0;
     qint8 stablesOccupied = 0;
     qint8 stableMask;

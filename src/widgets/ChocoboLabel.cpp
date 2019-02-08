@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2018  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2019  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -26,19 +26,21 @@ bool ChocoboLabel::event(QEvent *ev)
     }
 }
 
-ChocoboLabel::ChocoboLabel(qreal scale,const QString &titleText,bool occupied,QWidget *parent) :
+ChocoboLabel::ChocoboLabel(const QString &titleText,bool occupied,QWidget *parent) :
 	QWidget(parent)
     , lblType(new QLabel(this))
     , lblName(new QLabel(this))
     , lblRank(new QLabel(this))
     , lblSex(new QLabel(this))
 {
-    lblType->setFixedSize(int(48*scale), int(48*scale));
+    QSize iconSize = QSize(fontMetrics().height(), fontMetrics().height());
+    lblType->setScaledContents(true);
+    lblType->setFixedSize(fontMetrics().height() * 3, fontMetrics().height() * 3);
 
     chkOccupied = new QCheckBox(this);
 	chkOccupied->setText(titleText);
-    chkOccupied->setMaximumHeight(int(20*scale));
 	chkOccupied->setProperty("HoverStyled",QVariant(true));
+    chkOccupied->setStyleSheet(QStringLiteral("QCheckBox::indicator{width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
     chkOccupied->setChecked(occupied);
     connect(chkOccupied, &QCheckBox::toggled, this, [this](bool checked){
         emit occupiedToggled(checked);
@@ -46,30 +48,30 @@ ChocoboLabel::ChocoboLabel(qreal scale,const QString &titleText,bool occupied,QW
     });
 
     btnCopy = new QPushButton(this);
-	btnCopy->setFlat(true);
-    btnCopy->setFixedSize(int(20*scale),int(20*scale));
-    btnCopy->setIconSize(QSize(int(16*scale),int(16*scale)));
+    btnCopy->setFlat(true);
 	btnCopy->setToolTip(QString(tr("Copy")));
 	btnCopy->setProperty("HoverStyled",QVariant(true));
 	btnCopy->setIcon(QIcon::fromTheme(QString("edit-copy"),QPixmap(":/common/edit-copy")));
+    btnCopy->setIconSize(iconSize);
+    btnCopy->setMaximumSize(iconSize);
     connect (btnCopy, &QPushButton::clicked, this, &ChocoboLabel::copy);
 
     btnPaste = new QPushButton(this);
-	btnPaste->setFlat(true);
-    btnPaste->setFixedSize(int(20*scale),int(20*scale));
-    btnPaste->setIconSize(QSize(int(16*scale),int(16*scale)));
+    btnPaste->setFlat(true);
 	btnPaste->setToolTip(QString(tr("Paste")));
 	btnPaste->setProperty("HoverStyled",QVariant(true));
 	btnPaste->setIcon(QIcon::fromTheme(QString("edit-paste"),QPixmap(":/common/edit-paste")));
+    btnPaste->setIconSize(iconSize);
+    btnPaste->setMaximumSize(iconSize);
     connect (btnPaste, &QPushButton::clicked, this, &ChocoboLabel::paste);
 
     btnRemove = new QPushButton(this);
-	btnRemove->setFlat(true);
-    btnRemove->setFixedSize(int(20*scale),int(20*scale));
-    btnRemove->setIconSize(QSize(int(16*scale),int(16*scale)));
+    btnRemove->setFlat(true);
 	btnRemove->setToolTip(QString(tr("Remove")));
 	btnRemove->setProperty("HoverStyled",QVariant(true));
 	btnRemove->setIcon(QIcon::fromTheme(QString("edit-clear"),QPixmap(":/common/edit-clear")));
+    btnRemove->setIconSize(iconSize);
+    btnRemove->setMaximumSize(iconSize);
     connect(btnRemove, &QPushButton::clicked, this, [this]{
         emit remove();
         clearLabel();
@@ -237,18 +239,13 @@ bool ChocoboLabel::isOccupied(void)
     return chkOccupied->isChecked();
 }
 
-void ChocoboLabel::setCheckBoxStyle(QString styleSheet)
-{
-    chkOccupied->setStyleSheet(styleSheet);
-}
-
 void ChocoboLabel::setHoverColorStyle(QString backgroundColor)
 {
 	SelectedBkStyle=backgroundColor;
 	SelectedBkStyle.prepend("QWidget[HoverStyled=\"true\"]{background-color:");
 	SelectedBkStyle.append("}");
 
-	backgroundColor.prepend("QPushButton:enabled{background-color:rgba(0,0,0,0);border:0px solid;} QWidget[HoverStyled=\"true\"]:enabled:hover{background-color:");
+    backgroundColor.prepend("QPushButton:enabled{background-color:rgba(0,0,0,0);border:0px solid;} QWidget[HoverStyled=\"true\"]:enabled:hover{background-color:");
 	backgroundColor.append("}");
-	this->setStyleSheet(backgroundColor);
+    this->setStyleSheet(backgroundColor);
 }

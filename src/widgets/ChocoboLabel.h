@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2018  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2019  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -31,10 +31,8 @@ public:
 	 * \param titleText Name for the box something like "Stable 1 "
 	 * \param occupied Is there a chocobo here? else set a blank label
 	 */
-    explicit ChocoboLabel(qreal scale=1, const QString &titleText = nullptr, bool occupied=false, QWidget *parent = nullptr);
+    explicit ChocoboLabel(const QString &titleText = nullptr, bool occupied=false, QWidget *parent = nullptr);
     ~ChocoboLabel() = default;
-	/** \brief style the checkboxes of this widget easily. */
-	void setCheckBoxStyle(QString styleSheet);
 signals:
 	void clicked();	/**< \brief Emit Signal: the widget has been clicked*/
 	void copy();	/**< \brief Emit Signal: the copy button pressed*/

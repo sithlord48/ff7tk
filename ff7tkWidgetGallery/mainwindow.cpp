@@ -61,11 +61,11 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	locLayout->addWidget(locViewer);
 	ui->innerLocBox->setLayout(locLayout);
 
-	chocoboManager = new ChocoboManager(scale);
+    chocoboManager = new ChocoboManager(this);
 	QHBoxLayout *ChocoboManagerLayout = new QHBoxLayout();
 	ChocoboManagerLayout->addWidget(chocoboManager);
 	ui->ChocoboManagerBox->setLayout(ChocoboManagerLayout);
-	chocoboManager->setHoverStyle(QString("rgba(%1,%2,%3,128);").arg(QString::number(this->palette().highlight().color().red()),QString::number(this->palette().highlight().color().green()),QString::number(this->palette().highlight().color().blue())));
+    chocoboManager->setHoverStyle(QString("rgba(%1,%2,%3,128);").arg(QString::number(this->palette().highlight().color().red()),QString::number(this->palette().highlight().color().green()),QString::number(this->palette().highlight().color().blue())));
 
     achievementEditor = new AchievementEditor(this);
 	QVBoxLayout *AchievementLayout = new QVBoxLayout();
