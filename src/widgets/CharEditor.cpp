@@ -575,7 +575,7 @@ void CharEditor::init_display()
 
 	for(int i=288;i<320;i++){accessory_selection->addItem(QPixmap::fromImage(Items.image(i)),Items.name(i));}
 	accessory_selection->addItem(QPixmap::fromImage(Items.image(288)),tr("-NONE-"));
-	materia_edit  = new MateriaEditor(scale,this);
+    materia_edit  = new MateriaEditor(this);
     materia_edit->setStarsSize(int(32*scale));
 
 	elemental_effects = new QListWidget();
@@ -1090,7 +1090,6 @@ void CharEditor::init_display()
     this->setLayout(toolbox_layout);
 }
 void CharEditor::setToolBoxStyle(QString stylesheet){toolbox->setStyleSheet(stylesheet);}
-void CharEditor::setMateriaHoverStyle(QString hoverColor){materia_edit->setHoverStyle(hoverColor);}
 void CharEditor::setSliderStyle(QString style){slider_limit->setStyleSheet(style);}
 
 void CharEditor::init_connections()

@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	options_layout->addWidget(optionsWidget);
 	ui->dialog_preview_box->setLayout(options_layout);
 
-	materia_editor = new MateriaEditor(scale,this);
+    materia_editor = new MateriaEditor(this);
 	QHBoxLayout *materia_editor_layout= new QHBoxLayout();
 	materia_editor_layout->addWidget(materia_editor);
 	ui->editor_box->setLayout(materia_editor_layout);

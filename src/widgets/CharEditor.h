@@ -131,7 +131,6 @@ public slots:
 	void setEditable(bool);
 	void setAdvancedMode(bool);
 	void setToolBoxStyle(QString);
-	void setMateriaHoverStyle(QString);
     void setEditableComboBoxes(bool);
 
 private slots:
