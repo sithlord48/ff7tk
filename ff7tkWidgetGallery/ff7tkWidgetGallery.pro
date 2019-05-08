@@ -15,7 +15,7 @@ HEADERS+=   mainwindow.h\
             ../src/data/FF7Location.h \
             ../src/data/FF7Materia.h\
             ../src/data/FF7Save.h\
-            ../src/data/FF7Save_Const.h\
+            ../src/data/FF7SaveInfo.h\
             ../src/data/FF7Save_Types.h\
             ../src/data/FF7Text.h\
             ../src/data/SaveIcon.h\
@@ -59,6 +59,7 @@ SOURCES+=   main.cpp\
             ../src/data/FF7Location.cpp\
             ../src/data/FF7Materia.cpp\
             ../src/data/FF7Save.cpp\
+            ../src/data/FF7SaveInfo.cpp\
             ../src/data/FF7Text.cpp\
             ../src/data/SaveIcon.cpp\
             ../src/formats/Archive.cpp\

@@ -24,6 +24,7 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
         Widgets
         Gui
         Xml
+        Quick
     )
 
 find_package( ZLIB REQUIRED )
@@ -41,6 +42,7 @@ set ( ff7tkData
         ../src/data/FF7Location.cpp
         ../src/data/FF7Materia.cpp
         ../src/data/FF7Save.cpp #CAN USE OPENSSL TO SIGN PS3 SAVES.
+        ../src/data/FF7SaveInfo.cpp
         ../src/data/FF7Text.cpp
         ../src/data/SaveIcon.cpp
     )
@@ -107,6 +109,7 @@ target_link_libraries ( ff7tkWidgetGallery
         Qt5::Gui
         Qt5::Xml
         Qt5::Widgets
+        Qt5::Quick
         ${ZLIB_LIBRARIES}
         ${OPENSSL_LIBRARIES}
     )

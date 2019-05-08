@@ -16,6 +16,7 @@
 /*~~~~~~~~~~~Includes~~~~~~~~*/
 
 #include "MetadataCreator.h"
+#include "../data/FF7SaveInfo.h"
 #include <QFileDialog>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -120,7 +121,7 @@ void MetadataCreator::on_buttonBox_accepted()
         if(!ff7->loadFile(InFiles.at(i))) {
             return;
         }
-        if(ff7->type()!= "PC") {
+        if(ff7->format()!= FF7SaveInfo::FORMAT::PC) {
             ff7->exportPC(OutFile);
         } else {
             if(!ff7->saveFile(OutFile)) {
