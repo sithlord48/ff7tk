@@ -233,7 +233,7 @@ LgpToc::~LgpToc()
 
 bool LgpToc::addEntry(LgpHeaderEntry *entry)
 {
-	qint32 v = lookupValue(entry->fileName());
+	qint16 v = lookupValue(entry->fileName());
 	if(v < 0) {
 		return false;
 	}
@@ -249,7 +249,7 @@ bool LgpToc::addEntry(LgpHeaderEntry *entry)
 
 LgpHeaderEntry *LgpToc::entry(const QString &filePath) const
 {
-	qint32 v = lookupValue(filePath);
+	qint16 v = lookupValue(filePath);
 	if(v < 0) {
 		return NULL; // invalid file name
 	}
@@ -285,7 +285,7 @@ LgpHeaderEntry *LgpToc::entry(const QString &filePath, quint16 id) const
 
 bool LgpToc::removeEntry(const QString &filePath)
 {
-	qint32 v = lookupValue(filePath);
+	qint16 v = lookupValue(filePath);
 	if(v < 0) {
 		return false; // invalid file name
 	}
@@ -311,7 +311,7 @@ bool LgpToc::renameEntry(const QString &filePath, const QString &newFilePath)
 {
 	// Get file
 
-	qint32 v = lookupValue(filePath);
+	qint16 v = lookupValue(filePath);
 	if(v < 0) {
 		qWarning() << "LgpToc::renameEntry invalid filename" << filePath;
 		return false; // invalid file name
@@ -325,7 +325,7 @@ bool LgpToc::renameEntry(const QString &filePath, const QString &newFilePath)
 
 	// Get new file
 
-	qint32 newV = lookupValue(newFilePath);
+	qint16 newV = lookupValue(newFilePath);
 	if(newV < 0) {
 		qWarning() << "LgpToc::renameEntry invalid new filename" << newFilePath;
 		return false; // invalid file name
@@ -394,7 +394,7 @@ LgpToc &LgpToc::operator=(const LgpToc &other)
 	return *this;
 }
 
-qint32 LgpToc::lookupValue(const QString &filePath)
+qint16 LgpToc::lookupValue(const QString &filePath)
 {
 	int index = filePath.lastIndexOf('/');
 
@@ -408,13 +408,13 @@ qint32 LgpToc::lookupValue(const QString &filePath)
 		return -1;
 	}
 
-	char c1 = lookupValue(filePath.at(index));
+	qint16 c1 = lookupValue(filePath.at(index));
 
 	if(c1 > LOOKUP_VALUE_MAX) {
 		return -1;
 	}
 
-	char c2 = lookupValue(filePath.at(index + 1));
+	qint16 c2 = lookupValue(filePath.at(index + 1));
 
 	if(c2 > LOOKUP_VALUE_MAX) {
 		return -1;
@@ -423,7 +423,7 @@ qint32 LgpToc::lookupValue(const QString &filePath)
 	return c1 * LOOKUP_VALUE_MAX + c2 + 1;
 }
 
-qint8 LgpToc::lookupValue(const QChar &qc)
+qint16 LgpToc::lookupValue(const QChar &qc)
 {
 	char c = qc.toLower().toLatin1();
 	if(c == '.') return -1;                  // period is -1
