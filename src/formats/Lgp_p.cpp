@@ -272,7 +272,7 @@ bool LgpToc::hasEntries(quint16 id) const
 	return _header.contains(id);
 }
 
-LgpHeaderEntry *LgpToc::entry(const QString &filePath, quint16 id) const
+LgpHeaderEntry *LgpToc::entry(const QString &filePath, qint16 id) const
 {
 	foreach(LgpHeaderEntry *entry, entries(id)) {
 		if(filePath.compare(entry->filePath(), Qt::CaseInsensitive) == 0) {
