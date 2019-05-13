@@ -17,7 +17,8 @@
 //    This Demo Program Just Shows Widgets For Easier Testing               //
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QFileDialog"
+#include <QFileDialog>
+#include <QProgressDialog>
 MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
@@ -77,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent), ui(new Ui::MainWind
 	charManagerLayout->addWidget(charManager);
 	ui->CharManager_Box->setLayout(charManagerLayout);
 
-	lgpFile=0;
+    lgpFile= nullptr;
 }
 
 MainWindow::~MainWindow(){delete ui;}
@@ -100,7 +101,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
 		case 11:ui->ChocoboManagerBox->setVisible(1);break;
 		case 12:ui->AchievementEditor_Box->setVisible(1);break;
 		case 13:ui->CharManager_Box->setVisible(1);break;
-	};
+    }
 	this->adjustSize();
 }
 
@@ -147,18 +148,17 @@ void MainWindow::on_btn_lgpSelect_clicked()
 {
 	ui->listLgpFile->clear();
 	QString fileName = QFileDialog::getOpenFileName(this,"Select Lgp Archive",QDir::homePath(),"Lgp Archive(*.lgp)");
-	if(fileName.isEmpty()){return;}
-	else
-	{
+    if(fileName.isEmpty()) {
+        return;
+    } else {
 		lgpFile = new Lgp(fileName);
-		if(!lgpFile->open()){QMessageBox::information(this,"Error","Failed To Open Lgp Archive");}
-		else
-		{
+        if(!lgpFile->open()) {
+            QMessageBox::information(this,"Error","Failed To Open Lgp Archive");
+        } else {
 			ui->listLgpFile->addItems(lgpFile->fileList());
 			ui->lblLgpCompany->setText(QString("Company: %1").arg(lgpFile->companyName()));
 			ui->lblLgpProduct->setText(QString("Product: %1").arg(lgpFile->productName()));
-			QString title = fileName;
-			title.remove(0,fileName.lastIndexOf("/")+1);
+            QString title = QFileInfo(fileName).fileName();
 			title.append(QString (" (%1 files)").arg(lgpFile->fileList().count()));
 			ui->groupLgpView->setTitle(title);
 			ui->groupLgpView->setVisible(true);
@@ -168,24 +168,45 @@ void MainWindow::on_btn_lgpSelect_clicked()
 void MainWindow::on_btnExtractLgp_clicked()
 {
 	QString extPath = QFileDialog::getExistingDirectory(this,"Select Path To Extract Files",QDir::homePath());
-	if(extPath.isEmpty()){return;}
-	else
-	{
-		for(int i=0;i<ui->listLgpFile->count();i++)
-		{
-			QString fileName = extPath;
-			fileName.append(QString("/%1").arg(lgpFile->fileList().at(i)));
-			QFile file(fileName);
-			if(!file.open(QFile::WriteOnly)){return;}
-			else
-			{
-				file.write(lgpFile->fileData(lgpFile->fileList().at(i)));
-				file.close();
-			}
-		}
-		QMessageBox::information(this,"Lgp Utility",QString("Extracted %1 File(s).").arg(lgpFile->fileList().count()));
-	}
+    if(extPath.isEmpty()) {
+        return;
+    } else {
+        auto pDialog = new QProgressDialog(tr("Extracting Archive"), tr("Cancel"), 0, ui->listLgpFile->count(), this);
+        bool extracting = true;
+        connect(pDialog, &QProgressDialog::canceled, this, [pDialog, &extracting]{
+            extracting = false;
+            pDialog->close();
+        });
+        pDialog->show();
+        for(const QString &fileName : lgpFile->fileList()) {
+            QCoreApplication::processEvents();
+            if(extracting) {
+                QFile file(QString("%1/%2").arg(extPath, fileName));
+                QString filePath(QFileInfo(file).path());
+                qDebug() << filePath;
+                QDir dir(filePath);
+                if(!dir.exists()) {
+                    if(!dir.mkpath(filePath)) {
+                        QMessageBox::critical(this,"Directory Creation Error", QString("Creating Directory Failed \n %1").arg(filePath));
+                        pDialog->cancel();
+                        return;
+                    }
+                }
+                if(!file.open(QFile::WriteOnly)) {
+                    QMessageBox::critical(this, tr("File Write Error"), tr("Unable to write to file:\n%1").arg(file.fileName()));
+                    pDialog->cancel();
+                    return;
+                } else {
+                    file.write(lgpFile->fileData(fileName));
+                    file.close();
+                    pDialog->setValue(pDialog->value() + 1);
+                }
+            }
+        }
+    pDialog->close();
+    }
 }
+
 void MainWindow::hideAllBoxes(void)
 {
 	ui->dialog_preview_box->setVisible(0);
