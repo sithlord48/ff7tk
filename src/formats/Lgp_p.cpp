@@ -423,20 +423,12 @@ qint32 LgpToc::lookupValue(const QString &filePath)
 	return c1 * LOOKUP_VALUE_MAX + c2 + 1;
 }
 
-quint8 LgpToc::lookupValue(const QChar &qc)
+qint8 LgpToc::lookupValue(const QChar &qc)
 {
 	char c = qc.toLower().toLatin1();
-
-	if(c == '.') {
-		return 255;
-	}
-
-	if(c >= '0' && c <= '9') {
-		c += 'a' - '0';
-	}
-
-	if(c == '_') c = 'k';
-	if(c == '-') c = 'l';
-
-	return c - 'a';
+	if(c == '.') return -1;                  // period is -1
+	if(c == '_') return 10;                  // 'k' - 'a'
+	if(c == '-') return 11;                  // 'l' - 'a'
+	if(c >= '0' && c <= '9') return c - '0'; // digit
+	return c - 'a';                          // alphabetical
 }
