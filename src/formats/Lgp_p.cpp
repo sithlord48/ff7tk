@@ -423,12 +423,12 @@ qint32 LgpToc::lookupValue(const QString &filePath)
 	return c1 * LOOKUP_VALUE_MAX + c2 + 1;
 }
 
-quint8 LgpToc::lookupValue(const QChar &qc)
+qint8 LgpToc::lookupValue(const QChar &qc)
 {
 	char c = qc.toLower().toLatin1();
 
 	if(c == '.') {
-		return 255;
+		return -1;
 	}
 
 	if(c >= '0' && c <= '9') {
