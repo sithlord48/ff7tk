@@ -98,7 +98,7 @@ private slots:
     void editMode(void);
     QPushButton *newStyledButton(const QIcon &icon = QIcon(), QKeySequence shortcut = QKeySequence(), const QString &toolip = QString(), QWidget *parent = nullptr);
 signals:
-    void ap_changed(qint32);
-    void id_changed(qint8);
+    void apChanged(qint32);
+    void idChanged(qint8);
 };
 #endif //MateriaEditor
