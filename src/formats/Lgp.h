@@ -32,81 +32,81 @@ class Lgp;
 
 class LgpIterator
 {
-	friend class Lgp;
+    friend class Lgp;
 public:
-	explicit LgpIterator(const Lgp &lgp);
-	bool hasNext() const;
-	bool hasPrevious() const;
-	void next();
-	void previous();
-	void toBack();
-	void toFront();
-	QIODevice *file();
-	QIODevice *modifiedFile();
-	const QString &fileName() const;
-	const QString &fileDir() const;
-	QString filePath() const;
+    explicit LgpIterator(const Lgp &lgp);
+    bool hasNext() const;
+    bool hasPrevious() const;
+    void next();
+    void previous();
+    void toBack();
+    void toFront();
+    QIODevice *file();
+    QIODevice *modifiedFile();
+    const QString &fileName() const;
+    const QString &fileDir() const;
+    QString filePath() const;
 private:
-	LgpIterator(LgpToc *toc, QFile *lgp);
-	QHashIterator<quint16, LgpHeaderEntry *> it;
-	QFile *_lgp;
+    LgpIterator(LgpToc *toc, QFile *lgp);
+    QHashIterator<quint16, LgpHeaderEntry *> it;
+    QFile *_lgp;
 };
 
 class Lgp : public Archive
 {
-	friend class LgpIterator;
+    friend class LgpIterator;
 public:
-	enum LgpError {
-		NoError,
-		ReadError,
-		WriteError,
-		OpenError,
-		AbortError,
-		RemoveError,
-		RenameError,
-		PositionError,
-		ResizeError,
-		PermissionsError,
-		CopyError,
-		InvalidError,
-		FileNotFoundError
-	};
+    enum LgpError {
+        NoError,
+        ReadError,
+        WriteError,
+        OpenError,
+        AbortError,
+        RemoveError,
+        RenameError,
+        PositionError,
+        ResizeError,
+        PermissionsError,
+        CopyError,
+        InvalidError,
+        FileNotFoundError
+    };
 
-	Lgp();
-	explicit Lgp(const QString &name);
-	explicit Lgp(QFile *device);
-	virtual ~Lgp();
-	void clear();
-	QStringList fileList() const;
-	int fileCount() const;
-	LgpIterator iterator();
-	bool fileExists(const QString &filePath) const;
-	QIODevice *file(const QString &filePath);
-	QIODevice *modifiedFile(const QString &filePath);
-	bool setFile(const QString &filePath, QIODevice *data);
-	bool addFile(const QString &filePath, QIODevice *data);
-	bool removeFile(const QString &filePath);
-	bool isNameValid(const QString &filePath) const;
-	bool renameFile(const QString &filePath, const QString &newFilePath);
-	const QString &companyName();
-	void setCompanyName(const QString &companyName);
-	const QString &productName();
-	void setProductName(const QString &productName);
-	bool pack(const QString &destination=QString(), ArchiveObserver *observer=NULL);
-	LgpError error() const;
-	void unsetError();
+    Lgp();
+    explicit Lgp(const QString &name);
+    explicit Lgp(QFile *device);
+    virtual ~Lgp();
+    void clear();
+    QStringList fileList() const;
+    int fileCount() const;
+    LgpIterator iterator();
+    bool fileExists(const QString &filePath) const;
+    QIODevice *file(const QString &filePath);
+    QIODevice *modifiedFile(const QString &filePath);
+    bool setFile(const QString &filePath, QIODevice *data);
+    bool addFile(const QString &filePath, QIODevice *data);
+    bool removeFile(const QString &filePath);
+    bool isNameValid(const QString &filePath) const;
+    bool renameFile(const QString &filePath, const QString &newFilePath);
+    const QString &companyName();
+    void setCompanyName(const QString &companyName);
+    const QString &productName();
+    void setProductName(const QString &productName);
+    bool pack(const QString &destination = QString(), ArchiveObserver *observer = NULL);
+    LgpError error() const;
+    void unsetError();
 private:
-	Q_DISABLE_COPY(Lgp)
-	bool openHeader();
-	bool openCompanyName();
-	bool openProductName();
-	LgpHeaderEntry *headerEntry(const QString &filePath) const;
-	void setError(LgpError error, const QString &errorString=QString());
+    Q_DISABLE_COPY(Lgp)
+    bool openHeader();
+    bool openCompanyName();
+    bool openProductName();
+    LgpHeaderEntry *headerEntry(const QString &filePath) const;
+    void setError(LgpError error, const QString &errorString = QString());
 
-	QString _companyName;
-	LgpToc *_files;
-	QString _productName;
-	LgpError _error;
+    QString _companyName;
+    LgpToc *_files;
+    QString _productName;
+    LgpError _error;
 
 };
 

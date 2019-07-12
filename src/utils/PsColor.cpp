@@ -19,10 +19,10 @@
 
 quint16 PsColor::toPsColor(const QRgb &color)
 {
-	return (qRound(qRed(color)/COEFF_COLOR) & 31) | ((qRound(qGreen(color)/COEFF_COLOR) & 31) << 5) | ((qRound(qBlue(color)/COEFF_COLOR) & 31) << 10) | ((qAlpha(color)==255) << 15);
+    return (qRound(qRed(color) / COEFF_COLOR) & 31) | ((qRound(qGreen(color) / COEFF_COLOR) & 31) << 5) | ((qRound(qBlue(color) / COEFF_COLOR) & 31) << 10) | ((qAlpha(color) == 255) << 15);
 }
 
 QRgb PsColor::fromPsColor(quint16 color, bool useAlpha)
 {
-	return qRgba(qRound((color & 31)*COEFF_COLOR), qRound((color>>5 & 31)*COEFF_COLOR), qRound((color>>10 & 31)*COEFF_COLOR), color == 0 && useAlpha ? 0 : 255);
+    return qRgba(qRound((color & 31) * COEFF_COLOR), qRound((color >> 5 & 31) * COEFF_COLOR), qRound((color >> 10 & 31) * COEFF_COLOR), color == 0 && useAlpha ? 0 : 255);
 }

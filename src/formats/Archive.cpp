@@ -18,19 +18,19 @@
 #include "Archive.h"
 
 /*!
-	\class Archive
+    \class Archive
 
-	\brief The Archive class is a device list in a file system
-	or an archive file.
+    \brief The Archive class is a device list in a file system
+    or an archive file.
 
-	\sa QIODevice
+    \sa QIODevice
 */
 
 /*!
  * Constructs a new empty archive.
  */
 Archive::Archive() :
-	_error(NoError), _archiveIO(new QFile())
+    _error(NoError), _archiveIO(new QFile())
 {
 }
 
@@ -38,7 +38,7 @@ Archive::Archive() :
  * Constructs a new archive object to represent the archive with the given \a filename.
  */
 Archive::Archive(const QString &filename) :
-	_error(NoError), _archiveIO(new QFile(filename))
+    _error(NoError), _archiveIO(new QFile(filename))
 {
 }
 
@@ -46,7 +46,7 @@ Archive::Archive(const QString &filename) :
  * Constructs a new archive object to represent the archive with the given \a device.
  */
 Archive::Archive(QFile *device) :
-	_error(NoError), _archiveIO(device)
+    _error(NoError), _archiveIO(device)
 {
 }
 
@@ -55,7 +55,7 @@ Archive::Archive(QFile *device) :
  */
 Archive::~Archive()
 {
-	_archiveIO->deleteLater();
+    _archiveIO->deleteLater();
 }
 
 /*!
@@ -64,14 +64,14 @@ Archive::~Archive()
  */
 QByteArray Archive::fileData(const QString &filePath)
 {
-	QIODevice *io = file(filePath);
-	if(io == NULL || !io->open(QIODevice::ReadOnly)) {
-		qWarning() << "Archive::fileData error";
-		return QByteArray();
-	}
-	QByteArray data = io->readAll();
-	io->close();
-	return data;
+    QIODevice *io = file(filePath);
+    if (io == NULL || !io->open(QIODevice::ReadOnly)) {
+        qWarning() << "Archive::fileData error";
+        return QByteArray();
+    }
+    QByteArray data = io->readAll();
+    io->close();
+    return data;
 }
 
 /*!
@@ -80,14 +80,14 @@ QByteArray Archive::fileData(const QString &filePath)
  */
 QByteArray Archive::modifiedFileData(const QString &filePath)
 {
-	QIODevice *io = modifiedFile(filePath);
-	if(io == NULL || !io->open(QIODevice::ReadOnly)) {
-		qWarning() << "Archive::modifiedFileData error";
-		return QByteArray();
-	}
-	QByteArray data = io->readAll();
-	io->close();
-	return data;
+    QIODevice *io = modifiedFile(filePath);
+    if (io == NULL || !io->open(QIODevice::ReadOnly)) {
+        qWarning() << "Archive::modifiedFileData error";
+        return QByteArray();
+    }
+    QByteArray data = io->readAll();
+    io->close();
+    return data;
 }
 
 /*!
@@ -100,9 +100,9 @@ QByteArray Archive::modifiedFileData(const QString &filePath)
  */
 bool Archive::setFileData(const QString &filePath, const QByteArray &data)
 {
-	QBuffer *buf = new QBuffer();
-	buf->setData(data);
-	return setFile(filePath, buf);
+    QBuffer *buf = new QBuffer();
+    buf->setData(data);
+    return setFile(filePath, buf);
 }
 
 /*!
@@ -115,9 +115,9 @@ bool Archive::setFileData(const QString &filePath, const QByteArray &data)
  */
 bool Archive::addFileData(const QString &filePath, const QByteArray &data)
 {
-	QBuffer *buf = new QBuffer();
-	buf->setData(data);
-	return addFile(filePath, buf);
+    QBuffer *buf = new QBuffer();
+    buf->setData(data);
+    return addFile(filePath, buf);
 }
 
 /*!
@@ -127,9 +127,9 @@ bool Archive::addFileData(const QString &filePath, const QByteArray &data)
  */
 bool Archive::open()
 {
-	return !_archiveIO->exists() // Create the file
-			|| (_archiveIO->open(QIODevice::ReadOnly)
-				&& openHeader());
+    return !_archiveIO->exists() // Create the file
+           || (_archiveIO->open(QIODevice::ReadOnly)
+               && openHeader());
 }
 
 /*!
@@ -139,7 +139,7 @@ bool Archive::open()
  */
 bool Archive::isOpen() const
 {
-	return _archiveIO->isOpen();
+    return _archiveIO->isOpen();
 }
 
 /*!
@@ -148,7 +148,7 @@ bool Archive::isOpen() const
  */
 void Archive::close()
 {
-	_archiveIO->close();
+    _archiveIO->close();
 }
 
 /*!
@@ -158,7 +158,7 @@ void Archive::close()
  */
 QString Archive::fileName() const
 {
-	return _archiveIO->fileName();
+    return _archiveIO->fileName();
 }
 
 /*!
@@ -168,7 +168,7 @@ QString Archive::fileName() const
  */
 void Archive::setFileName(const QString &fileName)
 {
-	_archiveIO->setFileName(fileName);
+    _archiveIO->setFileName(fileName);
 }
 
 /*!
@@ -177,9 +177,9 @@ void Archive::setFileName(const QString &fileName)
  */
 QString Archive::errorString() const
 {
-	return _errorString.isEmpty()
-			? QLatin1String(QT_TRANSLATE_NOOP(Archive, ("Unknown error")))
-			: _errorString;
+    return _errorString.isEmpty()
+           ? QLatin1String(QT_TRANSLATE_NOOP(Archive, ("Unknown error")))
+           : _errorString;
 }
 
 /*!
@@ -188,7 +188,7 @@ QString Archive::errorString() const
  */
 Archive::ArchiveError Archive::error() const
 {
-	return _error;
+    return _error;
 }
 
 /*!
@@ -197,6 +197,6 @@ Archive::ArchiveError Archive::error() const
  */
 void Archive::setError(ArchiveError error, const QString &errorString)
 {
-	_error = error;
-	setErrorString(errorString);
+    _error = error;
+    setErrorString(errorString);
 }

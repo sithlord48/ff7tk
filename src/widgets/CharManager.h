@@ -18,9 +18,9 @@
 
 #include "qglobal.h"
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-	#include <QtWidgets>
+#include <QtWidgets>
 #else
-	#include <QtGui>
+#include <QtGui>
 #endif
 
 #include "CharEditor.h"
@@ -28,31 +28,31 @@
 
 class CharManager : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	explicit CharManager(qreal Scale=1,QWidget *parent=0);
+    explicit CharManager(qreal Scale = 1, QWidget *parent = 0);
 
 signals:
-	void comboParty1_changed(qint8);
-	void comboParty2_changed(qint8);
-	void comboParty3_changed(qint8);
+    void comboParty1_changed(qint8);
+    void comboParty2_changed(qint8);
+    void comboParty3_changed(qint8);
 
 public slots:
-    void setParty(qint8 member1,qint8 member2,qint8 member3);
+    void setParty(qint8 member1, qint8 member2, qint8 member3);
 
 private slots:
-	void party1Changed(int);
-	void party2Changed(int);
-	void party3Changed(int);
+    void party1Changed(int);
+    void party2Changed(int);
+    void party3Changed(int);
 private:
-	void initDisplay(void);
-	void connectAll(void);
-	void disconnectAll(void);
-	FF7Char *charData;
-	CharEditor *charEditor;
-	QComboBox *comboParty[3];
-	bool load;
-	qreal scale;
+    void initDisplay(void);
+    void connectAll(void);
+    void disconnectAll(void);
+    FF7Char *charData;
+    CharEditor *charEditor;
+    QComboBox *comboParty[3];
+    bool load;
+    qreal scale;
 };
 
 #endif // CHARMANAGER_H

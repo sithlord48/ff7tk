@@ -20,13 +20,13 @@
 
 #include <QtCore>
 #include <QRgb>
-#define COEFF_COLOR	8.2258064516129032258064516129032 // 255/31
+#define COEFF_COLOR 8.2258064516129032258064516129032 // 255/31
 
 class PsColor
 {
 public:
-	static quint16 toPsColor(const QRgb &color);
-	static QRgb fromPsColor(quint16 color, bool useAlpha=false);
+    static quint16 toPsColor(const QRgb &color);
+    static QRgb fromPsColor(quint16 color, bool useAlpha = false);
 };
 
 #endif // DEF_PSCOLOR

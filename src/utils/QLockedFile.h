@@ -32,21 +32,21 @@
 
 class QLockedFile : public QFile
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	QLockedFile();
-	explicit QLockedFile(const QString &name);
-	explicit QLockedFile(QObject *parent);
-	QLockedFile(const QString &name, QObject *parent);
-	virtual ~QLockedFile();
-	virtual void close();
-	virtual bool open(OpenMode mode);
+    QLockedFile();
+    explicit QLockedFile(const QString &name);
+    explicit QLockedFile(QObject *parent);
+    QLockedFile(const QString &name, QObject *parent);
+    virtual ~QLockedFile();
+    virtual void close();
+    virtual bool open(OpenMode mode);
 signals:
 
 public slots:
 private:
 #ifdef Q_OS_WIN
-	HANDLE handle;
+    HANDLE handle;
 #endif
 };
 

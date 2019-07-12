@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2016 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2019 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -14,22 +14,8 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-    #include <QtWidgets/QApplication>
-#else
-    #include <QtGui/QApplication>
-#endif
+#include <QtWidgets/QApplication>
 #include "mainwindow.h"
-
-#if defined(STATIC) && (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
-#include <QtPlugin> //FOR STATIC BUILD. Q_IMPORT_PLUGIN: Allow to make use of a static plugins (qjpcodecs)
-//FOR STATIC BUILD.(WILL FAIL HERE IF NOT STATICLY BUILT QT!)
-Q_IMPORT_PLUGIN(qcncodecs)
-Q_IMPORT_PLUGIN(qjpcodecs)  //(Japanese Text Support)
-Q_IMPORT_PLUGIN(qtwcodecs)
-Q_IMPORT_PLUGIN(qkrcodecs)
-#endif
 
 int main(int argc, char *argv[])
 {

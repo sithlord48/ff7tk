@@ -25,8 +25,8 @@
 
 #include <QtCore>
 
-#define LGP_COMPANY_NAME_SIZE	12
-#define LGP_PRODUCT_NAME_SIZE	14
+#define LGP_COMPANY_NAME_SIZE   12
+#define LGP_PRODUCT_NAME_SIZE   14
 
 #define LOOKUP_VALUE_MAX 30
 #define LOOKUP_TABLE_ENTRIES LOOKUP_VALUE_MAX * LOOKUP_VALUE_MAX
@@ -34,82 +34,79 @@
 #define MAX_CONFLICTS 4096
 
 #ifdef _MSC_VER
-#	define PACK(structure)			\
-		__pragma(pack(push, 1))		\
-		structure					\
-		__pragma(pack(pop))
+#   define PACK(structure)          \
+    __pragma(pack(push, 1))     \
+    structure                   \
+    __pragma(pack(pop))
 #else
-#	define PACK(structure) structure Q_PACKED
+#   define PACK(structure) structure Q_PACKED
 #endif
 
 PACK(
-struct LgpLookupTableEntry
-{
-	quint16 tocOffset;
-	quint16 fileCount;
+struct LgpLookupTableEntry {
+    quint16 tocOffset;
+    quint16 fileCount;
 });
 
-struct LgpConflictEntry
-{
-	LgpConflictEntry() : fileDir(QString()), tocIndex(0) {}
-	LgpConflictEntry(const QString &fileDir, quint16 tocIndex=0) :
-		fileDir(fileDir), tocIndex(tocIndex) {}
-	QString fileDir;
-	quint16 tocIndex;
+struct LgpConflictEntry {
+    LgpConflictEntry() : fileDir(QString()), tocIndex(0) {}
+    LgpConflictEntry(const QString &fileDir, quint16 tocIndex = 0) :
+        fileDir(fileDir), tocIndex(tocIndex) {}
+    QString fileDir;
+    quint16 tocIndex;
 };
 
-struct LgpTocEntry
-{
-	LgpTocEntry() : conflict(0), tocIndex(0) {}
-	LgpTocEntry(quint16 tocIndex, quint16 conflict=0) :
-		conflict(conflict), tocIndex(tocIndex) {}
-	quint16 conflict;
-	quint16 tocIndex;
+struct LgpTocEntry {
+    LgpTocEntry() : conflict(0), tocIndex(0) {}
+    LgpTocEntry(quint16 tocIndex, quint16 conflict = 0) :
+        conflict(conflict), tocIndex(tocIndex) {}
+    quint16 conflict;
+    quint16 tocIndex;
 };
 
 class LgpHeaderEntry
 {
 public:
-	LgpHeaderEntry(const QString &fileName, quint32 filePosition);
-	virtual ~LgpHeaderEntry();
-	const QString &fileName() const;
-	const QString &fileDir() const;
-	QString filePath() const;
-	quint32 filePosition() const;
-	qint64 fileSize() const;
-	void setFileName(const QString &fileName);
-	void setFileDir(const QString &fileDir);
-	void setFilePath(const QString &filePath);
-	void setFilePosition(quint32 filePosition);
-	void setFileSize(quint32 fileSize);
-	QIODevice *file(QIODevice *lgp);
-	QIODevice *modifiedFile(QIODevice *lgp);
-	void setFile(QIODevice *io);
-	void setModifiedFile(QIODevice *io);
+    LgpHeaderEntry(const QString &fileName, quint32 filePosition);
+    virtual ~LgpHeaderEntry();
+    const QString &fileName() const;
+    const QString &fileDir() const;
+    QString filePath() const;
+    quint32 filePosition() const;
+    qint64 fileSize() const;
+    void setFileName(const QString &fileName);
+    void setFileDir(const QString &fileDir);
+    void setFilePath(const QString &filePath);
+    void setFilePosition(quint32 filePosition);
+    void setFileSize(quint32 fileSize);
+    QIODevice *file(QIODevice *lgp);
+    QIODevice *modifiedFile(QIODevice *lgp);
+    void setFile(QIODevice *io);
+    void setModifiedFile(QIODevice *io);
 private:
-	QIODevice *createFile(QIODevice *lgp);
-	QString _fileName;
-	QString _fileDir;
-	quint32 _filePosition;
-	quint32 _fileSize;
-	bool _hasFileSize;
-	QIODevice *_io;
-	QIODevice *_newIO;
+    QIODevice *createFile(QIODevice *lgp);
+    QString _fileName;
+    QString _fileDir;
+    quint32 _filePosition;
+    quint32 _fileSize;
+    bool _hasFileSize;
+    QIODevice *_io;
+    QIODevice *_newIO;
 };
 
 class LgpIO : public QIODevice
 {
 public:
-	LgpIO(QIODevice *lgp, const LgpHeaderEntry *header, QObject *parent=0);
-	bool open(OpenMode mode);
-	qint64 size() const;
-	bool canReadLine() const;
+    LgpIO(QIODevice *lgp, const LgpHeaderEntry *header, QObject *parent = 0);
+    bool open(OpenMode mode);
+    qint64 size() const;
+    bool canReadLine() const;
 protected:
-	qint64 readData(char *data, qint64 maxSize);
-	qint64 writeData(const char *data, qint64 maxSize);
+    qint64 readData(char *data, qint64 maxSize);
+    qint64 writeData(const char *data, qint64 maxSize);
 private:
-	QIODevice *_lgp;
-	const LgpHeaderEntry *_header;
+    QIODevice *_lgp;
+    const LgpHeaderEntry *_header;
 };
 
 class LgpIterator;
@@ -117,28 +114,28 @@ class LgpIterator;
 class LgpToc
 {
 public:
-	LgpToc();
-	LgpToc(const LgpToc &other);
-	virtual ~LgpToc();
-	bool addEntry(LgpHeaderEntry *entry);
-	LgpHeaderEntry *entry(const QString &filePath) const;
-	QList<LgpHeaderEntry *> entries(quint16 id) const;
-	const QMultiHash<quint16, LgpHeaderEntry *> &table() const;
-	bool hasEntries(quint16 id) const;
-	bool removeEntry(const QString &filePath);
-	static bool isNameValid(const QString &filePath);
-	bool renameEntry(const QString &filePath, const QString &newFilePath);
-	bool contains(const QString &filePath) const;
-	void clear();
-	bool isEmpty() const;
-	int size() const;
-	QList<const LgpHeaderEntry *> filesSortedByPosition() const;
-	LgpToc &operator=(const LgpToc &other);
+    LgpToc();
+    LgpToc(const LgpToc &other);
+    virtual ~LgpToc();
+    bool addEntry(LgpHeaderEntry *entry);
+    LgpHeaderEntry *entry(const QString &filePath) const;
+    QList<LgpHeaderEntry *> entries(quint16 id) const;
+    const QMultiHash<quint16, LgpHeaderEntry *> &table() const;
+    bool hasEntries(quint16 id) const;
+    bool removeEntry(const QString &filePath);
+    static bool isNameValid(const QString &filePath);
+    bool renameEntry(const QString &filePath, const QString &newFilePath);
+    bool contains(const QString &filePath) const;
+    void clear();
+    bool isEmpty() const;
+    int size() const;
+    QList<const LgpHeaderEntry *> filesSortedByPosition() const;
+    LgpToc &operator=(const LgpToc &other);
 private:
-	LgpHeaderEntry *entry(const QString &filePath, quint16 id) const;
-	static qint32 lookupValue(const QString &filePath);
-	static quint8 lookupValue(const QChar &qc);
-	QMultiHash<quint16, LgpHeaderEntry *> _header;
+    LgpHeaderEntry *entry(const QString &filePath, quint16 id) const;
+    static qint32 lookupValue(const QString &filePath);
+    static quint8 lookupValue(const QChar &qc);
+    QMultiHash<quint16, LgpHeaderEntry *> _header;
 };
 
 #endif // LGP_P_H

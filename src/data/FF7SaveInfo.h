@@ -63,7 +63,6 @@ public:
      */
     QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
 
-
     /**
      * @brief The Size of a Final Fantasy VII Save file
      * @param format : The Save Format you wish to know about

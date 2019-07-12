@@ -28,12 +28,12 @@
  * You must use Lgp::iterator() instead.
  */
 LgpIterator::LgpIterator(LgpToc *toc, QFile *lgp) :
-	it(toc->table()), _lgp(lgp)
+    it(toc->table()), _lgp(lgp)
 {
 }
 
 LgpIterator::LgpIterator(const Lgp &lgp) :
-	it(lgp._files->table()), _lgp(lgp.archiveIO())
+    it(lgp._files->table()), _lgp(lgp.archiveIO())
 {
 }
 
@@ -44,7 +44,7 @@ LgpIterator::LgpIterator(const Lgp &lgp) :
  */
 bool LgpIterator::hasNext() const
 {
-	return it.hasNext();
+    return it.hasNext();
 }
 
 /*!
@@ -54,7 +54,7 @@ bool LgpIterator::hasNext() const
  */
 bool LgpIterator::hasPrevious() const
 {
-	return it.hasPrevious();
+    return it.hasPrevious();
 }
 
 /*!
@@ -65,7 +65,7 @@ bool LgpIterator::hasPrevious() const
  */
 void LgpIterator::next()
 {
-	it.next();
+    it.next();
 }
 
 /*!
@@ -76,7 +76,7 @@ void LgpIterator::next()
  */
 void LgpIterator::previous()
 {
-	it.previous();
+    it.previous();
 }
 
 /*!
@@ -85,7 +85,7 @@ void LgpIterator::previous()
  */
 void LgpIterator::toBack()
 {
-	it.toBack();
+    it.toBack();
 }
 
 /*!
@@ -94,7 +94,7 @@ void LgpIterator::toBack()
  */
 void LgpIterator::toFront()
 {
-	it.toFront();
+    it.toFront();
 }
 
 /*!
@@ -103,7 +103,7 @@ void LgpIterator::toFront()
  */
 QIODevice *LgpIterator::file()
 {
-	return it.value()->file(_lgp);
+    return it.value()->file(_lgp);
 }
 
 /*!
@@ -112,7 +112,7 @@ QIODevice *LgpIterator::file()
  */
 QIODevice *LgpIterator::modifiedFile()
 {
-	return it.value()->modifiedFile(_lgp);
+    return it.value()->modifiedFile(_lgp);
 }
 
 /*!
@@ -121,7 +121,7 @@ QIODevice *LgpIterator::modifiedFile()
  */
 const QString &LgpIterator::fileName() const
 {
-	return it.value()->fileName();
+    return it.value()->fileName();
 }
 
 /*!
@@ -130,7 +130,7 @@ const QString &LgpIterator::fileName() const
  */
 const QString &LgpIterator::fileDir() const
 {
-	return it.value()->fileDir();
+    return it.value()->fileDir();
 }
 
 /*!
@@ -139,14 +139,14 @@ const QString &LgpIterator::fileDir() const
  */
 QString LgpIterator::filePath() const
 {
-	return it.value()->filePath();
+    return it.value()->filePath();
 }
 
 /*!
  * Constructs a new empty lgp archive.
  */
 Lgp::Lgp() :
-	Archive(new QLockedFile()), _files(new LgpToc), _error(NoError)
+    Archive(new QLockedFile()), _files(new LgpToc), _error(NoError)
 {
 }
 
@@ -154,7 +154,7 @@ Lgp::Lgp() :
  * Constructs a new lgp archive object to represent the lgp archive with the given \a name.
  */
 Lgp::Lgp(const QString &name) :
-	Archive(new QLockedFile(name)), _files(new LgpToc), _error(NoError)
+    Archive(new QLockedFile(name)), _files(new LgpToc), _error(NoError)
 {
 }
 
@@ -162,7 +162,7 @@ Lgp::Lgp(const QString &name) :
  * Constructs a new lgp archive object to represent the lgp archive with the given \a device.
  */
 Lgp::Lgp(QFile *device) :
-	Archive(device), _files(new LgpToc), _error(NoError)
+    Archive(device), _files(new LgpToc), _error(NoError)
 {
 }
 
@@ -171,7 +171,7 @@ Lgp::Lgp(QFile *device) :
  */
 Lgp::~Lgp()
 {
-	delete _files;
+    delete _files;
 }
 
 /*!
@@ -179,9 +179,9 @@ Lgp::~Lgp()
  */
 void Lgp::clear()
 {
-	_companyName.clear();
-	_files->clear();
-	_productName.clear();
+    _companyName.clear();
+    _files->clear();
+    _productName.clear();
 }
 
 /*!
@@ -189,17 +189,17 @@ void Lgp::clear()
  */
 QStringList Lgp::fileList() const
 {
-	QStringList ret;
+    QStringList ret;
 
-	if(_files->isEmpty()) {
-		return ret;
-	}
+    if (_files->isEmpty()) {
+        return ret;
+    }
 
-	foreach(const LgpHeaderEntry *entry, _files->filesSortedByPosition()) {
-		ret.append(entry->filePath());
-	}
+    foreach (const LgpHeaderEntry *entry, _files->filesSortedByPosition()) {
+        ret.append(entry->filePath());
+    }
 
-	return ret;
+    return ret;
 }
 
 /*!
@@ -207,7 +207,7 @@ QStringList Lgp::fileList() const
  */
 int Lgp::fileCount() const
 {
-	return _files->size();
+    return _files->size();
 }
 
 /*!
@@ -216,7 +216,7 @@ int Lgp::fileCount() const
  */
 LgpIterator Lgp::iterator()
 {
-	return LgpIterator(_files, archiveIO());
+    return LgpIterator(_files, archiveIO());
 }
 
 /*!
@@ -225,7 +225,7 @@ LgpIterator Lgp::iterator()
  */
 bool Lgp::fileExists(const QString &filePath) const
 {
-	return headerEntry(filePath) != NULL;// need to open the header
+    return headerEntry(filePath) != NULL;// need to open the header
 }
 
 /*!
@@ -234,10 +234,12 @@ bool Lgp::fileExists(const QString &filePath) const
  */
 QIODevice *Lgp::file(const QString &filePath)
 {
-	LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-	if(entry == NULL) return NULL;
+    LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
+    if (entry == NULL) {
+        return NULL;
+    }
 
-	return entry->file(archiveIO());
+    return entry->file(archiveIO());
 }
 
 /*!
@@ -246,10 +248,12 @@ QIODevice *Lgp::file(const QString &filePath)
  */
 QIODevice *Lgp::modifiedFile(const QString &filePath)
 {
-	LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-	if(entry == NULL) return NULL;
+    LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
+    if (entry == NULL) {
+        return NULL;
+    }
 
-	return entry->modifiedFile(archiveIO());
+    return entry->modifiedFile(archiveIO());
 }
 
 /*!
@@ -260,12 +264,14 @@ QIODevice *Lgp::modifiedFile(const QString &filePath)
  */
 bool Lgp::setFile(const QString &filePath, QIODevice *data)
 {
-	LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-	if(entry == NULL) return false;
+    LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
+    if (entry == NULL) {
+        return false;
+    }
 
-	entry->setModifiedFile(data);
+    entry->setModifiedFile(data);
 
-	return true;
+    return true;
 }
 
 /*!
@@ -276,19 +282,21 @@ bool Lgp::setFile(const QString &filePath, QIODevice *data)
  */
 bool Lgp::addFile(const QString &filePath, QIODevice *data)
 {
-	LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-	if(entry != NULL) return false;
+    LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
+    if (entry != NULL) {
+        return false;
+    }
 
-	entry = new LgpHeaderEntry(filePath, archiveIO()->size());
-	entry->setModifiedFile(data);
+    entry = new LgpHeaderEntry(filePath, archiveIO()->size());
+    entry->setModifiedFile(data);
 
-	bool ret = _files->addEntry(entry);
+    bool ret = _files->addEntry(entry);
 
-	if(!ret) {
-		delete entry;
-	}
+    if (!ret) {
+        delete entry;
+    }
 
-	return ret;
+    return ret;
 }
 
 /*!
@@ -297,7 +305,7 @@ bool Lgp::addFile(const QString &filePath, QIODevice *data)
  */
 bool Lgp::removeFile(const QString &filePath)
 {
-	return _files->removeEntry(filePath);
+    return _files->removeEntry(filePath);
 }
 
 /*!
@@ -306,7 +314,7 @@ bool Lgp::removeFile(const QString &filePath)
  */
 bool Lgp::isNameValid(const QString &filePath) const
 {
-	return LgpToc::isNameValid(filePath);
+    return LgpToc::isNameValid(filePath);
 }
 
 /*!
@@ -315,31 +323,31 @@ bool Lgp::isNameValid(const QString &filePath) const
  */
 bool Lgp::renameFile(const QString &filePath, const QString &newFilePath)
 {
-	return _files->renameEntry(filePath, newFilePath);
+    return _files->renameEntry(filePath, newFilePath);
 }
 
 bool Lgp::openCompanyName()
 {
-	if(!isOpen()) {
-		qWarning() << "Lgp::companyName: The device is not open for reading";
-		return false;
-	}
+    if (!isOpen()) {
+        qWarning() << "Lgp::companyName: The device is not open for reading";
+        return false;
+    }
 
-	if(!archiveIO()->reset()) {
-		return false;
-	}
-	QByteArray companyData = archiveIO()->read(LGP_COMPANY_NAME_SIZE);
-	if(companyData.size() != LGP_COMPANY_NAME_SIZE) {
-		return false;
-	}
-	const char *data = companyData.constData();
-	const char *last = data + LGP_COMPANY_NAME_SIZE;
-	while(*data == '\0' && data < last) {
-		data++;
-	}
-	_companyName = QByteArray(data, (int)(last - data));
+    if (!archiveIO()->reset()) {
+        return false;
+    }
+    QByteArray companyData = archiveIO()->read(LGP_COMPANY_NAME_SIZE);
+    if (companyData.size() != LGP_COMPANY_NAME_SIZE) {
+        return false;
+    }
+    const char *data = companyData.constData();
+    const char *last = data + LGP_COMPANY_NAME_SIZE;
+    while (*data == '\0' && data < last) {
+        data++;
+    }
+    _companyName = QByteArray(data, (int)(last - data));
 
-	return true;
+    return true;
 }
 
 /*!
@@ -349,10 +357,10 @@ bool Lgp::openCompanyName()
  */
 const QString &Lgp::companyName()
 {
-	if(_companyName.isNull()) {
-		openCompanyName();
-	}
-	return _companyName;
+    if (_companyName.isNull()) {
+        openCompanyName();
+    }
+    return _companyName;
 }
 
 /*!
@@ -361,22 +369,22 @@ const QString &Lgp::companyName()
  */
 void Lgp::setCompanyName(const QString &companyName)
 {
-	_companyName = companyName.left(LGP_COMPANY_NAME_SIZE);
+    _companyName = companyName.left(LGP_COMPANY_NAME_SIZE);
 }
 
 bool Lgp::openProductName()
 {
-	if(!isOpen()) {
-		qWarning() << "Lgp::companyName: The device is not open for reading";
-		return false;
-	}
+    if (!isOpen()) {
+        qWarning() << "Lgp::companyName: The device is not open for reading";
+        return false;
+    }
 
-	if(!archiveIO()->seek(archiveIO()->size() - LGP_PRODUCT_NAME_SIZE)) {
-		return false;
-	}
-	_productName = archiveIO()->read(LGP_PRODUCT_NAME_SIZE);
+    if (!archiveIO()->seek(archiveIO()->size() - LGP_PRODUCT_NAME_SIZE)) {
+        return false;
+    }
+    _productName = archiveIO()->read(LGP_PRODUCT_NAME_SIZE);
 
-	return true;
+    return true;
 }
 
 /*!
@@ -386,10 +394,10 @@ bool Lgp::openProductName()
  */
 const QString &Lgp::productName()
 {
-	if(_productName.isNull()) {
-		openProductName();
-	}
-	return _productName;
+    if (_productName.isNull()) {
+        openProductName();
+    }
+    return _productName;
 }
 
 /*!
@@ -398,174 +406,174 @@ const QString &Lgp::productName()
  */
 void Lgp::setProductName(const QString &productName)
 {
-	_productName = productName.left(LGP_PRODUCT_NAME_SIZE);
+    _productName = productName.left(LGP_PRODUCT_NAME_SIZE);
 }
 
 LgpHeaderEntry *Lgp::headerEntry(const QString &filePath) const
 {
-	return _files->entry(filePath);
+    return _files->entry(filePath);
 }
 
 bool Lgp::openHeader()
 {
-	if(!archiveIO()->exists()) {
-		return true; // Create the file
-	}
+    if (!archiveIO()->exists()) {
+        return true; // Create the file
+    }
 
-	if(!isOpen()) {
-		qWarning() << "Lgp::openHeader: The device is not open for reading";
-		setError(OpenError);
-		return false;
-	}
+    if (!isOpen()) {
+        qWarning() << "Lgp::openHeader: The device is not open for reading";
+        setError(OpenError);
+        return false;
+    }
 
-	if(!archiveIO()->seek(LGP_COMPANY_NAME_SIZE)) {
-		setError(PositionError);
-		return false;
-	}
+    if (!archiveIO()->seek(LGP_COMPANY_NAME_SIZE)) {
+        setError(PositionError);
+        return false;
+    }
 
-	qint32 fileCount;
+    qint32 fileCount;
 
-	if(archiveIO()->read((char *)&fileCount, 4) != 4) {
-		setError(ReadError);
-		return false;
-	}
+    if (archiveIO()->read((char *)&fileCount, 4) != 4) {
+        setError(ReadError);
+        return false;
+    }
 
-	if(fileCount < 0) {
-		setError(InvalidError);
-		return false;
-	}
+    if (fileCount < 0) {
+        setError(InvalidError);
+        return false;
+    }
 
-	if(fileCount == 0) {
-		return true;
-	}
+    if (fileCount == 0) {
+        return true;
+    }
 
-	const qint32 sizeToc = fileCount * 27;
-	QByteArray headerData = archiveIO()->read(sizeToc);
+    const qint32 sizeToc = fileCount * 27;
+    QByteArray headerData = archiveIO()->read(sizeToc);
 
-	if(headerData.size() != sizeToc) {
-		setError(ReadError);
-		return false;
-	}
+    if (headerData.size() != sizeToc) {
+        setError(ReadError);
+        return false;
+    }
 
-	const char *headerConstData = headerData.constData();
-	QList<LgpHeaderEntry *> tocEntries;
-	QList<quint16> headerConflict;
-	bool hasConflict = false;
+    const char *headerConstData = headerData.constData();
+    QList<LgpHeaderEntry *> tocEntries;
+    QList<quint16> headerConflict;
+    bool hasConflict = false;
 
-	for(qint32 cur=0; cur<sizeToc; cur += 27) {
-		quint32 filePos;
-		quint16 conflict;
-		memcpy(&filePos, headerConstData + cur + 20, 4);
-		memcpy(&conflict, headerConstData + cur + 25, 2);
-		tocEntries.append(new LgpHeaderEntry(
-							  headerData.mid(cur, 20),
-							  filePos));
-		headerConflict.append(conflict);
-		if(conflict != 0 && !hasConflict) {
-			hasConflict = true;
-		}
-	}
+    for (qint32 cur = 0; cur < sizeToc; cur += 27) {
+        quint32 filePos;
+        quint16 conflict;
+        memcpy(&filePos, headerConstData + cur + 20, 4);
+        memcpy(&conflict, headerConstData + cur + 25, 2);
+        tocEntries.append(new LgpHeaderEntry(
+                              headerData.mid(cur, 20),
+                              filePos));
+        headerConflict.append(conflict);
+        if (conflict != 0 && !hasConflict) {
+            hasConflict = true;
+        }
+    }
 
-	/* Resolve conflicts */
+    /* Resolve conflicts */
 
-	QList< QList<LgpConflictEntry> > conflicts;
+    QList< QList<LgpConflictEntry> > conflicts;
 
-	if(hasConflict) {
+    if (hasConflict) {
 
-		// Lookup table ignored
-		if(!archiveIO()->seek(archiveIO()->pos() + LOOKUP_TABLE_ENTRIES * 4)) {
-			setError(PositionError);
-			return false;
-		}
+        // Lookup table ignored
+        if (!archiveIO()->seek(archiveIO()->pos() + LOOKUP_TABLE_ENTRIES * 4)) {
+            setError(PositionError);
+            return false;
+        }
 
-		// Open conflicts
-		quint16 conflictCount;
+        // Open conflicts
+        quint16 conflictCount;
 
-		if(archiveIO()->read((char *)&conflictCount, 2) != 2) {
-			setError(ReadError);
-			return false;
-		}
+        if (archiveIO()->read((char *)&conflictCount, 2) != 2) {
+            setError(ReadError);
+            return false;
+        }
 
-		for(qint32 i=0; i<conflictCount; ++i) {
-			quint16 conflictEntryCount;
+        for (qint32 i = 0; i < conflictCount; ++i) {
+            quint16 conflictEntryCount;
 
-			// Open conflict entries
-			if(archiveIO()->read((char *)&conflictEntryCount, 2) != 2) {
-				setError(ReadError);
-				return false;
-			}
+            // Open conflict entries
+            if (archiveIO()->read((char *)&conflictEntryCount, 2) != 2) {
+                setError(ReadError);
+                return false;
+            }
 
-			const qint32 sizeConflicData = conflictEntryCount * 130;
-			QByteArray conflictData = archiveIO()->read(sizeConflicData);
+            const qint32 sizeConflicData = conflictEntryCount * 130;
+            QByteArray conflictData = archiveIO()->read(sizeConflicData);
 
-			if(conflictData.size() != sizeConflicData) {
-				setError(ReadError);
-				return false;
-			}
+            if (conflictData.size() != sizeConflicData) {
+                setError(ReadError);
+                return false;
+            }
 
-			if(sizeConflicData < 0) {
-				setError(InvalidError);
-				return false;
-			}
+            if (sizeConflicData < 0) {
+                setError(InvalidError);
+                return false;
+            }
 
-			const char *conflictConstData = conflictData.constData();
-			QList<LgpConflictEntry> conflictEntries;
+            const char *conflictConstData = conflictData.constData();
+            QList<LgpConflictEntry> conflictEntries;
 
-			for(qint32 cur=0; cur<sizeConflicData; cur += 130) {
-				LgpConflictEntry conflictEntry(conflictData.mid(cur, 128));
+            for (qint32 cur = 0; cur < sizeConflicData; cur += 130) {
+                LgpConflictEntry conflictEntry(conflictData.mid(cur, 128));
 
-				memcpy(&conflictEntry.tocIndex, conflictConstData + cur + 128, 2);
+                memcpy(&conflictEntry.tocIndex, conflictConstData + cur + 128, 2);
 
-				conflictEntries.append(conflictEntry);
-			}
+                conflictEntries.append(conflictEntry);
+            }
 
-			conflicts.append(conflictEntries);
-		}
+            conflicts.append(conflictEntries);
+        }
 
-	}
+    }
 
-	/* Populate _files */
+    /* Populate _files */
 
-	int headerEntryID = 0;
+    int headerEntryID = 0;
 
-	_files->clear(); // This will delete entries
+    _files->clear(); // This will delete entries
 
-	foreach(LgpHeaderEntry *entry, tocEntries) {
-		if(!_files->addEntry(entry)) {
-			qWarning() << "Invalid toc name" << entry->fileName();
-			delete entry;
-			continue;
-		}
+    foreach (LgpHeaderEntry *entry, tocEntries) {
+        if (!_files->addEntry(entry)) {
+            qWarning() << "Invalid toc name" << entry->fileName();
+            delete entry;
+            continue;
+        }
 
-		// Set fileDir
-		if(hasConflict) {
-			const quint16 &conflict = headerConflict.at(headerEntryID);
+        // Set fileDir
+        if (hasConflict) {
+            const quint16 &conflict = headerConflict.at(headerEntryID);
 
-			if(conflict != 0) {
-				const quint16 conflictID = conflict - 1;
-				bool resolved = false;
+            if (conflict != 0) {
+                const quint16 conflictID = conflict - 1;
+                bool resolved = false;
 
-				if(conflictID < conflicts.size()) {
-					const QList<LgpConflictEntry> &conflictEntries = conflicts.at(conflictID);
+                if (conflictID < conflicts.size()) {
+                    const QList<LgpConflictEntry> &conflictEntries = conflicts.at(conflictID);
 
-					foreach(const LgpConflictEntry &conflictEntry, conflictEntries) {
-						if(conflictEntry.tocIndex == headerEntryID) {
-							entry->setFileDir(conflictEntry.fileDir);
-							resolved = true;
-							break;
-						}
-					}
-				}
+                    foreach (const LgpConflictEntry &conflictEntry, conflictEntries) {
+                        if (conflictEntry.tocIndex == headerEntryID) {
+                            entry->setFileDir(conflictEntry.fileDir);
+                            resolved = true;
+                            break;
+                        }
+                    }
+                }
 
-				if(!resolved) {
-					qWarning() << "Unresolved conflict for" << entry->fileName();
-				}
-			}
-			++headerEntryID;
-		}
-	}
+                if (!resolved) {
+                    qWarning() << "Unresolved conflict for" << entry->fileName();
+                }
+            }
+            ++headerEntryID;
+        }
+    }
 
-	return true;
+    return true;
 }
 
 /*!
@@ -577,272 +585,276 @@ bool Lgp::openHeader()
  */
 bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
 {
-	const int nbFiles = _files->size();
-	int fileId;
+    const int nbFiles = _files->size();
+    int fileId;
 
-	// Range (0 to max) for the progression indicator
-	if(observer) {
-		observer->setObserverMaximum(nbFiles);
-		fileId = 0;
-	}
+    // Range (0 to max) for the progression indicator
+    if (observer) {
+        observer->setObserverMaximum(nbFiles);
+        fileId = 0;
+    }
 
-	QString destPath = destination;
+    QString destPath = destination;
 
-	if(destination.isEmpty()) {
-		QFileInfo fileInfo(*archiveIO());
-		destPath = fileInfo.absoluteFilePath();
-	}
+    if (destination.isEmpty()) {
+        QFileInfo fileInfo(*archiveIO());
+        destPath = fileInfo.absoluteFilePath();
+    }
 
-	// Temporary file (same dir as destination)
-	QFile temp(destPath + ".temp");
-	if(!temp.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-		setError(OpenError, temp.errorString());
-		return false;
-	}
+    // Temporary file (same dir as destination)
+    QFile temp(destPath + ".temp");
+    if (!temp.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        setError(OpenError, temp.errorString());
+        return false;
+    }
 
-	// Writes the company name (  SQUARESOFT)
-	if(temp.write(companyName().toLatin1().rightJustified(LGP_COMPANY_NAME_SIZE, '\0', true)) != LGP_COMPANY_NAME_SIZE) {
-		temp.remove();
-		setError(WriteError, temp.errorString());
-		return false;
-	}
+    // Writes the company name (  SQUARESOFT)
+    if (temp.write(companyName().toLatin1().rightJustified(LGP_COMPANY_NAME_SIZE, '\0', true)) != LGP_COMPANY_NAME_SIZE) {
+        temp.remove();
+        setError(WriteError, temp.errorString());
+        return false;
+    }
 
-	// Writes the file count
-	if(temp.write((char *)&nbFiles, 4) != 4) {
-		temp.remove();
-		setError(WriteError, temp.errorString());
-		return false;
-	}
+    // Writes the file count
+    if (temp.write((char *)&nbFiles, 4) != 4) {
+        temp.remove();
+        setError(WriteError, temp.errorString());
+        return false;
+    }
 
-	const quint32 posLookupTable = 16 + nbFiles * 27;
+    const quint32 posLookupTable = 16 + nbFiles * 27;
 
-	// We write data first, and toc in second
-	if(!temp.resize(posLookupTable)) {
-		temp.remove();
-		setError(ResizeError, temp.errorString());
-		return false;
-	}
-	if(!temp.seek(posLookupTable)) {
-		temp.remove();
-		setError(PositionError, temp.errorString());
-		return false;
-	}
+    // We write data first, and toc in second
+    if (!temp.resize(posLookupTable)) {
+        temp.remove();
+        setError(ResizeError, temp.errorString());
+        return false;
+    }
+    if (!temp.seek(posLookupTable)) {
+        temp.remove();
+        setError(PositionError, temp.errorString());
+        return false;
+    }
 
-	// Lookup Table + conflicts
-	LgpLookupTableEntry lookupTable[LOOKUP_TABLE_ENTRIES];
-	QHash<const LgpHeaderEntry *, LgpTocEntry> tocEntries;
-	int tocIndex = 0;
+    // Lookup Table + conflicts
+    LgpLookupTableEntry lookupTable[LOOKUP_TABLE_ENTRIES];
+    QHash<const LgpHeaderEntry *, LgpTocEntry> tocEntries;
+    int tocIndex = 0;
 
-	for(int i=0; i<LOOKUP_TABLE_ENTRIES; ++i) {
-		// toc index initialization
-		foreach(const LgpHeaderEntry *headerEntry, _files->entries(i)) {
-			tocEntries.insert(headerEntry, LgpTocEntry(tocIndex++));
-		}
-	}
+    for (int i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
+        // toc index initialization
+        foreach (const LgpHeaderEntry *headerEntry, _files->entries(i)) {
+            tocEntries.insert(headerEntry, LgpTocEntry(tocIndex++));
+        }
+    }
 
-	QList< QList<LgpConflictEntry> > conflicts;
+    QList< QList<LgpConflictEntry> > conflicts;
 
-	for(int i=0; i<LOOKUP_TABLE_ENTRIES; ++i) {
-		QList<LgpHeaderEntry *> headerEntries = _files->entries(i);
+    for (int i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
+        QList<LgpHeaderEntry *> headerEntries = _files->entries(i);
 
-		// Build list conflicts
-		foreach(const LgpHeaderEntry *headerEntry, headerEntries) {
-			LgpTocEntry &tocEntry = tocEntries[headerEntry];
+        // Build list conflicts
+        foreach (const LgpHeaderEntry *headerEntry, headerEntries) {
+            LgpTocEntry &tocEntry = tocEntries[headerEntry];
 
-			if(tocEntry.conflict == 0) {
-				QList<LgpConflictEntry> conflictEntries;
+            if (tocEntry.conflict == 0) {
+                QList<LgpConflictEntry> conflictEntries;
 
-				foreach(const LgpHeaderEntry *headerEntry2, headerEntries) {
-					if(headerEntry != headerEntry2 &&
-							headerEntry->fileName().compare(headerEntry2->fileName(),
-															Qt::CaseInsensitive) == 0) {
-						if(conflictEntries.isEmpty()) {
-							tocEntry.conflict = conflicts.size() + 1;
+                foreach (const LgpHeaderEntry *headerEntry2, headerEntries) {
+                    if (headerEntry != headerEntry2 &&
+                            headerEntry->fileName().compare(headerEntry2->fileName(),
+                                                            Qt::CaseInsensitive) == 0) {
+                        if (conflictEntries.isEmpty()) {
+                            tocEntry.conflict = conflicts.size() + 1;
 
-							conflictEntries.append(LgpConflictEntry(headerEntry->fileDir(),
-																	tocEntry.tocIndex));
-						}
+                            conflictEntries.append(LgpConflictEntry(headerEntry->fileDir(),
+                                                                    tocEntry.tocIndex));
+                        }
 
-						LgpTocEntry &tocEntry2 = tocEntries[headerEntry2];
+                        LgpTocEntry &tocEntry2 = tocEntries[headerEntry2];
 
-						tocEntry2.conflict = conflicts.size() + 1;
+                        tocEntry2.conflict = conflicts.size() + 1;
 
-						conflictEntries.append(LgpConflictEntry(headerEntry2->fileDir(),
-																tocEntry2.tocIndex));
-					}
-				}
+                        conflictEntries.append(LgpConflictEntry(headerEntry2->fileDir(),
+                                                                tocEntry2.tocIndex));
+                    }
+                }
 
-				if(!conflictEntries.isEmpty()) {
-					conflicts.append(conflictEntries);
-				}
-			}
-		}
+                if (!conflictEntries.isEmpty()) {
+                    conflicts.append(conflictEntries);
+                }
+            }
+        }
 
-		// Build lookup table
-		lookupTable[i].tocOffset = headerEntries.isEmpty()
-				? 0 : tocEntries.value(headerEntries.first()).tocIndex + 1;
-		lookupTable[i].fileCount = headerEntries.size();
-	}
+        // Build lookup table
+        lookupTable[i].tocOffset = headerEntries.isEmpty()
+                                   ? 0 : tocEntries.value(headerEntries.first()).tocIndex + 1;
+        lookupTable[i].fileCount = headerEntries.size();
+    }
 
-	// Write Lookup Table
-	if(temp.write((char *)lookupTable, sizeof(lookupTable)) != sizeof(lookupTable)) {
-		temp.remove();
-		setError(WriteError, temp.errorString());
-		return false;
-	}
+    // Write Lookup Table
+    if (temp.write((char *)lookupTable, sizeof(lookupTable)) != sizeof(lookupTable)) {
+        temp.remove();
+        setError(WriteError, temp.errorString());
+        return false;
+    }
 
-	// Write conflicts
-	QByteArray conflictsData;
-	const quint16 conflictCount = conflicts.size();
-	conflictsData.append((char *)&conflictCount, 2);
+    // Write conflicts
+    QByteArray conflictsData;
+    const quint16 conflictCount = conflicts.size();
+    conflictsData.append((char *)&conflictCount, 2);
 
-	foreach(const QList<LgpConflictEntry> &conflict, conflicts) {
-		quint16 conflictEntryCount = conflict.size();
-		conflictsData.append((char *)&conflictEntryCount, 2);
+    foreach (const QList<LgpConflictEntry> &conflict, conflicts) {
+        quint16 conflictEntryCount = conflict.size();
+        conflictsData.append((char *)&conflictEntryCount, 2);
 
-		foreach(const LgpConflictEntry &conflictEntry, conflict) {
-			conflictsData.append(conflictEntry.fileDir.toLatin1().leftJustified(128, '\0', true));
-			conflictsData.append((char *)&conflictEntry.tocIndex, 2);
-		}
-	}
+        foreach (const LgpConflictEntry &conflictEntry, conflict) {
+            conflictsData.append(conflictEntry.fileDir.toLatin1().leftJustified(128, '\0', true));
+            conflictsData.append((char *)&conflictEntry.tocIndex, 2);
+        }
+    }
 
-	if(temp.write(conflictsData) != conflictsData.size()) {
-		temp.remove();
-		setError(WriteError, temp.errorString());
-		return false;
-	}
+    if (temp.write(conflictsData) != conflictsData.size()) {
+        temp.remove();
+        setError(WriteError, temp.errorString());
+        return false;
+    }
 
-	LgpToc newToc;
+    LgpToc newToc;
 
-	// Write files
-	foreach(const LgpHeaderEntry *lgpEntry, _files->filesSortedByPosition()) {
-		// Cancels if requested
-		if(observer && observer->observerWasCanceled()) {
-			temp.remove();
-			setError(AbortError);
-			return false;
-		}
+    // Write files
+    foreach (const LgpHeaderEntry *lgpEntry, _files->filesSortedByPosition()) {
+        // Cancels if requested
+        if (observer && observer->observerWasCanceled()) {
+            temp.remove();
+            setError(AbortError);
+            return false;
+        }
 
-		// Infos for the current file
-		const QString &path = lgpEntry->filePath();
+        // Infos for the current file
+        const QString &path = lgpEntry->filePath();
 
-		// Notify the progression
-		if(observer)	observer->setObserverValue(fileId++);
+        // Notify the progression
+        if (observer) {
+            observer->setObserverValue(fileId++);
+        }
 
-		// Changes the header info
-		LgpHeaderEntry *newEntry = new LgpHeaderEntry(*lgpEntry);
-		newEntry->setFilePosition(temp.pos());
-		newEntry->setFile(0);
-		newEntry->setModifiedFile(0);
-		newToc.addEntry(newEntry);
+        // Changes the header info
+        LgpHeaderEntry *newEntry = new LgpHeaderEntry(*lgpEntry);
+        newEntry->setFilePosition(temp.pos());
+        newEntry->setFile(0);
+        newEntry->setModifiedFile(0);
+        newToc.addEntry(newEntry);
 
-		// Writes the file
-		QIODevice *io = modifiedFile(path);
-		if(io == NULL) {
-			temp.remove();
-			setError(FileNotFoundError, QT_TRANSLATE_NOOP(Lgp, QString("File '%1' not found")
-														  .arg(path).toLatin1().data()));
-			return false;
-		}
-		if(!io->open(QIODevice::ReadOnly)) {
-			temp.remove();
-			setError(OpenError, temp.errorString());
-			return false;
-		}
-		// File: writes the name
-		if(temp.write(lgpEntry->fileName().toLatin1().leftJustified(20, '\0', true)) != 20) {
-			temp.remove();
-			setError(WriteError, temp.errorString());
-			return false;
-		}
-		// File: writes the size
-		const QByteArray data = io->readAll();
-		io->close();
-		const qint64 size = data.size();
-		if(temp.write((char *)&size, 4) != 4) {
-			temp.remove();
-			setError(WriteError, temp.errorString());
-			return false;
-		}
-		// File: writes data
-		if(temp.write(data) != size) {
-			temp.remove();
-			setError(WriteError, temp.errorString());
-			return false;
-		}
-	}
+        // Writes the file
+        QIODevice *io = modifiedFile(path);
+        if (io == NULL) {
+            temp.remove();
+            setError(FileNotFoundError, QT_TRANSLATE_NOOP(Lgp, QString("File '%1' not found")
+                     .arg(path).toLatin1().data()));
+            return false;
+        }
+        if (!io->open(QIODevice::ReadOnly)) {
+            temp.remove();
+            setError(OpenError, temp.errorString());
+            return false;
+        }
+        // File: writes the name
+        if (temp.write(lgpEntry->fileName().toLatin1().leftJustified(20, '\0', true)) != 20) {
+            temp.remove();
+            setError(WriteError, temp.errorString());
+            return false;
+        }
+        // File: writes the size
+        const QByteArray data = io->readAll();
+        io->close();
+        const qint64 size = data.size();
+        if (temp.write((char *)&size, 4) != 4) {
+            temp.remove();
+            setError(WriteError, temp.errorString());
+            return false;
+        }
+        // File: writes data
+        if (temp.write(data) != size) {
+            temp.remove();
+            setError(WriteError, temp.errorString());
+            return false;
+        }
+    }
 
-	// Writes the product name (FINAL FANTASY7)
-	if(temp.write(productName().toLatin1().leftJustified(LGP_PRODUCT_NAME_SIZE, '\0', true)) != LGP_PRODUCT_NAME_SIZE) {
-		temp.remove();
-		setError(WriteError, temp.errorString());
-		return false;
-	}
+    // Writes the product name (FINAL FANTASY7)
+    if (temp.write(productName().toLatin1().leftJustified(LGP_PRODUCT_NAME_SIZE, '\0', true)) != LGP_PRODUCT_NAME_SIZE) {
+        temp.remove();
+        setError(WriteError, temp.errorString());
+        return false;
+    }
 
-	if(observer)	observer->setObserverValue(fileId);
+    if (observer) {
+        observer->setObserverValue(fileId);
+    }
 
-	// Go back to the header
-	if(!temp.seek(16)) {
-		temp.remove();
-		setError(PositionError, temp.errorString());
-		return false;
-	}
+    // Go back to the header
+    if (!temp.seek(16)) {
+        temp.remove();
+        setError(PositionError, temp.errorString());
+        return false;
+    }
 
-	// Header: TOC
-	QByteArray tocData;
-	for(int i=0; i<LOOKUP_TABLE_ENTRIES; ++i) {
-		foreach(const LgpHeaderEntry *headerEntry, newToc.entries(i)) {
-			tocData.append(headerEntry->fileName().toLower().toLatin1().leftJustified(20, '\0', true));
-			quint32 filePos = headerEntry->filePosition();
-			tocData.append((char *)&filePos, 4);
-			tocData.append('\x0e');
-			quint16 conflict = tocEntries.value(headerEntry).conflict;
-			tocData.append((char *)&conflict, 2);
-		}
-	}
+    // Header: TOC
+    QByteArray tocData;
+    for (int i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
+        foreach (const LgpHeaderEntry *headerEntry, newToc.entries(i)) {
+            tocData.append(headerEntry->fileName().toLower().toLatin1().leftJustified(20, '\0', true));
+            quint32 filePos = headerEntry->filePosition();
+            tocData.append((char *)&filePos, 4);
+            tocData.append('\x0e');
+            quint16 conflict = tocEntries.value(headerEntry).conflict;
+            tocData.append((char *)&conflict, 2);
+        }
+    }
 
-	if(temp.write(tocData) != tocData.size()) {
-		temp.remove();
-		setError(WriteError, temp.errorString());
-		return false;
-	}
+    if (temp.write(tocData) != tocData.size()) {
+        temp.remove();
+        setError(WriteError, temp.errorString());
+        return false;
+    }
 
-	if(observer) {
-		// Infinite...
-		observer->setObserverValue(-1);
-		// Cancel if requested (last chance)
-		if(observer->observerWasCanceled()) {
-			temp.remove();
-			setError(AbortError);
-			return false;
-		}
-	}
+    if (observer) {
+        // Infinite...
+        observer->setObserverValue(-1);
+        // Cancel if requested (last chance)
+        if (observer->observerWasCanceled()) {
+            temp.remove();
+            setError(AbortError);
+            return false;
+        }
+    }
 
-	archiveIO()->close();
+    archiveIO()->close();
 
-	// Remove destination file
-	if(QFile::exists(destPath)) {
-		QFile destFile(destPath);
-		if(!destFile.remove()) {
-			temp.remove();
-			setError(RemoveError, destFile.errorString());
-			return false;
-		}
-	}
-	// Move temp file to destination
-	if(!temp.rename(destPath)) {
-		temp.remove();
-		setError(RenameError, temp.errorString());
-		return false;
-	}
+    // Remove destination file
+    if (QFile::exists(destPath)) {
+        QFile destFile(destPath);
+        if (!destFile.remove()) {
+            temp.remove();
+            setError(RemoveError, destFile.errorString());
+            return false;
+        }
+    }
+    // Move temp file to destination
+    if (!temp.rename(destPath)) {
+        temp.remove();
+        setError(RenameError, temp.errorString());
+        return false;
+    }
 
-	// Now the archive is located in "destination"
-	setFileName(destPath);
+    // Now the archive is located in "destination"
+    setFileName(destPath);
 
-	*_files = newToc;
-	setError(NoError);
+    *_files = newToc;
+    setError(NoError);
 
-	return true;
+    return true;
 }
 
 /*!
@@ -851,13 +863,13 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
  */
 Lgp::LgpError Lgp::error() const
 {
-	return _error;
+    return _error;
 }
 
 void Lgp::setError(LgpError error, const QString &errorString)
 {
-	_error = error;
-	setErrorString(errorString);
+    _error = error;
+    setErrorString(errorString);
 }
 
 /*!
@@ -866,5 +878,5 @@ void Lgp::setError(LgpError error, const QString &errorString)
  */
 void Lgp::unsetError()
 {
-	setError(NoError);
+    setError(NoError);
 }

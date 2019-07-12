@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2016 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2019 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -35,57 +35,54 @@
 
 #include "../src/formats/Lgp.h"
 
-namespace Ui {
-	class MainWindow;
+namespace Ui
+{
+    class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit MainWindow(QWidget *parent = 0);
-	~MainWindow();
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
 
 private slots:
-	void hideAllBoxes(void);
-	void on_combo_widget_currentIndexChanged(int index);
-	void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
-	void on_cb_materia_editor_setEditable_toggled(bool checked);
-	void on_cb_charEditor_clicked(bool checked);
-	void on_pushButton_clicked();
-	void on_checkBox_toggled(bool checked);
-	void on_btn_showmetaData_clicked();
-	void on_btn_slotSelect_clicked();
-	void on_btn_lgpSelect_clicked();
-	void on_btnExtractLgp_clicked();
-	void on_btn_loadAchievement_clicked();
-	void on_btn_saveAchievement_clicked();
-	void on_checkBox_2_toggled(bool checked);
-
-	void on_checkBox_3_clicked(bool checked);
-
-	void on_cbEditableMateriaCombos_clicked(bool checked);
-
-	void on_checkBox_4_clicked(bool checked);
+    void hideAllBoxes(void);
+    void on_combo_widget_currentIndexChanged(int index);
+    void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
+    void on_cb_materia_editor_setEditable_toggled(bool checked);
+    void on_cb_charEditor_clicked(bool checked);
+    void on_pushButton_clicked();
+    void on_checkBox_toggled(bool checked);
+    void on_btn_showmetaData_clicked();
+    void on_btn_slotSelect_clicked();
+    void on_btn_lgpSelect_clicked();
+    void on_btnExtractLgp_clicked();
+    void on_btn_loadAchievement_clicked();
+    void on_btn_saveAchievement_clicked();
+    void on_checkBox_2_toggled(bool checked);
+    void on_checkBox_3_clicked(bool checked);
+    void on_cbEditableMateriaCombos_clicked(bool checked);
+    void on_checkBox_4_clicked(bool checked);
 
 private:
 
-	Ui::MainWindow *ui;
-	qreal scale;
-	MateriaEditor *materia_editor;
-	CharEditor *char_editor;
-	ItemList *item_list;
-	MetadataCreator *metadataCreator;
-	//SlotSelect *slotSelect;
-	PhsListWidget *ListPHS;
-	MenuListWidget *ListMenu;
-	Lgp *lgpFile;
-	LocationViewer *locViewer;
-	OptionsWidget *optionsWidget;
-	ChocoboManager *chocoboManager;
-	AchievementEditor *achievementEditor;
-	CharManager *charManager;
+    Ui::MainWindow *ui;
+    qreal scale;
+    MateriaEditor *materia_editor;
+    CharEditor *char_editor;
+    ItemList *item_list;
+    MetadataCreator *metadataCreator;
+    PhsListWidget *ListPHS;
+    MenuListWidget *ListMenu;
+    Lgp *lgpFile;
+    LocationViewer *locViewer;
+    OptionsWidget *optionsWidget;
+    ChocoboManager *chocoboManager;
+    AchievementEditor *achievementEditor;
+    CharManager *charManager;
 };
 
 #endif // MAINWINDOW_H
