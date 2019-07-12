@@ -31,7 +31,7 @@ public:
     int qty_width();//width of qty area.
     void setFixedHeight(int h);
 signals:
-    void item_changed(quint16);//return selected rawitem
+    void itemChanged(quint16);//return selected rawitem
 public slots:
     void setCurrentItem(quint16 ff7item);
     void setCurrentItem(int id, int qty);

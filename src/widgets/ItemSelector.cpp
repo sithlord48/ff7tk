@@ -62,11 +62,12 @@ void ItemSelector::setMaximumQty(int maxQty)
 
 void ItemSelector::init_connections()
 {
-    connect(combo_type, SIGNAL(currentIndexChanged(int)), this, SLOT(setFilter(int)));
-    connect(combo_item, SIGNAL(currentIndexChanged(int)), this, SLOT(comboItem_changed(int)));
-    connect(sb_qty, SIGNAL(valueChanged(int)), this, SLOT(sb_qty_changed(int)));
-    connect(btn_remove, SIGNAL(clicked()), this, SLOT(btn_remove_clicked()));
+    connect(combo_type, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ItemSelector::setFilter);
+    connect(combo_item, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &ItemSelector::comboItem_changed);
+    connect(sb_qty, QOverload<int>::of(&QSpinBox::valueChanged), this, &ItemSelector::sb_qty_changed);
+    connect(btn_remove, &QPushButton::clicked, this, &ItemSelector::btn_remove_clicked);
 }
+
 void ItemSelector::init_data()
 {
 
@@ -91,16 +92,18 @@ void ItemSelector::init_data()
     combo_item->setCurrentIndex(-1);
     current_item = FF7Item::EmptyItemData;
 }
+
 void ItemSelector::btn_remove_clicked()
 {
-    combo_item->blockSignals(true);
-    combo_type->setCurrentIndex(-1);
-    combo_item->setCurrentIndex(-1);
-    combo_item->blockSignals(false);
-    sb_qty->setEnabled(false);
-    current_item = FF7Item::EmptyItemData;
-    emit item_changed(current_item);
+	combo_item->blockSignals(true);
+	combo_type->setCurrentIndex(-1);
+	combo_item->setCurrentIndex(-1);
+	combo_item->blockSignals(false);
+	sb_qty->setEnabled(false);
+	current_item = FF7Item::EmptyItemData;
+    emit itemChanged(current_item);
 }
+
 void ItemSelector::setFilter(int type)
 {
     type++;//for hiding no filter.
@@ -136,22 +139,24 @@ void ItemSelector::comboItem_changed(int index)
         }
     }
 
-    int offset = type_offset(combo_type->currentIndex() + 1);
-    if (index + offset != Items->itemId(current_item)) {
+	int offset = type_offset(combo_type->currentIndex()+1);
+    if (index+offset != Items->itemId(current_item)) {
         if (current_item == FF7Item::EmptyItemData) {
-            current_item = Items->itemEncode(index + offset, sb_qty->value());
+            current_item = Items->itemEncode(index+offset, sb_qty->value());            
         } else {
-            current_item = Items->itemEncode(index + offset, Items->itemQty(current_item));
+            current_item = Items->itemEncode(index+offset, Items->itemQty(current_item));
         }
-        if (current_item == FF7Item::EmptyItemData) {
-            sb_qty->setEnabled(false);
+		if (current_item == FF7Item::EmptyItemData) {
+            sb_qty->setEnabled(false);            
         } else {
             sb_qty->setEnabled(true);
+            
         }
-        emit(item_changed(current_item));
-    }
+        emit(itemChanged(current_item));
+	}
 }
-void ItemSelector::setCurrentItem(int id, int qty)
+
+void ItemSelector::setCurrentItem(int id,int qty)
 {
 
     if (id < 0 || id > 319 || qty < 0 || qty > 127) {
@@ -199,7 +204,7 @@ void ItemSelector::sb_qty_changed(int qty)
 {
     if (qty != Items->itemQty(current_item)) {
         current_item = Items->itemEncode(Items->itemId(current_item), qty);
-        emit(item_changed(current_item));
+        emit(itemChanged(current_item));
     }
 }
 

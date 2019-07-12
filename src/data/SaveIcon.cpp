@@ -39,8 +39,8 @@ void SaveIcon::setAll(const QByteArray &data, quint8 nbFrames)
 {
     this->data = data;
     this->nbFrames = nbFrames;
-    if (nbFrames > 1) {
-        connect(&timer, SIGNAL(timeout()), SLOT(nextFrame()));
+    if(nbFrames > 1) {
+        connect(&timer, &QTimer::timeout, this, &SaveIcon::nextFrame);
         timer.start(160);
     }
 }
@@ -49,11 +49,11 @@ void SaveIcon::setAll(const QList<QByteArray> &data)
 {
     this->data.clear();
     nbFrames = quint8(data.size());
-    for (int i = 0; i < nbFrames; i++) {
+    for(int i= 0; i < nbFrames; i++) {
         this->data.append(data.at(i));
     }
-    if (nbFrames > 1) {
-        connect(&timer, SIGNAL(timeout()), SLOT(nextFrame()));
+    if(nbFrames>1) {
+        connect(&timer, &QTimer::timeout, this, &SaveIcon::nextFrame);
         timer.start(160);
     }
 }

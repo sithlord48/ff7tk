@@ -130,7 +130,7 @@ ItemList::ItemList(qreal Scale, QWidget *parent) : QTableWidget(parent)
     setColumnWidth(1, itemSelector->combo_item_width());
     setColumnWidth(2, itemSelector->qty_width());
     itemSelector->setFixedWidth(itemSelector->combo_type_width() + itemSelector->combo_item_width() + itemSelector->qty_width());
-    connect(this, SIGNAL(currentCellChanged(int, int, int, int)), this, SLOT(listSelectionChanged(int, int, int, int)));
+    connect(this, &QTableWidget::currentCellChanged, this, &ItemList::listSelectionChanged);
     horizontalHeader()->hide();
     verticalHeader()->hide();
     verticalScrollBar()->setToolTip("");//negate custom tooltip
@@ -223,7 +223,7 @@ void ItemList::listSelectionChanged(int row, int colum, int prevRow, int prevCol
     itemSelector->setMinimumWidth(itemSelector->width());
     setCellWidget(row, 0, itemSelector);
     itemSelector->setCurrentItem(itemlist.at(row));
-    connect(itemSelector, SIGNAL(item_changed(quint16)), this, SLOT(itemSelector_changed(quint16)));
+    connect(itemSelector, &ItemSelector::itemChanged, this, &ItemList::itemSelector_changed);
 }
 void ItemList::updateItem(int row)
 {
