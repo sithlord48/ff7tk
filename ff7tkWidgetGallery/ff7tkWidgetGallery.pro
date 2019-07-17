@@ -5,7 +5,7 @@
 TEMPLATE= app
 TARGET = ff7tkWidgetGallery
 CONFIG+= c++1z
-QT+= core gui xml widgets
+QT+= core gui xml widgets quick
 
 # Input
 HEADERS+=   mainwindow.h\
