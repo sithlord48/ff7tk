@@ -14,6 +14,8 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "MenuListWidget.h"
+#include <QVBoxLayout>
+
 MenuListWidget::MenuListWidget(QWidget *parent) :
     QWidget(parent)
     , cb_item(new DoubleCheckBox)

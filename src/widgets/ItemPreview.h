@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2016 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2019 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -13,11 +13,10 @@
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-
-#ifndef ITEMPREVIEW_H
-#define ITEMPREVIEW_H
-
-#include <QtWidgets>
+#pragma once
+#include <QGroupBox>
+#include <QLabel>
+#include <QListWidget>
 //Besure to set FF7Item Path!
 #include "../data/FF7Item.h"
 
@@ -25,7 +24,7 @@ class ItemPreview : public QWidget
 {
     Q_OBJECT
 public:
-    ItemPreview(QFlags<Qt::WindowType> WindowFlags = Qt::Widget, qreal Scale = 1, QWidget *parent = 0);
+    ItemPreview(QFlags<Qt::WindowType> WindowFlags = Qt::Widget, qreal Scale = 1, QWidget *parent = nullptr);
     int id(void);//return shown id.
 public slots:
     void setItem(quint16);
@@ -61,4 +60,3 @@ private:
     int _id;
     qreal scale;
 };
-#endif//ITEMPREVIEW_H

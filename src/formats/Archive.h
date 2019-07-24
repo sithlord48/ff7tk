@@ -1,7 +1,7 @@
 /****************************************************************************
  ** Makou Reactor Final Fantasy VII Field Script Editor
  ** Copyright (C) 2009-2013 Arzel Jérôme <myst6re@gmail.com>
- **
+ **               2019 Chris Rizzitello <sithlord48@gmail.com>
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
  ** the Free Software Foundation, either version 3 of the License, or
@@ -15,10 +15,12 @@
  ** You should have received a copy of the GNU General Public License
  ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ****************************************************************************/
-#ifndef ARCHIVE_H
-#define ARCHIVE_H
+#pragma once
 
-#include <QtCore>
+#include <QBuffer>
+#include <QByteArray>
+#include <QFile>
+#include <QDebug>
 
 struct ArchiveObserver {
     ArchiveObserver() {}
@@ -91,5 +93,3 @@ private:
     ArchiveError _error;
     QFile *_archiveIO;
 };
-
-#endif // ARCHIVE_H

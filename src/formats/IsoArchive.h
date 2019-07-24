@@ -1,7 +1,7 @@
 /****************************************************************************
  ** Makou Reactor Final Fantasy VII Field Script Editor
  ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
- **
+ **               2019 Chris Rizzitello <sithlord48@gmail.com>
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
  ** the Free Software Foundation, either version 3 of the License, or
@@ -15,16 +15,16 @@
  ** You should have received a copy of the GNU General Public License
  ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ****************************************************************************/
-#ifndef ISOARCHIVE_H
-#define ISOARCHIVE_H
+#pragma once
 
-#include <QtCore>
+#include <QIODevice>
+#include <QString>
 #include "Archive.h"
 
 #define MAX_ISO_READ            10000
 #define MAX_FILENAME_LENGTH     207
-#define SEPARATOR_1             '\x2E' // .
-#define SEPARATOR_2             '\x3B' // ;
+#define SEPARATOR_1             '\x2E'
+#define SEPARATOR_2             '\x3B'
 #define SECTOR_SIZE             2352
 #define SECTOR_SIZE_HEADER      24
 #define SECTOR_SIZE_DATA        2048
@@ -394,5 +394,3 @@ private:
     static QString pathTableToString(const PathTable &pathTable, bool bigEndian = false);
 #endif
 };
-
-#endif // ISOARCHIVE_H

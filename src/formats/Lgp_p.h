@@ -1,7 +1,7 @@
 /****************************************************************************
  ** Makou Reactor Final Fantasy VII Field Script Editor
  ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
- **
+ **                    2019 Chris Rizzitello <sithlord48@gmail.com>
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
  ** the Free Software Foundation, either version 3 of the License, or
@@ -20,10 +20,11 @@
  * inspired from LGP/UnLGP tool written by Aali.
  * http://forums.qhimm.com/index.php?topic=8641.0
  */
-#ifndef LGP_P_H
-#define LGP_P_H
+#pragma once
 
-#include <QtCore>
+#include <QIODevice>
+#include <QString>
+#include <QMultiHash>
 
 #define LGP_COMPANY_NAME_SIZE   12
 #define LGP_PRODUCT_NAME_SIZE   14
@@ -137,5 +138,3 @@ private:
     static quint8 lookupValue(const QChar &qc);
     QMultiHash<quint16, LgpHeaderEntry *> _header;
 };
-
-#endif // LGP_P_H

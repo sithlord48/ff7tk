@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2015- 2016  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2015- 2019  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -13,16 +13,8 @@
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#ifndef CHARMANAGER_H
-#define CHARMANAGER_H
-
-#include "qglobal.h"
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
-#include <QtWidgets>
-#else
-#include <QtGui>
-#endif
-
+#pragma once
+#include <QComboBox>
 #include "CharEditor.h"
 #include "../data/FF7Char.h"
 
@@ -54,5 +46,3 @@ private:
     bool load;
     qreal scale;
 };
-
-#endif // CHARMANAGER_H

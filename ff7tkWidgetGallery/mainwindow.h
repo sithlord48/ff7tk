@@ -15,9 +15,7 @@
 /****************************************************************************/
 /****************************************************************************/
 //    This Demo Program Just Shows Widgets For Easier Testing               //
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
+#pragma once
 #include <QtWidgets/QMainWindow>
 
 #include "../src/widgets/MateriaEditor.h"
@@ -84,5 +82,3 @@ private:
     AchievementEditor *achievementEditor;
     CharManager *charManager;
 };
-
-#endif // MAINWINDOW_H

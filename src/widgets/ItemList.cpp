@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2016  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2019  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -14,6 +14,8 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "ItemList.h"
+#include <QHeaderView>
+#include <QScrollBar>
 
 bool ItemList::eventFilter(QObject *obj, QEvent *ev)
 {
@@ -151,7 +153,7 @@ void ItemList::setMaximumItemQty(int maxQty)
     for (int i = 0; i < 320; i++) {
         if ((Items.itemQty(itemlist.at(i)) > itemQtyLimit) && (itemlist.at(i) != FF7Item::EmptyItemData)) {
             //qty not above limit and item is not empty.
-            itemlist.replace(i, Items.itemEncode(Items.itemId(itemlist.at(i)), itemQtyLimit));
+            itemlist.replace(i, Items.itemEncode(Items.itemId(itemlist.at(i)), quint8(itemQtyLimit)));
         }
     }
     itemupdate();

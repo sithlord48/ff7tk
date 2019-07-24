@@ -1,7 +1,7 @@
 /****************************************************************************
  ** Makou Reactor Final Fantasy VII Field Script Editor
  ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
- **
+ **                    2019 Chris Rizzitello <sithlord48@gmail.com>
  ** This program is free software: you can redistribute it and/or modify
  ** it under the terms of the GNU General Public License as published by
  ** the Free Software Foundation, either version 3 of the License, or
@@ -225,7 +225,7 @@ LgpIterator Lgp::iterator()
  */
 bool Lgp::fileExists(const QString &filePath) const
 {
-    return headerEntry(filePath) != NULL;// need to open the header
+    return headerEntry(filePath) != nullptr;// need to open the header
 }
 
 /*!
@@ -235,8 +235,8 @@ bool Lgp::fileExists(const QString &filePath) const
 QIODevice *Lgp::file(const QString &filePath)
 {
     LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-    if (entry == NULL) {
-        return NULL;
+    if (entry == nullptr) {
+        return nullptr;
     }
 
     return entry->file(archiveIO());
@@ -249,8 +249,8 @@ QIODevice *Lgp::file(const QString &filePath)
 QIODevice *Lgp::modifiedFile(const QString &filePath)
 {
     LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-    if (entry == NULL) {
-        return NULL;
+    if (entry == nullptr) {
+        return nullptr;
     }
 
     return entry->modifiedFile(archiveIO());
@@ -265,7 +265,7 @@ QIODevice *Lgp::modifiedFile(const QString &filePath)
 bool Lgp::setFile(const QString &filePath, QIODevice *data)
 {
     LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-    if (entry == NULL) {
+    if (entry == nullptr) {
         return false;
     }
 
@@ -283,11 +283,11 @@ bool Lgp::setFile(const QString &filePath, QIODevice *data)
 bool Lgp::addFile(const QString &filePath, QIODevice *data)
 {
     LgpHeaderEntry *entry = headerEntry(filePath);// need to open the header
-    if (entry != NULL) {
+    if (entry != nullptr) {
         return false;
     }
 
-    entry = new LgpHeaderEntry(filePath, archiveIO()->size());
+    entry = new LgpHeaderEntry(filePath, quint32(archiveIO()->size()));
     entry->setModifiedFile(data);
 
     bool ret = _files->addEntry(entry);
@@ -345,7 +345,7 @@ bool Lgp::openCompanyName()
     while (*data == '\0' && data < last) {
         data++;
     }
-    _companyName = QByteArray(data, (int)(last - data));
+    _companyName = QByteArray(data, int(last - data));
 
     return true;
 }
@@ -556,7 +556,7 @@ bool Lgp::openHeader()
                 if (conflictID < conflicts.size()) {
                     const QList<LgpConflictEntry> &conflictEntries = conflicts.at(conflictID);
 
-                    foreach (const LgpConflictEntry &conflictEntry, conflictEntries) {
+                    for(const LgpConflictEntry &conflictEntry : qAsConst(conflictEntries)) {
                         if (conflictEntry.tocIndex == headerEntryID) {
                             entry->setFileDir(conflictEntry.fileDir);
                             resolved = true;
@@ -590,7 +590,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
 
     // Range (0 to max) for the progression indicator
     if (observer) {
-        observer->setObserverMaximum(nbFiles);
+        observer->setObserverMaximum(uint(nbFiles));
         fileId = 0;
     }
 
@@ -622,7 +622,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
         return false;
     }
 
-    const quint32 posLookupTable = 16 + nbFiles * 27;
+    const quint32 posLookupTable = quint32(16 + nbFiles * 27);
 
     // We write data first, and toc in second
     if (!temp.resize(posLookupTable)) {
@@ -643,15 +643,15 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
 
     for (int i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
         // toc index initialization
-        foreach (const LgpHeaderEntry *headerEntry, _files->entries(i)) {
-            tocEntries.insert(headerEntry, LgpTocEntry(tocIndex++));
+        foreach (const LgpHeaderEntry *headerEntry, _files->entries(quint16(i))) {
+            tocEntries.insert(headerEntry, LgpTocEntry(quint16(tocIndex++)));
         }
     }
 
     QList< QList<LgpConflictEntry> > conflicts;
 
     for (int i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
-        QList<LgpHeaderEntry *> headerEntries = _files->entries(i);
+        QList<LgpHeaderEntry *> headerEntries = _files->entries(quint16(i));
 
         // Build list conflicts
         foreach (const LgpHeaderEntry *headerEntry, headerEntries) {
@@ -665,7 +665,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
                             headerEntry->fileName().compare(headerEntry2->fileName(),
                                                             Qt::CaseInsensitive) == 0) {
                         if (conflictEntries.isEmpty()) {
-                            tocEntry.conflict = conflicts.size() + 1;
+                            tocEntry.conflict = quint16(conflicts.size() + 1);
 
                             conflictEntries.append(LgpConflictEntry(headerEntry->fileDir(),
                                                                     tocEntry.tocIndex));
@@ -673,7 +673,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
 
                         LgpTocEntry &tocEntry2 = tocEntries[headerEntry2];
 
-                        tocEntry2.conflict = conflicts.size() + 1;
+                        tocEntry2.conflict = quint16(conflicts.size() + 1);
 
                         conflictEntries.append(LgpConflictEntry(headerEntry2->fileDir(),
                                                                 tocEntry2.tocIndex));
@@ -689,7 +689,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
         // Build lookup table
         lookupTable[i].tocOffset = headerEntries.isEmpty()
                                    ? 0 : tocEntries.value(headerEntries.first()).tocIndex + 1;
-        lookupTable[i].fileCount = headerEntries.size();
+        lookupTable[i].fileCount = quint16(headerEntries.size());
     }
 
     // Write Lookup Table
@@ -701,11 +701,11 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
 
     // Write conflicts
     QByteArray conflictsData;
-    const quint16 conflictCount = conflicts.size();
+    const quint16 conflictCount = quint16(conflicts.size());
     conflictsData.append((char *)&conflictCount, 2);
 
     foreach (const QList<LgpConflictEntry> &conflict, conflicts) {
-        quint16 conflictEntryCount = conflict.size();
+        quint16 conflictEntryCount = quint16(conflict.size());
         conflictsData.append((char *)&conflictEntryCount, 2);
 
         foreach (const LgpConflictEntry &conflictEntry, conflict) {
@@ -723,7 +723,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
     LgpToc newToc;
 
     // Write files
-    foreach (const LgpHeaderEntry *lgpEntry, _files->filesSortedByPosition()) {
+    for (const LgpHeaderEntry *lgpEntry : _files->filesSortedByPosition()) {
         // Cancels if requested
         if (observer && observer->observerWasCanceled()) {
             temp.remove();
@@ -741,14 +741,14 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
 
         // Changes the header info
         LgpHeaderEntry *newEntry = new LgpHeaderEntry(*lgpEntry);
-        newEntry->setFilePosition(temp.pos());
-        newEntry->setFile(0);
-        newEntry->setModifiedFile(0);
+        newEntry->setFilePosition(quint32(temp.pos()));
+        newEntry->setFile(nullptr);
+        newEntry->setModifiedFile(nullptr);
         newToc.addEntry(newEntry);
 
         // Writes the file
         QIODevice *io = modifiedFile(path);
-        if (io == NULL) {
+        if (io == nullptr) {
             temp.remove();
             setError(FileNotFoundError, QT_TRANSLATE_NOOP(Lgp, QString("File '%1' not found")
                      .arg(path).toLatin1().data()));
@@ -803,7 +803,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
     // Header: TOC
     QByteArray tocData;
     for (int i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
-        foreach (const LgpHeaderEntry *headerEntry, newToc.entries(i)) {
+        for (const LgpHeaderEntry *headerEntry : newToc.entries(quint16(i))) {
             tocData.append(headerEntry->fileName().toLower().toLatin1().leftJustified(20, '\0', true));
             quint32 filePos = headerEntry->filePosition();
             tocData.append((char *)&filePos, 4);

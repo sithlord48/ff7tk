@@ -17,7 +17,10 @@
 //    This Demo Program Just Shows Widgets For Easier Testing               //
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include <QDesktopWidget>
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QProgressDialog>
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {

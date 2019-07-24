@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2016  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2019  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -14,6 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "ItemSelector.h"
+#include <QHBoxLayout>
 
 ItemSelector::ItemSelector(qreal Scale, QWidget *parent): QWidget(parent)
 {
@@ -39,9 +40,9 @@ void ItemSelector::init_display()
 
     btn_remove = new QPushButton();
     btn_remove->setIconSize(iconSize);
-    btn_remove->setIcon(QIcon::fromTheme(QString("edit-clear"), QPixmap(":/common/edit-clear")));
+    btn_remove->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear"), QPixmap(":/common/edit-clear")));
     btn_remove->setToolTip(tr("Empty Item"));
-    btn_remove->setFixedWidth(fontMetrics().width(QString("WW")));
+    btn_remove->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WW")));
     btn_remove->setShortcut(QKeySequence::Delete);
 
     init_data(); //before setting layout set dat
@@ -120,7 +121,7 @@ void ItemSelector::setFilter(int type)
         }
     }
 
-    current_item = Items->itemEncode(id, Items->itemQty(current_item));
+    current_item = Items->itemEncode(quint16(id), Items->itemQty(current_item));
     if (current_item != FF7Item::EmptyItemData) {
         combo_item->setCurrentIndex(combo_item->findText(Items->name(Items->itemId(current_item))));
     } else {
@@ -142,12 +143,12 @@ void ItemSelector::comboItem_changed(int index)
 	int offset = type_offset(combo_type->currentIndex()+1);
     if (index+offset != Items->itemId(current_item)) {
         if (current_item == FF7Item::EmptyItemData) {
-            current_item = Items->itemEncode(index+offset, sb_qty->value());            
+            current_item = Items->itemEncode(quint16(index+offset), quint8(sb_qty->value()));
         } else {
-            current_item = Items->itemEncode(index+offset, Items->itemQty(current_item));
+            current_item = Items->itemEncode(quint16(index+offset), quint8(Items->itemQty(current_item)));
         }
 		if (current_item == FF7Item::EmptyItemData) {
-            sb_qty->setEnabled(false);            
+            sb_qty->setEnabled(false);
         } else {
             sb_qty->setEnabled(true);
             
@@ -176,7 +177,7 @@ void ItemSelector::setCurrentItem(int id,int qty)
         combo_type->setCurrentIndex(Items->type(id) - 1);
         combo_item->setCurrentIndex(id - type_offset(Items->type(id)));
         sb_qty->setValue(qty);
-        current_item = Items->itemEncode(id, qty);
+        current_item = Items->itemEncode(quint16(id), quint8(qty));
     }
     this->blockSignals(false);
 
@@ -203,7 +204,7 @@ void ItemSelector::setCurrentItem(quint16 ff7item)
 void ItemSelector::sb_qty_changed(int qty)
 {
     if (qty != Items->itemQty(current_item)) {
-        current_item = Items->itemEncode(Items->itemId(current_item), qty);
+        current_item = Items->itemEncode(Items->itemId(current_item), quint8(qty));
         emit(itemChanged(current_item));
     }
 }
@@ -232,7 +233,7 @@ int ItemSelector::type_offset(int type)
 }
 int ItemSelector::id(void)
 {
-    return (int)Items->itemId(current_item);
+    return int(Items->itemId(current_item));
 }
 int ItemSelector::combo_item_width()
 {

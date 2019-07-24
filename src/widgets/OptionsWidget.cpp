@@ -14,6 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "OptionsWidget.h"
+#include <QScrollBar>
 
 OptionsWidget::OptionsWidget(QWidget *parent) :
     QScrollArea(parent)
