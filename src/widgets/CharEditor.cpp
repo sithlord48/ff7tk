@@ -29,7 +29,7 @@ CharEditor::CharEditor(qreal Scale, QWidget *parent) : QWidget(parent)
 void CharEditor::changeEvent(QEvent *e)
 {
     if (e->type() != QEvent::LanguageChange) {
-        return;
+        QWidget::changeEvent(e);
     }
     updateText();
 }

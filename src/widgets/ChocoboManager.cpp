@@ -17,7 +17,7 @@
 void ChocoboManager::changeEvent(QEvent *e)
 {
     if (e->type() != QEvent::LanguageChange) {
-        return;
+        QWidget::changeEvent(e);
     }
 
     lblStablesOwned ->setText(tr("Stables Owned"));

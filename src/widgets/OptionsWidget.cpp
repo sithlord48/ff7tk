@@ -186,7 +186,7 @@ void OptionsWidget::resizeEvent(QResizeEvent *event)
 void OptionsWidget::changeEvent(QEvent *e)
 {
     if (e->type() != QEvent::LanguageChange) {
-        return;
+        QWidget::changeEvent(e);
     }
     updateText();
 }

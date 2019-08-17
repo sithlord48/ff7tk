@@ -107,7 +107,7 @@ bool ItemList::eventFilter(QObject *obj, QEvent *ev)
 void ItemList::changeEvent(QEvent *e)
 {
     if (e->type() != QEvent::LanguageChange) {
-        return;
+        QTableWidget::changeEvent(e);
     }
     itemupdate();
 }

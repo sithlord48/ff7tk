@@ -37,7 +37,7 @@ PhsListWidget::PhsListWidget(QWidget *parent) :
 void PhsListWidget::changeEvent(QEvent *e)
 {
     if (e->type() != QEvent::LanguageChange) {
-        return;
+        QWidget::changeEvent(e);
     }
 
     updateText();

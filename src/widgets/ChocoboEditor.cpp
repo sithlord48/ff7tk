@@ -498,7 +498,7 @@ QSpinBox *ChocoboEditor::makeSpinBox(int maxValue)
 void ChocoboEditor::changeEvent(QEvent *e)
 {
     if (e->type() != QEvent::LanguageChange) {
-        return;
+        QWidget::changeEvent(e);
     }
     updateText();
 }

@@ -528,7 +528,7 @@ QWidget *MateriaEditor::makeStarWidget()
 void MateriaEditor::changeEvent(QEvent *e)
 {
     if (e->type() != QEvent::LanguageChange) {
-        return;
+        QWidget::changeEvent(e);
     }
 
     updateESkillList();
