@@ -655,13 +655,9 @@ void LocationViewer::searchItem(QRegExp exp)
 {
     QStringList locationNames;
     for (const FieldItem &fieldItem : fieldItems->fieldItemList()) {
-        for (const QString &item : qAsConst(fieldItem.Maps)) {
-            if (item.contains(exp)) {
-                locationNames.append(item);
-            }
-        }
+            if (fieldItem.Text.contains(exp))
+                locationNames.append(fieldItem.Maps);
     }
-
     for (int i = 0; i < locationTable->rowCount(); i++) {
         bool hidden = true;
         for (int j = 0; j < locationNames.count(); j++) {
