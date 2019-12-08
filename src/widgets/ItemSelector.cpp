@@ -72,18 +72,18 @@ void ItemSelector::init_connections()
 void ItemSelector::init_data()
 {
 
-    combo_type->addItem(Items->icon(FF7Item::Potion), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::BronzeBangle), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::Ribbon), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::BusterSword), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::GatlingGun), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::GodsHand), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::AdamanClip), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::StrikingStaff), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::Mop), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::FourPointShuriken), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::CrystalMphone), tr(""));
-    combo_type->addItem(Items->icon(FF7Item::SupershotST), tr(""));
+    combo_type->addItem(Items->icon(FF7Item::Potion), QString());
+    combo_type->addItem(Items->icon(FF7Item::BronzeBangle), QString());
+    combo_type->addItem(Items->icon(FF7Item::Ribbon), QString());
+    combo_type->addItem(Items->icon(FF7Item::BusterSword), QString());
+    combo_type->addItem(Items->icon(FF7Item::GatlingGun), QString());
+    combo_type->addItem(Items->icon(FF7Item::GodsHand), QString());
+    combo_type->addItem(Items->icon(FF7Item::AdamanClip), QString());
+    combo_type->addItem(Items->icon(FF7Item::StrikingStaff), QString());
+    combo_type->addItem(Items->icon(FF7Item::Mop), QString());
+    combo_type->addItem(Items->icon(FF7Item::FourPointShuriken), QString());
+    combo_type->addItem(Items->icon(FF7Item::CrystalMphone), QString());
+    combo_type->addItem(Items->icon(FF7Item::SupershotST), QString());
     sb_qty->setEnabled(false);
     //Fill Combo_Item (all items type is 0 or no filter defalut)
     for (int i = 0; i < 320; i++) {
@@ -241,11 +241,11 @@ int ItemSelector::combo_item_width()
 }
 int ItemSelector::combo_type_width()
 {
-    return combo_type->width();
+    return int(combo_type->width() * 0.2);
 }
 int ItemSelector::qty_width()
 {
-    return sb_qty->width() + btn_remove->width();
+    return int((sb_qty->width() + btn_remove->width()) * 0.55);
 }
 
 void ItemSelector::setFixedHeight(int h)
