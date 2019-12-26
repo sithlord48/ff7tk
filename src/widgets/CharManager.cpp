@@ -14,12 +14,10 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "CharManager.h"
-#include <QDebug>
 
 CharManager::CharManager(qreal Scale, QWidget *parent) :
     QWidget(parent)
 {
-    charData = new FF7Char;
     scale = Scale;
     initDisplay();
     connectAll();
@@ -30,9 +28,8 @@ void CharManager::initDisplay(void)
     load = true;
     for (int i = 0; i < 3; i++) {
         comboParty[i] = new QComboBox();
-        for (int j = 0; j < 11; j++) {
+        for (int j = 0; j < 11; j++)
             comboParty[i]->addItem(charData->icon(j), charData->defaultName(j));
-        }
         comboParty[i]->addItem("0x0B");
         comboParty[i]->addItem(tr("-Empty-"));
     }
@@ -50,8 +47,8 @@ void CharManager::initDisplay(void)
     for (int i = 0; i < 9; i++) {
         QPushButton *button = new QPushButton;
         button->setIcon(charData->icon(i));
-        button->setIconSize(QSize(32 + scale, 32 * scale));
-        button->setMaximumWidth(32 * scale);
+        button->setIconSize(QSize(int(32 + scale), int(32 * scale)));
+        button->setMaximumWidth(int(32 * scale));
         charBox->addWidget(button);
     }
     charEditor = new CharEditor(scale);
@@ -68,37 +65,31 @@ void CharManager::initDisplay(void)
 }
 void CharManager::connectAll(void)
 {
-    connect(comboParty[0], SIGNAL(currentIndexChanged(int)), this, SLOT(party1Changed(int)));
-    connect(comboParty[1], SIGNAL(currentIndexChanged(int)), this, SLOT(party2Changed(int)));
-    connect(comboParty[2], SIGNAL(currentIndexChanged(int)), this, SLOT(party3Changed(int)));
+    connect(comboParty[0], QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharManager::party1Changed);
+    connect(comboParty[1], QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharManager::party2Changed);
+    connect(comboParty[2], QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharManager::party3Changed);
 
 }
 void CharManager::disconnectAll(void)
 {
-    disconnect(comboParty[0], SIGNAL(currentIndexChanged(int)), this, SLOT(party1Changed(int)));
-    disconnect(comboParty[1], SIGNAL(currentIndexChanged(int)), this, SLOT(party2Changed(int)));
-    disconnect(comboParty[2], SIGNAL(currentIndexChanged(int)), this, SLOT(party3Changed(int)));
+    disconnect(comboParty[0], QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharManager::party1Changed);
+    disconnect(comboParty[1], QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharManager::party2Changed);
+    disconnect(comboParty[2], QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharManager::party3Changed);
 }
 void CharManager::party1Changed(int index)
 {
-    if (!load) {
-        emit(comboParty1_changed(index));
-        qWarning() << QString("combo1:%1").arg(QString::number(index));
-    }
+    if (!load)
+        emit(comboParty1_changed(qint8(index)));
 }
 void CharManager::party2Changed(int index)
 {
-    if (!load) {
-        emit(comboParty2_changed(index));
-        qWarning() << QString("combo2:%1").arg(QString::number(index));
-    }
+    if (!load)
+        emit(comboParty2_changed(qint8(index)));
 }
 void CharManager::party3Changed(int index)
 {
-    if (!load) {
-        emit(comboParty3_changed(index));
-        qWarning() << QString("combo3:%1").arg(QString::number(index));
-    }
+    if (!load)
+        emit(comboParty3_changed(qint8(index)));
 }
 
 void CharManager::setParty(qint8 member1, qint8 member2, qint8 member3)

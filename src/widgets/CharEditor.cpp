@@ -14,6 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include "CharEditor.h"
+#include "../data/FF7Char.h"
 
 CharEditor::CharEditor(qreal Scale, QWidget *parent) : QWidget(parent)
     , data(FF7CHAR())
@@ -312,10 +313,10 @@ void CharEditor::updateText()
         comboId->setIconSize(iconSize);
         comboId->setHidden(true);
         for (int i = 0; i < 11; i++)
-            comboId->addItem(Chars.icon(i), Chars.defaultName(i));
+            comboId->addItem(FF7Char::instance()->icon(i), FF7Char::instance()->defaultName(i));
     } else {
         for (int i = 0; i < 11; i++)
-            comboId->setItemText(i, Chars.defaultName(i));
+            comboId->setItemText(i, FF7Char::instance()->defaultName(i));
     }
 
     if (!accessory_selection) {
@@ -348,7 +349,7 @@ void CharEditor::updateText()
         weapon_selection->setIconSize(iconSize);
     } else {
         for (int i = 0; i < weapon_selection->count(); i++)
-            weapon_selection->setItemText(i, Items.name(Chars.weaponStartingId(data.id) + i));
+            weapon_selection->setItemText(i, Items.name(FF7Char::instance()->weaponStartingId(data.id) + i));
     }
 
     if (!lbl_limit_bar)
@@ -388,11 +389,11 @@ void CharEditor::updateText()
 
     if (!list_limits) {
         list_limits = new QListWidget();
-        list_limits->addItems(Chars.limits(0));
+        list_limits->addItems(FF7Char::instance()->limits(0));
         list_limits->setFixedHeight( (list_limits->sizeHintForRow(0) * 7) + list_limits->contentsMargins().top() + list_limits->contentsMargins().bottom());
     } else {
         for (int i = 0; i < list_limits->count(); i++)
-            list_limits->item(i)->setText(Chars.limits(data.id).at(i));
+            list_limits->item(i)->setText(FF7Char::instance()->limits(data.id).at(i));
     }
 
     updateMateriaToolTips();
@@ -680,7 +681,7 @@ void CharEditor::init_display()
     auto tabStatus = new QFrame;
     tabStatus->setLayout(left_Final);
     tabStatus->adjustSize();
-    toolbox->addItem(tabStatus, Chars.icon(0), tr("Status Info"));
+    toolbox->addItem(tabStatus, FF7Char::instance()->icon(0), tr("Status Info"));
 
     auto tabEquipment = new QFrame;
     tabEquipment->setLayout(right_Final);
@@ -940,11 +941,11 @@ void CharEditor::Exp_Changed(int exp)
     if (quint32(exp) != data.exp) {
         setExp(exp);
         if (autolevel) {
-            if ((data.exp >= Chars.totalExpForLevel(data.id, data.level)) || (data.exp <= Chars.totalExpForLevel(data.id, data.level - 1))) {
+            if ((data.exp >= FF7Char::instance()->totalExpForLevel(data.id, data.level)) || (data.exp <= FF7Char::instance()->totalExpForLevel(data.id, data.level - 1))) {
                 int level = 0;
                 int prev_level = data.level;
                 for (int i = level; i < 99; i++) {
-                    if (data.exp >= Chars.totalExpForLevel(data.id, i)) {
+                    if (data.exp >= FF7Char::instance()->totalExpForLevel(data.id, i)) {
                         level++;
                     }
                 }
@@ -968,7 +969,7 @@ void CharEditor::Level_Changed(int level)
             if (level <= 0) {
                 setExp(0);
             } else {
-                setExp(int(Chars.totalExpForLevel(data.id, level - 1)));
+                setExp(int(FF7Char::instance()->totalExpForLevel(data.id, level - 1)));
             }
             sbTotalExp->blockSignals(true);
             sbTotalExp->setValue(int(data.exp));
@@ -986,7 +987,7 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
     data = Chardata;
     _name = Processed_Name;
     //more here like setting the gui stuff.
-    lblAvatar->setPixmap(Chars.pixmap(data.id).scaled(lblAvatar->width(), lblAvatar->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    lblAvatar->setPixmap(FF7Char::instance()->pixmap(data.id).scaled(lblAvatar->width(), lblAvatar->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     lineName->setText(_name);
     sbLevel->setValue(data.level);
     sbCurrentMp->setValue(data.curMP);
@@ -1033,9 +1034,9 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
     }
 
     for(int i =0; i< list_limits->count(); i++) {
-        list_limits->item(i)->setText(Chars.limits(data.id).at(i));
+        list_limits->item(i)->setText(FF7Char::instance()->limits(data.id).at(i));
         list_limits->item(i)->setHidden((list_limits->item(i)->text().isEmpty()));
-        list_limits->item(i)->setCheckState((data.limits & (1 << Chars.limitBitConvert(i)))? Qt::Checked : Qt::Unchecked );
+        list_limits->item(i)->setCheckState((data.limits & (1 << FF7Char::instance()->limitBitConvert(i)))? Qt::Checked : Qt::Unchecked );
     }
 
     sb_uses_limit_1_1->setValue(data.timesused1);
@@ -1044,13 +1045,13 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
     sb_limit_level->setValue(data.limitlevel);
 
     weapon_selection->clear();
-    for (int i = Chars.weaponStartingId(data.id); i < Chars.numberOfWeapons(data.id) + Chars.weaponStartingId(data.id); i++)
+    for (int i = FF7Char::instance()->weaponStartingId(data.id); i < FF7Char::instance()->numberOfWeapons(data.id) + FF7Char::instance()->weaponStartingId(data.id); i++)
         weapon_selection->addItem(QPixmap::fromImage(Items.image(i)), Items.name(i));
-    weapon_selection->setCurrentIndex(data.weapon - Chars.weaponOffset(data.id));
+    weapon_selection->setCurrentIndex(data.weapon - FF7Char::instance()->weaponOffset(data.id));
 
     if (weapon_selection->currentText().isEmpty()) {
-        data.weapon = quint8(Chars.weaponOffset(data.id));
-        weapon_selection->setCurrentIndex(data.weapon - Chars.weaponOffset(data.id));
+        data.weapon = quint8(FF7Char::instance()->weaponOffset(data.id));
+        weapon_selection->setCurrentIndex(data.weapon - FF7Char::instance()->weaponOffset(data.id));
     }
 
     armor_selection->setCurrentIndex(data.armor);
@@ -1388,14 +1389,14 @@ void CharEditor::setLimitBar(int limitbar)
 
 void CharEditor::setWeapon(int weapon)
 {
-    if (weapon == (data.weapon - Chars.weaponOffset(data.id)))
+    if (weapon == (data.weapon - FF7Char::instance()->weaponOffset(data.id)))
         return;
     if (weapon < 0)
-        data.weapon = quint8(Chars.weaponOffset(data.id));
-    else if (weapon > Chars.numberOfWeapons(data.id))
-        data.weapon = quint8(Chars.numberOfWeapons(data.id) + Chars.weaponOffset(data.id));
+        data.weapon = quint8(FF7Char::instance()->weaponOffset(data.id));
+    else if (weapon > FF7Char::instance()->numberOfWeapons(data.id))
+        data.weapon = quint8(FF7Char::instance()->numberOfWeapons(data.id) + FF7Char::instance()->weaponOffset(data.id));
     else
-        data.weapon = quint8(weapon + Chars.weaponOffset(data.id));
+        data.weapon = quint8(weapon + FF7Char::instance()->weaponOffset(data.id));
     emit weapon_changed(data.weapon);
 
     elemental_info();
@@ -1583,9 +1584,9 @@ void CharEditor::calc_limit_value(QModelIndex item)
     int row = item.row();
     int limits = data.limits;
     if (list_limits->item(row)->checkState() == Qt::Checked) {
-        limits |= (1 << Chars.limitBitConvert(row));
+        limits |= (1 << FF7Char::instance()->limitBitConvert(row));
     } else {
-        limits &= ~(1 << Chars.limitBitConvert(row));
+        limits &= ~(1 << FF7Char::instance()->limitBitConvert(row));
     }
     setLimits(limits);
 }
@@ -1879,27 +1880,27 @@ void CharEditor::level_up(int pre_level)
         //level up
         for (int i = pre_level; i < data.level; i++) {
             // for statGain stat guide, 0=str; 1=vit;2=mag;3=spr;4=dex;5=lck;6=basehp;7basemp also use id incase of mods that could move a char.
-            sbStr->setValue(data.strength + Chars.statGain(data.id, 0, data.strength, i, i + 1));
-            sbVit->setValue(data.vitality + Chars.statGain(data.id, 1, data.vitality, i, i + 1));
-            sbMag->setValue(data.magic + Chars.statGain(data.id, 2, data.magic, i, i + 1));
-            sbSpi->setValue(data.spirit + Chars.statGain(data.id, 3, data.spirit, i, i + 1));
-            sbDex->setValue(data.dexterity + Chars.statGain(data.id, 4, data.dexterity, i, i + 1));
-            sbLck->setValue(data.luck + Chars.statGain(data.id, 5, data.luck, i, i + 1));
-            sbBaseHp->setValue(data.baseHP + Chars.statGain(data.id, 6, data.baseHP, i, i + 1));
-            sbBaseMp->setValue(data.baseMP + Chars.statGain(data.id, 7, data.baseMP, i, i + 1));
+            sbStr->setValue(data.strength + FF7Char::instance()->statGain(data.id, 0, data.strength, i, i + 1));
+            sbVit->setValue(data.vitality + FF7Char::instance()->statGain(data.id, 1, data.vitality, i, i + 1));
+            sbMag->setValue(data.magic + FF7Char::instance()->statGain(data.id, 2, data.magic, i, i + 1));
+            sbSpi->setValue(data.spirit + FF7Char::instance()->statGain(data.id, 3, data.spirit, i, i + 1));
+            sbDex->setValue(data.dexterity + FF7Char::instance()->statGain(data.id, 4, data.dexterity, i, i + 1));
+            sbLck->setValue(data.luck + FF7Char::instance()->statGain(data.id, 5, data.luck, i, i + 1));
+            sbBaseHp->setValue(data.baseHP + FF7Char::instance()->statGain(data.id, 6, data.baseHP, i, i + 1));
+            sbBaseMp->setValue(data.baseMP + FF7Char::instance()->statGain(data.id, 7, data.baseMP, i, i + 1));
         }
     } else if (pre_level > data.level) {
         //level down
         for (int i = pre_level; i > data.level; i--) {
             // for statGain stat guide, 0=str; 1=vit; 2=mag; 3=spr; 4=dex; 5=lck; 6=basehp; 7basemp
-            sbStr->setValue(data.strength - Chars.statGain(data.id, 0, data.strength, i, i - 1));
-            sbVit->setValue(data.vitality - Chars.statGain(data.id, 1, data.vitality, i, i - 1));
-            sbMag->setValue(data.magic - Chars.statGain(data.id, 2, data.magic, i, i - 1));
-            sbSpi->setValue(data.spirit - Chars.statGain(data.id, 3, data.spirit, i, i - 1));
-            sbDex->setValue(data.dexterity - Chars.statGain(data.id, 4, data.dexterity, i, i - 1));
-            sbLck->setValue(data.luck - Chars.statGain(data.id, 5, data.luck, i, i - 1));
-            sbBaseHp->setValue(data.baseHP - Chars.statGain(data.id, 6, data.baseHP, i, i - 1));
-            sbBaseMp->setValue(data.baseMP - Chars.statGain(data.id, 7, data.baseMP, i, i - 1));
+            sbStr->setValue(data.strength - FF7Char::instance()->statGain(data.id, 0, data.strength, i, i - 1));
+            sbVit->setValue(data.vitality - FF7Char::instance()->statGain(data.id, 1, data.vitality, i, i - 1));
+            sbMag->setValue(data.magic - FF7Char::instance()->statGain(data.id, 2, data.magic, i, i - 1));
+            sbSpi->setValue(data.spirit - FF7Char::instance()->statGain(data.id, 3, data.spirit, i, i - 1));
+            sbDex->setValue(data.dexterity - FF7Char::instance()->statGain(data.id, 4, data.dexterity, i, i - 1));
+            sbLck->setValue(data.luck - FF7Char::instance()->statGain(data.id, 5, data.luck, i, i - 1));
+            sbBaseHp->setValue(data.baseHP - FF7Char::instance()->statGain(data.id, 6, data.baseHP, i, i - 1));
+            sbBaseMp->setValue(data.baseMP - FF7Char::instance()->statGain(data.id, 7, data.baseMP, i, i - 1));
         }
     }
     calc_stats();
@@ -1907,9 +1908,9 @@ void CharEditor::level_up(int pre_level)
 void CharEditor::update_tnl_bar()
 {
     if (data.level != 99) {
-        setExpNext(int(Chars.totalExpForLevel(data.id, data.level) - data.exp));
+        setExpNext(int(FF7Char::instance()->totalExpForLevel(data.id, data.level) - data.exp));
         if (data.level > 0) {
-            setLevelProgress(int(((Chars.tnlForLevel(data.id, data.level) - data.expNext) * 62) / Chars.tnlForLevel(data.id, data.level)));
+            setLevelProgress(int(((FF7Char::instance()->tnlForLevel(data.id, data.level) - data.expNext) * 62) / FF7Char::instance()->tnlForLevel(data.id, data.level)));
         }
     } else {
         setExpNext(0);
@@ -2204,7 +2205,7 @@ void CharEditor::MaxEquip()
         return;
 
     //set up weapons/ armor
-    weapon_selection->setCurrentIndex(Chars.numberOfWeapons(data.id) - 1);
+    weapon_selection->setCurrentIndex(FF7Char::instance()->numberOfWeapons(data.id) - 1);
     armor_selection->setCurrentIndex(29);
     accessory_selection->setCurrentIndex(18);
     for (int i = 15; i >= 0; i--) {

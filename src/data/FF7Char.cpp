@@ -16,13 +16,37 @@
 
 #include "FF7Char.h"
 #include <QRandomGenerator>
+#include <QQmlEngine>
 
+FF7Char *FF7Char::instance()
+{
+    static FF7Char m;
+    return &m;
+}
+
+FF7Char::FF7Char(QObject *parent) :
+    QObject(parent)
+    , d(new FF7CharPrivate)
+{
+}
+
+FF7Char::~FF7Char()
+{
+    delete d;
+}
+
+QObject *FF7Char::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(scriptEngine)
+    engine->setObjectOwnership(instance(), QQmlEngine::CppOwnership);
+    return instance();
+}
 const FF7Char::Character &FF7Char::character(int who)
 {
-    if (who >= 0 && who <= _charData.size() - 1) {
-        return _charData.at(who);
+    if (who >= 0 && who <= d->_charData.size() - 1) {
+        return d->_charData.at(who);
     }
-    return _emptyChar;
+    return d->_emptyChar;
 }
 
 quint32 FF7Char::totalExpForLevel(int who, int level)
@@ -37,17 +61,52 @@ quint32 FF7Char::tnlForLevel(int who, int level)
     return character(who)._chartnls.at(level);
 }
 
+quint8 FF7Char::id(int who)
+{
+    return character(who)._id;
+}
+
+int FF7Char::numberOfWeapons(int who)
+{
+    return character(who)._num_weapons;
+}
+
+int FF7Char::weaponStartingId(int who)
+{
+    return character(who)._starting_weapon_id;
+}
+
+int FF7Char::weaponOffset(int who)
+{
+    return character(who)._weapon_offset;
+}
+
 QString FF7Char::defaultName(int who)
 {
     who = std::clamp(who, 0, 10);
-    return tr(_charData.at(who)._def_name.toLocal8Bit());
+    return tr(d->_charData.at(who)._def_name.toLocal8Bit());
+}
+
+QImage FF7Char::image(int who)
+{
+    return QImage(character(who)._avatarString);
+}
+
+QIcon FF7Char::icon(int who)
+{
+    return QIcon(pixmap(who));
+}
+
+QPixmap FF7Char::pixmap(int who)
+{
+    return QPixmap(character(who)._avatarString);
 }
 
 QStringList FF7Char::limits(int who)
 {
     who = std::clamp(who, 0, 10);
     QStringList translated_list;
-    for (const QString &limit : qAsConst(_charData.at(who)._limits)) {
+    for (const QString &limit : qAsConst(d->_charData.at(who)._limits)) {
         translated_list.append(tr(limit.toLocal8Bit()));
     }
     return translated_list;
@@ -55,7 +114,52 @@ QStringList FF7Char::limits(int who)
 int FF7Char::limitBitConvert(int bit)
 {
     bit = std::clamp(bit, 0, 7);
-    return _limitbitarray.at(bit);
+    return d->_limitbitarray.at(bit);
+}
+
+int FF7Char::stat_grade(int who, int stat)
+{
+    return character(who)._stat_grade.at(stat);
+}
+
+int FF7Char::mp_base(int who, int lvl_bracket)
+{
+    return character(who)._mp_base.at(lvl_bracket);
+}
+
+int FF7Char::mp_gradent(int who, int lvl_bracket)
+{
+    return character(who)._mp_gradent.at(lvl_bracket);
+}
+
+int FF7Char::hp_base(int who, int lvl_bracket)
+{
+    return character(who)._hp_base.at(lvl_bracket);
+}
+
+int FF7Char::hp_gradent(int who, int lvl_bracket)
+{
+    return character(who)._hp_gradent.at(lvl_bracket);
+}
+
+int FF7Char::luck_base(int who, int lvl_bracket)
+{
+    return character(who)._luck_base.at(lvl_bracket);
+}
+
+int FF7Char::luck_gradent(int who, int lvl_bracket)
+{
+    return character(who)._luck_gradent.at(lvl_bracket);
+}
+
+int FF7Char::stat_base(int rank, int lvl_bracket)
+{
+    return d->_stat_base.at(rank).at(lvl_bracket);
+}
+
+int FF7Char::stat_gradent(int rank, int lvl_bracket)
+{
+    return d->_stat_gradent.at(rank).at(lvl_bracket);
 }
 
 int FF7Char::statGain(int who, int stat, int stat_amount, int current_lvl, int next_lvl)
