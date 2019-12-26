@@ -15,6 +15,7 @@
 /****************************************************************************/
 
 #include "FF7Text.h"
+#include <QQmlEngine>
 /*~~~~~~~~TEXT CLASS~~~~~~~~~*/
 // the PC function is modified from Makou Reactor (thanks Myst6re)
 FF7TEXT *FF7TEXT::instance()
@@ -32,6 +33,13 @@ FF7TEXT::FF7TEXT(QObject *parent) :
 FF7TEXT::~FF7TEXT()
 {
     delete d;
+}
+
+QObject *FF7TEXT::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(scriptEngine)
+    engine->setObjectOwnership(instance(), QQmlEngine::CppOwnership);
+    return instance();
 }
 
 void FF7TEXT::setJapanese(bool japanese)

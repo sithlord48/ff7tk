@@ -1,18 +1,15 @@
-import QtQuick 2.9
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.4
 
 ApplicationWindow {
+
     visible: true
     ColumnLayout {
         anchors.fill: parent
         ComboBox {
             id: combo_Selector
             model: ["", "Text Demo", "ItemPreview"]
-            style: ComboBoxStyle {
-                textColor: SystemPalette.text
-            }
             Layout.fillWidth: true
             onCurrentIndexChanged: indexChanged(combo_Selector.currentIndex)
         }
@@ -32,11 +29,8 @@ ApplicationWindow {
             ColumnLayout {
                 SpinBox {
                     id:sb_itemNumber
-                    maximumValue: 319
+                    to: 319
                     onValueChanged: itemDemo.setItem(value)
-                    style: SpinBoxStyle {
-                        textColor: SystemPalette.text
-                    }
                 }
                 ItemPreview {
                     id:itemDemo

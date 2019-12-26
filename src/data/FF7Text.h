@@ -16,6 +16,9 @@
 #pragma once
 #include <QObject>
 
+class QQmlEngine;
+class QJSEngine;
+
 /*! \class FF7TEXT
  * \brief Convert ff7text <-> pc string
  */
@@ -29,6 +32,12 @@ public:
      * @sa qmlSingletonRegister()
      */
     static FF7TEXT *instance();
+    
+    /**
+     * @brief Register The FF7TEXT Singleton for QML
+     */
+    QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    
     /*! \brief sets the text mode, if TRUE will return Japanese text */
     void setJapanese(bool japanese);
 

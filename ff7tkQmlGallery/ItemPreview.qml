@@ -1,11 +1,11 @@
-import QtQuick 2.9
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.4
 import FF7Item 1.0
 
 ColumnLayout {
     id: root
+
     Item {
         FF7Item {
             id:ff7Item
@@ -13,14 +13,12 @@ ColumnLayout {
         FontMetrics {
             id:fm
         }
-        SystemPalette {
-            id:palette
-        }
     }
     ColumnLayout {
         RowLayout {
             Image {
                 id: itemTypeIcon
+                width: fm.height * 3; height: fm.height * 3
                 fillMode: Image.PreserveAspectFit
             }
             Label {
@@ -38,60 +36,60 @@ ColumnLayout {
                     id: mGroup1
                     Image{
                         id: lblMSlot1
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" + ff7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink1
-                        source: ff7Item.materiaLinkResource()
+                        source: "qrc" +ff7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot2
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" +ff7Item.materiaSlotResource()
                     }
                 }
                 RowLayout {
                     id: mGroup2
                     Image{
                         id: lblMSlot3
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" +ff7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink2
-                        source: ff7Item.materiaLinkResource()
+                        source: "qrc" +ff7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot4
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" +ff7Item.materiaSlotResource()
                     }
                 }
                 RowLayout {
                     id: mGroup3
                     Image{
                         id: lblMSlot5
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" + ff7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink3
-                        source: ff7Item.materiaLinkResource()
+                        source: "qrc" + ff7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot6
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" + ff7Item.materiaSlotResource()
                     }
                 }
                 RowLayout {
                     id: mGroup4
                     Image{
                         id: lblMSlot7
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" + ff7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink4
-                        source: ff7Item.materiaLinkResource()
+                        source: "qrc" + ff7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot8
-                        source: ff7Item.materiaSlotResource()
+                        source: "qrc" + ff7Item.materiaSlotResource()
                     }
                 }
             }
@@ -126,10 +124,8 @@ ColumnLayout {
                         delegate:Rectangle {
                             height: fm.height + 2
                             width: fm.averageCharacterWidth * 17
-                            color: palette.window
                             Text {
                                 text: modelData
-                                color: palette.text
                             }
                         }
                     }
@@ -145,7 +141,7 @@ ColumnLayout {
         itemDesc.text = ff7Item.desc(itemID)
         itemTypeIcon.source = ff7Item.iconResource(itemID)
 
-        if (type != FF7Item.Item && type != FF7Item.Accessory) {
+        if (type !== FF7Item.Item && type !== FF7Item.Accessory) {
             group_MSlots.visible = true
             group_MSlots.title = "APx" + Number(ff7Item.materiaGrowthRate(itemID)).toString()
             setSlots(itemID)
