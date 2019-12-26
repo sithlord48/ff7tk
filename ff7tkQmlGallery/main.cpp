@@ -16,7 +16,9 @@ int main(int argc, char *argv[])
         return FF7TEXT::instance()->qmlSingletonRegister(engine, jsEngine);
     });
 
-    qmlRegisterType<FF7Item>("FF7Item", 1, 0, "FF7Item");
+    qmlRegisterSingletonType<FF7Item>("org.ff7tk", 1, 0, "FF7Item", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
+        return FF7Item::instance()->qmlSingletonRegister(engine, jsEngine);
+    });
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

@@ -22,7 +22,6 @@
 #include <QToolBox>
 
 //set path to FF7Item FF7Materia and FF7Char
-#include "../data/FF7Item.h"
 #include "../data/FF7Materia.h"
 #include "../data/Type_FF7CHAR.h"
 #include "MateriaEditor.h"
@@ -237,7 +236,6 @@ private:
     bool advancedMode{false};
     int mslotsel{-1};
     qint32 ap{0};
-    FF7Item Items;
     FF7Materia Materias;
     FF7CHAR data;
     QString _name;

@@ -3,7 +3,6 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.4
 import org.ff7tk 1.0 as FF7tk
 
-
 ColumnLayout {
     id:root
     CheckBox {

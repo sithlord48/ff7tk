@@ -1,15 +1,12 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.4
-import FF7Item 1.0
+import org.ff7tk 1.0 as FF7tk
 
 ColumnLayout {
     id: root
 
     Item {
-        FF7Item {
-            id:ff7Item
-        }
         FontMetrics {
             id:fm
         }
@@ -36,60 +33,60 @@ ColumnLayout {
                     id: mGroup1
                     Image{
                         id: lblMSlot1
-                        source: "qrc" + ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink1
-                        source: "qrc" +ff7Item.materiaLinkResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot2
-                        source: "qrc" +ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                 }
                 RowLayout {
                     id: mGroup2
                     Image{
                         id: lblMSlot3
-                        source: "qrc" +ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink2
-                        source: "qrc" +ff7Item.materiaLinkResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot4
-                        source: "qrc" +ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                 }
                 RowLayout {
                     id: mGroup3
                     Image{
                         id: lblMSlot5
-                        source: "qrc" + ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink3
-                        source: "qrc" + ff7Item.materiaLinkResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot6
-                        source: "qrc" + ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                 }
                 RowLayout {
                     id: mGroup4
                     Image{
                         id: lblMSlot7
-                        source: "qrc" + ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                     Image{
                         id: lblLink4
-                        source: "qrc" + ff7Item.materiaLinkResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
                     }
                     Image{
                         id: lblMSlot8
-                        source: "qrc" + ff7Item.materiaSlotResource()
+                        source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
                     }
                 }
             }
@@ -135,15 +132,15 @@ ColumnLayout {
     }
 
     function setItem (itemID) {
-        var type = ff7Item.type(itemID)
-        //if(type == ff7Item.Unknown) { return }
-        itemName.text = ff7Item.name(itemID)
-        itemDesc.text = ff7Item.desc(itemID)
-        itemTypeIcon.source = ff7Item.iconResource(itemID)
+        var type = FF7tk.FF7Item.type(itemID)
+        //if(type == FF7tk.FF7Item.Unknown) { return }
+        itemName.text = FF7tk.FF7Item.name(itemID)
+        itemDesc.text = FF7tk.FF7Item.desc(itemID)
+        itemTypeIcon.source = FF7tk.FF7Item.iconResource(itemID)
 
-        if (type !== FF7Item.Item && type !== FF7Item.Accessory) {
+        if (type !== FF7tk.FF7Item.Item && type !== FF7tk.FF7Item.Accessory) {
             group_MSlots.visible = true
-            group_MSlots.title = "APx" + Number(ff7Item.materiaGrowthRate(itemID)).toString()
+            group_MSlots.title = "APx" + Number(FF7tk.FF7Item.materiaGrowthRate(itemID)).toString()
             setSlots(itemID)
         } else {
             group_MSlots.visible = false
@@ -154,10 +151,10 @@ ColumnLayout {
 
     function setSlots(itemID) {
         var MslotString = ""
-        if (ff7Item.materiaGrowthRate(itemID) >0) {
-            MslotString = ff7Item.materiaSlotResource()
+        if (FF7tk.FF7Item.materiaGrowthRate(itemID) >0) {
+            MslotString = FF7tk.FF7Item.materiaSlotResource()
         } else {
-            MslotString = ff7Item.materiaSlotNoGrowthResource()
+            MslotString = FF7tk.FF7Item.materiaSlotNoGrowthResource()
         }
         lblMSlot1.visible = false
         lblMSlot2.visible = false
@@ -177,7 +174,7 @@ ColumnLayout {
         mGroup4.spacing = 14
 
 
-        switch(ff7Item.materiaSlots(itemID)) {
+        switch(FF7tk.FF7Item.materiaSlots(itemID)) {
             case 8:
                 lblMSlot8.visible = true
             case 7:
@@ -195,7 +192,7 @@ ColumnLayout {
             case 1:
                 lblMSlot1.visible = true
         }
-        switch(ff7Item.linkedSlots(itemID)) {
+        switch(FF7tk.FF7Item.linkedSlots(itemID)) {
             case 4:
                 lblLink4.visible = true
                 mGroup4.spacing = 0
@@ -212,8 +209,8 @@ ColumnLayout {
     }
 
     function setElementalInfo(itemID) {
-        elementalList.model = ff7Item.elementalEffects(itemID)
-        console.log("Elemental Effects:" + ff7Item.elementalEffects(itemID))
+        elementalList.model = FF7tk.FF7Item.elementalEffects(itemID)
+        console.log("Elemental Effects:" + FF7tk.FF7Item.elementalEffects(itemID))
         console.log("Elemental Box Items:" + elementalList.count.toString())
 
         if(elementalList.count == 0) {
@@ -228,8 +225,8 @@ ColumnLayout {
     }
 
     function setStatusInfo(itemID) {
-        statusList.model = ff7Item.statusEffects(itemID)
-        console.log("Status Effects:" + ff7Item.statusEffects(itemID))
+        statusList.model = FF7tk.FF7Item.statusEffects(itemID)
+        console.log("Status Effects:" + FF7tk.FF7Item.statusEffects(itemID))
         console.log("Status Box Items:" + statusList.count.toString())
         if(statusList.count == 0) {
             group_status.visible = false
