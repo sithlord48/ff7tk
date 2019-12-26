@@ -32,7 +32,7 @@ void ItemSelector::init_display()
     combo_item->setIconSize(iconSize);
 
     sb_qty = new QSpinBox;
-    sb_qty->setAlignment(Qt::AlignCenter);
+    sb_qty->setAlignment(Qt::AlignLeft);
     sb_qty->setMinimum(1);
     sb_qty->setMaximum(127);
     sb_qty->setToolTip("");
