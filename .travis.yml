@@ -32,14 +32,13 @@ before_install:
 
 install:
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-    sudo apt-get -y install build-essential qt5-default qt512tools qt512base qt512quickcontrols2 g++-8 libssl-dev zsync doxygen;
+    sudo apt-get -y install build-essential qt5-default qt512tools qt512base qt512quickcontrols2 g++-8 zsync doxygen;
     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90;
     fi
 
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then 
     brew install qt5;
     brew install zlib;
-    brew install openssl;
     chmod -R 755 /usr/local/opt/qt5/*;
     fi
 
@@ -47,16 +46,14 @@ script:
 
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
     source /opt/qt*/bin/qt*-env.sh;
-    cmake -DEnableOpenSSL=ON -DBuildWidgetGallery=ON -DBuildQmlGallery=ON -DBuildDocs=ON CMakeLists.txt;
+    cmake -DBuildWidgetGallery=ON -DBuildQmlGallery=ON -DBuildDocs=ON CMakeLists.txt;
     make -j2;
     fi
 
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
     export QTDIR="/usr/local/opt/qt5";
-    export PATH="/usr/local/opt/openssl/bin:$PATH";
     export PATH="$QTDIR/bin:$PATH";
-    export LIBRARY_PATH=/usr/local/opt/openssl/lib;
-    cmake -DEnableOpenSSL=ON -DBuildWidgetGallery=ON -DBuildQmlGallery=ON -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl CMakeLists.txt;
+    cmake -DBuildWidgetGallery=ON -DBuildQmlGallery=ON CMakeLists.txt;
     fi
 
 deploy:

@@ -9,6 +9,7 @@ QT+= core gui xml widgets quick
 
 # Input
 HEADERS+=   mainwindow.h\
+            ../src/data/crypto/aes.h \
             ../src/data/FF7Achievements.h\
             ../src/data/FF7FieldItemList.h\
             ../src/data/FF7Item.h \
@@ -52,6 +53,7 @@ FORMS+=     mainwindow.ui
 
 SOURCES+=   main.cpp\
             mainwindow.cpp\
+            ../src/data/crypto/aes.c \
             ../src/data/FF7Achievements.cpp\
             ../src/data/FF7Char.cpp\
             ../src/data/FF7FieldItemList.cpp\

@@ -42,5 +42,4 @@ add_executable ( ff7tkQmlGallery
 
 target_link_libraries ( ff7tkQmlGallery
         Qt5::Quick
-        ${OPENSSL_LIBRARIES}
     )

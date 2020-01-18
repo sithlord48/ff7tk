@@ -35,6 +35,7 @@ set ( ff7tkWidgetGallery_SRCS
     )
 #ADD ALL FF7TK ITEMS HERE IN DEMO
 set ( ff7tkData
+        ../src/data/crypto/aes.c
         ../src/data/FF7Achievements.cpp
         ../src/data/FF7Char.cpp
         ../src/data/FF7FieldItemList.cpp
@@ -111,5 +112,4 @@ target_link_libraries ( ff7tkWidgetGallery
         Qt5::Widgets
         Qt5::Quick
         ${ZLIB_LIBRARIES}
-        ${OPENSSL_LIBRARIES}
     )
