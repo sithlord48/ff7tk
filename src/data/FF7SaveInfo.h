@@ -194,6 +194,13 @@ public:
     Q_INVOKABLE int slotSize() const;
 
     /**
+     * @brief Get a constructed RegExp to check for valid save name
+     * @param format: the format you wish to check .
+     * @return Constructed RegEx
+     */
+    Q_INVOKABLE QRegExp validNameRegExp(FF7SaveInfo::FORMAT format) const;
+
+    /**
      * @brief Valid Extensions for the File type
      * @param format
      * @return  List of valid Extensions for the chosen format.
