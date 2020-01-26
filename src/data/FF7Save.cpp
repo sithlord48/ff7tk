@@ -85,17 +85,9 @@ bool FF7Save::loadFile(const QString &fileName)
     }
 
     else if (fileFormat == FF7SaveInfo::FORMAT::PSX) {
-        if ((fileName.contains("00867")) || (fileName.contains("00869")) || (fileName.contains("00900")) ||
-                (fileName.contains("94163")) || (fileName.contains("00700")) || (fileName.contains("01057")) ||
-                (fileName.contains("00868"))) {
-            QString string;
-            string = fileName.mid(fileName.lastIndexOf("/") + 1, fileName.lastIndexOf(".") - 1 - fileName.lastIndexOf("/"));
-            SG_Region_String[0] = string.mid(string.lastIndexOf("B"), string.lastIndexOf("FF7-S") + 8);
-            qDebug() << SG_Region_String[0];
-        } else {
-            SG_Region_String[0] = file.fileName();
-        }
-        for (int i = 1; i < 14; i++) {
+        SG_Region_String[0] = QFileInfo(file).fileName();
+
+        for (int i = 1; i < 15; i++) {
             clearSlot(i);
         }
     }
