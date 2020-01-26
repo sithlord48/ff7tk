@@ -42,7 +42,7 @@ set ( ff7tkData
         ../src/data/FF7Item.cpp
         ../src/data/FF7Location.cpp
         ../src/data/FF7Materia.cpp
-        ../src/data/FF7Save.cpp #CAN USE OPENSSL TO SIGN PS3 SAVES.
+        ../src/data/FF7Save.cpp
         ../src/data/FF7SaveInfo.cpp
         ../src/data/FF7Text.cpp
         ../src/data/SaveIcon.cpp
