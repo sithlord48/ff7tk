@@ -66,6 +66,9 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     inline static const QByteArray PS3_FILE_ID = QByteArray::fromRawData("\x00\x56\x53\x50", 4);
     static const int PS3_SEED_OFFSET = 0x0008;
     static const int PS3_SIGNATURE_OFFSET = 0x001C;
+    static const int PS3_FILE_TYPE_OFFSET = 0x0038;
+    static const int PS3_FILE_DISP_SIZE_OFFSET = 0x0040;
+    static const int PS3_FILE_SIZE_OFFSET = 0x005C;
     inline static const QByteArray PS3_FILE_HEADER = QByteArray::fromRawData("\x00\x56\x53\x50\x00\x00\x00\x00\x04\xbc\x97\x58\x11\x0f\x7e\x85\xc7\x4f\x2f\xd0\x5a\x28\xb6\x25\xe6\x9a\x6e\xa1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x14\x00\x00\x00\x01\x00\x00\x00\x00\x20\x00\x00\x84\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x20\x00\x00\x03\x90\x00\x00\x42\x41\x53\x43\x55\x53\x2d\x39\x34\x31\x36\x33\x46\x46\x37\x2d\x53\x30\x31\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", PS3_FILE_HEADER_SIZE);
     /*~~~~~~~ PSV / PSP Common Signing ~~~~~~~~~~~~~~*/
     static const int PS_SIGNATURE_SIZE = 0x0014;
@@ -259,6 +262,16 @@ QByteArray FF7SaveInfo::signingKey(FF7SaveInfo::FORMAT format) const
     case (FORMAT::PSP):
     case (FORMAT::PS3): return d->PS_SIGNING_KEY;
     default: return QByteArray();
+    }
+}
+
+int FF7SaveInfo::extraPSVOffsets(FF7SaveInfo::PSVINFO info) const
+{
+    switch (info) {
+    case PSVINFO::SAVETYPE: return d->PS3_FILE_TYPE_OFFSET;
+    case PSVINFO::SIZEDISPLAY: return d->PS3_FILE_DISP_SIZE_OFFSET;
+    case PSVINFO::SAVESIZE: return d->PS3_FILE_SIZE_OFFSET;
+    default: return -1;
     }
 }
 
