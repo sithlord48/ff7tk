@@ -1306,37 +1306,26 @@ quint8 FF7Save::psx_block_size(int s)
 
 QString FF7Save::psxDesc(int s)
 {
-    QByteArray desc;
-    QTextCodec *codec = QTextCodec::codecForName(QByteArray("Shift-JIS"));
-    desc = slotHeader(s).mid(4, 64);
+    QByteArray desc = slotHeader(s).mid(4, 64);
+
     int index;
-    if ((index = desc.indexOf('\x00')) != -1) {
+    if ((index = desc.indexOf('\x00')) != -1)
         desc.truncate(index);
-    }
-    if (codec == 0) {
-        return "";   //if the codec can't be loaded for some reason.
-    } else {
-        return codec->toUnicode(desc);
-    }
+
+    return QTextCodec::codecForName("Shift-JIS")->toUnicode(desc);
 }
+
 void FF7Save::setPsxDesc(QString newDesc, int s)
 {
-    QTextCodec *codec = QTextCodec::codecForName(QByteArray("Shift-JIS"));
-    if (codec == 0) {
-        qDebug() << "Failed to Load Codec";
-        return;
-    }//if the codec can't be loaded for some reason.
-    QByteArray temp = codec->fromUnicode(newDesc);
-
+    QByteArray temp = QTextCodec::codecForName("Shift-JIS")->fromUnicode(newDesc);
     QByteArray codedText;
     codedText.fill('\x00', 64);
     codedText.replace(0, temp.size(), temp);
 
     QByteArray header = slotHeader(s);
     header.replace(4, 64, codedText);
-    if (setSlotHeader(s, header)) {
+    if (setSlotHeader(s, header))
         setFileModified(true, s);
-    }
 }
 
 bool FF7Save::isFileModified(void)
