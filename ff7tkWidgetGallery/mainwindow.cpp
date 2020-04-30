@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2019 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -22,6 +22,9 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QProgressDialog>
+
+#include "../src/data/FF7Save.h"
+
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);

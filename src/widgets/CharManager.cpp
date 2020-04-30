@@ -15,6 +15,10 @@
 /****************************************************************************/
 #include "CharManager.h"
 
+#include <QHBoxLayout>
+#include <QGroupBox>
+#include <QPushButton>
+
 CharManager::CharManager(qreal Scale, QWidget *parent) :
     QWidget(parent)
 {
