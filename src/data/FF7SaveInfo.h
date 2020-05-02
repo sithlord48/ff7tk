@@ -151,7 +151,7 @@ public:
 
     /**
      * @brief Extra off set data for psv format
-     * @param PsvInfo offset
+     * @param info: FF7SaveInfo::PSVINFO that describes the info type to return.
      * @return offset for the type of info requested
      */
     Q_INVOKABLE int extraPSVOffsets(FF7SaveInfo::PSVINFO info) const;

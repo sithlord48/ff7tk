@@ -675,8 +675,9 @@ int IsoArchive::findPadding(const QList<IsoFileOrDirectory *> &filesWithPadding,
 }
 
 /**
- * @brief Used to extend IsoArchive. Called in pack() afer file reorganization.
- * @param directory
+ * @brief Used to extend IsoArchive. Called in pack() after file reorganization.
+ * @param writeToTheMain
+ * @param writeToTheEnd
  * @return false to cancel pack()
  */
 bool IsoArchive::reorganizeModifiedFilesAfter(QMap<quint32, const IsoFile *> &writeToTheMain, QList<const IsoFile *> &writeToTheEnd)

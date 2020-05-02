@@ -119,13 +119,14 @@ public:
 
     /** \brief attempt to save fileName as ff7save
      *  \param fileName file that will be saved
-     *  \param slot the slot to be saved in case of single slot export.
+     *  \param s the slot to be saved in case of single slot export.
      *  \return True if Successful
     */
     bool saveFile(const QString &fileName, int s = 0);
 
     /** \brief attempt to export a file as ff7save. A convenance function to call the proper export function
     *  \param fileName file that will be saved
+    *  \param newFormat The Format to export.
     *  \param s Slot to export if exporting to a multi slot save type
     *  \return True if Successful
     *  \sa exportPC(),exportPSX(),exportPS3(),exportVMC(),exportDEX(),exportVGS(),exportVMP(),exportPGE()
@@ -252,7 +253,10 @@ public:
      */
     void importCharacter(int s, int char_num, QByteArray new_char); //import new_char to slot[s].char[char_num]
 
-    typedef QVector< QString > SubContainer; /** <\typedef QVector<QString> SubContainer \brief used to hold more xml style string in metadata signing*/
+    /** \typedef QVector<QString> SubContainer
+     * \brief used to hold more xml style string in metadata signing
+     */
+    typedef QVector< QString > SubContainer;
 
     /** \brief parse the metadata for 2012 / 2013 release
      *  \param fileName name of the file to output
@@ -264,8 +268,8 @@ public:
 
     /**
      * @brief generates a signature for PS3 or VMP based on input..
-     * @param format Format you will sign
-     * @param data to generate signature for
+     * @param data: to generate signature for
+     * @param keySeed: keySeed that will be used to sign the data
      * @return new Signature for the file
      */
     QByteArray generatePsSaveSignature(QByteArray data, QByteArray keySeed);
@@ -544,7 +548,7 @@ public:
 
     /** \brief setSound mode for a slot
      *  \param s slot number (0-14)
-     *  \param new soundMode FF7Save::SOUNDMODE
+     *  \param mode: new soundMode FF7Save::SOUNDMODE
      */
     void setSoundMode(int s, int mode);
 
