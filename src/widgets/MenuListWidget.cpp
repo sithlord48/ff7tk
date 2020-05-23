@@ -47,7 +47,7 @@ void MenuListWidget::changeEvent(QEvent *e)
 
 void MenuListWidget::init_display()
 {
-    lbl_title->setStyleSheet(QString("text-decoration: underline;"));
+    lbl_title->setStyleSheet(QStringLiteral("text-decoration: underline;"));
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setSpacing(3);
     layout->setContentsMargins(0, 0, 0, 0);
