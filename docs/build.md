@@ -1,45 +1,48 @@
 # Building ff7tk
-ff7tk does not currently build a library to be linked to your project. Include the files needed from ff7tk in your project. The instruction here are for the Gallery applications and Documentation.
+To build ff7tk you wil need [cmake], [Qt] and [zlib]
+
+Currently ff7tk will build:
+     - A Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)
+     - Headers for the library so you can link to it
+     - Required CMake parts to find it post install.
+
 
 ## Configuration
-ff7tk can be configured with with either cmake or qmake.
-
-### Configure with cmake
-Currently the ff7tk cmake does not build anything by default. You must provide an option.Building the Widget Gallery with cmake will require [zlib] since it includes but does not use the GZIP object.
+By Default only the library will be built. Enable additional items show below by adding options.
 
 Build Options:
 Option | Description |
 :-----:|:-----------:|
-BuildWidgetGallery |Build the Widget based gallery.
-BuildQmlDGallery |Build the Qml based gallery.
-BuildDocs |Build Documentation, [doxygen] is required.
+WIDGET_GALLERY |Build the Widget based gallery.
+QML_GALLERY |Build the Qml based gallery.
+DOCS |Build Documentation, [doxygen] is required.
 
 Example cmake command.
 
-`cmake -DBuildWidgetGallery=ON CMakeLists.txt`
-
-### Configure with qmake
-Simply open the pro file in either the ff7tkWidgetGallery or ff7tkQmlGallery folders. The qmake build for ff7tkWidgetGallery does not require [zlib] since it does not include the GZIP object at this time.
-
-Example qmake command.
-
-`qmake ff7tkWidgetGallery.pro`
+`cmake -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=<INSTALLPREFIX> CMakeLists.txt`
 
 ## Building
 After Configuring you Should be able to run make to build all targets.
 
 `make`
 
-## Additional Dependencies
+## Install
+ running`make install` will install the built items into the provided <INSTALLPREFIX>
 
-----
+# Using With your project
 
-  Object  | Dependency | Notes
- :-------:|:----------:|:-----:
- #GZIP    | [zlib]     | Required.
+After installing you can use in your cmake project by simply adding 
+`find_project(ff7tk)`
+and link with `ff7tk::ff7tk`
+
+For QMake you can use the pkgconfig provided by the system
+`config +=link_pkgconfig`
+`PKGCONFIG += ff7tk`
+
+# ff7tk version info
+ include the file ff7tk/about.h and use the function ff7tk_version()
 
 [Qt]:https://www.qt.io
 [doxygen]:http://www.stack.nl/~dimitri/doxygen/
 [cmake]:https://cmake.org/
-[extra-cmake-modules]:https://cgit.kde.org/extra-cmake-modules.git/tree
 [zlib]:https://zlib.net/

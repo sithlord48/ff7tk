@@ -1,45 +1,34 @@
-project( ff7tkQmlGallery )
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_BUILD_TYPE Release )
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(REQUIRED_QT_VERSION "5.10.0")
-cmake_minimum_required( VERSION 3.8 )
-add_definitions ( -Wall )
-
-if(WIN32)
-    if(CMAKE_COMPILER_IS_GNUCC)
-        #Prevent ms padding on packed structures on gcc compiler
-        add_definitions(-mno-ms-bitfields)
-    endif()
-elseif(APPLE)
-    add_definitions(-stdlib=libc++)
-endif()
+project(ff7tkQmlGallery)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
         Quick
         QuickControls2
     )
 
-set ( ff7tkData
-        ../src/data/FF7Text.cpp
-        ../src/data/FF7Item.cpp
-    )
-
-set ( ff7tkIcons
-        ../src/icons/items.qrc
-    )
-
-add_executable ( ff7tkQmlGallery
+set ( ff7tkQmlGallery_SRCS
         main.cpp
         qml.qrc
-        ${ff7tkData}
-        ${ff7tkIcons}
     )
+
+if (NOT APPLE)
+    add_executable ( ff7tkQmlGallery ${ff7tkQmlGallery_SRCS})
+    install(TARGETS ff7tkQmlGallery RUNTIME DESTINATION bin)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkQmlGallery.desktop" DESTINATION share/applications/)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkQmlGallery.png" DESTINATION share/pixmaps)
+
+else()
+    set(MACOSX_BUNDLE_DISPLAY_NAME "ff7tkQmlGallery")
+    set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.ff7tk.QmlGallery")
+    set(MACOSX_BUNDLE_BUNDLE_NAME "ff7tkQmlGallery")
+    set(MACOSX_BUNDLE_DISPLAY_NAME "ff7tkQmlGallery")
+    set(MACOSX_BUNDLE_INFO_STRING "ff7tk - QmlGallery")
+    set(MACOSX_BUNDLE_COPYRIGHT "2012-2020 ff7tk Authors")
+    add_executable(ff7tkQmlGallery MACOSX_BUNDLE ${ff7tkQmlGallery_SRCS})
+    install(TARGETS ff7tkQmlGallery BUNDLE DESTINATION bin)
+endif()
 
 target_link_libraries ( ff7tkQmlGallery
         Qt5::Quick
+        Qt5::QuickControls2
+        ff7tk
     )

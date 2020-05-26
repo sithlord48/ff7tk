@@ -7,11 +7,6 @@ os:
  - osx
 matrix:
  exclude:
-# Only do coverity or coverage build on Linux when the compiler is gcc
-  - os: linux
-    compiler: clang
-    env: COVERITY=1
-    env: COVERAGE=1
 # Don't build with clang on Linux
   - os: linux
     compiler: clang
@@ -28,6 +23,7 @@ before_install:
 
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then 
     brew update > /dev/null;
+    brew cleanup;
     fi
 
 install:
@@ -36,51 +32,97 @@ install:
     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90;
     fi
 
-- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then 
+- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
     brew install qt5;
     brew install zlib;
+    brew install doxygen;
     chmod -R 755 /usr/local/opt/qt5/*;
     fi
 
-script: 
-
+script:
+- export VERSION=continuous;
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
     source /opt/qt*/bin/qt*-env.sh;
-    cmake -DBuildWidgetGallery=ON -DBuildQmlGallery=ON -DBuildDocs=ON CMakeLists.txt;
-    make -j2;
+    cmake -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt;
+    make -j4;
+    make DESTDIR=ff7tk-continuous-linux install;
+    mkdir ff7tk;
+    sudo cp -r ff7tk-continuous-linux/usr /;
+    cp -r ff7tk-continuous-linux/usr ff7tk;
+    rm -rf ff7tk/usr/bin;
+    rm -rf ff7tk-continuous-linux/usr/share/doc;
+    rm -rf ff7tk-continuous-linux/usr/share/ff7tk;
+    rm -rf ff7tk-continuous-linux/usr/share/pkgconfig;
+    rm -rf ff7tk-continuous-linux/usr/include;
+    rm -rf ff7tk-continuous-linux/lib/x86_64-linux-gnu;
+    wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage";
+    chmod a+x linuxdeployqt*.AppImage;
+    mkdir widgetGallery;
+    cp -r ff7tk-continuous-linux/usr widgetGallery;
+    unset QTDIR; unset QT_PLUGIN_PATH; unset LD_LIBRARY_PATH;
+    rm widgetGallery/usr/bin/ff7tkQmlGallery;
+    rm widgetGallery/usr/share/applications/ff7tkQmlGallery.desktop;
+    rm widgetGallery/usr/share/pixmaps/ff7tkQmlGallery.png;
+    cp /usr/lib/x86_64-linux-gnu/libz.so widgetGallery/usr/lib/;
+    ./linuxdeployqt*.AppImage widgetGallery/usr/share/applications/*.desktop -appimage;
+    mkdir qmlGallery;
+    cp -r ff7tk-continuous-linux/usr qmlGallery;
+    rm qmlGallery/usr/bin/ff7tkWidgetGallery;
+    rm qmlGallery/usr/share/applications/ff7tkWidgetGallery.desktop;
+    rm qmlGallery/usr/share/pixmaps/ff7tkWidgetGallery.png;
+    ./linuxdeployqt*.AppImage ./qmlGallery/usr/share/applications/*.desktop -bundle-non-qt-libs;
+    cp /usr/lib/x86_64-linux-gnu/libz.so qmlGallery/usr/lib/;
+    mkdir -p qmlGallery/usr/qml/QtQuick;
+    cp -r /opt/qt513/qml/QtQuick/Controls.2 qmlGallery/usr/qml/QtQuick;
+    cp -r /opt/qt513/qml/QtQuick/Layouts qmlGallery/usr/qml/QtQuick;
+    cp -r /opt/qt513/qml/QtQuick/Window.2 qmlGallery/usr/qml/QtQuick;
+    cp -r /opt/qt513/qml/QtQuick/Templates.2 qmlGallery/usr/qml/QtQuick;
+    cp -r /opt/qt513/qml/QtQuick.2/ qmlGallery/usr/qml/;
+    ./linuxdeployqt*.AppImage ./qmlGallery/usr/share/applications/*.desktop -appimage;
+    mv ff7tk*.AppImage ff7tk-continuous-linux/;
+    mv ff7tk/ ff7tk-continuous-linux;
+    mv COPYING.TXT ff7tk-continuous-linux/;
+    rm -rf ff7tk-continuous-linux/usr;
+    tar -zcvf ff7tk-continuous-linux.tar.gz ff7tk-continuous-linux/;
     fi
 
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
     export QTDIR="/usr/local/opt/qt5";
     export PATH="$QTDIR/bin:$PATH";
-    cmake -DBuildWidgetGallery=ON -DBuildQmlGallery=ON CMakeLists.txt;
+    cmake -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt;
+    make -j4;
+    make DESTDIR=ff7tk-continuous-macos install;
+    sudo cp -r ff7tk-continuous-macos/usr /;
+    mkdir ff7tk;
+    cp -r ff7tk-continuous-macos/usr ff7tk;
+    rm -rf ff7tk/usr/bin;
+    mv COPYING.TXT ff7tk-continuous-macos/;
+    cp ff7tk-continuous-macos/usr/lib/libff7tk.dylib ff7tk-continuous-macos/usr/bin/ff7tkWidgetGallery.app/Contents/MacOS;
+    cp /usr/lib/libz.dylib ff7tk-continuous-macos/usr/bin/ff7tkWidgetGallery.app/Contents/MacOS;
+    macdeployqt ff7tk-continuous-macos/usr/bin/ff7tkWidgetGallery.app;
+    cp ff7tk-continuous-macos/usr/lib/libff7tk.dylib ff7tk-continuous-macos/usr/bin/ff7tkQmlGallery.app/Contents/MacOS;
+    cp /usr/lib/libz.dylib ff7tk-continuous-macos/usr/bin/ff7tkQmlGallery.app/Contents/MacOS;
+    macdeployqt ff7tk-continuous-macos/usr/bin/ff7tkQmlGallery.app;
+    mv ff7tk/ ff7tk-continuous-macos;
+    mv ff7tk-continuous-macos/usr/bin/ff7tk*.app ff7tk-continuous-macos/;
+    rm -rf ff7tk-continuous-macos/usr;
+    zip -r -X ff7tk-continuous-macos.zip ff7tk-continuous-macos;
     fi
+
+after_success:
+- wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then bash ./upload.sh ff7tk-continuous-linux.tar.gz; fi
+- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then bash ./upload.sh ff7tk-continuous-macos.zip; fi
 
 deploy:
   provider: pages
-  local-dir: docs/doc/html
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep-history: false
+  local_dir: docs/doc/html
+  skip_cleanup: true
+  token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: false
   on:
     condition: ${TRAVIS_OS_NAME} = linux
     branch: master
-
-env:
-  global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "eqXxhT2R/eCXwaQC0dn14iB6Rvd7KdEsz9lvcqo/ZCSduHVdQbIcLKxI/gLXjYyPOurAgMDGlbiqe/Sz/29eH+jcYlNsLtDpSoJFsgnWe9KlEqBrbO+eGH5OoAabgJthcGygTwbFnpsiY7SvLG62pSYUrSfToCVkouSiUXeZb5Q="
-
-addons:
-  coverity_scan:
-    project:
-      name: "sithlord48/ff7tk"
-      description: "Build submitted via Travis CI"
-    notification_email: sithlord48@gmail.com
-    build_command_prepend: "qmake ../ff7tkWidgetGallery/ff7tkWidgetGallery.pro"
-    build_command:   "make -j 4"
-    branch_pattern: 
 
 branches:
   except:

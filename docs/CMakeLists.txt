@@ -11,4 +11,3 @@ add_custom_target(doc ALL COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_
 )
 
 install (DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/doc/html" DESTINATION share/doc/ff7tk )
-

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Development;
+Exec=ff7tkWidgetGallery
+Name=ff7tkWidgetGallery
+Icon=ff7tkWidgetGallery
+StartupNotify=true
+Terminal=false
+Type=Application
+X-KDE-SubstituteUID=false
