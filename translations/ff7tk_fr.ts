@@ -6915,6 +6915,10 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <source>XP AR GS Caetla SmartLink Dantel</source>
         <translation type="unfinished">XP AR GS Caetla SmartLink Dantel</translation>
     </message>
+    <message>
+        <source>PS4 Save File</source>
+        <translation type="unfinished">Sauvegarde PS4</translation>
+    </message>
 </context>
 <context>
     <name>ItemList</name>
