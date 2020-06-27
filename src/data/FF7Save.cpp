@@ -61,6 +61,29 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
                                                                        : QStringLiteral("Unknown"));
         return FF7SaveInfo::FORMAT::UNKNOWN;
     }
+    if ( (file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PS4)) && file.peek(0x00B0 + FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PS4).length()).mid(0x00B0,FF7SaveInfo::get()->fileIdentifier(FF7SaveInfo::FORMAT::PS4).length()) == FF7SaveInfo::get()->fileIdentifier(FF7SaveInfo::FORMAT::PS4)) {
+        QTextStream(stdout)
+                << "[FF7Save::loadFile] PS4 Save "
+                << file.peek(0x00B0+FF7SaveInfo::get()->fileIdentifier(FF7SaveInfo::FORMAT::PS4).length()).mid(0x00B0,FF7SaveInfo::get()->fileIdentifier(FF7SaveInfo::FORMAT::PS4).length()).toHex( )
+                << "\n";
+        QFile ps4binfile(QFileInfo(file).path() + "/" + QFileInfo(file).fileName() + ".bin");//QFileInfo(file).baseName()
+        if (!ps4binfile.open(QIODevice::ReadOnly)) {
+            QTextStream(stdout) <<  "[FF7Save::loadFile] PS4 BIN File error: missing file: " << QFileInfo(ps4binfile).absoluteFilePath();
+            return FF7SaveInfo::FORMAT::UNKNOWN;
+        } else {
+            QTextStream(stdout) << "[FF7Save::loadFile] PS4 BIN File loaded: " << QFileInfo(ps4binfile).absoluteFilePath() << "\n";
+            if(ps4binfile.size() == FF7SaveInfo::get()->fileSize(FF7SaveInfo::FORMAT::PS4BIN) && (ps4binfile.peek(FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PS4BIN)) == FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PS4BIN))) {
+                auto ps4bin = ps4binfile.readAll();
+                m_ps4_iv = ps4bin.mid(0x10, 0x10);
+                m_ps4_key = ps4bin.mid(0x20, 0x10);
+                QTextStream(stdout)
+                    << "[FF7Save::loadFile] PS4 BIN File Size: " << FF7SaveInfo::get()->fileSize(FF7SaveInfo::FORMAT::PS4BIN) << "\n"
+                    << "[FF7Save::loadFile] PS4 BIN pfsSKKey IV: " << m_ps4_iv.toHex() << "\n"
+                    << "[FF7Save::loadFile] PS4 BIN pfsSKKey KEY: " << m_ps4_key.toHex() << "\n";
+                setFormat(FF7SaveInfo::FORMAT::PS4);
+            }
+        }
+    }
     if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSP)) && (file.peek(25)).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PSP)))
         return FF7SaveInfo::FORMAT::PSP;
     if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::VGS)) && (file.peek(25)).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::VGS)))
@@ -913,7 +936,8 @@ char FF7Save::psx_block_type(int s)
     case FF7SaveInfo::FORMAT::PC:
     case FF7SaveInfo::FORMAT::SWITCH:
     case FF7SaveInfo::FORMAT::PSX:
-    case FF7SaveInfo::FORMAT::PS3: return 0x00;
+    case FF7SaveInfo::FORMAT::PS3:
+    case FF7SaveInfo::FORMAT::PS4:  return 0x00;
     case FF7SaveInfo::FORMAT::PGE: return _fileHeader.at(0);
     default:
         int index = 128 + (128 * s);
@@ -930,7 +954,8 @@ void FF7Save::setPsx_block_type(int s, char block_type)
     case FF7SaveInfo::FORMAT::PC:
     case FF7SaveInfo::FORMAT::SWITCH:
     case FF7SaveInfo::FORMAT::PSX:
-    case FF7SaveInfo::FORMAT::PS3: return;
+    case FF7SaveInfo::FORMAT::PS3:
+    case FF7SaveInfo::FORMAT::PS4: return;
     case FF7SaveInfo::FORMAT::PGE: _fileHeader.replace(0, 1, QByteArray(1, block_type)); break;
     default:
         int index = 128 + (128 * s);
@@ -950,7 +975,8 @@ void FF7Save::setPsx_block_next(int s, int next)
     case FF7SaveInfo::FORMAT::PC:
     case FF7SaveInfo::FORMAT::SWITCH:
     case FF7SaveInfo::FORMAT::PSX:
-    case FF7SaveInfo::FORMAT::PS3: return;
+    case FF7SaveInfo::FORMAT::PS3:
+    case FF7SaveInfo::FORMAT::PS4: return;
     case FF7SaveInfo::FORMAT::PGE: _fileHeader.replace(8, 1, QByteArray(1, next)); break;
     default:
         int index = 128 + (128 * s);
@@ -967,7 +993,8 @@ quint8 FF7Save::psx_block_next(int s)
     case FF7SaveInfo::FORMAT::PC:
     case FF7SaveInfo::FORMAT::SWITCH:
     case FF7SaveInfo::FORMAT::PSX:
-    case FF7SaveInfo::FORMAT::PS3: return 0x00;
+    case FF7SaveInfo::FORMAT::PS3:
+    case FF7SaveInfo::FORMAT::PS4: return 0x00;
     case FF7SaveInfo::FORMAT::PGE: return quint8(_fileHeader.at(0x08));
     default:
         int index = 128 + (128 * s);
@@ -984,7 +1011,8 @@ void FF7Save::setPsx_block_size(int s, int blockSize)
     case FF7SaveInfo::FORMAT::PC:
     case FF7SaveInfo::FORMAT::SWITCH:
     case FF7SaveInfo::FORMAT::PSX:
-    case FF7SaveInfo::FORMAT::PS3: return;
+    case FF7SaveInfo::FORMAT::PS3:
+    case FF7SaveInfo::FORMAT::PS4: return;
     default: break;
     }
 
@@ -1007,6 +1035,7 @@ quint8 FF7Save::psx_block_size(int s)
     switch (fileFormat) {
     case FF7SaveInfo::FORMAT::UNKNOWN:
     case FF7SaveInfo::FORMAT::PC:
+    case FF7SaveInfo::FORMAT::PS4:
     case FF7SaveInfo::FORMAT::SWITCH: return 1;
     case FF7SaveInfo::FORMAT::PSX: return quint8(QFile(fileName()).size() / FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX));
     case FF7SaveInfo::FORMAT::PS3: return quint8((QFile(fileName()).size() - 0x84) / FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX));

@@ -6954,6 +6954,10 @@ Battaglia %1</translation>
         <source>Known FF7 Save Types (%1)</source>
         <translation>File di salvataggio FF7 noti (%1)</translation>
     </message>
+    <message>
+        <source>PS4 Save File</source>
+        <translation type="unfinished">File di salvataggio PS4</translation>
+    </message>
 </context>
 <context>
     <name>ItemPreview</name>

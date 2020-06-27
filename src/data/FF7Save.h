@@ -1042,6 +1042,8 @@ private:
     bool fileHasChanged;
     QString buffer_region; // hold the buffers region data.
     QList<QString> SG_Region_String;
+    QByteArray m_ps4_iv;
+    QByteArray m_ps4_key;
     QString filename;//opened file
     QVector< SubContainer > parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID);
     QVector< SubContainer > createMetadata(const QString &fileName, const QString &UserID);
