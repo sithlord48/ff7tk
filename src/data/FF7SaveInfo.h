@@ -224,6 +224,13 @@ public:
      */
     Q_INVOKABLE QString knownTypesFilter() const;
 
+    /**
+     * @brief Check if a format is using the PC format internally
+     * @param format - Format to check 
+     * @return True if format is uses PC format internally
+     */
+    Q_INVOKABLE bool internalPC(FF7SaveInfo::FORMAT format) const;
+
 private:
     FF7SaveInfo *operator = (FF7SaveInfo &other) = delete;
     FF7SaveInfo(const FF7SaveInfo &other) = delete;
