@@ -1155,7 +1155,7 @@ void FF7Save::fix_psv_header(int s)
     QByteArray data = fileHeader();
     data.replace(0x64, 0x20, QByteArray(0x20, '\x00'));
     data.replace(0x64, SG_Region_String[s].size(), SG_Region_String[s].toLatin1());
-    QByteArray bSize('\x00', 3);
+    QByteArray bSize(3, '\x00');
     switch((_blocks * 0x2000)) {
         default: bSize.setRawData("\x00\x20\x00", 3); break;
         case 0x4000:bSize.setRawData("\x00\x40\x00", 3); break;
