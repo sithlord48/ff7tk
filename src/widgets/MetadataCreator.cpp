@@ -45,7 +45,7 @@ MetadataCreator::MetadataCreator(QWidget *parent, FF7Save *ff7save)
 void MetadataCreator::initDisplay(void)
 {
 
-    connect(btnBox, &QDialogButtonBox::accepted, this, &MetadataCreator::accepted);
+    connect(btnBox, &QDialogButtonBox::accepted, this, &MetadataCreator::onAccepted);
     connect(btnBox, &QDialogButtonBox::rejected, this, &MetadataCreator::close);
     
     btnBox->button(QDialogButtonBox::Ok)->setEnabled(false);
@@ -103,7 +103,7 @@ void MetadataCreator::initDisplay(void)
     setLayout(FinalLayout);
 }
 
-void MetadataCreator::accepted()
+void MetadataCreator::onAccepted()
 {
     for (int i = 0; i < 10; i++) {
         QString OutFile = QString("%1/save0%2.ff7").arg(OutPath, QString::number(i));
