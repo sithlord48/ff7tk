@@ -19,8 +19,6 @@ environment:
     QT_LINKAGE: static
 install:
 - cmd: >-
-    choco install ninja
-
     choco install doxygen.install
 
     powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/horta/zlib.install/master/install.bat', 'install.bat')"; ./install.bat

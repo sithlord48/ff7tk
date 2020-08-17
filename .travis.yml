@@ -92,19 +92,22 @@ script:
     cmake -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt;
     make -j4;
     make DESTDIR=ff7tk-continuous-macos install;
-    sudo cp -r ff7tk-continuous-macos/usr /;
     mkdir ff7tk;
     cp -r ff7tk-continuous-macos/usr ff7tk;
     rm -rf ff7tk/usr/bin;
     mv COPYING.TXT ff7tk-continuous-macos/;
-    cp ff7tk-continuous-macos/usr/lib/libff7tk.dylib ff7tk-continuous-macos/usr/bin/ff7tkWidgetGallery.app/Contents/MacOS;
-    cp /usr/lib/libz.dylib ff7tk-continuous-macos/usr/bin/ff7tkWidgetGallery.app/Contents/MacOS;
+    cp ff7tk-continuous-macos/usr/lib/libff7tk.0.dylib ff7tk-continuous-macos/usr/bin/ff7tkWidgetGallery.app/Contents/MacOS;
     macdeployqt ff7tk-continuous-macos/usr/bin/ff7tkWidgetGallery.app;
-    cp ff7tk-continuous-macos/usr/lib/libff7tk.dylib ff7tk-continuous-macos/usr/bin/ff7tkQmlGallery.app/Contents/MacOS;
-    cp /usr/lib/libz.dylib ff7tk-continuous-macos/usr/bin/ff7tkQmlGallery.app/Contents/MacOS;
+    cp ff7tk-continuous-macos/usr/lib/libff7tk.0.dylib ff7tk-continuous-macos/usr/bin/ff7tkQmlGallery.app/Contents/MacOS;
     macdeployqt ff7tk-continuous-macos/usr/bin/ff7tkQmlGallery.app;
     mv ff7tk/ ff7tk-continuous-macos;
     mv ff7tk-continuous-macos/usr/bin/ff7tk*.app ff7tk-continuous-macos/;
+    install_name_tool -change @rpath/libff7tk.0.dylib @executable_path/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery;
+    install_name_tool -change @rpath/libff7tk.0.dylib @executable_path/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/MacOS/ff7tkQmlGallery;
+    mkdir -p ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/Layouts;
+    cp -r $QTDIR/qml/QtQuick/Layouts ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/;
+    mkdir -p ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/Controls;
+    cp -r $QTDIR/qml/QtQuick/Controls ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/;
     rm -rf ff7tk-continuous-macos/usr;
     zip -r -X ff7tk-continuous-macos.zip ff7tk-continuous-macos;
     fi

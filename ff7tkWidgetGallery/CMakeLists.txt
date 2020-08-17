@@ -1,4 +1,4 @@
-project(ff7tkWidgetGallery)
+project(ff7tkWidgetGallery VERSION 0.1.1 DESCRIPTION "Demo App for ff7tk with widgets")
 
 set(CMAKE_AUTOUIC ON)
 
@@ -12,21 +12,31 @@ set ( ff7tkWidgetGallery_SRCS
         mainwindow.cpp
     )
 
-if (NOT APPLE)
+if (UNIX AND NOT APPLE)
     add_executable ( ff7tkWidgetGallery ${ff7tkWidgetGallery_SRCS})
     install(TARGETS ff7tkWidgetGallery RUNTIME DESTINATION bin)
     install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.desktop" DESTINATION share/applications/)
     install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.png" DESTINATION share/pixmaps)
 
-else()
+elseif(APPLE)
+    set(CMAKE_INSTALL_REMOVE_ENVIRONMENT_RPATH ON)
+    set(APPICON ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.icns)
     set(MACOSX_BUNDLE_DISPLAY_NAME "ff7tkWidgetGallery")
     set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.ff7tk.WidgetGallery")
     set(MACOSX_BUNDLE_BUNDLE_NAME "ff7tkWidgetGallery")
     set(MACOSX_BUNDLE_DISPLAY_NAME "ff7tkWidgetGallery")
     set(MACOSX_BUNDLE_INFO_STRING "ff7tk - WidgetGallery")
     set(MACOSX_BUNDLE_COPYRIGHT "2012-2020 ff7tk Authors")
-    add_executable(ff7tkWidgetGallery MACOSX_BUNDLE ${ff7tkWidgetGallery_SRCS})
+    set(MAXOSX_BUNDLE_ICON_FILE ff7tkWidgetGallery.icns)
+    set_source_files_properties(${APPICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+    add_executable(ff7tkWidgetGallery MACOSX_BUNDLE ${ff7tkWidgetGallery_SRCS} ${APPICON})
     install(TARGETS ff7tkWidgetGallery BUNDLE DESTINATION bin)
+
+elseif(WIN32)
+    add_executable ( ff7tkWidgetGallery WIN32 ${ff7tkWidgetGallery_SRCS} ff7tkWidgetGallery.rc)
+    install(TARGETS ff7tkWidgetGallery RUNTIME DESTINATION bin)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.desktop" DESTINATION share/applications/)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.png" DESTINATION share/pixmaps)
 endif()
 
 target_link_libraries ( ff7tkWidgetGallery
