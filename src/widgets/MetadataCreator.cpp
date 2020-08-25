@@ -115,7 +115,7 @@ void MetadataCreator::onAccepted()
                 //If we find the file put its path in InFiles
                 InFiles.replace(i, OutFile);
             } else {
-                ff7->fixMetaData(OutFile, OutPath, UserID);
+                ff7->fixMetaData(OutFile, UserID);
                 continue;
             }//empty and not found
         }
@@ -125,7 +125,7 @@ void MetadataCreator::onAccepted()
             ff7->exportPC(OutFile);
         else if (!ff7->saveFile(OutFile))
                 QMessageBox::critical(this, QString(tr("File Error")), QString(tr("Failure to write the File: %1")).arg(OutFile));
-        ff7->fixMetaData(OutFile, OutPath, UserID);
+        ff7->fixMetaData(OutFile, UserID);
     }
     QString achievement(QString("%1/achievement.dat").arg(OutPath));
     QFile file(achievement);

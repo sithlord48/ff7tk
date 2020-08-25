@@ -260,11 +260,10 @@ public:
 
     /** \brief parse the metadata for 2012 / 2013 release
      *  \param fileName name of the file to output
-     *  \param OutPath to metadata
      *  \param UserID squaresoft id number to when signing
      *  \return True is Successful
     */
-    bool fixMetaData(QString fileName = "", QString OutPath = "", QString UserID = "");
+    bool fixMetaData(QString fileName = "", QString UserID = "");
 
     /**
      * @brief generates a signature for PS3 or VMP based on input..
@@ -319,7 +318,7 @@ public:
      *  \overload setSlotFF7Data(int,FF7SLOT)
      */
     bool setSlotFF7Data(int s, QByteArray data);
-    bool setSlotFF7Data(int s, FF7SLOT data);
+    bool setSlotFF7Data(int s, const FF7SLOT &data);
 
     QList<QByteArray> slotIcon(int s); /**< \brief return slots save icon. each new frame will be appended to the list.*/
 
@@ -715,7 +714,7 @@ public:
     quint32 charNextExp(int s, int char_num);
     quint8 charMateriaId(int s, int who, int mat_num);
     qint32 charMateriaAp(int s, int who, int mat_num);
-    void setCharacter(int s, int char_num, FF7CHAR new_char);
+    void setCharacter(int s, int char_num, const FF7CHAR &new_char);
     void setCharID(int s, int char_num, qint8 new_id);
     void setCharLevel(int s, int char_num, qint8 new_level);
     void setCharStr(int s, int char_num, quint8 str);
@@ -1068,7 +1067,7 @@ private:
     QString filename;//opened file;
     //private functions
     QString md5sum(QString fileName, QString UserID);
-    QString fileblock(QString fileName);
+    QString fileblock(const QString &fileName);
     QString filetimestamp(QString fileName);
     void checksumSlots();
     quint16 ff7Checksum(int s);
@@ -1082,8 +1081,8 @@ private:
     quint16 itemEncode(quint16 id, quint8 qty);
     void vmcRegionEval(int s);
     int _blocks = 1;
-    QVector< SubContainer > parseXML(QString fileName, QString metadataPath, QString UserID);
-    QVector< SubContainer > createMetadata(QString fileName, QString UserID);
+    QVector< SubContainer > parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID);
+    QVector< SubContainer > createMetadata(const QString &fileName, const QString &UserID);
 
     inline static const quint8 defaultSave[0x10F4] = {
         0xCD, 0x2A, 0x00, 0x00, 0x01, 0x00, 0xFF, 0xFF, 0x25, 0x58, 0x0D, 0x33, 0x2F, 0x2C, 0x24, 0x29,

@@ -2122,7 +2122,7 @@ void FF7Save::setDialogColorLR(int s, QColor color)
     slot[s].colors[3][2] = color.blue();
     setFileModified(true, s);
 }
-void FF7Save::setCharacter(int s, int char_num, FF7CHAR new_char)
+void FF7Save::setCharacter(int s, int char_num, const FF7CHAR &new_char)
 {
     slot[s].chars[char_num] = new_char;
 }
@@ -2998,7 +2998,7 @@ void FF7Save::setFileModified(bool changed, int s)
     }
     emit fileChanged(fileHasChanged);
 }
-QVector< SubContainer > FF7Save::parseXML(QString fileName, QString metadataPath, QString UserID)
+QVector< SubContainer > FF7Save::parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID)
 {
     //typedef QVector< QString > SubContainer;
     QVector< SubContainer > vector(10, SubContainer(16));
@@ -3044,7 +3044,7 @@ QVector< SubContainer > FF7Save::parseXML(QString fileName, QString metadataPath
     return vector;
 }
 
-QVector< SubContainer > FF7Save::createMetadata(QString fileName, QString UserID)
+QVector< SubContainer > FF7Save::createMetadata(const QString &fileName, const QString &UserID)
 {
     QVector< SubContainer > vector(10, SubContainer(16));
     QString Md5 = md5sum(fileName, UserID);
@@ -3073,17 +3073,11 @@ QVector< SubContainer > FF7Save::createMetadata(QString fileName, QString UserID
     }
     return vector;
 }
-bool FF7Save::fixMetaData(QString fileName, QString OutPath, QString UserID)
+bool FF7Save::fixMetaData(QString fileName, QString UserID)
 {
-    QString UserId;//user id is not global for now
-    if (fileName == QString("")) {
+    if (fileName.isEmpty())
         fileName = filename;
-    }
-    if (OutPath == QString("")) {
-        QString temp = filename;
-        temp.truncate(temp.lastIndexOf("/"));
-        OutPath = temp;
-    }
+
     QString Path = fileName;
     Path.chop(Path.length() - Path.lastIndexOf("/"));
     QString metadataPath = Path;
@@ -3096,10 +3090,9 @@ bool FF7Save::fixMetaData(QString fileName, QString OutPath, QString UserID)
     if (Metadata.exists()) {
         //get our user id no trailing / (removed above)
         Path.remove(0, Path.lastIndexOf("_") + 1);
-        UserId = Path;
-        vector = parseXML(fileName, metadataPath, UserId);
+        UserID = Path;
+        vector = parseXML(fileName, metadataPath, UserID);
     } else {
-        UserId = UserID;
         vector = createMetadata(fileName, UserID);
     }
     if (!Metadata.open(QIODevice::ReadWrite)) {
@@ -3181,7 +3174,7 @@ QString FF7Save::fileName(void)
     return filename;
 }
 
-QString FF7Save::fileblock(QString fileName)
+QString FF7Save::fileblock(const QString &fileName)
 {
     QString number = fileName;
     number.remove(0, number.lastIndexOf("/") + 5); //5=(/save)
@@ -3226,7 +3219,7 @@ bool FF7Save::setSlotFF7Data(int s, QByteArray data)
     return true;
 }
 
-bool FF7Save::setSlotFF7Data(int s, FF7SLOT data)
+bool FF7Save::setSlotFF7Data(int s, const FF7SLOT &data)
 {
     if (s < 0 || s > 14) {
         return false;
