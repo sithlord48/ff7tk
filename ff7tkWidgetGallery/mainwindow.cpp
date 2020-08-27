@@ -24,11 +24,12 @@
 #include <QProgressDialog>
 
 #include "../src/data/FF7Save.h"
+#include "../src/about.h"
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tk_version()));
     hideAllBoxes();
     ui->sb_scale->setValue(qApp->desktop()->logicalDpiX() / 96);
     scale = qApp->desktop()->logicalDpiX() / 96;

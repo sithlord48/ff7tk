@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.4
 
 ApplicationWindow {
 
+    title: "ff7tkQmlGallery-" + ff7tkVersion
     visible: true
     ColumnLayout {
         anchors.fill: parent
