@@ -89,6 +89,7 @@ add_library (ff7tk SHARED
         ${ff7tkWidgets}
     )
 
+add_library (ff7tk::ff7tk ALIAS ff7tk)
 
 target_link_libraries (ff7tk
         Qt5::Core

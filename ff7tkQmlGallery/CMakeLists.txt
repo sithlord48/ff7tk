@@ -43,5 +43,5 @@ target_link_libraries ( ff7tkQmlGallery
         Qt5::Gui
         Qt5::Quick
         Qt5::QuickControls2
-        ff7tk
+        ff7tk::ff7tk
     )

@@ -44,5 +44,5 @@ target_link_libraries ( ff7tkWidgetGallery
         Qt5::Gui
         Qt5::Widgets
         Qt5::Quick
-        ff7tk
+        ff7tk::ff7tk
     )
