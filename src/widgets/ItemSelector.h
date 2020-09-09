@@ -17,11 +17,15 @@
 
 #include <QWidget>
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QComboBox;
 class QPushButton;
 class QSpinBox;
 
-class ItemSelector : public QWidget
+class FF7TKWIDGETS_EXPORT ItemSelector : public QWidget
 {
     Q_OBJECT
 public:

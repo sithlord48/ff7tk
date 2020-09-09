@@ -14,7 +14,12 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #pragma once
-#include <QWidget> 
+
+#include <QWidget>
+
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
 
 class QCheckBox;
 class QLabel;
@@ -22,7 +27,7 @@ class QLabel;
 /** \class DoubleCheckBox
  *  \brief one text two checkable boxes
  */
-class DoubleCheckBox : public QWidget
+class FF7TKWIDGETS_EXPORT DoubleCheckBox : public QWidget
 {
     Q_OBJECT
 public:

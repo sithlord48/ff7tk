@@ -25,8 +25,8 @@
 #define DEF_LZS
 
 #include <QtCore>
-
-class LZS
+#include "ff7tkutils_export.h"
+class FF7TKUTILS_EXPORT LZS
 {
 public:
     // Theses functions are limited to "small" data sizes

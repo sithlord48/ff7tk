@@ -19,8 +19,9 @@
 #define GZIP_H
 
 #include <QtCore>
+#include "ff7tkutils_export.h"
 
-class GZIP
+class FF7TKUTILS_EXPORT GZIP
 {
 public:
     enum Strategy {

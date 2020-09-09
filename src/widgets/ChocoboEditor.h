@@ -20,6 +20,10 @@
 
 #include "../data/Type_FF7CHOCOBO.h"
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QCheckBox;
 class QComboBox;
 class QFrame;
@@ -28,7 +32,7 @@ class QLabel;
 class QLineEdit;
 class QSpinBox;
 
-class ChocoboEditor : public QWidget
+class FF7TKWIDGETS_EXPORT ChocoboEditor : public QWidget
 {
     Q_OBJECT
 protected:

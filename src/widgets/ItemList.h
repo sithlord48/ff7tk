@@ -18,10 +18,14 @@
 #include <QTableWidget>
 #include <QEvent>
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class ItemPreview;
 class ItemSelector;
 
-class ItemList : public QTableWidget
+class FF7TKWIDGETS_EXPORT ItemList : public QTableWidget
 {
     Q_OBJECT
 public:

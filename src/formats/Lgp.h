@@ -23,12 +23,13 @@
 #pragma once
 
 #include "Archive.h"
+#include "ff7tkformats_export.h"
 
 class LgpHeaderEntry;
 class LgpToc;
 class Lgp;
 
-class LgpIterator
+class FF7TKFORMATS_EXPORT LgpIterator
 {
     friend class Lgp;
 public:
@@ -50,7 +51,7 @@ private:
     QFile *_lgp;
 };
 
-class Lgp : public Archive
+class FF7TKFORMATS_EXPORT Lgp : public Archive
 {
     friend class LgpIterator;
 public:

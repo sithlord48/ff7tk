@@ -19,6 +19,11 @@
 #include "../data/FF7Materia.h"
 #include "../data/Type_FF7CHAR.h"
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
+
 class QCheckBox;
 class QComboBox;
 class QLCDNumber;
@@ -42,7 +47,7 @@ class MateriaEditor;
 /** \class CharEditor
  *  \brief Widget to allow editing of a character using FF7Char for data.
  */
-class CharEditor : public QWidget
+class FF7TKWIDGETS_EXPORT CharEditor : public QWidget
 {
     Q_OBJECT
 public:

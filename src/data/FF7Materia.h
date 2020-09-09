@@ -16,10 +16,13 @@
 #pragma once
 
 #include <QObject>
-
 #include <QIcon>
 
-class FF7Materia : public QObject
+#ifndef ff7tk_export_h
+    #include "ff7tk_export.h"
+#endif
+
+class FF7TK_EXPORT FF7Materia : public QObject
 {
     Q_OBJECT
 public:

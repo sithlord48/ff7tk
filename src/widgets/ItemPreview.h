@@ -17,12 +17,16 @@
 
 #include <QWidget>
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QGroupBox;
 class QHBoxLayout;
 class QLabel;
 class QListWidget;
 
-class ItemPreview : public QWidget
+class FF7TKWIDGETS_EXPORT ItemPreview : public QWidget
 {
     Q_OBJECT
 public:

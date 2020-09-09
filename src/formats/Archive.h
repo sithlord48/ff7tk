@@ -21,15 +21,16 @@
 #include <QByteArray>
 #include <QFile>
 #include <QDebug>
+#include "ff7tkformats_export.h"
 
-struct ArchiveObserver {
+struct FF7TKFORMATS_EXPORT ArchiveObserver {
     ArchiveObserver() {}
     virtual bool observerWasCanceled() const = 0;
     virtual void setObserverMaximum(unsigned int max) = 0;
     virtual void setObserverValue(int value) = 0;
 };
 
-class Archive
+class FF7TKFORMATS_EXPORT Archive
 {
 public:
     enum ArchiveError {

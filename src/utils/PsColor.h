@@ -20,9 +20,10 @@
 
 #include <QtCore>
 #include <QRgb>
+#include "ff7tkutils_export.h"
 #define COEFF_COLOR 8.2258064516129032258064516129032 // 255/31
 
-class PsColor
+class FF7TKUTILS_EXPORT PsColor
 {
 public:
     static quint16 toPsColor(const QRgb &color);

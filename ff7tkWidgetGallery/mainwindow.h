@@ -29,7 +29,6 @@
 #include "../src/widgets/LocationViewer.h"
 #include "../src/widgets/ChocoboManager.h"
 #include "../src/widgets/AchievementEditor.h"
-#include "../src/widgets/CharManager.h"
 
 #include "../src/formats/Lgp.h"
 
@@ -80,5 +79,4 @@ private:
     OptionsWidget *optionsWidget;
     ChocoboManager *chocoboManager;
     AchievementEditor *achievementEditor;
-    CharManager *charManager;
 };

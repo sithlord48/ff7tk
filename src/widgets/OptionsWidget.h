@@ -17,6 +17,10 @@
 
 #include <QScrollArea>
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QComboBox;
 class QCheckBox;
 class QGridLayout;
@@ -30,7 +34,7 @@ class DialogPreview;
  *  \brief A Single widget to allow you to set all the options for the game
  *   will save emit a signal when any option changes.
  **/
-class OptionsWidget : public QScrollArea
+class FF7TKWIDGETS_EXPORT OptionsWidget : public QScrollArea
 {
     Q_OBJECT
 protected:
@@ -179,7 +183,7 @@ private:
         , QT_TR_NOOP("Custom")
     };
 
-    inline static const QString _fast =  QT_TR_NOOP("Fast");
-    inline static const QString _slow =  QT_TR_NOOP("Slow");
+    const QString _fast =  QT_TR_NOOP("Fast");
+    const QString _slow =  QT_TR_NOOP("Slow");
 
 };

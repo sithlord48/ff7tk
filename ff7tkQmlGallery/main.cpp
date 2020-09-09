@@ -4,7 +4,7 @@
 
 #include "../src/data/FF7Text.h"
 #include "../src/data/FF7Item.h"
-#include "../src/about.h"
+#include "../src/data/about.h"
 
 int main(int argc, char *argv[])
 {

@@ -19,11 +19,15 @@
 
 #include "../data/FF7SaveInfo.h"
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class FF7Save;
 class QDialogButtonBox;
 class QVBoxLayout;
 
-class MetadataCreator : public QDialog
+class FF7TKWIDGETS_EXPORT MetadataCreator : public QDialog
 {
     Q_OBJECT
 public:

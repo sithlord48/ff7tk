@@ -20,6 +20,10 @@
 
 #include "../data/FF7Materia.h"
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QComboBox;
 class QFrame;
 class QGroupBox;
@@ -30,12 +34,11 @@ class QPushButton;
 class QSpacerItem;
 class QSpinBox;
 
-class MateriaEditor : public QWidget
+class FF7TKWIDGETS_EXPORT MateriaEditor : public QWidget
 {
     Q_OBJECT
 public:
-    MateriaEditor(QWidget *parent = nullptr);
-    MateriaEditor(quint8 materia_id = 0, qint32 ap = 0, QWidget *parent = nullptr);
+    explicit MateriaEditor(QWidget *parent = nullptr, quint8 materia_id = FF7Materia::EmptyId, qint32 ap = FF7Materia::MaxMateriaAp);
     void setMateria(quint8 materia_id = 0, qint32 materia_ap = 0);
     void setAP(qint32 current_ap = 0);
     void setStarsSize(int);

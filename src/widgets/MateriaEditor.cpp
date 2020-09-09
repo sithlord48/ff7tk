@@ -23,12 +23,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-MateriaEditor::MateriaEditor(QWidget *parent): QWidget(parent)
-{
-    init_display();
-    setMateria(FF7Materia::EmptyId, FF7Materia::MaxMateriaAp); //Smallest Possible Size. ready for use now.
-}
-MateriaEditor::MateriaEditor(quint8 materia_id, qint32 materia_ap, QWidget *parent): QWidget(parent)
+MateriaEditor::MateriaEditor(QWidget *parent, quint8 materia_id, qint32 materia_ap): QWidget(parent)
 {
     init_display();
     setMateria(materia_id, materia_ap);

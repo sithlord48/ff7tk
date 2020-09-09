@@ -17,9 +17,13 @@
 
 #include <QLabel>
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QPushButton;
 
-class DialogPreview : public QLabel
+class FF7TKWIDGETS_EXPORT DialogPreview : public QLabel
 {
     Q_OBJECT
 public:

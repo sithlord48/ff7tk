@@ -25,8 +25,9 @@
 #else
 #define PACK(structure) structure Q_PACKED
 #endif
-
-/*! \struct FF7CHOCOBO
+#ifndef ff7tk_export_h
+    #include "ff7tk_export.h"
+#endif/*! \struct FF7CHOCOBO
  *  \brief a chocobo in save game
  *
  *  16 Bytes total size 15 known 1 Byte Unknown
@@ -34,7 +35,7 @@
  *  \todo Research the pcount byte
  */
 PACK(
-struct FF7CHOCOBO {
+struct FF7TK_EXPORT FF7CHOCOBO {
     quint16 sprintspd = 0;      /**< [0x0000] Speed */
     quint16 maxsprintspd = 0;   /**< [0x0002] Max Speed*/
     quint16 speed = 0;          /**< [0x0004] Sprint speed*/

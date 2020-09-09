@@ -17,6 +17,9 @@
 
 #include <QObject>
 
+#ifndef ff7tk_export_h
+    #include "ff7tk_export.h"
+#endif
 class QIcon;
 class QQmlEngine;
 class QJSEngine;
@@ -24,7 +27,7 @@ class QJSEngine;
 /*! \class FF7Item
  * \brief Information about items in FF7
  */
-class FF7Item: public QObject
+class FF7TK_EXPORT FF7Item: public QObject
 {
     Q_OBJECT
 public:

@@ -18,6 +18,10 @@
 #include <QWidget>
 #include "../data/FF7Achievements.h"
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QListWidget;
 
 /*! \class AchievementEditor
@@ -27,7 +31,7 @@ class QListWidget;
  *  The list will contain icons for each achievement so be sure to include achievements.qrc in your projects resources
  *  The end user only ever needs to see a list the rest should be set to signals/slots in the host application
  */
-class AchievementEditor : public QWidget
+class FF7TKWIDGETS_EXPORT AchievementEditor : public QWidget
 {
     Q_OBJECT
 public:
