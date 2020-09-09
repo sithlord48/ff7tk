@@ -22,10 +22,14 @@ class QFrame;
 class QLabel;
 class QPushButton;
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 /** \class ChocoboLabel
  * \brief A Label to display a single chocobo's brief data.
  */
-class ChocoboLabel : public QWidget
+class FF7TKWIDGETS_EXPORT ChocoboLabel : public QWidget
 {
     Q_OBJECT
 public:

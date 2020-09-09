@@ -20,6 +20,7 @@
 #include <QIODevice>
 #include <QString>
 #include "Archive.h"
+#include "ff7tkformats_export.h"
 
 #define MAX_ISO_READ            10000
 #define MAX_FILENAME_LENGTH     207
@@ -38,7 +39,7 @@
 class IsoArchiveIO;
 class IsoFileIO;
 
-struct IsoTime {
+struct FF7TKFORMATS_EXPORT IsoTime {
     char year[4];
     char month[2];
     char day[2];
@@ -49,7 +50,7 @@ struct IsoTime {
     qint8 GMT;
 };
 
-struct PathTable {
+struct FF7TKFORMATS_EXPORT PathTable {
     quint8 length_di;
     quint8 extended_attr_record_length;
     quint32 location_extent;
@@ -58,7 +59,7 @@ struct PathTable {
     quint32 position;
 };
 
-struct DirectoryRecordHead {
+struct FF7TKFORMATS_EXPORT DirectoryRecordHead {
     quint32 location_extent;// little endian //first sector in the directory
     quint32 location_extent2;// big endian
     quint32 data_length;// little endian
@@ -78,7 +79,7 @@ struct DirectoryRecordHead {
     quint8 length_fi;
 };
 
-struct DirectoryRecord {
+struct FF7TKFORMATS_EXPORT DirectoryRecord {
     quint8 length_dr;
     quint8 extended_attr_record_length;
     DirectoryRecordHead drh;
@@ -87,7 +88,7 @@ struct DirectoryRecord {
     // padding;
 };
 
-struct VolumeDescriptor1 {
+struct FF7TKFORMATS_EXPORT VolumeDescriptor1 {
     quint8 type;// 0x01 or 0xff
     quint8 id[5];// CD001
     quint8 version;// 1 = international standard
@@ -112,7 +113,7 @@ struct VolumeDescriptor1 {
     quint32 opt_type_path_table2;// big endian
 };
 
-struct VolumeDescriptor2 {
+struct FF7TKFORMATS_EXPORT VolumeDescriptor2 {
     quint8 volume_set_id[128];
     quint8 publisher_id[128];
     quint8 preparer_id[128];
@@ -130,13 +131,13 @@ struct VolumeDescriptor2 {
     quint8 unused5[653];
 };
 
-struct VolumeDescriptor {
+struct FF7TKFORMATS_EXPORT VolumeDescriptor {
     VolumeDescriptor1 vd1;
     DirectoryRecord dr;
     VolumeDescriptor2 vd2;
 };
 
-class IsoFileOrDirectory
+class FF7TKFORMATS_EXPORT IsoFileOrDirectory
 {
 public:
     virtual ~IsoFileOrDirectory();
@@ -167,7 +168,7 @@ protected:
     quint8 _paddingAfter;
 };
 
-class IsoFile : public IsoFileOrDirectory
+class FF7TKFORMATS_EXPORT IsoFile : public IsoFileOrDirectory
 {
 public:
     IsoFile(const QString &name, quint32 location, quint32 size, qint64 structPosition, IsoArchiveIO *io);
@@ -190,7 +191,7 @@ private:
     bool dataChanged, _newIOMustBeRemoved;
 };
 
-class IsoDirectory : public IsoFileOrDirectory
+class FF7TKFORMATS_EXPORT IsoDirectory : public IsoFileOrDirectory
 {
 public:
     IsoDirectory(const QString &name, quint32 location, quint32 size, qint64 structPosition);
@@ -208,7 +209,7 @@ private:
     QMap<QString, IsoFileOrDirectory *> _filesAndDirectories;
 };
 
-class IsoArchiveIO : public QFile
+class FF7TKFORMATS_EXPORT IsoArchiveIO : public QFile
 {
     friend class IsoArchive;
 public:
@@ -290,7 +291,7 @@ private:
     }
 };
 
-class IsoFileIO : public QIODevice
+class FF7TKFORMATS_EXPORT IsoFileIO : public QIODevice
 {
 public:
     IsoFileIO(IsoArchiveIO *io, const IsoFile *infos, QObject *parent = 0);
@@ -306,7 +307,7 @@ private:
     const IsoFile *_infos;
 };
 
-class IsoArchive
+class FF7TKFORMATS_EXPORT IsoArchive
 {
 public:
     IsoArchive();

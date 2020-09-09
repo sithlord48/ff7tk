@@ -14,16 +14,21 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #pragma once
+
 #include <QEvent>
 #include <QLabel>
 #include "DoubleCheckBox.h"
+
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
 
 /** \class PhsListWidget
  *  \brief Easily manage the who can be in the phs
  *
  *  Ment to be used with FF7Save
  */
-class PhsListWidget : public QWidget
+class FF7TKWIDGETS_EXPORT PhsListWidget : public QWidget
 {
     Q_OBJECT
 public:

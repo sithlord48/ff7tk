@@ -19,10 +19,10 @@
 #define GZIPPS_H
 
 #include "GZIP.h"
-
+#include "ff7tkutils_export.h"
 #define GZIPPS_HEADER_SIZE      8
 
-class GZIPPS
+class FF7TKUTILS_EXPORT GZIPPS
 {
 public:
     inline static QByteArray decompress(const QByteArray &data)

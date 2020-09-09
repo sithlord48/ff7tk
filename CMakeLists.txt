@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
+cmake_policy(SET CMP0074 NEW)
+
 project(ff7tk VERSION 0.80.17 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 set(CMAKE_CXX_STANDARD 17)
@@ -7,6 +9,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+include(GenerateExportHeader)
 # Get the version from git if it's a git repository
 IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
   FIND_PACKAGE(Git)
@@ -23,12 +26,9 @@ IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
   ELSE()
 ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
 
-
 option(WIDGET_GALLERY "Build the widget based gallery" OFF)
 option(QML_GALLERY "Build the qml based gallery" OFF)
 option(DOCS "Build and Install Documents (Requires Doxygen)" OFF)
-
-configure_file(about.h.in ${CMAKE_SOURCE_DIR}/src/about.h @ONLY)
 
 add_subdirectory(src)
 
@@ -40,7 +40,7 @@ if(QML_GALLERY)
     add_subdirectory(ff7tkQmlGallery)
 endif()
 
-if (DOCS)
+if(DOCS)
     add_subdirectory(docs)
 endif()
 

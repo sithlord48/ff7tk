@@ -26,6 +26,8 @@
 #include <QString>
 #include <QMultiHash>
 
+#include "ff7tkformats_export.h"
+
 #define LGP_COMPANY_NAME_SIZE   12
 #define LGP_PRODUCT_NAME_SIZE   14
 
@@ -44,12 +46,12 @@
 #endif
 
 PACK(
-struct LgpLookupTableEntry {
+struct FF7TKFORMATS_EXPORT LgpLookupTableEntry {
     quint16 tocOffset;
     quint16 fileCount;
 });
 
-struct LgpConflictEntry {
+struct FF7TKFORMATS_EXPORT LgpConflictEntry {
     LgpConflictEntry() : fileDir(QString()), tocIndex(0) {}
     LgpConflictEntry(const QString &fileDir, quint16 tocIndex = 0) :
         fileDir(fileDir), tocIndex(tocIndex) {}
@@ -57,7 +59,7 @@ struct LgpConflictEntry {
     quint16 tocIndex;
 };
 
-struct LgpTocEntry {
+struct FF7TKFORMATS_EXPORT LgpTocEntry {
     LgpTocEntry() : conflict(0), tocIndex(0) {}
     LgpTocEntry(quint16 tocIndex, quint16 conflict = 0) :
         conflict(conflict), tocIndex(tocIndex) {}
@@ -65,7 +67,7 @@ struct LgpTocEntry {
     quint16 tocIndex;
 };
 
-class LgpHeaderEntry
+class FF7TKFORMATS_EXPORT LgpHeaderEntry
 {
 public:
     LgpHeaderEntry(const QString &fileName, quint32 filePosition);
@@ -95,7 +97,7 @@ private:
     QIODevice *_newIO;
 };
 
-class LgpIO : public QIODevice
+class FF7TKFORMATS_EXPORT LgpIO : public QIODevice
 {
 public:
     LgpIO(QIODevice *lgp, const LgpHeaderEntry *header, QObject *parent = 0);
@@ -112,7 +114,7 @@ private:
 
 class LgpIterator;
 
-class LgpToc
+class FF7TKFORMATS_EXPORT LgpToc
 {
 public:
     LgpToc();

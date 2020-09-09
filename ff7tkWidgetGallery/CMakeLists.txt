@@ -1,6 +1,8 @@
 project(ff7tkWidgetGallery VERSION 0.1.1 DESCRIPTION "Demo App for ff7tk with widgets")
 
 set(CMAKE_AUTOUIC ON)
+set(WIDGETS ON CACHE BOOL BOOL FORCE)
+set(FORMATS ON CACHE BOOL BOOL FORCE)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
         Widgets
@@ -39,10 +41,15 @@ elseif(WIN32)
     install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.png" DESTINATION share/pixmaps)
 endif()
 
+target_include_directories (ff7tkWidgetGallery PRIVATE ${CMAKE_BINARY_DIR}/src/data ${CMAKE_BINARY_DIR}/src/widgets ${CMAKE_BINARY_DIR}/src/formats)
+
 target_link_libraries ( ff7tkWidgetGallery
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
         Qt5::Quick
         ff7tk::ff7tk
+        ff7tk::ff7tkUtils
+        ff7tk::ff7tkFormats
+        ff7tk::ff7tkWidgets
     )

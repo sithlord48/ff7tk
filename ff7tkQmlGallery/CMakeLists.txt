@@ -1,8 +1,12 @@
 project(ff7tkQmlGallery)
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(../src)
+
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
         Quick
         QuickControls2
+        QmlImportScanner
     )
 
 set ( ff7tkQmlGallery_SRCS
@@ -37,6 +41,7 @@ elseif(WIN32)
     install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkQmlGallery.png" DESTINATION share/pixmaps)
 endif()
 
+target_include_directories (ff7tkQmlGallery PRIVATE ${CMAKE_BINARY_DIR}/src/data)
 
 target_link_libraries ( ff7tkQmlGallery
         Qt5::Core
@@ -45,3 +50,5 @@ target_link_libraries ( ff7tkQmlGallery
         Qt5::QuickControls2
         ff7tk::ff7tk
     )
+
+qt5_import_qml_plugins(ff7tkQmlGallery)

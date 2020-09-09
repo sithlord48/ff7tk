@@ -17,6 +17,9 @@
 
 #include <QObject>
 
+#ifndef ff7tk_export_h
+    #include "ff7tk_export.h"
+#endif
 class QIcon;
 class QStringList;
 class QQmlEngine;
@@ -26,7 +29,7 @@ class QJSEngine;
 *   \brief Data and Enums for Characters in Final Fantasy 7
 */
 
-class FF7Char : public QObject
+class FF7TK_EXPORT FF7Char : public QObject
 {
     Q_OBJECT
 public:

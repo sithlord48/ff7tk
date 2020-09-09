@@ -19,6 +19,12 @@
 #include <QModelIndex>
 #include <QWidget>
 
+#include "../data/FF7FieldItemList.h"
+
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QAction;
 class QCheckBox;
 class QGroupBox;
@@ -30,13 +36,11 @@ class QSpinBox;
 class QTableWidget;
 class QToolButton;
 
-#include "../data/FF7FieldItemList.h"
-
 /** \class LocationViewer
  *  \brief Set Saves Location or View Field Locations and Toggle the items picked up from them.
  *  \todo Support Progression within this widget
  **/
-class LocationViewer : public QWidget
+class FF7TKWIDGETS_EXPORT LocationViewer : public QWidget
 {
     Q_OBJECT
 public:

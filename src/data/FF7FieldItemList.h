@@ -17,6 +17,9 @@
 
 #include<QObject>
 
+#ifndef ff7tk_export_h
+    #include "ff7tk_export.h"
+#endif
 class QStringList;
 
 struct FieldItem {
@@ -30,7 +33,7 @@ struct FieldItem {
 *\todo add more field items
  *  \brief Data Class to allow the tracking and changing of items being picked up on the field
  */
-class FF7FieldItemList : public QObject
+class FF7TK_EXPORT FF7FieldItemList : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int size READ size CONSTANT)

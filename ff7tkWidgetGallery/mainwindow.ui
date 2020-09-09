@@ -88,11 +88,6 @@
         <string>AchievementEditor</string>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>CharManager</string>
-       </property>
-      </item>
      </widget>
     </item>
     <item>
@@ -458,16 +453,6 @@
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="CharManager_Box">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
      </widget>
     </item>
    </layout>

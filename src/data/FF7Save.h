@@ -18,6 +18,9 @@
 #include <QObject>
 #include <cstdlib>
 
+#ifndef ff7tk_export_h
+    #include "ff7tk_export.h"
+#endif
 #include "FF7SaveInfo.h" //All consts placed here
 #include "FF7Save_Types.h" //All Custom Types for this class here.
 
@@ -60,7 +63,7 @@ class QTextCodec;
  *  | *.mcx  | Dantel Format
  *  | *.pda  | Dantel Format
  */
-class FF7Save: public QObject
+class FF7TK_EXPORT FF7Save: public QObject
 {
     Q_OBJECT
 public:

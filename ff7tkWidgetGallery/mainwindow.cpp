@@ -24,7 +24,7 @@
 #include <QProgressDialog>
 
 #include "../src/data/FF7Save.h"
-#include "../src/about.h"
+#include "../src/data/about.h"
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -80,11 +80,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     AchievementLayout->addWidget(achievementEditor);
     ui->achievementEditor_Frame->setLayout(AchievementLayout);
 
-    charManager = new CharManager(scale);
-    QVBoxLayout *charManagerLayout = new QVBoxLayout;
-    charManagerLayout->addWidget(charManager);
-    ui->CharManager_Box->setLayout(charManagerLayout);
-
     lgpFile = nullptr;
 }
 
@@ -109,7 +104,6 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     case 10: ui->locListBox->setVisible(1); break;
     case 11: ui->ChocoboManagerBox->setVisible(1); break;
     case 12: ui->AchievementEditor_Box->setVisible(1); break;
-    case 13: ui->CharManager_Box->setVisible(1); break;
     }
     this->adjustSize();
 }
@@ -244,7 +238,6 @@ void MainWindow::hideAllBoxes(void)
     ui->locListBox->setVisible(0);
     ui->ChocoboManagerBox->setVisible(0);
     ui->AchievementEditor_Box->setVisible(0);
-    ui->CharManager_Box->setVisible(0);
 }
 
 void MainWindow::on_btn_loadAchievement_clicked()

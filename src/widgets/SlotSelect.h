@@ -17,6 +17,10 @@
 
 #include <QDialog>
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QFrame;
 class QScrollArea;
 class QVBoxLayout;
@@ -32,7 +36,7 @@ class FF7Save;
  * Copy Paste and Remove are are internal so no need to worry about doing those.
  * Copy will currently only copies FF7 Saves.
  */
-class SlotSelect : public QDialog
+class FF7TKWIDGETS_EXPORT SlotSelect : public QDialog
 {
     Q_OBJECT
 public:

@@ -17,6 +17,8 @@
 
 #include <QObject>
 
+#include "ff7tk_export.h"
+
 /*!
  * \class FF7Achievements
  * \todo need more icons for the achievements.
@@ -24,7 +26,7 @@
  *
  * Open Edit and Save achievements.dat found with the 2012 Square and 2013 Steam Releases of Final Fantasy VII
 */
-class FF7Achievements : public QObject
+class FF7TK_EXPORT FF7Achievements : public QObject
 {
     Q_OBJECT
 public:

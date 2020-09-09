@@ -17,6 +17,10 @@
 
 #include <QLabel>
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QHBoxLayout;
 class QPushButton;
 class QVBoxLayout;
@@ -27,7 +31,7 @@ class SaveIcon;
  *
  * Currently will display the "description" of FF7 Save or a preview of what psx save is in that slot. More games could be added by extending the modes
  */
-class SlotPreview : public QLabel
+class FF7TKWIDGETS_EXPORT SlotPreview : public QLabel
 {
     Q_OBJECT
 public:

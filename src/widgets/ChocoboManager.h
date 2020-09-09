@@ -20,11 +20,15 @@
 #include "../widgets/ChocoboEditor.h"
 #include "../widgets/ChocoboLabel.h"
 
+#ifndef ff7tkwidgets_export_h
+    #include "ff7tkwidgets_export.h"
+#endif
+
 class QComboBox;
 class QGroupBox;
 class QLCDNumber;
 
-class ChocoboManager : public QWidget
+class FF7TKWIDGETS_EXPORT ChocoboManager : public QWidget
 {
     Q_OBJECT
 public:

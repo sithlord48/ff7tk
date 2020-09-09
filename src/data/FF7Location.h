@@ -17,13 +17,16 @@
 
 #include <QObject>
 
+#ifndef ff7tk_export_h
+    #include "ff7tk_export.h"
+#endif
 class QQmlEngine;
 class QJSEngine;
 
 /*! \class FF7Location
  *  \brief Info about field locations.
  */
-class FF7Location : public QObject
+class FF7TK_EXPORT FF7Location : public QObject
 {
     Q_OBJECT
 public:
