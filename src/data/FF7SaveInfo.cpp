@@ -413,17 +413,18 @@ QString FF7SaveInfo::typeFilter(FF7SaveInfo::FORMAT format) const
 
 QString FF7SaveInfo::knownTypesFilter() const
 {
+    QString space = QStringLiteral(" ");
     QString allTypes = QStringLiteral("%1 %2 %3 %4 %5 %6 %7 %8 %9 %10")
-        .arg(d->PC_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->PSX_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->PSP_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->PS3_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->DEX_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->VGS_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->VMC_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->SWITCH_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->PGE_VALID_EXTENSIONS.join(QStringLiteral(" ")))
-        .arg(d->PDA_VALID_EXTENSIONS.join(QStringLiteral(" ")));
+        .arg(d->PC_VALID_EXTENSIONS.join(space))
+        .arg(d->PSX_VALID_EXTENSIONS.join(space))
+        .arg(d->PSP_VALID_EXTENSIONS.join(space))
+        .arg(d->PS3_VALID_EXTENSIONS.join(space))
+        .arg(d->DEX_VALID_EXTENSIONS.join(space))
+        .arg(d->VGS_VALID_EXTENSIONS.join(space))
+        .arg(d->VMC_VALID_EXTENSIONS.join(space))
+        .arg(d->SWITCH_VALID_EXTENSIONS.join(space))
+        .arg(d->PGE_VALID_EXTENSIONS.join(space))
+        .arg(d->PDA_VALID_EXTENSIONS.join(space));
 
     return QStringLiteral("%1;;%2;;%3;;%4;;%5;;%6;;%7;;%8;;%9;;%10;;%11;;%12")
         .arg(tr("Known FF7 Save Types (%1)").arg(allTypes))
