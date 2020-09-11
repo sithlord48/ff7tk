@@ -111,10 +111,11 @@ script:
     zip -r -X ff7tk-continuous-macos.zip ff7tk-continuous-macos;
     fi
 
-after_success:
-- wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then bash ./upload.sh ff7tk-continuous-linux.tar.gz; fi
-- if [ "${TRAVIS_OS_NAME}" = "osx" ]; then bash ./upload.sh ff7tk-continuous-macos.zip; fi
+before_deploy:
+  - git config --local user.name "sithlord48"
+  - git config --local user.email "sithlord48@gmail.com"
+  - export TRAVIS_TAG="continuous"
+  - git tag $TRAVIS_TAG
 
 deploy:
   provider: pages
@@ -125,6 +126,12 @@ deploy:
   on:
     condition: ${TRAVIS_OS_NAME} = linux
     branch: master
+deploy:
+  provider: releases
+  token: $GITHUB_TOKEN
+  file_glob: true
+  file: ff7tk-continuous-*.*
+  skip_cleanup: true
 
 branches:
   except:

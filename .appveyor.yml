@@ -1,73 +1,81 @@
 version: '{branch}.{build}'
 image: Visual Studio 2017
-configuration: release
-platform: x86
+environment:
+  MSVC: 15
+  VSVER: 14.0
+  configuration: release
+  RUNTIME_LINKAGE: static
+  ICU_VERSION: 57.1
+  ICU_LINKAGE: static
+  QT_VERSION: 5.13.2
+  QT_LINKAGE: static
+  matrix:
+  - platform: x86
+    QTDIR: C:\Qt\5.13\msvc2017
+    ARCH: x86
+    OUTFILE: ff7tk-continuous-win32-msvc2017
+  - platform: x64
+    QTDIR: C:\Qt\5.13\msvc2017_64
+    ARCH: amd64
+    OUTFILE: ff7tk-continuous-win64-msvc2017
+  - platform: x86
+    QTDIR: C:\Qt\5.13\mingw73_32
+    ARCH: x86
+    OUTFILE: ff7tk-continuous-win32-mingw
+  - platform: x64
+    QTDIR: C:\Qt\5.13\mingw73_64
+    ARCH: amd64
+    OUTFILE: ff7tk-continuous-win64-mingw
+
 init:
 - ps: >-
     $env:commit = $env:appveyor_repo_commit.SubString(0,7)
 
     Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:appveyor_repo_branch,$env:appveyor_build_number,$env:commit )
-environment:
-  VSVER: 14.0 
-  matrix:
-  - MSVC: 15
-    RUNTIME_LINKAGE: static
-    ICU_VERSION: 57.1
-    ICU_LINKAGE: static
-    QTDIR: C:\Qt\5.13\mingw73_32
-    QT_VERSION: 5.13.2
-    QT_LINKAGE: static
 install:
 - cmd: >-
     choco install doxygen.install
 
-    powershell -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/horta/zlib.install/master/install.bat', 'install.bat')"; ./install.bat
+    %QTDIR%\bin\qtenv2.bat
+
+    if not %QTDIR:msvc=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio %VSVER%\VC\vcvarsall.bat" %ARCH%
+
+    git clone -q --branch=v1.2.11 https://github.com/madler/zlib c:\projects\zlib
+
+    cd c:\projects\zlib
+
+    cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="C:\zlib" CMakeLists.txt
+
+    ninja install
 
     refreshenv
 
     %QTDIR%\bin\qtenv2.bat
 
-    set QTDIR
-
-    if %QTDIR:_64=%==%QTDIR% ( set ARCH=x86 ) else set ARCH=x64
-
-    if %QTDIR:msvc=%==%QTDIR% g++ --version
-
-    if %QTDIR:msvc=%==%QTDIR% set make=mingw32-make.exe
-
-    if %QTDIR:msvc=%==%QTDIR% %make% --version
-
     if not %QTDIR:msvc=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio %VSVER%\VC\vcvarsall.bat" %ARCH%
-
-    if not %QTDIR:msvc=%==%QTDIR% set make=nmake.exe
-
-    if not %QTDIR:msvc=%==%QTDIR% %make% /? > nul
-
-    set QTBIN=%QTDIR%\bin
 
 build_script:
 - cmd: >-
-
     cd c:\projects\ff7tk
 
-    cmake -G Ninja -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=ff7tk-continuous-win32 -DZLIB_INCLUDE_DIR="C:\projects\ff7tk\zlib-1.2.11\build" CMakeLists.txt
+    cmake -G Ninja -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=%OUTFILE% -DZLIB_ROOT="C:\zlib" CMakeLists.txt
 
     ninja install
 
-    move COPYING.TXT ff7tk-continuous-win32\
+    move COPYING.TXT %OUTFILE%\
 
-    copy C:\Ruby193\bin\zlib1.dll ff7tk-continuous-win32\bin\
+    copy "C:\zlib\bin\libzlib.dll" %OUTFILE%\bin\
 
-    windeployqt --compiler-runtime --release ff7tk-continuous-win32\bin\libff7tk.dll
+    windeployqt --compiler-runtime --release %OUTFILE%\bin\libff7tk.dll
 
-    windeployqt --compiler-runtime --release ff7tk-continuous-win32\bin\ff7tkWidgetGallery.exe
+    windeployqt --compiler-runtime --release %OUTFILE%\bin\ff7tkWidgetGallery.exe
 
-    windeployqt --compiler-runtime --release ff7tk-continuous-win32\bin\ff7tkQmlGallery.exe
+    windeployqt --compiler-runtime --release %OUTFILE%\bin\ff7tkQmlGallery.exe
 
-    7z a -tzip ff7tk-continuous-win32.zip ff7tk-continuous-win32 -r
+    7z a -tzip %OUTFILE%.zip %OUTFILE% -r
 
 artifacts:
-- path: ff7tk-continuous-win32.zip
+- path: ff7tk-continuous-*.zip
   name: ff7tk
 deploy:
 - provider: GitHub
@@ -77,6 +85,7 @@ deploy:
     secure: yG66EEKasiTmuCDPStbz0nVsvcETsQlnpDD2ScfNWUwT81kKfALCVFRTPMrp6R6E
   artifact: ff7tk
   force_update: true
+
 branches:
   except:
     - continuous

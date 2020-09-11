@@ -1,3 +1,4 @@
+cmake_policy(SET CMP0074 NEW)
 if(WIN32)
     if(CMAKE_COMPILER_IS_GNUCC)
         #Prevent ms padding on packed structures on gcc compiler
@@ -95,7 +96,7 @@ target_link_libraries (ff7tk
         Qt5::Xml
         Qt5::Widgets
         Qt5::Quick
-        ${ZLIB_LIBRARIES}
+        ZLIB::ZLIB
     )
 
 set_property(TARGET ff7tk PROPERTY VERSION ${PROJECT_VERSION})
