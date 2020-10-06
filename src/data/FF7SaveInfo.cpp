@@ -263,7 +263,7 @@ QByteArray FF7SaveInfo::fileHeader(FF7SaveInfo::FORMAT format) const
 
 QByteArray FF7SaveInfo::slotHeader(FF7SaveInfo::FORMAT format, int slot) const
 {
-    std::clamp(slot, 0, 14);
+    slot = std::clamp(slot, 0, 14);
     switch (format) {
     case FORMAT::PDA:
     case FORMAT::PGE:
