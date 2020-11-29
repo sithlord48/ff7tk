@@ -16,11 +16,11 @@
 #pragma once
 
 #include <QWidget>
-#include "../data/FF7Materia.h"
-#include "../data/Type_FF7CHAR.h"
+#include <FF7Materia.h>
+#include <Type_FF7CHAR.h>
 
 #ifndef ff7tkwidgets_export_h
-    #include "ff7tkwidgets_export.h"
+    #include <ff7tkwidgets_export.h>
 #endif
 
 

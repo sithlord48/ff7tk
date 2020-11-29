@@ -13,14 +13,14 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "SlotPreview.h"
+#include <SlotPreview.h>
 
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include "../data/SaveIcon.h"
+#include <../data/SaveIcon.h>
 
 SlotPreview::SlotPreview(int index, qreal Scale, QWidget *parent)
     : QLabel(parent)

@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "FF7SaveInfo.h"
+#include <FF7SaveInfo.h>
 
 #include <QByteArrayList>
 #include <QQmlEngine>

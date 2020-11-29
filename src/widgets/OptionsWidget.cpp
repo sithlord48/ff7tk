@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "OptionsWidget.h"
+#include <OptionsWidget.h>
 
 #include <QComboBox>
 #include <QCheckBox>
@@ -23,7 +23,7 @@
 #include <QScrollBar>
 #include <QSlider>
 
-#include "DialogPreview.h"
+#include <DialogPreview.h>
 
 OptionsWidget::OptionsWidget(QWidget *parent) :
     QScrollArea(parent)

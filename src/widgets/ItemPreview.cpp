@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "ItemPreview.h"
+#include <ItemPreview.h>
 
 #include <QEvent>
 #include <QGroupBox>
@@ -22,7 +22,7 @@
 #include <QListWidget>
 #include <QtEndian>
 
-#include "../data/FF7Item.h"
+#include <FF7Item.h>
 
 bool ItemPreview::eventFilter(QObject *obj, QEvent *ev)
 {

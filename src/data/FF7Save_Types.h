@@ -30,10 +30,10 @@
 
 #include <QVector>
 #ifndef ff7tk_export_h
-    #include "ff7tk_export.h"
+    #include <ff7tk_export.h>
 #endif
-    #include "Type_FF7CHAR.h"
-#include "Type_FF7CHOCOBO.h"
+    #include <Type_FF7CHAR.h>
+#include <Type_FF7CHOCOBO.h>
 //Materia Type is included as part of FF7Char
 /*~~~~~~~~~~~~~~~~~~~~~~~~STRUCT TYPES AND SAVE STRUCT~~~~~~~~~~~~~~~~*/
 PACK(

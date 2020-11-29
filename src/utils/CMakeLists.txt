@@ -13,8 +13,22 @@ set ( ff7tkUtils_SRC
         QLockedFile.cpp
     )
 
-add_library (ff7tkUtils SHARED ${ff7tkUtils_SRC})
+    set ( ff7tkUtils_HEADERS
+        GZIP.h #NEEDS ZLIB
+        GZIPPS.h
+        LZS.h
+        PsColor.h
+        QLockedFile.h
+    )
+
+add_library (ff7tkUtils SHARED ${ff7tkUtils_SRC} ff7tkutils_export.h)
 add_library(ff7tk::ff7tkUtils ALIAS ff7tkUtils)
+
+target_include_directories(ff7tkUtils PRIVATE ${PROJECT_BINARY_DIR/src/data})
+target_include_directories(ff7tkUtils PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+  $<INSTALL_INTERFACE:include/ff7tk/utils>
+)
 
 target_link_libraries (ff7tkUtils PUBLIC
         Qt5::Core
@@ -22,8 +36,13 @@ target_link_libraries (ff7tkUtils PUBLIC
         ZLIB::ZLIB
  )
 
-set_property(TARGET ff7tkUtils PROPERTY VERSION ${PROJECT_VERSION})
-set_property(TARGET ff7tkUtils PROPERTY SOVERSION ${PROJECT_VERSION_MAJOR})
+ 
+ set_target_properties(
+    ff7tkUtils PROPERTIES
+    VERSION "${PROJECT_VERSION}"
+    SOVERSION "${PROJECT_VERSION_MAJOR}"
+    PUBLIC_HEADER "${ff7tkUtils_HEADERS}"
+)
 
 generate_export_header(ff7tkUtils BASE_NAME ff7tkutils)
 include(GNUInstallDirs)
@@ -31,18 +50,10 @@ include(GNUInstallDirs)
 install(TARGETS ff7tkUtils
     EXPORT ff7tkUtilsConfig
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/widgets
 )
 
-install (
-    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
-    FILES_MATCHING PATTERN "*.h"
-)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tkutils_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/utils)
 
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkutils_export.h
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/utils
-)
-
-install(EXPORT ff7tkUtilsConfig NAMESPACE ff7tk:: DESTINATION share/ff7tk/cmake)
+install(EXPORT ff7tkUtilsConfig NAMESPACE ff7tk:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk)
 export(TARGETS ff7tkUtils FILE ff7tkUtils.cmake)

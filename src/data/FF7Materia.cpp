@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "FF7Materia.h"
+#include <FF7Materia.h>
 
 const FF7Materia::MATERIA &FF7Materia::Materias(int id)
 {

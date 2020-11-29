@@ -17,11 +17,11 @@
 
 #include <QWidget>
 
-#include "../widgets/ChocoboEditor.h"
-#include "../widgets/ChocoboLabel.h"
+#include <ChocoboEditor.h>
+#include <ChocoboLabel.h>
 
 #ifndef ff7tkwidgets_export_h
-    #include "ff7tkwidgets_export.h"
+    #include <ff7tkwidgets_export.h>
 #endif
 
 class QComboBox;

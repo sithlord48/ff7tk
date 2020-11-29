@@ -19,7 +19,7 @@
 #include <QRegularExpression>
 
 #ifndef ff7tk_export_h
-    #include "ff7tk_export.h"
+    #include <ff7tk_export.h>
 #endif
 class QJSEngine;
 class QQmlEngine;

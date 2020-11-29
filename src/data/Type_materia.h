@@ -26,7 +26,7 @@
 #define PACK(structure) structure Q_PACKED
 #endif
 #ifndef ff7tk_export_h
-    #include "ff7tk_export.h"
+    #include <ff7tk_export.h>
 #endif/*! \struct materia
  *  \brief materia format saved in materia list or on a character
  *

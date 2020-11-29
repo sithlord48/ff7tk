@@ -19,7 +19,7 @@
 #include <QIcon>
 
 #ifndef ff7tk_export_h
-    #include "ff7tk_export.h"
+    #include <ff7tk_export.h>
 #endif
 
 class FF7TK_EXPORT FF7Materia : public QObject

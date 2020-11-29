@@ -19,10 +19,10 @@
 #include <cstdlib>
 
 #ifndef ff7tk_export_h
-    #include "ff7tk_export.h"
+    #include <ff7tk_export.h>
 #endif
-#include "FF7SaveInfo.h" //All consts placed here
-#include "FF7Save_Types.h" //All Custom Types for this class here.
+#include <FF7SaveInfo.h> //All consts placed here
+#include <FF7Save_Types.h> //All Custom Types for this class here.
 
 class QColor;
 class QDateTime;

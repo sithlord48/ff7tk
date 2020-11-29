@@ -17,10 +17,10 @@
 
 #include <QEvent>
 #include <QLabel>
-#include "DoubleCheckBox.h"
+#include <DoubleCheckBox.h>
 
 #ifndef ff7tkwidgets_export_h
-    #include "ff7tkwidgets_export.h"
+    #include <ff7tkwidgets_export.h>
 #endif
 
 /** \class PhsListWidget

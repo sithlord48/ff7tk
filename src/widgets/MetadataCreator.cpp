@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "MetadataCreator.h"
+#include <MetadataCreator.h>
 
 #include <QDialogButtonBox>
 #include <QFileDialog>
@@ -27,7 +27,7 @@
 #include <QStyle>
 #include <QVBoxLayout>
 
-#include "../data/FF7Save.h"
+#include <FF7Save.h>
 
 MetadataCreator::MetadataCreator(QWidget *parent, FF7Save *ff7save)
     : QDialog(parent)

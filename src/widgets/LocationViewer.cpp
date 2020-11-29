@@ -13,7 +13,8 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the          //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "LocationViewer.h"
+#include <LocationViewer.h>
+
 #include <QAction>
 #include <QCheckBox>
 #include <QGroupBox>
@@ -32,7 +33,7 @@
 #include <QTranslator>
 #include <QVBoxLayout>
 
-#include "../data/FF7Location.h"
+#include <FF7Location.h>
 
 LocationViewer::LocationViewer(qreal Scale, QWidget *parent)
     : QWidget(parent)

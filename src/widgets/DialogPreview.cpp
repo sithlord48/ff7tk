@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "DialogPreview.h"
+#include <DialogPreview.h>
 
 #include <QColorDialog>
 #include <QPushButton>

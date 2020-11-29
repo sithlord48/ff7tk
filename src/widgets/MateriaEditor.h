@@ -18,10 +18,10 @@
 #include <QWidget>
 #include <QEvent>
 
-#include "../data/FF7Materia.h"
+#include <FF7Materia.h>
 
 #ifndef ff7tkwidgets_export_h
-    #include "ff7tkwidgets_export.h"
+    #include <ff7tkwidgets_export.h>
 #endif
 
 class QComboBox;

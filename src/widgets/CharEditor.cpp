@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "CharEditor.h"
+#include <CharEditor.h>
 
 #include <QCheckBox>
 #include <QComboBox>
@@ -31,9 +31,9 @@
 #include <QToolBox>
 #include <QVBoxLayout>
 
-#include "../data/FF7Char.h"
-#include "../data/FF7Item.h"
-#include "MateriaEditor.h"
+#include <FF7Char.h>
+#include <FF7Item.h>
+#include <MateriaEditor.h>
 
 CharEditor::CharEditor(qreal Scale, QWidget *parent) : QWidget(parent)
     , data(FF7CHAR())

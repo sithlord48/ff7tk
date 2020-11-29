@@ -26,7 +26,7 @@
 #define PACK(structure) structure Q_PACKED
 #endif
 #ifndef ff7tk_export_h
-    #include "ff7tk_export.h"
+    #include <ff7tk_export.h>
 #endif/*! \struct FF7CHOCOBO
  *  \brief a chocobo in save game
  *

@@ -18,10 +18,10 @@
 #include <QWidget>
 #include <QEvent>
 
-#include "../data/Type_FF7CHOCOBO.h"
+#include <Type_FF7CHOCOBO.h>
 
 #ifndef ff7tkwidgets_export_h
-    #include "ff7tkwidgets_export.h"
+    #include <ff7tkwidgets_export.h>
 #endif
 
 class QCheckBox;

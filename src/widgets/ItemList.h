@@ -19,7 +19,7 @@
 #include <QEvent>
 
 #ifndef ff7tkwidgets_export_h
-    #include "ff7tkwidgets_export.h"
+    #include <ff7tkwidgets_export.h>
 #endif
 
 class ItemPreview;

@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "SlotSelect.h"
+#include <SlotSelect.h>
 
 #include <QFrame>
 #include <QIcon>
@@ -22,9 +22,9 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 
-#include "SlotPreview.h"
-#include "../data/FF7Char.h"
-#include "../data/FF7Save.h"
+#include <SlotPreview.h>
+#include <FF7Char.h>
+#include <FF7Save.h>
 
 
 SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *parent) : QDialog(parent)

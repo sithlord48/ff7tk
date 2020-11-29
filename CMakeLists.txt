@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 cmake_policy(SET CMP0074 NEW)
 
-project(ff7tk VERSION 0.80.17 DESCRIPTION "Work with Final Fantasy 7 game data")
+project(ff7tk VERSION 0.80.20 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -45,6 +45,7 @@ if(DOCS)
 endif()
 
 #pkgconfig
+
 configure_file(ff7tk.pc.in ff7tk.pc @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/ff7tk.pc DESTINATION share/pkgconfig)
 

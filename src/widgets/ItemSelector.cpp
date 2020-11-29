@@ -13,14 +13,14 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "ItemSelector.h"
+#include <ItemSelector.h>
 
 #include <QComboBox>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QSpinBox>
 
-#include "../data/FF7Item.h"
+#include <FF7Item.h>
 
 ItemSelector::ItemSelector(qreal Scale, QWidget *parent): QWidget(parent)
 {

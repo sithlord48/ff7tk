@@ -16,6 +16,6 @@ QString ff7tk_version() {
 QString ff7tk_revision() {
     QString revision = QStringLiteral("@GIT_VERSION@");
     if(!QString("@GIT_VERSION@").isEmpty())
-        revision.prepend(QStringLiteral("Git: "));
+        revision.prepend(QStringLiteral(". "));
     return revision;
 }

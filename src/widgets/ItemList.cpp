@@ -13,14 +13,14 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "ItemList.h"
+#include <ItemList.h>
 
 #include <QHeaderView>
 #include <QScrollBar>
 
-#include "../data/FF7Item.h"
-#include "ItemPreview.h"
-#include "ItemSelector.h"
+#include <FF7Item.h>
+#include <ItemPreview.h>
+#include <ItemSelector.h>
 
 
 bool ItemList::eventFilter(QObject *obj, QEvent *ev)

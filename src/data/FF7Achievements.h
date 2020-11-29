@@ -17,7 +17,7 @@
 
 #include <QObject>
 
-#include "ff7tk_export.h"
+#include <ff7tk_export.h>
 
 /*!
  * \class FF7Achievements

@@ -10,37 +10,44 @@ set ( ff7tkFormats_SRC
         Lgp_p.cpp
         Lgp.cpp
     )
-add_library (ff7tkFormats SHARED ${ff7tkFormats_SRC})
+
+    set ( ff7tkFormats_HEADERS
+        Archive.h
+        IsoArchive.h
+        Lgp_p.h
+        Lgp.h
+    )
+add_library (ff7tkFormats SHARED ${ff7tkFormats_SRC} ff7tkformats_export.h)
 add_library(ff7tk::ff7tkFormats ALIAS ff7tkFormats)
+
 target_include_directories(ff7tkFormats PRIVATE ${PROJECT_BINARY_DIR}/src/utils)
+target_include_directories(ff7tkFormats PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+  $<INSTALL_INTERFACE:/include/ff7tk/formats>
+)
 
 target_link_libraries (ff7tkFormats PUBLIC
         Qt5::Core
-        ff7tk::ff7tkUtils
     )
+target_link_libraries (ff7tkFormats PRIVATE ff7tk::ff7tkUtils)
 
-set_property(TARGET ff7tkFormats PROPERTY VERSION ${PROJECT_VERSION})
-set_property(TARGET ff7tkFormats PROPERTY SOVERSION ${PROJECT_VERSION_MAJOR})
+set_target_properties(
+    ff7tkFormats PROPERTIES
+    VERSION "${PROJECT_VERSION}"
+    SOVERSION "${PROJECT_VERSION_MAJOR}"
+    PUBLIC_HEADER "${ff7tkFormats_HEADERS}"
+)
 
 generate_export_header(ff7tkFormats BASE_NAME ff7tkformats)
-
 include(GNUInstallDirs)
 
 install(TARGETS ff7tkFormats
     EXPORT ff7tkFormatsConfig
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/formats
 )
 
-install (
-    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
-    FILES_MATCHING PATTERN "*.h"
-)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/formats)
 
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/formats
-)
-
-install(EXPORT ff7tkFormatsConfig NAMESPACE ff7tk:: DESTINATION share/ff7tk/cmake)
+install(EXPORT ff7tkFormatsConfig NAMESPACE ff7tk:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk)
 export(TARGETS ff7tkFormats FILE ff7tkFormats.cmake)

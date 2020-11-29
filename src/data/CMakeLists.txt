@@ -19,6 +19,12 @@ set ( ff7tkData_SRC
         SaveIcon.cpp
     )
 
+set (ff7tkData_HEADERS
+    about.h            FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
+    FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
+    FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
+)
+
 set ( ff7tkIcons
         ../icons/achievements.qrc
         ../icons/characters.qrc
@@ -29,6 +35,17 @@ set ( ff7tkIcons
         ../icons/materia.qrc
         ../icons/psxButtons.qrc
 )
+set ( ff7tk_TRS
+    ../../lang/ff7tk_en.ts
+    ../../lang/ff7tk_es.ts
+    ../../lang/ff7tk_fr.ts
+    ../../lang/ff7tk_de.ts
+    ../../lang/ff7tk_ja.ts
+    ../../lang/ff7tk_re.ts
+    )
+
+find_package(Qt5LinguistTools)
+qt5_create_translation(TRS ${CMAKE_SOURCE_DIR} ${ff7tk_TRS})
 
 configure_file(about.h.in ${CMAKE_CURRENT_SOURCE_DIR}/about.h @ONLY)
 
@@ -42,8 +59,7 @@ elseif(APPLE)
 endif()
 
 add_library (ff7tk SHARED
-        about.h
-        ff7tk_export.h
+        ${TRS}
         ${ff7tkIcons}
         ${ff7tkData_SRC}
 )
@@ -58,23 +74,31 @@ target_link_libraries (ff7tk PUBLIC
         Qt5::Xml
 )
 
-set_property(TARGET ff7tk PROPERTY VERSION ${PROJECT_VERSION})
-set_property(TARGET ff7tk PROPERTY SOVERSION ${PROJECT_VERSION_MAJOR})
+set_target_properties(
+    ff7tk PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    PUBLIC_HEADER "${ff7tkData_HEADERS}"
+)
+
+target_include_directories(ff7tk PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+  $<INSTALL_INTERFACE:include/ff7tk>
+)
 
 include(GNUInstallDirs)
 
 install(TARGETS ff7tk
     EXPORT ff7tkConfig
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
 )
 
-install ( FILES about.h ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk)
+install(FILES ${TRS} DESTINATION share/ff7tk/lang)
 
-install (
-    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
-    FILES_MATCHING PATTERN "*.h"
+install (FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
 )
 
-install(EXPORT ff7tkConfig NAMESPACE ff7tk:: DESTINATION share/ff7tk/cmake)
+install(EXPORT ff7tkConfig NAMESPACE ff7tk:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk)
 export(TARGETS ff7tk FILE ff7tk.cmake)

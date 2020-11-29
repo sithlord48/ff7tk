@@ -14,7 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 
-#include "FF7Char.h"
+#include <FF7Char.h>
 
 #include <QIcon>
 #include <QRandomGenerator>

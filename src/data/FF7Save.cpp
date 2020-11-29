@@ -13,7 +13,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "FF7Save.h"
+#include <FF7Save.h>
 // This Class should contain NO Gui Parts
 #include <QColor>
 #include <QDateTime>
@@ -26,7 +26,9 @@
 #include <QtXml/QDomDocument>
 #include <QVector>
 #include <QtEndian>
-#include "FF7Text.h"
+#include <FF7Text.h>
+
+// I'm not installing this header.
 #include "crypto/aes.h"
 
 FF7Save::FF7Save()
