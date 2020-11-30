@@ -23,13 +23,13 @@
 #include <QMessageBox>
 #include <QProgressDialog>
 
-#include "../src/data/FF7Save.h"
-#include "../src/data/about.h"
+#include <../src/data/FF7Save.h>
+#include <../src/data/ff7tkAbout.h>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tk_version()));
+    setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tk_version().append(ff7tk_revision())));
     hideAllBoxes();
     ui->sb_scale->setValue(qApp->desktop()->logicalDpiX() / 96);
     scale = qApp->desktop()->logicalDpiX() / 96;

@@ -4,7 +4,7 @@
 
 #include "../src/data/FF7Text.h"
 #include "../src/data/FF7Item.h"
-#include "../src/data/about.h"
+#include "../src/data/ff7tkAbout.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,8 +20,9 @@ int main(int argc, char *argv[])
         return FF7Item::instance()->qmlSingletonRegister(engine, jsEngine);
     });
 
+    QString versionString = ff7tk_version().append(ff7tk_revision());
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("ff7tkVersion", ff7tk_version());
+    engine.rootContext()->setContextProperty("ff7tkVersion", versionString);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty()) {
         return -1;

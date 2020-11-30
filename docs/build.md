@@ -5,6 +5,7 @@ Currently ff7tk will build:
      - A Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)
      - Headers for the library so you can link to it
      - Required CMake parts to find it post install.
+     - Translation files "ff7tk_<lang>.qm" for english, spanish, french, german, japanese and reunion retranslation.
 
 
 ## Configuration
@@ -40,7 +41,7 @@ For QMake you can use the pkgconfig provided by the system
 `PKGCONFIG += ff7tk`
 
 # ff7tk version info
- include the file ff7tk/about.h and use the function ff7tk_version()
+ include the file ff7tkAbout.h and use the function ff7tk_version() or ff7tk_revision()
 
 [Qt]:https://www.qt.io
 [doxygen]:http://www.stack.nl/~dimitri/doxygen/

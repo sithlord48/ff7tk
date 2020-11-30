@@ -20,7 +20,7 @@ set ( ff7tkData_SRC
     )
 
 set (ff7tkData_HEADERS
-    about.h            FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
+    ff7tkAbout.h            FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
     FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
 )
@@ -47,7 +47,7 @@ set ( ff7tk_TRS
 find_package(Qt5LinguistTools)
 qt5_create_translation(TRS ${CMAKE_SOURCE_DIR} ${ff7tk_TRS})
 
-configure_file(about.h.in ${CMAKE_CURRENT_SOURCE_DIR}/about.h @ONLY)
+configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkAbout.h @ONLY)
 
 if(WIN32)
     if(CMAKE_COMPILER_IS_GNUCC)

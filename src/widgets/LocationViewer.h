@@ -63,7 +63,6 @@ signals:
 public slots:
     void setSelected(const QString &);
     void setRegion(const QString &region);
-    void setTranslationBaseFile(const QString &);
     void setX(int x);
     void setY(int y);
     void setT(int t);
@@ -108,7 +107,6 @@ private:
     void searchName(QRegExp exp);
     qreal scale;
     QString region;
-    QString transBasePath;
     int currentStartingLocation = -1;
     bool regExpSearch;
     bool caseSensitive;

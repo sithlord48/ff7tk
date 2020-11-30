@@ -32,6 +32,8 @@
 #include <QToolButton>
 #include <QTranslator>
 #include <QVBoxLayout>
+#include <QDir>
+#include <QCoreApplication>
 
 #include <FF7Location.h>
 
@@ -39,7 +41,6 @@ LocationViewer::LocationViewer(qreal Scale, QWidget *parent)
     : QWidget(parent)
     , scale(Scale)
     , region(QString())
-    , transBasePath(QString())
     , regExpSearch(false)
     , caseSensitive(false)
     , _advancedMode(false)
@@ -119,14 +120,15 @@ void LocationViewer::updateText()
     lineLocationName->setPlaceholderText(tr("Location Name"));
     btnUpdateSaveLocation->setText(tr("Set as current location"));
     groupFieldItems->setTitle(tr("Field Items"));
-    if (locationTable->currentRow() > -1) {
+
+    if (locationTable->currentRow() > -1)
         lineLocationName->setText(translate(FF7Location::instance()->rawLocationString(locationTable->item(locationTable->currentRow(), 0)->text())));
-    }
-    if (actionNameSearch->isChecked()) {
+
+    if (actionNameSearch->isChecked())
         lineTableFilter->setPlaceholderText(actionNameSearch->text());
-    } else if (actionItemSearch) {
+    else if (actionItemSearch)
         lineTableFilter->setPlaceholderText(actionItemSearch->text());
-    }
+
     init_fieldItems();
 }
 
@@ -335,22 +337,20 @@ void LocationViewer::sbMapIdChanged(int mapId)
 {
     setLocation(mapId, sbLocID->value());
     QString fileName = FF7Location::instance()->fileName(mapId, sbLocID->value());
-    if (fileName.isEmpty()) {
+    if (fileName.isEmpty())
         emit mapIdChanged(mapId);
-    } else {
+    else
         emit locationChanged(fileName);
-    }
 }
 
 void LocationViewer::sbLocIdChanged(int locId)
 {
     setLocation(sbMapID->value(), locId);
     QString fileName = FF7Location::instance()->fileName(sbMapID->value(), locId);
-    if (fileName.isEmpty()) {
+    if (fileName.isEmpty())
         emit locIdChanged(locId);
-    } else {
+    else
         emit locationChanged(fileName);
-    }
 }
 
 void LocationViewer::sbXChanged(int x)
@@ -482,36 +482,34 @@ void LocationViewer::setRegion(const QString &newRegion)
     region = newRegion; setLocation(sbMapID->value(), sbLocID->value());
 }
 
-void LocationViewer::setTranslationBaseFile(const QString &basePathName)
-{
-    transBasePath = basePathName;
-}
-
 QString LocationViewer::translate(QString text)
 {
     if (region.isNull())
         return text;
 
-    if (transBasePath.isNull())
-        return text;
+    QString lang;
+    QDir ff7tkDir(QCoreApplication::applicationDirPath());
+    ff7tkDir.cd(QStringLiteral("../share/ff7tk/lang"));
+    if(!ff7tkDir.exists())
+        lang = QCoreApplication::applicationDirPath().append(QStringLiteral("/lang/ff7tk_"));
+    else
+        lang = ff7tkDir.absolutePath().append(QStringLiteral("ff7tk_"));
 
-    QString lang = transBasePath;
     QTranslator Translator;// will do the translating.
     QString reg = region;// remove trailing  FF7-SXX
     reg.chop(7);
-    if (reg == "BASCUS-94163" || reg == "BESCES-00867") {
+    if (reg == "BASCUS-94163" || reg == "BESCES-00867")
         lang.append("en.qm");
-    } else if (reg == "BESCES-00868") {
+    else if (reg == "BESCES-00868")
         lang.append("fr.qm");
-    } else if (reg == "BESCES-00869") {
+    else if (reg == "BESCES-00869")
         lang.append("de.qm");
-    } else if (reg == "BESCES-00900") {
+    else if (reg == "BESCES-00900")
         lang.append("es.qm");
-    } else if (reg == "BISLPS-00700" || reg == "BISLPS-01057") {
+    else if (reg == "BISLPS-00700" || reg == "BISLPS-01057")
         lang.append("ja.qm");
-    } else {//unknown language.
+    else //unknown language.
         return text;
-    }
 
     Translator.load(lang);
     QString newText = Translator.translate("FF7Location", text.toLatin1());
@@ -523,9 +521,8 @@ QString LocationViewer::translate(QString text)
 void LocationViewer::filterLocations(QString filter)
 {
     if (filter.isEmpty()) {
-        for (int i = 0; i < locationTable->rowCount(); i++) {
+        for (int i = 0; i < locationTable->rowCount(); i++)
             locationTable->setRowHidden(i, false);
-        }
         return;
     }
 
@@ -562,9 +559,8 @@ void LocationViewer::actionItemSearchToggled(bool checked)
         actionNameSearchToggled(false);
         searchMode = ITEM;
         lineTableFilter->setPlaceholderText(actionItemSearch->text());
-        if (!lineTableFilter->text().isEmpty()) {
+        if (!lineTableFilter->text().isEmpty())
             filterLocations(lineTableFilter->text());
-        }
     } else {
         actionItemSearch->setChecked(false);
     }
@@ -573,17 +569,15 @@ void LocationViewer::actionItemSearchToggled(bool checked)
 void LocationViewer::actionRegExpSearchToggled(bool checked)
 {
     regExpSearch = checked;
-    if (lineTableFilter->text().isEmpty()) {
+    if (lineTableFilter->text().isEmpty())
         filterLocations(lineTableFilter->text());
-    }
-
 }
+
 void LocationViewer::actionCaseSensitiveToggled(bool checked)
 {
     caseSensitive = checked;
-    if (!lineTableFilter->text().isEmpty()) {
+    if (!lineTableFilter->text().isEmpty())
         filterLocations(lineTableFilter->text());
-    }
 }
 
 void LocationViewer::init_fieldItems(void)
@@ -606,9 +600,9 @@ void LocationViewer::init_fieldItems(void)
                 }
             }
         }
-        if (fieldItemList->count() > 0) {
+
+        if (fieldItemList->count() > 0)
             groupFieldItems->setVisible(true);
-        }
 
         if (fieldItemList->count() <= 5) {
             fieldItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -624,11 +618,11 @@ void LocationViewer::init_fieldItems(void)
 void LocationViewer::fieldItemListItemChanged(QModelIndex index)
 {
     bool checked;
-    if (fieldItemList->item(index.row())->checkState() == Qt::Checked) {
+    if (fieldItemList->item(index.row())->checkState() == Qt::Checked)
         checked = true;
-    } else {
+    else
         checked = false;
-    }
+
     emit fieldItemChanged(index.row(), checked);
 
 }
@@ -636,11 +630,10 @@ void LocationViewer::setFieldItemChecked(int row, bool checked)
 {
     init_disconnect();
     if (fieldItemList->count() > row) {
-        if (checked) {
+        if (checked)
             fieldItemList->item(row)->setCheckState(Qt::Checked);
-        } else {
+        else
             fieldItemList->item(row)->setCheckState(Qt::Unchecked);
-        }
     }
     init_connections();
 }
