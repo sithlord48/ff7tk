@@ -16,3 +16,14 @@ endif()
 if(FORMATS)
     add_subdirectory(formats)
 endif()
+
+install(
+    EXPORT
+        ff7tkTargets
+    DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+    FILE
+        ff7tkTargets.cmake
+    NAMESPACE
+        ff7tk::
+)

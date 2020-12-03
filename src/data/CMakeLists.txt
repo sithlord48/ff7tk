@@ -66,7 +66,30 @@ add_library (ff7tk SHARED
 
 add_library (ff7tk::ff7tk ALIAS ff7tk)
 
+target_include_directories(ff7tk
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:include/ff7tk>
+  INTERFACE
+    $<INSTALL_INTERFACE:include/ff7tk>
+)
+
+
 generate_export_header(ff7tk)
+
+include(CMakePackageConfigHelpers)
+
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+configure_package_config_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+)
 
 target_link_libraries (ff7tk PUBLIC
         Qt5::Core
@@ -81,24 +104,30 @@ set_target_properties(
     PUBLIC_HEADER "${ff7tkData_HEADERS}"
 )
 
-target_include_directories(ff7tk PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-  $<INSTALL_INTERFACE:include/ff7tk>
-)
-
 include(GNUInstallDirs)
 
 install(TARGETS ff7tk
-    EXPORT ff7tkConfig
+    EXPORT ff7tkTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
 )
 
 install(FILES ${TRS} DESTINATION share/ff7tk/lang)
 
-install (FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
+install (
+    FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
 )
 
-install(EXPORT ff7tkConfig NAMESPACE ff7tk:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk)
-export(TARGETS ff7tk FILE ff7tk.cmake)
+install(
+    EXPORT ff7tkTargets
+    NAMESPACE ff7tk::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk)
+
+install(
+    FILES
+      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfig.cmake
+      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfigVersion.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+)
+export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/ff7tkTargets.cmake)

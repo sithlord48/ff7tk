@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(Qt5 "@REQUIRED_QT_VERSION@" COMPONENTS
+    Core
+    Gui
+    Widgets
+)
+include("${CMAKE_CURRENT_LIST_DIR}/ff7tkTargets.cmake")
