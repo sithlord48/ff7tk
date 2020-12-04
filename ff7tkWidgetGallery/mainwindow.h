@@ -64,6 +64,8 @@ private slots:
     void on_cbEditableMateriaCombos_clicked(bool checked);
     void on_checkBox_4_clicked(bool checked);
 
+    void on_comboRegion_currentIndexChanged(const QString &arg1);
+
 private:
 
     Ui::MainWindow *ui;

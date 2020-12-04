@@ -88,6 +88,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_comboRegion_currentIndexChanged(const QString &arg1)
+{
+    locViewer->setRegion(arg1);
+}
+
 void MainWindow::on_combo_widget_currentIndexChanged(int index)
 {
     hideAllBoxes();

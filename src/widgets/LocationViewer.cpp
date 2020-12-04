@@ -63,10 +63,28 @@ LocationViewer::LocationViewer(qreal Scale, QWidget *parent)
     , fieldItemList(new QListWidget)
     , groupFieldItems(new QGroupBox)
     , btnUpdateSaveLocation(new QPushButton)
+    , translator(new QTranslator(this))
+
 {
     locationTable->setRowCount(FF7Location::instance()->size());
     locationTable->setColumnCount(3);
 
+    langDir = QStringLiteral("%1/%2").arg(QCoreApplication::applicationDirPath(), QStringLiteral("lang"));
+    QDir translationDir(langDir);
+    QStringList nameFilter{QStringLiteral("ff7tk_*.qm")};
+    if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
+        translationDir.setPath(QStringLiteral("%1/../share/ff7tk/lang").arg(QCoreApplication::applicationDirPath()));
+        if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
+            translationDir.setPath(QStringLiteral("%1/%2").arg(QDir::homePath(), QStringLiteral(".local/share/ff7tk/lang")));
+            if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
+                translationDir.setPath(QStringLiteral("/usr/local/share/ff7tk/lang"));
+                if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
+                    translationDir.setPath(QStringLiteral("/usr/share/ff7tk/lang"));
+                }
+            }
+        }
+    }
+    langDir = translationDir.absolutePath();
     updateText();
     init_display();
     init_connections();
@@ -484,35 +502,25 @@ void LocationViewer::setRegion(const QString &newRegion)
 
 QString LocationViewer::translate(QString text)
 {
-    if (region.isNull())
-        return text;
-
     QString lang;
-    QDir ff7tkDir(QCoreApplication::applicationDirPath());
-    ff7tkDir.cd(QStringLiteral("../share/ff7tk/lang"));
-    if(!ff7tkDir.exists())
-        lang = QCoreApplication::applicationDirPath().append(QStringLiteral("/lang/ff7tk_"));
-    else
-        lang = ff7tkDir.absolutePath().append(QStringLiteral("ff7tk_"));
 
-    QTranslator Translator;// will do the translating.
-    QString reg = region;// remove trailing  FF7-SXX
-    reg.chop(7);
-    if (reg == "BASCUS-94163" || reg == "BESCES-00867")
-        lang.append("en.qm");
-    else if (reg == "BESCES-00868")
-        lang.append("fr.qm");
-    else if (reg == "BESCES-00869")
-        lang.append("de.qm");
-    else if (reg == "BESCES-00900")
-        lang.append("es.qm");
-    else if (reg == "BISLPS-00700" || reg == "BISLPS-01057")
-        lang.append("ja.qm");
-    else //unknown language.
+    if (region.contains(QStringLiteral("BASCUS-94163")) || region.contains(QStringLiteral("BESCES-00867")))
+        lang = QStringLiteral("ff7tk_en.qm");
+    else if (region.contains(QStringLiteral("BESCES-00868")))
+        lang = QStringLiteral("ff7tk_fr.qm");
+    else if (region.contains(QStringLiteral("BESCES-00869")))
+        lang = QStringLiteral("ff7tk_de.qm");
+    else if (region.contains(QStringLiteral("BESCES-00900")))
+        lang = QStringLiteral("ff7tk_es.qm");
+    else if (region.contains(QStringLiteral("BISLPS-00700")) || region.contains(QStringLiteral("BISLPS-01057")))
+        lang = QStringLiteral("ff7tk_ja.qm");
+
+    if(lang.isNull())
         return text;
 
-    Translator.load(lang);
-    QString newText = Translator.translate("FF7Location", text.toLatin1());
+    if(!translator->filePath().contains(lang))
+        translator->load(lang, langDir);
+    QString newText = translator->translate("FF7Location", text.toLatin1());
     if (newText.isEmpty())
         return text;
     return newText;

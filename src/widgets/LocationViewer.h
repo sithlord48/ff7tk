@@ -35,6 +35,7 @@ class QPushButton;
 class QSpinBox;
 class QTableWidget;
 class QToolButton;
+class QTranslator;
 
 /** \class LocationViewer
  *  \brief Set Saves Location or View Field Locations and Toggle the items picked up from them.
@@ -107,6 +108,7 @@ private:
     void searchName(QRegExp exp);
     qreal scale;
     QString region;
+    QString langDir;
     int currentStartingLocation = -1;
     bool regExpSearch;
     bool caseSensitive;
@@ -132,6 +134,7 @@ private:
     QListWidget *fieldItemList;
     QGroupBox *groupFieldItems;
     QPushButton *btnUpdateSaveLocation;
+    QTranslator *translator;
 
     inline static const QString _tooltip = QStringLiteral("<html><head/><body><p><img src=\":/locations/%1_%2\" width=\"%3\" height\"%4\" /></p></body></html>");
 };
