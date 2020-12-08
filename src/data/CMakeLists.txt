@@ -35,17 +35,6 @@ set ( ff7tkIcons
         ../icons/materia.qrc
         ../icons/psxButtons.qrc
 )
-set ( ff7tk_TRS
-    ../../lang/ff7tk_en.ts
-    ../../lang/ff7tk_es.ts
-    ../../lang/ff7tk_fr.ts
-    ../../lang/ff7tk_de.ts
-    ../../lang/ff7tk_ja.ts
-    ../../lang/ff7tk_re.ts
-    )
-
-find_package(Qt5LinguistTools)
-qt5_create_translation(TRS ${CMAKE_SOURCE_DIR} ${ff7tk_TRS})
 
 configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkAbout.h @ONLY)
 
@@ -59,7 +48,6 @@ elseif(APPLE)
 endif()
 
 add_library (ff7tk SHARED
-        ${TRS}
         ${ff7tkIcons}
         ${ff7tkData_SRC}
 )
@@ -73,7 +61,6 @@ target_include_directories(ff7tk
   INTERFACE
     $<INSTALL_INTERFACE:include/ff7tk>
 )
-
 
 generate_export_header(ff7tk)
 
@@ -111,8 +98,6 @@ install(TARGETS ff7tk
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
 )
-
-install(FILES ${TRS} DESTINATION share/ff7tk/lang)
 
 install (
     FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h

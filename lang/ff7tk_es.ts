@@ -7182,6 +7182,38 @@ Los km/h son calculados mientras se juega </translation>
 %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Region</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FF7-S01BASCUS-94163</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FF7-S01BESCES-00867</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FF7-S01BESCES-00868</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FF7-S01BESCES-00869</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FF7-S01BESCES-00900</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FF7-S01BISLPS-00700</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FF7-S01BISLPS-01057</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MateriaEditor</name>
