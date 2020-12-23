@@ -10,6 +10,7 @@ set(ff7tk_TRS
     ff7tk_en.ts
     ff7tk_es.ts
     ff7tk_fr.ts
+    ff7tk_it.ts
     ff7tk_ja.ts
     ff7tk_re.ts
     ff7tk_pl.ts
