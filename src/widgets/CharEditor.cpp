@@ -1208,6 +1208,7 @@ void CharEditor::setId(int id)
         data.id = FF7Char::Empty;
     else
         data.id = quint8(id);
+    setWeapon(0);
     setChar(data, lineName->text());
     emit id_changed(qint8(data.id));
 }
@@ -1408,7 +1409,7 @@ void CharEditor::setLimitBar(int limitbar)
 
 void CharEditor::setWeapon(int weapon)
 {
-    if (weapon == (data.weapon - FF7Char::instance()->weaponOffset(data.id)))
+    if (weapon == (data.weapon - FF7Char::instance()->weaponOffset(data.id)) && data.id != FF7Char::Sephiroth)
         return;
     if (weapon < 0)
         data.weapon = quint8(FF7Char::instance()->weaponOffset(data.id));
