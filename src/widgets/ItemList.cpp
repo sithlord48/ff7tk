@@ -65,7 +65,7 @@ bool ItemList::eventFilter(QObject *obj, QEvent *ev)
                     return true;
                 }
                 //make an ItemPreview, but give it A ToolTip Flags so it looks/acts as one
-                itemPreview = new ItemPreview(Qt::ToolTip, scale);
+                itemPreview = new ItemPreview(Qt::ToolTip);
                 itemPreview->setItem(FF7Item::instance()->itemId(itemlist.at(row)));
                 itemPreview->setGeometry(QRect(cursor().pos(), itemPreview->size()));
                 itemPreview->show();
@@ -111,9 +111,8 @@ void ItemList::changeEvent(QEvent *e)
         QTableWidget::changeEvent(e);
     itemupdate();
 }
-ItemList::ItemList(qreal Scale, QWidget *parent) : QTableWidget(parent)
+ItemList::ItemList(QWidget *parent) : QTableWidget(parent)
 {
-    scale = Scale;
     setObjectName("ItemList");
     installEventFilter(this);
     createdTooltip = false;
@@ -220,13 +219,15 @@ void ItemList::listSelectionChanged(int row, int colum, int prevRow, int prevCol
     if (!itemSelector) {
         itemSelector = new ItemSelector();
         itemSelector->setEditableItemCombo(editableItemCombo);
-        itemSelector->setMinimumWidth(itemSelector->width());
+        itemSelector->setFixedWidth(width() - verticalScrollBar()->sizeHint().width() - 7);
         connect(itemSelector, &ItemSelector::itemChanged, this, &ItemList::itemSelector_changed,Qt::UniqueConnection);
     }
     itemSelector->setMaximumQty(itemQtyLimit);
     itemSelector->setObjectName(QString::number(row));
     itemSelector->setCurrentItem(itemlist.at(row));
     setItem(row, 0, new QTableWidgetItem("", 0));
+    setItem(row, 1, new QTableWidgetItem("", 0));
+    setItem(row, 2, new QTableWidgetItem("", 0));
     setCellWidget(row, 0, itemSelector);
 }
 

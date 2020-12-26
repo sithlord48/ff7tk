@@ -29,7 +29,7 @@ class FF7TKWIDGETS_EXPORT ItemList : public QTableWidget
 {
     Q_OBJECT
 public:
-    explicit ItemList(qreal Scale = 1, QWidget *parent = nullptr);
+    explicit ItemList(QWidget *parent = nullptr);
 protected:
     bool eventFilter(QObject *, QEvent *);
     void changeEvent(QEvent *e);
@@ -48,7 +48,6 @@ private:
     ItemSelector *itemSelector = nullptr;
     ItemPreview *itemPreview = nullptr;
     QList<quint16> itemlist;
-    qreal scale;
     int itemQtyLimit;
     bool createdSelector;
     bool createdTooltip;

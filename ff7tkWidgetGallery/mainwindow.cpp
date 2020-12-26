@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     char_editor_layout->addWidget(char_editor);
     ui->charEditor_box->setLayout(char_editor_layout);
 
-    item_list = new ItemList(scale);
+    item_list = new ItemList(this);
     QHBoxLayout *item_list_layout = new QHBoxLayout;
     item_list_layout->addWidget(item_list);
     ui->itemList_box->setLayout(item_list_layout);

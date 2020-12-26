@@ -29,12 +29,13 @@ class FF7TKWIDGETS_EXPORT ItemSelector : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ItemSelector(qreal Scale = 1, QWidget *parent = nullptr);
+    explicit ItemSelector(QWidget *parent = nullptr);
     int id();// current id
     int combo_item_width();//width of the item box.
     int combo_type_width();//width of the type box.
     int qty_width();//width of qty area.
     void setFixedHeight(int h);
+    void setFixedWidth(int w);
 signals:
     void itemChanged(quint16);//return selected rawitem
 public slots:
@@ -52,10 +53,9 @@ private:
     void init_connections();
     void init_data();
     int type_offset(int type);
-    QComboBox *combo_type;
-    QComboBox *combo_item;
-    QSpinBox  *sb_qty;
-    QPushButton *btn_remove;
-    quint16 current_item;
-    qreal scale;
+    QComboBox *combo_type = nullptr;
+    QComboBox *combo_item = nullptr;
+    QSpinBox  *sb_qty = nullptr;
+    QPushButton *btn_remove = nullptr;
+    quint16 current_item = 0;
 };

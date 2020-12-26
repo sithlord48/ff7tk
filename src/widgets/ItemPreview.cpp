@@ -39,12 +39,11 @@ bool ItemPreview::eventFilter(QObject *obj, QEvent *ev)
     return event(ev);
 
 }
-ItemPreview::ItemPreview(QFlags<Qt::WindowType> WindowFlags, float Scale, QWidget *parent)
+ItemPreview::ItemPreview(QFlags<Qt::WindowType> WindowFlags, QWidget *parent)
     : QWidget(parent)
     , lbl_name(new QLabel(this))
     , lbl_desc(new QLabel(this))
     , lbl_icon(new QLabel(this))
-    , scale(Scale)
     , slotSize(fontMetrics().height(), fontMetrics().height())
     , linkSize(fontMetrics().height() /2, fontMetrics().height())
 {
@@ -68,7 +67,7 @@ ItemPreview::ItemPreview(QFlags<Qt::WindowType> WindowFlags, float Scale, QWidge
     lbl_icon->setFixedSize(slotSize);
 
     auto materia_slots = new QHBoxLayout();
-    materia_slots->setContentsMargins(0, 0, 0, 0);
+    materia_slots->setContentsMargins(2, 0, 2, 0);
     materia_slots->addLayout(makeMateriaPair(slotLabels.at(0), slotLabels.at(1), slotLinks.at(0)));
     materia_slots->addLayout(makeMateriaPair(slotLabels.at(2), slotLabels.at(3), slotLinks.at(1)));
     materia_slots->addLayout(makeMateriaPair(slotLabels.at(4), slotLabels.at(5), slotLinks.at(2)));
@@ -77,7 +76,7 @@ ItemPreview::ItemPreview(QFlags<Qt::WindowType> WindowFlags, float Scale, QWidge
     materia_slots->setSpacing(12);
 
     materia_slot_box = new QGroupBox(this);
-    materia_slot_box->setMinimumWidth(int(320 * scale));
+    materia_slot_box->setMinimumWidth((slotSize.width() * 8) + (linkSize.width() * 4) + 40);
     materia_slot_box->setLayout(materia_slots);
     materia_slot_box->setHidden(true);
 

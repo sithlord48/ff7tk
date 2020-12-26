@@ -30,7 +30,7 @@ class FF7TKWIDGETS_EXPORT ItemPreview : public QWidget
 {
     Q_OBJECT
 public:
-    ItemPreview(QFlags<Qt::WindowType> WindowFlags = Qt::Widget, float Scale = 1, QWidget *parent = nullptr);
+    ItemPreview(QFlags<Qt::WindowType> WindowFlags = Qt::Widget, QWidget *parent = nullptr);
     int id(void);//return shown id.
 public slots:
     void setItem(quint16);
@@ -54,7 +54,6 @@ private:
     QListWidget *elemental_effects = nullptr;
     QListWidget *status_effects = nullptr;
     int _id;
-    float scale;
     QSize slotSize;
     QSize linkSize;
 };
