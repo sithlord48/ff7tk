@@ -22,86 +22,53 @@
 #include <ItemPreview.h>
 #include <ItemSelector.h>
 
-
 bool ItemList::eventFilter(QObject *obj, QEvent *ev)
 {
-    //Catch toolTip related events and process them(i.e custom tooltips :P)
-    if (obj->isWidgetType() && obj->objectName() == "ItemList") {
-        //our object will be the itemlist always in this event.
-        int row = -1; //row @ -1 this way we can catch when were not over A QTableWidgetItem
-        QTableWidgetItem *tbl_item = itemAt(mapFromGlobal(viewport()->cursor().pos()));
-        if (tbl_item) {
-            row = tbl_item->row();   //And only update our row if vaild.
+    Q_UNUSED(obj) //our object will be the itemlist always in this eventFilter.
+    int row = -1;
+    auto item = itemAt(mapFromGlobal(viewport()->cursor().pos()));
+
+    if(item)
+        row = item->row();
+
+
+    if (ev->type() == QEvent::ToolTip) { // ToolTip Event. Create a Tooltip
+        if (createdTooltip) { // If we have a tooltip open we need to close it first.
+            itemPreview->close();
+            createdTooltip = false;
         }
-        if (ev->type() == QEvent::ToolTip) {
-            //ToolTip Event Popup.
-            if (createdTooltip) {
-                //We already are showing a tooltip
-                if (row == -1) {
-                    //Invaild Row (off widget perhaps)
-                    itemPreview->close();
-                    createdTooltip = false;
-                    return true;
-                } else {
-                    //On a QTableWidgetItem if we are on the same one do nothing
-                    if (FF7Item::instance()->itemId(itemlist.at(row)) == itemPreview->id()) {
-                        return true;
-                    } else {
-                        //otherwise close our old ItemPreview
-                        itemPreview->close();
-                        createdTooltip = false;
-                        return true;
-                    }
-                }
-            }//end of If(createdToolTip)
-            //If our Entry is an Empty Item then don't show a tooltip
-            if (FF7Item::instance()->itemId(itemlist.at(row)) == FF7Item::EmptyItem) {
-                return true;
-            } else {
-                //unless our xcoord is off on the scrollbar) show for item in row
-                //scrollbars are ontop of the viewport and trigger events for items below.
-                //the width() function returns inner size so it stops at scrollbar
-                if (mapFromGlobal(cursor().pos()).x() > viewport()->width()) {
-                    return true;
-                }
-                //make an ItemPreview, but give it A ToolTip Flags so it looks/acts as one
-                itemPreview = new ItemPreview(Qt::ToolTip);
-                itemPreview->setItem(FF7Item::instance()->itemId(itemlist.at(row)));
-                itemPreview->setGeometry(QRect(cursor().pos(), itemPreview->size()));
-                itemPreview->show();
-                createdTooltip = true;
-                return true;
-            }
-        }//End of ToolTip Event Processing
-        else if (ev->type() == QEvent::HoverLeave) {
-            //HoverLeave Event is used to clean up tooltips when needed.
-            if (createdTooltip) {
-                //if we have made a tooltip then we need to clean it up.
-                if (row == -1) {
-                    //off widget maybe , but not on a QTableWidgetItem
-                    itemPreview->close();
-                    createdTooltip = false;
-                    return true;
-                } else {
-                    //This case is called when a tooltip is spawned as its placed under your cursor
-                    if (FF7Item::instance()->itemId(itemlist.at(row)) == itemPreview->id()) {
-                        return true;
-                    } else {
-                        //if the item is the same do nothing, otherwise you have to close your tooltip
-                        itemPreview->close();
-                        createdTooltip = false;
-                        return true;
-                    }
-                }
-            } else {
-                return true;
-            }
-        //End Of HoverLeave Processing
-        } else {
-            return event(ev);
+
+        //Invalid Row were done here.
+        if(row == -1)
+            return true;
+        //The Cursor is off the viewport and on a scrollbar (or beyond)
+        if (mapFromGlobal(cursor().pos()).x() > viewport()->width()
+         || mapFromGlobal(cursor().pos()).y() > viewport()->height()) {
+            return true;
         }
-    } else {
-        return false;
+
+        //If the row contains a non Empty Item then show a tooltip
+        if (FF7Item::instance()->itemId(itemlist.at(row)) != FF7Item::EmptyItem) {
+            //make an ItemPreview, but give it A ToolTip Flags so it looks/acts as one
+            itemPreview = new ItemPreview(Qt::ToolTip);
+            itemPreview->setItem(FF7Item::instance()->itemId(itemlist.at(row)));
+            itemPreview->setGeometry(QRect(cursor().pos(), itemPreview->contentsRect().size()));
+            itemPreview->show();
+            createdTooltip = true;
+        }
+    return true;
+    } else if (ev->type() == QEvent::HoverLeave) { //HoverLeave Event. Clean up our tooltips.
+        if (createdTooltip
+         && FF7Item::instance()->itemId(itemlist.at(row)) != itemPreview->id()) {
+            // If we have a tooltip  And the item is not the current one, we need to close it.
+            // Check for current row because when a new tooltip is created
+            // a hoverLeave Event is triggered for the tableItem when the tooltip is placed under the cursor.
+            itemPreview->close();
+            createdTooltip = false;
+        }
+        return true;
+    } else { // All other Events.
+        return false;  //We have not handled this event, pass it along
     }
 }
 
