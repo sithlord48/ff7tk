@@ -53,6 +53,9 @@ public:
     Q_INVOKABLE QString name(int id);
     Q_INVOKABLE QString statString(int id);
     Q_INVOKABLE QString enemySkill(int id);
+    Q_INVOKABLE QString masterCommandSkill(int id);
+    Q_INVOKABLE QString masterSummonSkill(int id);
+    Q_INVOKABLE QString masterMagicSkill(int id);
     Q_INVOKABLE QString element(int id);
     Q_INVOKABLE QStringList skills(int id);
     Q_INVOKABLE QStringList status(int id);
@@ -666,7 +669,7 @@ private:
         },
         {
             QT_TR_NOOP("Bahamut")
-            ,{QT_TR_NOOP("Bahamut x1 (100mp)"), QT_TR_NOOP("Bahamut x2 (100mp)"), QT_TR_NOOP("Bahamut x3 (100mp)"), QT_TR_NOOP("Bahamut x4 (100mp)"), QT_TR_NOOP("Bahamut x5 (100mp)")}
+            , {QT_TR_NOOP("Bahamut x1 (100mp)"), QT_TR_NOOP("Bahamut x2 (100mp)"), QT_TR_NOOP("Bahamut x3 (100mp)"), QT_TR_NOOP("Bahamut x4 (100mp)"), QT_TR_NOOP("Bahamut x5 (100mp)")}
             , QT_TR_NOOP("MaxHp:-5% MaxMp:+5% Mag:+1 Spi:+1"), QStringLiteral(":/materia/summon"), QStringLiteral(":/materia/summon_star_empty"), QStringLiteral(":/materia/summon_star_full")
             , 0x51, -5, +5, 0, 0, 0, 0, +1, +1, {0, 20000, 50000, 80000, 120000}, 2, 5, QString(), {QString()}
         },
@@ -714,7 +717,7 @@ private:
         },
         {
             QT_TR_NOOP("Knights of the Round")
-            , {QT_TR_NOOP("KOTR x1 (250mp)"), QT_TR_NOOP("KOTR x2 (250mp)"), QT_TR_NOOP("KOTR x3 (250mp)"), QT_TR_NOOP("KOTR x4 (250mp)"), QT_TR_NOOP("KOTR x5 (250mp)")}
+            , {QT_TR_NOOP("Knights of the Round x1 (250mp)"), QT_TR_NOOP("Knights of the Round x2 (250mp)"), QT_TR_NOOP("Knights of the Round x3 (250mp)"), QT_TR_NOOP("Knights of the Round x4 (250mp)"), QT_TR_NOOP("Knights of the Round x5 (250mp)")}
             , QT_TR_NOOP("MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8"), QStringLiteral(":/materia/summon"), QStringLiteral(":/materia/summon_star_empty"), QStringLiteral(":/materia/summon_star_full")
             , 0x59, -10, +20, 0, 0, 0, 0, +8, +8, {0, 50000, 200000, 300000, 500000}, 2, 5, QString(), {QString()}
         },
@@ -750,5 +753,92 @@ private:
         , QT_TR_NOOP("Roulette")
         , QT_TR_NOOP("Shadow Flare")
         , QT_TR_NOOP("Pandora's Box")
+    };
+
+    inline static const QStringList _masterCommandList{
+        QT_TR_NOOP("DeathBlow")
+        , QT_TR_NOOP("Manipulate")
+        , QT_TR_NOOP("Mime")
+        , QT_TR_NOOP("Throw")
+        , QT_TR_NOOP("Coin")
+        , QT_TR_NOOP("Steal")
+        , QT_TR_NOOP("Sense")
+        , QT_TR_NOOP("Morph")
+    };
+
+    inline static const QStringList _masterSummonList{
+        QT_TR_NOOP("Choco/Mog (14mp)")
+        , QT_TR_NOOP("Shiva (32mp)")
+        , QT_TR_NOOP("Ifrit (34mp)")
+        , QT_TR_NOOP("Ramuh (40mp)")
+        , QT_TR_NOOP("Titan (46mp)")
+        , QT_TR_NOOP("Odin (80mp)")
+        , QT_TR_NOOP("Leviathan (78mp)")
+        , QT_TR_NOOP("Bahamut (100mp)")
+        , QT_TR_NOOP("Kujata (110mp)")
+        , QT_TR_NOOP("Alexander (120mp)")
+        , QT_TR_NOOP("Phoenix (180mp)")
+        , QT_TR_NOOP("Neo Bahamut (140mp)")
+        , QT_TR_NOOP("Hades (150mp)")
+        , QT_TR_NOOP("Typhon (160mp)")
+        , QT_TR_NOOP("Bahamut ZERO (180mp)")
+        , QT_TR_NOOP("Knights Of The Round (250mp)")
+    };
+
+    inline static const QStringList _masterMagicList{
+        QT_TR_NOOP("Cure (5mp)")
+        , QT_TR_NOOP("Cure2 (24mp)")
+        , QT_TR_NOOP("Regen (30mp)")
+        , QT_TR_NOOP("Cure3 (64mp)")
+        , QT_TR_NOOP("Life (34mp)")
+        , QT_TR_NOOP("Life2 (100mp)")
+        , QT_TR_NOOP("Poisona (3mp)")
+        , QT_TR_NOOP("Esuna (15mp)")
+        , QT_TR_NOOP("Resist (120mp)")
+        , QT_TR_NOOP("Haste (18mp)")
+        , QT_TR_NOOP("Slow (20mp)")
+        , QT_TR_NOOP("Stop (34mp)")
+        , QT_TR_NOOP("Barrier (16mp)")
+        , QT_TR_NOOP("M-Barrier (24mp)")
+        , QT_TR_NOOP("Reflect (30mp)")
+        , QT_TR_NOOP("Wall (58mp)")
+        , QT_TR_NOOP("DeBarrier (12mp)")
+        , QT_TR_NOOP("DeSpell (20mp)")
+        , QT_TR_NOOP("Death (30mp)")
+        , QT_TR_NOOP("Sleepel (8mp)")
+        , QT_TR_NOOP("Silence (24mp)")
+        , QT_TR_NOOP("Confu (18mp)")
+        , QT_TR_NOOP("Berserk (28mp)")
+        , QT_TR_NOOP("Mini (10mp)")
+        , QT_TR_NOOP("Toad (14mp)")
+        , QT_TR_NOOP("Exit (16mp)")
+        , QT_TR_NOOP("Remove (99mp)")
+        , QT_TR_NOOP("Fire (4mp)")
+        , QT_TR_NOOP("Fire2 (22mp)")
+        , QT_TR_NOOP("Fire3 (52mp)")
+        , QT_TR_NOOP("Ice (4mp)")
+        , QT_TR_NOOP("Ice2 (22mp)")
+        , QT_TR_NOOP("Ice3 (52mp)")
+        , QT_TR_NOOP("Quake (6mp)")
+        , QT_TR_NOOP("Quake2 (28mp)")
+        , QT_TR_NOOP("Quake3 (68mp)")
+        , QT_TR_NOOP("Bolt (4mp)")
+        , QT_TR_NOOP("Bolt2 (22mp)")
+        , QT_TR_NOOP("Bolt3 (52mp)")
+        , QT_TR_NOOP("Bio (8mp)")
+        , QT_TR_NOOP("Bio2 (36mp)")
+        , QT_TR_NOOP("Bio3 (80mp)")
+        , QT_TR_NOOP("Demi (14mp)")
+        , QT_TR_NOOP("Demi2 (33mp)")
+        , QT_TR_NOOP("Demi3 (48mp)")
+        , QT_TR_NOOP("Comet (70mp)")
+        , QT_TR_NOOP("Comet2 (110mp)")
+        , QT_TR_NOOP("Freeze (82mp)")
+        , QT_TR_NOOP("Break (86mp)")
+        , QT_TR_NOOP("Tornado (90mp)")
+        , QT_TR_NOOP("Flare (100mp)")
+        , QT_TR_NOOP("Full Cure (99mp)")
+        , QT_TR_NOOP("Shield (180mp)")
+        , QT_TR_NOOP("Ultima (130mp)")
     };
 };

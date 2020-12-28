@@ -23,23 +23,23 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-MateriaEditor::MateriaEditor(QWidget *parent, quint8 materia_id, qint32 materia_ap): QWidget(parent)
+MateriaEditor::MateriaEditor(QWidget *parent, quint8 materia_id, qint32 materia_ap)
+    : QWidget(parent)
+    , data(new FF7Materia)
+    , v_spacer(new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding))
+    , _id(0)
+    , buffer_id(0)
+    , buffer_ap(0)
+    , _current_ap(0)
+    , _highlightColor(QStringLiteral("%1,%2,%3,128").arg(QString::number(palette().highlight().color().red()), QString::number(palette().highlight().color().green()), QString::number(palette().highlight().color().blue())))
+    , _iconSize (QSize(fontMetrics().height(), fontMetrics().height()))
+    , _editable(true)
 {
     init_display();
     setMateria(materia_id, materia_ap);
 }
 void MateriaEditor::init_display()
 {
-    _id = 0;
-    _current_ap = 0;
-    buffer_id = 0;
-    buffer_ap = 0;
-    _editable = true;
-    data = new FF7Materia;
-    _iconSize = QSize(fontMetrics().height(), fontMetrics().height());
-    _highlightColor = QString("%1,%2,%3,128").arg(QString::number(this->palette().highlight().color().red()), QString::number(this->palette().highlight().color().green()), QString::number(this->palette().highlight().color().blue()));
-    v_spacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-//Set up display
     setContentsMargins(0, 0, 0, 0);
 
     auto main_layout = new QVBoxLayout;
@@ -87,7 +87,7 @@ void MateriaEditor::setAP(qint32 ap)
     sb_ap->setMaximum(MaxAP());
     lbl_max_ap->setText(QString(" %1").arg(QString::number(MaxAP())));
 
-    if ((_id == FF7Materia::Underwater) || (_id == FF7Materia::MasterCommand) || (_id == FF7Materia::MasterMagic) || (_id == FF7Materia::MasterSummon) || (_id == FF7Materia::EnemySkill)) {
+    if (data->levels(_id) == 1) {  //Underwater, MasterCommand, MasterMagic, MasterSummon, EnemySkill
         frm_ap_stars->setHidden(true);
         if (_current_ap != ap) {
             _current_ap = ap;
@@ -104,7 +104,7 @@ void MateriaEditor::setAP(qint32 ap)
         }
     } else if (_id == FF7Materia::EmptyId) {
         frm_ap_stars->setHidden(true);
-        lbl_max_ap->setText("");
+        lbl_max_ap->clear();
     } else {
         //All Other Materia
         frm_ap_stars->setHidden(false);
@@ -147,17 +147,17 @@ void MateriaEditor::setStats()
     lbl_stats->clear();
     QString title = tr("Skills");
     if (_id != FF7Materia::EmptyId) {
-        if (data->element(_id) != "") {
+        if (!data->element(_id).isEmpty()) {
             title.append("-");
             title.append(data->element(_id));
         }
-        if (data->statString(_id) != "") {
+        if (!data->statString(_id).isEmpty()) {
             lbl_stats->setText(data->statString(_id));
             box_stats->setHidden(false);
         } else {
             box_stats->setHidden(true);
         }
-        if (data->status(_id).at(0).toLocal8Bit() != "") {
+        if (!data->status(_id).at(0).toLocal8Bit().isEmpty()) {
             list_status->addItems(data->status(_id));
             box_status_effects->setFixedWidth(this->width() / 3);
             box_status_effects->setHidden(false);
@@ -170,10 +170,9 @@ void MateriaEditor::setStats()
 void MateriaEditor::setLevel()
 {
     _level = 0;
-    if (_id == FF7Materia::EmptyId) {/*catch to avoid CID 25848*/ }
-    else if ((_id == FF7Materia::EnemySkill) || (_id == FF7Materia::Underwater) || (_id == FF7Materia::MasterCommand) || (_id == FF7Materia::MasterMagic) || (_id == FF7Materia::MasterSummon)) {
+    if (data->levels(_id) == 1){
         _level = 1;
-    } else {
+    } else if (_id != FF7Materia::EmptyId) {
         for (int i = 0; i < data->levels(_id); i++) {
             if (_current_ap >= data->ap(_id, i))
                 _level++;
@@ -186,12 +185,8 @@ void MateriaEditor::setLevel()
 void MateriaEditor::setStars()
 {
     //Hide if its eskill Materia
-    if ((_id == FF7Materia::EnemySkill)
-            || (_id == FF7Materia::Underwater)
-            || (_id == FF7Materia::MasterCommand)
-            || (_id == FF7Materia::MasterMagic)
-            || (_id == FF7Materia::MasterSummon)
-            || (_id == FF7Materia::EmptyId)) {
+    if (data->levels(_id) == 1
+     || (_id == FF7Materia::EmptyId)) {
         box_stars->setHidden(true);
         return;
     } else {
@@ -212,30 +207,34 @@ void MateriaEditor::setStars()
 void MateriaEditor::setSkills()
 {
     list_skills->clear();
-    if (_id == FF7Materia::EnemySkill) {
-        box_skills->setHidden(false);
+    box_skills->setHidden(false);
+    eskill_group->setHidden(true);
+    list_skills->setHidden(false);
+    v_spacer->changeSize(0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding);
+
+    if (_id == FF7Materia::EmptyId) {
+        box_skills->setHidden(true);
+        list_skills->setHidden(true);
+    } else if (_id == FF7Materia::EnemySkill) {
         list_skills->setHidden(true);
         eskill_group->setHidden(false);
         v_spacer->changeSize(0, 0, QSizePolicy::Fixed, QSizePolicy::Fixed);
-        v_spacer->invalidate();
-    } else if (_id == FF7Materia::EmptyId) {
-        box_skills->setHidden(true);
-        list_skills->setHidden(true);
-        eskill_group->setHidden(true);
-        v_spacer->changeSize(0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding);
-        v_spacer->invalidate();
+    } else if(_id == FF7Materia::MasterCommand){
+        for (int i = 0; i < 8; i++)
+            list_skills->addItem(data->masterCommandSkill(i));
+    } else if(_id == FF7Materia::MasterSummon){
+        for (int i = 0; i < 16; i++)
+            list_skills->addItem(data->masterSummonSkill(i));
+    } else if(_id == FF7Materia::MasterMagic){
+        for (int i = 0; i < 54; i++)
+            list_skills->addItem(data->masterMagicSkill(i));
     } else {
-        box_skills->setHidden(false);
-        list_skills->setHidden(false);
-        eskill_group->setHidden(true);
-        v_spacer->changeSize(0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding);
-        v_spacer->invalidate();
-
         for (int i = 0; i < _level; i++) {
             if (data->skills(_id).count() > i)
                 list_skills->addItem(data->skills(_id).at(i));
         }
     }
+    v_spacer->invalidate();
     frm_skill_status->adjustSize();
     layout()->update();
     adjustSize();
@@ -244,12 +243,11 @@ void MateriaEditor::setSkills()
 void MateriaEditor::typeChanged(int new_type)
 {
     combo_materia->clear();
-    combo_materia->blockSignals(1);
+    combo_materia->blockSignals(true);
     if (new_type == 0) {
         for (int i = 0; i < 91; i++) {
-            if (data->name(i) != "DON'T USE") {
+            if (data->name(i) != "DON'T USE")
                 combo_materia->addItem(data->icon(i), data->name(i));
-            }
         }
     } else {
         for (int i = 0; i < 91; i++) {
@@ -261,7 +259,7 @@ void MateriaEditor::typeChanged(int new_type)
         combo_materia->setCurrentIndex(combo_materia->findText(data->name(_id)));
     else
         combo_materia->setCurrentIndex(-1);
-    combo_materia->blockSignals(0);
+    combo_materia->blockSignals(false);
 }
 
 void MateriaEditor::materia_changed(const QString &new_name)
@@ -286,7 +284,7 @@ qint8 MateriaEditor::id(void)
 
 qint32 MateriaEditor::MaxAP(void)
 {
-    if ((_id == FF7Materia::Underwater) || (_id == FF7Materia::MasterCommand) || (_id == FF7Materia::MasterMagic) || (_id == FF7Materia::MasterSummon) || (_id == FF7Materia::EnemySkill))
+    if (data->levels(_id) == 1)
         return FF7Materia::MaxMateriaAp;
     else
         return data->ap(_id, data->levels(_id) - 1);
@@ -331,7 +329,7 @@ void MateriaEditor::setEditable(bool edit)
     editMode();
 }
 
-void MateriaEditor::editMode(void)
+void MateriaEditor::editMode()
 {
     for (QPushButton *button : qAsConst(btn_stars))
         button->blockSignals(!_editable);
@@ -478,7 +476,7 @@ QWidget *MateriaEditor::makeStarWidget()
             });
         }
     }
-    auto lbl_slash = new QLabel("/");
+    auto lbl_slash = new QLabel(QStringLiteral("/"));
     lbl_slash->setFixedWidth(this->font().pointSize());
 
     lbl_max_ap = new QLabel;

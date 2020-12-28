@@ -42,9 +42,9 @@ public:
     void setMateria(quint8 materia_id = 0, qint32 materia_ap = 0);
     void setAP(qint32 current_ap = 0);
     void setStarsSize(int);
-    qint32 ap(void);
-    qint32 MaxAP(void);
-    qint8 id(void);
+    qint32 ap();
+    qint32 MaxAP();
+    qint8 id();
     bool isEditable(void);
     void setEditable(bool);
 //    qint32 raw_data(void);
@@ -54,16 +54,16 @@ public slots:
     void setEditableMateriaCombo(bool enabled);
 private:
     //Private Functions
-    void init_display(void);
+    void init_display();
     QHBoxLayout *makeNameLayout();
     QWidget *makeStarWidget();
     QWidget *makeSkillWidget();
     QWidget *makeStatWidget();
-    void setStars(void);
-    void setName(void);
-    void setStats(void);
-    void setSkills(void);
-    void setLevel(void);
+    void setStars();
+    void setName();
+    void setStats();
+    void setSkills();
+    void setLevel();
     void updateESkillList();
     //Private Gui Parts.
     QLabel *lbl_max_ap = nullptr;
