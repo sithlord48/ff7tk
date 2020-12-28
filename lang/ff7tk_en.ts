@@ -5115,47 +5115,47 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Start of Juion Ship Sequence</source>
-        <translation type="unfinished"></translation>
+        <translation>Start of Juion Ship Sequence</translation>
     </message>
     <message>
         <source>Last Train from Midgar</source>
-        <translation type="unfinished"></translation>
+        <translation>Last Train from Midgar</translation>
     </message>
     <message>
         <source>Sector 7 Mechanized Tower</source>
-        <translation type="unfinished"></translation>
+        <translation>Sector 7 Mechanized Tower</translation>
     </message>
     <message>
         <source>Conference Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Conference Room</translation>
     </message>
     <message>
         <source>Priscilla&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Priscilla&apos;s House</translation>
     </message>
     <message>
         <source>Johnny&apos;s New Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Johnny&apos;s New Home</translation>
     </message>
     <message>
         <source>Inside the Ferris Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Inside the Ferris Wheel</translation>
     </message>
     <message>
         <source>Arena</source>
-        <translation type="unfinished"></translation>
+        <translation>Arena</translation>
     </message>
     <message>
         <source>Waiting Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Waiting Room</translation>
     </message>
     <message>
         <source>Cet Wall</source>
-        <translation type="unfinished"></translation>
+        <translation>Cet Wall</translation>
     </message>
     <message>
         <source>Great Cave</source>
-        <translation type="unfinished"></translation>
+        <translation>Great Cave</translation>
     </message>
 </context>
 <context>
@@ -6558,23 +6558,23 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>KOTR x1 (250mp)</source>
-        <translation>KOTR x1 (250mp)</translation>
+        <translation type="vanished">KOTR x1 (250mp)</translation>
     </message>
     <message>
         <source>KOTR x2 (250mp)</source>
-        <translation>KOTR x2 (250mp)</translation>
+        <translation type="vanished">KOTR x2 (250mp)</translation>
     </message>
     <message>
         <source>KOTR x3 (250mp)</source>
-        <translation>KOTR x3 (250mp)</translation>
+        <translation type="vanished">KOTR x3 (250mp)</translation>
     </message>
     <message>
         <source>KOTR x4 (250mp)</source>
-        <translation>KOTR x4 (250mp)</translation>
+        <translation type="vanished">KOTR x4 (250mp)</translation>
     </message>
     <message>
         <source>KOTR x5 (250mp)</source>
-        <translation>KOTR x5 (250mp)</translation>
+        <translation type="vanished">KOTR x5 (250mp)</translation>
     </message>
     <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
@@ -6679,6 +6679,90 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Pandora&apos;s Box</source>
         <translation>Pandora&apos;s Box</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x1 (250mp)</source>
+        <translation>Knights of the Round x1 (250mp)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x2 (250mp)</source>
+        <translation>Knights of the Round x2 (250mp)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x3 (250mp)</source>
+        <translation>Knights of the Round x3 (250mp)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x4 (250mp)</source>
+        <translation>Knights of the Round x4 (250mp)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x5 (250mp)</source>
+        <translation>Knights of the Round x5 (250mp)</translation>
+    </message>
+    <message>
+        <source>Choco/Mog (14mp)</source>
+        <translation>Choco/Mog (14mp)</translation>
+    </message>
+    <message>
+        <source>Shiva (32mp)</source>
+        <translation>Shiva (32mp)</translation>
+    </message>
+    <message>
+        <source>Ifrit (34mp)</source>
+        <translation>Ifrit (34mp)</translation>
+    </message>
+    <message>
+        <source>Ramuh (40mp)</source>
+        <translation>Ramuh (40mp)</translation>
+    </message>
+    <message>
+        <source>Titan (46mp)</source>
+        <translation>Titan (46mp)</translation>
+    </message>
+    <message>
+        <source>Odin (80mp)</source>
+        <translation>Odin (80mp)</translation>
+    </message>
+    <message>
+        <source>Leviathan (78mp)</source>
+        <translation>Leviathan (78mp)</translation>
+    </message>
+    <message>
+        <source>Bahamut (100mp)</source>
+        <translation>Bahamut (100mp)</translation>
+    </message>
+    <message>
+        <source>Kujata (110mp)</source>
+        <translation>Kujata (110mp)</translation>
+    </message>
+    <message>
+        <source>Alexander (120mp)</source>
+        <translation>Alexander (120mp)</translation>
+    </message>
+    <message>
+        <source>Phoenix (180mp)</source>
+        <translation>Phoenix (180mp)</translation>
+    </message>
+    <message>
+        <source>Neo Bahamut (140mp)</source>
+        <translation>Neo Bahamut (140mp)</translation>
+    </message>
+    <message>
+        <source>Hades (150mp)</source>
+        <translation>Hades (150mp)</translation>
+    </message>
+    <message>
+        <source>Typhon (160mp)</source>
+        <translation>Typhon (160mp)</translation>
+    </message>
+    <message>
+        <source>Bahamut ZERO (180mp)</source>
+        <translation>Bahamut ZERO (180mp)</translation>
+    </message>
+    <message>
+        <source>Knights Of The Round (250mp)</source>
+        <translation>Knights Of The Round (250mp)</translation>
     </message>
 </context>
 <context>
@@ -7023,196 +7107,197 @@ The km/h speeds are calculated while playing </translation>
     <name>MainWindow</name>
     <message>
         <source>FF7tk Widget Demo</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7tk Widget Demo</translation>
     </message>
     <message>
         <source>Select Widget...</source>
-        <translation type="unfinished"></translation>
+        <translation>Select Widget...</translation>
     </message>
     <message>
         <source>OptionsWidget</source>
-        <translation type="unfinished"></translation>
+        <translation>OptionsWidget</translation>
     </message>
     <message>
         <source>Materia Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Materia Editor</translation>
     </message>
     <message>
         <source>ItemList</source>
-        <translation type="unfinished"></translation>
+        <translation>ItemList</translation>
     </message>
     <message>
         <source>CharEditor</source>
-        <translation type="unfinished"></translation>
+        <translation>CharEditor</translation>
     </message>
     <message>
         <source>MetaData Creator</source>
-        <translation type="unfinished"></translation>
+        <translation>MetaData Creator</translation>
     </message>
     <message>
         <source>SlotSelect</source>
-        <translation type="unfinished"></translation>
+        <translation>SlotSelect</translation>
     </message>
     <message>
         <source>PhsListWidget</source>
-        <translation type="unfinished"></translation>
+        <translation>PhsListWidget</translation>
     </message>
     <message>
         <source>MenuListWidget</source>
-        <translation type="unfinished"></translation>
+        <translation>MenuListWidget</translation>
     </message>
     <message>
         <source>Lgp Utility</source>
-        <translation type="unfinished"></translation>
+        <translation>Lgp Utility</translation>
     </message>
     <message>
         <source>LocationViewer</source>
-        <translation type="unfinished"></translation>
+        <translation>LocationViewer</translation>
     </message>
     <message>
         <source>ChocoboManager</source>
-        <translation type="unfinished"></translation>
+        <translation>ChocoboManager</translation>
     </message>
     <message>
         <source>AchievementEditor</source>
-        <translation type="unfinished"></translation>
+        <translation>AchievementEditor</translation>
     </message>
     <message>
         <source>Widget Scale : </source>
-        <translation type="unfinished"></translation>
+        <translation>Widget Scale : </translation>
     </message>
     <message>
         <source>Editable Item Combo</source>
-        <translation type="unfinished"></translation>
+        <translation>Editable Item Combo</translation>
     </message>
     <message>
         <source>GroupBox</source>
-        <translation type="unfinished"></translation>
+        <translation>GroupBox</translation>
     </message>
     <message>
         <source>setStarSize(int)</source>
-        <translation type="unfinished"></translation>
+        <translation>setStarSize(int)</translation>
     </message>
     <message>
         <source>Editable Combo</source>
-        <translation type="unfinished"></translation>
+        <translation>Editable Combo</translation>
     </message>
     <message>
         <source>is Editable</source>
-        <translation type="unfinished"></translation>
+        <translation>is Editable</translation>
     </message>
     <message>
         <source>Initilze Char Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Initilze Char Data</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug</translation>
     </message>
     <message>
         <source>Editable Combos </source>
-        <translation type="unfinished"></translation>
+        <translation>Editable Combos </translation>
     </message>
     <message>
         <source>Show Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Show Dialog</translation>
     </message>
     <message>
         <source>Allow Loading of new file from dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Allow Loading of new file from dialog</translation>
     </message>
     <message>
         <source>Select File to Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Select File to Preview</translation>
     </message>
     <message>
         <source>View / Extract</source>
-        <translation type="unfinished"></translation>
+        <translation>View / Extract</translation>
     </message>
     <message>
         <source>Select Lgp To Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Select Lgp To Preview</translation>
     </message>
     <message>
         <source>Extract To...</source>
-        <translation type="unfinished"></translation>
+        <translation>Extract To...</translation>
     </message>
     <message>
         <source>Create / Add File(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Create / Add File(s)</translation>
     </message>
     <message>
         <source>Demo Coming Soon</source>
-        <translation type="unfinished"></translation>
+        <translation>Demo Coming Soon</translation>
     </message>
     <message>
         <source>Advanced Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Advanced Mode</translation>
     </message>
     <message>
         <source>Select Achievement to Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Select Achievement to Preview</translation>
     </message>
     <message>
         <source>Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>Save File</translation>
     </message>
     <message>
         <source>File Error</source>
-        <translation type="unfinished">File Error</translation>
+        <translation>File Error</translation>
     </message>
     <message>
         <source>Error Loading File: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error Loading File: %1</translation>
     </message>
     <message>
         <source>Extracting Archive</source>
-        <translation type="unfinished"></translation>
+        <translation>Extracting Archive</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <source>File Write Error</source>
-        <translation type="unfinished"></translation>
+        <translation>File Write Error</translation>
     </message>
     <message>
         <source>Unable to write to file:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Unable to write to file:
+%1</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"></translation>
+        <translation>Region</translation>
     </message>
     <message>
         <source>FF7-S01BASCUS-94163</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7-S01BASCUS-94163</translation>
     </message>
     <message>
         <source>FF7-S01BESCES-00867</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7-S01BESCES-00867</translation>
     </message>
     <message>
         <source>FF7-S01BESCES-00868</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7-S01BESCES-00868</translation>
     </message>
     <message>
         <source>FF7-S01BESCES-00869</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7-S01BESCES-00869</translation>
     </message>
     <message>
         <source>FF7-S01BESCES-00900</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7-S01BESCES-00900</translation>
     </message>
     <message>
         <source>FF7-S01BISLPS-00700</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7-S01BISLPS-00700</translation>
     </message>
     <message>
         <source>FF7-S01BISLPS-01057</source>
-        <translation type="unfinished"></translation>
+        <translation>FF7-S01BISLPS-01057</translation>
     </message>
 </context>
 <context>

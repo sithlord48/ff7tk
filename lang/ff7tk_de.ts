@@ -6542,23 +6542,23 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KOTR x1 (250mp)</source>
-        <translation>RdR x1 (250MP)</translation>
+        <translation type="vanished">RdR x1 (250MP)</translation>
     </message>
     <message>
         <source>KOTR x2 (250mp)</source>
-        <translation>RdR x2 (250MP)</translation>
+        <translation type="vanished">RdR x2 (250MP)</translation>
     </message>
     <message>
         <source>KOTR x3 (250mp)</source>
-        <translation>RdR x3 (250MP)</translation>
+        <translation type="vanished">RdR x3 (250MP)</translation>
     </message>
     <message>
         <source>KOTR x4 (250mp)</source>
-        <translation>RdR x4 (250MP)</translation>
+        <translation type="vanished">RdR x4 (250MP)</translation>
     </message>
     <message>
         <source>KOTR x5 (250mp)</source>
-        <translation>RdR x5 (250MP)</translation>
+        <translation type="vanished">RdR x5 (250MP)</translation>
     </message>
     <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
@@ -6679,6 +6679,90 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     <message>
         <source>Slash-All</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Knights of the Round x1 (250mp)</source>
+        <translation type="unfinished">Ritter der Runde x1 (250 MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x2 (250mp)</source>
+        <translation type="unfinished">Ritter der Runde x2 (250MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x3 (250mp)</source>
+        <translation type="unfinished">Ritter der Runde x3 (250MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x4 (250mp)</source>
+        <translation type="unfinished">Ritter der Runde x4 (250MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x5 (250mp)</source>
+        <translation type="unfinished">Ritter der Runde x5 (250MP)</translation>
+    </message>
+    <message>
+        <source>Choco/Mog (14mp)</source>
+        <translation type="unfinished">Choco/mog (14MP)</translation>
+    </message>
+    <message>
+        <source>Shiva (32mp)</source>
+        <translation type="unfinished">Shiva (32MP)</translation>
+    </message>
+    <message>
+        <source>Ifrit (34mp)</source>
+        <translation type="unfinished">Ifrit (34MP)</translation>
+    </message>
+    <message>
+        <source>Ramuh (40mp)</source>
+        <translation type="unfinished">Ramuh (40MP)</translation>
+    </message>
+    <message>
+        <source>Titan (46mp)</source>
+        <translation type="unfinished">Titan (46MP)</translation>
+    </message>
+    <message>
+        <source>Odin (80mp)</source>
+        <translation type="unfinished">Odin (80MP)</translation>
+    </message>
+    <message>
+        <source>Leviathan (78mp)</source>
+        <translation type="unfinished">Leviathan (78MP)</translation>
+    </message>
+    <message>
+        <source>Bahamut (100mp)</source>
+        <translation type="unfinished">Bahamut (100MP)</translation>
+    </message>
+    <message>
+        <source>Kujata (110mp)</source>
+        <translation type="unfinished">Kujata (110MP)</translation>
+    </message>
+    <message>
+        <source>Alexander (120mp)</source>
+        <translation type="unfinished">Alexander (120MP)</translation>
+    </message>
+    <message>
+        <source>Phoenix (180mp)</source>
+        <translation type="unfinished">Phönix (180MP)</translation>
+    </message>
+    <message>
+        <source>Neo Bahamut (140mp)</source>
+        <translation type="unfinished">Neo Bahamut (140MP)</translation>
+    </message>
+    <message>
+        <source>Hades (150mp)</source>
+        <translation type="unfinished">Hades (150MP)</translation>
+    </message>
+    <message>
+        <source>Typhon (160mp)</source>
+        <translation type="unfinished">Typhoon (160MP)</translation>
+    </message>
+    <message>
+        <source>Bahamut ZERO (180mp)</source>
+        <translation type="unfinished">Bahamut NULL (180MP)</translation>
+    </message>
+    <message>
+        <source>Knights Of The Round (250mp)</source>
+        <translation type="unfinished">Ritter der Runde (250MP)</translation>
     </message>
 </context>
 <context>

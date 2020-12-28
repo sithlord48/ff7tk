@@ -6482,23 +6482,23 @@ Los km/h son calculados mientras se juega </translation>
     </message>
     <message>
         <source>Hades x1 (150mp)</source>
-        <translation>Hades x1 (150mp)</translation>
+        <translation>Hades x1 (150pm)</translation>
     </message>
     <message>
         <source>Hades x2 (150mp)</source>
-        <translation>Hades x2 (150mp)</translation>
+        <translation>Hades x2 (150pm)</translation>
     </message>
     <message>
         <source>Hades x3 (150mp)</source>
-        <translation>Hades x3 (150mp)</translation>
+        <translation>Hades x3 (150pm)</translation>
     </message>
     <message>
         <source>Hades x4 (150mp)</source>
-        <translation>Hades x4 (150mp)</translation>
+        <translation>Hades x4 (150pm)</translation>
     </message>
     <message>
         <source>Hades x5 (150mp)</source>
-        <translation>Hades x5 (150mp)</translation>
+        <translation>Hades x5 (150pm)</translation>
     </message>
     <message>
         <source>MaxHp:-10% MaxMp:+15% Mag:+4 Spi:+4</source>
@@ -6558,23 +6558,23 @@ Los km/h son calculados mientras se juega </translation>
     </message>
     <message>
         <source>KOTR x1 (250mp)</source>
-        <translation>Cab. de la mesa R. x1 (250pm)</translation>
+        <translation type="vanished">Cab. de la mesa R. x1 (250pm)</translation>
     </message>
     <message>
         <source>KOTR x2 (250mp)</source>
-        <translation>Cab. de la mesa R. x2 (250pm)</translation>
+        <translation type="vanished">Cab. de la mesa R. x2 (250pm)</translation>
     </message>
     <message>
         <source>KOTR x3 (250mp)</source>
-        <translation>Cab. de la mesa R. x3 (250pm)</translation>
+        <translation type="vanished">Cab. de la mesa R. x3 (250pm)</translation>
     </message>
     <message>
         <source>KOTR x4 (250mp)</source>
-        <translation>Cab. de la mesa R. x4 (250pm)</translation>
+        <translation type="vanished">Cab. de la mesa R. x4 (250pm)</translation>
     </message>
     <message>
         <source>KOTR x5 (250mp)</source>
-        <translation>Cab. de la mesa R. x5 (250pm)</translation>
+        <translation type="vanished">Cab. de la mesa R. x5 (250pm)</translation>
     </message>
     <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
@@ -6679,6 +6679,90 @@ Los km/h son calculados mientras se juega </translation>
     <message>
         <source>Pandora&apos;s Box</source>
         <translation>Caja de Pandora</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x1 (250mp)</source>
+        <translation>Caballeros de la Mesa Redonda x1 (250pm)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x2 (250mp)</source>
+        <translation>Caballeros de la Mesa Redonda x2 (250pm)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x3 (250mp)</source>
+        <translation>Caballeros de la Mesa Redonda x3 (250pm)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x4 (250mp)</source>
+        <translation>Caballeros de la Mesa Redonda x4 (250pm)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x5 (250mp)</source>
+        <translation>Caballeros de la Mesa Redonda x5 (250pm)</translation>
+    </message>
+    <message>
+        <source>Choco/Mog (14mp)</source>
+        <translation>Choco/Mog (14pm)</translation>
+    </message>
+    <message>
+        <source>Shiva (32mp)</source>
+        <translation>Shiva (32pm)</translation>
+    </message>
+    <message>
+        <source>Ifrit (34mp)</source>
+        <translation>Ifrit (34pm)</translation>
+    </message>
+    <message>
+        <source>Ramuh (40mp)</source>
+        <translation>Ramuh (40pm)</translation>
+    </message>
+    <message>
+        <source>Titan (46mp)</source>
+        <translation>Titán (46pm)</translation>
+    </message>
+    <message>
+        <source>Odin (80mp)</source>
+        <translation>Odín (80pm)</translation>
+    </message>
+    <message>
+        <source>Leviathan (78mp)</source>
+        <translation>Leviatán (78pm)</translation>
+    </message>
+    <message>
+        <source>Bahamut (100mp)</source>
+        <translation>Bahamut (100pm)</translation>
+    </message>
+    <message>
+        <source>Kujata (110mp)</source>
+        <translation>Kjata (110pm)</translation>
+    </message>
+    <message>
+        <source>Alexander (120mp)</source>
+        <translation>Alejandro (120pm)</translation>
+    </message>
+    <message>
+        <source>Phoenix (180mp)</source>
+        <translation>Fénix (180pm)</translation>
+    </message>
+    <message>
+        <source>Neo Bahamut (140mp)</source>
+        <translation>Neo Bahamut (140mp)</translation>
+    </message>
+    <message>
+        <source>Hades (150mp)</source>
+        <translation>Hades (150pm)</translation>
+    </message>
+    <message>
+        <source>Typhon (160mp)</source>
+        <translation>Typhon (160mp)</translation>
+    </message>
+    <message>
+        <source>Bahamut ZERO (180mp)</source>
+        <translation>Bahamut CERO (180pm)</translation>
+    </message>
+    <message>
+        <source>Knights Of The Round (250mp)</source>
+        <translation>Caballeros de la Mesa Redonda (250pm)</translation>
     </message>
 </context>
 <context>

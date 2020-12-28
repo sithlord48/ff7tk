@@ -6554,23 +6554,23 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KOTR x1 (250mp)</source>
-        <translation>Chevaliers de la Table Ronde 1x (250 MP)</translation>
+        <translation type="vanished">Chevaliers de la Table Ronde 1x (250 MP)</translation>
     </message>
     <message>
         <source>KOTR x2 (250mp)</source>
-        <translation>Chevaliers de la Table Ronde 2x (250 MP)</translation>
+        <translation type="vanished">Chevaliers de la Table Ronde 2x (250 MP)</translation>
     </message>
     <message>
         <source>KOTR x3 (250mp)</source>
-        <translation>Chevaliers de la Table Ronde 3x (250 MP)</translation>
+        <translation type="vanished">Chevaliers de la Table Ronde 3x (250 MP)</translation>
     </message>
     <message>
         <source>KOTR x4 (250mp)</source>
-        <translation>Chevaliers de la Table Ronde 4x (250 MP)</translation>
+        <translation type="vanished">Chevaliers de la Table Ronde 4x (250 MP)</translation>
     </message>
     <message>
         <source>KOTR x5 (250mp)</source>
-        <translation>Chevaliers de la Table Ronde 5x (250 MP)</translation>
+        <translation type="vanished">Chevaliers de la Table Ronde 5x (250 MP)</translation>
     </message>
     <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
@@ -6678,7 +6678,91 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Added Effect</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Effet supplémentaire</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x1 (250mp)</source>
+        <translation>Chevaliers de la Table Ronde x1 (250 MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x2 (250mp)</source>
+        <translation>Chevaliers de la Table Ronde x2 (250 MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x3 (250mp)</source>
+        <translation>Chevaliers de la Table Ronde x3 (250 MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x4 (250mp)</source>
+        <translation>Chevaliers de la Table Ronde x4 (250 MP)</translation>
+    </message>
+    <message>
+        <source>Knights of the Round x5 (250mp)</source>
+        <translation>Chevaliers de la Table Ronde x5 (250 MP)</translation>
+    </message>
+    <message>
+        <source>Choco/Mog (14mp)</source>
+        <translation>Choco/Mog (14 MP)</translation>
+    </message>
+    <message>
+        <source>Shiva (32mp)</source>
+        <translation>Shiva (32 MP)</translation>
+    </message>
+    <message>
+        <source>Ifrit (34mp)</source>
+        <translation>Ifrit (34 MP)</translation>
+    </message>
+    <message>
+        <source>Ramuh (40mp)</source>
+        <translation>Ramuh (40 MP)</translation>
+    </message>
+    <message>
+        <source>Titan (46mp)</source>
+        <translation>Titan (46 MP)</translation>
+    </message>
+    <message>
+        <source>Odin (80mp)</source>
+        <translation>Odin (80 MP)</translation>
+    </message>
+    <message>
+        <source>Leviathan (78mp)</source>
+        <translation>Léviathan (78 MP)</translation>
+    </message>
+    <message>
+        <source>Bahamut (100mp)</source>
+        <translation>Bahamut (100 MP)</translation>
+    </message>
+    <message>
+        <source>Kujata (110mp)</source>
+        <translation>Kjata (110 MP)</translation>
+    </message>
+    <message>
+        <source>Alexander (120mp)</source>
+        <translation>Alexandre (120 MP)</translation>
+    </message>
+    <message>
+        <source>Phoenix (180mp)</source>
+        <translation>Phénix (180 MP)</translation>
+    </message>
+    <message>
+        <source>Neo Bahamut (140mp)</source>
+        <translation>Néo Bahamut (140 MP)</translation>
+    </message>
+    <message>
+        <source>Hades (150mp)</source>
+        <translation>Hadès (150 MP)</translation>
+    </message>
+    <message>
+        <source>Typhon (160mp)</source>
+        <translation>Typoon (160 MP)</translation>
+    </message>
+    <message>
+        <source>Bahamut ZERO (180mp)</source>
+        <translation>Bahamut ZÉRO (180 MP)</translation>
+    </message>
+    <message>
+        <source>Knights Of The Round (250mp)</source>
+        <translation>Chevaliers de la Table Ronde (250 MP)</translation>
     </message>
 </context>
 <context>
