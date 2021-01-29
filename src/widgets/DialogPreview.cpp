@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2021  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -25,43 +25,37 @@ DialogPreview::DialogPreview(QWidget *parent) :
     , btn_ll(new QPushButton(this))
     , btn_lr(new QPushButton(this))
 {
-    QString style = QString("QPushButton:enabled{background-color: #00000000;border:0px;} QPushButton:hover{background-color: %1;}")
-                    .arg(palette().highlight().color().name(QColor::HexRgb).insert(1, QString("60")));
-    setStyleSheet(style);
+    setStyleSheet(_style.arg(palette().highlight().color().name(QColor::HexRgb).insert(1, QStringLiteral("60"))));
     setMinimumSize(60, 30);
 
     connect(btn_ul, &QPushButton::clicked, this, [this] {
         QColor color = QColorDialog::getColor(upper_left, this);
-        if (color.isValid()) {
-            SetULeft(color);
-        }
+        if (color.isValid())
+            setULeft(color);
     });
 
     connect(btn_ur, &QPushButton::clicked, this, [this] {
         QColor color = QColorDialog::getColor(upper_right, this);
-        if (color.isValid()) {
-            SetLRight(color);
-        }
+        if (color.isValid())
+            setURight(color);
     });
 
     connect(btn_ll, &QPushButton::clicked, this, [this] {
         QColor color = QColorDialog::getColor(lower_left, this);
-        if (color.isValid()) {
-            SetLLeft(color);
-        }
+        if (color.isValid())
+            setLLeft(color);
     });
 
     connect(btn_lr, &QPushButton::clicked, this, [this] {
         QColor color = QColorDialog::getColor(lower_right, this);
-        if (color.isValid()) {
-            SetLRight(color);
-        }
+        if (color.isValid())
+            setLRight(color);
     });
 
     draw();
 }
 
-void DialogPreview::SetLLeft(QColor newColor)
+void DialogPreview::setLLeft(QColor newColor)
 {
     if (lower_left != newColor) {
         lower_left = newColor;
@@ -70,7 +64,7 @@ void DialogPreview::SetLLeft(QColor newColor)
     }
 }
 
-void DialogPreview::SetULeft(QColor newColor)
+void DialogPreview::setULeft(QColor newColor)
 {
     if (upper_left != newColor) {
         upper_left = newColor;
@@ -79,7 +73,7 @@ void DialogPreview::SetULeft(QColor newColor)
     }
 }
 
-void DialogPreview::SetLRight(QColor newColor)
+void DialogPreview::setLRight(QColor newColor)
 {
     if (lower_right != newColor) {
         lower_right = newColor;
@@ -88,7 +82,7 @@ void DialogPreview::SetLRight(QColor newColor)
     }
 }
 
-void DialogPreview::SetURight(QColor newColor)
+void DialogPreview::setURight(QColor newColor)
 {
     if (upper_right != newColor) {
         upper_right = newColor;

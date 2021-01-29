@@ -45,10 +45,10 @@ public:
     {
         return upper_right;
     };
-    void SetLLeft(QColor newColor);
-    void SetULeft(QColor newColor);
-    void SetLRight(QColor newColor);
-    void SetURight(QColor newColor);
+    void setLLeft(QColor newColor);
+    void setULeft(QColor newColor);
+    void setLRight(QColor newColor);
+    void setURight(QColor newColor);
 signals:
     void LL_ColorChanged(QColor color);
     void LR_ColorChanged(QColor color);
@@ -64,6 +64,7 @@ private:
     QPushButton *btn_ur = nullptr;
     QPushButton *btn_ll = nullptr;
     QPushButton *btn_lr = nullptr;
+    inline static const QString _style = QStringLiteral("QPushButton:enabled{background-color: #00000000;border:0px;} QPushButton:hover{background-color: %1;}");
 protected:
     void resizeEvent(QResizeEvent *);
 };

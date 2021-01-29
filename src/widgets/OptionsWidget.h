@@ -44,8 +44,8 @@ public:
     explicit OptionsWidget(QWidget *parent = nullptr);
     void setInput(int controlAction, int newButton);/**< \brief change action  to a PSXBUTTON \param controlAction Action to change See::FF7Save::CONTROLACTION\param newButton Button must be valid FF7Save::PSXBUTTON */
 public slots:
-    void setSliderStyle(QString styleSheet);/**< \brief set style for the sliders on this widget \param styleSheet valid styleSheet for QSlider */
-    void setScrollAreaStyleSheet(QString styleSheet); /**< \brief set style for the center widget \param styleSheet valid styleSheet for QWidget */
+    void setSliderStyle(const QString &styleSheet);/**< \brief set style for the sliders on this widget \param styleSheet valid styleSheet for QSlider */
+    void setScrollAreaStyleSheet(const QString &styleSheet); /**< \brief set style for the center widget \param styleSheet valid styleSheet for QWidget */
     void setDialogColors(QColor ul, QColor ur, QColor ll, QColor lr); /**< \brief set colors for dialog/menu background preview \param ul Upper Left Color \param ur Upper Right Color \param ll Lower Left Color \param lr Lower Right Color */
     void setAtbMode(int mode); /**< \brief Set Atb Mode \param mode must be valid FF7Save::ATBMODE */
     void setSoundMode(int mode); /**< \brief Set Sound Mode \param mode must be valid FF7Save::SOUNDMODE */

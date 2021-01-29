@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2013 -2021  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk.                                           //
 //                                                                          //
@@ -183,75 +183,70 @@ OptionsWidget::OptionsWidget(QWidget *parent) :
 void OptionsWidget::resizeEvent(QResizeEvent *event)
 {
     int margins = contentsMargins().right() + contentsMargins().left();
-    if (!verticalScrollBar()->isVisible()) {
+
+    if (!verticalScrollBar()->isVisible())
         centerWidget->setFixedWidth(width() - margins);
-    } else {
+    else
         centerWidget->setFixedWidth(width() - (margins + verticalScrollBar()->width()));
-    }
+
     dialogBox->setFixedSize(centerWidget->width() - 20, centerWidget->width() / 4);
     centerWidget->adjustSize();
     event->accept();
 }
 void OptionsWidget::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange) {
+    if (e->type() != QEvent::LanguageChange)
         QWidget::changeEvent(e);
-    }
     updateText();
 }
+
 void OptionsWidget::updateText()
 {
     dialogBox->setTitle(tr("In-Game Dialog Preview"));
     labelAtb->setText(tr("ATB Style"));
     if (comboAtb->count() != 0) {
-        for (int i = 0; i < comboAtb->count(); i++) {
+        for (int i = 0; i < comboAtb->count(); i++)
             comboAtb->setItemText(i, tr(_atbList.at(i).toLatin1()));
-        }
     } else {
         comboAtb->addItems(_atbList);
     }
 
     labelSound->setText(tr("Sound Mode"));
     if (comboSound->count() != 0) {
-        for (int i = 0; i < comboSound->count(); i++) {
+        for (int i = 0; i < comboSound->count(); i++)
             comboSound->setItemText(i, tr(_soundList.at(i).toLatin1()));
-        }
     } else {
         comboSound->addItems(_soundList);
     }
 
     labelMagic->setText(tr("Magic Order"));
     if (comboMagicOrder->count() != 0) {
-        for (int i = 0; i < comboMagicOrder->count(); i++) {
+        for (int i = 0; i < comboMagicOrder->count(); i++)
             comboMagicOrder->setItemText(i, tr(_magicOrderList.at(i).toLatin1()));
-        }
     } else {
         comboMagicOrder->addItems(_magicOrderList);
     }
 
     labelCursor->setText(tr("Cursor Type"));
     if (comboCursor->count() != 0) {
-        for (int i = 0; i < comboCursor->count(); i++) {
+        for (int i = 0; i < comboCursor->count(); i++)
             comboCursor->setItemText(i, tr(_cursorCameraList.at(i).toLatin1()));
-        }
     } else {
         comboCursor->addItems(_cursorCameraList);
     }
 
     labelCamera->setText(tr("Camera"));
     if (comboCamera->count() != 0) {
-        for (int i = 0; i < comboCamera->count(); i++) {
+        for (int i = 0; i < comboCamera->count(); i++)
             comboCamera->setItemText(i, tr(_cursorCameraList.at(i).toLatin1()));
-        }
     } else {
         comboCamera->addItems(_cursorCameraList);
     }
 
     labelControllerMode->setText(tr("Controller Settings"));
     if (comboControllerMode->count() != 0) {
-        for (int i = 0; i < comboControllerMode->count(); i++) {
+        for (int i = 0; i < comboControllerMode->count(); i++)
             comboControllerMode->setItemText(i, tr(_controllerModeList.at(i).toLatin1()));
-        }
     } else {
         comboControllerMode->addItems(_controllerModeList);
     }
@@ -271,22 +266,20 @@ void OptionsWidget::updateText()
     controllerMappingBox->setTitle(tr("Custom Controller Mapping (PSX Only)"));
 
     if (!lblInputs.isEmpty()) {
-        for (int i = 0; i < lblInputs.count(); i++) {
+        for (int i = 0; i < lblInputs.count(); i++)
             lblInputs[i]->setText(tr(_inputNames.at(i).toLatin1()));
-        }
     } else {
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 16; i++)
             lblInputs.append(new QLabel(tr(_inputNames.at(i).toLatin1())));
-        }
     }
 }
 void OptionsWidget::setDialogColors(QColor ul, QColor ur, QColor ll, QColor lr)
 {
     dialogPreview->blockSignals(true);
-    dialogPreview->SetULeft(ul);
-    dialogPreview->SetURight(ur);
-    dialogPreview->SetLLeft(ll);
-    dialogPreview->SetLRight(lr);
+    dialogPreview->setULeft(ul);
+    dialogPreview->setURight(ur);
+    dialogPreview->setLLeft(ll);
+    dialogPreview->setLRight(lr);
     dialogPreview->blockSignals(false);
 }
 void OptionsWidget::setAtbMode(int mode)
@@ -373,7 +366,7 @@ void OptionsWidget::setFieldMessageSpeed(int speed)
     slideFieldMessageSpeed->blockSignals(false);
 }
 
-void OptionsWidget::setSliderStyle(QString styleSheet)
+void OptionsWidget::setSliderStyle(const QString &styleSheet)
 {
     slideBattleSpeed->setStyleSheet(styleSheet);
     slideBattleMessageSpeed->setStyleSheet(styleSheet);
@@ -403,8 +396,8 @@ QGridLayout *OptionsWidget::makeControllerLayout()
         comboBox->addItem(QIcon(QPixmap(":/psxButtons/cross")), QString());
         comboBox->addItem(QIcon(QPixmap(":/psxButtons/square")), QString());
         comboBox->addItem(QIcon(QPixmap(":/psxButtons/select")), QString());
-        comboBox->addItem(QIcon(QPixmap()), QString(tr("9")));
-        comboBox->addItem(QIcon(QPixmap()), QString(tr("10")));
+        comboBox->addItem(QString(tr("9")));
+        comboBox->addItem(QString(tr("10")));
         comboBox->addItem(QIcon(QPixmap(":/psxButtons/start")), QString());
         comboBox->addItem(QIcon(QPixmap(":/psxButtons/up")), QString());
         comboBox->addItem(QIcon(QPixmap(":/psxButtons/right")), QString());
@@ -426,15 +419,15 @@ QGridLayout *OptionsWidget::makeControllerLayout()
 void OptionsWidget::setInput(int controlAction, int newButton)
 {
     QComboBox *inputCombo = centerWidget->findChild<QComboBox *>(_actionNames.at(controlAction));
-    if (inputCombo->currentIndex() == newButton) {
+    if (inputCombo->currentIndex() == newButton)
         return;
-    }
+
     inputCombo->blockSignals(true);
     inputCombo->setCurrentIndex(newButton);
     inputCombo->blockSignals(false);
 }
 
-void OptionsWidget::setScrollAreaStyleSheet(QString stylesheet)
+void OptionsWidget::setScrollAreaStyleSheet(const QString &stylesheet)
 {
     centerWidget->setStyleSheet(stylesheet);
 }
