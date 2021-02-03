@@ -32,8 +32,8 @@ target_include_directories(ff7tkUtils
 )
 
 target_link_libraries (ff7tkUtils PUBLIC
-        Qt5::Core
-        Qt5::Gui
+        Qt::Core
+        Qt::Gui
         ZLIB::ZLIB
  )
 

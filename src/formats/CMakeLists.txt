@@ -31,7 +31,7 @@ target_include_directories(ff7tkFormats
 
 target_link_libraries (ff7tkFormats
   PUBLIC
-    Qt5::Core
+    Qt::Core
     ff7tk::ff7tkUtils
 )
 

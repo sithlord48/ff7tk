@@ -44,10 +44,10 @@ endif()
 target_include_directories (ff7tkWidgetGallery PRIVATE ${CMAKE_BINARY_DIR}/src/data ${CMAKE_BINARY_DIR}/src/widgets ${CMAKE_BINARY_DIR}/src/formats)
 
 target_link_libraries ( ff7tkWidgetGallery
-        Qt5::Core
-        Qt5::Gui
-        Qt5::Widgets
-        Qt5::Quick
+        Qt::Core
+        Qt::Gui
+        Qt::Widgets
+        Qt::Quick
         ff7tk::ff7tk
         ff7tk::ff7tkUtils
         ff7tk::ff7tkFormats

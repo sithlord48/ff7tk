@@ -61,9 +61,9 @@ target_include_directories(ff7tkWidgets
 
 target_link_libraries (ff7tkWidgets
   PUBLIC
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Gui
+    Qt::Core
+    Qt::Widgets
+    Qt::Gui
     ff7tk::ff7tk
 )
 

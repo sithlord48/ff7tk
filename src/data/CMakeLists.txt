@@ -20,7 +20,7 @@ set ( ff7tkData_SRC
     )
 
 set (ff7tkData_HEADERS
-    ff7tkAbout.h            FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
+    ff7tkAbout.h       FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
     FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
 )
@@ -79,9 +79,9 @@ configure_package_config_file(
 )
 
 target_link_libraries (ff7tk PUBLIC
-        Qt5::Core
-        Qt5::Quick
-        Qt5::Xml
+        Qt::Core
+        Qt::Quick
+        Qt::Xml
 )
 
 set_target_properties(
