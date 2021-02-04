@@ -25,6 +25,10 @@ init:
     Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:appveyor_repo_branch,$env:appveyor_build_number,$env:commit )
 install:
 - cmd: >-
+    choco install doxygen.install
+
+    refreshenv
+
     %QTDIR%\bin\qtenv2.bat
 
     if not %QTDIR:msvc=%==%QTDIR% call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" %ARCH%
