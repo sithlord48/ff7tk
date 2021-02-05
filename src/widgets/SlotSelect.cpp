@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2021  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -27,17 +27,18 @@
 #include <FF7Save.h>
 
 
-SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *parent) : QDialog(parent)
+SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *parent)
+    : QDialog(parent)
+    , btnNew(new QPushButton(QIcon::fromTheme(QString("document-open"), QPixmap()), tr("Load Another File")))
+    , ff7(data)
+    , _scale(scale)
 {
-    _scale = scale;
-    ff7 = data;
-    list_preview = new QScrollArea();
-    btnNew = new QPushButton(QIcon::fromTheme(QString("document-open"), QPixmap()), tr("Load Another File"));
     connect(btnNew, &QPushButton::clicked, this, &SlotSelect::newFile);
     setWindowFlags(((windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowCloseButtonHint)); //remove close button
     setWindowTitle(tr("Select A Slot"));
+
     preview_layout = new QVBoxLayout;
-    frm_preview = new QFrame;
+    auto frm_preview = new QFrame;
     frm_preview->setLayout(preview_layout);
     frm_preview->setContentsMargins(0, 0, 0, 0);
     preview_layout->setContentsMargins(0, 0, 0, 0);
@@ -47,6 +48,7 @@ SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *pa
         preview_layout->addWidget(preview[i]);
         setSlotPreview(i);
     }
+    auto list_preview = new QScrollArea;
     list_preview->setWidget(frm_preview);
     list_preview->setContentsMargins(0, 0, 0, 0);
     QVBoxLayout *dialog_layout = new QVBoxLayout;

@@ -21,8 +21,6 @@
     #include <ff7tkwidgets_export.h>
 #endif
 
-class QFrame;
-class QScrollArea;
 class QVBoxLayout;
 class QWidget;
 
@@ -58,9 +56,7 @@ private:
     void setSlotPreview(int s);
     void showLoad(bool shown);
     void ReIntSlot(int s);
-    QFrame *frm_preview;
     QVBoxLayout *preview_layout;
-    QScrollArea *list_preview;
     SlotPreview *preview[15];
     QPushButton *btnNew;
     //Private Data
