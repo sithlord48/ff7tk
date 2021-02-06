@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2021 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -150,7 +150,7 @@ void MainWindow::on_btn_showmetaData_clicked()
 void MainWindow::on_btn_slotSelect_clicked()
 {
     FF7Save *ff7save = new FF7Save();
-    QString fileFilter("Multi Slot Save Types (*.ff7 *.vmp *.vgs *.mem *.gme *.mcr *.mcd *.mci *.mc *.ddf *.ps *.psm *.VM1 *.bin *.psv);;PC FF7 SaveGame (*.ff7);;MC SaveGame (*.mcr *.mcd *.mci *.mc *.ddf *.ps *.psm *.VM1 *.bin);;PSP SaveGame (*.vmp);;VGS SaveGame(*.vgs *.mem);;Dex-Drive SaveGame(*.gme)");
+    QString fileFilter = FF7SaveInfo::instance()->knownTypesFilter();
     QString filename = QFileDialog::getOpenFileName(this, "Select A Save To Preview", QDir::homePath(), fileFilter);
     if (!filename.isEmpty()) {
         if (ff7save->loadFile(filename)) {
