@@ -58,8 +58,10 @@ SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *pa
     dialog_layout->addWidget(btnNew);
     showLoad(loadVisible);
     setLayout(dialog_layout);
-    setFixedWidth(int(preview[1]->contentsRect().size().width() + contentsMargins().left() + contentsMargins().right() + list_preview->verticalScrollBar()->widthMM() + 14 * _scale));
+    setFixedWidth(int(preview[1]->width() + contentsMargins().left() + contentsMargins().right() + list_preview->verticalScrollBar()->sizeHint().width()  + 4 * _scale));
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+    if(parent)
+        move(parent->x() + ((parent->width() - width()) / 2), parent->y() + ((parent->sizeHint().height() - sizeHint().height()) /2));
 }
 
 void SlotSelect::button_clicked(int s)
