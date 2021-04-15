@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2021  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -2877,8 +2877,10 @@ void FF7Save::setParty(int s, int pos, int new_id)
     if (pos >= 0 && pos < 3) {
         if (new_id >= 0 && new_id < 12) {
             slot[s].party[pos] = new_id;
+            slot[s].f_party[pos] = new_id;
         } else {
             slot[s].party[pos] = 0xFF;
+            slot[s].f_party[pos] = 0xFF;
         }
         setFileModified(true, s);
     }
@@ -3546,6 +3548,7 @@ QByteArray FF7Save::unknown(int s, int z)
     case 44: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_44), sizeof(slot[s].z_44)); break;
     case 45: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_45), sizeof(slot[s].z_45)); break;
     case 46: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_46), sizeof(slot[s].z_46)); break;
+    case 47: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_47), sizeof(slot[s].z_47)); break;
     default: temp.setRawData(0x00, 1); break;
     }
     return temp;
@@ -3972,11 +3975,21 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = true;
             break;
         }
+    case 47:
+        if (data.size() != sizeof(slot[s].z_47)) {
+            result = false;
+            break;
+        } else {
+            memcpy(&slot[s].z_47, data, sizeof(slot[s].z_47));
+            result = true;
+            break;
+        }
     default: result = false; break;
     }
     setFileModified(true, s);
     return result;
 }
+
 bool FF7Save::soundMode(int s)
 {
     return (slot[s].options & (1 << 0));
