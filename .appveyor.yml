@@ -81,6 +81,5 @@ deploy:
 
 branches:
   except:
-    - continuous
     - gh-pages
 
