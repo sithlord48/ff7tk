@@ -1,12 +1,11 @@
 language: cpp
-sudo: require
 dist: xenial
 osx_image: xcode10.3
 
 os:
  - linux
  - osx
-matrix:
+jobs:
  exclude:
 # Don't build with clang on Linux
   - os: linux
@@ -125,17 +124,15 @@ after_success:
   - bash ./upload.sh ff7tk-continuous-*.*
 
 deploy:
-  provider: pages
-  local_dir: docs/doc/html
-  skip_cleanup: true
-  token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: false
-  on:
-    condition: ${TRAVIS_OS_NAME} = linux
-    branch: master
+  - provider: pages
+    skip_cleanup: true
+    local_dir: docs/doc/html
+    token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    on:
+      condition: ${TRAVIS_OS_NAME} = linux
+      branch: master
 
 branches:
   except:
     - # Do not build tags that we create when we upload to GitHub Releases
-    - /^(?i:continuous)$/
     - /^(?i:gh-pages)$/
