@@ -50,6 +50,8 @@ script:
     sudo cp -r ff7tk-continuous-linux/usr /;
     cp -r ff7tk-continuous-linux/usr ff7tk;
     rm -rf ff7tk/usr/bin;
+    rm -rf ff7tk/usr/share/applications;
+    rm -rf ff7tk/usr/share/pixmaps;
     rm -rf ff7tk-continuous-linux/usr/share/doc;
     rm -rf ff7tk-continuous-linux/usr/share/ff7tk;
     rm -rf ff7tk-continuous-linux/usr/share/pkgconfig;
