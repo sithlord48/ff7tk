@@ -33,8 +33,9 @@ install:
     fi
 
 - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
-    brew upgrade qt5;
+    brew install qt@5;
     brew install doxygen;
+    brew upgrade cmake;
     chmod -R 755 /usr/local/opt/qt5/*;
     fi
 
@@ -118,9 +119,9 @@ script:
     zip -r -X ff7tk-continuous-macos.zip ff7tk-continuous-macos;
     fi
 before_deploy:
+  - git config --local user.name "sithlord48"
+  - git config --local user.email "sithlord48@gmail.com"
   - git tag -f continuous
-  - git push
-
 deploy:
   - provider: pages
     skip_cleanup: true
