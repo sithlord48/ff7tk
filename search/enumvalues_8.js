@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['hades',['Hades',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a3c1bb7d01a4d11136ea404d86559ffa8',1,'FF7Materia']]],
+  ['hairpin',['Hairpin',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7aeb406882a841084b5f0bb7222a88ac7e',1,'FF7Item']]],
+  ['halve',['Halve',['../class_f_f7_item.html#ad874f36876c4442dff3fe795f00f7455a1d9b4edb403fa2ff8012a0db69107707',1,'FF7Item']]],
+  ['hardedge',['Hardedge',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a964b4261dddef84c0303fd1bf276ebde',1,'FF7Item']]],
+  ['hawkeye',['Hawkeye',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac4fd1d8f590ae3f3b5fdf316e7644896',1,'FF7Item']]],
+  ['headband',['Headband',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a7af0392d60fee7af4d33245f5cf7abed',1,'FF7Item']]],
+  ['heal',['Heal',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a3fb294e28e3d1b95c630018a939439d2',1,'FF7Materia']]],
+  ['heavenscloud',['HeavensCloud',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a6571cccded4e35d0b970ebd28277e0a0',1,'FF7Item']]],
+  ['heavyvulcan',['HeavyVulcan',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a579709e86e91016cebc4050b871a4c1a',1,'FF7Item']]],
+  ['herodrink',['HeroDrink',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a2c854c0cd47c450ac6120b5cafb26059',1,'FF7Item']]],
+  ['highwind',['Highwind',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a027447415b7de821a31f93c2eb163b33',1,'FF7Item']]],
+  ['hipotion',['HiPotion',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac3efdedc6d0ed396fe014ceb2050f7ea',1,'FF7Item']]],
+  ['holytorch',['HolyTorch',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a0e300939ff58baf75784f82cb1299630',1,'FF7Item']]],
+  ['hourglass',['Hourglass',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ae8b3aa5215e57424aff7199762df0fc5',1,'FF7Item']]],
+  ['hpabsorb',['HpAbsorb',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a657756d2b8a30f03c7e28cfa7e4cff03',1,'FF7Materia']]],
+  ['hpmp',['HPMP',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a6d53040894517d7a7adf8e9258ba3d4c',1,'FF7Materia']]],
+  ['hpplus',['HpPlus',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a12d69f1cbb15047f98b10c6d72b59b64',1,'FF7Materia']]],
+  ['hpshout',['HpShout',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a099001fc060a60aa00d86da03d7c78ea',1,'FF7Item']]],
+  ['hugemateria_5fcondor',['HUGEMATERIA_CONDOR',['../class_f_f7_save.html#a4b82e92cd13f6eb20fc9552f83479a95ad4f2bae4f9e83939cc517ba13730a579',1,'FF7Save']]],
+  ['hugemateria_5fcorel',['HUGEMATERIA_COREL',['../class_f_f7_save.html#a4b82e92cd13f6eb20fc9552f83479a95a89cbb214cdff264b87ec1e63644bd085',1,'FF7Save']]],
+  ['hugemateria_5frocket',['HUGEMATERIA_ROCKET',['../class_f_f7_save.html#a4b82e92cd13f6eb20fc9552f83479a95a24c8a50ac6b7862ae303a909a21f1666',1,'FF7Save']]],
+  ['hugemateria_5funderwater',['HUGEMATERIA_UNDERWATER',['../class_f_f7_save.html#a4b82e92cd13f6eb20fc9552f83479a95a197a8cd98ad89968aea3affddac0a9d3',1,'FF7Save']]],
+  ['hyper',['Hyper',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ade22e5374d4d96e1dae64dbfe2083285',1,'FF7Item']]],
+  ['hypnocrown',['HypnoCrown',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a94f768d4f39a3c94330e5b63abbd3eec',1,'FF7Item']]]
+];
