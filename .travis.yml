@@ -39,7 +39,6 @@ install:
     fi
 
 script:
-- export VERSION=continuous;
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
     source /opt/qt*/bin/qt*-env.sh;
     cmake -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt;
@@ -118,10 +117,9 @@ script:
     cp -r $QTDIR/qml/QtQuick/Controls ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/;
     zip -r -X ff7tk-continuous-macos.zip ff7tk-continuous-macos;
     fi
-
-after_success:
-  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash ./upload.sh ff7tk-continuous-*.*
+before_deploy:
+  - git tag -f continuous
+  - git push
 
 deploy:
   - provider: pages
@@ -131,8 +129,21 @@ deploy:
     on:
       condition: ${TRAVIS_OS_NAME} = linux
       branch: master
+  - provider: releases
+    edge: true
+    cleanup: false
+    token: $GITHUB_TOKEN
+    tag_name: continuous
+    target_commitish: $TRAVIS_COMMIT
+    overwrite: true
+    file_glob: true
+    file: ff7tk-continuous-*.*
+    on:
+      branch: master
+      tags: true
 
 branches:
   except:
     - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)$/
     - /^(?i:gh-pages)$/
