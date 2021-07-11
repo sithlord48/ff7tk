@@ -79,19 +79,19 @@ QIcon FF7Item::icon(int id)
 QString FF7Item::materiaSlotNoGrowthResource()
 {
     QString temp = d->_resourceSlotNoGrowth;
-return temp.remove(QStringLiteral(":/"));
+    return temp.remove(QStringLiteral(":/"));
 }
 
 QString FF7Item::materiaSlotResource()
 {
     QString temp = d->_resourceSlot;
-return temp.remove(QStringLiteral(":/"));
+    return temp.remove(QStringLiteral(":/"));
 }
 
 QString FF7Item::materiaLinkResource()
 {
     QString temp = d->_resourceLink;
-return temp.remove(QStringLiteral(":/"));
+    return temp.remove(QStringLiteral(":/"));
 }
 
 QImage FF7Item::image(int id)
