@@ -318,7 +318,7 @@ public:
     /** \brief
      *  \param s slot number (0-14)
      *  \param data: replace existing data with these bytes
-     *  \overload setSlotFF7Data(int,FF7SLOT)
+     *  \overload setSlotFF7Data(int, const FF7SLOT&)
      */
     bool setSlotFF7Data(int s, QByteArray data);
     bool setSlotFF7Data(int s, const FF7SLOT &data);
