@@ -1,5 +1,5 @@
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
-find_package(Qt5LinguistTools) 
+find_package(QT NAMES Qt6LinguistTools Qt5LinguistTools)
 
 set(ff7tk_TRS
     ff7tk_en.ts
@@ -10,7 +10,7 @@ set(ff7tk_TRS
     ff7tk_re.ts
 )
 
-qt5_create_translation(TRS ${CMAKE_SOURCE_DIR} ${ff7tk_TRS})
+qt_create_translation(TRS ${CMAKE_SOURCE_DIR} ${ff7tk_TRS})
 add_custom_target(ff7tk_translations ALL DEPENDS ${TRS})
 
 install(FILES ${TRS} DESTINATION share/ff7tk/lang)
