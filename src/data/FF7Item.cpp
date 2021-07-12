@@ -63,7 +63,7 @@ QString FF7Item::desc(int id)
 QString FF7Item::iconResource(int id)
 {
     QString temp = item(id).imageString;
-    return temp.remove(":/");
+    return temp.remove(QStringLiteral(":/"));
 }
 
 int FF7Item::type(int id)
@@ -78,17 +78,20 @@ QIcon FF7Item::icon(int id)
 
 QString FF7Item::materiaSlotNoGrowthResource()
 {
-    return d->_resourceSlotNoGrowth;
+    QString temp = d->_resourceSlotNoGrowth;
+return temp.remove(QStringLiteral(":/"));
 }
 
 QString FF7Item::materiaSlotResource()
 {
-    return d->_resourceSlot;
+    QString temp = d->_resourceSlot;
+return temp.remove(QStringLiteral(":/"));
 }
 
 QString FF7Item::materiaLinkResource()
 {
-    return d->_resourceLink;
+    QString temp = d->_resourceLink;
+return temp.remove(QStringLiteral(":/"));
 }
 
 QImage FF7Item::image(int id)
@@ -511,17 +514,17 @@ int FF7Item::size() const
 
 QImage FF7Item::imageMateriaSlotNoGrowth()
 {
-    return QImage(materiaSlotNoGrowthResource());
+    return QImage(d->_resourceSlotNoGrowth);
 }
 
 QImage FF7Item::imageMateriaSlot()
 {
-    return QImage(materiaSlotResource());
+    return QImage(d->_resourceSlot);
 }
 
 QImage FF7Item::imageMateriaLink()
 {
-    return QImage(materiaLinkResource());
+    return QImage(d->_resourceLink);
 }
 
 const QString &FF7Item::styleMateriaSlotNoGrowth()
