@@ -75,7 +75,7 @@ deploy:
   tag: continuous
   description: continuous
   auth_token:
-    secure: 1B1lpcCmJ4GDn0uv7vDK9tIkHacvCVGAo+tH4nepXsCeh8FEfD8YJmLw4T91ECmw
+    secure: 79KvFARS18fuYDLAG8Hwx7Cd6/xcc2J3mavTdU+iorvmJT3rYpvmjgBENlU90PRD
   artifact: ff7tk
   force_update: true
 

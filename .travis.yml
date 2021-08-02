@@ -118,10 +118,15 @@ script:
     cp -r $QTDIR/qml/QtQuick/Controls ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/;
     zip -r -X ff7tk-continuous-macos.zip ff7tk-continuous-macos;
     fi
-before_deploy:
-  - git config --local user.name "sithlord48"
-  - git config --local user.email "sithlord48@gmail.com"
-  - git tag -f continuous
+after_success:
+- wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+    bash ./upload.sh ff7tk-continuous-linux.tar.gz;
+    fi
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+    bash ./upload.sh ff7tk-continuous-macos.zip;
+    fi
+
 deploy:
   - provider: pages
     skip_cleanup: true
@@ -130,18 +135,6 @@ deploy:
     on:
       condition: ${TRAVIS_OS_NAME} = linux
       branch: master
-  - provider: releases
-    edge: true
-    cleanup: false
-    token: $GITHUB_TOKEN
-    tag_name: continuous
-    target_commitish: $TRAVIS_COMMIT
-    overwrite: true
-    file_glob: true
-    file: ff7tk-continuous-*.*
-    on:
-      branch: master
-      tags: true
 
 branches:
   except:
