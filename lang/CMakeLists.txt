@@ -1,5 +1,6 @@
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
-find_package(QT NAMES Qt6LinguistTools Qt5LinguistTools)
+
+find_package(Qt${QT_DEFAULT_MAJOR_VERSION}LinguistTools)
 
 set(ff7tk_TRS
     ff7tk_en.ts

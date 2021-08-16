@@ -40,7 +40,6 @@ install:
     fi
 
 script:
-- export VERSION=continuous;
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
     source /opt/qt*/bin/qt*-env.sh;
     cmake -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr CMakeLists.txt;
@@ -120,6 +119,7 @@ script:
     zip -r -X ff7tk-continuous-macos.zip ff7tk-continuous-macos;
     fi
 after_success:
+- export VERSION=continuous;
 - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
     bash ./upload.sh ff7tk-continuous-linux.tar.gz;

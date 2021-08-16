@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(QT_DEFAULT_MAJOR_VERSION 5)
 
 include(GenerateExportHeader)
 # Get the version from git if it's a git repository
