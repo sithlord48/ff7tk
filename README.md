@@ -1,8 +1,5 @@
-ff7tk  [![Build Status](https://travis-ci.org/sithlord48/ff7tk.svg?branch=master)](https://travis-ci.org/sithlord48/ff7tk)
-<a href="https://scan.coverity.com/projects/4162">
-  <img alt="Coverity Scan Build Status"
-       src="https://scan.coverity.com/projects/4162/badge.svg"/>
-</a>
+ff7tk
+[![Linux Status](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml/badge.svg)](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml)
 ===
 A Toolkit for making programs that edit final fantasy 7
 
