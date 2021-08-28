@@ -6,5 +6,5 @@ var searchData=
   ['killedrubyweapon',['killedRubyWeapon',['../class_f_f7_save.html#a745287707ed7c6fd49ca868b13a47376',1,'FF7Save']]],
   ['kills',['kills',['../class_char_editor.html#a61fe7d99cf0fe4cf8f273962edf58bc7',1,'CharEditor']]],
   ['kills_5fchanged',['kills_changed',['../class_char_editor.html#ae7624cef2d001d9467bb779221304a41',1,'CharEditor']]],
-  ['knowntypesfilter',['knownTypesFilter',['../class_f_f7_save_info.html#a4af5be4e80e55855a255aea5715c6eba',1,'FF7SaveInfo']]]
+  ['knowntypesfilter',['knownTypesFilter',['../class_f_f7_save_info.html#a24569d654a92ee753d90c18f3903703e',1,'FF7SaveInfo']]]
 ];

@@ -16,7 +16,7 @@ var searchData=
   ['kills',['kills',['../class_char_editor.html#a61fe7d99cf0fe4cf8f273962edf58bc7',1,'CharEditor']]],
   ['kills_5fchanged',['kills_changed',['../class_char_editor.html#ae7624cef2d001d9467bb779221304a41',1,'CharEditor']]],
   ['kissofdeath',['KissOfDeath',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7aeb4c2e54d5d72c410eada7a65167f8a9',1,'FF7Item']]],
-  ['knowntypesfilter',['knownTypesFilter',['../class_f_f7_save_info.html#a4af5be4e80e55855a255aea5715c6eba',1,'FF7SaveInfo']]],
+  ['knowntypesfilter',['knownTypesFilter',['../class_f_f7_save_info.html#a24569d654a92ee753d90c18f3903703e',1,'FF7SaveInfo']]],
   ['kotr',['KOTR',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a1a2251f7ffa382f93a2fb81f92054e16',1,'FF7Materia']]],
   ['krakkagreens',['KrakkaGreens',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a2be335287bc986c065c2b1039b5e6c41',1,'FF7Item']]],
   ['kujata',['Kujata',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a5ef6f9e4082c01a58ebc19ec10814ab0',1,'FF7Materia']]]

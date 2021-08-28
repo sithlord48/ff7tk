@@ -1,7 +1,7 @@
 var searchData=
 [
   ['d',['d',['../class_f_f7_location.html#a33a27422a83e4fd43b5a0dc8506a358f',1,'FF7Location::d(int index)'],['../class_f_f7_location.html#ad899abedc5f4dabeb2fa1ea96d5ad865',1,'FF7Location::d(const QString &amp;fileName)']]],
-  ['data',['data',['../class_iso_file.html#ae958f12b17f4cdbd34495934693e6c5c',1,'IsoFile']]],
+  ['data',['data',['../class_iso_file.html#a0dcf957c96626082cba2a6e11afae1e1',1,'IsoFile']]],
   ['dchanged',['dChanged',['../class_location_viewer.html#a56e5f85533e978a9417b31a9e733c15a',1,'LocationViewer']]],
   ['dec2hex',['dec2Hex',['../class_iso_archive_i_o.html#a6360333605f8ff6e0398ca794a391a82',1,'IsoArchiveIO']]],
   ['decompress',['decompress',['../class_g_z_i_p.html#a7e89d765970f0cfae0252591d805f8eb',1,'GZIP::decompress(const QByteArray &amp;data, int decSize, Strategy strategy=StrategyDefault)'],['../class_g_z_i_p.html#afb77311ee369151b0df662dcd113308f',1,'GZIP::decompress(const char *data, int size, int decSize, Strategy strategy=StrategyDefault)'],['../class_g_z_i_p.html#a72984b6ccf1bcd75fa1d4c50b4850020',1,'GZIP::decompress(const QString &amp;path, int decSize, Strategy strategy=StrategyDefault)'],['../class_g_z_i_p_p_s.html#a214e1a25f52be6600daecd79401619ef',1,'GZIPPS::decompress(const QByteArray &amp;data)'],['../class_g_z_i_p_p_s.html#a6c4bd9d7c4864e15ab4d0ebde92e6a2a',1,'GZIPPS::decompress(const char *data, int size)'],['../class_l_z_s.html#a1ea4878254664a5d7d51566ca36d076e',1,'LZS::decompress(const QByteArray &amp;data, int max)'],['../class_l_z_s.html#a1b1db108c6996cedead55dfc90133eba',1,'LZS::decompress(const char *data, int fileSize, int max)']]],
@@ -33,9 +33,9 @@ var searchData=
   ['dialogcolorur',['dialogColorUR',['../class_f_f7_save.html#a2d20ef6c073ae94082ef1ae484e8e739',1,'FF7Save']]],
   ['dialogcolorurchanged',['dialogColorURChanged',['../class_options_widget.html#a52af0eaa229ec9d21343e97618a32c85',1,'OptionsWidget']]],
   ['dialogpreview',['DialogPreview',['../class_dialog_preview.html#a4742ae61dab861f046fe4025347a954c',1,'DialogPreview']]],
-  ['diffcountsectors',['diffCountSectors',['../class_iso_archive.html#a82a11068e6489b955c779cc594ebf01e',1,'IsoArchive']]],
-  ['directories',['directories',['../class_iso_directory.html#a0de5f693ec188290a8731b1575746498',1,'IsoDirectory']]],
-  ['directory',['directory',['../class_iso_directory.html#a88744d02b95e2af2fcf266a346e13492',1,'IsoDirectory']]],
+  ['diffcountsectors',['diffCountSectors',['../class_iso_archive.html#aed346c30e0829342f2a94dd2bf2c274e',1,'IsoArchive']]],
+  ['directories',['directories',['../class_iso_directory.html#abe4971eab22285fd20712b083bd1dcba',1,'IsoDirectory']]],
+  ['directory',['directory',['../class_iso_directory.html#a4e9ca371a790feb8c85380d4365eb27e',1,'IsoDirectory']]],
   ['disablechocolabels',['disableChocoLabels',['../class_chocobo_manager.html#adb25661889a349b7fc8bbed11f370d5f',1,'ChocoboManager']]],
   ['disc',['disc',['../class_f_f7_save.html#ad8bd3c956536d62b6ee3b67e1829d17e',1,'FF7Save']]],
   ['disconnectall',['disconnectAll',['../class_char_editor.html#a5c56aa6876bb0b2da37ee24251685b43',1,'CharEditor::disconnectAll()'],['../class_menu_list_widget.html#a6c0f4c777b3757e48af5f6fdc3f00435',1,'MenuListWidget::disconnectAll()'],['../class_phs_list_widget.html#a0affdaf60949611621218409cbe26190',1,'PhsListWidget::disconnectAll()']]],

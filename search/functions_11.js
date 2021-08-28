@@ -13,11 +13,11 @@ var searchData=
   ['removefile',['removeFile',['../class_archive.html#add7ac1bb6998b0001c39a8dd8151fe33',1,'Archive::removeFile()'],['../class_lgp.html#a5e77a61d951e0dfe64f967785ca9c5bf',1,'Lgp::removeFile()']]],
   ['renameentry',['renameEntry',['../class_lgp_toc.html#ac62095f8f4ea73bc231a5e319fae7496',1,'LgpToc']]],
   ['renamefile',['renameFile',['../class_archive.html#aeec3e8a747ac89f1b6106aec7817cbd0',1,'Archive::renameFile()'],['../class_lgp.html#accdef48826a68d5757d8eb4f1ae9f25f',1,'Lgp::renameFile()']]],
-  ['reorganizemodifiedfilesafter',['reorganizeModifiedFilesAfter',['../class_iso_archive.html#ae7b47e7abadc4114f55a3f62e4d418dd',1,'IsoArchive']]],
+  ['reorganizemodifiedfilesafter',['reorganizeModifiedFilesAfter',['../class_iso_archive.html#ad53b894225d05a158ddb0cc7faaefff8',1,'IsoArchive']]],
   ['repairlocationsectors',['repairLocationSectors',['../class_iso_archive.html#a061d4c93d164ae9d07346d4df9c9c77e',1,'IsoArchive']]],
   ['resizeevent',['resizeEvent',['../class_chocobo_editor.html#a5009636660fd6e0fbfbae1207de9f793',1,'ChocoboEditor::resizeEvent()'],['../class_dialog_preview.html#a1e2bde28dd6af66dbf0615673fa0c3ab',1,'DialogPreview::resizeEvent()'],['../class_location_viewer.html#a93094532d33440a7e6828c7ca9769638',1,'LocationViewer::resizeEvent()'],['../class_options_widget.html#ac346b76a82ec2c8bbc8b6c0aa10e46de',1,'OptionsWidget::resizeEvent()']]],
   ['rmchocobo',['rmChocobo',['../class_chocobo_manager.html#ac56151c022857f35f1683772a27e9060',1,'ChocoboManager']]],
-  ['rootdirectory',['rootDirectory',['../class_iso_archive.html#a88a314c331e310c7371ccfb68f2ab300',1,'IsoArchive']]],
+  ['rootdirectory',['rootDirectory',['../class_iso_archive.html#a1578c403acb8549fcc9f048bb64d072d',1,'IsoArchive']]],
   ['row',['row',['../class_char_editor.html#a60c696f3b7c54c249f36e3a386460f8c',1,'CharEditor']]],
   ['row_5fchanged',['row_changed',['../class_char_editor.html#add7c1bef5b2c17c900275f30da5472b3',1,'CharEditor']]],
   ['runs',['runs',['../class_f_f7_save.html#a2415999c7ca66c211868d1f964d70c5c',1,'FF7Save']]]

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['validnames',['validNames',['../class_f_f7_save_info.html#af892648acff027fbe537e7d6f2675b79',1,'FF7SaveInfo']]],
+  ['validnames',['validNames',['../class_f_f7_save_info.html#ad52a765cb9b0bf095c612f90fe3fcaaa',1,'FF7SaveInfo']]],
   ['vincentunlocked',['vincentUnlocked',['../class_f_f7_save.html#aad4f55bd675e87e190a36d4033eef0a3',1,'FF7Save']]],
   ['visibletoggled',['visibleToggled',['../class_menu_list_widget.html#a399b30482cb47f5c665dc04203bc0b42',1,'MenuListWidget::visibleToggled()'],['../class_phs_list_widget.html#adf99ed6f717f472ccebd69eb8d916b64',1,'PhsListWidget::visibleToggled()']]],
   ['vit',['vit',['../class_char_editor.html#a4a7fd1cb4c4d7e92035fcadfaefb1add',1,'CharEditor']]],

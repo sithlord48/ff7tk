@@ -1,7 +1,7 @@
 var searchData=
 [
   ['nailbat',['NailBat',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ab2c1498d52ebdcbd3fb7bc93d3780191',1,'FF7Item']]],
-  ['name',['NAME',['../class_location_viewer.html#ab866e6698e61200ae7c10be4f054eec7a94adb5415c156a5978126389945c3271',1,'LocationViewer::NAME()'],['../struct_f_f7_item_1_1_i_t_e_m.html#ae6211d76d7b6b4acc271d2cf6177fd2b',1,'FF7Item::ITEM::name()'],['../struct_f_f7_materia_1_1_m_a_t_e_r_i_a.html#a1e59b12ea780445c82087617d62769f6',1,'FF7Materia::MATERIA::name()'],['../struct_path_table.html#a6fd700429b65630a89bcff483bada774',1,'PathTable::name()'],['../struct_directory_record.html#ab25f74afb176e6895babe4a337351521',1,'DirectoryRecord::name()'],['../class_slot_preview.html#a028b7c7ad4f03f5c39121c6302bb4ed4',1,'SlotPreview::name()'],['../class_f_f7_achievements.html#a0c1cdc7f1da36ad7d2c66e145d1f3998',1,'FF7Achievements::name()'],['../class_f_f7_item.html#aa7aa3eeff42d4c88ad609c9598f9b9e8',1,'FF7Item::name()'],['../class_f_f7_materia.html#a649358137a107de60e6901d78dd7792e',1,'FF7Materia::name()'],['../class_iso_file_or_directory.html#abff3a996d3e3455ee5d3e36566388f8d',1,'IsoFileOrDirectory::name()'],['../class_char_editor.html#a36ee84086cf4e3f51b81a14ee94e5203',1,'CharEditor::name()']]],
+  ['name',['NAME',['../class_location_viewer.html#ab866e6698e61200ae7c10be4f054eec7a94adb5415c156a5978126389945c3271',1,'LocationViewer::NAME()'],['../struct_f_f7_item_1_1_i_t_e_m.html#ae6211d76d7b6b4acc271d2cf6177fd2b',1,'FF7Item::ITEM::name()'],['../struct_f_f7_materia_1_1_m_a_t_e_r_i_a.html#a1e59b12ea780445c82087617d62769f6',1,'FF7Materia::MATERIA::name()'],['../struct_path_table.html#a6fd700429b65630a89bcff483bada774',1,'PathTable::name()'],['../struct_directory_record.html#ab25f74afb176e6895babe4a337351521',1,'DirectoryRecord::name()'],['../class_slot_preview.html#a028b7c7ad4f03f5c39121c6302bb4ed4',1,'SlotPreview::name()'],['../class_f_f7_achievements.html#a0c1cdc7f1da36ad7d2c66e145d1f3998',1,'FF7Achievements::name()'],['../class_f_f7_item.html#aa7aa3eeff42d4c88ad609c9598f9b9e8',1,'FF7Item::name()'],['../class_f_f7_materia.html#a649358137a107de60e6901d78dd7792e',1,'FF7Materia::name()'],['../class_iso_file_or_directory.html#a824a5cb603d093178fcecc9467a2dc72',1,'IsoFileOrDirectory::name()'],['../class_char_editor.html#a36ee84086cf4e3f51b81a14ee94e5203',1,'CharEditor::name()']]],
   ['name_5fchanged',['name_changed',['../class_char_editor.html#a452d7019db863e37caf6c981c195d058',1,'CharEditor']]],
   ['namechanged',['nameChanged',['../class_chocobo_editor.html#acec74159cfd57feac0237e86869d9d3c',1,'ChocoboEditor::nameChanged()'],['../class_chocobo_manager.html#a55b9c5144894d3c3080a1a00df2eae28',1,'ChocoboManager::nameChanged()']]],
   ['nb',['Nb',['../aes_8c.html#a1ae104196f1fc7af4751c5b9e07b1610',1,'aes.c']]],
@@ -10,9 +10,9 @@ var searchData=
   ['newfile',['newFile',['../class_slot_select.html#a4de30c7518256222d47d07cde7765308',1,'SlotSelect']]],
   ['newgame',['newGame',['../class_f_f7_save.html#a9d1fa402b817fc23f116608960085c78',1,'FF7Save']]],
   ['newgameplus',['newGamePlus',['../class_f_f7_save.html#a172e2cacddaed8aa51c038e7f311997b',1,'FF7Save']]],
-  ['newlocation',['newLocation',['../class_iso_file_or_directory.html#ab3755ee447fd451cdc868dd59300c11d',1,'IsoFileOrDirectory']]],
-  ['newsectorcount',['newSectorCount',['../class_iso_file_or_directory.html#ac404975c08d95589032ae88321cd182b',1,'IsoFileOrDirectory']]],
-  ['newsize',['newSize',['../class_iso_file_or_directory.html#a8d2bca1142b03b263c70cd9cc06bcf28',1,'IsoFileOrDirectory']]],
+  ['newlocation',['newLocation',['../class_iso_file_or_directory.html#a82893c6815e34052bfd6cd93ac1ed96f',1,'IsoFileOrDirectory']]],
+  ['newsectorcount',['newSectorCount',['../class_iso_file_or_directory.html#a0aa4bb0a92ea704532d2336e55714759',1,'IsoFileOrDirectory']]],
+  ['newsize',['newSize',['../class_iso_file_or_directory.html#a137c84993327357d4d97c8e1828c1622',1,'IsoFileOrDirectory']]],
   ['newstyledbutton',['newStyledButton',['../class_materia_editor.html#aa573ffb916532827f4be48631ad4cbd6',1,'MateriaEditor']]],
   ['next',['next',['../class_lgp_iterator.html#a80b0511f8aa852637126b2aaeff715ae',1,'LgpIterator']]],
   ['nextframe',['nextFrame',['../class_save_icon.html#af4999d3ffe52181e473bce6f43b21b6c',1,'SaveIcon']]],

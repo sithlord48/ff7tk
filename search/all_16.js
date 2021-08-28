@@ -3,7 +3,7 @@ var searchData=
   ['v_5fspacer',['v_spacer',['../class_materia_editor.html#a25631724c504c3e73063d8b3b9be5b1d',1,'MateriaEditor']]],
   ['vaccine',['Vaccine',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a4521c072eb275c63f30474ae7e2b81a6',1,'FF7Item']]],
   ['vagyriskclaw',['VagyriskClaw',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7abf28cbfe64ade91d3ff70e4818cd0b1a',1,'FF7Item']]],
-  ['validnames',['validNames',['../class_f_f7_save_info.html#af892648acff027fbe537e7d6f2675b79',1,'FF7SaveInfo']]],
+  ['validnames',['validNames',['../class_f_f7_save_info.html#ad52a765cb9b0bf095c612f90fe3fcaaa',1,'FF7SaveInfo']]],
   ['vampirefang',['VampireFang',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7aba7fd66f171516758dbb706544884d58',1,'FF7Item']]],
   ['vd1',['vd1',['../struct_volume_descriptor.html#a5bf93cd5d8024d7d18f8e3196098f2fa',1,'VolumeDescriptor']]],
   ['vd2',['vd2',['../struct_volume_descriptor.html#afb93081d6b85fc6cf29e0ece45e88fc8',1,'VolumeDescriptor']]],
