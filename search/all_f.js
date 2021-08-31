@@ -21,7 +21,6 @@ var searchData=
   ['options',['options',['../class_f_f7_save.html#a17e8a415c24f64ceb45f4f7f51aaca79',1,'FF7Save']]],
   ['optionswidget',['OptionsWidget',['../class_options_widget.html',1,'OptionsWidget'],['../class_options_widget.html#ab64d1e019020e806237aac05e18721f1',1,'OptionsWidget::OptionsWidget()']]],
   ['optionswidget_2ecpp',['OptionsWidget.cpp',['../_options_widget_8cpp.html',1,'']]],
-  ['optionswidget_2ecpp_2eo_2ed',['OptionsWidget.cpp.o.d',['../_options_widget_8cpp_8o_8d.html',1,'']]],
   ['optionswidget_2eh',['OptionsWidget.h',['../_options_widget_8h.html',1,'']]],
   ['organics',['Organics',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7aa039fbbbfe45c410a71ac47b2f815e69',1,'FF7Item']]],
   ['oritsuru',['Oritsuru',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a513579515a21503e443884ca77051159',1,'FF7Item']]],

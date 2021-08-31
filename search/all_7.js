@@ -38,11 +38,9 @@ var searchData=
   ['gysahlgreens',['GysahlGreens',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a3c33cde47845105d6df71abe87d7ee19',1,'FF7Item']]],
   ['gzip',['GZIP',['../class_g_z_i_p.html',1,'']]],
   ['gzip_2ecpp',['GZIP.cpp',['../_g_z_i_p_8cpp.html',1,'']]],
-  ['gzip_2ecpp_2eo_2ed',['GZIP.cpp.o.d',['../_g_z_i_p_8cpp_8o_8d.html',1,'']]],
   ['gzip_2eh',['GZIP.h',['../_g_z_i_p_8h.html',1,'']]],
   ['gzipps',['GZIPPS',['../class_g_z_i_p_p_s.html',1,'']]],
   ['gzipps_2ecpp',['GZIPPS.cpp',['../_g_z_i_p_p_s_8cpp.html',1,'']]],
-  ['gzipps_2ecpp_2eo_2ed',['GZIPPS.cpp.o.d',['../_g_z_i_p_p_s_8cpp_8o_8d.html',1,'']]],
   ['gzipps_2eh',['GZIPPS.h',['../_g_z_i_p_p_s_8h.html',1,'']]],
   ['gzipps_5fheader_5fsize',['GZIPPS_HEADER_SIZE',['../_g_z_i_p_p_s_8h.html#ae28a0e23750061ffb9e4dbff00b3cc5f',1,'GZIPPS.h']]],
   ['gzmode',['gzMode',['../class_g_z_i_p.html#a9eee4189b2fb8bc39d6abdb37f32c20a',1,'GZIP']]]
