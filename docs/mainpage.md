@@ -1,6 +1,5 @@
 # ff7tk
-
-ff7tk is a Toolkit to make programing tools Final Fantasy VII easier.
+ff7tk is a Toolkit that makes programing Final Fantasy VII tools easier.
 
 This project is under [LGPL-3.0]+.
 
@@ -9,7 +8,7 @@ ff7tk is written by:
  - Chris Rizzitello <sithlord48@gmail.com>
 
  with Contributions from: 
- - Arzel Jérôme <myst6re@gmail.com>
+ - Jérôme Arzel <myst6re@gmail.com>
  - Vegeta_Ss4 <vegeta.ss4.dev@gmail.com>
 
 

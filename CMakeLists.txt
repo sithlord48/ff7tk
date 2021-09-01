@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 cmake_policy(SET CMP0074 NEW)
 
-project(ff7tk VERSION 0.80.20 DESCRIPTION "Work with Final Fantasy 7 game data")
+project(ff7tk VERSION 0.80.21 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
