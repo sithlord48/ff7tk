@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.80.20</span>
+   &#160;<span id="projectnumber">0.80.21</span>
    </div>
    <div id="projectbrief">ff7tk is a Toolkit to make programing for Final Fantasy VII easier.</div>
   </td>
@@ -66,22 +66,30 @@ $(function() {
 <div class="contents">
 <div class="textblock"><p>To build ff7tk you wil need <a href="https://cmake.org/">cmake</a>, <a href="https://www.qt.io">Qt</a> and <a href="https://zlib.net/">zlib</a></p>
 <p>Currently ff7tk will build:</p><ul>
-<li>A Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)</li>
+<li>A Required Core Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)</li>
+<li>Optional Libraries ff7tkWidgets, ff7tkUtils and ff7tkFormats.</li>
 <li>Headers for the library so you can link to it</li>
 <li>Required CMake parts to find it post install.</li>
 <li>Translation files "ff7tk_&lt;lang&gt;.qm" for english, spanish, french, german, japanese and reunion retranslation.</li>
 </ul>
 <h2>Configuration</h2>
-<p>By Default only the library will be built. Enable additional items show below by adding options.</p>
 <p>Build Options: </p><table class="doxtable">
 <tr>
-<th align="center">Option </th><th align="center">Description  </th></tr>
+<th align="center">Option </th><th align="center">Description </th><th align="center">Default Value  </th></tr>
 <tr>
-<td align="center">WIDGET_GALLERY </td><td align="center">Build the Widget based gallery. </td></tr>
+<td align="center">WIDGET_GALLERY </td><td align="center">Build the Widget based gallery. </td><td align="center">OFF </td></tr>
 <tr>
-<td align="center">QML_GALLERY </td><td align="center">Build the Qml based gallery. </td></tr>
+<td align="center">QML_GALLERY </td><td align="center">Build the QML based gallery. </td><td align="center">OFF </td></tr>
 <tr>
-<td align="center">DOCS </td><td align="center">Build Documentation, <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a> is required. </td></tr>
+<td align="center">DOCS </td><td align="center">Build Documentation. Requires <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a> </td><td align="center">OFF </td></tr>
+<tr>
+<td align="center">FORMATS </td><td align="center">Build ff7tkFormats </td><td align="center">ON </td></tr>
+<tr>
+<td align="center">UTILS </td><td align="center">Build ff7tkUtils. Requires <a href="https://zlib.net/">zlib</a> </td><td align="center">ON </td></tr>
+<tr>
+<td align="center">WIDGETS </td><td align="center">Build ff7tkWidgets. </td><td align="center">ON </td></tr>
+<tr>
+<td align="center">QT_DEFAULT_MAJOR_VERSION </td><td align="center">The Major Version of Qt used </td><td align="center">5 </td></tr>
 </table>
 <p>Example cmake command.</p>
 <p><code>cmake -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=&lt;INSTALLPREFIX&gt; CMakeLists.txt</code></p>
@@ -92,6 +100,7 @@ $(function() {
 <p>running<code>make install</code> will install the built items into the provided &lt;INSTALLPREFIX&gt;</p>
 <h1>Using With your project</h1>
 <p>After installing you can use in your cmake project by simply adding <code>find_project(ff7tk)</code> and link with <code>ff7tk::ff7tk</code></p>
+<p>Addtional Modules include <code>ff7tkFormats</code> link with <code>ff7tk::ff7tkFormats</code> <code>ff7tkUtils</code> link with <code>ff7tk::ff7tkUtils</code> <code>ff7tkWidgets</code> link with <code>ff7tk::ff7tkWidgets</code></p>
 <p>For QMake you can use the pkgconfig provided by the system <code>config +=link_pkgconfig</code> <code>PKGCONFIG += ff7tk</code></p>
 <h1>ff7tk version info</h1>
 <p>include the file <a class="el" href="ff7tk_about_8h.html">ff7tkAbout.h</a> and use the function <a class="el" href="ff7tk_about_8h.html#a69af587fb46a6122bd132d2435fe9787" title="Get the version of ff7tk in use. ">ff7tk_version()</a> or <a class="el" href="ff7tk_about_8h.html#a25bc2d986b16f369554af644bb99bf26" title="Get the checked out revision of the ff7tk in use. ">ff7tk_revision()</a> </p>
