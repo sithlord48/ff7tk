@@ -83,6 +83,7 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Mem Card Format~~~~~~~~~~~~~~~~~~~*/
     static const int VMC_FILE_SIZE = 0x20000;
     static const int VMC_FILE_HEADER_SIZE = 0x2000;
+    static const int VMC_VMC_HEADER_OFFSET = 0x0000;
     inline static const QString VMC_FILE_DESCRIPTION = tr("Virtual Memory Card");
     inline static const QStringList VMC_VALID_EXTENSIONS {
         QStringLiteral("*.mcr"), QStringLiteral("*.mcd"), QStringLiteral("*.mci"),
@@ -93,16 +94,18 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PSP SAVE FORMAT~~~~~~~~~~~~~~~~~~~*/
     static const int PSP_FILE_SIZE = 0x20080;
     static const int PSP_FILE_HEADER_SIZE = 0x2080;
+    static const int PSP_VMC_HEADER_OFFSET = 0x0080;
     inline static const QString PSP_FILE_DESCRIPTION = tr("PSP and PsVita Virtual Memory Card");
     inline static const QStringList PSP_VALID_EXTENSIONS { QStringLiteral("*.VMP")};
     inline static const QRegularExpression PSP_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("\\S+.VMP"));
     inline static const QByteArray PSP_FILE_ID = QByteArray::fromRawData("\x00\x50\x4D\x56\x80", 5);
     static const int PSP_SEED_OFFSET = 0x000C;
     static const int PSP_SIGNATURE_OFFSET = 0x0020;
-    inline static const QByteArray PSP_FILE_HEADER = QByteArray::fromRawData("\x00\x50\x4D\x56\x80\x00\x00\x00\x00\x00\x00\x00\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F\x10\x11\x12\x13\x54\x37\x42\x51\xEE\xB0\x88\xDB\x2E\xBD\xA5\x09\x24\xB6\x5C\x17\x6D\xED\x87\x36\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 128);
+    inline static const QByteArray PSP_FILE_HEADER = QByteArray::fromRawData("\x00\x50\x4D\x56\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x11\x12\x13\x54\x37\x42\x51\xEE\xB0\x88\xDB\x2E\xBD\xA5\x09\x24\xB6\x5C\x17\x6D\xED\x87\x36\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 128);
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~VGS SAVE FORMAT~~~~~~~~~~~~~~~~~~~~*/
     static const int VGS_FILE_SIZE = 0x20040;
     static const int VGS_FILE_HEADER_SIZE = 0x2040;
+    static const int VGS_VMC_HEADER_OFFSET = 0x0040;
     inline static const QString VGS_FILE_DESCRIPTION = tr("Virtual Game Station Memory Card");
     inline static const QStringList VGS_VALID_EXTENSIONS { QStringLiteral("*.vgs"), QStringLiteral("*.mem")};
     inline static const QRegularExpression VGS_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("\\S+.(vgs|mem)"), QRegularExpression::CaseInsensitiveOption);
@@ -110,6 +113,7 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DEX SAVE FORMAT~~~~~~~~~~~~~~~~~~~~*/
     static const int DEX_FILE_SIZE = 0x20F40;
     static const int DEX_FILE_HEADER_SIZE = 0x2F40;
+    static const int DEX_VMC_HEADER_OFFSET = 0x0F40;
     inline static const QString DEX_FILE_DESCRIPTION = tr("DEX Drive Virtual Memory Card");
     inline static const QStringList DEX_VALID_EXTENSIONS {QStringLiteral("*.gme")};
     inline static const QRegularExpression DEX_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("\\S+.gme"), QRegularExpression::CaseInsensitiveOption);
@@ -117,6 +121,7 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PGE SAVE FORMAT~~~~~~~~~~~~~~~~~~~*/
     static const int PGE_FILE_SIZE = 0x2080;
     static const int PGE_FILE_HEADER_SIZE = 0x0080;
+    static const int PGE_VMC_HEADER_OFFSET = 0x0000; //PGE format while single slot has the header data prepended to the slot data.
     inline static const QString PGE_FILE_DESCRIPTION = tr("PSXGameEdit Memory Juggler");
     inline static const QStringList PGE_VALID_EXTENSIONS { QStringLiteral("*.mcs"), QStringLiteral("*.ps1")};
     inline static const QRegularExpression PGE_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("\\S+.(mcs|ps1)"), QRegularExpression::CaseInsensitiveOption);
@@ -448,4 +453,27 @@ bool FF7SaveInfo::internalPC(FF7SaveInfo::FORMAT format) const
         case FORMAT::PC: return true;
         default: return false;
     };
+}
+
+bool FF7SaveInfo::isVirtualMemoryCard(FF7SaveInfo::FORMAT format) const
+{
+    switch(format) {
+        case FORMAT::VMC:
+        case FORMAT::VGS:
+        case FORMAT::DEX:
+        case FORMAT::PSP: return true;
+        default: return false;
+    };
+}
+int FF7SaveInfo::vmcHeaderOffset(FORMAT format) const
+{
+    switch (format) {
+    case FORMAT::PSP: return d->PSP_VMC_HEADER_OFFSET;
+    case FORMAT::DEX: return d->DEX_VMC_HEADER_OFFSET;
+    case FORMAT::VGS: return d->VGS_VMC_HEADER_OFFSET;
+    case FORMAT::VMC: return d->VMC_VMC_HEADER_OFFSET;
+    case FORMAT::PGE: return d->PGE_VMC_HEADER_OFFSET;
+    default: return -1;
+    }
+
 }

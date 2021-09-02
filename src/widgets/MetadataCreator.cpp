@@ -122,7 +122,7 @@ void MetadataCreator::onAccepted()
         if (!ff7->loadFile(InFiles.at(i)))
             return;
         if (ff7->format() != FF7SaveInfo::FORMAT::PC)
-            ff7->exportPC(OutFile);
+            ff7->exportFile(OutFile, FF7SaveInfo::FORMAT::PC);
         else if (!ff7->saveFile(OutFile))
                 QMessageBox::critical(this, QString(tr("File Error")), QString(tr("Failure to write the File: %1")).arg(OutFile));
         ff7->fixMetaData(OutFile, UserID);
