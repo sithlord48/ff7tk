@@ -37,7 +37,7 @@ jobs:
             , ff7tkPrefix: /usr
             , build_ff7tk: "DESTDIR=ff7tk-continuous-macos ninja install"
             , packageName: ff7tk-continuous-macos
-            , releasePackage: "ff7tk-continuous-macos.dmg"
+            , releasePackage: "ff7tk-continuous-macos.zip"
           }
         - {
             name: "Windows-x64", WIN_ARCH: "x64"
@@ -154,13 +154,13 @@ jobs:
         cp ff7tk-continuous-macos/ff7tk/usr/lib/libff7tkFormats.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
         cp ff7tk-continuous-macos/ff7tk/usr/lib/libff7tkUtils.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
         cp ff7tk-continuous-macos/ff7tk/usr/lib/libff7tkWidgets.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
-        macdeployqt ff7tk-continuous-macos/ff7tkWidgetGallery.app
+        macdeployqt ff7tk-continuous-macos/ff7tkWidgetGallery.app -executable=${{github.workspace}}/ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
         install_name_tool -change @rpath/libff7tk.0.dylib @executable_path/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
         install_name_tool -change @rpath/libff7tkFormats.0.dylib @executable_path/libff7tkFormats.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
         install_name_tool -change @rpath/libff7tkUtils.0.dylib @executable_path/libff7tkUtils.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
         install_name_tool -change @rpath/libff7tkWidgets.0.dylib @executable_path/libff7tkWidgets.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
         cp ff7tk-continuous-macos/ff7tk/usr/lib/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/MacOS
-        macdeployqt ff7tk-continuous-macos/ff7tkQmlGallery.app
+        macdeployqt ff7tk-continuous-macos/ff7tkQmlGallery.app -executable=${{github.workspace}}/ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkQmlGallery
         install_name_tool -change @rpath/libff7tk.0.dylib @executable_path/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/MacOS/ff7tkQmlGallery
         mkdir -p ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/Layouts
         cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Layouts ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/
