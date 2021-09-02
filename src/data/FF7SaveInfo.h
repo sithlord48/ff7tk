@@ -235,6 +235,19 @@ public:
      */
     Q_INVOKABLE bool internalPC(FF7SaveInfo::FORMAT format) const;
 
+    /**
+     * @brief Check if a format is a Virtual Memory card
+     * @param format - Format to check
+     * @return True if format is a Virtual Memory card type.
+     */
+    Q_INVOKABLE bool isVirtualMemoryCard(FF7SaveInfo::FORMAT format) const;
+
+    /**
+     * @brief mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves.
+     * @param format - Format to check
+     * @return Offset where the Vmc header starts or -1 if invalid.
+     */
+    Q_INVOKABLE int vmcHeaderOffset(FF7SaveInfo::FORMAT format) const;
 private:
     FF7SaveInfo *operator = (FF7SaveInfo &other) = delete;
     FF7SaveInfo(const FF7SaveInfo &other) = delete;

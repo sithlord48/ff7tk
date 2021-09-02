@@ -127,78 +127,14 @@ public:
     */
     bool saveFile(const QString &fileName, int s = 0);
 
-    /** \brief attempt to export a file as ff7save. A convenance function to call the proper export function
+    /** \brief Export a File to the specificed format. Calls one of several internal methods to export the file.
     *  \param fileName file that will be saved
-    *  \param newFormat The Format to export.
-    *  \param s Slot to export if exporting to a multi slot save type
+    *  \param exportFormat The Format to export.
+    *  \param s Slot to export if exporting to a single slot save type
     *  \return True if Successful
-    *  \sa exportPC(),exportPSX(),exportPS3(),exportVMC(),exportDEX(),exportVGS(),exportVMP(),exportPGE()
+    *  \sa exportPCFormat(),exportVMCFormat(),exportPSX(),exportPS3(),exportPGE(),exportPDA
     */
-    bool exportFile(const QString &fileName, FF7SaveInfo::FORMAT newFormat, int s = 0);
-
-    /** \brief attempt to save fileName as a PC ff7save
-     *  \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportPC(const QString &fileName);
-
-    /** \brief attempt to save fileName as a Switch ff7slot
-     *  \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportSWITCH(const QString &fileName);
-
-    /** \brief attempt to save fileName as a PSX ff7save
-     *  \param s slot in loaded file to export as psx
-    *   \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportPSX(int s, const QString &fileName);
-
-    /** \brief attempt to save fileName as a PS3 save
-     *  \param s slot in loaded file to export as ps3
-    *   \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportPS3(int s, const QString &fileName);
-
-    /** \brief attempt to save fileName in PGE format
-     *  \param s slot in loaded file to export in PGE format
-    *   \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportPGE(int s, const QString &fileName);
-
-    /** \brief attempt to save fileName in PDA format
-     *  \param s slot in loaded file to export in PDA format
-    *   \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportPDA(int s, const QString &fileName);
-
-    /** \brief attempt to save fileName as a Virtual Memory Card (slots without a region string will not be exported)
-     *  \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportVMC(const QString &fileName);
-
-    /** \brief attempt to save fileName as a VMP file (PSP / Vita Virtual Memory Card) slots without a region string will not be exported.
-     *  \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportVMP(const QString &fileName);
-
-    /** \brief attempt to save fileName as a DEX Drive format memory card file
-     *  \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportDEX(const QString &fileName);
-
-    /** \brief attempt to save fileName as a Virtual Game Station format memory card file
-     *  \param fileName file that will be saved
-     *  \return True if Successful
-    */
-    bool exportVGS(const QString &fileName);
+    bool exportFile(const QString &fileName, FF7SaveInfo::FORMAT exportFormat, int s = 0);
 
     /** \brief import from a file into a slot
      *
@@ -1055,8 +991,44 @@ public:
     bool isBufferSlotPopulated();/**< \brief True when the bufferslot is populated */
 signals:
     void fileChanged(bool);/**< \brief emits when internal data changes */
+
 private:
-    //methods
+    /** \brief attempt to save fileName as a PC Format save
+     *  \param fileName file that will be saved
+     *  \param exportFormat PC type to export FF7SaveInfo::FORMAT::PC or FF7SaveInfo::FORMAT::SWITCH
+     *  \return True if Successful
+    */
+    bool exportPCFormat(const QString &fileName, FF7SaveInfo::FORMAT exportFormat);
+
+    /** \brief attempt to save fileName as a VMC Format save
+     *  \param fileName file that will be saved
+     *  \param exportFormat VMC type to export FF7SaveInfo::FORMAT::VMC, FF7SaveInfo::FORMAT::VGS or FF7SaveInfo::FORMAT::DEX
+     *  \return True if Successful
+    */
+    bool exportVMCFormat(const QString &fileName, FF7SaveInfo::FORMAT exportFormat);
+
+    /** \brief attempt to a Slot as as Single Slot format
+     *  \param fileName file that will be saved
+     *  \param exportFormat VMC type to export FF7SaveInfo::FORMAT::PSX, FF7SaveInfo::FORMAT::PGE, FF7SaveInfo::FORMAT::PDA or FF7SaveInfo::FORMAT::PS3
+     *  \param s Slot to export.
+     *  \return True if Successful
+    */
+    bool exportSlot(const QString &fileName, FF7SaveInfo::FORMAT exportFormat, int s);
+
+    QString md5sum(QString fileName, QString UserID);
+    QString fileblock(const QString &fileName);
+    QString filetimestamp(QString fileName);
+    void checksumSlots();
+    quint16 ff7Checksum(int s);
+    void fix_psv_header(int s, int blocks = 1);
+    void fix_pge_header(int s);
+    void fix_pda_header(int s);
+    void fix_psx_header(int s);
+    void fix_vmp_header(void);
+    void fix_vmc_header(void);
+    quint16 itemDecode(quint16 itemraw);
+    quint16 itemEncode(quint16 id, quint8 qty);
+    void vmcRegionEval(int s);
     //data members
     FF7SLOT buffer_slot;// hold a buffer slot
     FF7SLOT slot[15]; //core slot data.
@@ -1069,22 +1041,6 @@ private:
     QString buffer_region; // hold the buffers region data.
     QString SG_Region_String[15];
     QString filename;//opened file;
-    //private functions
-    QString md5sum(QString fileName, QString UserID);
-    QString fileblock(const QString &fileName);
-    QString filetimestamp(QString fileName);
-    void checksumSlots();
-    quint16 ff7Checksum(int s);
-    void fix_psv_header(int s);
-    void fix_pge_header(int s);
-    void fix_pda_header(int s);
-    void fix_psx_header(int s);
-    void fix_vmp_header(void);
-    void fix_vmc_header(void);
-    quint16 itemDecode(quint16 itemraw);
-    quint16 itemEncode(quint16 id, quint8 qty);
-    void vmcRegionEval(int s);
-    int _blocks = 1;
     QVector< SubContainer > parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID);
     QVector< SubContainer > createMetadata(const QString &fileName, const QString &UserID);
 
