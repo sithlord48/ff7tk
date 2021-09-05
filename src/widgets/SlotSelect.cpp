@@ -71,7 +71,7 @@ void SlotSelect::button_clicked(int s)
 
 void SlotSelect::remove_slot(int s)
 {
-    if (!FF7SaveInfo::instance()->internalPC(ff7->format())) {
+    if (!FF7SaveInfo::instance()->isTypePC(ff7->format())) {
         if (ff7->psx_block_type(s) != char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_INUSE)
                 && ff7->psx_block_type(s) != char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED)) {
             return;
@@ -100,7 +100,7 @@ void SlotSelect::copy_slot(int s)
 
 void SlotSelect::paste_slot(int s)
 {
-    if (!FF7SaveInfo::instance()->internalPC(ff7->format())) {
+    if (!FF7SaveInfo::instance()->isTypePC(ff7->format())) {
         if (ff7->psx_block_type(s) == char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_MIDLINK)
          || ff7->psx_block_type(s) == char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_ENDLINK)) {
             return;

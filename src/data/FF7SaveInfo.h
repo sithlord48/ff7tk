@@ -233,21 +233,35 @@ public:
      * @param format - Format to check 
      * @return True if format is uses PC format internally
      */
-    Q_INVOKABLE bool internalPC(FF7SaveInfo::FORMAT format) const;
+    Q_INVOKABLE bool isTypePC(FF7SaveInfo::FORMAT format) const;
 
     /**
      * @brief Check if a format is a Virtual Memory card
      * @param format - Format to check
      * @return True if format is a Virtual Memory card type.
      */
-    Q_INVOKABLE bool isVirtualMemoryCard(FF7SaveInfo::FORMAT format) const;
+    Q_INVOKABLE bool isTypeVMC(FF7SaveInfo::FORMAT format) const;
+
+    /**
+     * @brief Check if a format is a SingleSlot Save
+     * @param format - Format to check
+     * @return True if format is a a SingleSlot Save Type. (PSX, PDA, PGE + PSV)
+     */
+    Q_INVOKABLE bool isTypeSSS(FF7SaveInfo::FORMAT format) const;
 
     /**
      * @brief mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves.
      * @param format - Format to check
-     * @return Offset where the Vmc header starts or -1 if invalid.
+     * @return Offset where the Vmc header starts or -1 if invalid format provided.
      */
     Q_INVOKABLE int vmcHeaderOffset(FF7SaveInfo::FORMAT format) const;
+
+    /**
+     * @brief psxSaveNameOffset Return the offset where the psxSaveName starts. Valid only for PS3, PGE and PDA save formats.
+     * @param format - Format to check
+     * @return  Offset where the psxSaveNameOffset is or -1 if invalid format provided.
+     */
+    Q_INVOKABLE int psxSaveNameOffset(FORMAT format) const;
 private:
     FF7SaveInfo *operator = (FF7SaveInfo &other) = delete;
     FF7SaveInfo(const FF7SaveInfo &other) = delete;

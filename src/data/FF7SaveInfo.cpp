@@ -75,6 +75,7 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     static const int PS3_FILE_TYPE_OFFSET = 0x0038;
     static const int PS3_FILE_DISP_SIZE_OFFSET = 0x0040;
     static const int PS3_FILE_SIZE_OFFSET = 0x005C;
+    static const int PS3_FILE_NAME_OFFSET = 0x0064;
     inline static const QByteArray PS3_FILE_HEADER = QByteArray::fromRawData("\x00\x56\x53\x50\x00\x00\x00\x00\x04\xbc\x97\x58\x11\x0f\x7e\x85\xc7\x4f\x2f\xd0\x5a\x28\xb6\x25\xe6\x9a\x6e\xa1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x14\x00\x00\x00\x01\x00\x00\x00\x00\x20\x00\x00\x84\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x20\x00\x00\x03\x90\x00\x00\x42\x41\x53\x43\x55\x53\x2d\x39\x34\x31\x36\x33\x46\x46\x37\x2d\x53\x30\x31\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", PS3_FILE_HEADER_SIZE);
     /*~~~~~~~ PSV / PSP Common Signing ~~~~~~~~~~~~~~*/
     static const int PS_SIGNATURE_SIZE = 0x0014;
@@ -121,6 +122,7 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PGE SAVE FORMAT~~~~~~~~~~~~~~~~~~~*/
     static const int PGE_FILE_SIZE = 0x2080;
     static const int PGE_FILE_HEADER_SIZE = 0x0080;
+    static const int PGE_FILE_NAME_OFFSET = 0x000A;
     static const int PGE_VMC_HEADER_OFFSET = 0x0000; //PGE format while single slot has the header data prepended to the slot data.
     inline static const QString PGE_FILE_DESCRIPTION = tr("PSXGameEdit Memory Juggler");
     inline static const QStringList PGE_VALID_EXTENSIONS { QStringLiteral("*.mcs"), QStringLiteral("*.ps1")};
@@ -128,6 +130,7 @@ struct FF7SaveInfo::FF7SaveInfoPrivate {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PDA SAVE FORMAT~~~~~~~~~~~~~~~~~~~*/
     static const int PDA_FILE_SIZE = 0x2036;
     static const int PDA_FILE_HEADER_SIZE = 0x0036;
+    static const int PDA_FILE_NAME_OFFSET = 0x0000;
     inline static const QString PDA_FILE_DESCRIPTION = tr("XP AR GS Caetla SmartLink Dantel");
     inline static const QStringList PDA_VALID_EXTENSIONS { QStringLiteral("*.mcb"), QStringLiteral("*.mcx"),QStringLiteral("*.psx"), QStringLiteral("*.pda")};
     inline static const QRegularExpression PDA_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("\\S+.(psx|mcb|mcx|pda)"), QRegularExpression::CaseInsensitiveOption);
@@ -446,7 +449,7 @@ QString FF7SaveInfo::knownTypesFilter() const
         , typeFilter(FORMAT::UNKNOWN));
 }
 
-bool FF7SaveInfo::internalPC(FF7SaveInfo::FORMAT format) const
+bool FF7SaveInfo::isTypePC(FF7SaveInfo::FORMAT format) const
 {
     switch(format) {
         case FORMAT::SWITCH:
@@ -455,7 +458,7 @@ bool FF7SaveInfo::internalPC(FF7SaveInfo::FORMAT format) const
     };
 }
 
-bool FF7SaveInfo::isVirtualMemoryCard(FF7SaveInfo::FORMAT format) const
+bool FF7SaveInfo::isTypeVMC(FF7SaveInfo::FORMAT format) const
 {
     switch(format) {
         case FORMAT::VMC:
@@ -465,15 +468,37 @@ bool FF7SaveInfo::isVirtualMemoryCard(FF7SaveInfo::FORMAT format) const
         default: return false;
     };
 }
+
+bool FF7SaveInfo::isTypeSSS(FORMAT format) const
+{
+    switch(format) {
+        case FORMAT::PSX:
+        case FORMAT::PS3:
+        case FORMAT::PDA:
+        case FORMAT::PGE: return true;
+        default: return false;
+    };
+}
+
 int FF7SaveInfo::vmcHeaderOffset(FORMAT format) const
 {
     switch (format) {
-    case FORMAT::PSP: return d->PSP_VMC_HEADER_OFFSET;
-    case FORMAT::DEX: return d->DEX_VMC_HEADER_OFFSET;
-    case FORMAT::VGS: return d->VGS_VMC_HEADER_OFFSET;
-    case FORMAT::VMC: return d->VMC_VMC_HEADER_OFFSET;
-    case FORMAT::PGE: return d->PGE_VMC_HEADER_OFFSET;
-    default: return -1;
+        case FORMAT::PSP: return d->PSP_VMC_HEADER_OFFSET;
+        case FORMAT::DEX: return d->DEX_VMC_HEADER_OFFSET;
+        case FORMAT::VGS: return d->VGS_VMC_HEADER_OFFSET;
+        case FORMAT::VMC: return d->VMC_VMC_HEADER_OFFSET;
+        case FORMAT::PGE: return d->PGE_VMC_HEADER_OFFSET;
+        default: return -1;
     }
-
 }
+
+int FF7SaveInfo::psxSaveNameOffset(FORMAT format) const
+{
+    switch (format) {
+        case FORMAT::PGE: return d->PGE_FILE_NAME_OFFSET;
+        case FORMAT::PDA: return d->PDA_FILE_NAME_OFFSET;
+        case FORMAT::PS3: return d->PS3_FILE_NAME_OFFSET;
+        default: return -1;
+    }
+}
+
