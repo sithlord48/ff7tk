@@ -26,6 +26,7 @@
 
 class QColor;
 class QDateTime;
+class QFile;
 class QFileInfo;
 class QDomDocument;
 class QTextCodec;
@@ -114,6 +115,14 @@ public:
     //Functions
     explicit FF7Save(); /**< \brief create a new FF7Save object */
     //File Members
+
+    /**
+     * @brief fileFormat- Read a file and get its Format.
+     * @param file - A File to check the format of
+     * @return The Format of the file
+     */
+    FF7SaveInfo::FORMAT fileDataFormat(QFile &file);
+
     /** \brief attempt to load fileName as ff7save
      *  \param fileName file that will be loaded
      *  \return True if Successful
