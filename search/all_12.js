@@ -17,7 +17,7 @@ var searchData=
   ['region',['region',['../class_location_viewer.html#a3ace8366610354ea172ef2959aa3534b',1,'LocationViewer::region()'],['../class_f_f7_save.html#a313c106a2f50dcd95077aa3925938851',1,'FF7Save::region()']]],
   ['reintslot',['ReIntSlot',['../class_slot_select.html#a17dbfb3d8a25bcc4097a1bcbd4aac3c7',1,'SlotSelect']]],
   ['remedy',['Remedy',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a71887033aceb7272693791d6b6d74ea7',1,'FF7Item']]],
-  ['remove',['Remove',['../class_f_f7_item.html#ad874f36876c4442dff3fe795f00f7455a67a684b151ea5fcdf6e17e0f1a334107',1,'FF7Item::Remove()'],['../class_chocobo_label.html#a0188fa6d31c58573400b5a60afdd0edc',1,'ChocoboLabel::remove()']]],
+  ['remove',['remove',['../class_chocobo_label.html#a0188fa6d31c58573400b5a60afdd0edc',1,'ChocoboLabel::remove()'],['../class_f_f7_item.html#ad874f36876c4442dff3fe795f00f7455a67a684b151ea5fcdf6e17e0f1a334107',1,'FF7Item::Remove()']]],
   ['remove_5fslot',['remove_slot',['../class_slot_select.html#ae9804ae1ed7adeb2e29ce7fba0c6824f',1,'SlotSelect']]],
   ['removeentry',['removeEntry',['../class_lgp_toc.html#ac35d8f79c45c268595c551c794221050',1,'LgpToc']]],
   ['removeerror',['RemoveError',['../class_archive.html#a2752025d615c69dee4169592342ac5cba7bb9e4b84457f60f7e9417096efc885e',1,'Archive::RemoveError()'],['../class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ad53e5696f2a58a170c2022dcef44d131',1,'Lgp::RemoveError()']]],

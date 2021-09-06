@@ -389,7 +389,6 @@ var searchData=
   ['_5farchiveio',['_archiveIO',['../class_archive.html#aa959a0a762c8edee3b3e443521ab965c',1,'Archive']]],
   ['_5fatblist',['_atbList',['../class_options_widget.html#a4b51b93f2e337a1c116d262dc03ff878',1,'OptionsWidget']]],
   ['_5favatarstring',['_avatarString',['../struct_f_f7_char_1_1_character.html#a0d1708e738d413bb6f2608d97f4a9d6f',1,'FF7Char::Character']]],
-  ['_5fblocks',['_blocks',['../class_f_f7_save.html#af9f0358a7881f0b8342f96411084a3a7',1,'FF7Save']]],
   ['_5fbufferfileheader',['_bufferFileHeader',['../class_f_f7_save.html#a9d5b2ec4f7400674d3774422ea92fdcf',1,'FF7Save']]],
   ['_5fbuttonstyle',['_buttonStyle',['../class_materia_editor.html#a13b7c69d1ab6b381975e7c0aea1c35c8',1,'MateriaEditor']]],
   ['_5fchardata',['_charData',['../struct_f_f7_char_1_1_f_f7_char_private.html#a484f3ff789b3ac1c134dfa45622c649f',1,'FF7Char::FF7CharPrivate']]],

@@ -4,7 +4,7 @@ var searchData=
   ['occupiedchanged',['occupiedChanged',['../class_chocobo_manager.html#a46c2ae8e4ea3b2aea7c42b432521e0f7',1,'ChocoboManager']]],
   ['occupiedtoggled',['occupiedToggled',['../class_chocobo_label.html#a068e546c3d53589d34eba28cb7f473a6',1,'ChocoboLabel']]],
   ['odin',['Odin',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8addea075098755bd34919bde1ec787248',1,'FF7Materia']]],
-  ['offset',['Offset',['../struct_field_item.html#a177840a6ed6ebaf95ed8e44bccfd3a59',1,'FieldItem::Offset()'],['../class_f_f7_field_item_list.html#a186e8611387ca5e2c1c85ee7c5406f9c',1,'FF7FieldItemList::offset()']]],
+  ['offset',['offset',['../class_f_f7_field_item_list.html#a186e8611387ca5e2c1c85ee7c5406f9c',1,'FF7FieldItemList::offset()'],['../struct_field_item.html#a177840a6ed6ebaf95ed8e44bccfd3a59',1,'FieldItem::Offset()']]],
   ['omnislash',['Omnislash',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a463645d573dda21cb90ee1a7624331e4',1,'FF7Item']]],
   ['onaccepted',['onAccepted',['../class_metadata_creator.html#a70f322e1adfdedf2ed00ccd79d0019ae',1,'MetadataCreator']]],
   ['open',['open',['../class_archive.html#a74b56830b2e8f6d31f8b7a3de1a62aee',1,'Archive::open()'],['../class_iso_archive_i_o.html#ad23a67ce2c898188199d8d33c8d1205e',1,'IsoArchiveIO::open()'],['../class_iso_file_i_o.html#a0e5a976e58b12083ceb9ceb22bba4031',1,'IsoFileIO::open()'],['../class_iso_archive.html#ad085e2c40b307345bb16e5ce9c14cb38',1,'IsoArchive::open()'],['../class_lgp_i_o.html#a75313fd5f82d4c2031ba83691f7431fd',1,'LgpIO::open()'],['../class_q_locked_file.html#a85b4ba29249a88ee874d8a47f79c3f7c',1,'QLockedFile::open()']]],

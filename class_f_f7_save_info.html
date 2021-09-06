@@ -196,9 +196,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a24569d654a92ee753d90c18f3903703e"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_f7_save_info.html#a24569d654a92ee753d90c18f3903703e">knownTypesFilter</a> () const</td></tr>
 <tr class="memdesc:a24569d654a92ee753d90c18f3903703e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a constructed filter string for use in save/load Dialogs.  <a href="#a24569d654a92ee753d90c18f3903703e">More...</a><br /></td></tr>
 <tr class="separator:a24569d654a92ee753d90c18f3903703e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01e5afd55261aef8046456d0392fd7e8"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_f7_save_info.html#a01e5afd55261aef8046456d0392fd7e8">internalPC</a> (<a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a01e5afd55261aef8046456d0392fd7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is using the PC format internally.  <a href="#a01e5afd55261aef8046456d0392fd7e8">More...</a><br /></td></tr>
-<tr class="separator:a01e5afd55261aef8046456d0392fd7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f3962cbd5e55490c2349fb2f25052cc"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_f7_save_info.html#a2f3962cbd5e55490c2349fb2f25052cc">isTypePC</a> (<a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
+<tr class="memdesc:a2f3962cbd5e55490c2349fb2f25052cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is using the PC format internally.  <a href="#a2f3962cbd5e55490c2349fb2f25052cc">More...</a><br /></td></tr>
+<tr class="separator:a2f3962cbd5e55490c2349fb2f25052cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2ec793c9fb73ba9a5b1c3d62cb80dab"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_f7_save_info.html#ab2ec793c9fb73ba9a5b1c3d62cb80dab">isTypeVMC</a> (<a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
+<tr class="memdesc:ab2ec793c9fb73ba9a5b1c3d62cb80dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is a Virtual Memory card.  <a href="#ab2ec793c9fb73ba9a5b1c3d62cb80dab">More...</a><br /></td></tr>
+<tr class="separator:ab2ec793c9fb73ba9a5b1c3d62cb80dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c8db684124d3cd60183fb594ff0fd1"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_f7_save_info.html#a81c8db684124d3cd60183fb594ff0fd1">isTypeSSS</a> (<a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
+<tr class="memdesc:a81c8db684124d3cd60183fb594ff0fd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is a SingleSlot Save.  <a href="#a81c8db684124d3cd60183fb594ff0fd1">More...</a><br /></td></tr>
+<tr class="separator:a81c8db684124d3cd60183fb594ff0fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a807d2f8920bc2590d5477b1e3b85909c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_f7_save_info.html#a807d2f8920bc2590d5477b1e3b85909c">vmcHeaderOffset</a> (<a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
+<tr class="memdesc:a807d2f8920bc2590d5477b1e3b85909c"><td class="mdescLeft">&#160;</td><td class="mdescRight">mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves.  <a href="#a807d2f8920bc2590d5477b1e3b85909c">More...</a><br /></td></tr>
+<tr class="separator:a807d2f8920bc2590d5477b1e3b85909c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33bc8e38a029c45dba36268e735ecf4b"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_f7_save_info.html#a33bc8e38a029c45dba36268e735ecf4b">psxSaveNameOffset</a> (<a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FORMAT</a> format) const</td></tr>
+<tr class="memdesc:a33bc8e38a029c45dba36268e735ecf4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">psxSaveNameOffset Return the offset where the psxSaveName starts. Valid only for PS3, PGE and PDA save formats.  <a href="#a33bc8e38a029c45dba36268e735ecf4b">More...</a><br /></td></tr>
+<tr class="separator:a33bc8e38a029c45dba36268e735ecf4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -666,14 +678,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a01e5afd55261aef8046456d0392fd7e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01e5afd55261aef8046456d0392fd7e8">&#9670;&nbsp;</a></span>internalPC()</h2>
+<a id="a2f3962cbd5e55490c2349fb2f25052cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f3962cbd5e55490c2349fb2f25052cc">&#9670;&nbsp;</a></span>isTypePC()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool FF7SaveInfo::internalPC </td>
+          <td class="memname">bool FF7SaveInfo::isTypePC </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
@@ -690,6 +702,60 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if format is uses PC format internally </dd></dl>
+
+</div>
+</div>
+<a id="a81c8db684124d3cd60183fb594ff0fd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c8db684124d3cd60183fb594ff0fd1">&#9670;&nbsp;</a></span>isTypeSSS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FF7SaveInfo::isTypeSSS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
+          <td class="paramname"><em>format</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a format is a SingleSlot Save. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>- Format to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if format is a a SingleSlot Save Type. (PSX, PDA, PGE + PSV) </dd></dl>
+
+</div>
+</div>
+<a id="ab2ec793c9fb73ba9a5b1c3d62cb80dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ec793c9fb73ba9a5b1c3d62cb80dab">&#9670;&nbsp;</a></span>isTypeVMC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FF7SaveInfo::isTypeVMC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
+          <td class="paramname"><em>format</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a format is a Virtual Memory card. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>- Format to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if format is a Virtual Memory card type. </dd></dl>
 
 </div>
 </div>
@@ -736,6 +802,33 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33bc8e38a029c45dba36268e735ecf4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33bc8e38a029c45dba36268e735ecf4b">&#9670;&nbsp;</a></span>psxSaveNameOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FF7SaveInfo::psxSaveNameOffset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FORMAT</a>&#160;</td>
+          <td class="paramname"><em>format</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>psxSaveNameOffset Return the offset where the psxSaveName starts. Valid only for PS3, PGE and PDA save formats. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>- Format to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Offset where the psxSaveNameOffset is or -1 if invalid format provided. </dd></dl>
 
 </div>
 </div>
@@ -1094,6 +1187,33 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Constructed RegularExpression </dd></dl>
+
+</div>
+</div>
+<a id="a807d2f8920bc2590d5477b1e3b85909c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a807d2f8920bc2590d5477b1e3b85909c">&#9670;&nbsp;</a></span>vmcHeaderOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FF7SaveInfo::vmcHeaderOffset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_f_f7_save_info.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
+          <td class="paramname"><em>format</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>- Format to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Offset where the Vmc header starts or -1 if invalid format provided. </dd></dl>
 
 </div>
 </div>

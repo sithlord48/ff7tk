@@ -7,7 +7,7 @@ var searchData=
   ['tchanged',['tChanged',['../class_location_viewer.html#a86939a5cdc376780d51b32af089d9121',1,'LocationViewer']]],
   ['tent',['Tent',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a5b782b0a0bd7f8bffc84a6025b75c9b4',1,'FF7Item']]],
   ['tetraelemental',['TetraElemental',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac0fc423656d89b3225b2553fff6fe8f5',1,'FF7Item']]],
-  ['text',['Text',['../struct_field_item.html#a380fd29be5b9ddb58ff587c1d3ce4ea0',1,'FieldItem::Text()'],['../class_f_f7_field_item_list.html#a416d4539e5483b37e8c8700c3c5a744c',1,'FF7FieldItemList::text()']]],
+  ['text',['text',['../class_f_f7_field_item_list.html#a416d4539e5483b37e8c8700c3c5a744c',1,'FF7FieldItemList::text()'],['../struct_field_item.html#a380fd29be5b9ddb58ff587c1d3ce4ea0',1,'FieldItem::Text()']]],
   ['text_5fbuf',['text_buf',['../class_l_z_s.html#a3eea3cf50c03a300f01501d9d556324b',1,'LZS']]],
   ['throw',['Throw',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a74b1dfb781a13d2a179e915df8596050',1,'FF7Materia']]],
   ['tifa',['Tifa',['../class_f_f7_char.html#a82123a0b752138a8484cfeb435af9119a8484d4680a69a473a844de40d1757867',1,'FF7Char']]],
