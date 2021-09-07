@@ -64,8 +64,6 @@ target_include_directories(ff7tk
 
 generate_export_header(ff7tk)
 
-include(CMakePackageConfigHelpers)
-
 write_basic_package_version_file(
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfigVersion.cmake
     VERSION ${PROJECT_VERSION}
@@ -84,19 +82,23 @@ target_link_libraries (ff7tk PUBLIC
         Qt::Xml
 )
 
-set_target_properties(
-    ff7tk PROPERTIES
+set_target_properties(ff7tk PROPERTIES
     VERSION ${PROJECT_VERSION}
     SOVERSION ${PROJECT_VERSION_MAJOR}
     PUBLIC_HEADER "${ff7tkData_HEADERS}"
 )
 
-include(GNUInstallDirs)
-
 install(TARGETS ff7tk
     EXPORT ff7tkTargets
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        COMPONENT ff7tk_RUNTIME
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_RUNTIME
+        NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_DEVELOPMENT
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
+        COMPONENT ff7tk_DEVELOPMENT
 )
 
 install (

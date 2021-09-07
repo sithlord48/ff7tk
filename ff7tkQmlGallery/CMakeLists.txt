@@ -4,7 +4,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(../src)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Quick QuickControls2 QmlImportScanner)
-
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
         Quick
         QuickControls2
@@ -53,4 +52,4 @@ target_link_libraries ( ff7tkQmlGallery
         ff7tk::ff7tk
     )
 
-qt5_import_qml_plugins(ff7tkQmlGallery)
+qt_import_qml_plugins(ff7tkQmlGallery)

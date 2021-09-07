@@ -5,6 +5,14 @@ option(WIDGETS "Build the widget libary" ON)
 
 add_subdirectory(data)
 
+if (APPLE)
+  set(CMAKE_MACOSX_RPATH ON)
+  set(CMAKE_INSTALL_NAME_DIR @executable_path)
+  set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
+else()
+  set(CMAKE_INSTALL_RPATH $ORIGIN)
+endif()
+
 if(WIDGETS)
     add_subdirectory(widgets)
 endif()

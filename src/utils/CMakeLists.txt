@@ -48,8 +48,6 @@ target_link_libraries (ff7tkUtils PUBLIC
 
 generate_export_header(ff7tkUtils BASE_NAME ff7tkutils)
 
-include(CMakePackageConfigHelpers)
-
 write_basic_package_version_file(
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkUtilsConfigVersion.cmake
     VERSION ${PROJECT_VERSION}
@@ -62,13 +60,17 @@ configure_package_config_file(
     INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
 )
 
-include(GNUInstallDirs)
-
 install(TARGETS ff7tkUtils
     EXPORT ff7tkTargets
-    COMPONENT ff7tkUtils
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        COMPONENT ff7tk_RUNTIME
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_RUNTIME
+        NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_DEVELOPMENT
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/utils
+        COMPONENT ff7tk_DEVELOPMENT
 )
 
 install(

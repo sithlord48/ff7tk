@@ -78,8 +78,6 @@ set_target_properties(
 
 generate_export_header(ff7tkWidgets BASE_NAME ff7tkwidgets)
 
-include(CMakePackageConfigHelpers)
-
 write_basic_package_version_file(
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkWidgetsConfigVersion.cmake
     VERSION ${PROJECT_VERSION}
@@ -92,13 +90,17 @@ configure_package_config_file(
     INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
 )
 
-include(GNUInstallDirs)
-
 install(TARGETS ff7tkWidgets
     EXPORT ff7tkTargets
-    COMPONENT ff7tkWidgets
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        COMPONENT ff7tk_RUNTIME
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_RUNTIME
+        NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_DEVELOPMENT
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/widgets
+        COMPONENT ff7tk_DEVELOPMENT
 )
 
 install(

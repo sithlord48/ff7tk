@@ -1,16 +1,23 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
 project(ff7tk VERSION 0.80.21 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(QT_DEFAULT_MAJOR_VERSION 5)
 
+include(CMakePackageConfigHelpers)
 include(GenerateExportHeader)
+include(GNUInstallDirs)
+
 # Get the version from git if it's a git repository
 IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
   FIND_PACKAGE(Git)
