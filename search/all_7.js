@@ -15,7 +15,6 @@ var searchData=
   ['gigasarmlet',['GigasArmlet',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7af483c399cfeced5feeddab53e56b5fac',1,'FF7Item']]],
   ['gil',['gil',['../class_f_f7_save.html#a3c6c07eac6abb89748ee03756411df51',1,'FF7Save']]],
   ['gilplus',['GilPlus',['../class_f_f7_materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a22be3d50254824e12e7040b93d51424a',1,'FF7Materia']]],
-  ['git_5fversion',['GIT_VERSION',['../data_2ff7tk__autogen_2moc__predefs_8h.html#aef0b5124fcadf80db529fcb6df42808a',1,'GIT_VERSION():&#160;moc_predefs.h'],['../formats_2ff7tk_formats__autogen_2moc__predefs_8h.html#aef0b5124fcadf80db529fcb6df42808a',1,'GIT_VERSION():&#160;moc_predefs.h'],['../utils_2ff7tk_utils__autogen_2moc__predefs_8h.html#aef0b5124fcadf80db529fcb6df42808a',1,'GIT_VERSION():&#160;moc_predefs.h'],['../widgets_2ff7tk_widgets__autogen_2moc__predefs_8h.html#aef0b5124fcadf80db529fcb6df42808a',1,'GIT_VERSION():&#160;moc_predefs.h']]],
   ['glaciermap',['GLACIERMAP',['../class_f_f7_save.html#a4b82e92cd13f6eb20fc9552f83479a95a5917bcd93edf96dbccfe16c9c1099e95',1,'FF7Save']]],
   ['glasstiara',['GLASSTIARA',['../class_f_f7_save.html#a4b82e92cd13f6eb20fc9552f83479a95ad19a793aa9d0f2125b90794977d9be4c',1,'FF7Save']]],
   ['gmt',['GMT',['../struct_iso_time.html#ab5b6e83be4b3f179da0fa6387c505ded',1,'IsoTime::GMT()'],['../struct_directory_record_head.html#a3bfe421d5543fca99e873d0cc6d7e848',1,'DirectoryRecordHead::GMT()']]],

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['ff7achievements',['FF7Achievements',['../class_f_f7_achievements.html',1,'']]],
-  ['ff7char',['FF7Char',['../class_f_f7_char.html',1,'FF7Char'],['../struct_f_f7_c_h_a_r.html',1,'FF7CHAR']]],
+  ['ff7char',['FF7CHAR',['../struct_f_f7_c_h_a_r.html',1,'FF7CHAR'],['../class_f_f7_char.html',1,'FF7Char']]],
   ['ff7charprivate',['FF7CharPrivate',['../struct_f_f7_char_1_1_f_f7_char_private.html',1,'FF7Char']]],
   ['ff7chocobo',['FF7CHOCOBO',['../struct_f_f7_c_h_o_c_o_b_o.html',1,'']]],
   ['ff7desc',['FF7DESC',['../struct_f_f7_d_e_s_c.html',1,'']]],
