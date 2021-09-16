@@ -7186,10 +7186,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Initilze Char Data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Debug</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7296,6 +7292,10 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>FF7-S01BISLPS-01057</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Initialize Char Data</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
