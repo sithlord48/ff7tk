@@ -7187,7 +7187,7 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Initilze Char Data</source>
-        <translation>Initilze Char Data</translation>
+        <translation type="vanished">Initilze Char Data</translation>
     </message>
     <message>
         <source>Debug</source>
@@ -7298,6 +7298,10 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>FF7-S01BISLPS-01057</source>
         <translation>FF7-S01BISLPS-01057</translation>
+    </message>
+    <message>
+        <source>Initialize Char Data</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -208,7 +208,7 @@
           <item>
            <widget class="QPushButton" name="pushButton">
             <property name="text">
-             <string>Initilze Char Data</string>
+             <string>Initialize Char Data</string>
             </property>
            </widget>
           </item>

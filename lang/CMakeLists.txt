@@ -9,6 +9,7 @@ set(ff7tk_TRS
     ff7tk_de.ts
     ff7tk_ja.ts
     ff7tk_re.ts
+    ff7tk_pl.ts
 )
 
 qt_create_translation(TRS ${CMAKE_SOURCE_DIR} ${ff7tk_TRS})
