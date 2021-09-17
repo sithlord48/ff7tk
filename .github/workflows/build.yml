@@ -82,23 +82,23 @@ jobs:
         git clone -q --branch=v1.2.11 https://github.com/madler/zlib ${{github.workspace}}\zlib-git
         cmake -S${{github.workspace}}\zlib-git -B${{github.workspace}}\zlib-git\build -G Ninja -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=C:/zlib
         cmake --build ${{github.workspace}}\zlib-git\build --config ${{env.BUILD_TYPE}}
-        cmake --install ${{github.workspace}}\zlib-git\build
+        cmake --install ${{github.workspace}}\zlib-git\build --strip
 
     - name: Build ff7tk
       id: main_build
       run: |
         cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{matrix.config.ff7tkInstallPrefix}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON ${{matrix.config.extraCmakeConfig}}
-        cmake --build build --config ${{env.BUILD_TYPE}}
+        cmake --build build --config ${{env.BUILD_TYPE}} -j8
 
     - name: Install(Linux)
       if: runner.os == 'Linux'
       run: |
-        DESTDIR=ff7tk-continuous-linux cmake --install build
-        sudo cmake --install build
+        DESTDIR=ff7tk-continuous-linux cmake --install build --strip
+        sudo cmake --install build --strip
 
     - name: Install (Others)
       if: runner.os != 'Linux'
-      run: cmake --install build
+      run: cmake --install build --strip
 
     - name: Prepare Deploy (Unix)
       if: runner.os != 'Windows'

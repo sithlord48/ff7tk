@@ -54,13 +54,13 @@ const FF7Char::Character &FF7Char::character(int who)
 
 quint32 FF7Char::totalExpForLevel(int who, int level)
 {
-    level = std::clamp(level, 0, character(who)._charlvls.size() - 1);
+    level = std::clamp(level, 0, int(character(who)._charlvls.size()) - 1);
     return character(who)._charlvls.at(level);
 }
 
 quint32 FF7Char::tnlForLevel(int who, int level)
 {
-    level = std::clamp(level, 0, character(who)._charlvls.size() - 1);
+    level = std::clamp(level, 0, int(character(who)._charlvls.size()) - 1);
     return character(who)._chartnls.at(level);
 }
 

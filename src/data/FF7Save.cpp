@@ -436,10 +436,10 @@ bool FF7Save::exportSlot(const QString &fileName, FF7SaveInfo::FORMAT exportForm
             setControlMode(s, CONTROL_NORMAL);
         int slot = 0;
         if (exportFormat != FF7SaveInfo::FORMAT::PS3) {
-            slot = fileName.midRef(fileName.lastIndexOf('S') +1, 2).toInt() - 1;
+            slot = fileName.mid(fileName.lastIndexOf('S') +1, 2).toInt() - 1;
         } else {
             QString rslot = fileName.mid(fileName.lastIndexOf("533") +3, 3);
-            slot = (10 * rslot.midRef(0,1).toInt()) + (rslot.midRef(2, 1).toInt() -1);
+            slot = (10 * rslot.mid(0,1).toInt()) + (rslot.mid(2, 1).toInt() -1);
         }
         if (slot < 0 || slot > 14)
             return false;
@@ -1337,7 +1337,7 @@ void FF7Save::newGamePlus(int s, QString CharFileName, QString fileName)
                 if (!FF7SaveInfo::instance()->isTypeSSS(fileFormat)) {
                     outFile.append("-");
                     QString str;
-                    str.setNum(s, 10) + 1;
+                    str.setNum(s + 1, 10);
                     outFile.append(str);
                 }
             } else if (i == 7) { // export vincent. vincent's stats are only generated when he joins the party.
@@ -1346,7 +1346,7 @@ void FF7Save::newGamePlus(int s, QString CharFileName, QString fileName)
                 if (!FF7SaveInfo::instance()->isTypeSSS(fileFormat)) {
                     outFile.append("-");
                     QString str;
-                    str.setNum(s, 10) + 1;
+                    str.setNum(s + 1, 10);
                     outFile.append(str);
                 }
             }
@@ -5707,19 +5707,19 @@ void FF7Save::vmcRegionEval(int s)
     QStringList in = us;
     for (int i = 0; i < s; i++) {
         if (region(i).contains("BASCUS-94163"))
-            us.replace(region(i).midRef(17, 2).toInt() - 1, QString());
+            us.replace(region(i).mid(17, 2).toInt() - 1, QString());
         else if (region(i).contains("BESCES-00867"))
-            uk.replace(region(i).midRef(17, 2).toInt() - 1, QString());
+            uk.replace(region(i).mid(17, 2).toInt() - 1, QString());
         else if (region(i).contains("BESCES-00868"))
-            fr.removeAt(region(i).midRef(17, 2).toInt() - 1);
+            fr.removeAt(region(i).mid(17, 2).toInt() - 1);
         else if (region(i).contains("BESCES-00869"))
-            ge.removeAt(region(i).midRef(17, 2).toInt() - 1);
+            ge.removeAt(region(i).mid(17, 2).toInt() - 1);
         else if (region(i).contains("BESCES-00900"))
-            es.removeAt(region(i).midRef(17, 2).toInt() - 1);
+            es.removeAt(region(i).mid(17, 2).toInt() - 1);
         else if (region(i).contains("BISLPS-00700"))
-            jp.removeAt(region(i).midRef(17, 2).toInt() - 1);
+            jp.removeAt(region(i).mid(17, 2).toInt() - 1);
         else if (region(i).contains("BISLPS-01057"))
-            in.removeAt(region(i).midRef(17, 2).toInt() - 1);
+            in.removeAt(region(i).mid(17, 2).toInt() - 1);
     }
     QString newRegionString = region(s).mid(0, 12);
     if (region(s).contains("BASCUS-94163")) {

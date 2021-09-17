@@ -5,6 +5,10 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
     Xml
 )
 
+if(${QT_VERSION_MAJOR} EQUAL "6")
+    find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
+endif()
+
 set ( ff7tkData_SRC
         crypto/aes.c
         FF7Achievements.cpp
@@ -81,6 +85,10 @@ target_link_libraries (ff7tk PUBLIC
         Qt::Quick
         Qt::Xml
 )
+
+if(${QT_VERSION_MAJOR} EQUAL "6")
+    target_link_libraries(ff7tk PRIVATE Qt6::Core5Compat)
+endif()
 
 set_target_properties(ff7tk PROPERTIES
     VERSION ${PROJECT_VERSION}

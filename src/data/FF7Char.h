@@ -16,14 +16,18 @@
 #pragma once
 
 #include <QObject>
+#include <QtGlobal>
 
 #ifndef ff7tk_export_h
     #include <ff7tk_export.h>
 #endif
 class QIcon;
-class QStringList;
 class QQmlEngine;
 class QJSEngine;
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    class QStringList;
+#endif
 
 /*! \class FF7Char
 *   \brief Data and Enums for Characters in Final Fantasy 7

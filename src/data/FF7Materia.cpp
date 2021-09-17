@@ -41,25 +41,25 @@ QString FF7Materia::statString(int id)
 
 QString FF7Materia::enemySkill(int id)
 {
-    id = std::clamp(id, 0, _enemySkills.size() -1);
+    id = std::clamp(id, 0, int(_enemySkills.size()) -1);
     return tr(_enemySkills.at(id).toLocal8Bit());
 }
 
 QString FF7Materia::masterCommandSkill(int id)
 {
-    id = std::clamp(id, 0, _masterCommandList.size() -1);
+    id = std::clamp(id, 0, int(_masterCommandList.size()) -1);
     return tr(_masterCommandList.at(id).toLocal8Bit());
 }
 
 QString FF7Materia::masterSummonSkill(int id)
 {
-    id = std::clamp(id, 0, _masterSummonList.size() -1);
+    id = std::clamp(id, 0, int(_masterSummonList.size()) -1);
     return tr(_masterSummonList.at(id).toLocal8Bit());
 }
 
 QString FF7Materia::masterMagicSkill(int id)
 {
-    id = std::clamp(id, 0, _masterMagicList.size() -1);
+    id = std::clamp(id, 0, int(_masterMagicList.size()) -1);
     return tr(_masterMagicList.at(id).toLocal8Bit());
 }
 

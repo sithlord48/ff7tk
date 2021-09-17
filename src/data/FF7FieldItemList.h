@@ -16,11 +16,15 @@
 #pragma once
 
 #include<QObject>
+#include <QtGlobal>
 
 #ifndef ff7tk_export_h
     #include <ff7tk_export.h>
 #endif
-class QStringList;
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    class QStringList;
+#endif
 
 struct FieldItem {
     QList<quint16> Offset; /**< list of offsets to change */
