@@ -31,6 +31,7 @@ target_include_directories(ff7tkWidgetGallery PRIVATE
     $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/data>
     $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/widgets>
     $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/formats>
+    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/utils>
 )
 
 target_link_libraries ( ff7tkWidgetGallery PRIVATE
@@ -44,8 +45,8 @@ target_link_libraries ( ff7tkWidgetGallery PRIVATE
 
 if(APPLE)
     set_target_properties(ff7tkWidgetGallery PROPERTIES
-        INSTALL_RPATH @loader_path
-        BUILD_WITH_INSTALL_RPATH TRUE
+        MACOSX_RPATH TRUE
+        INSTALL_RPATH_USE_LINK_PATH TRUE
         MACOSX_BUNDLE_DISPLAY_NAME "ff7tkWidgetGallery"
         MACOSX_BUNDLE_GUI_IDENTIFIER "org.ff7tk.WidgetGallery"
         MACOSX_BUNDLE_BUNDLE_NAME "ff7tkWidgetGallery"
@@ -55,15 +56,22 @@ if(APPLE)
         MAXOSX_BUNDLE_ICON_FILE ff7tkWidgetGallery.icns
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
+
+    add_custom_command(TARGET ff7tkWidgetGallery POST_BUILD
+        COMMAND macdeployqt ${PROJECT_NAME}.app
+    )
+
 elseif(UNIX AND NOT APPLE)
     set_target_properties(ff7tkWidgetGallery PROPERTIES
         INSTALL_RPATH "\$ORIGIN/../lib"
     )
-    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.desktop" DESTINATION share/applications/)
-    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.png" DESTINATION share/pixmaps)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.desktop" DESTINATION share/applications/ COMPONENT ff7tkWidgetGallery_RUNTIME)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.png" DESTINATION share/pixmaps COMPONENT ff7tkWidgetGallery_RUNTIME)
 endif()
 
 install(TARGETS ff7tkWidgetGallery
     BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
+      COMPONENT ff7tkWidgetGallery_RUNTIME
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+      COMPONENT ff7tkWidgetGallery_RUNTIME
 )

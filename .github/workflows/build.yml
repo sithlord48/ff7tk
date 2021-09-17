@@ -23,7 +23,7 @@ jobs:
            name: "Linux-amd64"
            , os: ubuntu-18.04
            , QT_INST_DIR: /opt, QTDIR: /opt/Qt/5.15.2/gcc_64
-           , install_depends: "sudo apt-get install -qq doxygen"
+           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen > /dev/null"
            , packageName: ff7tk-continuous-linux
            , ff7tkInstallPrefix: /usr
            , releasePackage: "ff7tk-continuous-linux.tar.xz"
@@ -33,8 +33,8 @@ jobs:
             , os: macos-latest
             , QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/5.15.2/clang_64
             , install_depends: "brew install doxygen"
-            , ff7tkInstallPrefix: /usr/local
             , packageName: ff7tk-continuous-macos
+            , ff7tkInstallPrefix: ff7tk-continuous-macos
             , releasePackage: "ff7tk-continuous-macos.zip"
           }
         - {
@@ -44,6 +44,7 @@ jobs:
             , install_depends: "choco install ninja doxygen.install"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
             , packageName: "ff7tk-continuous-win64"
+            , ff7tkInstallPrefix: ff7tk-continuous-win64
             , releasePackage: "ff7tk-continuous-win64.zip"
           }
         - {
@@ -53,6 +54,7 @@ jobs:
             , install_depends: "choco install ninja doxygen.install"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
             , packageName: "ff7tk-continuous-win32"
+            , ff7tkInstallPrefix: ff7tk-continuous-win32
             , releasePackage: "ff7tk-continuous-win32.zip"
           }
     steps:
@@ -85,45 +87,52 @@ jobs:
     - name: Build ff7tk
       id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON ${{matrix.config.extraCmakeConfig}}
+        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{matrix.config.ff7tkInstallPrefix}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BUILD_TYPE}}
-        cmake --install build --prefix ${{matrix.config.packageName}}
+
+    - name: Install(Linux)
+      if: runner.os == 'Linux'
+      run: |
+        DESTDIR=ff7tk-continuous-linux cmake --install build
+        sudo cmake --install build
+
+    - name: Install (Others)
+      if: runner.os != 'Linux'
+      run: cmake --install build
 
     - name: Prepare Deploy (Unix)
       if: runner.os != 'Windows'
       run: |
-        mkdir -p ff7tk/usr
-        cp -r ${{matrix.config.packageName}}/* ff7tk/usr
+        mkdir ff7tk
+        cp -r ${{matrix.config.packageName}}/* ff7tk/
         mv COPYING.TXT ${{matrix.config.packageName}}/
         rm -rf ff7tk/usr/bin
-        sudo cmake --install build --prefix ${{matrix.config.ff7tkInstallPrefix}}
 
     - name: Deployment (Linux)
       if: runner.os == 'Linux'
       run: |
        rm -rf ff7tk/usr/share/applications ff7tk/usr/share/pixmaps
-       rm -rf ${{matrix.config.packageName}}/share/doc
-       rm -rf ${{matrix.config.packageName}}/share/ff7tk
-       rm -rf ${{matrix.config.packageName}}/share/pkgconfig
-       rm -rf ${{matrix.config.packageName}}/include
-       rm -rf ${{matrix.config.packageName}}/lib/x86_64-linux-gnu
+       rm -rf ${{matrix.config.packageName}}/usr/share/doc
+       rm -rf ${{matrix.config.packageName}}/usr/share/ff7tk
+       rm -rf ${{matrix.config.packageName}}/usr/share/pkgconfig
+       rm -rf ${{matrix.config.packageName}}/usr/include
+       rm -rf ${{matrix.config.packageName}}/usr/lib/x86_64-linux-gnu
        wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
        chmod a+x linuxdeployqt*.AppImage
-       mkdir -p widgetGallery/usr
-       cp -r ${{matrix.config.packageName}}/* widgetGallery/usr
+       mkdir widgetGallery
+       cp -r ${{matrix.config.packageName}}/* widgetGallery/
        unset QTDIR; unset QT_PLUGIN_PATH; unset LD_LIBRARY_PATH
        rm widgetGallery/usr/bin/ff7tkQmlGallery
        rm widgetGallery/usr/share/applications/ff7tkQmlGallery.desktop
        rm widgetGallery/usr/share/pixmaps/ff7tkQmlGallery.png
        cp /usr/lib/x86_64-linux-gnu/libz.so widgetGallery/usr/lib/
        ./linuxdeployqt*.AppImage widgetGallery/usr/share/applications/*.desktop -appimage
-       mkdir -p qmlGallery/usr
-       cp -r ${{matrix.config.packageName}}/* qmlGallery/usr
+       mkdir qmlGallery
+       cp -r ${{matrix.config.packageName}}/* qmlGallery/
        rm qmlGallery/usr/bin/ff7tkWidgetGallery
        rm qmlGallery/usr/share/applications/ff7tkWidgetGallery.desktop
        rm qmlGallery/usr/share/pixmaps/ff7tkWidgetGallery.png
        ./linuxdeployqt*.AppImage ./qmlGallery/usr/share/applications/*.desktop -bundle-non-qt-libs
-       cp /usr/lib/x86_64-linux-gnu/libz.so qmlGallery/usr/lib/
        mkdir -p qmlGallery/usr/qml/QtQuick
        cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Controls.2 qmlGallery/usr/qml/QtQuick
        cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Layouts qmlGallery/usr/qml/QtQuick
@@ -133,29 +142,15 @@ jobs:
        ./linuxdeployqt*.AppImage ./qmlGallery/usr/share/applications/*.desktop -appimage
        mv ff7tk*.AppImage ${{matrix.config.packageName}}/
        mv ff7tk/ ${{matrix.config.packageName}}
-       rm -rf ${{matrix.config.packageName}}/bin ${{matrix.config.packageName}}/lib ${{matrix.config.packageName}}/share
+       rm -rf ${{matrix.config.packageName}}/usr
        tar -zcvf ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
+
     - name: Deployment (macOS)
       if: runner.os == 'macOS'
       run: |
         mv ff7tk/ ${{matrix.config.packageName}}
         mv ${{matrix.config.packageName}}/bin/ff7tk*.app ${{matrix.config.packageName}}/
-        cp /usr/local/lib/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
-        cp /usr/local/lib/libff7tkFormats.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
-        cp /usr/local/lib/libff7tkUtils.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
-        cp /usr/local/lib/libff7tkWidgets.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
-        macdeployqt ${{matrix.config.packageName}}/ff7tkWidgetGallery.app
-        install_name_tool -change @rpath/libff7tk.0.dylib @executable_path/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
-        install_name_tool -change @rpath/libff7tkFormats.0.dylib @executable_path/libff7tkFormats.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
-        install_name_tool -change @rpath/libff7tkUtils.0.dylib @executable_path/libff7tkUtils.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
-        install_name_tool -change @rpath/libff7tkWidgets.0.dylib @executable_path/libff7tkWidgets.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS/ff7tkWidgetGallery
-        cp /usr/local/lib/libff7tk.0.dylib ff7tk-continuous-macos/ff7tkWidgetGallery.app/Contents/MacOS
-        macdeployqt ${{matrix.config.packageName}}/ff7tkQmlGallery.app
-        mkdir -p ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/Layouts
-        cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Layouts ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/
-        mkdir -p ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/Controls
-        cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Controls ff7tk-continuous-macos/ff7tkQmlGallery.app/Contents/Resources/qml/QtQuick/
-        rm -rf ${{matrix.config.packageName}}/bin ${{matrix.config.packageName}}/lib ${{matrix.config.packageName}}/share ${{matrix.config.packageName}}/include
+        rm -rf ff7tk-continuous-macos/bin ff7tk-continuous-macos/share ff7tk-continuous-macos/lib ff7tk-continuous-macos/include ff7tk-continuous-macos/share 
         zip -r -X ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
 
     - name: Prepare Deployment (Windows)
