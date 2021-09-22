@@ -57,8 +57,16 @@ jobs:
             , ff7tkInstallPrefix: ff7tk-continuous-win32
             , releasePackage: "ff7tk-continuous-win32.zip"
           }
+
     steps:
     - uses: actions/checkout@v2
+
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v2
+      with:
+        path: ${{matrix.config.QT_INST_DIR}}/Qt
+        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ env.QT_VERSION }}
 
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
@@ -73,11 +81,26 @@ jobs:
       uses: jurplel/install-qt-action@v2.14.0
       with:
        dir: ${{matrix.config.QT_INST_DIR}}
-       arch: ${{matrix.config.QT_ARCH}}
-       version: ${{env.QT_VERSION}}
+       arch: ${{ matrix.config.QT_ARCH }}
+       version: ${{ env.QT_VERSION }}
+       cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+    - name: Cache Zlib
+      id: cache-zlib
+      if: runner.os == 'Windows'
+      uses: actions/cache@v2
+      with:
+        path: C:/zlib
+        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib
+
+    - name: Env Script (Windows)
+      uses: ilammy/msvc-dev-cmd@v1
+      if: runner.os == 'Windows'
+      with:
+        arch: ${{ matrix.config.WIN_ARCH }}
 
     - name: Install Zlib (Windows)
-      if: runner.os == 'Windows'
+      if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
       run: |
         git clone -q --branch=v1.2.11 https://github.com/madler/zlib ${{github.workspace}}\zlib-git
         cmake -S${{github.workspace}}\zlib-git -B${{github.workspace}}\zlib-git\build -G Ninja -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=C:/zlib
