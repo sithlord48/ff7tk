@@ -9,17 +9,13 @@ if(${QT_VERSION_MAJOR} EQUAL "6")
     find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
 endif()
 
+configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkAbout.h @ONLY)
+
 set ( ff7tkData_SRC
         crypto/aes.c
-        FF7Achievements.cpp
-        FF7Char.cpp
-        FF7FieldItemList.cpp
-        FF7Item.cpp
-        FF7Location.cpp
-        FF7Materia.cpp
-        FF7Save.cpp
-        FF7SaveInfo.cpp
-        FF7Text.cpp
+        FF7Achievements.cpp  FF7Char.cpp     FF7FieldItemList.cpp
+        FF7Item.cpp          FF7Location.cpp FF7Materia.cpp
+        FF7Save.cpp          FF7SaveInfo.cpp FF7Text.cpp
         SaveIcon.cpp
     )
 
@@ -27,6 +23,7 @@ set (ff7tkData_HEADERS
     ff7tkAbout.h       FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
     FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
+    ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h
 )
 
 set ( ff7tkIcons
@@ -40,29 +37,39 @@ set ( ff7tkIcons
         ../icons/psxButtons.qrc
 )
 
-configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkAbout.h @ONLY)
-
-if(WIN32)
-    if(CMAKE_COMPILER_IS_GNUCC)
-        #Prevent ms padding on packed structures on gcc compiler
-        add_definitions(-mno-ms-bitfields)
-    endif()
-elseif(APPLE)
-    add_definitions(-stdlib=libc++)
-endif()
-
 add_library (ff7tk SHARED
         ${ff7tkIcons}
         ${ff7tkData_SRC}
+        ${ff7tkData_HEADERS}
 )
-
 add_library (ff7tk::ff7tk ALIAS ff7tk)
 
-target_include_directories(ff7tk
-  PUBLIC
+if(WIN32 AND CMAKE_COMPILER_IS_GNUCC)
+    #Prevent ms padding on packed structures on gcc compiler
+    add_compile_options(-mno-ms-bitfields)
+elseif(APPLE)
+     add_compile_options(-stdlib-libc++)
+     set_target_properties(ff7tk PROPERTIES
+         BUILD_WITH_INSTALL_RPATH TRUE
+         INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
+     )
+     if(${BUILD_FRAMEWORKS})
+         target_include_directories(ff7tk PUBLIC $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tk>/Headers>)
+     endif()
+endif()
+
+set_target_properties(ff7tk PROPERTIES
+    FRAMEWORK ${BUILD_FRAMEWORKS}
+    FRAMEWORK_VERSION ${PROJECT_VERSION_MAJOR}
+    MACOSX_FRAMEWORK_IDENTIFIER com.sithlord48.ff7tk
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    PUBLIC_HEADER "${ff7tkData_HEADERS}"
+)
+
+target_include_directories(ff7tk PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<INSTALL_INTERFACE:include/ff7tk>
-  INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
     $<INSTALL_INTERFACE:include/ff7tk>
 )
 
@@ -90,12 +97,6 @@ if(${QT_VERSION_MAJOR} EQUAL "6")
     target_link_libraries(ff7tk PRIVATE Qt6::Core5Compat)
 endif()
 
-set_target_properties(ff7tk PROPERTIES
-    VERSION ${PROJECT_VERSION}
-    SOVERSION ${PROJECT_VERSION_MAJOR}
-    PUBLIC_HEADER "${ff7tkData_HEADERS}"
-)
-
 install(TARGETS ff7tk
     EXPORT ff7tkTargets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -103,15 +104,12 @@ install(TARGETS ff7tk
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_RUNTIME
         NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+    FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_RUNTIME
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_DEVELOPMENT
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
         COMPONENT ff7tk_DEVELOPMENT
-)
-
-install (
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
 )
 
 install(

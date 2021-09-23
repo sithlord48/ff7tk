@@ -2,6 +2,13 @@
 option(FORMATS "Build the formats libary" ON)
 option(UTILS "Build utility library (Requires zlib)" ON)
 option(WIDGETS "Build the widget libary" ON)
+option(FRAMEWORKS "Build Frameworks on MacOS (EXPERMANTAL)" OFF)
+
+if(FRAMEWORKS AND APPLE)
+    set(BUILD_FRAMEWORKS TRUE)
+else()
+    set(BUILD_FRAMEWORKS FALSE)
+endif()
 
 add_subdirectory(data)
 

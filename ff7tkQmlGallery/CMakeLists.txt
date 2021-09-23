@@ -36,8 +36,6 @@ target_link_libraries ( ff7tkQmlGallery PUBLIC
 
 if(APPLE)
     set_target_properties(ff7tkQmlGallery PROPERTIES
-        MACOSX_RPATH TRUE
-        INSTALL_RPATH_USE_LINK_PATH TRUE
         MACOSX_BUNDLE_GUI_IDENTIFIER "org.ff7tk.QmlGallery"
         MACOSX_BUNDLE_DISPLAY_NAME "ff7tkQmlGallery"
         MACOSX_BUNDLE_BUNDLE_NAME "ff7tkQmlGallery"
@@ -47,11 +45,10 @@ if(APPLE)
         MAXOSX_BUNDLE_ICON_FILE ff7tkQmlGallery.icns
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
-
+    get_target_property(_qmake_executable Qt${QT_VERSION_MAJOR}::qmake IMPORTED_LOCATION)
+    find_program(MACDEPLOYQT macdeployqt HINTS "${_qt_bin_dir}")
     add_custom_command(TARGET ff7tkQmlGallery POST_BUILD
-        COMMAND macdeployqt ${PROJECT_NAME}.app
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${Qt${QT_VERSION_MAJOR}_DIR}/../../../qml/QtQuick/Layouts $<TARGET_BUNDLE_CONTENT_DIR:ff7tkQmlGallery>/Resources/qml/QtQuick/Layouts
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${Qt${QT_VERSION_MAJOR}_DIR}/../../../qml/QtQuick/Controls $<TARGET_BUNDLE_CONTENT_DIR:ff7tkQmlGallery>/Resources/qml/QtQuick/Controls
+        COMMAND ${MACDEPLOYQT} ${PROJECT_NAME}.app -qmldir=${CMAKE_SOURCE_DIR}/ff7tkQmlGallery
     )
 
 elseif(UNIX AND NOT APPLE)

@@ -1,31 +1,32 @@
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Widgets Gui)
-
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
     Core
     Widgets
     Gui
 )
 
+find_library(ff7tk ${CMAKE_CURRENT_BINARY_DIR}/src/data)
+
 set ( ff7tkWidgets_SRC
-        AchievementEditor.cpp
-        CharEditor.cpp
-        ChocoboEditor.cpp
-        ChocoboLabel.cpp
-        ChocoboManager.cpp
-        DialogPreview.cpp
-        DoubleCheckBox.cpp
-        ItemList.cpp
-        ItemPreview.cpp
-        ItemSelector.cpp
-        LocationViewer.cpp
-        MateriaEditor.cpp
-        MenuListWidget.cpp
-        MetadataCreator.cpp
-        OptionsWidget.cpp
-        PhsListWidget.cpp
-        SlotPreview.cpp
-        SlotSelect.cpp
-    )
+    AchievementEditor.cpp
+    CharEditor.cpp
+    ChocoboEditor.cpp
+    ChocoboLabel.cpp
+    ChocoboManager.cpp
+    DialogPreview.cpp
+    DoubleCheckBox.cpp
+    ItemList.cpp
+    ItemPreview.cpp
+    ItemSelector.cpp
+    LocationViewer.cpp
+    MateriaEditor.cpp
+    MenuListWidget.cpp
+    MetadataCreator.cpp
+    OptionsWidget.cpp
+    PhsListWidget.cpp
+    SlotPreview.cpp
+    SlotSelect.cpp
+)
 
 set (ff7tkWidgets_HEADERS
     AchievementEditor.h
@@ -46,19 +47,40 @@ set (ff7tkWidgets_HEADERS
     MateriaEditor.h
     OptionsWidget.h
     SlotSelect.h
+    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkwidgets_export.h
 )
 
-add_library (ff7tkWidgets SHARED ${ff7tkWidgets_SRC} ff7tkwidgets_export.h)
+add_library (ff7tkWidgets
+  SHARED
+    ${ff7tkWidgets_SRC}
+    ${ff7tkWidgets_HEADERS}
+)
 add_library(ff7tk::ff7tkWidgets ALIAS ff7tkWidgets)
 
+if (APPLE)
+    set_target_properties(ff7tkWidgets PROPERTIES
+        BUILD_WITH_INSTALL_RPATH TRUE
+        INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
+    )
+    if(${BUILD_FRAMEWORKS})
+        target_include_directories(ff7tkWidgets PUBLIC $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkWidgets>/Headers>)
+    endif()
+endif()
+
+set_target_properties(ff7tkWidgets PROPERTIES
+    FRAMEWORK ${BUILD_FRAMEWORKS}
+    FRAMEWORK_VERSION ${PROJECT_VERSION_MAJOR}
+    MACOSX_FRAMEWORK_IDENTIFIER com.sithlord48.ff7tkWidgets
+    VERSION "${PROJECT_VERSION}"
+    SOVERSION "${PROJECT_VERSION_MAJOR}"
+    PUBLIC_HEADER "${ff7tkWidgets_HEADERS}"
+)
+
 target_include_directories(ff7tkWidgets
-  PRIVATE
-    ${PROJECT_BINARY_DIR}/src/data
   PUBLIC
      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
      $<INSTALL_INTERFACE:include/ff7tk/widgets>
-  INTERFACE
-    $<INSTALL_INTERFACE:include/ff7tk/widgets>
 )
 
 target_link_libraries (ff7tkWidgets
@@ -67,13 +89,6 @@ target_link_libraries (ff7tkWidgets
     Qt::Widgets
     Qt::Gui
     ff7tk::ff7tk
-)
-
-set_target_properties(
-    ff7tkWidgets PROPERTIES
-    VERSION "${PROJECT_VERSION}"
-    SOVERSION "${PROJECT_VERSION_MAJOR}"
-    PUBLIC_HEADER "${ff7tkWidgets_HEADERS}"
 )
 
 generate_export_header(ff7tkWidgets BASE_NAME ff7tkwidgets)
@@ -97,16 +112,12 @@ install(TARGETS ff7tkWidgets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_RUNTIME
         NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+    FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_RUNTIME
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_DEVELOPMENT
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/widgets
         COMPONENT ff7tk_DEVELOPMENT
-)
-
-install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tkwidgets_export.h
-    COMPONENT ff7tkWidgets
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/widgets
 )
 
 install(

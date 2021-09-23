@@ -173,7 +173,7 @@ jobs:
       run: |
         mv ff7tk/ ${{matrix.config.packageName}}
         mv ${{matrix.config.packageName}}/bin/ff7tk*.app ${{matrix.config.packageName}}/
-        rm -rf ff7tk-continuous-macos/bin ff7tk-continuous-macos/share ff7tk-continuous-macos/lib ff7tk-continuous-macos/include ff7tk-continuous-macos/share 
+        rm -rf ff7tk-continuous-macos/bin ff7tk-continuous-macos/share ff7tk-continuous-macos/lib ff7tk-continuous-macos/include ff7tk-continuous-macos/share ff7tk-continuous-macos/ff7tk/bin
         zip -r -X ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
 
     - name: Prepare Deployment (Windows)

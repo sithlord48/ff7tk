@@ -4,43 +4,60 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
 )
 
 set(UTILS ON CACHE BOOL "Build ff7tkUtils Lib" FORCE)
+find_library(ff7tkUtils ${CMAKE_BINARY_DIR}/src/utils)
 
 set ( ff7tkFormats_SRC
         Archive.cpp
         IsoArchive.cpp
         Lgp_p.cpp
         Lgp.cpp
-    )
+)
 
-    set ( ff7tkFormats_HEADERS
+set ( ff7tkFormats_HEADERS
         Archive.h
         IsoArchive.h
         Lgp_p.h
         Lgp.h
-    )
-add_library (ff7tkFormats SHARED ${ff7tkFormats_SRC} ff7tkformats_export.h)
+        ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h
+)
+
+add_library (ff7tkFormats
+  SHARED
+    ${ff7tkFormats_SRC}
+    ${ff7tkFormats_HEADERS}
+)
 add_library(ff7tk::ff7tkFormats ALIAS ff7tkFormats)
 
-target_include_directories(ff7tkFormats
-  PRIVATE ${PROJECT_BINARY_DIR}/src/utils
-  PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<INSTALL_INTERFACE:include/ff7tk/formats>
-  INTERFACE
-    $<INSTALL_INTERFACE:include/ff7tk/formats>
-)
+if(APPLE)
+    set_target_properties(ff7tkFormats PROPERTIES
+        BUILD_WITH_INSTALL_RPATH TRUE
+        INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
+    )
+    if(${BUILD_FRAMEWORKS})
+        target_include_directories(ff7tkFormats PUBLIC  $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkFormats>/Headers>)
+    endif()
+endif()
 
-target_link_libraries (ff7tkFormats
-  PUBLIC
-    Qt::Core
-    ff7tk::ff7tkUtils
-)
-
-set_target_properties(
+set_target_properties(ff7tkFormats PROPERTIES
+    FRAMEWORK ${BUILD_FRAMEWORKS}
+    FRAMEWORK_VERSION ${PROJECT_VERSION_MAJOR}
+    MACOSX_FRAMEWORK_IDENTIFIER com.sithlord48.ff7tkFormats
     ff7tkFormats PROPERTIES
     VERSION "${PROJECT_VERSION}"
     SOVERSION "${PROJECT_VERSION_MAJOR}"
     PUBLIC_HEADER "${ff7tkFormats_HEADERS}"
+)
+
+target_include_directories(ff7tkFormats
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+    $<INSTALL_INTERFACE:include/ff7tk/formats>
+)
+
+target_link_libraries (ff7tkFormats PUBLIC
+        Qt::Core
+        ff7tk::ff7tkUtils
 )
 
 generate_export_header(ff7tkFormats BASE_NAME ff7tkformats)
@@ -64,16 +81,13 @@ install(TARGETS ff7tkFormats
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_RUNTIME
         NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+    FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_RUNTIME
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_DEVELOPMENT
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/formats
         COMPONENT ff7tk_DEVELOPMENT
 )
-
-install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h
-    COMPONENT ff7tkFormats
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/formats)
 
 install(
     EXPORT ff7tkTargets

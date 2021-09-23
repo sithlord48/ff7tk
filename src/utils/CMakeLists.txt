@@ -12,39 +12,54 @@ set ( ff7tkUtils_SRC
         LZS.cpp
         PsColor.cpp
         QLockedFile.cpp
-    )
+)
 
-    set ( ff7tkUtils_HEADERS
+set ( ff7tkUtils_HEADERS
         GZIP.h #NEEDS ZLIB
         GZIPPS.h
         LZS.h
         PsColor.h
         QLockedFile.h
-    )
-
-add_library (ff7tkUtils SHARED ${ff7tkUtils_SRC} ff7tkutils_export.h)
-add_library(ff7tk::ff7tkUtils ALIAS ff7tkUtils)
-
-target_include_directories(ff7tkUtils
-  PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<INSTALL_INTERFACE:include/ff7tk/utils>
-  INTERFACE
-    $<INSTALL_INTERFACE:include/ff7tk/utils>
+        ${CMAKE_CURRENT_BINARY_DIR}/ff7tkutils_export.h
 )
 
-target_link_libraries (ff7tkUtils PUBLIC
-        Qt::Core
-        Qt::Gui
-        ZLIB::ZLIB
- )
+add_library (ff7tkUtils
+  SHARED
+    ${ff7tkUtils_SRC}
+    ${ff7tkUtils_HEADERS}
+)
+add_library(ff7tk::ff7tkUtils ALIAS ff7tkUtils)
 
- set_target_properties(
-    ff7tkUtils PROPERTIES
+if(APPLE)
+    set_target_properties(ff7tkUtils PROPERTIES
+        BUILD_WITH_INSTALL_RPATH TRUE
+        INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
+    )
+    if(${BUILD_FRAMEWORKS})
+        target_include_directories(ff7tkUtils PUBLIC $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkUtils>/Headers>)
+    endif()
+endif()
+
+set_target_properties(ff7tkUtils PROPERTIES
+    FRAMEWORK ${BUILD_FRAMEWORKS}
+    FRAMEWORK_VERSION ${PROJECT_VERSION_MAJOR}
+    MACOSX_FRAMEWORK_IDENTIFIER com.sithlord48.ff7tkUtils
     VERSION "${PROJECT_VERSION}"
     SOVERSION "${PROJECT_VERSION_MAJOR}"
     PUBLIC_HEADER "${ff7tkUtils_HEADERS}"
 )
+
+target_include_directories(ff7tkUtils PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+    $<INSTALL_INTERFACE:include/ff7tk/utils>
+)
+
+target_link_libraries (ff7tkUtils PUBLIC
+    Qt::Core
+    Qt::Gui
+    ZLIB::ZLIB
+ )
 
 generate_export_header(ff7tkUtils BASE_NAME ff7tkutils)
 
@@ -67,16 +82,12 @@ install(TARGETS ff7tkUtils
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_RUNTIME
         NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+    FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT ff7tk_RUNTIME
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         COMPONENT ff7tk_DEVELOPMENT
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/utils
         COMPONENT ff7tk_DEVELOPMENT
-)
-
-install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/ff7tkutils_export.h
-    COMPONENT ff7tkUtils
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/utils
 )
 
 install(

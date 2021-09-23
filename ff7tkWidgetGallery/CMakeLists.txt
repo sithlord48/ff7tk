@@ -12,6 +12,11 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
         Quick
 )
 
+find_library(ff7tk ${CMAKE_BINARY_DIR}/src/data)
+find_library(ff7tkFormats ${CMAKE_BINARY_DIR}/src/formats)
+find_library(ff7tkUtils ${CMAKE_BINARY_DIR}/src/utils)
+find_library(ff7tkWidgets ${CMAKE_BINARY_DIR}/src/widgets)
+
 if(APPLE)
     set(PLATFORM_EX_SRC ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.icns)
     set_source_files_properties(${PLATFORM_EX_SRC} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
@@ -27,13 +32,21 @@ add_executable(ff7tkWidgetGallery WIN32 MACOSX_BUNDLE
 
 add_dependencies(ff7tkWidgetGallery ff7tk ff7tkFormats ff7tkUtils ff7tkWidgets)
 
-target_include_directories(ff7tkWidgetGallery PRIVATE
-    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/data>
-    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/widgets>
-    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/formats>
-    $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/utils>
-)
-
+if(${BUILD_FRAMEWORKS})
+    target_include_directories(ff7tkWidgetGallery PRIVATE
+        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tk>/Headers>
+        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkFormats>/Headers>
+        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkUtils>/Headers>
+        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkWidgets>/Headers>
+    )
+else()
+    target_include_directories(ff7tkWidgetGallery PRIVATE
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/data>
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/formats>
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/utils>
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/widgets>
+    )
+endif()
 target_link_libraries ( ff7tkWidgetGallery PRIVATE
         Qt::Widgets
         Qt::Quick
@@ -45,8 +58,6 @@ target_link_libraries ( ff7tkWidgetGallery PRIVATE
 
 if(APPLE)
     set_target_properties(ff7tkWidgetGallery PROPERTIES
-        MACOSX_RPATH TRUE
-        INSTALL_RPATH_USE_LINK_PATH TRUE
         MACOSX_BUNDLE_DISPLAY_NAME "ff7tkWidgetGallery"
         MACOSX_BUNDLE_GUI_IDENTIFIER "org.ff7tk.WidgetGallery"
         MACOSX_BUNDLE_BUNDLE_NAME "ff7tkWidgetGallery"
@@ -56,9 +67,10 @@ if(APPLE)
         MAXOSX_BUNDLE_ICON_FILE ff7tkWidgetGallery.icns
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
-
+    get_target_property(_qmake_executable Qt${QT_VERSION_MAJOR}::qmake IMPORTED_LOCATION)
+    find_program(MACDEPLOYQT macdeployqt HINTS "${_qt_bin_dir}")
     add_custom_command(TARGET ff7tkWidgetGallery POST_BUILD
-        COMMAND macdeployqt ${PROJECT_NAME}.app
+        COMMAND ${MACDEPLOYQT} ${PROJECT_NAME}.app
     )
 
 elseif(UNIX AND NOT APPLE)
@@ -75,3 +87,4 @@ install(TARGETS ff7tkWidgetGallery
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
       COMPONENT ff7tkWidgetGallery_RUNTIME
 )
+
