@@ -1,20 +1,19 @@
-/****************************************************************************
- ** Makou Reactor Final Fantasy VII Field Script Editor
- ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
- **               2019 Chris Rizzitello <sithlord48@gmail.com>
- ** This program is free software: you can redistribute it and/or modify
- ** it under the terms of the GNU General Public License as published by
- ** the Free Software Foundation, either version 3 of the License, or
- ** (at your option) any later version.
- **
- ** This program is distributed in the hope that it will be useful,
- ** but WITHOUT ANY WARRANTY; without even the implied warranty of
- ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- ** GNU General Public License for more details.
- **
- ** You should have received a copy of the GNU General Public License
- ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
- ****************************************************************************/
+/****************************************************************************/
+//    copyright 2009 - 2021  Arzel Jérôme <myst6re@gmail.com>               //
+//    copyright 2019  Chris Rizzitello <sithlord48@gmail.com>               //
+//                                                                          //
+//    This file is part of FF7tk                                            //
+//                                                                          //
+//    FF7tk is free software: you can redistribute it and/or modify         //
+//    it under the terms of the GNU General Public License as published by  //
+//    the Free Software Foundation, either version 3 of the License, or     //
+//    (at your option) any later version.                                   //
+//                                                                          //
+//    FF7tk is distributed in the hope that it will be useful,              //
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
+//    GNU General Public License for more details.                          //
+/****************************************************************************/
 #pragma once
 
 #include <QIODevice>
@@ -24,8 +23,8 @@
 
 #define MAX_ISO_READ            10000
 #define MAX_FILENAME_LENGTH     207
-#define SEPARATOR_1             '\x2E'
-#define SEPARATOR_2             '\x3B'
+#define SEPARATOR_1             '\x2E' // .
+#define SEPARATOR_2             '\x3B' // ;
 #define SECTOR_SIZE             2352
 #define SECTOR_SIZE_HEADER      24
 #define SECTOR_SIZE_DATA        2048
@@ -172,8 +171,8 @@ class FF7TKFORMATS_EXPORT IsoFile : public IsoFileOrDirectory
 {
 public:
     IsoFile(const QString &name, quint32 location, quint32 size, qint64 structPosition, IsoArchiveIO *io);
-    virtual ~IsoFile();
-    bool isDirectory() const;
+    virtual ~IsoFile() override;
+    bool isDirectory() const override;
     QByteArray data(quint32 maxSize = 0) const;
     QByteArray modifiedData(quint32 maxSize = 0) const;
     bool extract(const QString &destination, quint32 maxSize = 0) const;
@@ -181,8 +180,8 @@ public:
     QIODevice *modifiedFile() const;
     bool setModifiedFile(QIODevice *io);
     bool setModifiedFile(const QByteArray &data);
-    bool isModified() const;
-    void applyModifications();
+    bool isModified() const override;
+    void applyModifications() override;
 private:
     Q_DISABLE_COPY(IsoFile)
     void setFile(QIODevice *io);
@@ -195,8 +194,8 @@ class FF7TKFORMATS_EXPORT IsoDirectory : public IsoFileOrDirectory
 {
 public:
     IsoDirectory(const QString &name, quint32 location, quint32 size, qint64 structPosition);
-    virtual ~IsoDirectory();
-    bool isDirectory() const;
+    virtual ~IsoDirectory() override;
+    bool isDirectory() const override;
     const QMap<QString, IsoFileOrDirectory *> &filesAndDirectories() const;
     QList<IsoFile *> files() const;
     QList<IsoDirectory *> directories() const;
@@ -215,9 +214,9 @@ class FF7TKFORMATS_EXPORT IsoArchiveIO : public QFile
 public:
     IsoArchiveIO();
     explicit IsoArchiveIO(const QString &name);
-    virtual ~IsoArchiveIO();
+    virtual ~IsoArchiveIO() override;
 
-    bool open(QIODevice::OpenMode mode);
+    bool open(QIODevice::OpenMode mode) override;
     qint64 posIso() const;
     bool seekIso(qint64 off);
     qint64 sizeIso() const;
@@ -234,22 +233,22 @@ public:
 
         if (id < 4350) {
             h1 = 0;
-            h2 = dec2Hex(id / 75 + 2);
-            h3 = dec2Hex(id - 75 * (hex2Dec(h2) - 2));
+            h2 = dec2Hex(quint8(id / 75 + 2));
+            h3 = dec2Hex(quint8(id - 75 * (hex2Dec(h2) - 2)));
         } else {
-            h1 = dec2Hex((id + 150) / 4500);
-            h2 = dec2Hex((id + 150 - hex2Dec(h1) * 4500) / 75);
-            h3 = dec2Hex(id + 150 - hex2Dec(h1) * 4500 - hex2Dec(h2) * 75);
+            h1 = dec2Hex(quint8((id + 150) / 4500));
+            h2 = dec2Hex(quint8((id + 150 - hex2Dec(h1)*4500) / 75));
+            h3 = dec2Hex(quint8(id + 150 - hex2Dec(h1)*4500 - hex2Dec(h2)*75));
         }
 
-        return QByteArray().append((char)h1).append((char)h2).append((char)h3);
+        return QByteArray().append(char(h1)).append(char(h2)).append(char(h3));
     }
     static inline QByteArray buildHeader(quint32 sector, quint8 type, quint8 mode = 2)
     {
         return QByteArray("\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00", 12)
-               .append(int2Header(sector)).append((char)mode)
-               .append("\x00\x00", 2).append((char)type).append('\x00')
-               .append("\x00\x00", 2).append((char)type).append('\x00');
+               .append(int2Header(sector)).append(char(mode))
+               .append("\x00\x00", 2).append(char(type)).append('\x00')
+               .append("\x00\x00", 2).append(char(type)).append('\x00');
     }
     static inline QByteArray buildFooter(quint32 sector)
     {
@@ -257,14 +256,14 @@ public:
         //TODO (if possible): Checksum EDC/ECC (Error Detection Code & Error Correction Code)
         return QByteArray(SECTOR_SIZE_FOOTER, '\x00');
     }
-    static inline void headerInfos(const QByteArray &header, quint8 *type, quint8 *mode = NULL)
+    static inline void headerInfos(const QByteArray &header, quint8 *type, quint8 *mode = nullptr)
     {
         Q_ASSERT(header.size() != SECTOR_SIZE_HEADER);
         if (type) {
-            *type = header.at(18);
+            *type = quint8(header.at(18));
         }
         if (mode) {
-            *mode = header.at(15);
+            *mode = quint8(header.at(15));
         }
     }
 
@@ -294,13 +293,13 @@ private:
 class FF7TKFORMATS_EXPORT IsoFileIO : public QIODevice
 {
 public:
-    IsoFileIO(IsoArchiveIO *io, const IsoFile *infos, QObject *parent = 0);
-    bool open(OpenMode mode);
-    qint64 size() const;
-    bool canReadLine() const;
+    IsoFileIO(IsoArchiveIO *io, const IsoFile *infos, QObject *parent = nullptr);
+    bool open(OpenMode mode) override;
+    qint64 size() const override;
+    bool canReadLine() const override;
 protected:
-    qint64 readData(char *data, qint64 maxSize);
-    qint64 writeData(const char *data, qint64 maxSize);
+    qint64 readData(char *data, qint64 maxSize) override;
+    qint64 writeData(const char *data, qint64 maxSize) override;
 private:
     Q_DISABLE_COPY(IsoFileIO)
     IsoArchiveIO *_io;
@@ -337,7 +336,7 @@ public:
         return _io;
     }
 
-    bool pack(IsoArchive *destination, ArchiveObserver *control = NULL, IsoDirectory *directory = NULL);
+    bool pack(IsoArchive *destination, ArchiveObserver *control = nullptr, IsoDirectory *directory = nullptr);
     void applyModifications(IsoDirectory *directory);
 
     QByteArray file(const QString &path, quint32 maxSize = 0) const;
@@ -363,7 +362,7 @@ private:
     bool openVolumeDescriptor(quint8 num = 0);
     bool openRootDirectory(quint32 sector, quint32 dataSize = SECTOR_SIZE_DATA);
     IsoDirectory *_openDirectoryRecord(IsoDirectory *directories, QList<quint32> &dirVisisted);
-//  QList<PathTable> pathTable(quint32 sector, quint32 dataSize=SECTOR_SIZE_DATA);
+//  QList<PathTable> pathTable(quint32 sector, quint32 dataSize = SECTOR_SIZE_DATA);
 
     // Returns index of file in "filesWithPadding" who have paddingAfter >= minSectorCount
     static int findPadding(const QList<IsoFileOrDirectory *> &filesWithPadding, quint32 minSectorCount);
@@ -377,8 +376,8 @@ private:
     void getModifiedFiles(QMap<quint32, IsoFile *> &files, IsoDirectory *directory) const;
     static void repairLocationSectors(IsoDirectory *directory, IsoArchive *newIso);
 
-    bool writeFile(QIODevice *in, quint32 sectorCount = 0, ArchiveObserver *control = NULL);
-    bool copySectors(IsoArchiveIO *out, qint64 size, ArchiveObserver *control = NULL, bool repair = false);
+    bool writeFile(QIODevice *in, quint32 sectorCount = 0, ArchiveObserver *control = nullptr);
+    bool copySectors(IsoArchiveIO *out, qint64 size, ArchiveObserver *control = nullptr, bool repair = false);
 
     IsoArchiveIO _io;
     VolumeDescriptor volume;

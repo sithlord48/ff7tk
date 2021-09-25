@@ -1,20 +1,19 @@
-/****************************************************************************
- ** Makou Reactor Final Fantasy VII Field Script Editor
- ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
- **                    2019 Chris Rizzitello <sithlord48@gmail.com>
- ** This program is free software: you can redistribute it and/or modify
- ** it under the terms of the GNU General Public License as published by
- ** the Free Software Foundation, either version 3 of the License, or
- ** (at your option) any later version.
- **
- ** This program is distributed in the hope that it will be useful,
- ** but WITHOUT ANY WARRANTY; without even the implied warranty of
- ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- ** GNU General Public License for more details.
- **
- ** You should have received a copy of the GNU General Public License
- ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
- ****************************************************************************/
+/****************************************************************************/
+//    copyright 2009 - 2021  Arzel Jérôme <myst6re@gmail.com>               //
+//    copyright 2019  Chris Rizzitello <sithlord48@gmail.com>               //
+//                                                                          //
+//    This file is part of FF7tk                                            //
+//                                                                          //
+//    FF7tk is free software: you can redistribute it and/or modify         //
+//    it under the terms of the GNU General Public License as published by  //
+//    the Free Software Foundation, either version 3 of the License, or     //
+//    (at your option) any later version.                                   //
+//                                                                          //
+//    FF7tk is distributed in the hope that it will be useful,              //
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
+//    GNU General Public License for more details.                          //
+/****************************************************************************/
 /*
  * This file may contains some code (especially the conflict part)
  * inspired from LGP/UnLGP tool written by Aali.
@@ -28,8 +27,8 @@
 
 #include "ff7tkformats_export.h"
 
-#define LGP_COMPANY_NAME_SIZE   12
-#define LGP_PRODUCT_NAME_SIZE   14
+#define LGP_COMPANY_NAME_SIZE    12
+#define LGP_PRODUCT_NAME_SIZE    14
 
 #define LOOKUP_VALUE_MAX 30
 #define LOOKUP_TABLE_ENTRIES LOOKUP_VALUE_MAX * LOOKUP_VALUE_MAX
@@ -37,10 +36,10 @@
 #define MAX_CONFLICTS 4096
 
 #ifdef _MSC_VER
-#   define PACK(structure)          \
-    __pragma(pack(push, 1))     \
-    structure                   \
-    __pragma(pack(pop))
+#   define PACK(structure)      \
+        __pragma(pack(push, 1)) \
+        structure               \
+        __pragma(pack(pop))
 #else
 #   define PACK(structure) structure Q_PACKED
 #endif
@@ -100,13 +99,13 @@ private:
 class FF7TKFORMATS_EXPORT LgpIO : public QIODevice
 {
 public:
-    LgpIO(QIODevice *lgp, const LgpHeaderEntry *header, QObject *parent = 0);
-    bool open(OpenMode mode);
-    qint64 size() const;
-    bool canReadLine() const;
+    LgpIO(QIODevice *lgp, const LgpHeaderEntry *header, QObject *parent = nullptr);
+    bool open(OpenMode mode) override;
+    qint64 size() const override;
+    bool canReadLine() const override;
 protected:
-    qint64 readData(char *data, qint64 maxSize);
-    qint64 writeData(const char *data, qint64 maxSize);
+    qint64 readData(char *data, qint64 maxSize) override;
+    qint64 writeData(const char *data, qint64 maxSize) override;
 private:
     QIODevice *_lgp;
     const LgpHeaderEntry *_header;

@@ -1,20 +1,19 @@
-/****************************************************************************
- ** Makou Reactor Final Fantasy VII Field Script Editor
- ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
- **                    2019 Chris Rizzitello <sithlord48@gmail.com>
- ** This program is free software: you can redistribute it and/or modify
- ** it under the terms of the GNU General Public License as published by
- ** the Free Software Foundation, either version 3 of the License, or
- ** (at your option) any later version.
- **
- ** This program is distributed in the hope that it will be useful,
- ** but WITHOUT ANY WARRANTY; without even the implied warranty of
- ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- ** GNU General Public License for more details.
- **
- ** You should have received a copy of the GNU General Public License
- ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
- ****************************************************************************/
+/****************************************************************************/
+//    copyright 2009 - 2021  Arzel Jérôme <myst6re@gmail.com>               //
+//    copyright 2019  Chris Rizzitello <sithlord48@gmail.com>               //
+//                                                                          //
+//    This file is part of FF7tk                                            //
+//                                                                          //
+//    FF7tk is free software: you can redistribute it and/or modify         //
+//    it under the terms of the GNU General Public License as published by  //
+//    the Free Software Foundation, either version 3 of the License, or     //
+//    (at your option) any later version.                                   //
+//                                                                          //
+//    FF7tk is distributed in the hope that it will be useful,              //
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
+//    GNU General Public License for more details.                          //
+/****************************************************************************/
 /*
  * This file may contains some code (especially the conflict part)
  * inspired from LGP/UnLGP tool written by Aali.
@@ -35,9 +34,7 @@ class FF7TKFORMATS_EXPORT LgpIterator
 public:
     explicit LgpIterator(const Lgp &lgp);
     bool hasNext() const;
-    bool hasPrevious() const;
     void next();
-    void previous();
     void toBack();
     void toFront();
     QIODevice *file();
@@ -60,6 +57,7 @@ public:
         ReadError,
         WriteError,
         OpenError,
+        OpenTempError,
         AbortError,
         RemoveError,
         RenameError,
@@ -74,36 +72,38 @@ public:
     Lgp();
     explicit Lgp(const QString &name);
     explicit Lgp(QFile *device);
-    virtual ~Lgp();
-    void clear();
-    QStringList fileList() const;
-    int fileCount() const;
+    virtual ~Lgp() override;
+    void clear() override;
+    QStringList fileList() const override;
+    int fileCount() const override;
     LgpIterator iterator();
-    bool fileExists(const QString &filePath) const;
-    QIODevice *file(const QString &filePath);
-    QIODevice *modifiedFile(const QString &filePath);
-    bool setFile(const QString &filePath, QIODevice *data);
-    bool addFile(const QString &filePath, QIODevice *data);
-    bool removeFile(const QString &filePath);
-    bool isNameValid(const QString &filePath) const;
-    bool renameFile(const QString &filePath, const QString &newFilePath);
+    bool fileExists(const QString &filePath) const override;
+    QIODevice *file(const QString &filePath) override;
+    QIODevice *modifiedFile(const QString &filePath) override;
+    bool setFile(const QString &filePath, QIODevice *data) override;
+    bool addFile(const QString &filePath, QIODevice *data) override;
+    bool removeFile(const QString &filePath) override;
+    bool isNameValid(const QString &filePath) const override;
+    bool renameFile(const QString &filePath, const QString &newFilePath) override;
     const QString &companyName();
     void setCompanyName(const QString &companyName);
     const QString &productName();
     void setProductName(const QString &productName);
-    bool pack(const QString &destination = QString(), ArchiveObserver *observer = NULL);
+    bool pack(const QString &destination=QString(), ArchiveObserver *observer = nullptr) override;
     LgpError error() const;
     void unsetError();
 private:
     Q_DISABLE_COPY(Lgp)
-    bool openHeader();
+    bool openHeader() override;
     bool openCompanyName();
     bool openProductName();
     LgpHeaderEntry *headerEntry(const QString &filePath) const;
     void setError(LgpError error, const QString &errorString = QString());
+    static QByteArray readAll(QIODevice *d, bool *ok);
 
     QString _companyName;
     LgpToc *_files;
     QString _productName;
     LgpError _error;
+
 };

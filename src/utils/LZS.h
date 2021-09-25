@@ -21,11 +21,11 @@
         NIFTY-Serve PAF01022
         CompuServe  74050,1022
 **************************************************************/
-#ifndef DEF_LZS
-#define DEF_LZS
+#pragma once
 
 #include <QtCore>
 #include "ff7tkutils_export.h"
+
 class FF7TKUTILS_EXPORT LZS
 {
 public:
@@ -45,13 +45,11 @@ public:
 private:
     static void InsertNode(qint32 r);
     static void DeleteNode(qint32 p);
-    static qint32 match_length;//of longest match. These are set by the InsertNode() procedure.
+    static qint32 match_length; // of longest match. These are set by the InsertNode() procedure.
     static qint32 match_position;
-    static qint32 lson[4097];//left & right children & parents -- These constitute binary search trees.
+    static qint32 lson[4097]; // left & right children & parents -- These constitute binary search trees.
     static qint32 rson[4353];
     static qint32 dad[4097];
-    static unsigned char text_buf[4113];//ring buffer of size 4096, with extra 17 bytes to facilitate string comparison
+    static unsigned char text_buf[4113]; // ring buffer of size 4096, with extra 17 bytes to facilitate string comparison
     static QByteArray result;
 };
-
-#endif
