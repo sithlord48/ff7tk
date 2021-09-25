@@ -1,20 +1,19 @@
-/****************************************************************************
- ** Makou Reactor Final Fantasy VII Field Script Editor
- ** Copyright (C) 2009-2012 Arzel Jérôme <myst6re@gmail.com>
- **                    2019 Chris Rizzitello <sithlord48@gmail.com>
- ** This program is free software: you can redistribute it and/or modify
- ** it under the terms of the GNU General Public License as published by
- ** the Free Software Foundation, either version 3 of the License, or
- ** (at your option) any later version.
- **
- ** This program is distributed in the hope that it will be useful,
- ** but WITHOUT ANY WARRANTY; without even the implied warranty of
- ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- ** GNU General Public License for more details.
- **
- ** You should have received a copy of the GNU General Public License
- ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
- ****************************************************************************/
+/****************************************************************************/
+//    copyright 2009 - 2021  Arzel Jérôme <myst6re@gmail.com>               //
+//    copyright 2019  Chris Rizzitello <sithlord48@gmail.com>               //
+//                                                                          //
+//    This file is part of FF7tk                                            //
+//                                                                          //
+//    FF7tk is free software: you can redistribute it and/or modify         //
+//    it under the terms of the GNU General Public License as published by  //
+//    the Free Software Foundation, either version 3 of the License, or     //
+//    (at your option) any later version.                                   //
+//                                                                          //
+//    FF7tk is distributed in the hope that it will be useful,              //
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
+//    GNU General Public License for more details.                          //
+/****************************************************************************/
 /*
  * This file may contains some code (especially the conflict part)
  * inspired from LGP/UnLGP tool written by Aali.
@@ -223,7 +222,7 @@ LgpToc::LgpToc()
 
 LgpToc::LgpToc(const LgpToc &other)
 {
-    foreach (LgpHeaderEntry *headerEntry, other.table()) {
+    for (LgpHeaderEntry *headerEntry : other.table()) {
         addEntry(new LgpHeaderEntry(*headerEntry));
     }
 }
@@ -253,6 +252,7 @@ LgpHeaderEntry *LgpToc::entry(const QString &filePath) const
 {
     qint32 v = lookupValue(filePath);
     if (v < 0) {
+        qDebug() << "LgpToc::entry invalid lookup" << filePath;
         return nullptr; // invalid file name
     }
 
@@ -276,7 +276,7 @@ bool LgpToc::hasEntries(quint16 id) const
 
 LgpHeaderEntry *LgpToc::entry(const QString &filePath, quint16 id) const
 {
-    foreach (LgpHeaderEntry *entry, entries(id)) {
+    for (LgpHeaderEntry *entry : entries(id)) {
         if (filePath.compare(entry->filePath(), Qt::CaseInsensitive) == 0) {
             return entry;
         }
@@ -377,7 +377,7 @@ QList<const LgpHeaderEntry *> LgpToc::filesSortedByPosition() const
 {
     QMultiMap<quint32, const LgpHeaderEntry *> ret;
 
-    foreach (const LgpHeaderEntry *entry, _header) {
+    for (const LgpHeaderEntry *entry : _header) {
         ret.insert(entry->filePosition(), entry);
     }
 
@@ -388,7 +388,7 @@ LgpToc &LgpToc::operator=(const LgpToc &other)
 {
     if (this != &other) {
         clear();
-        foreach (LgpHeaderEntry *headerEntry, other.table()) {
+        for (LgpHeaderEntry *headerEntry : other.table()) {
             addEntry(new LgpHeaderEntry(*headerEntry));
         }
     }
