@@ -53,8 +53,8 @@ option(WIDGET_GALLERY "Build the widget based gallery" OFF)
 option(QML_GALLERY "Build the qml based gallery" OFF)
 option(DOCS "Build and Install Documents (Requires Doxygen)" OFF)
 
-add_subdirectory(lang)
 add_subdirectory(src)
+add_subdirectory(lang)
 
 if(WIDGET_GALLERY)
     add_subdirectory(ff7tkWidgetGallery)
