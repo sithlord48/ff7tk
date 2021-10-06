@@ -148,7 +148,8 @@ QIODevice *LgpHeaderEntry::createFile(QIODevice *lgp)
     if (name.size() != 20) {
         return nullptr;
     }
-    if (QString(name).compare(fileName(), Qt::CaseInsensitive) != 0) {
+    QString nameStr = QString::fromLatin1(name.constData(), qstrnlen(name.constData(), 20));
+    if (nameStr.compare(fileName(), Qt::CaseInsensitive) != 0) {
         qWarning() << "different name";
         return nullptr;
     }
@@ -159,7 +160,7 @@ QIODevice *LgpHeaderEntry::createFile(QIODevice *lgp)
     }
 
     setFileSize(size);
-    setFileName(name);
+    setFileName(nameStr);
     QIODevice *io = new LgpIO(lgp, this);
     setFile(io);
     return io;

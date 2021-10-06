@@ -24,6 +24,10 @@
 #include "Archive.h"
 #include "ff7tkformats_export.h"
 
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+#define QMultiHashIterator QHashIterator
+#endif
+
 class LgpHeaderEntry;
 class LgpToc;
 class Lgp;
@@ -44,7 +48,7 @@ public:
     QString filePath() const;
 private:
     LgpIterator(LgpToc *toc, QFile *lgp);
-    QHashIterator<quint16, LgpHeaderEntry *> it;
+    QMultiHashIterator<quint16, LgpHeaderEntry *> it;
     QFile *_lgp;
 };
 

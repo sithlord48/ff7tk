@@ -183,7 +183,7 @@ void Archive::setFileName(const QString &fileName)
 QString Archive::errorString() const
 {
     return _errorString.isEmpty()
-           ? QLatin1String(QT_TRANSLATE_NOOP(Archive, ("Unknown error")))
+           ? QT_TRANSLATE_NOOP(Archive, QStringLiteral("Unknown error"))
            : _errorString;
 }
 

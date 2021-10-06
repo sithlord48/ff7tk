@@ -1063,7 +1063,9 @@ bool IsoArchive::openVolumeDescriptor(quint8 num)
     if (!_io.seek(_io.pos() + 31)) {
         return false;
     }
-    volume.dr.name = _io.read(std::min((int)volume.dr.drh.length_fi, MAX_FILENAME_LENGTH));
+    QByteArray volumeName = _io.read(std::min(int(volume.dr.drh.length_fi), MAX_FILENAME_LENGTH));
+    // Trim \0 at the end
+    volume.dr.name = QString::fromLatin1(volumeName.constData(), -1);
     if (_io.pos() & 1) {
         if (!_io.seek(_io.pos() + 1)) { // padding
             return false;
@@ -1135,7 +1137,9 @@ IsoDirectory *IsoArchive::_openDirectoryRecord(IsoDirectory *directories, QList<
                 goto _openDirectoryRecordError;
             }
 
-            dr.name = _io.readIso(dr.drh.length_fi);
+            QByteArray name = _io.readIso(dr.drh.length_fi);
+            // Trim \0 at the end
+            dr.name = QString::fromLatin1(name.constData(), -1);
             qsizetype index = dr.name.lastIndexOf(SEPARATOR_2);
             //dr.version = dr.name.mid(index+1);
             dr.name = dr.name.left(index);

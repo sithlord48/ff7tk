@@ -324,7 +324,7 @@ bool Lgp::openCompanyName()
     while (*data == '\0' && data < last) {
         data++;
     }
-    _companyName = QByteArray(data, int(last - data));
+    _companyName = QString::fromLatin1(data, int(last - data));
 
     return true;
 }
@@ -361,7 +361,8 @@ bool Lgp::openProductName()
     if (!archiveIO()->seek(archiveIO()->size() - LGP_PRODUCT_NAME_SIZE)) {
         return false;
     }
-    _productName = archiveIO()->read(LGP_PRODUCT_NAME_SIZE);
+    QByteArray productName = archiveIO()->read(LGP_PRODUCT_NAME_SIZE);
+    _productName = QString::fromLatin1(productName.constData(), qstrnlen(productName.constData(), LGP_PRODUCT_NAME_SIZE));
 
     return true;
 }
@@ -445,7 +446,7 @@ bool Lgp::openHeader()
         memcpy(&filePos, headerConstData + cur + 20, 4);
         memcpy(&conflict, headerConstData + cur + 25, 2);
         tocEntries.append(new LgpHeaderEntry(
-                              headerData.mid(cur, 20),
+                              QString::fromLatin1(headerConstData + cur, qstrnlen(headerConstData + cur, 20)),
                               filePos));
         headerConflict.append(conflict);
         if (conflict != 0 && !hasConflict) {
@@ -499,7 +500,9 @@ bool Lgp::openHeader()
             QList<LgpConflictEntry> conflictEntries;
 
             for (qint32 cur = 0; cur < sizeConflicData; cur += 130) {
-                LgpConflictEntry conflictEntry(conflictData.mid(cur, 128));
+                LgpConflictEntry conflictEntry(
+                            QString::fromLatin1(conflictConstData + cur,
+                                                qstrnlen(conflictConstData + cur, 128)));
 
                 memcpy(&conflictEntry.tocIndex, conflictConstData + cur + 128, 2);
 
@@ -758,8 +761,8 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
         QIODevice *io = modifiedFile(path);
         if (io == nullptr) {
             temp.remove();
-            setError(FileNotFoundError, QT_TRANSLATE_NOOP(Lgp, QString("File '%1' not found")
-                     .arg(path).toLatin1().data()));
+            setError(FileNotFoundError, QT_TRANSLATE_NOOP(Lgp, QStringLiteral("File '%1' not found")
+                                                          .arg(path)));
             return false;
         }
         if (!io->open(QIODevice::ReadOnly)) {

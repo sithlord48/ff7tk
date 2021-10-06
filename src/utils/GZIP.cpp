@@ -156,7 +156,7 @@ char GZIP::strategyToChar(Strategy strategy)
 
 QString GZIP::gzMode(const char *mode, int level, Strategy strategy)
 {
-    QString m(mode);
+    QString m = QString::fromLatin1(mode);
     if (level >= 0 && level <= 9) {
         m.append(QString::number(level));
     }
