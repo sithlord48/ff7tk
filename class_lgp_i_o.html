@@ -82,21 +82,21 @@ Inheritance diagram for LgpIO:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abcfd1f00ba39232222d45ea30a832450"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#abcfd1f00ba39232222d45ea30a832450">LgpIO</a> (QIODevice *lgp, const <a class="el" href="class_lgp_header_entry.html">LgpHeaderEntry</a> *header, QObject *parent=0)</td></tr>
-<tr class="separator:abcfd1f00ba39232222d45ea30a832450"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75313fd5f82d4c2031ba83691f7431fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a75313fd5f82d4c2031ba83691f7431fd">open</a> (OpenMode mode)</td></tr>
-<tr class="separator:a75313fd5f82d4c2031ba83691f7431fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60f3e50afd5188960095775a70c83b7d"><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a60f3e50afd5188960095775a70c83b7d">size</a> () const</td></tr>
-<tr class="separator:a60f3e50afd5188960095775a70c83b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e2c489957b47142ddd5b93ecfd746c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a4e2c489957b47142ddd5b93ecfd746c1">canReadLine</a> () const</td></tr>
-<tr class="separator:a4e2c489957b47142ddd5b93ecfd746c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ef3bb5cc7ab6dbdc6e4f372246502e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#ad1ef3bb5cc7ab6dbdc6e4f372246502e">LgpIO</a> (QIODevice *lgp, const <a class="el" href="class_lgp_header_entry.html">LgpHeaderEntry</a> *header, QObject *parent=nullptr)</td></tr>
+<tr class="separator:ad1ef3bb5cc7ab6dbdc6e4f372246502e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a792b09cb16505406d4371b5baf4780f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a792b09cb16505406d4371b5baf4780f6">open</a> (OpenMode mode) override</td></tr>
+<tr class="separator:a792b09cb16505406d4371b5baf4780f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77cd25a6b7437330c028dedd53f21410"><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a77cd25a6b7437330c028dedd53f21410">size</a> () const override</td></tr>
+<tr class="separator:a77cd25a6b7437330c028dedd53f21410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3897404eb18a78d7316ab84e61504b7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a3897404eb18a78d7316ab84e61504b7c">canReadLine</a> () const override</td></tr>
+<tr class="separator:a3897404eb18a78d7316ab84e61504b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8db0938c18da9e8a9e74fe237fce2b8f"><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a8db0938c18da9e8a9e74fe237fce2b8f">readData</a> (char *data, qint64 maxSize)</td></tr>
-<tr class="separator:a8db0938c18da9e8a9e74fe237fce2b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac284e6b249bb312f6ed58e49319e7973"><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#ac284e6b249bb312f6ed58e49319e7973">writeData</a> (const char *data, qint64 maxSize)</td></tr>
-<tr class="separator:ac284e6b249bb312f6ed58e49319e7973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36fb6854cdb8906a7e540e95c683d7b"><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#aa36fb6854cdb8906a7e540e95c683d7b">readData</a> (char *data, qint64 maxSize) override</td></tr>
+<tr class="separator:aa36fb6854cdb8906a7e540e95c683d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658a95bba8dad1740df0ce3f2e05e958"><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp_i_o.html#a658a95bba8dad1740df0ce3f2e05e958">writeData</a> (const char *data, qint64 maxSize) override</td></tr>
+<tr class="separator:a658a95bba8dad1740df0ce3f2e05e958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -106,8 +106,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab63804b654d6f3094d396ea2e9033d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abcfd1f00ba39232222d45ea30a832450"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcfd1f00ba39232222d45ea30a832450">&#9670;&nbsp;</a></span>LgpIO()</h2>
+<a id="ad1ef3bb5cc7ab6dbdc6e4f372246502e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ef3bb5cc7ab6dbdc6e4f372246502e">&#9670;&nbsp;</a></span>LgpIO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,7 +128,7 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">QObject *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -141,11 +141,14 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4e2c489957b47142ddd5b93ecfd746c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e2c489957b47142ddd5b93ecfd746c1">&#9670;&nbsp;</a></span>canReadLine()</h2>
+<a id="a3897404eb18a78d7316ab84e61504b7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3897404eb18a78d7316ab84e61504b7c">&#9670;&nbsp;</a></span>canReadLine()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool LgpIO::canReadLine </td>
@@ -154,15 +157,23 @@ Private Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a75313fd5f82d4c2031ba83691f7431fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75313fd5f82d4c2031ba83691f7431fd">&#9670;&nbsp;</a></span>open()</h2>
+<a id="a792b09cb16505406d4371b5baf4780f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a792b09cb16505406d4371b5baf4780f6">&#9670;&nbsp;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool LgpIO::open </td>
@@ -172,12 +183,17 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8db0938c18da9e8a9e74fe237fce2b8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8db0938c18da9e8a9e74fe237fce2b8f">&#9670;&nbsp;</a></span>readData()</h2>
+<a id="aa36fb6854cdb8906a7e540e95c683d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa36fb6854cdb8906a7e540e95c683d7b">&#9670;&nbsp;</a></span>readData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,18 +221,21 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a60f3e50afd5188960095775a70c83b7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60f3e50afd5188960095775a70c83b7d">&#9670;&nbsp;</a></span>size()</h2>
+<a id="a77cd25a6b7437330c028dedd53f21410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77cd25a6b7437330c028dedd53f21410">&#9670;&nbsp;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">qint64 LgpIO::size </td>
@@ -225,12 +244,17 @@ Private Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac284e6b249bb312f6ed58e49319e7973"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac284e6b249bb312f6ed58e49319e7973">&#9670;&nbsp;</a></span>writeData()</h2>
+<a id="a658a95bba8dad1740df0ce3f2e05e958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a658a95bba8dad1740df0ce3f2e05e958">&#9670;&nbsp;</a></span>writeData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,7 +282,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -21,7 +21,7 @@ var searchData=
   ['lgp',['Lgp',['../class_lgp.html#a7a3206c61216780d56feaa464b6aa263',1,'Lgp::Lgp()'],['../class_lgp.html#abe362ad8571a623dbb483231b1b40fbd',1,'Lgp::Lgp(const QString &amp;name)'],['../class_lgp.html#a580a334d6bcdd3680eb0045c4bccc636',1,'Lgp::Lgp(QFile *device)']]],
   ['lgpconflictentry',['LgpConflictEntry',['../struct_lgp_conflict_entry.html#a3bdefbef562b5a803f652beb52f7700e',1,'LgpConflictEntry::LgpConflictEntry()'],['../struct_lgp_conflict_entry.html#a14d2129307b0ffc1d316694a8ddc8fff',1,'LgpConflictEntry::LgpConflictEntry(const QString &amp;fileDir, quint16 tocIndex=0)']]],
   ['lgpheaderentry',['LgpHeaderEntry',['../class_lgp_header_entry.html#a52d2bdadc4b9fe707daac46e568ea6c8',1,'LgpHeaderEntry']]],
-  ['lgpio',['LgpIO',['../class_lgp_i_o.html#abcfd1f00ba39232222d45ea30a832450',1,'LgpIO']]],
+  ['lgpio',['LgpIO',['../class_lgp_i_o.html#ad1ef3bb5cc7ab6dbdc6e4f372246502e',1,'LgpIO']]],
   ['lgpiterator',['LgpIterator',['../class_lgp_iterator.html#a743203bbcbffafdd64ebfc3cd885a3b7',1,'LgpIterator::LgpIterator(const Lgp &amp;lgp)'],['../class_lgp_iterator.html#a01fce20bc9b5a8fe9b4cdc04e2cbedd2',1,'LgpIterator::LgpIterator(LgpToc *toc, QFile *lgp)']]],
   ['lgptoc',['LgpToc',['../class_lgp_toc.html#a9005d1a749865bad6f24647325c3cd99',1,'LgpToc::LgpToc()'],['../class_lgp_toc.html#ab3dc854e57829c4208b69874f15d6b59',1,'LgpToc::LgpToc(const LgpToc &amp;other)']]],
   ['lgptocentry',['LgpTocEntry',['../struct_lgp_toc_entry.html#afeb32b6d1d01d0156cefe2bcf072c0a8',1,'LgpTocEntry::LgpTocEntry()'],['../struct_lgp_toc_entry.html#a904f7617e432cfc30c020897120924b8',1,'LgpTocEntry::LgpTocEntry(quint16 tocIndex, quint16 conflict=0)']]],

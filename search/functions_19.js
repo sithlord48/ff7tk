@@ -2,6 +2,7 @@ var searchData=
 [
   ['_7eachievementeditor',['~AchievementEditor',['../class_achievement_editor.html#aa52567f863b9090145071c823d47c8a0',1,'AchievementEditor']]],
   ['_7earchive',['~Archive',['../class_archive.html#a2579b14a36caa8c449eed09f001e9cb6',1,'Archive']]],
+  ['_7earchiveobserver',['~ArchiveObserver',['../struct_archive_observer.html#af095781bb5c00802f8fdf6710992d64c',1,'ArchiveObserver']]],
   ['_7echocobolabel',['~ChocoboLabel',['../class_chocobo_label.html#a506ffe20f42d8693f81fe3d15d29fffc',1,'ChocoboLabel']]],
   ['_7edialogpreview',['~DialogPreview',['../class_dialog_preview.html#afcbaa23bce5cfcb4e59ca0bd70cabe61',1,'DialogPreview']]],
   ['_7edoublecheckbox',['~DoubleCheckBox',['../class_double_check_box.html#a23acf030ede9b89fd1c5725f6696d145',1,'DoubleCheckBox']]],
@@ -14,11 +15,11 @@ var searchData=
   ['_7eff7saveinfo',['~FF7SaveInfo',['../class_f_f7_save_info.html#a7c1d7a0723120f29de16478caabe9b03',1,'FF7SaveInfo']]],
   ['_7eff7text',['~FF7TEXT',['../class_f_f7_t_e_x_t.html#a49f2643ed60148bf00a3828920c9a47f',1,'FF7TEXT']]],
   ['_7eisoarchive',['~IsoArchive',['../class_iso_archive.html#a6950edbbe9e11e66ddfa30336c1167b7',1,'IsoArchive']]],
-  ['_7eisoarchiveio',['~IsoArchiveIO',['../class_iso_archive_i_o.html#ab680842d5b170175f2a640eb0288aebe',1,'IsoArchiveIO']]],
-  ['_7eisodirectory',['~IsoDirectory',['../class_iso_directory.html#a9d0ca774493cc6f3cc9f62b091b60a7a',1,'IsoDirectory']]],
-  ['_7eisofile',['~IsoFile',['../class_iso_file.html#a5ce4c70b3d6efecfea82cc4035099df4',1,'IsoFile']]],
+  ['_7eisoarchiveio',['~IsoArchiveIO',['../class_iso_archive_i_o.html#a920248fd96aed5eb58ef8f465d43d52b',1,'IsoArchiveIO']]],
+  ['_7eisodirectory',['~IsoDirectory',['../class_iso_directory.html#aee8a5948ee48b45e536737e881b5f926',1,'IsoDirectory']]],
+  ['_7eisofile',['~IsoFile',['../class_iso_file.html#ab9db20faaa44be6546f7134390106445',1,'IsoFile']]],
   ['_7eisofileordirectory',['~IsoFileOrDirectory',['../class_iso_file_or_directory.html#a751536adf77e7084d55effec27a06072',1,'IsoFileOrDirectory']]],
-  ['_7elgp',['~Lgp',['../class_lgp.html#a40f0acf849ef5d6395da8ec6299d798c',1,'Lgp']]],
+  ['_7elgp',['~Lgp',['../class_lgp.html#a46549e94126fc7665e22b3c3551a19c9',1,'Lgp']]],
   ['_7elgpheaderentry',['~LgpHeaderEntry',['../class_lgp_header_entry.html#a0f9b5980361a48ecbbf9a4462952712a',1,'LgpHeaderEntry']]],
   ['_7elgptoc',['~LgpToc',['../class_lgp_toc.html#a4343975087b468b7fd592ce54776af11',1,'LgpToc']]],
   ['_7eqlockedfile',['~QLockedFile',['../class_q_locked_file.html#a219f1edb6e6abd583306acae9ac09e48',1,'QLockedFile']]]

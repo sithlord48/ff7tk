@@ -74,12 +74,16 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a518000920d4707ed312d28c6cb1689ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_archive_observer.html#a518000920d4707ed312d28c6cb1689ff">ArchiveObserver</a> ()</td></tr>
 <tr class="separator:a518000920d4707ed312d28c6cb1689ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af095781bb5c00802f8fdf6710992d64c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_archive_observer.html#af095781bb5c00802f8fdf6710992d64c">~ArchiveObserver</a> ()</td></tr>
+<tr class="separator:af095781bb5c00802f8fdf6710992d64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a113940eb588946e2a3f20081309e572c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_archive_observer.html#a113940eb588946e2a3f20081309e572c">observerWasCanceled</a> () const =0</td></tr>
 <tr class="separator:a113940eb588946e2a3f20081309e572c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1f422ff4cbfaf661257ec014a447540"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_archive_observer.html#aa1f422ff4cbfaf661257ec014a447540">setObserverMaximum</a> (unsigned int max)=0</td></tr>
 <tr class="separator:aa1f422ff4cbfaf661257ec014a447540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaa477c00ddff1a9453807a9ffda9d9d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_archive_observer.html#acaa477c00ddff1a9453807a9ffda9d9d">setObserverValue</a> (int value)=0</td></tr>
 <tr class="separator:acaa477c00ddff1a9453807a9ffda9d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1791b13687aab2a5fc527e8019ca6321"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_archive_observer.html#a1791b13687aab2a5fc527e8019ca6321">observerRetry</a> (const QString &amp;message)=0</td></tr>
+<tr class="separator:a1791b13687aab2a5fc527e8019ca6321"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a518000920d4707ed312d28c6cb1689ff"></a>
@@ -107,7 +111,58 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="af095781bb5c00802f8fdf6710992d64c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af095781bb5c00802f8fdf6710992d64c">&#9670;&nbsp;</a></span>~ArchiveObserver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ArchiveObserver::~ArchiveObserver </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1791b13687aab2a5fc527e8019ca6321"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1791b13687aab2a5fc527e8019ca6321">&#9670;&nbsp;</a></span>observerRetry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ArchiveObserver::observerRetry </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a113940eb588946e2a3f20081309e572c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a113940eb588946e2a3f20081309e572c">&#9670;&nbsp;</a></span>observerWasCanceled()</h2>
 
@@ -185,8 +240,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/ff7tk/ff7tk/src/formats/<a class="el" href="_archive_8h_source.html">Archive.h</a></li>
+<li>/home/runner/work/ff7tk/ff7tk/src/formats/<a class="el" href="_archive_8cpp.html">Archive.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

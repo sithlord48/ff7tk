@@ -64,6 +64,7 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_lgp-members.html">List of all members</a>  </div>
@@ -91,17 +92,18 @@ Public Types</h2></td></tr>
 <a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a94e53d5024992860d6e11319bf869d2b">WriteError</a>, 
 <a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a4102e7aabfeb708a050dfbea640d709e">OpenError</a>, 
 <br />
-&#160;&#160;<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a09b2dad6ed989ae04fcbeca28b513b12">AbortError</a>, 
+&#160;&#160;<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a1aad6198b8dc8a81772d4c3dfa72facc">OpenTempError</a>, 
+<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a09b2dad6ed989ae04fcbeca28b513b12">AbortError</a>, 
 <a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ad53e5696f2a58a170c2022dcef44d131">RemoveError</a>, 
 <a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a30caf75b6086142617db87e7c3d7c55f">RenameError</a>, 
-<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a46714c350560972eec86210d5a4a00f2">PositionError</a>, 
 <br />
-&#160;&#160;<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4aa2ba431002d2bc7f39cb572cb5e43a59">ResizeError</a>, 
+&#160;&#160;<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a46714c350560972eec86210d5a4a00f2">PositionError</a>, 
+<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4aa2ba431002d2bc7f39cb572cb5e43a59">ResizeError</a>, 
 <a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ae3372aea8cdab000d77e97fccc375fe5">PermissionsError</a>, 
 <a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ad9a747a9cb13b0f3f86c7e535f5f760b">CopyError</a>, 
-<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a99a275d161732d0b2f71f8880ef2743f">InvalidError</a>, 
 <br />
-&#160;&#160;<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a393ec11f0281263cb39c91cd0c422eb5">FileNotFoundError</a>
+&#160;&#160;<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a99a275d161732d0b2f71f8880ef2743f">InvalidError</a>, 
+<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a393ec11f0281263cb39c91cd0c422eb5">FileNotFoundError</a>
 <br />
  }</td></tr>
 <tr class="separator:a4661ed6ee155237edcaf4aeeb6957fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,32 +137,32 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abe362ad8571a623dbb483231b1b40fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a580a334d6bcdd3680eb0045c4bccc636"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a580a334d6bcdd3680eb0045c4bccc636">Lgp</a> (QFile *device)</td></tr>
 <tr class="separator:a580a334d6bcdd3680eb0045c4bccc636"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40f0acf849ef5d6395da8ec6299d798c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a40f0acf849ef5d6395da8ec6299d798c">~Lgp</a> ()</td></tr>
-<tr class="separator:a40f0acf849ef5d6395da8ec6299d798c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c0d5960db9faa1da0481912a724eaca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a8c0d5960db9faa1da0481912a724eaca">clear</a> ()</td></tr>
-<tr class="separator:a8c0d5960db9faa1da0481912a724eaca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ee0aa2f0cf63d5df33df0c30da385f6"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a4ee0aa2f0cf63d5df33df0c30da385f6">fileList</a> () const</td></tr>
-<tr class="separator:a4ee0aa2f0cf63d5df33df0c30da385f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96dccd8468653a4a24ca1eed8a176164"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a96dccd8468653a4a24ca1eed8a176164">fileCount</a> () const</td></tr>
-<tr class="separator:a96dccd8468653a4a24ca1eed8a176164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46549e94126fc7665e22b3c3551a19c9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a46549e94126fc7665e22b3c3551a19c9">~Lgp</a> () override</td></tr>
+<tr class="separator:a46549e94126fc7665e22b3c3551a19c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7b3e7ebe24a74b73eed8cf8d1dc56f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#ad7b3e7ebe24a74b73eed8cf8d1dc56f6">clear</a> () override</td></tr>
+<tr class="separator:ad7b3e7ebe24a74b73eed8cf8d1dc56f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a632d3e09ff901bb8633fb40ad093edbb"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a632d3e09ff901bb8633fb40ad093edbb">fileList</a> () const override</td></tr>
+<tr class="separator:a632d3e09ff901bb8633fb40ad093edbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adebbfdb12f73446da896ade4f57b899b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#adebbfdb12f73446da896ade4f57b899b">fileCount</a> () const override</td></tr>
+<tr class="separator:adebbfdb12f73446da896ade4f57b899b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99da49fb63326fd680f1d1822edad0c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_lgp_iterator.html">LgpIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a99da49fb63326fd680f1d1822edad0c0">iterator</a> ()</td></tr>
 <tr class="separator:a99da49fb63326fd680f1d1822edad0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33e0530a989b699d18cd4b25871b8551"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a33e0530a989b699d18cd4b25871b8551">fileExists</a> (const QString &amp;filePath) const</td></tr>
-<tr class="separator:a33e0530a989b699d18cd4b25871b8551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1d83b94b93dd6bef2a4b5a83d1b691f"><td class="memItemLeft" align="right" valign="top">QIODevice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#aa1d83b94b93dd6bef2a4b5a83d1b691f">file</a> (const QString &amp;filePath)</td></tr>
-<tr class="separator:aa1d83b94b93dd6bef2a4b5a83d1b691f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae331e798e39bbac14c440b0a3707c3c6"><td class="memItemLeft" align="right" valign="top">QIODevice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#ae331e798e39bbac14c440b0a3707c3c6">modifiedFile</a> (const QString &amp;filePath)</td></tr>
-<tr class="separator:ae331e798e39bbac14c440b0a3707c3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6270d632ac158082c5e45ba8b7f0504f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a6270d632ac158082c5e45ba8b7f0504f">setFile</a> (const QString &amp;filePath, QIODevice *data)</td></tr>
-<tr class="separator:a6270d632ac158082c5e45ba8b7f0504f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3dd04e1acca6c343298db3194a05329"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#ad3dd04e1acca6c343298db3194a05329">addFile</a> (const QString &amp;filePath, QIODevice *data)</td></tr>
-<tr class="separator:ad3dd04e1acca6c343298db3194a05329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e77a61d951e0dfe64f967785ca9c5bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a5e77a61d951e0dfe64f967785ca9c5bf">removeFile</a> (const QString &amp;filePath)</td></tr>
-<tr class="separator:a5e77a61d951e0dfe64f967785ca9c5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa30726db907df116e0121c3701356523"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#aa30726db907df116e0121c3701356523">isNameValid</a> (const QString &amp;filePath) const</td></tr>
-<tr class="separator:aa30726db907df116e0121c3701356523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accdef48826a68d5757d8eb4f1ae9f25f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#accdef48826a68d5757d8eb4f1ae9f25f">renameFile</a> (const QString &amp;filePath, const QString &amp;newFilePath)</td></tr>
-<tr class="separator:accdef48826a68d5757d8eb4f1ae9f25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a70dbb42551feaf229e0b9b5ca40f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#ac8a70dbb42551feaf229e0b9b5ca40f3">fileExists</a> (const QString &amp;filePath) const override</td></tr>
+<tr class="separator:ac8a70dbb42551feaf229e0b9b5ca40f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457a7e5859fd4378d1f4ccb9f3843ce6"><td class="memItemLeft" align="right" valign="top">QIODevice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a457a7e5859fd4378d1f4ccb9f3843ce6">file</a> (const QString &amp;filePath) override</td></tr>
+<tr class="separator:a457a7e5859fd4378d1f4ccb9f3843ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0603607d7d36958dcccd63bcd2c08a"><td class="memItemLeft" align="right" valign="top">QIODevice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a2a0603607d7d36958dcccd63bcd2c08a">modifiedFile</a> (const QString &amp;filePath) override</td></tr>
+<tr class="separator:a2a0603607d7d36958dcccd63bcd2c08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adda4055e6013b908a37df16954f2f64e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#adda4055e6013b908a37df16954f2f64e">setFile</a> (const QString &amp;filePath, QIODevice *data) override</td></tr>
+<tr class="separator:adda4055e6013b908a37df16954f2f64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeefaddfea09ba4a0bc17630da93cd948"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#aeefaddfea09ba4a0bc17630da93cd948">addFile</a> (const QString &amp;filePath, QIODevice *data) override</td></tr>
+<tr class="separator:aeefaddfea09ba4a0bc17630da93cd948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a304fdd7388121f693e1fad864c4971ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a304fdd7388121f693e1fad864c4971ff">removeFile</a> (const QString &amp;filePath) override</td></tr>
+<tr class="separator:a304fdd7388121f693e1fad864c4971ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5306dd71c6a7f7c02d8174ed7bc723"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#aca5306dd71c6a7f7c02d8174ed7bc723">isNameValid</a> (const QString &amp;filePath) const override</td></tr>
+<tr class="separator:aca5306dd71c6a7f7c02d8174ed7bc723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1177ff17fe41bc50fb8f8f4281f55602"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a1177ff17fe41bc50fb8f8f4281f55602">renameFile</a> (const QString &amp;filePath, const QString &amp;newFilePath) override</td></tr>
+<tr class="separator:a1177ff17fe41bc50fb8f8f4281f55602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2791429690cc543ce225a95c08de02f"><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#ab2791429690cc543ce225a95c08de02f">companyName</a> ()</td></tr>
 <tr class="separator:ab2791429690cc543ce225a95c08de02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc1c2936355100e98dd62d64c88c6b8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#abc1c2936355100e98dd62d64c88c6b8a">setCompanyName</a> (const QString &amp;<a class="el" href="class_lgp.html#ab2791429690cc543ce225a95c08de02f">companyName</a>)</td></tr>
@@ -169,8 +171,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4f9eb50bbe7e4e652bf918b9fb13b60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd2faf3bedf77ef3ac6c82aec245efa4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#abd2faf3bedf77ef3ac6c82aec245efa4">setProductName</a> (const QString &amp;<a class="el" href="class_lgp.html#a4f9eb50bbe7e4e652bf918b9fb13b60f">productName</a>)</td></tr>
 <tr class="separator:abd2faf3bedf77ef3ac6c82aec245efa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a852613e0ea3acbd3bcfd27a043eb57e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a852613e0ea3acbd3bcfd27a043eb57e4">pack</a> (const QString &amp;destination=QString(), <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *observer=NULL)</td></tr>
-<tr class="separator:a852613e0ea3acbd3bcfd27a043eb57e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39130dc707cfe75d5a7d56a13d47e04b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a39130dc707cfe75d5a7d56a13d47e04b">pack</a> (const QString &amp;destination=QString(), <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *observer=nullptr) override</td></tr>
+<tr class="separator:a39130dc707cfe75d5a7d56a13d47e04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f6e4563d605e66270d79aebdb1c60fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4">LgpError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a1f6e4563d605e66270d79aebdb1c60fc">error</a> () const</td></tr>
 <tr class="separator:a1f6e4563d605e66270d79aebdb1c60fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e6bcdcbc55d32c657148985fc04a204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a3e6bcdcbc55d32c657148985fc04a204">unsetError</a> ()</td></tr>
@@ -209,8 +211,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a05f57f623e0fadbbe862900d7cf435b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a05f57f623e0fadbbe862900d7cf435b6">openHeader</a> ()</td></tr>
-<tr class="separator:a05f57f623e0fadbbe862900d7cf435b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d7253ed2b93deba4bbc96812464eb3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a0d7253ed2b93deba4bbc96812464eb3a">openHeader</a> () override</td></tr>
+<tr class="separator:a0d7253ed2b93deba4bbc96812464eb3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9027a0ea4325ede6c26f8f9bb9770ca8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a9027a0ea4325ede6c26f8f9bb9770ca8">openCompanyName</a> ()</td></tr>
 <tr class="separator:a9027a0ea4325ede6c26f8f9bb9770ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad21dcee4cdc241ab57e5f8daa568eee4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#ad21dcee4cdc241ab57e5f8daa568eee4">openProductName</a> ()</td></tr>
@@ -219,6 +221,11 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ab5a65a479c3717a4f7daa0dbf7009087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefbe7e989bfb77eaacb5b3c67347ca13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#aefbe7e989bfb77eaacb5b3c67347ca13">setError</a> (<a class="el" href="class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4">LgpError</a> <a class="el" href="class_lgp.html#a1f6e4563d605e66270d79aebdb1c60fc">error</a>, const QString &amp;<a class="el" href="class_archive.html#a113daeedf193798b7d21255834b91110">errorString</a>=QString())</td></tr>
 <tr class="separator:aefbe7e989bfb77eaacb5b3c67347ca13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a6ae209266b5bcf962f3f911ef96d0c51"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lgp.html#a6ae209266b5bcf962f3f911ef96d0c51">readAll</a> (QIODevice *d, bool *ok)</td></tr>
+<tr class="separator:a6ae209266b5bcf962f3f911ef96d0c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -263,6 +270,7 @@ Additional Inherited Members</h2></td></tr>
 <tr><td class="fieldname"><a id="a4661ed6ee155237edcaf4aeeb6957fe4ad0ca819e8010cc06e1d45b8e5c07bc5c"></a>ReadError&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4661ed6ee155237edcaf4aeeb6957fe4a94e53d5024992860d6e11319bf869d2b"></a>WriteError&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4661ed6ee155237edcaf4aeeb6957fe4a4102e7aabfeb708a050dfbea640d709e"></a>OpenError&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4661ed6ee155237edcaf4aeeb6957fe4a1aad6198b8dc8a81772d4c3dfa72facc"></a>OpenTempError&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4661ed6ee155237edcaf4aeeb6957fe4a09b2dad6ed989ae04fcbeca28b513b12"></a>AbortError&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4661ed6ee155237edcaf4aeeb6957fe4ad53e5696f2a58a170c2022dcef44d131"></a>RemoveError&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a4661ed6ee155237edcaf4aeeb6957fe4a30caf75b6086142617db87e7c3d7c55f"></a>RenameError&#160;</td><td class="fielddoc"></td></tr>
@@ -349,8 +357,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a40f0acf849ef5d6395da8ec6299d798c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40f0acf849ef5d6395da8ec6299d798c">&#9670;&nbsp;</a></span>~Lgp()</h2>
+<a id="a46549e94126fc7665e22b3c3551a19c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46549e94126fc7665e22b3c3551a19c9">&#9670;&nbsp;</a></span>~Lgp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -367,7 +375,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -376,8 +384,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad3dd04e1acca6c343298db3194a05329"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3dd04e1acca6c343298db3194a05329">&#9670;&nbsp;</a></span>addFile()</h2>
+<a id="aeefaddfea09ba4a0bc17630da93cd948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeefaddfea09ba4a0bc17630da93cd948">&#9670;&nbsp;</a></span>addFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,7 +413,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -415,8 +423,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a8c0d5960db9faa1da0481912a724eaca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c0d5960db9faa1da0481912a724eaca">&#9670;&nbsp;</a></span>clear()</h2>
+<a id="ad7b3e7ebe24a74b73eed8cf8d1dc56f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b3e7ebe24a74b73eed8cf8d1dc56f6">&#9670;&nbsp;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -433,7 +441,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -479,8 +487,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aa1d83b94b93dd6bef2a4b5a83d1b691f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1d83b94b93dd6bef2a4b5a83d1b691f">&#9670;&nbsp;</a></span>file()</h2>
+<a id="a457a7e5859fd4378d1f4ccb9f3843ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457a7e5859fd4378d1f4ccb9f3843ce6">&#9670;&nbsp;</a></span>file()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -498,18 +506,18 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the data for the file named <em>filePath</em>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_archive.html#aaa66f39610c16f9c95b985ae44ef17dd">fileData()</a>, <a class="el" href="class_lgp.html#ae331e798e39bbac14c440b0a3707c3c6">modifiedFile()</a>, <a class="el" href="class_archive.html#ac6f1d45802dadfcebf4daa7bb6ad6058">modifiedFileData()</a> </dd></dl>
+<p>Returns the data for the file named <em>filePath</em>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_archive.html#aaa66f39610c16f9c95b985ae44ef17dd">fileData()</a>, <a class="el" href="class_lgp.html#a2a0603607d7d36958dcccd63bcd2c08a">modifiedFile()</a>, <a class="el" href="class_archive.html#ac6f1d45802dadfcebf4daa7bb6ad6058">modifiedFileData()</a> </dd></dl>
 
 <p>Implements <a class="el" href="class_archive.html#acfffc78fc3b03199771292637700e28e">Archive</a>.</p>
 
 </div>
 </div>
-<a id="a96dccd8468653a4a24ca1eed8a176164"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96dccd8468653a4a24ca1eed8a176164">&#9670;&nbsp;</a></span>fileCount()</h2>
+<a id="adebbfdb12f73446da896ade4f57b899b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adebbfdb12f73446da896ade4f57b899b">&#9670;&nbsp;</a></span>fileCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,7 +534,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -536,8 +544,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a33e0530a989b699d18cd4b25871b8551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33e0530a989b699d18cd4b25871b8551">&#9670;&nbsp;</a></span>fileExists()</h2>
+<a id="ac8a70dbb42551feaf229e0b9b5ca40f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8a70dbb42551feaf229e0b9b5ca40f3">&#9670;&nbsp;</a></span>fileExists()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -555,7 +563,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -565,8 +573,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a4ee0aa2f0cf63d5df33df0c30da385f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ee0aa2f0cf63d5df33df0c30da385f6">&#9670;&nbsp;</a></span>fileList()</h2>
+<a id="a632d3e09ff901bb8633fb40ad093edbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a632d3e09ff901bb8633fb40ad093edbb">&#9670;&nbsp;</a></span>fileList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -583,7 +591,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -619,8 +627,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aa30726db907df116e0121c3701356523"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa30726db907df116e0121c3701356523">&#9670;&nbsp;</a></span>isNameValid()</h2>
+<a id="aca5306dd71c6a7f7c02d8174ed7bc723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5306dd71c6a7f7c02d8174ed7bc723">&#9670;&nbsp;</a></span>isNameValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -638,7 +646,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -666,8 +674,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ae331e798e39bbac14c440b0a3707c3c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae331e798e39bbac14c440b0a3707c3c6">&#9670;&nbsp;</a></span>modifiedFile()</h2>
+<a id="a2a0603607d7d36958dcccd63bcd2c08a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0603607d7d36958dcccd63bcd2c08a">&#9670;&nbsp;</a></span>modifiedFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -685,11 +693,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the data, modified by setData if modified, for the file named <em>filePath</em>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_lgp.html#aa1d83b94b93dd6bef2a4b5a83d1b691f">file()</a>, <a class="el" href="class_archive.html#aaa66f39610c16f9c95b985ae44ef17dd">fileData()</a>, <a class="el" href="class_archive.html#ac6f1d45802dadfcebf4daa7bb6ad6058">modifiedFileData()</a> </dd></dl>
+<p>Returns the data, modified by setData if modified, for the file named <em>filePath</em>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_lgp.html#a457a7e5859fd4378d1f4ccb9f3843ce6">file()</a>, <a class="el" href="class_archive.html#aaa66f39610c16f9c95b985ae44ef17dd">fileData()</a>, <a class="el" href="class_archive.html#ac6f1d45802dadfcebf4daa7bb6ad6058">modifiedFileData()</a> </dd></dl>
 
 <p>Implements <a class="el" href="class_archive.html#ac23bbcb931ca5eb9df0bd98854c06171">Archive</a>.</p>
 
@@ -720,8 +728,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a05f57f623e0fadbbe862900d7cf435b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05f57f623e0fadbbe862900d7cf435b6">&#9670;&nbsp;</a></span>openHeader()</h2>
+<a id="a0d7253ed2b93deba4bbc96812464eb3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d7253ed2b93deba4bbc96812464eb3a">&#9670;&nbsp;</a></span>openHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -738,7 +746,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -772,8 +780,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a852613e0ea3acbd3bcfd27a043eb57e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a852613e0ea3acbd3bcfd27a043eb57e4">&#9670;&nbsp;</a></span>pack()</h2>
+<a id="a39130dc707cfe75d5a7d56a13d47e04b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39130dc707cfe75d5a7d56a13d47e04b">&#9670;&nbsp;</a></span>pack()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -791,7 +799,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *&#160;</td>
-          <td class="paramname"><em>observer</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>observer</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -801,13 +809,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Save the lgp into <em>destination</em> (or overwrite the current archive if <em>destination</em> is empty). The archive is closed after this operation. <em>observer</em> is used to notify the progression of the save. It can be NULL. </p>
+<p>Save the lgp into <em>destination</em> (or overwrite the current archive if <em>destination</em> is empty). The archive is closed after this operation. <em>observer</em> is used to notify the progression of the save. It can be nullptr. </p>
 
-<p>Implements <a class="el" href="class_archive.html#a53f4b47ed0ac699a02387eedeb50f901">Archive</a>.</p>
+<p>Implements <a class="el" href="class_archive.html#ade9b606e2ea2e3c8c1ff69d7abd1487b">Archive</a>.</p>
 
 </div>
 </div>
@@ -829,8 +837,44 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a5e77a61d951e0dfe64f967785ca9c5bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e77a61d951e0dfe64f967785ca9c5bf">&#9670;&nbsp;</a></span>removeFile()</h2>
+<a id="a6ae209266b5bcf962f3f911ef96d0c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ae209266b5bcf962f3f911ef96d0c51">&#9670;&nbsp;</a></span>readAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray Lgp::readAll </td>
+          <td>(</td>
+          <td class="paramtype">QIODevice *&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>ok</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a304fdd7388121f693e1fad864c4971ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a304fdd7388121f693e1fad864c4971ff">&#9670;&nbsp;</a></span>removeFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -848,7 +892,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -858,8 +902,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="accdef48826a68d5757d8eb4f1ae9f25f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accdef48826a68d5757d8eb4f1ae9f25f">&#9670;&nbsp;</a></span>renameFile()</h2>
+<a id="a1177ff17fe41bc50fb8f8f4281f55602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1177ff17fe41bc50fb8f8f4281f55602">&#9670;&nbsp;</a></span>renameFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -887,7 +931,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -952,8 +996,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a6270d632ac158082c5e45ba8b7f0504f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6270d632ac158082c5e45ba8b7f0504f">&#9670;&nbsp;</a></span>setFile()</h2>
+<a id="adda4055e6013b908a37df16954f2f64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adda4055e6013b908a37df16954f2f64e">&#9670;&nbsp;</a></span>setFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -981,7 +1025,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

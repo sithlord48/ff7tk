@@ -86,6 +86,10 @@ Classes</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a90f8625f3c459ffbc068b23f936fbd30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ps_color_8h.html#a90f8625f3c459ffbc068b23f936fbd30">COEFF_COLOR</a>&#160;&#160;&#160;8.2258064516129032258064516129032</td></tr>
 <tr class="separator:a90f8625f3c459ffbc068b23f936fbd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c2062d3bbf6c96361d76933e7d41ca4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ps_color_8h.html#a6c2062d3bbf6c96361d76933e7d41ca4">psColorAlphaBit</a>(color)&#160;&#160;&#160;((color &gt;&gt; 15) &amp; 1)</td></tr>
+<tr class="separator:a6c2062d3bbf6c96361d76933e7d41ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2581bcf825d320989ecb649443bd977a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_ps_color_8h.html#a2581bcf825d320989ecb649443bd977a">setPsColorAlphaBit</a>(color,  alpha)&#160;&#160;&#160;((color &amp; 0x7FFF) | (alpha &lt;&lt; 15))</td></tr>
+<tr class="separator:a2581bcf825d320989ecb649443bd977a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a90f8625f3c459ffbc068b23f936fbd30"></a>
@@ -96,6 +100,52 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define COEFF_COLOR&#160;&#160;&#160;8.2258064516129032258064516129032</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c2062d3bbf6c96361d76933e7d41ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c2062d3bbf6c96361d76933e7d41ca4">&#9670;&nbsp;</a></span>psColorAlphaBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define psColorAlphaBit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color</td><td>)</td>
+          <td>&#160;&#160;&#160;((color &gt;&gt; 15) &amp; 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2581bcf825d320989ecb649443bd977a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2581bcf825d320989ecb649443bd977a">&#9670;&nbsp;</a></span>setPsColorAlphaBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define setPsColorAlphaBit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">alpha&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((color &amp; 0x7FFF) | (alpha &lt;&lt; 15))</td>
         </tr>
       </table>
 </div><div class="memdoc">

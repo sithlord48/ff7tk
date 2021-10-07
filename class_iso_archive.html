@@ -96,8 +96,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7633a596cd1c533ae7167d79c1659d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6306d795a0d856d1d53f68752b8bb9c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_iso_archive_i_o.html">IsoArchiveIO</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#ab6306d795a0d856d1d53f68752b8bb9c">io</a> () const</td></tr>
 <tr class="separator:ab6306d795a0d856d1d53f68752b8bb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9124d7168defd5c063a5885f29e163ca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#a9124d7168defd5c063a5885f29e163ca">pack</a> (<a class="el" href="class_iso_archive.html">IsoArchive</a> *destination, <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *control=NULL, <a class="el" href="class_iso_directory.html">IsoDirectory</a> *directory=NULL)</td></tr>
-<tr class="separator:a9124d7168defd5c063a5885f29e163ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0008782c25d063dc445ba18d370e6047"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#a0008782c25d063dc445ba18d370e6047">pack</a> (<a class="el" href="class_iso_archive.html">IsoArchive</a> *destination, <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *control=nullptr, <a class="el" href="class_iso_directory.html">IsoDirectory</a> *directory=nullptr)</td></tr>
+<tr class="separator:a0008782c25d063dc445ba18d370e6047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45204c9c0c2398f189577d7cc9145a3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#a45204c9c0c2398f189577d7cc9145a3b">applyModifications</a> (<a class="el" href="class_iso_directory.html">IsoDirectory</a> *directory)</td></tr>
 <tr class="separator:a45204c9c0c2398f189577d7cc9145a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac868e5bfdd172c10dc04fdbfdb3cbf40"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#ac868e5bfdd172c10dc04fdbfdb3cbf40">file</a> (const QString &amp;path, quint32 maxSize=0) const</td></tr>
@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ad53b894225d05a158ddb0cc7faaefff8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#ad53b894225d05a158ddb0cc7faaefff8">reorganizeModifiedFilesAfter</a> (QMap&lt; quint32, const <a class="el" href="class_iso_file.html">IsoFile</a> *&gt; &amp;writeToTheMain, QList&lt; const <a class="el" href="class_iso_file.html">IsoFile</a> *&gt; &amp;writeToTheEnd)</td></tr>
-<tr class="memdesc:ad53b894225d05a158ddb0cc7faaefff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to extend <a class="el" href="class_iso_archive.html">IsoArchive</a>. Called in <a class="el" href="class_iso_archive.html#a9124d7168defd5c063a5885f29e163ca">pack()</a> after file reorganization.  <a href="#ad53b894225d05a158ddb0cc7faaefff8">More...</a><br /></td></tr>
+<tr class="memdesc:ad53b894225d05a158ddb0cc7faaefff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to extend <a class="el" href="class_iso_archive.html">IsoArchive</a>. Called in <a class="el" href="class_iso_archive.html#a0008782c25d063dc445ba18d370e6047">pack()</a> after file reorganization.  <a href="#ad53b894225d05a158ddb0cc7faaefff8">More...</a><br /></td></tr>
 <tr class="separator:ad53b894225d05a158ddb0cc7faaefff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41fa362f10d1d7b73dc87b95656ac81b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#a41fa362f10d1d7b73dc87b95656ac81b">setError</a> (<a class="el" href="class_archive.html#a2752025d615c69dee4169592342ac5cb">Archive::ArchiveError</a> <a class="el" href="class_iso_archive.html#af29e63e4a67bb205a2a222c0dd1f0b2b">error</a>, const QString &amp;<a class="el" href="class_iso_archive.html#a7633a596cd1c533ae7167d79c1659d4f">errorString</a>=QString())</td></tr>
 <tr class="separator:a41fa362f10d1d7b73dc87b95656ac81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,10 +149,10 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a2425b56b487554234f533ba14cc72827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b5e3a0f60923e8152bc798b6b09ed5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#a9b5e3a0f60923e8152bc798b6b09ed5b">getModifiedFiles</a> (QMap&lt; quint32, <a class="el" href="class_iso_file.html">IsoFile</a> *&gt; &amp;files, <a class="el" href="class_iso_directory.html">IsoDirectory</a> *directory) const</td></tr>
 <tr class="separator:a9b5e3a0f60923e8152bc798b6b09ed5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f0a8403c72a14accfc44d5ec5d142a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#a4f0a8403c72a14accfc44d5ec5d142a4">writeFile</a> (QIODevice *in, quint32 sectorCount=0, <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *control=NULL)</td></tr>
-<tr class="separator:a4f0a8403c72a14accfc44d5ec5d142a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc09cee2d2986c52f64c1d190b4e4da2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#afc09cee2d2986c52f64c1d190b4e4da2">copySectors</a> (<a class="el" href="class_iso_archive_i_o.html">IsoArchiveIO</a> *out, qint64 size, <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *control=NULL, bool repair=false)</td></tr>
-<tr class="separator:afc09cee2d2986c52f64c1d190b4e4da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc642937c0fa033b638c0c502b5b752b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#afc642937c0fa033b638c0c502b5b752b">writeFile</a> (QIODevice *in, quint32 sectorCount=0, <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *control=nullptr)</td></tr>
+<tr class="separator:afc642937c0fa033b638c0c502b5b752b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf097e18ab657645cc1fced71e2d2e10"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive.html#adf097e18ab657645cc1fced71e2d2e10">copySectors</a> (<a class="el" href="class_iso_archive_i_o.html">IsoArchiveIO</a> *out, qint64 size, <a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *control=nullptr, bool repair=false)</td></tr>
+<tr class="separator:adf097e18ab657645cc1fced71e2d2e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -399,8 +399,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="afc09cee2d2986c52f64c1d190b4e4da2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc09cee2d2986c52f64c1d190b4e4da2">&#9670;&nbsp;</a></span>copySectors()</h2>
+<a id="adf097e18ab657645cc1fced71e2d2e10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf097e18ab657645cc1fced71e2d2e10">&#9670;&nbsp;</a></span>copySectors()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -424,7 +424,7 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *&#160;</td>
-          <td class="paramname"><em>control</em> = <code>NULL</code>, </td>
+          <td class="paramname"><em>control</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1013,8 +1013,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9124d7168defd5c063a5885f29e163ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9124d7168defd5c063a5885f29e163ca">&#9670;&nbsp;</a></span>pack()</h2>
+<a id="a0008782c25d063dc445ba18d370e6047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0008782c25d063dc445ba18d370e6047">&#9670;&nbsp;</a></span>pack()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1029,13 +1029,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *&#160;</td>
-          <td class="paramname"><em>control</em> = <code>NULL</code>, </td>
+          <td class="paramname"><em>control</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_iso_directory.html">IsoDirectory</a> *&#160;</td>
-          <td class="paramname"><em>directory</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>directory</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1081,7 +1081,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Used to extend <a class="el" href="class_iso_archive.html">IsoArchive</a>. Called in <a class="el" href="class_iso_archive.html#a9124d7168defd5c063a5885f29e163ca">pack()</a> after file reorganization. </p>
+<p>Used to extend <a class="el" href="class_iso_archive.html">IsoArchive</a>. Called in <a class="el" href="class_iso_archive.html#a0008782c25d063dc445ba18d370e6047">pack()</a> after file reorganization. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">writeToTheMain</td><td></td></tr>
@@ -1089,7 +1089,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>false to cancel <a class="el" href="class_iso_archive.html#a9124d7168defd5c063a5885f29e163ca">pack()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>false to cancel <a class="el" href="class_iso_archive.html#a0008782c25d063dc445ba18d370e6047">pack()</a> </dd></dl>
 
 </div>
 </div>
@@ -1209,8 +1209,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4f0a8403c72a14accfc44d5ec5d142a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f0a8403c72a14accfc44d5ec5d142a4">&#9670;&nbsp;</a></span>writeFile()</h2>
+<a id="afc642937c0fa033b638c0c502b5b752b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc642937c0fa033b638c0c502b5b752b">&#9670;&nbsp;</a></span>writeFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1234,7 +1234,7 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_archive_observer.html">ArchiveObserver</a> *&#160;</td>
-          <td class="paramname"><em>control</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>control</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

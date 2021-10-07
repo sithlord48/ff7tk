@@ -97,6 +97,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ab421a422bf343b062e50fba5816e5fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72984b6ccf1bcd75fa1d4c50b4850020"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_z_i_p.html#a72984b6ccf1bcd75fa1d4c50b4850020">decompress</a> (const QString &amp;path, int decSize, <a class="el" href="class_g_z_i_p.html#aed98839d3d1d4439813a1e87d23bb806">Strategy</a> strategy=<a class="el" href="class_g_z_i_p.html#aed98839d3d1d4439813a1e87d23bb806a360a7f3288c1db03487ee8924cbd1225">StrategyDefault</a>)</td></tr>
 <tr class="separator:a72984b6ccf1bcd75fa1d4c50b4850020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ab144f370c5dd5161f3d3b9ea1e13e2"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_z_i_p.html#a4ab144f370c5dd5161f3d3b9ea1e13e2">decompressNoHeader</a> (const char *data, int size)</td></tr>
+<tr class="separator:a4ab144f370c5dd5161f3d3b9ea1e13e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a768295418f62101b9aa63ec3c95feaed"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_z_i_p.html#a768295418f62101b9aa63ec3c95feaed">compressNoHeader</a> (const char *data, int size, int level=-1)</td></tr>
+<tr class="separator:a768295418f62101b9aa63ec3c95feaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2327f0cd514dfcf07fcbffa940fbd0f5"><td class="memItemLeft" align="right" valign="top">static ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_z_i_p.html#a2327f0cd514dfcf07fcbffa940fbd0f5">crc</a> (const char *data, int size)</td></tr>
+<tr class="separator:a2327f0cd514dfcf07fcbffa940fbd0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -202,6 +208,84 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="class_g_z_i_p.html#aed98839d3d1d4439813a1e87d23bb806">Strategy</a>&#160;</td>
           <td class="paramname"><em>strategy</em> = <code><a class="el" href="class_g_z_i_p.html#aed98839d3d1d4439813a1e87d23bb806a360a7f3288c1db03487ee8924cbd1225">StrategyDefault</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a768295418f62101b9aa63ec3c95feaed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a768295418f62101b9aa63ec3c95feaed">&#9670;&nbsp;</a></span>compressNoHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray GZIP::compressNoHeader </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2327f0cd514dfcf07fcbffa940fbd0f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2327f0cd514dfcf07fcbffa940fbd0f5">&#9670;&nbsp;</a></span>crc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ulong GZIP::crc </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -334,6 +418,42 @@ Static Private Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="class_g_z_i_p.html#aed98839d3d1d4439813a1e87d23bb806">Strategy</a>&#160;</td>
           <td class="paramname"><em>strategy</em> = <code><a class="el" href="class_g_z_i_p.html#aed98839d3d1d4439813a1e87d23bb806a360a7f3288c1db03487ee8924cbd1225">StrategyDefault</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ab144f370c5dd5161f3d3b9ea1e13e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ab144f370c5dd5161f3d3b9ea1e13e2">&#9670;&nbsp;</a></span>decompressNoHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray GZIP::decompressNoHeader </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

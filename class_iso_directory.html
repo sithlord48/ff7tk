@@ -84,10 +84,10 @@ Inheritance diagram for IsoDirectory:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acdb6fbae17c4221965f6b74866a2deb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_directory.html#acdb6fbae17c4221965f6b74866a2deb0">IsoDirectory</a> (const QString &amp;<a class="el" href="class_iso_file_or_directory.html#a824a5cb603d093178fcecc9467a2dc72">name</a>, quint32 <a class="el" href="class_iso_file_or_directory.html#a49e8675e81d20b7548161b36709c0fda">location</a>, quint32 <a class="el" href="class_iso_file_or_directory.html#a86809cea72e310f5e4e951da2086138a">size</a>, qint64 <a class="el" href="class_iso_file_or_directory.html#ae988fc404558d28a491564b1988f20fe">structPosition</a>)</td></tr>
 <tr class="separator:acdb6fbae17c4221965f6b74866a2deb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d0ca774493cc6f3cc9f62b091b60a7a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_directory.html#a9d0ca774493cc6f3cc9f62b091b60a7a">~IsoDirectory</a> ()</td></tr>
-<tr class="separator:a9d0ca774493cc6f3cc9f62b091b60a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addf41ae165c188343e767f080bcd952c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_directory.html#addf41ae165c188343e767f080bcd952c">isDirectory</a> () const</td></tr>
-<tr class="separator:addf41ae165c188343e767f080bcd952c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee8a5948ee48b45e536737e881b5f926"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_directory.html#aee8a5948ee48b45e536737e881b5f926">~IsoDirectory</a> () override</td></tr>
+<tr class="separator:aee8a5948ee48b45e536737e881b5f926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7597f094036f875074a9eb3ff6c86cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_directory.html#ab7597f094036f875074a9eb3ff6c86cd">isDirectory</a> () const override</td></tr>
+<tr class="separator:ab7597f094036f875074a9eb3ff6c86cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6233d1bbe5c17228fcf068205c006b58"><td class="memItemLeft" align="right" valign="top">const QMap&lt; QString, <a class="el" href="class_iso_file_or_directory.html">IsoFileOrDirectory</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_directory.html#a6233d1bbe5c17228fcf068205c006b58">filesAndDirectories</a> () const</td></tr>
 <tr class="separator:a6233d1bbe5c17228fcf068205c006b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f0ab4ff1e715004bca2a377d038d435"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_iso_file.html">IsoFile</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_directory.html#a3f0ab4ff1e715004bca2a377d038d435">files</a> () const</td></tr>
@@ -206,8 +206,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a9d0ca774493cc6f3cc9f62b091b60a7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d0ca774493cc6f3cc9f62b091b60a7a">&#9670;&nbsp;</a></span>~IsoDirectory()</h2>
+<a id="aee8a5948ee48b45e536737e881b5f926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee8a5948ee48b45e536737e881b5f926">&#9670;&nbsp;</a></span>~IsoDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +224,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -355,8 +355,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="addf41ae165c188343e767f080bcd952c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addf41ae165c188343e767f080bcd952c">&#9670;&nbsp;</a></span>isDirectory()</h2>
+<a id="ab7597f094036f875074a9eb3ff6c86cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7597f094036f875074a9eb3ff6c86cd">&#9670;&nbsp;</a></span>isDirectory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -373,7 +373,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

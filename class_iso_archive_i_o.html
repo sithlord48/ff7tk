@@ -87,10 +87,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba8ed56964f9ca6b19f158096eea7294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fac4d662e361cf17446fd07ff2468c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#a5fac4d662e361cf17446fd07ff2468c1">IsoArchiveIO</a> (const QString &amp;name)</td></tr>
 <tr class="separator:a5fac4d662e361cf17446fd07ff2468c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab680842d5b170175f2a640eb0288aebe"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#ab680842d5b170175f2a640eb0288aebe">~IsoArchiveIO</a> ()</td></tr>
-<tr class="separator:ab680842d5b170175f2a640eb0288aebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad23a67ce2c898188199d8d33c8d1205e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#ad23a67ce2c898188199d8d33c8d1205e">open</a> (QIODevice::OpenMode mode)</td></tr>
-<tr class="separator:ad23a67ce2c898188199d8d33c8d1205e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a920248fd96aed5eb58ef8f465d43d52b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#a920248fd96aed5eb58ef8f465d43d52b">~IsoArchiveIO</a> () override</td></tr>
+<tr class="separator:a920248fd96aed5eb58ef8f465d43d52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc1887529d00caea5c65ec2519ded5f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#abc1887529d00caea5c65ec2519ded5f1">open</a> (QIODevice::OpenMode mode) override</td></tr>
+<tr class="separator:abc1887529d00caea5c65ec2519ded5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4b723e1a1257599a8a51d747a06c7e6"><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#af4b723e1a1257599a8a51d747a06c7e6">posIso</a> () const</td></tr>
 <tr class="separator:af4b723e1a1257599a8a51d747a06c7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c562577324142702046d16fdd59703d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#a6c562577324142702046d16fdd59703d">seekIso</a> (qint64 off)</td></tr>
@@ -128,8 +128,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a4f08f18628929f313d0395ce68800af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39ed1cf59be08d816a3d2286f7d5363a"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#a39ed1cf59be08d816a3d2286f7d5363a">buildFooter</a> (quint32 <a class="el" href="class_iso_archive_i_o.html#a795672926ae02553bd4d05898ae7ed5f">sector</a>)</td></tr>
 <tr class="separator:a39ed1cf59be08d816a3d2286f7d5363a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b5515c9364a97ad8366bb8b8a3539bc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#a7b5515c9364a97ad8366bb8b8a3539bc">headerInfos</a> (const QByteArray &amp;header, quint8 *type, quint8 *mode=NULL)</td></tr>
-<tr class="separator:a7b5515c9364a97ad8366bb8b8a3539bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61e89d73b849f03b854bd4789dd807d7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#a61e89d73b849f03b854bd4789dd807d7">headerInfos</a> (const QByteArray &amp;header, quint8 *type, quint8 *mode=nullptr)</td></tr>
+<tr class="separator:a61e89d73b849f03b854bd4789dd807d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f08a7de7011dddc79c6b016ec00dbe2"><td class="memItemLeft" align="right" valign="top">static quint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_iso_archive_i_o.html#a2f08a7de7011dddc79c6b016ec00dbe2">sectorCountData</a> (quint32 dataSize)</td></tr>
 <tr class="separator:a2f08a7de7011dddc79c6b016ec00dbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -193,8 +193,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ab680842d5b170175f2a640eb0288aebe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab680842d5b170175f2a640eb0288aebe">&#9670;&nbsp;</a></span>~IsoArchiveIO()</h2>
+<a id="a920248fd96aed5eb58ef8f465d43d52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920248fd96aed5eb58ef8f465d43d52b">&#9670;&nbsp;</a></span>~IsoArchiveIO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,7 +211,7 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -356,8 +356,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a7b5515c9364a97ad8366bb8b8a3539bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b5515c9364a97ad8366bb8b8a3539bc">&#9670;&nbsp;</a></span>headerInfos()</h2>
+<a id="a61e89d73b849f03b854bd4789dd807d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61e89d73b849f03b854bd4789dd807d7">&#9670;&nbsp;</a></span>headerInfos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,7 +381,7 @@ Friends</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">quint8 *&#160;</td>
-          <td class="paramname"><em>mode</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>mode</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -476,11 +476,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="ad23a67ce2c898188199d8d33c8d1205e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad23a67ce2c898188199d8d33c8d1205e">&#9670;&nbsp;</a></span>open()</h2>
+<a id="abc1887529d00caea5c65ec2519ded5f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1887529d00caea5c65ec2519ded5f1">&#9670;&nbsp;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool IsoArchiveIO::open </td>
@@ -490,6 +493,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
