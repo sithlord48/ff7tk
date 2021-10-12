@@ -2,10 +2,10 @@ project(ff7tkQmlGallery VERSION 0.1.1 LANGUAGES CXX DESCRIPTION "Demo App for ff
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Quick QuickControls2 QmlImportScanner)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
         Quick
         QuickControls2
+        QmlImportScanner
 )
 
 if(APPLE)
@@ -45,7 +45,7 @@ if(APPLE)
         MAXOSX_BUNDLE_ICON_FILE ff7tkQmlGallery.icns
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
-    get_target_property(_qmake_executable Qt${QT_VERSION_MAJOR}::qmake IMPORTED_LOCATION)
+    get_target_property(_qmake_executable Qt${QT_DEFAULT_MAJOR_VERSION}::qmake IMPORTED_LOCATION)
     find_program(MACDEPLOYQT macdeployqt HINTS "${_qt_bin_dir}")
     add_custom_command(TARGET ff7tkQmlGallery POST_BUILD
         COMMAND ${MACDEPLOYQT} ${PROJECT_NAME}.app -qmldir=${CMAKE_SOURCE_DIR}/ff7tkQmlGallery

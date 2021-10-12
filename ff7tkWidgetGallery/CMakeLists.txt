@@ -6,8 +6,7 @@ set(CMAKE_AUTOUIC ON)
 set(WIDGETS ON CACHE BOOL BOOL FORCE)
 set(FORMATS ON CACHE BOOL BOOL FORCE)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Quick)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
         Widgets
         Quick
 )
@@ -67,7 +66,7 @@ if(APPLE)
         MAXOSX_BUNDLE_ICON_FILE ff7tkWidgetGallery.icns
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
-    get_target_property(_qmake_executable Qt${QT_VERSION_MAJOR}::qmake IMPORTED_LOCATION)
+    get_target_property(_qmake_executable Qt${QT_DEFAULT_MAJOR_VERSION}::qmake IMPORTED_LOCATION)
     find_program(MACDEPLOYQT macdeployqt HINTS "${_qt_bin_dir}")
     add_custom_command(TARGET ff7tkWidgetGallery POST_BUILD
         COMMAND ${MACDEPLOYQT} ${PROJECT_NAME}.app

@@ -1,7 +1,12 @@
 # Building ff7tk
-To build ff7tk you wil need [cmake], [Qt] and [zlib]
 
-Currently ff7tk will build:
+To build ff7tk you will a minimum of: 
+    - [cmake] 3.21+
+    - [Qt] 5.15.2 or 6.2.0+
+    - [zlib]
+
+
+Currently ff7tk will build: 
      - A Required Core Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)
      - Additional Libraries ff7tkWidgets, ff7tkUtils and ff7tkFormats.
      - Headers for the libraries so you can link to them
@@ -19,26 +24,30 @@ DOCS           | Build Documentation.                    | OFF           | [doxy
 FORMATS        | Build ff7tkFormats                      | ON            | |
 UTILS          | Build ff7tkUtils.                       | ON            | [zlib] |
 WIDGETS        | Build ff7tkWidgets.                     | ON            | |
-QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt used  | 5             | |
+QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use| 5             | |
 
-Example cmake command.
+Example workflow.
 
-`cmake -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=<INSTALLPREFIX> CMakeLists.txt`
+## Configure
 
-## Building
+`cmake -S. -Bbuild -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=<INSTALLPREFIX>`
+
+## Build
 After Configuring you Should be able to run make to build all targets.
 
-`make`
+`cmake --build build`
 
 ## Install
- running`make install` will install the built items into the provided <CMAKE_INSTALL_PREFIX>
+ To test installation run `DESTDIR=<installDIR> cmake --install build` to install into `<installDir>/<CMAKE_INSTALL_PREFIX>` <br>
+ Running `cmake --install build` will install to the `CMAKE_INSTALL_PREFIX`
+
 
 # Using With your project
 
 After installing you can use in your cmake project by simply adding 
 `find_project(ff7tk)` link with `ff7tk::ff7tk`
 
-Addtional Modules include
+Additional Modules include
 
 `ff7tkFormats` link with `ff7tk::ff7tkFormats`
 
@@ -51,10 +60,10 @@ For QMake you can use the pkgconfig provided by the system
 `PKGCONFIG += ff7tk`
 
 ## Translations
-  In addition to ff7tk's language files your application should also ship the qt_base_<lang>.qm 
+  In addition to ff7tk's language files your application should also ship the qt_base_<lang>.qm
 
 # ff7tk version info
- include the file ff7tkAbout.h and use the function ff7tk_version() or ff7tk_revision()
+ include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version()
 
 [Qt]:https://www.qt.io
 [doxygen]:http://www.stack.nl/~dimitri/doxygen/

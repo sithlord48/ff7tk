@@ -18,3 +18,11 @@ QString ff7tk_revision() {
         revision.prepend(QStringLiteral("."));
     return revision;
 }
+
+/**
+ * @brief Get the major version of Qt that was used to build ff7tk
+ * @return: Qt5 or Qt6 depending on what library was used to build ff7tk
+*/
+QString ff7tk_qt_version() {
+    return QStringLiteral("Qt%1").arg(QStringLiteral("@QT_DEFAULT_MAJOR_VERSION@"));
+}

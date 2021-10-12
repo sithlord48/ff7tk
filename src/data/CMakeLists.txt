@@ -1,11 +1,10 @@
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick Xml)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
     Core
     Quick
     Xml
 )
 
-if(${QT_VERSION_MAJOR} EQUAL "6")
+if(${QT_DEFAULT_MAJOR_VERSION} MATCHES "6")
     find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
 endif()
 
@@ -93,7 +92,7 @@ target_link_libraries (ff7tk PUBLIC
         Qt::Xml
 )
 
-if(${QT_VERSION_MAJOR} EQUAL "6")
+if(${QT_DEFAULT_MAJOR_VERSION} EQUAL "6")
     target_link_libraries(ff7tk PRIVATE Qt6::Core5Compat)
 endif()
 
