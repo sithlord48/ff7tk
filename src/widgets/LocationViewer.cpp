@@ -534,13 +534,8 @@ void LocationViewer::filterLocations(QString filter)
         return;
     }
 
-    QRegExp exp(filter);
-    exp.setPatternSyntax(regExpSearch ? QRegExp::Wildcard
-                         : QRegExp::FixedString);
-
-    exp.setCaseSensitivity(caseSensitive ? Qt::CaseSensitive
-                           : Qt::CaseInsensitive);
-
+    QRegularExpression exp(filter);
+    exp.setPatternOptions(caseSensitive ? QRegularExpression::PatternOption::NoPatternOption : QRegularExpression::CaseInsensitiveOption );
     switch (searchMode) {
     case NAME: searchName(exp); break;
     case ITEM: searchItem(exp); break;
@@ -645,26 +640,45 @@ void LocationViewer::setFieldItemChecked(int row, bool checked)
     }
     init_connections();
 }
-void LocationViewer::searchName(QRegExp exp)
+void LocationViewer::searchName(QRegularExpression exp)
 {
     for (int i = 0; i < locationTable->rowCount(); i++) {
         bool hidden = true;
+        if(regExpSearch) {
         for (int j = 0; j < locationTable->columnCount(); j++) {
-            if (locationTable->item(i, j)->text().contains(exp)) {
-                hidden = false;
-                break;
+                if (exp.match(locationTable->item(i, j)->text()).hasMatch()) {
+                    hidden = false;
+                    break;
+                }
+            }
+        } else {
+            Qt::CaseSensitivity caseSensitiveValue = caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive;
+            for (int j = 0; j < locationTable->columnCount(); j++) {
+                if (locationTable->item(i, j)->text().contains(exp.pattern(), caseSensitiveValue)) {
+                    hidden = false;
+                    break;
+                }
             }
         }
         locationTable->setRowHidden(i, hidden);
     }
 }
-void LocationViewer::searchItem(QRegExp exp)
+void LocationViewer::searchItem(QRegularExpression exp)
 {
     QStringList locationNames;
-    for (const FieldItem &fieldItem : fieldItems->fieldItemList()) {
-            if (fieldItem.Text.contains(exp))
+    if(regExpSearch) {
+        for (const FieldItem &fieldItem : fieldItems->fieldItemList()) {
+                if (exp.match(fieldItem.Text).hasMatch())
+                    locationNames.append(fieldItem.Maps);
+        }
+    } else {
+        Qt::CaseSensitivity caseSensitiveValue = caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive;
+        for (const FieldItem &fieldItem : fieldItems->fieldItemList()) {
+            if (fieldItem.Text.contains(exp.pattern(), caseSensitiveValue))
                 locationNames.append(fieldItem.Maps);
+        }
     }
+
     for (int i = 0; i < locationTable->rowCount(); i++) {
         bool hidden = true;
         for (int j = 0; j < locationNames.count(); j++) {

@@ -104,8 +104,8 @@ private:
     void updateText();
     void updateItemText(int locID = -1, bool currentLoc = false);
     QString translate(QString text);
-    void searchItem(QRegExp exp);
-    void searchName(QRegExp exp);
+    void searchItem(QRegularExpression exp);
+    void searchName(QRegularExpression exp);
     qreal scale;
     QString region;
     QString langDir;
