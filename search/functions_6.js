@@ -10,6 +10,7 @@ var searchData=
   ['ff7save',['FF7Save',['../class_f_f7_save.html#a7be8e04b9dd01c44b8653b1d12aa1382',1,'FF7Save']]],
   ['ff7saveinfo',['FF7SaveInfo',['../class_f_f7_save_info.html#a93595eda043126962603f474e24f7d83',1,'FF7SaveInfo::FF7SaveInfo(const FF7SaveInfo &amp;other)=delete'],['../class_f_f7_save_info.html#a62b72fcab2afdc89ffdbd0702730c91f',1,'FF7SaveInfo::FF7SaveInfo(QObject *parent=nullptr)']]],
   ['ff7text',['FF7TEXT',['../class_f_f7_t_e_x_t.html#a1c1848f15e6a14752b89804853f41d7f',1,'FF7TEXT::FF7TEXT(const FF7TEXT &amp;other)=delete'],['../class_f_f7_t_e_x_t.html#a10a6542ec523b0dce45513daadfff1a7',1,'FF7TEXT::FF7TEXT(QObject *parent=nullptr)']]],
+  ['ff7tk_5fqt_5fversion',['ff7tk_qt_version',['../ff7tk_about_8h.html#a158dc9da2c0c7bceb39bd275d3e73a5f',1,'ff7tkAbout.h']]],
   ['ff7tk_5frevision',['ff7tk_revision',['../ff7tk_about_8h.html#a25bc2d986b16f369554af644bb99bf26',1,'ff7tkAbout.h']]],
   ['ff7tk_5fversion',['ff7tk_version',['../ff7tk_about_8h.html#a69af587fb46a6122bd132d2435fe9787',1,'ff7tkAbout.h']]],
   ['fieldhelp',['fieldHelp',['../class_f_f7_save.html#af48732e61b0ad0fd97cba29e325f11b9',1,'FF7Save']]],

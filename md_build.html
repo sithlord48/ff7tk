@@ -64,7 +64,11 @@ $(function() {
 <div class="title">Building ff7tk </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>To build ff7tk you wil need <a href="https://cmake.org/">cmake</a>, <a href="https://www.qt.io">Qt</a> and <a href="https://zlib.net/">zlib</a></p>
+<div class="textblock"><p>To build ff7tk you will a minimum of:</p><ul>
+<li><a href="https://cmake.org/">cmake</a> 3.21+</li>
+<li><a href="https://www.qt.io">Qt</a> 5.15.2 or 6.2.0+</li>
+<li><a href="https://zlib.net/">zlib</a></li>
+</ul>
 <p>Currently ff7tk will build:</p><ul>
 <li>A Required Core Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)</li>
 <li>Additional Libraries ff7tkWidgets, ff7tkUtils and ff7tkFormats.</li>
@@ -89,18 +93,20 @@ $(function() {
 <tr>
 <td align="center">WIDGETS </td><td align="center">Build ff7tkWidgets. </td><td align="center">ON </td><td align="center"></td></tr>
 <tr>
-<td align="center">QT_DEFAULT_MAJOR_VERSION </td><td align="center">The Major Version of Qt used </td><td align="center">5 </td><td align="center"></td></tr>
+<td align="center">QT_DEFAULT_MAJOR_VERSION </td><td align="center">The Major Version of Qt to use</td><td align="center">5 </td><td align="center"></td></tr>
 </table>
-<p>Example cmake command.</p>
-<p><code>cmake -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=&lt;INSTALLPREFIX&gt; CMakeLists.txt</code></p>
-<h2>Building</h2>
+<p>Example workflow.</p>
+<h2>Configure</h2>
+<p><code>cmake -S. -Bbuild -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=&lt;INSTALLPREFIX&gt;</code></p>
+<h2>Build</h2>
 <p>After Configuring you Should be able to run make to build all targets.</p>
-<p><code>make</code></p>
+<p><code>cmake --build build</code></p>
 <h2>Install</h2>
-<p>running<code>make install</code> will install the built items into the provided &lt;CMAKE_INSTALL_PREFIX&gt;</p>
+<p>To test installation run <code>DESTDIR=&lt;installDIR&gt; cmake --install build</code> to install into <code>&lt;installDir&gt;/&lt;CMAKE_INSTALL_PREFIX&gt;</code> <br />
+ Running <code>cmake --install build</code> will install to the <code>CMAKE_INSTALL_PREFIX</code></p>
 <h1>Using With your project</h1>
 <p>After installing you can use in your cmake project by simply adding <code>find_project(ff7tk)</code> link with <code>ff7tk::ff7tk</code></p>
-<p>Addtional Modules include</p>
+<p>Additional Modules include</p>
 <p><code>ff7tkFormats</code> link with <code>ff7tk::ff7tkFormats</code></p>
 <p><code>ff7tkUtils</code> link with <code>ff7tk::ff7tkUtils</code></p>
 <p><code>ff7tkWidgets</code> link with <code>ff7tk::ff7tkWidgets</code></p>
@@ -108,7 +114,7 @@ $(function() {
 <h2>Translations</h2>
 <p>In addition to ff7tk's language files your application should also ship the qt_base_&lt;lang&gt;.qm</p>
 <h1>ff7tk version info</h1>
-<p>include the file <a class="el" href="ff7tk_about_8h.html">ff7tkAbout.h</a> and use the function <a class="el" href="ff7tk_about_8h.html#a69af587fb46a6122bd132d2435fe9787" title="Get the version of ff7tk in use. ">ff7tk_version()</a> or <a class="el" href="ff7tk_about_8h.html#a25bc2d986b16f369554af644bb99bf26" title="Get the checked out revision of the ff7tk in use. ">ff7tk_revision()</a> </p>
+<p>include the file <a class="el" href="ff7tk_about_8h.html">ff7tkAbout.h</a> and use the function(s) <a class="el" href="ff7tk_about_8h.html#a69af587fb46a6122bd132d2435fe9787" title="Get the version of ff7tk in use. ">ff7tk_version()</a>, <a class="el" href="ff7tk_about_8h.html#a25bc2d986b16f369554af644bb99bf26" title="Get the checked out revision of the ff7tk in use. ">ff7tk_revision()</a> or <a class="el" href="ff7tk_about_8h.html#a158dc9da2c0c7bceb39bd275d3e73a5f" title="Get the major version of Qt that was used to build ff7tk. ">ff7tk_qt_version()</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
