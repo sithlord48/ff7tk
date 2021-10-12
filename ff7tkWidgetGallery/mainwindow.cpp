@@ -18,7 +18,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QProgressDialog>
@@ -31,8 +31,11 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
     setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tk_version().append(ff7tk_revision())));
     hideAllBoxes();
-    ui->sb_scale->setValue(qApp->desktop()->logicalDpiX() / 96);
-    scale = qApp->desktop()->logicalDpiX() / 96;
+    QScreen *screen = QGuiApplication::screens().at(0);
+    screen->logicalDotsPerInchX();
+    ui->sb_scale->setValue(screen->logicalDotsPerInchX() / 96);
+    scale = screen->logicalDotsPerInchX() / 96;
+
 
     ListPHS = new PhsListWidget(this);
     QHBoxLayout *listLayout = new QHBoxLayout;
