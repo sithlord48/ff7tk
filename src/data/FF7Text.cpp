@@ -131,7 +131,7 @@ QByteArray FF7TEXT::toFF7(const QString &string)
         for (i = 0 ; i <= 0xff ; ++i) {
             if (!QString::compare(comp, character(quint8(i), 0))) {
                 ff7str.append(char(i));
-                goto end;
+                break;
             }
         }
         if (d->in_ja) {
@@ -147,12 +147,11 @@ QByteArray FF7TEXT::toFF7(const QString &string)
                         case 6: ff7str.append('\xFE');   break;
                         }
                         ff7str.append(char(i));
-                        goto end;
+                        break;
                     }
                 }
             }
         }
-    end:;
     }
     return ff7str;
 }
