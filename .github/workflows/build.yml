@@ -61,13 +61,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache Qt
-      id: cache-qt
-      uses: actions/cache@v2
-      with:
-        path: ${{matrix.config.QT_INST_DIR}}/Qt
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ env.QT_VERSION }}
-
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
@@ -83,15 +76,6 @@ jobs:
        dir: ${{matrix.config.QT_INST_DIR}}
        arch: ${{ matrix.config.QT_ARCH }}
        version: ${{ env.QT_VERSION }}
-       cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
-    - name: Cache Zlib
-      id: cache-zlib
-      if: runner.os == 'Windows'
-      uses: actions/cache@v2
-      with:
-        path: C:/zlib
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib
 
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
