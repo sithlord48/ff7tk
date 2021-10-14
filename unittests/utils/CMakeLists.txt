@@ -1,0 +1,11 @@
+macro (MAKE_FF7TK_UTILS_TEST NAME FILE)
+    add_executable(${NAME} ${FILE})
+    target_link_libraries(${NAME} ff7tkUtils Qt::Test)
+    add_test(NAME ${NAME} COMMAND $<TARGET_FILE:${NAME}> WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/../../src/utils")
+    set_tests_properties(${NAME} PROPERTIES DEPENDS ff7tkUtils)
+endmacro()
+
+MAKE_FF7TK_UTILS_TEST(PsColor_Test PsColor_test.cpp)
+MAKE_FF7TK_UTILS_TEST(GZip_Test GZip_test.cpp)
+MAKE_FF7TK_UTILS_TEST(GZipps_Test GZipps_test.cpp)
+MAKE_FF7TK_UTILS_TEST(Lzs_Test Lzs_test.cpp)
