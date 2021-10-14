@@ -52,6 +52,8 @@ ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
 option(WIDGET_GALLERY "Build the widget based gallery" OFF)
 option(QML_GALLERY "Build the qml based gallery" OFF)
 option(DOCS "Build and Install Documents (Requires Doxygen)" OFF)
+option(ENABLE_TESTING "Build and run UnitTests" ON)
+
 
 add_subdirectory(src)
 add_subdirectory(lang)
@@ -66,6 +68,10 @@ endif()
 
 if(DOCS)
     add_subdirectory(docs)
+endif()
+
+if(ENABLE_TESTING)
+    add_subdirectory(unittests)
 endif()
 
 #pkgconfig
