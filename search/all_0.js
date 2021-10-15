@@ -85,6 +85,7 @@ var searchData=
   ['_5frootdirectory',['_rootDirectory',['../class_iso_archive.html#a5898c52d3e3e1bd41f2a867c12525020',1,'IsoArchive']]],
   ['_5fscale',['_scale',['../class_double_check_box.html#a6db8e9a59cc84f61232620c59f0df7fd',1,'DoubleCheckBox::_scale()'],['../class_slot_select.html#a7af582382f89b0e6968a622f93f84c18',1,'SlotSelect::_scale()']]],
   ['_5fsize',['_size',['../class_iso_file_or_directory.html#ac566f331f55819d666d13d5c59c87840',1,'IsoFileOrDirectory']]],
+  ['_5fslotdata',['_slotData',['../class_f_f7_save_tests.html#a351387389ac951cd9ea24598d752c634',1,'FF7SaveTests']]],
   ['_5fslotsize',['_slotSize',['../struct_f_f7_save_info_1_1_f_f7_save_info_private.html#a80fd601dd1f9c3d88cc6599cafd9405f',1,'FF7SaveInfo::FF7SaveInfoPrivate']]],
   ['_5fslow',['_slow',['../class_options_widget.html#acd70b764a1dac5c8592843e5bc44ee11',1,'OptionsWidget']]],
   ['_5fsoundlist',['_soundList',['../class_options_widget.html#a921283b62901b3e496cc362637142c65',1,'OptionsWidget']]],

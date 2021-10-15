@@ -46,7 +46,7 @@ var searchData=
   ['addentry',['addEntry',['../class_lgp_toc.html#a437c3352cb8a549f66eaf35a8d93e3f9',1,'LgpToc']]],
   ['addfile',['addFile',['../class_archive.html#a3224de22d17ff26eea183a8e4c2686f6',1,'Archive::addFile()'],['../class_lgp.html#aeefaddfea09ba4a0bc17630da93cd948',1,'Lgp::addFile()']]],
   ['addfiledata',['addFileData',['../class_archive.html#ab8274d7476b403f698c55dde7faea117',1,'Archive']]],
-  ['advancedmode',['AdvancedMode',['../class_char_editor.html#ae7f31c979efaaa89d6bb72400edcc78b',1,'CharEditor::AdvancedMode()'],['../class_char_editor.html#a578fca3ef10e0f6d9397c1af69166952',1,'CharEditor::advancedMode()'],['../class_location_viewer.html#ac626060d5c2518b98760acc18b174f1f',1,'LocationViewer::advancedMode()']]],
+  ['advancedmode',['advancedMode',['../class_char_editor.html#a578fca3ef10e0f6d9397c1af69166952',1,'CharEditor::advancedMode()'],['../class_location_viewer.html#ac626060d5c2518b98760acc18b174f1f',1,'LocationViewer::advancedMode()'],['../class_char_editor.html#ae7f31c979efaaa89d6bb72400edcc78b',1,'CharEditor::AdvancedMode()']]],
   ['advancedmodebox',['advancedModeBox',['../class_chocobo_editor.html#ac0fdf61fdf837a2c13eec9ff5006ada7',1,'ChocoboEditor']]],
   ['aegisarmlet',['AegisArmlet',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a812ce01742052973448db9ee3cf89a70',1,'FF7Item']]],
   ['aerith',['Aerith',['../class_f_f7_char.html#a82123a0b752138a8484cfeb435af9119a3987f36be36925e4e8df01356254b700',1,'FF7Char']]],
@@ -94,11 +94,11 @@ var searchData=
   ['atb_5frecommened',['ATB_RECOMMENED',['../class_f_f7_save.html#abd1fd74bf3b9927f58058516b1f83dc0a0c046b2484cee21e4644d1fec97c7af2',1,'FF7Save']]],
   ['atb_5fwait',['ATB_WAIT',['../class_f_f7_save.html#abd1fd74bf3b9927f58058516b1f83dc0a58021d8cd8824b4a739cde1b68404ab4',1,'FF7Save']]],
   ['atbchanged',['atbChanged',['../class_options_widget.html#a5505656099a0a95a42207aba44b30a68',1,'OptionsWidget']]],
-  ['atbmode',['atbMode',['../class_f_f7_save.html#aadf6cef66d6e183e336a35d9e73ae55b',1,'FF7Save::atbMode(int s)'],['../class_f_f7_save.html#abd1fd74bf3b9927f58058516b1f83dc0',1,'FF7Save::ATBMODE()']]],
+  ['atbmode',['ATBMODE',['../class_f_f7_save.html#abd1fd74bf3b9927f58058516b1f83dc0',1,'FF7Save::ATBMODE()'],['../class_f_f7_save.html#aadf6cef66d6e183e336a35d9e73ae55b',1,'FF7Save::atbMode(int s)']]],
   ['atomicscissors',['AtomicScissors',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7abe237a3fb42a3ee50c3c8bb3fb662b56',1,'FF7Item']]],
   ['auroraarmlet',['AuroraArmlet',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a98c7caea28a4e987db420a24f7c9d673',1,'FF7Item']]],
   ['aurorarod',['AuroraRod',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a221a08d0aeef82f4de1e10987d3780a0',1,'FF7Item']]],
   ['autograph',['Autograph',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ad6c3e49578743af6dfde334abd6eed88',1,'FF7Item']]],
-  ['autolevel',['AutoLevel',['../class_char_editor.html#a01902bac2ece79e28020cfaa58c2a475',1,'CharEditor::AutoLevel()'],['../class_char_editor.html#afa13362b190f375c39e220a1948885f5',1,'CharEditor::autolevel()']]],
-  ['autostatcalc',['AutoStatCalc',['../class_char_editor.html#a592de7bb3889d8d4abb0abbc47d417e4',1,'CharEditor::AutoStatCalc()'],['../class_char_editor.html#ad92f6dd4f634573dd678dc31d14b31c0',1,'CharEditor::autostatcalc()']]]
+  ['autolevel',['autolevel',['../class_char_editor.html#afa13362b190f375c39e220a1948885f5',1,'CharEditor::autolevel()'],['../class_char_editor.html#a01902bac2ece79e28020cfaa58c2a475',1,'CharEditor::AutoLevel()']]],
+  ['autostatcalc',['autostatcalc',['../class_char_editor.html#ad92f6dd4f634573dd678dc31d14b31c0',1,'CharEditor::autostatcalc()'],['../class_char_editor.html#a592de7bb3889d8d4abb0abbc47d417e4',1,'CharEditor::AutoStatCalc()']]]
 ];

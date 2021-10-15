@@ -21,7 +21,7 @@ var searchData=
   ['earthmallet',['EarthMallet',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a82f2f37598328e37c4736df625b29bde',1,'FF7Item']]],
   ['echoscreen',['Echoscreen',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a663527b17cd1868972ac581c60aae9fd',1,'FF7Item']]],
   ['edincoat',['Edincoat',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a95fe3a4d155320a70822c8d4111b5c8e',1,'FF7Item']]],
-  ['editable',['Editable',['../class_char_editor.html#ac357d14d0380e5bae2603b4e758e9091',1,'CharEditor::Editable()'],['../class_char_editor.html#ae1e866be887edd9859a97544baa7ea1c',1,'CharEditor::editable()']]],
+  ['editable',['editable',['../class_char_editor.html#ae1e866be887edd9859a97544baa7ea1c',1,'CharEditor::editable()'],['../class_char_editor.html#ac357d14d0380e5bae2603b4e758e9091',1,'CharEditor::Editable()']]],
   ['editableitemcombo',['editableItemCombo',['../class_item_list.html#a55d3e3ac6a41187fdfd6c53f74eeeae9',1,'ItemList']]],
   ['editmode',['editMode',['../class_materia_editor.html#aec2582653ea27c216e5c3bd29a1e3d1a',1,'MateriaEditor']]],
   ['effective_5fdate',['effective_date',['../struct_volume_descriptor2.html#a81c1270cee33349a8e25bec720c763ee',1,'VolumeDescriptor2']]],
