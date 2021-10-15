@@ -8,11 +8,13 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+#if (QT_VERSION_MAJOR < 6)
+        QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+        app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+#endif
 
-    qmlRegisterSingletonType<FF7TEXT>("org.ff7tk", 1, 0, "FF7Text", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
+        qmlRegisterSingletonType<FF7TEXT>("org.ff7tk", 1, 0, "FF7Text", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
         return FF7TEXT::instance()->qmlSingletonRegister(engine, jsEngine);
     });
 
