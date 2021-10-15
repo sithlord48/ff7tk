@@ -48,7 +48,6 @@ else()
 endif()
 target_link_libraries ( ff7tkWidgetGallery PRIVATE
         Qt::Widgets
-        Qt::Quick
         ff7tk::ff7tk
         ff7tk::ff7tkUtils
         ff7tk::ff7tkFormats

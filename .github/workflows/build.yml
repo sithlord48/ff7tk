@@ -7,7 +7,6 @@ on:
     branches: [ master ]
 
 env:
-  QT_VERSION: 5.15.2
   BUILD_TYPE: Release
   packageGlob: ff7tk-continuous-*.*
 
@@ -20,42 +19,75 @@ jobs:
       matrix:
         config:
         - {
-           name: "Linux-amd64"
+           name: "Linux-Qt5-amd64"
            , os: ubuntu-18.04
-           , QT_INST_DIR: /opt, QTDIR: /opt/Qt/5.15.2/gcc_64
+           , QT_VERSION: 5.15.2, QT_INST_DIR: /opt, QTDIR: /opt/Qt/5.15.2/gcc_64
            , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen > /dev/null"
-           , packageName: ff7tk-continuous-linux
+           , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
+           , packageName: ff7tk-continuous-Qt5-linux
            , ff7tkInstallPrefix: /usr
-           , releasePackage: "ff7tk-continuous-linux.tar.xz"
+           , releasePackage: "ff7tk-continuous-Qt5-linux.tar.xz"
           }
         - {
-            name: "MacOS-amd64"
+           name: "Linux-Qt6-amd64"
+           , os: ubuntu-latest
+           , QT_VERSION: 6.2.0, QT_INST_DIR: /opt, QTDIR: /opt/Qt/6.2.0/gcc_64, QT_MODULES: qt5compat
+           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen > /dev/null"
+           , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
+           , packageName: ff7tk-continuous-Qt6-linux
+           , ff7tkInstallPrefix: /usr
+           , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.0/gcc_64/libexec"
+           , releasePackage: "ff7tk-continuous-Qt6-linux.tar.xz"
+          }
+        - {
+            name: "MacOS-Qt5-amd64"
             , os: macos-latest
-            , QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/5.15.2/clang_64
+            , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/5.15.2/clang_64
             , install_depends: "brew install doxygen"
-            , packageName: ff7tk-continuous-macos
-            , ff7tkInstallPrefix: ff7tk-continuous-macos
-            , releasePackage: "ff7tk-continuous-macos.zip"
+            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
+            , packageName: ff7tk-continuous-Qt5-macos
+            , ff7tkInstallPrefix: ff7tk-continuous-Qt5-macos
+            , releasePackage: "ff7tk-continuous-Qt5-macos.zip"
           }
         - {
-            name: "Windows-x64", WIN_ARCH: "x64"
+            name: "MacOS-Qt6-amd64"
+            , os: macos-latest
+            , QT_VERSION: 6.2.0, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/6.2.0/clang_64, QT_MODULES: qt5compat
+            , install_depends: "brew install doxygen"
+            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
+            , packageName: ff7tk-continuous-Qt6-macos
+            , ff7tkInstallPrefix: ff7tk-continuous-Qt6-macos
+            , releasePackage: "ff7tk-continuous-Qt6-macos.zip"
+          }
+        - {
+            name: "Windows-Qt5-x64", WIN_ARCH: "x64"
             , os: windows-latest
-            , QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019_64", QT_ARCH: win64_msvc2019_64
+            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019_64", QT_ARCH: win64_msvc2019_64
             , install_depends: "choco install ninja doxygen.install"
-            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
-            , packageName: "ff7tk-continuous-win64"
-            , ff7tkInstallPrefix: ff7tk-continuous-win64
-            , releasePackage: "ff7tk-continuous-win64.zip"
+            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
+            , packageName: "ff7tk-continuous-Qt5-win64"
+            , ff7tkInstallPrefix: ff7tk-continuous-Qt5-win64
+            , releasePackage: "ff7tk-continuous-Qt5-win64.zip"
           }
         - {
-            name: "Windows-x86"
-            , os: windows-latest, WIN_ARCH: "amd64_x86"
-            , QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019", QT_ARCH: win32_msvc2019
+            name: "Windows-Qt6-x64", WIN_ARCH: "x64"
+            , os: windows-latest
+            , QT_VERSION: 6.2.0, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/6.2.0/msvc2019_64", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
             , install_depends: "choco install ninja doxygen.install"
-            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
-            , packageName: "ff7tk-continuous-win32"
-            , ff7tkInstallPrefix: ff7tk-continuous-win32
-            , releasePackage: "ff7tk-continuous-win32.zip"
+            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=6"
+            , packageName: "ff7tk-continuous-Qt6-win64"
+            , ff7tkInstallPrefix: ff7tk-continuous-Qt6-win64
+            , releasePackage: "ff7tk-continuous-Qt6-win64.zip"
+          }
+        - {
+            name: "Windows-Qt5-x86"
+            , os: windows-latest, WIN_ARCH: "amd64_x86"
+            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019", QT_ARCH: win32_msvc2019
+            , install_depends: "choco install ninja doxygen.install"
+            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
+            , packageName: "ff7tk-continuous-Qt5-win32"
+            , ff7tkInstallPrefix: ff7tk-continuous-Qt5-win32
+            , releasePackage: "ff7tk-continuous-Qt5-win32.zip"
           }
 
     steps:
@@ -66,7 +98,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{matrix.config.QT_INST_DIR}}/Qt
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ env.QT_VERSION }}
+        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ matrix.config.QT_VERSION }}
 
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
@@ -80,9 +112,11 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.14.0
       with:
+       aqtversion: ==2.0.0
        dir: ${{matrix.config.QT_INST_DIR}}
        arch: ${{ matrix.config.QT_ARCH }}
-       version: ${{ env.QT_VERSION }}
+       version: ${{ matrix.config.QT_VERSION }}
+       modules: ${{ matrix.config.QT_MODULES }}
        cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
     - name: Cache Zlib
@@ -116,7 +150,7 @@ jobs:
     - name: Install(Linux)
       if: runner.os == 'Linux'
       run: |
-        DESTDIR=ff7tk-continuous-linux cmake --install build --strip
+        DESTDIR=${{ matrix.config.packageName}} cmake --install build --strip
         sudo cmake --install build --strip
 
     - name: Install (Others)
@@ -131,38 +165,28 @@ jobs:
         mv COPYING.TXT ${{matrix.config.packageName}}/
         rm -rf ff7tk/usr/bin
 
+    - name: Setup linuxdeploy
+      if: runner.os == 'Linux'
+      run: |
+        wget -qc "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
+        wget -qc "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
+        chmod a+x linuxdeploy*.AppImage
+
     - name: Deployment (Linux)
       if: runner.os == 'Linux'
       run: |
        rm -rf ff7tk/usr/share/applications ff7tk/usr/share/pixmaps
-       rm -rf ${{matrix.config.packageName}}/usr/share/doc
-       rm -rf ${{matrix.config.packageName}}/usr/share/ff7tk
-       rm -rf ${{matrix.config.packageName}}/usr/share/pkgconfig
-       rm -rf ${{matrix.config.packageName}}/usr/include
-       rm -rf ${{matrix.config.packageName}}/usr/lib/x86_64-linux-gnu
-       wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
-       chmod a+x linuxdeployqt*.AppImage
-       mkdir widgetGallery
-       cp -r ${{matrix.config.packageName}}/* widgetGallery/
-       unset QTDIR; unset QT_PLUGIN_PATH; unset LD_LIBRARY_PATH
-       rm widgetGallery/usr/bin/ff7tkQmlGallery
-       rm widgetGallery/usr/share/applications/ff7tkQmlGallery.desktop
-       rm widgetGallery/usr/share/pixmaps/ff7tkQmlGallery.png
-       cp /usr/lib/x86_64-linux-gnu/libz.so widgetGallery/usr/lib/
-       ./linuxdeployqt*.AppImage widgetGallery/usr/share/applications/*.desktop -appimage
-       mkdir qmlGallery
-       cp -r ${{matrix.config.packageName}}/* qmlGallery/
-       rm qmlGallery/usr/bin/ff7tkWidgetGallery
-       rm qmlGallery/usr/share/applications/ff7tkWidgetGallery.desktop
-       rm qmlGallery/usr/share/pixmaps/ff7tkWidgetGallery.png
-       ./linuxdeployqt*.AppImage ./qmlGallery/usr/share/applications/*.desktop -bundle-non-qt-libs
-       mkdir -p qmlGallery/usr/qml/QtQuick
-       cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Controls.2 qmlGallery/usr/qml/QtQuick
-       cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Layouts qmlGallery/usr/qml/QtQuick
-       cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Window.2 qmlGallery/usr/qml/QtQuick
-       cp -r ${{matrix.config.QTDIR}}/qml/QtQuick/Templates.2 qmlGallery/usr/qml/QtQuick
-       cp -r ${{matrix.config.QTDIR}}/qml/QtQuick.2/ qmlGallery/usr/qml/
-       ./linuxdeployqt*.AppImage ./qmlGallery/usr/share/applications/*.desktop -appimage
+       export VERSION=continuous
+       ${{matrix.config.linuxDeployQtPath}}
+       ./linuxdeploy-x86_64.AppImage --appdir=widgetGallery --plugin=qt --output appimage \
+           -e ${{matrix.config.packageName}}/usr/bin/ff7tkWidgetGallery \
+           -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkWidgetGallery.desktop \
+           -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkWidgetGallery.png
+       export QML_SOURCES_PATHS=ff7tkQmlGallery
+       ./linuxdeploy-x86_64.AppImage --appdir=qmlGallery --plugin=qt --output appimage \
+           -e ${{matrix.config.packageName}}/usr/bin/ff7tkQmlGallery \
+           -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkQmlGallery.desktop \
+           -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkQmlGallery.png
        mv ff7tk*.AppImage ${{matrix.config.packageName}}/
        mv ff7tk/ ${{matrix.config.packageName}}
        rm -rf ${{matrix.config.packageName}}/usr
@@ -173,7 +197,7 @@ jobs:
       run: |
         mv ff7tk/ ${{matrix.config.packageName}}
         mv ${{matrix.config.packageName}}/bin/ff7tk*.app ${{matrix.config.packageName}}/
-        rm -rf ff7tk-continuous-macos/bin ff7tk-continuous-macos/share ff7tk-continuous-macos/lib ff7tk-continuous-macos/include ff7tk-continuous-macos/share ff7tk-continuous-macos/ff7tk/bin
+        rm -rf ${{matrix.config.packageName}}/bin ${{matrix.config.packageName}}/share ${{matrix.config.packageName}}/lib ${{matrix.config.packageName}}/include ${{matrix.config.packageName}}/share ${{matrix.config.packageName}}/ff7tk/bin
         zip -r -X ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
 
     - name: Prepare Deployment (Windows)
@@ -187,7 +211,7 @@ jobs:
         7z a -tzip ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}} -r
 
     - name: Deploy Pages
-      if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
+      if: runner.os == 'Linux' && github.ref == 'refs/heads/master' && matrix.config.QT_VERSION == '5.15.2'
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
        branch: gh-pages
