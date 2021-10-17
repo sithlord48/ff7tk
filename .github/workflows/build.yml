@@ -22,7 +22,7 @@ jobs:
            name: "Linux-Qt5-amd64"
            , os: ubuntu-18.04
            , QT_VERSION: 5.15.2, QT_INST_DIR: /opt, QTDIR: /opt/Qt/5.15.2/gcc_64
-           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen > /dev/null"
+           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz > /dev/null"
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
            , packageName: ff7tk-continuous-Qt5-linux
            , ff7tkInstallPrefix: /usr
@@ -32,7 +32,7 @@ jobs:
            name: "Linux-Qt6-amd64"
            , os: ubuntu-latest
            , QT_VERSION: 6.2.0, QT_INST_DIR: /opt, QTDIR: /opt/Qt/6.2.0/gcc_64, QT_MODULES: qt5compat
-           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen > /dev/null"
+           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz > /dev/null"
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
            , packageName: ff7tk-continuous-Qt6-linux
            , ff7tkInstallPrefix: /usr
@@ -43,7 +43,7 @@ jobs:
             name: "MacOS-Qt5-amd64"
             , os: macos-latest
             , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/5.15.2/clang_64
-            , install_depends: "brew install doxygen"
+            , install_depends: "brew install doxygen graphviz"
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
             , packageName: ff7tk-continuous-Qt5-macos
             , ff7tkInstallPrefix: ff7tk-continuous-Qt5-macos
@@ -53,7 +53,7 @@ jobs:
             name: "MacOS-Qt6-amd64"
             , os: macos-latest
             , QT_VERSION: 6.2.0, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/6.2.0/clang_64, QT_MODULES: qt5compat
-            , install_depends: "brew install doxygen"
+            , install_depends: "brew install doxygen graphviz"
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
             , packageName: ff7tk-continuous-Qt6-macos
             , ff7tkInstallPrefix: ff7tk-continuous-Qt6-macos
@@ -63,7 +63,7 @@ jobs:
             name: "Windows-Qt5-x64", WIN_ARCH: "x64"
             , os: windows-latest
             , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019_64", QT_ARCH: win64_msvc2019_64
-            , install_depends: "choco install ninja doxygen.install"
+            , install_depends: "choco install ninja doxygen.install graphviz"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
             , packageName: "ff7tk-continuous-Qt5-win64"
             , ff7tkInstallPrefix: ff7tk-continuous-Qt5-win64
@@ -73,7 +73,7 @@ jobs:
             name: "Windows-Qt6-x64", WIN_ARCH: "x64"
             , os: windows-latest
             , QT_VERSION: 6.2.0, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/6.2.0/msvc2019_64", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
-            , install_depends: "choco install ninja doxygen.install"
+            , install_depends: "choco install ninja doxygen.install graphviz"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=6"
             , packageName: "ff7tk-continuous-Qt6-win64"
             , ff7tkInstallPrefix: ff7tk-continuous-Qt6-win64
@@ -83,7 +83,7 @@ jobs:
             name: "Windows-Qt5-x86"
             , os: windows-latest, WIN_ARCH: "amd64_x86"
             , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019", QT_ARCH: win32_msvc2019
-            , install_depends: "choco install ninja doxygen.install"
+            , install_depends: "choco install ninja doxygen.install graphviz"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
             , packageName: "ff7tk-continuous-Qt5-win32"
             , ff7tkInstallPrefix: ff7tk-continuous-Qt5-win32
@@ -165,16 +165,12 @@ jobs:
         mv COPYING.TXT ${{matrix.config.packageName}}/
         rm -rf ff7tk/usr/bin
 
-    - name: Setup linuxdeploy
-      if: runner.os == 'Linux'
-      run: |
-        wget -qc "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
-        wget -qc "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
-        chmod a+x linuxdeploy*.AppImage
-
     - name: Deployment (Linux)
       if: runner.os == 'Linux'
       run: |
+       wget -qc "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
+       wget -qc "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
+       chmod a+x linuxdeploy*.AppImage
        rm -rf ff7tk/usr/share/applications ff7tk/usr/share/pixmaps
        export VERSION=continuous
        ${{matrix.config.linuxDeployQtPath}}

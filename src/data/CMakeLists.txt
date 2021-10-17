@@ -47,7 +47,7 @@ if(WIN32 AND CMAKE_COMPILER_IS_GNUCC)
     #Prevent ms padding on packed structures on gcc compiler
     add_compile_options(-mno-ms-bitfields)
 elseif(APPLE)
-     add_compile_options(-stdlib-libc++)
+     target_compile_options(ff7tk PRIVATE -stdlib=libc++)
      set_target_properties(ff7tk PROPERTIES
          BUILD_WITH_INSTALL_RPATH TRUE
          INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
