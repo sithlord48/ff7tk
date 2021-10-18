@@ -419,7 +419,7 @@ bool FF7Save::exportVMCFormat(const QString &fileName, FF7SaveInfo::FORMAT expor
 
 bool FF7Save::exportSlot(const QString &fileName, FF7SaveInfo::FORMAT exportFormat, int s)
 {
-    if (fileName.isEmpty() || FF7SaveInfo::instance()->isTypeSSS(exportFormat))
+    if (fileName.isEmpty() || !FF7SaveInfo::instance()->isTypeSSS(exportFormat))
         return false;
 
     int blocks = psx_block_size(s);
@@ -1163,19 +1163,7 @@ QString FF7Save::psxDesc(int s)
 
 void FF7Save::setPsxDesc(QString newDesc, int s)
 {
-    newDesc = newDesc.normalized(QString::NormalizationForm_KD);
-    QByteArray temp = newDesc.toLatin1();
-    QByteArray newArray("\xFE\xFF", 2);
-    for( int i = 0; i < temp.size(); i++) {
-        quint16 newChar = 0x0000;
-        if(temp.at(i) == 0x00)
-            return;
-        newChar = (quint8(temp.at(i) - 0x20));
-        newArray.append('\xFF');
-        newArray.append(char(newChar));
-    }
-    newDesc = QString::fromUtf16(reinterpret_cast<ushort*>(newArray.data()),newArray.size() -1);
-    temp = QTextCodec::codecForName("Shift-JIS")->fromUnicode(newDesc);
+    QByteArray temp = QTextCodec::codecForName("Shift-JIS")->fromUnicode(newDesc);
 
     QByteArray codedText;
     codedText.fill('\x00', 64);
