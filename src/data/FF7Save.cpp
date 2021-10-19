@@ -47,14 +47,13 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
     auto file_size = file.size();
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~Set File Type Vars ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     //decide the file type
-    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PC)) && (file.peek(25).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::PC))))
+    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PC)) && (file.peek(25).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::PC))) && file.fileName().endsWith(QStringLiteral("ff7")))
         return FF7SaveInfo::FORMAT::PC;
-
-    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::SWITCH)) && (file.peek(25).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::SWITCH))))
+    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::SWITCH)) && (file.peek(25).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::SWITCH))) && file.fileName().startsWith(QStringLiteral("ff7")))
         return FF7SaveInfo::FORMAT::SWITCH;
-    else if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::VMC)) && (file.peek(25).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::VMC))))
+    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::VMC)) && (file.peek(25).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::VMC))))
         return FF7SaveInfo::FORMAT::VMC;
-    else if (((FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PS3) - FF7SaveInfo::instance()->fileHeaderSize(FF7SaveInfo::FORMAT::PS3)) % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::PS3)))
+    if (((FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PS3) - FF7SaveInfo::instance()->fileHeaderSize(FF7SaveInfo::FORMAT::PS3)) % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::PS3)))
     {
         char psvType = file.peek(0x40).at(FF7SaveInfo::instance()->extraPSVOffsets(FF7SaveInfo::PSVINFO::SAVETYPE));
         if (psvType == 0x14) {
@@ -68,20 +67,19 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
             return FF7SaveInfo::FORMAT::UNKNOWN;
         }
     }
-    else if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSP)) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::PSP)))
+    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSP)) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::PSP)))
         return FF7SaveInfo::FORMAT::PSP;
-    else if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::VGS)) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::VGS)))
+    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::VGS)) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::VGS)))
         return FF7SaveInfo::FORMAT::VGS;
-    else if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::DEX)) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::DEX)))
+    if ((file_size == FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::DEX)) && (file.peek(25)).startsWith(FF7SaveInfo::instance()->fileIdentifier(FF7SaveInfo::FORMAT::DEX)))
         return FF7SaveInfo::FORMAT::DEX;
-    else if (file_size % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
+    if (file_size % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
         return FF7SaveInfo::FORMAT::PSX;
-    else if ((file_size - FF7SaveInfo::instance()->fileHeaderSize(FF7SaveInfo::FORMAT::PGE)) % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
+    if ((file_size - FF7SaveInfo::instance()->fileHeaderSize(FF7SaveInfo::FORMAT::PGE)) % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
         return FF7SaveInfo::FORMAT::PGE;
-    else if ((file_size - FF7SaveInfo::instance()->fileHeaderSize(FF7SaveInfo::FORMAT::PDA)) % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
+    if ((file_size - FF7SaveInfo::instance()->fileHeaderSize(FF7SaveInfo::FORMAT::PDA)) % FF7SaveInfo::instance()->fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
         return FF7SaveInfo::FORMAT::PDA;
-    else
-        return FF7SaveInfo::FORMAT::UNKNOWN;
+    return FF7SaveInfo::FORMAT::UNKNOWN;
 }
 
 bool FF7Save::loadFile(const QString &fileName)
