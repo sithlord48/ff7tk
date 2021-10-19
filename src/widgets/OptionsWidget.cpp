@@ -230,17 +230,17 @@ void OptionsWidget::updateText()
     labelCursor->setText(tr("Cursor Type"));
     if (comboCursor->count() != 0) {
         for (int i = 0; i < comboCursor->count(); i++)
-            comboCursor->setItemText(i, tr(_cursorCameraList.at(i).toLatin1()));
+            comboCursor->setItemText(i, tr(_cursorList.at(i).toLatin1()));
     } else {
-        comboCursor->addItems(_cursorCameraList);
+        comboCursor->addItems(_cursorList);
     }
 
     labelCamera->setText(tr("Camera"));
     if (comboCamera->count() != 0) {
         for (int i = 0; i < comboCamera->count(); i++)
-            comboCamera->setItemText(i, tr(_cursorCameraList.at(i).toLatin1()));
+            comboCamera->setItemText(i, tr(_cameraList.at(i).toLatin1()));
     } else {
-        comboCamera->addItems(_cursorCameraList);
+        comboCamera->addItems(_cameraList);
     }
 
     labelControllerMode->setText(tr("Controller Settings"));

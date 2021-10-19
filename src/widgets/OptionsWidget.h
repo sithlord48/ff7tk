@@ -173,10 +173,16 @@ private:
         , QT_TR_NOOP("Indirect,Attack,Restore")
     };
 
-    inline static const QStringList _cursorCameraList {
+    inline static const QStringList _cursorList {
         QT_TR_NOOP("Initial")
         , QT_TR_NOOP("Memory")
     };
+
+    inline static const QStringList _cameraList {
+        QT_TR_NOOP("Auto")
+        , QT_TR_NOOP("Fixed")
+    };
+
 
     inline static const QStringList _controllerModeList {
         QT_TR_NOOP("Normal")

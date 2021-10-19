@@ -7662,6 +7662,14 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Pause</source>
         <translation>Pause</translation>
     </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Fixed</source>
+        <translation>Fest</translation>
+    </message>
 </context>
 <context>
     <name>PhsListWidget</name>
