@@ -7662,6 +7662,14 @@ The km/h speeds are calculated while playing </translation>
         <source>Custom Controller Mapping (PSX Only)</source>
         <translation>Custom Controller Mapping (PSX Only)</translation>
     </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Fixed</source>
+        <translation>Fixed</translation>
+    </message>
 </context>
 <context>
     <name>PhsListWidget</name>

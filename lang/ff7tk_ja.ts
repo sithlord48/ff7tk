@@ -7662,6 +7662,14 @@ The km/h speeds are calculated while playing </source>
         <source>Pause</source>
         <translation>ポーズ</translation>
     </message>
+    <message>
+        <source>Auto</source>
+        <translation>オート</translation>
+    </message>
+    <message>
+        <source>Fixed</source>
+        <translation>こてい</translation>
+    </message>
 </context>
 <context>
     <name>PhsListWidget</name>

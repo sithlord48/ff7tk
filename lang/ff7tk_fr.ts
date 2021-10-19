@@ -7662,6 +7662,15 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <source>Pause</source>
         <translation>Pause</translation>
     </message>
+    <message>
+        <source>Auto</source>
+        <translatorcomment>Fixe</translatorcomment>
+        <translation type="unfinished">Auto</translation>
+    </message>
+    <message>
+        <source>Fixed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PhsListWidget</name>

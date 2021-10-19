@@ -7646,6 +7646,14 @@ The km/h speeds are calculated while playing </source>
         <source>Slow</source>
         <translation>Wolny</translation>
     </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Automatyczny</translation>
+    </message>
+    <message>
+        <source>Fixed</source>
+        <translation type="unfinished">Nieruchomy</translation>
+    </message>
 </context>
 <context>
     <name>PhsListWidget</name>
