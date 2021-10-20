@@ -1248,6 +1248,12 @@ int FF7Save::lenSlotFooter(void)
 {
     return FF7SaveInfo::instance()->slotFooterSize(fileFormat);   //Return slot footer length
 }
+
+int FF7Save::lenSlot()
+{
+    return lenSlotHeader() + lenCoreSave() + lenSlotFooter();
+}
+
 int FF7Save::numberOfSlots(void)
 {
     return FF7SaveInfo::instance()->slotCount(fileFormat);   //Return number of slots in the file_footer_dex
