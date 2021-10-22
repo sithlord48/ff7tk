@@ -982,7 +982,7 @@ public:
      */
     inline int unknown_zmax()
     {
-        return 46; //Number of "z" vars.
+        return 47; //Number of "z" vars.
     }
 
     /**
