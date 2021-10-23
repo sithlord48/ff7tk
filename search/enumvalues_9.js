@@ -11,5 +11,5 @@ var searchData=
   ['ink',['Ink',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a497adca754f7879fbb706125f0b34048',1,'FF7Item']]],
   ['invaliderror',['InvalidError',['../class_archive.html#a2752025d615c69dee4169592342ac5cba96151f3fe48fe9aba0007f9191413eb5',1,'Archive::InvalidError()'],['../class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a99a275d161732d0b2f71f8880ef2743f',1,'Lgp::InvalidError()']]],
   ['ironbangle',['IronBangle',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7addc56f4d286a7bc439b07bdcbba3f68f',1,'FF7Item']]],
-  ['item',['Item',['../class_f_f7_item.html#a1322c576d9ed2917ad49167c8b493d1da2ab3457d86d2163ae5023ce417a9a883',1,'FF7Item::Item()'],['../class_location_viewer.html#ab866e6698e61200ae7c10be4f054eec7aa5d236d28f8eb22dfa92c1788d364fbc',1,'LocationViewer::ITEM()']]]
+  ['item',['ITEM',['../class_location_viewer.html#ab866e6698e61200ae7c10be4f054eec7aa5d236d28f8eb22dfa92c1788d364fbc',1,'LocationViewer::ITEM()'],['../class_f_f7_item.html#a1322c576d9ed2917ad49167c8b493d1da2ab3457d86d2163ae5023ce417a9a883',1,'FF7Item::Item()']]]
 ];

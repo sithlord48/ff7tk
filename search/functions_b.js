@@ -13,7 +13,7 @@ var searchData=
   ['lenslotfooter',['lenSlotFooter',['../class_f_f7_save.html#a360003314949a63ec64f97c059498ff8',1,'FF7Save']]],
   ['lenslotheader',['lenSlotHeader',['../class_f_f7_save.html#ab13dd530046b6ecf8a80b7886a5f9543',1,'FF7Save']]],
   ['level',['level',['../class_char_editor.html#abfca671737bac419b531020efa07f4fe',1,'CharEditor']]],
-  ['level_5fchanged',['Level_Changed',['../class_char_editor.html#aae236fff8c12d1f46d15012a1a883ae3',1,'CharEditor::Level_Changed(int)'],['../class_char_editor.html#a2d3cf807caffa404fd999c26e512b9bc',1,'CharEditor::level_changed()']]],
+  ['level_5fchanged',['level_changed',['../class_char_editor.html#a2d3cf807caffa404fd999c26e512b9bc',1,'CharEditor::level_changed()'],['../class_char_editor.html#aae236fff8c12d1f46d15012a1a883ae3',1,'CharEditor::Level_Changed(int)']]],
   ['level_5fup',['level_up',['../class_char_editor.html#a28e11b7ecd066979e77800f3694ec760',1,'CharEditor']]],
   ['levelprogress',['levelProgress',['../class_char_editor.html#a0cce364f6062e9bd6c346fa0b54851ed',1,'CharEditor']]],
   ['levelprogress_5fchanged',['levelProgress_changed',['../class_char_editor.html#a9382613f2438e33b0479e606203a9a2a',1,'CharEditor']]],

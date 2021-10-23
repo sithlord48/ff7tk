@@ -79,7 +79,7 @@ var searchData=
   ['worldcoordswchocox',['worldCoordsWchocoX',['../class_f_f7_save.html#a2f8fcdade4a53aeb6f0c77c6e5160342',1,'FF7Save']]],
   ['worldcoordswchocoy',['worldCoordsWchocoY',['../class_f_f7_save.html#ab61386a807bd59ecce666d7e66987bfa',1,'FF7Save']]],
   ['worldcoordswchocoz',['worldCoordsWchocoZ',['../class_f_f7_save.html#a64223d029ea4b72d3f764e25a2453c3d',1,'FF7Save']]],
-  ['worldvehicle',['WORLDVEHICLE',['../class_f_f7_save.html#a5c831d76488f45ed8a90eea79b93a2c5',1,'FF7Save::WORLDVEHICLE()'],['../class_f_f7_save.html#afe739ec92ddc930d98e94ef728aea125',1,'FF7Save::worldVehicle(int s, int bit)']]],
+  ['worldvehicle',['worldVehicle',['../class_f_f7_save.html#afe739ec92ddc930d98e94ef728aea125',1,'FF7Save::worldVehicle(int s, int bit)'],['../class_f_f7_save.html#a5c831d76488f45ed8a90eea79b93a2c5',1,'FF7Save::WORLDVEHICLE()']]],
   ['writedata',['writeData',['../class_iso_file_i_o.html#a7007a947cb0c42834e865d962850607b',1,'IsoFileIO::writeData()'],['../class_lgp_i_o.html#a658a95bba8dad1740df0ce3f2e05e958',1,'LgpIO::writeData()']]],
   ['writeerror',['WriteError',['../class_archive.html#a2752025d615c69dee4169592342ac5cba983497d04a8dea191a4c642550cad5f0',1,'Archive::WriteError()'],['../class_lgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a94e53d5024992860d6e11319bf869d2b',1,'Lgp::WriteError()']]],
   ['writefile',['writeFile',['../class_iso_archive.html#afc642937c0fa033b638c0c502b5b752b',1,'IsoArchive']]],
