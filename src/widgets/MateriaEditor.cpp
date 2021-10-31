@@ -128,7 +128,7 @@ void MateriaEditor::setName()
         lbl_materiaName->clear();
         lbl_materiaIcon->setPixmap(QPixmap());
     } else {
-        lbl_materiaIcon->setPixmap(QPixmap::fromImage(data->image(_id)));
+        lbl_materiaIcon->setPixmap(data->pixmap(_id));
         lbl_materiaName->setText(data->name(_id));
         if (combo_type->currentIndex() != FF7Materia::Unknown)
             combo_type->setCurrentIndex(data->type(_id));
@@ -195,10 +195,10 @@ void MateriaEditor::setStars()
             button->setHidden(true);
         if (data->type(_id) != 0) {
             for (QPushButton *button : qAsConst(btn_stars))
-                button->setIcon(QPixmap::fromImage(data->imageEmptyStar(_id)).scaled(button->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+                button->setIcon(data->pixmapEmptyStar(_id).scaled(button->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
         }
         for (int i = 0 ; i < _level ; i ++)
-            btn_stars.at(i)->setIcon(QPixmap::fromImage(data->imageFullStar(_id)).scaled(btn_stars.at(i)->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            btn_stars.at(i)->setIcon(data->pixmapFullStar(_id).scaled(btn_stars.at(i)->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
         for (int i = 0 ; i < data->levels(_id) ; i ++)
             btn_stars.at(i)->setHidden(false);
     }
@@ -388,12 +388,12 @@ QHBoxLayout *MateriaEditor::makeNameLayout()
     combo_type->setIconSize(_iconSize);
     combo_type->setMinimumHeight(fontMetrics().height() + fontMetrics().xHeight());
     combo_type->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
-    combo_type->addItem(QIcon(QPixmap::fromImage(data->imageAllMateria())), tr("All Materia"));
-    combo_type->addItem(QIcon(data->pixmap(FF7Materia::MasterMagic)), tr("Magic"));
-    combo_type->addItem(QIcon(data->pixmap(FF7Materia::MasterSummon)), tr("Summon"));
-    combo_type->addItem(QIcon(data->pixmap(FF7Materia::Underwater)), tr("Independent"));
-    combo_type->addItem(QIcon(data->pixmap(FF7Materia::StealAsWell)), tr("Support"));
-    combo_type->addItem(QIcon(data->pixmap(FF7Materia::MasterCommand)), tr("Command"));
+    combo_type->addItem(data->iconAllMateria(), tr("All Materia"));
+    combo_type->addItem(data->icon(FF7Materia::MasterMagic), tr("Magic"));
+    combo_type->addItem(data->icon(FF7Materia::MasterSummon), tr("Summon"));
+    combo_type->addItem(data->icon(FF7Materia::Underwater), tr("Independent"));
+    combo_type->addItem(data->icon(FF7Materia::StealAsWell), tr("Support"));
+    combo_type->addItem(data->icon(FF7Materia::MasterCommand), tr("Command"));
     connect(combo_type, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MateriaEditor::typeChanged);
 
     combo_materia = new QComboBox;
