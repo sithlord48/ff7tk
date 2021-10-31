@@ -2,9 +2,9 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-#include "../src/data/FF7Text.h"
-#include "../src/data/FF7Item.h"
-#include "../src/data/ff7tkAbout.h"
+#include <FF7Text.h>
+#include <FF7Item.h>
+#include <ff7tkAbout.h>
 
 int main(int argc, char *argv[])
 {
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         return FF7Item::instance()->qmlSingletonRegister(engine, jsEngine);
     });
 
-    QString versionString = ff7tk_version().append(ff7tk_revision());
+    QString versionString = QStringLiteral("%1-%2").arg(ff7tk_version().append(ff7tk_revision()), ff7tk_qt_version());
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("ff7tkVersion", versionString);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
