@@ -519,7 +519,7 @@ QString LocationViewer::translate(QString text)
         return text;
 
     if(!translator->filePath().contains(lang))
-        translator->load(lang, langDir);
+        std::ignore = translator->load(lang, langDir);
     QString newText = translator->translate("FF7Location", text.toLatin1());
     if (newText.isEmpty())
         return text;
