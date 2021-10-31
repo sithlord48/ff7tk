@@ -8,7 +8,7 @@ if(${QT_DEFAULT_MAJOR_VERSION} MATCHES "6")
     find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
 endif()
 
-configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkAbout.h @ONLY)
+configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h @ONLY)
 
 set ( ff7tkData_SRC
         crypto/aes.c
@@ -19,10 +19,12 @@ set ( ff7tkData_SRC
     )
 
 set (ff7tkData_HEADERS
-    ff7tkAbout.h       FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
+    FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
     FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h
+    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h
+
 )
 
 set ( ff7tkIcons
