@@ -123,6 +123,7 @@ jobs:
       uses: jurplel/install-qt-action@v2.14.0
       with:
        aqtversion: ==2.0.0
+       py7zrversion: ==0.16.2
        dir: ${{matrix.config.QT_INST_DIR}}
        arch: ${{ matrix.config.QT_ARCH }}
        version: ${{ matrix.config.QT_VERSION }}
