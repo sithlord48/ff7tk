@@ -124,9 +124,17 @@ public:
     {
         return QImage(Materias(id).imageString);
     }
+    inline QPixmap pixmapEmptyStar(int id)
+    {
+        return QPixmap(Materias(id).emptyStarString);
+    }
     inline QImage imageEmptyStar(int id)
     {
         return QImage(Materias(id).emptyStarString);
+    }
+    inline QPixmap pixmapFullStar(int id)
+    {
+        return QPixmap(Materias(id).fullStarString);
     }
     inline QImage imageFullStar(int id)
     {
