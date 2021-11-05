@@ -469,7 +469,7 @@ bool FF7SaveInfo::isTypeVMC(FF7SaveInfo::FORMAT format) const
     };
 }
 
-bool FF7SaveInfo::isTypeSSS(FORMAT format) const
+bool FF7SaveInfo::isTypeSSS(FF7SaveInfo::FORMAT format) const
 {
     switch(format) {
         case FORMAT::PSX:
@@ -480,7 +480,7 @@ bool FF7SaveInfo::isTypeSSS(FORMAT format) const
     };
 }
 
-int FF7SaveInfo::vmcHeaderOffset(FORMAT format) const
+int FF7SaveInfo::vmcHeaderOffset(FF7SaveInfo::FORMAT format) const
 {
     switch (format) {
         case FORMAT::PSP: return d->PSP_VMC_HEADER_OFFSET;
@@ -492,7 +492,7 @@ int FF7SaveInfo::vmcHeaderOffset(FORMAT format) const
     }
 }
 
-int FF7SaveInfo::psxSaveNameOffset(FORMAT format) const
+int FF7SaveInfo::psxSaveNameOffset(FF7SaveInfo::FORMAT format) const
 {
     switch (format) {
         case FORMAT::PGE: return d->PGE_FILE_NAME_OFFSET;

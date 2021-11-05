@@ -261,7 +261,7 @@ public:
      * @param format - Format to check
      * @return  Offset where the psxSaveNameOffset is or -1 if invalid format provided.
      */
-    Q_INVOKABLE int psxSaveNameOffset(FORMAT format) const;
+    Q_INVOKABLE int psxSaveNameOffset(FF7SaveInfo::FORMAT format) const;
 private:
     FF7SaveInfo *operator = (FF7SaveInfo &other) = delete;
     FF7SaveInfo(const FF7SaveInfo &other) = delete;
