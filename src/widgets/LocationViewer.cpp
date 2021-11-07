@@ -38,9 +38,8 @@
 #include <FF7Location.h>
 #include <FF7FieldItemList.h>
 
-LocationViewer::LocationViewer(qreal Scale, QWidget *parent)
+LocationViewer::LocationViewer(QWidget *parent)
     : QWidget(parent)
-    , scale(Scale)
     , region(QString())
     , regExpSearch(false)
     , caseSensitive(false)
@@ -98,7 +97,7 @@ void LocationViewer::resizeEvent(QResizeEvent *ev)
         if (pix.isNull()) {
             return;
         }
-        lblLocationPreview->setPixmap(pix.scaled(lblLocationPreview->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        lblLocationPreview->setPixmap(pix.scaled(lblLocationPreview->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 }
 
@@ -121,8 +120,8 @@ void LocationViewer::updateText()
         newItem->setToolTip(_tooltip.arg(
                                 FF7Location::mapID(i),
                                 FF7Location::locationID(i),
-                                QString::number(320 * scale),
-                                QString::number(480 * scale)));
+                                QString::number(fontMetrics().height() * 12),
+                                QString::number(fontMetrics().height() * 15)));
         locationTable->setItem(i, 1, newItem);
     }
     actionNameSearch->setText(tr("Filter Mode: Name / Location String"));
@@ -152,8 +151,9 @@ void LocationViewer::updateText()
 
 void LocationViewer::init_display(void)
 {
-    lblLocationPreview->setMinimumSize(int(320 * scale), int(240 * scale));
-    lblLocationPreview->setBaseSize(int(640 * scale), int(480 * scale));
+    int h = fontMetrics().height();
+    lblLocationPreview->setMinimumSize(h * 12, h *15);
+    lblLocationPreview->setBaseSize(h * 24, h * 30);
     lblLocationPreview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     locationTable->verticalHeader()->setHidden(true);
@@ -169,8 +169,8 @@ void LocationViewer::init_display(void)
         newItem->setToolTip(_tooltip.arg(
                                 FF7Location::mapID(i),
                                 FF7Location::locationID(i),
-                                QString::number(320 * scale),
-                                QString::number(480 * scale)));
+                                QString::number(fontMetrics().height() * 12),
+                                QString::number(fontMetrics().height() * 15)));
         newItem->setTextAlignment(Qt::AlignLeft);
         locationTable->setItem(i, 0, newItem);
 
@@ -263,10 +263,6 @@ void LocationViewer::init_display(void)
     CoordsLayout->addLayout(nameIDs);
     CoordsLayout->addLayout(XYTD);
 
-    QHBoxLayout *PreviewLayout = new QHBoxLayout;
-    PreviewLayout->setAlignment(Qt::AlignCenter);
-    PreviewLayout->addWidget(lblLocationPreview);
-
     QHBoxLayout *FilterLayout = new QHBoxLayout;
     FilterLayout->setContentsMargins(0, 0, 0, 0);
     FilterLayout->addWidget(lineTableFilter, 8);
@@ -280,7 +276,7 @@ void LocationViewer::init_display(void)
     QVBoxLayout *RightSideLayout = new QVBoxLayout;
     RightSideLayout->addLayout(CoordsLayout);
     RightSideLayout->addWidget(btnUpdateSaveLocation);
-    RightSideLayout->addLayout(PreviewLayout);
+    RightSideLayout->addWidget(lblLocationPreview);
     RightSideLayout->addWidget(groupFieldItems);
     setAdvancedMode(advancedMode());
 

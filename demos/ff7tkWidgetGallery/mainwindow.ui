@@ -91,13 +91,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QDoubleSpinBox" name="sb_scale">
-      <property name="prefix">
-       <string>Widget Scale : </string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QGroupBox" name="item_list_box">
       <property name="title">
        <string/>

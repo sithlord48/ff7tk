@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -84,5 +84,4 @@ private:
     QCheckBox *cb_one = nullptr;
     QCheckBox *cb_two = nullptr;
     QLabel *label = nullptr;
-    qreal _scale = 1;
 };

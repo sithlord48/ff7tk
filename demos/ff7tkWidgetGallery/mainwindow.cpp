@@ -31,11 +31,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
     setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tk_version()));
     hideAllBoxes();
-    QScreen *screen = QGuiApplication::screens().at(0);
-    screen->logicalDotsPerInchX();
-    ui->sb_scale->setValue(screen->logicalDotsPerInchX() / 96);
-    scale = screen->logicalDotsPerInchX() / 96;
-
 
     ListPHS = new PhsListWidget(this);
     QHBoxLayout *listLayout = new QHBoxLayout;
@@ -57,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     materia_editor_layout->addWidget(materia_editor);
     ui->editor_box->setLayout(materia_editor_layout);
 
-    char_editor = new CharEditor(scale);
+    char_editor = new CharEditor(this);
     QHBoxLayout *char_editor_layout = new QHBoxLayout();
     char_editor_layout->addWidget(char_editor);
     ui->charEditor_box->setLayout(char_editor_layout);
@@ -67,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     item_list_layout->addWidget(item_list);
     ui->itemList_box->setLayout(item_list_layout);
 
-    locViewer = new LocationViewer(scale, this);
+    locViewer = new LocationViewer(this);
     QHBoxLayout *locLayout = new QHBoxLayout();
     locLayout->addWidget(locViewer);
     ui->innerLocBox->setLayout(locLayout);
@@ -156,7 +151,7 @@ void MainWindow::on_btn_slotSelect_clicked()
     QString filename = QFileDialog::getOpenFileName(this, "Select A Save To Preview", QDir::homePath(), fileFilter);
     if (!filename.isEmpty()) {
         if (ff7save.get()->loadFile(filename)) {
-            SlotSelect *slotSelect = new SlotSelect(scale, ff7save.get(), ui->cbShowLoad->isChecked());
+            SlotSelect *slotSelect = new SlotSelect(ff7save.get(), ui->cbShowLoad->isChecked());
             if (slotSelect->exec() == -1) {
                 on_btn_slotSelect_clicked();
             } else {

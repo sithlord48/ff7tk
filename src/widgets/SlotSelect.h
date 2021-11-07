@@ -40,12 +40,11 @@ class FF7TKWIDGETS_EXPORT SlotSelect : public QDialog
 public:
 
     /** \brief create a new SlotSelect Dialog.
-     *  \param scale Scale Fixed contents by this number (hidpi screens)
      *  \param data Pointer to a FF7Save object
      *  \param loadVisiable show the load file button
      *  \param parent Dialogs Parent
      */
-    explicit SlotSelect(qreal scale = 1, FF7Save *data = nullptr, bool loadVisiable = false, QWidget *parent = nullptr);
+    explicit SlotSelect(FF7Save *data = nullptr, bool loadVisiable = false, QWidget *parent = nullptr);
 private slots:
     void button_clicked(int s);
     void remove_slot(int s);
@@ -61,5 +60,4 @@ private:
     QPushButton *btnNew;
     //Private Data
     FF7Save *ff7;
-    qreal _scale;
 };

@@ -50,8 +50,9 @@ class FF7TKWIDGETS_EXPORT CharEditor : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CharEditor(qreal Scale = 1, QWidget *parent = nullptr);
+    explicit CharEditor(QWidget *parent = nullptr);
     void setChar(const FF7CHAR &Chardata, const QString &Processed_Name = "");
+
     bool AutoLevel();
     bool AutoStatCalc();
     bool Editable();
@@ -241,10 +242,10 @@ private:
     QHBoxLayout * makeMateriaSlotPair(QPushButton* button1 = nullptr, QPushButton* button2 = nullptr, QFrame *frame1 = nullptr, QFrame *frame2 = nullptr, QLabel* linkLabel = nullptr);
 
     /**
-     * @brief Creates the layout for the limit related controls.
-     * @return Layout containing the controls for the limit items.
+     * @brief Creates the widget for the limit related controls.
+     * @return Widget containing the controls for the limit items.
      */
-    QVBoxLayout * makeLimitLayout();
+    QWidget * makeLimitLayout();
 //Data
     bool load{false};
     bool autolevel{true};
@@ -255,7 +256,6 @@ private:
     qint32 ap{0};
     FF7CHAR data;
     QString _name;
-    qreal scale;
 //GUI PARTS
     QLabel *lblAvatar = nullptr;
     QLineEdit *lineName = nullptr;
@@ -324,8 +324,7 @@ private:
     QLabel *lblLckMateriaBonus = nullptr;
     QLabel *lblLckTotal = nullptr;
 
-    QLabel *lbl_limit_level = nullptr;
-    QSpinBox *sb_limit_level = nullptr;
+    QSpinBox *sbLimitLevel = nullptr;
     QSpinBox *sb_uses_limit_1_1 = nullptr;
     QSpinBox *sb_uses_limit_2_1 = nullptr;
     QSpinBox *sb_uses_limit_3_1 = nullptr;
@@ -375,5 +374,7 @@ private:
     inline static const int qint16Max = 32767;
     inline static const int quint16Max = 65535;
     inline static const int expMax = 2147483647;
-
+    const int charWidth;
+    const int lineHeight;
+    const QSizePolicy sbSizePolicy;
 };

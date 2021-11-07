@@ -36,11 +36,14 @@
 #include <FF7Materia.h>
 #include <MateriaEditor.h>
 
-CharEditor::CharEditor(qreal Scale, QWidget *parent) : QWidget(parent)
+CharEditor::CharEditor(QWidget *parent)
+    : QWidget(parent)
     , data(FF7CHAR())
-    , scale(Scale)
     , elemental_effects(new QListWidget)
     , status_effects(new QListWidget)
+    , charWidth(fontMetrics().horizontalAdvance(QChar('W')))
+    , lineHeight(fontMetrics().height())
+    , sbSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed)
 {
     updateText();
     init_display();
@@ -60,18 +63,22 @@ void CharEditor::updateText()
     if (!lineName) {
         lineName = new QLineEdit(this);
         lineName->setMaxLength(11);
-        lineName->setMaximumWidth(fontMetrics().horizontalAdvance(QChar('W')) * lineName->maxLength());
+        lineName->setMaximumWidth(charWidth * lineName->maxLength());
     }
     lineName->setPlaceholderText(tr("Name"));
 
-    if (!lblCurrentHp)
+    if (!lblCurrentHp) {
         lblCurrentHp = new QLabel(this);
+        lblCurrentHp->setSizePolicy(sbSizePolicy);
+    }
     lblCurrentHp->setText(tr("Current HP"));
 
     if (!sbCurrentHp) {
         sbCurrentHp = new QSpinBox(this);
         sbCurrentHp->setMaximum(qint16Max);
         sbCurrentHp->setWrapping(true);
+        sbCurrentHp->setAlignment(Qt::AlignHCenter);
+        sbCurrentHp->setSizePolicy(sbSizePolicy);
     }
     sbCurrentHp->setToolTip(tr("Current HP"));
 
@@ -79,8 +86,9 @@ void CharEditor::updateText()
         sbBaseHp = new QSpinBox(this);
     sbBaseHp->setToolTip(tr("Base HP"));
 
-    if (!lblBaseHp)
+    if (!lblBaseHp){
         lblBaseHp = new QLabel(this);
+    }
     lblBaseHp->setText(tr("HP"));
 
     if (!lblBaseHpBonus)
@@ -91,14 +99,18 @@ void CharEditor::updateText()
         lblMaxHp = new QLabel(this);
     lblMaxHp->setToolTip(tr("Maximum HP"));
 
-    if (!lblCurrentMp)
+    if (!lblCurrentMp) {
         lblCurrentMp = new QLabel(this);
+        lblCurrentMp->setSizePolicy(sbSizePolicy);
+    }
     lblCurrentMp->setText(tr("Current MP"));
 
     if (!sbCurrentMp) {
         sbCurrentMp = new QSpinBox(this);
         sbCurrentMp->setMaximum(qint16Max);
         sbCurrentMp->setWrapping(true);
+        sbCurrentMp->setAlignment(Qt::AlignHCenter);
+        sbCurrentMp->setSizePolicy(sbSizePolicy);
     }
     sbCurrentMp->setToolTip(tr("Current MP"));
 
@@ -121,15 +133,26 @@ void CharEditor::updateText()
     if (!sbLevel) {
         sbLevel = new QSpinBox(this);
         sbLevel->setMaximum(99);
+        sbLevel->setSizePolicy(sbSizePolicy);
     }
-    sbLevel->setPrefix(tr("Level").append(": "));
+    sbLevel->setPrefix(tr("Level").append(QStringLiteral(": ")));
+
+    if (!sbLimitLevel){
+        sbLimitLevel = new QSpinBox;
+        sbLimitLevel->setMaximum(4);
+        sbLimitLevel->setWrapping(true);
+        sbLimitLevel->setAlignment(Qt::AlignHCenter);
+        sbLimitLevel->setSizePolicy(sbSizePolicy);
+    }
+    sbLimitLevel->setPrefix(tr("Limit Level").append(QStringLiteral(": ")));
 
     if (!sbKills) {
         sbKills = new QSpinBox(this);
         sbKills->setMaximum(quint16Max);
         sbKills->setWrapping(true);
+        sbKills->setSizePolicy(sbSizePolicy);
     }
-    sbKills->setPrefix(tr("Kills").append(": "));
+    sbKills->setPrefix(tr("Kills").append(QStringLiteral(": ")));
 
     if (!cbFury)
         cbFury = new QCheckBox(this);
@@ -325,11 +348,11 @@ void CharEditor::updateText()
         lblArmorStats = new QLabel(this);
     lblArmorStats->setText(tr("AP:x%1").arg(FF7Item::materiaGrowthRate(data.armor + 256)));
 
-    QSize iconSize(fontMetrics().height(), fontMetrics().height());
+    QSize iconSize(lineHeight, lineHeight);
 
     if(!comboId) {
         comboId = new QComboBox(this);
-        comboId->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        comboId->setSizePolicy(sbSizePolicy);
         comboId->setIconSize(iconSize);
         comboId->setHidden(true);
         for (int i = 0; i <= FF7Char::totalCharacters(); i++)
@@ -384,28 +407,24 @@ void CharEditor::updateText()
 
     if (!lbl_1_1) {
         lbl_1_1 = new QLabel(this);
-        lbl_1_1->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWW")));
+        lbl_1_1->setFixedWidth(charWidth * 3);
         lbl_1_1->setAlignment(Qt::AlignHCenter);
     }
     lbl_1_1->setText(tr("1-1"));
 
     if (!lbl_2_1) {
         lbl_2_1 = new QLabel(this);
-        lbl_2_1->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWW")));
+        lbl_2_1->setFixedWidth(charWidth * 3);
         lbl_2_1->setAlignment(Qt::AlignHCenter);
     }
     lbl_2_1->setText(tr("2-1"));
 
     if (!lbl_3_1) {
         lbl_3_1 = new QLabel(this);
-        lbl_3_1->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWW")));
+        lbl_3_1->setFixedWidth(charWidth * 3);
         lbl_3_1->setAlignment(Qt::AlignHCenter);
     }
     lbl_3_1->setText(tr("3-1"));
-
-    if (!lbl_limit_level)
-        lbl_limit_level = new QLabel();
-    lbl_limit_level->setText(tr("Limit Level"));
 
     if (!list_limits) {
         list_limits = new QListWidget();
@@ -437,7 +456,7 @@ void CharEditor::updateMateriaToolTips()
 void CharEditor::init_display()
 {
     lblAvatar = new QLabel(this);
-    lblAvatar->setFixedSize(int(86 * scale), int(98 * scale));
+    lblAvatar->setFixedSize(lineHeight * 6, lineHeight * 7);
     lblAvatar->setScaledContents(true);
 
     cb_idChanger = new QCheckBox(this);
@@ -446,13 +465,13 @@ void CharEditor::init_display()
     bar_tnl = new QProgressBar(this);
     bar_tnl->setMaximum(61);//strange indeed..
     bar_tnl->setTextVisible(false);
-    bar_tnl->setFixedHeight(int(10 * scale));
-    bar_tnl->setFixedWidth(int(61 * scale));
+    bar_tnl->setFixedHeight(lineHeight / 2);
+    bar_tnl->setFixedWidth(charWidth * 5);
 
     auto name_level_layout = new QHBoxLayout;
     name_level_layout->addWidget(lineName);
-    name_level_layout->addSpacerItem(new QSpacerItem(20, 0, QSizePolicy::Fixed, QSizePolicy::Fixed));
     name_level_layout->addWidget(sbLevel);
+    name_level_layout->addSpacerItem(new QSpacerItem(20, 0, QSizePolicy::Expanding, QSizePolicy::Fixed));
 
     auto hp_layout = new QHBoxLayout;
     hp_layout->addWidget(lblCurrentHp);
@@ -470,21 +489,17 @@ void CharEditor::init_display()
     barNextLayout->addWidget(lbl_level_next);
     barNextLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Fixed));
 
-    auto exp_layout = new QVBoxLayout;
+    auto exp_layout = new QHBoxLayout;
     exp_layout->setContentsMargins(0, 0, 0, 0);
     exp_layout->addWidget(sbTotalExp);
     exp_layout->addLayout(barNextLayout);
-
-    auto kills_layout = new QHBoxLayout;
-    kills_layout->setContentsMargins(0, 0, 0, 0);
-    kills_layout->addWidget(sbKills);
-    kills_layout->addLayout(exp_layout);
 
     auto name_hp_mp_kills_layout = new QVBoxLayout;
     name_hp_mp_kills_layout->addLayout(name_level_layout);
     name_hp_mp_kills_layout->addLayout(hp_layout);
     name_hp_mp_kills_layout->addLayout(mp_layout);
-    name_hp_mp_kills_layout->addLayout(kills_layout);
+    name_hp_mp_kills_layout->addWidget(sbKills);
+    name_hp_mp_kills_layout->addLayout(exp_layout);
 
     auto fury_sadness_layout = new QVBoxLayout;
     fury_sadness_layout->setContentsMargins(0, 0, 0, 0);
@@ -498,15 +513,11 @@ void CharEditor::init_display()
     sadness_row_id_layout->addWidget(cb_idChanger);
     sadness_row_id_layout->addSpacerItem(new QSpacerItem(0, 6, QSizePolicy::Preferred, QSizePolicy::Preferred));
     sadness_row_id_layout->addWidget(comboId);
+    sadness_row_id_layout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Preferred));
 
-    auto avatar_name_layout = new QHBoxLayout;
-    avatar_name_layout->setContentsMargins(0, 0, 0, 0);
-    avatar_name_layout->addWidget(lblAvatar);
-    avatar_name_layout->addLayout(name_hp_mp_kills_layout);
-    avatar_name_layout->addLayout(sadness_row_id_layout);
-
+    auto lcdSize = QSize(charWidth * 2, lineHeight);
     lcd_0x34 = new QLCDNumber(2);
-    lcd_0x34->setFixedSize(int(32 * scale), int(20 * scale));
+    lcd_0x34->setFixedSize(lcdSize);
     lcd_0x34->setHexMode();
     lcd_0x34->setSegmentStyle(QLCDNumber::Flat);
     auto _0x34_layout = new QVBoxLayout;
@@ -516,7 +527,7 @@ void CharEditor::init_display()
     _0x34_layout->addWidget(lcd_0x34);
 
     lcd_0x35 = new QLCDNumber(2);
-    lcd_0x35->setFixedSize(int (32 * scale), int(20 * scale));
+    lcd_0x35->setFixedSize(lcdSize);
     lcd_0x35->setHexMode();
     lcd_0x35->setSegmentStyle(QLCDNumber::Flat);
     auto _0x35_layout = new QVBoxLayout;
@@ -526,7 +537,7 @@ void CharEditor::init_display()
     _0x35_layout->addWidget(lcd_0x35);
 
     lcd_0x36 = new QLCDNumber(2);
-    lcd_0x36->setFixedSize(int(32 * scale), int(20 * scale));
+    lcd_0x36->setFixedSize(lcdSize);
     lcd_0x36->setHexMode();
     lcd_0x36->setSegmentStyle(QLCDNumber::Flat);
     auto _0x36_layout = new QVBoxLayout;
@@ -536,7 +547,7 @@ void CharEditor::init_display()
     _0x36_layout->addWidget(lcd_0x36);
 
     lcd_0x37 = new QLCDNumber(2);
-    lcd_0x37->setFixedSize(int(32 * scale), int(20 * scale));
+    lcd_0x37->setFixedSize(lcdSize);
     lcd_0x37->setHexMode();
     lcd_0x37->setSegmentStyle(QLCDNumber::Flat);
     auto _0x37_layout = new QVBoxLayout;
@@ -557,16 +568,19 @@ void CharEditor::init_display()
     unknown_box->setLayout(unknown_layout);
     unknown_box->setVisible(false);
 
-    auto stat_layout_2 = new QHBoxLayout;
-    stat_layout_2->setContentsMargins(0, 0, 0, 0);
-    stat_layout_2->addWidget(makeStatFrame());
-    stat_layout_2->addWidget(unknown_box);
+    auto avatar_name_layout = new QHBoxLayout;
+    avatar_name_layout->setContentsMargins(0, 0, 0, 0);
+    avatar_name_layout->addWidget(lblAvatar);
+    avatar_name_layout->addLayout(name_hp_mp_kills_layout);
+    avatar_name_layout->addLayout(sadness_row_id_layout);
+    avatar_name_layout->addWidget(unknown_box);
+    avatar_name_layout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Fixed));
 
     auto lower_section = new QVBoxLayout;
     lower_section->setContentsMargins(0, 0, 0, 0);
-    lower_section->setSpacing(0);
-    lower_section->addLayout(stat_layout_2);
-    lower_section->addLayout(makeLimitLayout());
+    lower_section->setSpacing(6);
+    lower_section->addWidget(makeStatFrame());
+    lower_section->addWidget(makeLimitLayout());
 
     auto left_Final = new QVBoxLayout;
     left_Final->setContentsMargins(0, 0, 0, 0);
@@ -576,7 +590,7 @@ void CharEditor::init_display()
 
     materia_edit  = new MateriaEditor(this);
     materia_edit->setVisible(false);
-    materia_edit->setStarsSize(int(32 * scale));
+    materia_edit->setStarsSize(lineHeight * 1.75F);
 
     auto elemental = new QHBoxLayout();
     elemental->setContentsMargins(3, 3, 3, 3);
@@ -770,7 +784,7 @@ void CharEditor::init_connections()
     connect(sb_uses_limit_1_1, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setTimesused1);
     connect(sb_uses_limit_2_1, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setTimesused2);
     connect(sb_uses_limit_3_1, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setTimesused3);
-    connect(sb_limit_level, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setLimitLevel);
+    connect(sbLimitLevel, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setLimitLevel);
     connect(comboId, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharEditor::setId);
     connect(weapon_selection, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharEditor::setWeapon);
     connect(armor_selection, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharEditor::setArmor);
@@ -811,7 +825,7 @@ void CharEditor::disconnectAll()
     disconnect(sb_uses_limit_1_1, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setTimesused1);
     disconnect(sb_uses_limit_2_1, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setTimesused2);
     disconnect(sb_uses_limit_3_1, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setTimesused3);
-    disconnect(sb_limit_level, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setLimitLevel);
+    disconnect(sbLimitLevel, QOverload<int>::of(&QSpinBox::valueChanged), this, &CharEditor::setLimitLevel);
     disconnect(comboId, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharEditor::setId);
     disconnect(weapon_selection, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharEditor::setWeapon);
     disconnect(armor_selection, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &CharEditor::setArmor);
@@ -1020,7 +1034,6 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
     data = Chardata;
     _name = Processed_Name;
     //more here like setting the gui stuff.
-
     lblAvatar->setPixmap(FF7Char::pixmap(data.id));
     lineName->setText(_name);
     sbLevel->setValue(data.level);
@@ -1076,7 +1089,7 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
     sb_uses_limit_1_1->setValue(data.timesused1);
     sb_uses_limit_2_1->setValue(data.timesused2);
     sb_uses_limit_3_1->setValue(data.timesused3);
-    sb_limit_level->setValue(data.limitlevel);
+    sbLimitLevel->setValue(data.limitlevel);
 
     weapon_selection->clear();
     for (int i = FF7Char::weaponStartingId(data.id); i < FF7Char::numberOfWeapons(data.id) + FF7Char::weaponStartingId(data.id); i++)
@@ -1876,7 +1889,8 @@ void CharEditor::elemental_info()
                 }
             }//end of for Loop
             elemental_effects->setFixedHeight(y);
-            elemental_box->setFixedSize(int(205 * scale), y + elemental_box->contentsMargins().top() + elemental_box->contentsMargins().bottom());
+
+            elemental_box->setFixedSize( (charWidth * 16), y + elemental_box->contentsMargins().top() + elemental_box->contentsMargins().bottom());
         }//end of else.
     }//end of other loop.
     elemental_box->setVisible(show);
@@ -1942,7 +1956,7 @@ void CharEditor::status_info()
                 }
             }//end of for Loop
             status_effects->setFixedHeight(y);
-            status_box->setFixedSize(int(205 * scale), y + status_box->contentsMargins().top() + status_box->contentsMargins().bottom());
+            status_box->setFixedSize(charWidth * 16, y + status_box->contentsMargins().top() + status_box->contentsMargins().bottom());
         }//end of else.
     }//end of loop
     status_box->setVisible(show);
@@ -2094,13 +2108,13 @@ void CharEditor::MaxStats()
     sbCurrentMp->setValue(data.maxMP);
 
     if (data.id == FF7Char::CaitSith) {
-        sb_limit_level->setValue(2);
+        sbLimitLevel->setValue(2);
         setLimits(0x09);
     } else if (data.id == FF7Char::Vincent) {
-        sb_limit_level->setValue(4);
+        sbLimitLevel->setValue(4);
         setLimits(0x249);
     } else {
-        sb_limit_level->setValue(4);
+        sbLimitLevel->setValue(4);
         setLimits(0x2DB);
     }
 }
@@ -2158,27 +2172,28 @@ void CharEditor::setEditableComboBoxes(bool editable)
 
 QWidget* CharEditor::makeStatWidget(QSpinBox* statBaseSpinBox, QSpinBox* statSourceSpinBox, QLabel* statLabel, QLabel* statMateriaBonusLabel, QLabel* statTotalLabel)
 {
-    QSizePolicy policy(QSizePolicy::Maximum, QSizePolicy::Fixed);
-    int width = fontMetrics().horizontalAdvance(QStringLiteral("WWW"));
+    int width = charWidth * 3;
 
     statBaseSpinBox->setMaximum(quint8Max);
     statBaseSpinBox->setWrapping(true);
     statBaseSpinBox->setAlignment(Qt::AlignCenter);
+    statBaseSpinBox->setSizePolicy(sbSizePolicy);
 
     if (statSourceSpinBox) {
         statSourceSpinBox->setMaximum(quint8Max);
         statSourceSpinBox->setWrapping(true);
         statSourceSpinBox->setAlignment(Qt::AlignCenter);
+        statSourceSpinBox->setSizePolicy(sbSizePolicy);
     }
 
     statLabel->setFixedWidth(width);
-    statLabel->setSizePolicy(policy);
+    statLabel->setSizePolicy(sbSizePolicy);
 
     statMateriaBonusLabel->setFixedWidth(width);
-    statMateriaBonusLabel->setSizePolicy(policy);
+    statMateriaBonusLabel->setSizePolicy(sbSizePolicy);
 
     statTotalLabel->setFixedWidth(width);
-    statTotalLabel->setSizePolicy(policy);
+    statTotalLabel->setSizePolicy(sbSizePolicy);
 
     auto lblEquals = new QLabel(QStringLiteral("= "));
     lblEquals->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("= ")));
@@ -2205,7 +2220,7 @@ QWidget* CharEditor::makeStatWidget(QSpinBox* statBaseSpinBox, QSpinBox* statSou
     layout->addWidget(statTotalLabel);
 
     auto widget = new QWidget();
-    widget->setSizePolicy(policy);
+    widget->setSizePolicy(sbSizePolicy);
     widget->setLayout(layout);
 
     return widget;
@@ -2213,15 +2228,18 @@ QWidget* CharEditor::makeStatWidget(QSpinBox* statBaseSpinBox, QSpinBox* statSou
 
 QFrame * CharEditor::makeStatFrame()
 {
+
     auto statLeftLayout = new QVBoxLayout;
     statLeftLayout->addWidget(makeStatWidget(sbBaseHp, nullptr, lblBaseHp, lblBaseHpBonus, lblMaxHp), 0);
     statLeftLayout->addWidget(makeStatWidget(sbStr, sbStrSourceUse, lblStr, lblStrMateriaBonus, lblStrTotal), 0);
     statLeftLayout->addWidget(makeStatWidget(sbVit, sbVitSourceUse, lblVit, lblVitMateriaBonus, lblVitTotal), 0);
     statLeftLayout->addWidget(makeStatWidget(sbMag, sbMagSourceUse, lblMag, lblMagMateriaBonus, lblMagTotal), 0);
 
+    int lblWidth = charWidth * 4;
+
     sbBaseHp->setMaximum(qint16Max);
-    sbBaseHp->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWWWW")));
-    lblBaseHpBonus->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWWW")));
+    sbBaseHp->setSizePolicy(sbSizePolicy);
+    lblBaseHpBonus->setFixedWidth(lblWidth);
 
     auto statRightLayout = new QVBoxLayout;
     statRightLayout->addWidget(makeStatWidget(sbBaseMp, nullptr, lblBaseMp, lblBaseMpBonus, lblMaxMp), 0);
@@ -2230,8 +2248,8 @@ QFrame * CharEditor::makeStatFrame()
     statRightLayout->addWidget(makeStatWidget(sbLck, sbLckSourceUse, lblLck, lblLckMateriaBonus, lblLckTotal), 0);
 
     sbBaseMp->setMaximum(qint16Max);
-    sbBaseMp->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWWWW")));
-    lblBaseMpBonus->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWWW")));
+    sbBaseMp->setSizePolicy(sbSizePolicy);
+    lblBaseMpBonus->setFixedWidth(lblWidth);
 
     auto statBox = new QFrame(this);
     auto statLayout = new QHBoxLayout(statBox);
@@ -2244,6 +2262,7 @@ QFrame * CharEditor::makeStatFrame()
 
 QHBoxLayout * CharEditor::makeMateriaSlotPair(QPushButton* button1, QPushButton* button2, QFrame *frame1, QFrame *frame2, QLabel* linkLabel)
 {
+    auto scale = std::clamp<float>(lineHeight / 16, 1.0F, 3.0F);
     QSize slotSize = QSize(int(32 * scale), int(32 * scale));
     QSize frameSize = QSize(int(34 * scale), int(34 * scale));
     QSize materiaSize = QSize(int(24 * scale), int(24 * scale));
@@ -2288,15 +2307,14 @@ QHBoxLayout * CharEditor::makeMateriaSlotPair(QPushButton* button1, QPushButton*
     return finalLayout;
 }
 
-QVBoxLayout * CharEditor::makeLimitLayout()
+QWidget * CharEditor::makeLimitLayout()
 {
-    int charWidth = fontMetrics().horizontalAdvance((QChar('W')));
 
     sb_uses_limit_1_1 = new QSpinBox;
     sb_uses_limit_1_1->setMaximum(qint16Max);
     sb_uses_limit_1_1->setWrapping(true);
-    sb_uses_limit_1_1->setFixedWidth(charWidth * 5);
     sb_uses_limit_1_1->setAlignment(Qt::AlignCenter);
+    sb_uses_limit_1_1->setSizePolicy(sbSizePolicy);
 
     auto layout_1_1 = new QHBoxLayout;
     layout_1_1->setContentsMargins(0, 0, 0, 0);
@@ -2306,8 +2324,8 @@ QVBoxLayout * CharEditor::makeLimitLayout()
     sb_uses_limit_2_1 = new QSpinBox;
     sb_uses_limit_2_1->setWrapping(true);
     sb_uses_limit_2_1->setMaximum(qint16Max);
-    sb_uses_limit_2_1->setFixedWidth(charWidth * 5);
     sb_uses_limit_2_1->setAlignment(Qt::AlignCenter);
+    sb_uses_limit_2_1->setSizePolicy(sbSizePolicy);
 
     auto layout_2_1 = new QHBoxLayout;
     layout_2_1->setContentsMargins(0, 0, 0, 0);
@@ -2317,8 +2335,8 @@ QVBoxLayout * CharEditor::makeLimitLayout()
     sb_uses_limit_3_1 = new QSpinBox;
     sb_uses_limit_3_1->setMaximum(qint16Max);
     sb_uses_limit_3_1->setWrapping(true);
-    sb_uses_limit_3_1->setFixedWidth(charWidth * 5);
     sb_uses_limit_3_1->setAlignment(Qt::AlignCenter);
+    sb_uses_limit_3_1->setSizePolicy(sbSizePolicy);
 
     auto layout_3_1 = new QHBoxLayout;
     layout_3_1->setContentsMargins(0, 0, 0, 0);
@@ -2326,46 +2344,40 @@ QVBoxLayout * CharEditor::makeLimitLayout()
     layout_3_1->addWidget(sb_uses_limit_3_1);
 
     auto used_limits_layout = new QVBoxLayout;
-    used_limits_layout->setContentsMargins(0, 6, 0, 0);
+    used_limits_layout->setContentsMargins(0, 0, 0, 0);
+    used_limits_layout->addWidget(sbLimitLevel);
     used_limits_layout->addWidget(lbl_uses);
     used_limits_layout->addLayout(layout_1_1);
     used_limits_layout->addLayout(layout_2_1);
     used_limits_layout->addLayout(layout_3_1);
     used_limits_layout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding));
 
-    sb_limit_level = new QSpinBox;
-    sb_limit_level->setMaximum(4);
-    sb_limit_level->setWrapping(true);
-    sb_limit_level->setFixedWidth(charWidth * 4);
-
-    auto limit_level_layout = new QHBoxLayout;
-    limit_level_layout->setContentsMargins(0, 0, 0, 0);
-    limit_level_layout->addWidget(lbl_limit_level);
-    limit_level_layout->addWidget(sb_limit_level);
-
     slider_limit = new QSlider(Qt::Horizontal);
     slider_limit->setMaximum(quint8Max);
-    slider_limit->setMaximumHeight(int(20 * scale));
+    slider_limit->setMaximumHeight(lineHeight);
 
     lcdLimitValue = new QLCDNumber(3);
     lcdLimitValue->setSegmentStyle(QLCDNumber::Flat);
 
     auto limit_bar_layout = new QHBoxLayout;
     limit_bar_layout->setContentsMargins(0, 0, 0, 0);
-    limit_bar_layout->addLayout(limit_level_layout);
-    limit_bar_layout->addSpacerItem(new QSpacerItem(10, 0, QSizePolicy::Fixed, QSizePolicy::Fixed));
     limit_bar_layout->addWidget(lbl_limit_bar);
     limit_bar_layout->addWidget(slider_limit);
     limit_bar_layout->addWidget(lcdLimitValue);
 
     auto limit_use_list = new QHBoxLayout;
     limit_use_list->addLayout(used_limits_layout);
+    limit_use_list->setSpacing(3);
     limit_use_list->addWidget(list_limits);
 
     auto finalLayout = new QVBoxLayout;
-    finalLayout->setContentsMargins(0, 0, 0, 0);
+    finalLayout->setContentsMargins(6, 6, 0, 0);
     finalLayout->addLayout(limit_bar_layout);
+    finalLayout->setSpacing(6);
     finalLayout->addLayout(limit_use_list);
+    finalLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding));
 
-    return finalLayout;
+    auto widget = new QWidget(this);
+    widget->setLayout(finalLayout);
+    return widget;
 }

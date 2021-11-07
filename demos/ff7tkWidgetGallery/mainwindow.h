@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2021 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -68,17 +68,16 @@ private slots:
 
 private:
 
-    Ui::MainWindow *ui;
-    qreal scale;
-    MateriaEditor *materia_editor;
-    CharEditor *char_editor;
-    ItemList *item_list;
-    MetadataCreator *metadataCreator;
-    PhsListWidget *ListPHS;
-    MenuListWidget *ListMenu;
-    Lgp *lgpFile;
-    LocationViewer *locViewer;
-    OptionsWidget *optionsWidget;
-    ChocoboManager *chocoboManager;
-    AchievementEditor *achievementEditor;
+    Ui::MainWindow *ui = nullptr;
+    MateriaEditor *materia_editor = nullptr;
+    CharEditor *char_editor = nullptr;
+    ItemList *item_list = nullptr;
+    MetadataCreator *metadataCreator = nullptr;
+    PhsListWidget *ListPHS = nullptr;
+    MenuListWidget *ListMenu = nullptr;
+    Lgp *lgpFile = nullptr;
+    LocationViewer *locViewer = nullptr;
+    OptionsWidget *optionsWidget = nullptr;
+    ChocoboManager *chocoboManager = nullptr;
+    AchievementEditor *achievementEditor = nullptr;
 };

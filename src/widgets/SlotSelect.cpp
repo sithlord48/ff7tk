@@ -27,11 +27,10 @@
 #include <FF7Save.h>
 
 
-SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *parent)
+SlotSelect::SlotSelect(FF7Save *data, bool loadVisible, QWidget *parent)
     : QDialog(parent)
     , btnNew(new QPushButton(QIcon::fromTheme(QString("document-open"), QPixmap()), tr("Load Another File")))
     , ff7(data)
-    , _scale(scale)
 {
     connect(btnNew, &QPushButton::clicked, this, &SlotSelect::newFile);
     setWindowFlags(((windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowCloseButtonHint)); //remove close button
@@ -44,7 +43,7 @@ SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *pa
     preview_layout->setContentsMargins(0, 0, 0, 0);
     preview_layout->setSpacing(3);
     for (int i = 0; i < 15; i++) {
-        preview[i] = new SlotPreview(i, _scale);
+        preview[i] = new SlotPreview(i, this);
         preview_layout->addWidget(preview[i]);
         setSlotPreview(i);
     }
@@ -58,7 +57,7 @@ SlotSelect::SlotSelect(qreal scale, FF7Save *data, bool loadVisible, QWidget *pa
     dialog_layout->addWidget(btnNew);
     showLoad(loadVisible);
     setLayout(dialog_layout);
-    setFixedWidth(int(preview[1]->width() + contentsMargins().left() + contentsMargins().right() + list_preview->verticalScrollBar()->sizeHint().width()  + 4 * _scale));
+    setFixedWidth(int(preview[1]->width() + contentsMargins().left() + contentsMargins().right() + list_preview->verticalScrollBar()->sizeHint().width()  + fontMetrics().horizontalAdvance(QChar(':'))));
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     if(parent)
         move(parent->x() + ((parent->width() - width()) / 2), parent->y() + ((parent->sizeHint().height() - sizeHint().height()) /2));
@@ -125,7 +124,7 @@ void SlotSelect::paste_slot(int s)
 void SlotSelect::ReIntSlot(int s)
 {
     preview[s]->~SlotPreview();
-    preview[s] = new SlotPreview(s, _scale);
+    preview[s] = new SlotPreview(s, this);
     preview_layout->insertWidget(s, preview[s]);
     setSlotPreview(s);
 }

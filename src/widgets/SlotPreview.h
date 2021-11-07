@@ -36,8 +36,9 @@ class FF7TKWIDGETS_EXPORT SlotPreview : public QLabel
     Q_OBJECT
 public:
     /** \enum MODE */
-    enum MODE {MODE_EMPTY,/**< \brief Empty Slot*/ MODE_PSXGAME, /**< \brief PSX Game or linked block */ MODE_FF7SAVE /**< \brief FF7 Save in slot*/ };
-    SlotPreview(int index = 0, qreal Scale = 1, QWidget *parent = nullptr);
+    enum MODE
+    {MODE_EMPTY,/**< \brief Empty Slot*/ MODE_PSXGAME, /**< \brief PSX Game or linked block */ MODE_FF7SAVE /**< \brief FF7 Save in slot*/ };
+    SlotPreview(int index = 0, QWidget *parent = nullptr);
     int index(void);
     void setParty(QPixmap p1, QPixmap p2, QPixmap p3);
     void setParty(QString p1_style, QString p2_style, QString p3_style);
@@ -80,9 +81,9 @@ private:
     QHBoxLayout *btnLayout = nullptr;
     QVBoxLayout *Final = nullptr;
     QVBoxLayout *top_layout = nullptr;
-    qreal scale;
     int m_index;
-    static inline QString _previewStyle = QStringLiteral(R"(SlotPreview{border: .5ex solid;}\nQPushButton{border: 1px solid})");
+    int m_lineHeight;
+    static inline QString _previewStyle = QStringLiteral(R"(SlotPreview{border: .5ex solid;}\nQToolButton{border: 1px solid})");
     static inline QString _genericStyle = QStringLiteral(R"(font: 75 16pt "Verdana"; color: white)");
     static inline QString _ff7SlotStyle = QStringLiteral(R"(background-color:rgba(0,0,0,0);font: 75 16pt "Verdana";color:white)");
     static inline QString _emptyTextStyle = QStringLiteral(R"(font: 75 20pt "Verdana"; color:yellow;)");
