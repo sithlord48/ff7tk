@@ -18,7 +18,7 @@
 
 #include "FF7Text_test.h"
 
-void FF7Text_Tests::test_toPCENG()
+void FF7Text_Test::test_toPCENG()
 {
     QCOMPARE(FF7TEXT::instance()->toPC(range0x), range0xE);
     QCOMPARE(FF7TEXT::instance()->toPC(range1x), range1xE);
@@ -42,7 +42,7 @@ void FF7Text_Tests::test_toPCENG()
 #endif
 }
 
-void FF7Text_Tests::test_toFF7ENG()
+void FF7Text_Test::test_toFF7ENG()
 {
     QCOMPARE(FF7TEXT::instance()->toFF7(range0xE), range0x);
     QCOMPARE(FF7TEXT::instance()->toFF7(range1xE), range1x);
@@ -77,13 +77,13 @@ void FF7Text_Tests::test_toFF7ENG()
     QCOMPARE(FF7TEXT::instance()->toFF7(rangeFxE), temp);
 #endif
 }
-void FF7Text_Tests::test_setJapanese()
+void FF7Text_Test::test_setJapanese()
 {
     QSignalSpy(FF7TEXT::instance(), &FF7TEXT::languageChanged);
     FF7TEXT::instance()->setJapanese(true);
 }
 
-void FF7Text_Tests::test_toPCJPN()
+void FF7Text_Test::test_toPCJPN()
 {
 #if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
     qWarning() << qt5Warning;
@@ -178,7 +178,7 @@ void FF7Text_Tests::test_toPCJPN()
 #endif
 }
 
-void FF7Text_Tests::test_toFF7JPN()
+void FF7Text_Test::test_toFF7JPN()
 {
 #if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
     qWarning() << qt5Warning;
@@ -275,4 +275,4 @@ void FF7Text_Tests::test_toFF7JPN()
 #endif
 }
 
-QTEST_MAIN(FF7Text_Tests)
+QTEST_MAIN(FF7Text_Test)

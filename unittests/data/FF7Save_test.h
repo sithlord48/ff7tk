@@ -18,7 +18,7 @@
 
 #include "../../src/data/FF7Save.h"
 
-class FF7Save_Tests : public QObject
+class FF7Save_Test : public QObject
 {
     Q_OBJECT
 private slots:

@@ -19,82 +19,82 @@
 #include "FF7Save_test.h"
 #include "../../src/data/FF7Item.h"
 
-void FF7Save_Tests::initTestCase()
+void FF7Save_Test::initTestCase()
 {
     ff7save = new FF7Save();
     ff7save->newGame(0);
     ff7save->setSlotPsxRawData(0, _slotData);
 }
 
-void FF7Save_Tests::test_pcExport()
+void FF7Save_Test::test_pcExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePC, FF7SaveInfo::FORMAT::PC, 0));
     ff7save->loadFile(_saveFileNamePC);
 }
 
-void FF7Save_Tests::test_vmcExport()
+void FF7Save_Test::test_vmcExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNameVMC, FF7SaveInfo::FORMAT::VMC, 0));
     ff7save->loadFile(_saveFileNameVMC);
 }
 
-void FF7Save_Tests::test_pspExport()
+void FF7Save_Test::test_pspExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePSP, FF7SaveInfo::FORMAT::PSP, 0));
     ff7save->loadFile(_saveFileNamePSP);
 }
 
-void FF7Save_Tests::test_ps3Export()
+void FF7Save_Test::test_ps3Export()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePS3, FF7SaveInfo::FORMAT::PS3, 0));
     ff7save->loadFile(_saveFileNamePS3);
 }
 
-void FF7Save_Tests::test_dexExport()
+void FF7Save_Test::test_dexExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNameDEX, FF7SaveInfo::FORMAT::DEX, 0));
     ff7save->loadFile(_saveFileNameDEX);
 }
 
-void FF7Save_Tests::test_vgsExport()
+void FF7Save_Test::test_vgsExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNameVGS, FF7SaveInfo::FORMAT::VGS, 0));
     ff7save->loadFile(_saveFileNameVGS);
 }
 
-void FF7Save_Tests::test_switchExport()
+void FF7Save_Test::test_switchExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNameSWITCH, FF7SaveInfo::FORMAT::SWITCH, 0));
     ff7save->loadFile(_saveFileNameSWITCH);
 }
 
-void FF7Save_Tests::test_pgeExport()
+void FF7Save_Test::test_pgeExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePGE, FF7SaveInfo::FORMAT::PGE, 0));
     ff7save->loadFile(_saveFileNamePGE);
 }
 
-void FF7Save_Tests::test_pdaExport()
+void FF7Save_Test::test_pdaExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePDA, FF7SaveInfo::FORMAT::PDA));
     ff7save->loadFile(_saveFileNamePDA);
 }
 
-void FF7Save_Tests::test_setSlotPsxRawData()
+void FF7Save_Test::test_setSlotPsxRawData()
 {
     ff7save->setFormat(FF7SaveInfo::FORMAT::PSX);
     ff7save->newGame(0);
     QVERIFY(ff7save->setSlotPsxRawData(0, _slotData));
 }
 
-void FF7Save_Tests::test_psxExport()
+void FF7Save_Test::test_psxExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePSX, FF7SaveInfo::FORMAT::PSX, 0));
     ff7save->loadFile(_saveFileNamePSX);
 }
 
 
-void FF7Save_Tests::test_psxDesc()
+void FF7Save_Test::test_psxDesc()
 {
 #if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
     QEXPECT_FAIL("", qt5Warning.toUtf8().constData(), Continue);
@@ -109,7 +109,7 @@ void FF7Save_Tests::test_psxDesc()
     QCOMPARE(ff7save->psxDesc(0), desc);
 }
 
-void FF7Save_Tests::test_atbMode()
+void FF7Save_Test::test_atbMode()
 {
     QCOMPARE(ff7save->atbMode(0), FF7Save::ATB_ACTIVE);
     ff7save->setAtbMode(0, FF7Save::ATB_WAIT);
@@ -118,21 +118,21 @@ void FF7Save_Tests::test_atbMode()
     QCOMPARE(ff7save->atbMode(0), FF7Save::ATB_RECOMMENED);
 }
 
-void FF7Save_Tests::test_battleHelp()
+void FF7Save_Test::test_battleHelp()
 {
     QCOMPARE(ff7save->battleHelp(0), false);
     ff7save->setBattleHelp(0, true);
     QCOMPARE(ff7save->battleHelp(0), true);
 }
 
-void FF7Save_Tests::test_battleMessageSpeed()
+void FF7Save_Test::test_battleMessageSpeed()
 {
     QCOMPARE(ff7save->battleMessageSpeed(0), 38);
     ff7save->setBattleMessageSpeed(0, 255);
     QCOMPARE(ff7save->battleMessageSpeed(0), 255);
 }
 
-void FF7Save_Tests::test_battlePoints()
+void FF7Save_Test::test_battlePoints()
 {
     QCOMPARE(ff7save->battlePoints(0), 0);
     ff7save->setBattlePoints(0, 255);
@@ -143,21 +143,21 @@ void FF7Save_Tests::test_battlePoints()
     QCOMPARE(ff7save->battlePoints(0), 0xFFFF);
 }
 
-void FF7Save_Tests::test_battleSpeed()
+void FF7Save_Test::test_battleSpeed()
 {
     QCOMPARE(ff7save->battleSpeed(0), 0);
     ff7save->setBattleSpeed(0, 255);
     QCOMPARE(ff7save->battleSpeed(0), 255);
 }
 
-void FF7Save_Tests::test_battleTargets()
+void FF7Save_Test::test_battleTargets()
 {
     QCOMPARE(ff7save->battleTargets(0), false);
     ff7save->setBattleTargets(0, true);
     QCOMPARE(ff7save->battleTargets(0), true);
 }
 
-void FF7Save_Tests::test_battles()
+void FF7Save_Test::test_battles()
 {
     QCOMPARE(ff7save->battles(0), 4732);
     ff7save->setBattles(0, -3);
@@ -166,14 +166,14 @@ void FF7Save_Tests::test_battles()
     QCOMPARE(ff7save->battles(0), 65535);
 }
 
-void FF7Save_Tests::test_bikeHighScore()
+void FF7Save_Test::test_bikeHighScore()
 {
     QCOMPARE(ff7save->bikeHighScore(0), 5700);
     ff7save->setBikeHighScore(0, 0xFFFF);
     QCOMPARE(ff7save->bikeHighScore(0), 0xFFFF);
 }
 
-void FF7Save_Tests::test_bmProgress1()
+void FF7Save_Test::test_bmProgress1()
 {
     QList<bool> checkVar{false, false, false, true, true, true, true, false };
     for(int i=0; i < 8; i++)
@@ -184,7 +184,7 @@ void FF7Save_Tests::test_bmProgress1()
         QCOMPARE(ff7save->bmProgress1(0, i), !checkVar[i]);
 }
 
-void FF7Save_Tests::test_bmProgress2()
+void FF7Save_Test::test_bmProgress2()
 {
     QList<bool> checkVar{false, true, true, false, false, true, true, true };
     for(int i=0; i < 8; i++)
@@ -196,7 +196,7 @@ void FF7Save_Tests::test_bmProgress2()
 }
 
 
-void FF7Save_Tests::test_bmProgress3()
+void FF7Save_Test::test_bmProgress3()
 {
     QList<bool> checkVar{true, true, false, false, false, false, false, false };
     for(int i=0; i < 8; i++)
@@ -207,26 +207,26 @@ void FF7Save_Tests::test_bmProgress3()
         QCOMPARE(ff7save->bmProgress3(0, i), !checkVar[i]);
 }
 
-void FF7Save_Tests::test_cameraMode()
+void FF7Save_Test::test_cameraMode()
 {
     QCOMPARE(ff7save->cameraMode(0), FF7Save::CAMERA_AUTO);
     ff7save->setCameraMode(0, FF7Save::CAMERA_FIXED);
     QCOMPARE(ff7save->cameraMode(0), FF7Save::CAMERA_FIXED);
 }
 
-void FF7Save_Tests::test_canFightNinjaInForest()
+void FF7Save_Test::test_canFightNinjaInForest()
 {
     QCOMPARE(ff7save->canFightNinjaInForest(0), false);
     ff7save->setCanFightNinjaInForest(0, true);
     QCOMPARE(ff7save->canFightNinjaInForest(0), true);
 }
 
-void FF7Save_Tests::test_rawCharacterData()
+void FF7Save_Test::test_rawCharacterData()
 {
     QCOMPARE(ff7save->rawCharacterData(0, 0), (_cloudData));
 }
 
-void FF7Save_Tests::test_charAccessory()
+void FF7Save_Test::test_charAccessory()
 {
     QCOMPARE(ff7save->charAccessory(0, 0), 18);
     ff7save->setCharAccessory(0, 0, 31);
@@ -235,7 +235,7 @@ void FF7Save_Tests::test_charAccessory()
     QCOMPARE(ff7save->charAccessory(0, 0), 0xFF);
 }
 
-void FF7Save_Tests::test_charArmor()
+void FF7Save_Test::test_charArmor()
 {
     QCOMPARE(ff7save->charArmor(0, 0), 27);
     ff7save->setCharArmor(0, 0, 24);
@@ -244,7 +244,7 @@ void FF7Save_Tests::test_charArmor()
     QCOMPARE(ff7save->charArmor(0, 0), 0xFF);
 }
 
-void FF7Save_Tests::test_charBaseHp()
+void FF7Save_Test::test_charBaseHp()
 {
     QCOMPARE(ff7save->charBaseHp(0, 0), 9134);
     ff7save->setCharBaseHp(0, 0, 157);
@@ -252,7 +252,7 @@ void FF7Save_Tests::test_charBaseHp()
     ff7save->setCharBaseHp(0, 0, 9134);
 }
 
-void FF7Save_Tests::test_charBaseMp()
+void FF7Save_Test::test_charBaseMp()
 {
     QCOMPARE(ff7save->charBaseMp(0, 0), 877);
     ff7save->setCharBaseMp(0, 0, 157);
@@ -260,42 +260,42 @@ void FF7Save_Tests::test_charBaseMp()
     ff7save->setCharBaseMp(0, 0, 877);
 }
 
-void FF7Save_Tests::test_charCurrentExp()
+void FF7Save_Test::test_charCurrentExp()
 {
     QCOMPARE(ff7save->charCurrentExp(0, 0), 14622721);
     ff7save->setCharCurrentExp(0, 0, 1000);
     QCOMPARE(ff7save->charCurrentExp(0, 0), 1000);
 }
 
-void FF7Save_Tests::test_charCurrentHp()
+void FF7Save_Test::test_charCurrentHp()
 {
     QCOMPARE(ff7save->charCurrentHp(0, 0), 9999);
     ff7save->setCharCurrentHp(0, 0, 1000);
     QCOMPARE(ff7save->charCurrentHp(0, 0), 1000);
 }
 
-void FF7Save_Tests::test_charCurrentMp()
+void FF7Save_Test::test_charCurrentMp()
 {
     QCOMPARE(ff7save->charCurrentMp(0, 0), 999);
     ff7save->setCharCurrentMp(0, 0, 100);
     QCOMPARE(ff7save->charCurrentMp(0, 0), 100);
 }
 
-void FF7Save_Tests::test_charDex()
+void FF7Save_Test::test_charDex()
 {
     QCOMPARE(ff7save->charDex(0, 0), 61);
     ff7save->setCharDex(0, 0, 255);
     QCOMPARE(ff7save->charDex(0, 0), 255);
 }
 
-void FF7Save_Tests::test_charDexBonus()
+void FF7Save_Test::test_charDexBonus()
 {
     QCOMPARE(ff7save->charDexBonus(0, 0), 194);
     ff7save->setCharDexBonus(0, 0, 25);
     QCOMPARE(ff7save->charDexBonus(0, 0), 25);
 }
 
-void FF7Save_Tests::test_charFlags()
+void FF7Save_Test::test_charFlags()
 {
     QCOMPARE(ff7save->charFlag(0, 0, 0), 0x00);
     ff7save->setCharFlag(0, 0, 0, 0xFF);
@@ -310,7 +310,7 @@ void FF7Save_Tests::test_charFlags()
     QCOMPARE(ff7save->charFlag(0, 0, 2), 0xFF);
 }
 
-void FF7Save_Tests::test_charID()
+void FF7Save_Test::test_charID()
 {
     QCOMPARE(ff7save->charID(0, 0), 0);
     ff7save->setCharID(0, 0, 7);
@@ -318,7 +318,7 @@ void FF7Save_Tests::test_charID()
     ff7save->setCharID(0, 0, 0);
 }
 
-void FF7Save_Tests::test_charKills()
+void FF7Save_Test::test_charKills()
 {
     QCOMPARE(ff7save->charKills(0, 0), 3125);
     ff7save->setCharKills(0, 0, 0);
@@ -327,7 +327,7 @@ void FF7Save_Tests::test_charKills()
     QCOMPARE(ff7save->charKills(0, 0), 0xFFFF);
 }
 
-void FF7Save_Tests::test_charLck()
+void FF7Save_Test::test_charLck()
 {
     QCOMPARE(ff7save->charLck(0, 0), 29);
     ff7save->setCharLck(0, 0, 0xFF);
@@ -337,7 +337,7 @@ void FF7Save_Tests::test_charLck()
     ff7save->setCharLck(0, 0, 29);
 }
 
-void FF7Save_Tests::test_charLckBonus()
+void FF7Save_Test::test_charLckBonus()
 {
     QCOMPARE(ff7save->charLckBonus(0, 0), 229);
     ff7save->setCharLckBonus(0, 0, 0xFF);
@@ -347,7 +347,7 @@ void FF7Save_Tests::test_charLckBonus()
     ff7save->setCharLckBonus(0, 0, 229);
 }
 
-void FF7Save_Tests::test_charLevel()
+void FF7Save_Test::test_charLevel()
 {
     QCOMPARE(ff7save->charLevel(0, 0), 99);
     ff7save->setCharLevel(0, 0, 6);
@@ -355,7 +355,7 @@ void FF7Save_Tests::test_charLevel()
     ff7save->setCharLevel(0, 0, 99);
 }
 
-void FF7Save_Tests::test_charLimitBar()
+void FF7Save_Test::test_charLimitBar()
 {
     QCOMPARE(ff7save->charLimitBar(0, 0), 251);
     ff7save->setCharLimitBar(0, 0, 6);
@@ -363,7 +363,7 @@ void FF7Save_Tests::test_charLimitBar()
     ff7save->setCharLimitBar(0, 0, 99);
 }
 
-void FF7Save_Tests::test_charLimitLevel()
+void FF7Save_Test::test_charLimitLevel()
 {
     QCOMPARE(ff7save->charLimitLevel(0, 0), 4);
     ff7save->setCharLimitLevel(0, 0, 2);
@@ -371,7 +371,7 @@ void FF7Save_Tests::test_charLimitLevel()
     ff7save->setCharLimitLevel(0, 0, 4);
 }
 
-void FF7Save_Tests::test_charMag()
+void FF7Save_Test::test_charMag()
 {
     QCOMPARE(ff7save->charMag(0, 0), 100);
     ff7save->setCharMag(0, 0, 0xFF);
@@ -381,7 +381,7 @@ void FF7Save_Tests::test_charMag()
     ff7save->setCharMag(0, 0, 100);
 }
 
-void FF7Save_Tests::test_charMagBonus()
+void FF7Save_Test::test_charMagBonus()
 {
     QCOMPARE(ff7save->charMagBonus(0, 0), 104);
     ff7save->setCharMagBonus(0, 0, 0xFF);
@@ -391,7 +391,7 @@ void FF7Save_Tests::test_charMagBonus()
     ff7save->setCharMagBonus(0, 0, 104);
 }
 
-void FF7Save_Tests::test_charMateria()
+void FF7Save_Test::test_charMateria()
 {
     QCOMPARE(ff7save->charMateriaId(0, 0, 0), 73);
     QCOMPARE(ff7save->charMateriaAp(0, 0, 0), 0);
@@ -402,21 +402,21 @@ void FF7Save_Tests::test_charMateria()
     QCOMPARE(ff7save->charMateriaAp(0, 0, 0), 127);
 }
 
-void FF7Save_Tests::test_charMaxHp()
+void FF7Save_Test::test_charMaxHp()
 {
     QCOMPARE(ff7save->charMaxHp(0, 0), 9999);
     ff7save->setCharMaxHp(0, 0, 777);
     QCOMPARE(ff7save->charMaxHp(0, 0), 777);
 }
 
-void FF7Save_Tests::test_charMaxMp()
+void FF7Save_Test::test_charMaxMp()
 {
     QCOMPARE(ff7save->charMaxMp(0, 0), 999);
     ff7save->setCharMaxMp(0, 0, 135);
     QCOMPARE(ff7save->charMaxMp(0, 0), 135);
 }
 
-void FF7Save_Tests::test_charName()
+void FF7Save_Test::test_charName()
 {
     QStringList checkVal{QStringLiteral("Cloud"), QStringLiteral("Barret"), QStringLiteral("Tifa"), QStringLiteral("Aeris"), QStringLiteral("Nanaki") , QStringLiteral("Yuffie"), QStringLiteral("Cait Sith"), QStringLiteral("Vincent"), QStringLiteral("Cid")};
     QStringList FlipVal{QStringLiteral("BigHair"), QStringLiteral("GunArm"), QStringLiteral("KarateKid"), QStringLiteral("EarthGirl"), QStringLiteral("WolfMan") , QStringLiteral("SneakyLady"), QStringLiteral("Stuffie"), QStringLiteral("BlaBlaBlaBla"), QStringLiteral("Dragoon")};
@@ -429,14 +429,14 @@ void FF7Save_Tests::test_charName()
         QCOMPARE(ff7save->charName(0, i), FlipVal.at(i));
 }
 
-void FF7Save_Tests::test_charNextExp()
+void FF7Save_Test::test_charNextExp()
 {
     QCOMPARE(ff7save->charNextExp(0, 0), 0);
     ff7save->setCharNextExp(0, 0, 1000);
     QCOMPARE(ff7save->charNextExp(0, 0), 1000);
 }
 
-void FF7Save_Tests::test_charSpi()
+void FF7Save_Test::test_charSpi()
 {
     QCOMPARE(ff7save->charSpi(0, 0), 98);
     ff7save->setCharSpi(0, 0, 0xFF);
@@ -446,7 +446,7 @@ void FF7Save_Tests::test_charSpi()
     ff7save->setCharSpi(0, 0, 98);
 }
 
-void FF7Save_Tests::test_charSpiBonus()
+void FF7Save_Test::test_charSpiBonus()
 {
     QCOMPARE(ff7save->charSpiBonus(0, 0), 24);
     ff7save->setCharSpiBonus(0, 0, 0xFF);
@@ -456,7 +456,7 @@ void FF7Save_Tests::test_charSpiBonus()
     ff7save->setCharSpiBonus(0, 0, 24);
 }
 
-void FF7Save_Tests::test_charStr()
+void FF7Save_Test::test_charStr()
 {
     QCOMPARE(ff7save->charStr(0, 0), 100);
     ff7save->setCharStr(0, 0, 0xFF);
@@ -466,7 +466,7 @@ void FF7Save_Tests::test_charStr()
     ff7save->setCharStr(0, 0, 100);
 }
 
-void FF7Save_Tests::test_charStrBonus()
+void FF7Save_Test::test_charStrBonus()
 {
     QCOMPARE(ff7save->charStrBonus(0, 0), 155);
     ff7save->setCharStrBonus(0, 0, 0xFF);
@@ -476,7 +476,7 @@ void FF7Save_Tests::test_charStrBonus()
     ff7save->setCharStrBonus(0, 0, 155);
 }
 
-void FF7Save_Tests::test_charTimeLimitUsed()
+void FF7Save_Test::test_charTimeLimitUsed()
 {
     QCOMPARE(ff7save->charTimesLimitUsed(0, 0, 1), 20);
     QCOMPARE(ff7save->charTimesLimitUsed(0, 0, 2), 14);
@@ -485,7 +485,7 @@ void FF7Save_Tests::test_charTimeLimitUsed()
     QCOMPARE(ff7save->charTimesLimitUsed(0, 0, 4), 0);
 }
 
-void FF7Save_Tests::test_charUnknown()
+void FF7Save_Test::test_charUnknown()
 {
     QCOMPARE(ff7save->charUnknown(0, 0, 0), 0);
     QCOMPARE(ff7save->charUnknown(0, 0, 1), 0);
@@ -501,7 +501,7 @@ void FF7Save_Tests::test_charUnknown()
     QCOMPARE(ff7save->charUnknown(0, 0, 3), 0xFF);
 }
 
-void FF7Save_Tests::test_charVit()
+void FF7Save_Test::test_charVit()
 {
     QCOMPARE(ff7save->charVit(0, 0), 93);
     ff7save->setCharVit(0, 0, 0xFF);
@@ -511,7 +511,7 @@ void FF7Save_Tests::test_charVit()
     ff7save->setCharVit(0, 0, 93);
 }
 
-void FF7Save_Tests::test_charVitBonus()
+void FF7Save_Test::test_charVitBonus()
 {
     QCOMPARE(ff7save->charVitBonus(0, 0), 135);
     ff7save->setCharVitBonus(0, 0, 0xFF);
@@ -521,12 +521,12 @@ void FF7Save_Tests::test_charVitBonus()
     ff7save->setCharVitBonus(0, 0, 135);
 }
 
-void FF7Save_Tests::test_charWeapon()
+void FF7Save_Test::test_charWeapon()
 {
     QCOMPARE(ff7save->charWeapon(0, 0), 15);
 }
 
-void FF7Save_Tests::test_chocoAccel()
+void FF7Save_Test::test_chocoAccel()
 {
     QList<int> checkVal{62, 65, 65, 65, 60 , 0};
     for (int i=0; i< 6; i++)
@@ -537,7 +537,7 @@ void FF7Save_Tests::test_chocoAccel()
         QCOMPARE(ff7save->chocoAccel(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoCantMate()
+void FF7Save_Test::test_chocoCantMate()
 {
     QList<bool> checkVal{false, false, false, false, false , false};
     for (int i=0; i< 6; i++)
@@ -548,7 +548,7 @@ void FF7Save_Tests::test_chocoCantMate()
         QCOMPARE(ff7save->chocoCantMate(0, i), !checkVal.at(i));
 }
 
-void FF7Save_Tests::test_chocoCoop()
+void FF7Save_Test::test_chocoCoop()
 {
     QList<int> checkVal{100, 100, 100, 100, 100 , 0};
     for (int i=0; i< 6; i++)
@@ -559,7 +559,7 @@ void FF7Save_Tests::test_chocoCoop()
         QCOMPARE(ff7save->chocoCoop(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoIntelligence()
+void FF7Save_Test::test_chocoIntelligence()
 {
     QList<int> checkVal{100, 100, 100, 100, 100 , 0};
     for (int i=0; i< 6; i++)
@@ -570,7 +570,7 @@ void FF7Save_Tests::test_chocoIntelligence()
         QCOMPARE(ff7save->chocoIntelligence(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoMaxSpeed()
+void FF7Save_Test::test_chocoMaxSpeed()
 {
     QList<int> checkVal{3887, 3113, 3160, 3136, 2500 , 0};
     for (int i=0; i< 6; i++)
@@ -581,7 +581,7 @@ void FF7Save_Tests::test_chocoMaxSpeed()
         QCOMPARE(ff7save->chocoMaxSpeed(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoMaxSprintSpeed()
+void FF7Save_Test::test_chocoMaxSprintSpeed()
 {
     QList<int> checkVal{5297, 3878, 3878, 3952, 3000 , 0};
     for (int i=0; i< 6; i++)
@@ -592,7 +592,7 @@ void FF7Save_Tests::test_chocoMaxSprintSpeed()
         QCOMPARE(ff7save->chocoMaxSprintSpeed(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoName()
+void FF7Save_Test::test_chocoName()
 {
     QStringList checkVal{QStringLiteral("Spike"), QStringLiteral("Annie"), QStringLiteral("Randal"), QStringLiteral("Liz"), QStringLiteral("Tk-421") , QString()};
     QStringList FlipVal{QStringLiteral("B598"), QStringLiteral("T5M84n"), QStringLiteral("B:VJ%$"), QStringLiteral("V)$Jkj"), QStringLiteral("Choco") , QStringLiteral("CJNQ>N")};
@@ -605,7 +605,7 @@ void FF7Save_Tests::test_chocoName()
         QCOMPARE(ff7save->chocoName(0, i), FlipVal.at(i));
 }
 
-void FF7Save_Tests::test_chocoPCount()
+void FF7Save_Test::test_chocoPCount()
 {
     QList<int> checkVal{0, 0, 0, 0, 0 , 0};
     for (int i=0; i< 6; i++)
@@ -616,7 +616,7 @@ void FF7Save_Tests::test_chocoPCount()
         QCOMPARE(ff7save->chocoPCount(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoPersonality()
+void FF7Save_Test::test_chocoPersonality()
 {
     QList<int> checkVal{1, 0, 0, 0, 0 , 0};
     for (int i=0; i< 6; i++)
@@ -627,7 +627,7 @@ void FF7Save_Tests::test_chocoPersonality()
         QCOMPARE(ff7save->chocoPersonality(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoRacesWon()
+void FF7Save_Test::test_chocoRacesWon()
 {
 //    for (int i=0; i< 6; i++)
 //        qWarning() << ff7save->chocoRaceswon(0, i);
@@ -640,7 +640,7 @@ void FF7Save_Tests::test_chocoRacesWon()
         QCOMPARE(ff7save->chocoRaceswon(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoSex()
+void FF7Save_Test::test_chocoSex()
 {
 //    for (int i=0; i< 6; i++)
 //        qWarning() << ff7save->chocoSex(0, i);
@@ -653,7 +653,7 @@ void FF7Save_Tests::test_chocoSex()
         QCOMPARE(ff7save->chocoSex(0, i), !checkVal.at(i));
 }
 
-void FF7Save_Tests::test_chocoSpeed()
+void FF7Save_Test::test_chocoSpeed()
 {
     QList<int> checkVal{3887, 3113, 3160, 3136, 2500 , 0};
     for (int i=0; i< 6; i++)
@@ -664,7 +664,7 @@ void FF7Save_Tests::test_chocoSpeed()
         QCOMPARE(ff7save->chocoSpeed(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoSprintSpeed()
+void FF7Save_Test::test_chocoSprintSpeed()
 {
     QList<int> checkVal{5297, 3878, 3878, 3952, 3000 , 0};
     for (int i=0; i< 6; i++)
@@ -675,7 +675,7 @@ void FF7Save_Tests::test_chocoSprintSpeed()
         QCOMPARE(ff7save->chocoSprintSpeed(0, i), checkVal.at(i) + 10);
 }
 
-void FF7Save_Tests::test_chocoStamina()
+void FF7Save_Test::test_chocoStamina()
 {
 //    for (int i=0; i< 6; i++)
 //        qWarning() << ff7save->chocoStamina(0, i);
@@ -688,7 +688,7 @@ void FF7Save_Tests::test_chocoStamina()
         QCOMPARE(ff7save->chocoStamina(0, i), 500);
 }
 
-void FF7Save_Tests::test_chocoType()
+void FF7Save_Test::test_chocoType()
 {
 //    for (int i=0; i< 6; i++)
 //        qWarning() << ff7save->chocoType(0, i);
@@ -701,7 +701,7 @@ void FF7Save_Tests::test_chocoType()
         QCOMPARE(ff7save->chocoType(0, i), 3);
 }
 
-void FF7Save_Tests::test_chocoPens()
+void FF7Save_Test::test_chocoPens()
 {
     QList<qint8> checkVal{8, 0, 0, 0};
     QCOMPARE(ff7save->chocoboPens(0), checkVal);
@@ -712,7 +712,7 @@ void FF7Save_Tests::test_chocoPens()
     QCOMPARE(ff7save->chocoboPens(0), flipVal);
 }
 
-void FF7Save_Tests::test_chocoRatings()
+void FF7Save_Test::test_chocoRatings()
 {
     QList<quint8> checkVal{2, 2, 3, 2, 2, 0};
     QList<quint8> flipVal{4, 4, 4, 4, 4, 4};
@@ -722,14 +722,14 @@ void FF7Save_Tests::test_chocoRatings()
     QCOMPARE(ff7save->chocoboRatings(0), flipVal);
 }
 
-void FF7Save_Tests::test_churchProgress()
+void FF7Save_Test::test_churchProgress()
 {
     QCOMPARE(ff7save->churchProgress(0), 1);
     ff7save->setChurchProgress(0, 6);
     QCOMPARE(ff7save->churchProgress(0), 6);
 }
 
-void FF7Save_Tests::test_clearSlot()
+void FF7Save_Test::test_clearSlot()
 {
     ff7save->newGame(1);
     QCOMPARE(ff7save->isSlotEmpty(1), false);
@@ -737,35 +737,35 @@ void FF7Save_Tests::test_clearSlot()
     QCOMPARE(ff7save->isSlotEmpty(1), true);
 }
 
-void FF7Save_Tests::test_condorFunds()
+void FF7Save_Test::test_condorFunds()
 {
     QCOMPARE(ff7save->condorFunds(0), 31000);
     ff7save->setCondorFunds(0, 0);
     QCOMPARE(ff7save->condorFunds(0), 0);
 }
 
-void FF7Save_Tests::test_condorLoses()
+void FF7Save_Test::test_condorLoses()
 {
     QCOMPARE(ff7save->condorLosses(0), 2);
     ff7save->setCondorLosses(0, 5);
     QCOMPARE(ff7save->condorLosses(0), 5);
 }
 
-void FF7Save_Tests::test_condorWins()
+void FF7Save_Test::test_condorWins()
 {
     QCOMPARE(ff7save->condorWins(0), 1);
     ff7save->setCondorWins(0, 5);
     QCOMPARE(ff7save->condorWins(0), 5);
 }
 
-void FF7Save_Tests::test_controlMode()
+void FF7Save_Test::test_controlMode()
 {
     QCOMPARE(ff7save->controlMode(0), false);
     ff7save->setControlMode(0, true);
     QCOMPARE(ff7save->controlMode(0), true);
 }
 
-void FF7Save_Tests::test_controllerMapping()
+void FF7Save_Test::test_controllerMapping()
 {
     QByteArray defMapping = QByteArrayLiteral("\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F");
     QCOMPARE(ff7save->controllerMapping(0), defMapping);
@@ -775,7 +775,7 @@ void FF7Save_Tests::test_controllerMapping()
     QCOMPARE(ff7save->controllerMapping(0), flipMapping);
 }
 
-void FF7Save_Tests::test_copyPasteSlot()
+void FF7Save_Test::test_copyPasteSlot()
 {
     ff7save->copySlot(0);
     QCOMPARE(ff7save->isBufferSlotPopulated(), true);
@@ -783,14 +783,14 @@ void FF7Save_Tests::test_copyPasteSlot()
     QCOMPARE(ff7save->slotFF7Data(0), ff7save->slotFF7Data(1));
 }
 
-void FF7Save_Tests::test_countdownCounter()
+void FF7Save_Test::test_countdownCounter()
 {
     QCOMPARE(ff7save->countdownTimer(0), 0);
     ff7save->setCountdownTimer(0, 0x122300);
     QCOMPARE(ff7save->countdownTimer(0), 0x122300);
 }
 
-void FF7Save_Tests::test_craterSavePoint()
+void FF7Save_Test::test_craterSavePoint()
 {
     QCOMPARE(ff7save->craterSavePointMapID(0), 758);
     QCOMPARE(ff7save->craterSavePointX(0), 548);
@@ -806,14 +806,14 @@ void FF7Save_Tests::test_craterSavePoint()
     QCOMPARE(ff7save->craterSavePointZ(0), 50);
 }
 
-void FF7Save_Tests::test_cursorMode()
+void FF7Save_Test::test_cursorMode()
 {
     QCOMPARE(ff7save->cursorMode(0), false);
     ff7save->setCursorMode(0, true);
     QCOMPARE(ff7save->cursorMode(0), true);
 }
 
-void FF7Save_Tests::test_slotDescription()
+void FF7Save_Test::test_slotDescription()
 {
     QCOMPARE(ff7save->descCurMP(0), 999);
     ff7save->setDescCurMP(0, 50);
@@ -864,7 +864,7 @@ void FF7Save_Tests::test_slotDescription()
     QCOMPARE(ff7save->descParty(0, 2), 1);
 }
 
-void FF7Save_Tests::test_dialogColors()
+void FF7Save_Test::test_dialogColors()
 {
     QCOMPARE(ff7save->dialogColorLL(0), QStringLiteral("#ff000000"));
     ff7save->setDialogColorLL(0, QStringLiteral("#ffddccdd"));
@@ -883,7 +883,7 @@ void FF7Save_Tests::test_dialogColors()
     QCOMPARE(ff7save->dialogColorUR(0), QStringLiteral("#ffffddcc"));
 }
 
-void FF7Save_Tests::test_disc()
+void FF7Save_Test::test_disc()
 {
     QCOMPARE(ff7save->disc(0), 3);
     ff7save->setDisc(0, 1);
@@ -891,14 +891,14 @@ void FF7Save_Tests::test_disc()
     ff7save->setDisc(0, 3);
 }
 
-void FF7Save_Tests::test_donProgress()
+void FF7Save_Test::test_donProgress()
 {
     QCOMPARE(ff7save->donProgress(0), 159);
     ff7save->setDonProgress(0, 0);
     QCOMPARE(ff7save->donProgress(0), 0);
 }
 
-void FF7Save_Tests::test_exportCharacter()
+void FF7Save_Test::test_exportCharacter()
 {
     QCOMPARE(ff7save->exportCharacter(0, 1, _charFileName), true);
     QFile file (_charFileName);
@@ -908,14 +908,14 @@ void FF7Save_Tests::test_exportCharacter()
     QCOMPARE(ff7save->rawCharacterData(0, 1), charData);
 }
 
-void FF7Save_Tests::test_fieldHelp()
+void FF7Save_Test::test_fieldHelp()
 {
     QCOMPARE(ff7save->fieldHelp(0), false);
     ff7save->setFieldHelp(0, true);
     QCOMPARE(ff7save->fieldHelp(0), true);
 }
 
-void FF7Save_Tests::test_fileTypeCheck()
+void FF7Save_Test::test_fileTypeCheck()
 {
     QFile file(_saveFileNamePC);
     file.open(QFile::ReadOnly);
@@ -968,18 +968,18 @@ void FF7Save_Tests::test_fileTypeCheck()
     file.close();
 }
 
-void FF7Save_Tests::test_fileName()
+void FF7Save_Test::test_fileName()
 {
     QCOMPARE(ff7save->fileName(), _saveFileNamePSX);
 }
 
-void FF7Save_Tests::test_fixMetaData()
+void FF7Save_Test::test_fixMetaData()
 {
     QString path = QStringLiteral("%1/%2").arg(QCoreApplication::applicationDirPath(), _saveFileNamePC);
     QCOMPARE(ff7save->fixMetaData(path), true);
 }
 
-void FF7Save_Tests::test_generatePSSignaure()
+void FF7Save_Test::test_generatePSSignaure()
 {
     QByteArray checkVal = QByteArrayLiteral("\x65\xCF\x0C\x76\xDE\x7F\xDB\x89\x52\x32\x55\x46\xFA\x78\xD5\x62\x95\xF4\x2C\xFC");
     ff7save->setFormat(FF7SaveInfo::FORMAT::PS3);
@@ -987,7 +987,7 @@ void FF7Save_Tests::test_generatePSSignaure()
     ff7save->setFormat(FF7SaveInfo::FORMAT::PSX);
 }
 
-void FF7Save_Tests::test_fileHeader()
+void FF7Save_Test::test_fileHeader()
 {
     QByteArray checkVal = QByteArrayLiteral("\x71\x73\x27\x06\x00\x00\x00\x00\x00");
     ff7save->setFormat(FF7SaveInfo::FORMAT::PC);
@@ -995,21 +995,21 @@ void FF7Save_Tests::test_fileHeader()
     ff7save->setFormat(FF7SaveInfo::FORMAT::PSX);
 }
 
-void FF7Save_Tests::test_gil()
+void FF7Save_Test::test_gil()
 {
     QCOMPARE(ff7save->gil(0), 26898072);
     ff7save->setGil(0, 600);
     QCOMPARE(ff7save->gil(0), 600);
 }
 
-void FF7Save_Tests::test_gp()
+void FF7Save_Test::test_gp()
 {
     QCOMPARE(ff7save->gp(0), 3576);
     ff7save->setGp(0, 600);
     QCOMPARE(ff7save->gp(0), 600);
 }
 
-void FF7Save_Tests::test_importSlot()
+void FF7Save_Test::test_importSlot()
 {
     QCOMPARE(ff7save->isSlotModified(3), false);
     ff7save->importSlot(3, _saveFileNameSWITCH, 0);
@@ -1018,7 +1018,7 @@ void FF7Save_Tests::test_importSlot()
     QCOMPARE(ff7save->slotFF7Data(3), ff7save->slotFF7Data(0));
 }
 
-void FF7Save_Tests::test_variousIS()
+void FF7Save_Test::test_variousIS()
 {
     QCOMPARE(ff7save->isFF7(0), true);
     QCOMPARE(ff7save->isJPN(0), false);
@@ -1030,7 +1030,7 @@ void FF7Save_Tests::test_variousIS()
     QCOMPARE(ff7save->isSlotModified(0), true);
 }
 
-void FF7Save_Tests::test_items()
+void FF7Save_Test::test_items()
 {
     QCOMPARE(ff7save->itemId(0, 0), FF7Item::GuardSource);
     QCOMPARE(ff7save->itemQty(0, 0), 1);
@@ -1039,7 +1039,7 @@ void FF7Save_Tests::test_items()
     QCOMPARE(ff7save->itemQty(0, 19), 20);
 }
 
-void FF7Save_Tests::test_itemMask1()
+void FF7Save_Test::test_itemMask1()
 {
     QList<bool> checkVal{true, true, true, true, true, true, true, false};
     for (int i=0; i< 8; i++)
@@ -1050,7 +1050,7 @@ void FF7Save_Tests::test_itemMask1()
         QCOMPARE(ff7save->itemMask1(0, i), !checkVal.at(i));
 }
 
-void FF7Save_Tests::test_keyitems()
+void FF7Save_Test::test_keyitems()
 {
     QByteArray checkVar = QByteArrayLiteral("\x24\x39\x00\x39\x00\x1F\x04\x00");
     QCOMPARE(ff7save->keyItems(0), checkVar);
@@ -1060,14 +1060,14 @@ void FF7Save_Tests::test_keyitems()
     QCOMPARE(ff7save->keyItem(0, FF7Save::KEYITEMS::HUGEMATERIA_COREL), true);
 }
 
-void FF7Save_Tests::test_killedEmeraldWeapon()
+void FF7Save_Test::test_killedEmeraldWeapon()
 {
     QCOMPARE(ff7save->killedEmeraldWeapon(0), true);
     ff7save->setKilledEmeraldWeapon(0, false);
     QCOMPARE(ff7save->killedEmeraldWeapon(0), false);
 }
 
-void FF7Save_Tests::test_lengthChecks()
+void FF7Save_Test::test_lengthChecks()
 {
     const int coreSize = 4340;
     const int zero = 0;
@@ -1162,7 +1162,7 @@ void FF7Save_Tests::test_lengthChecks()
     ff7save->setFormat(FF7SaveInfo::FORMAT::PSX);
 }
 
-void FF7Save_Tests::test_locationInfo()
+void FF7Save_Test::test_locationInfo()
 {
     QCOMPARE(ff7save->location(0), QStringLiteral("Hallway"));
     QCOMPARE(ff7save->mapId(0), 1);
@@ -1189,7 +1189,7 @@ void FF7Save_Tests::test_locationInfo()
     ff7save->setMapId(0, 1);
 }
 
-void FF7Save_Tests::test_love()
+void FF7Save_Test::test_love()
 {
     QCOMPARE(ff7save->love(0, false, FF7Save::LOVER::LOVE_AERIS), 57);
     QCOMPARE(ff7save->love(0, false, FF7Save::LOVER::LOVE_BARRET), 21);
@@ -1217,7 +1217,7 @@ void FF7Save_Tests::test_love()
     QCOMPARE(ff7save->love(0, true, FF7Save::LOVER::LOVE_YUFFIE), 50);
 }
 
-void FF7Save_Tests::test_mainProgress()
+void FF7Save_Test::test_mainProgress()
 {
     QCOMPARE(ff7save->mainProgress(0), 1997);
     ff7save->setMainProgress(0, 50);
@@ -1225,7 +1225,7 @@ void FF7Save_Tests::test_mainProgress()
     ff7save->setMainProgress(0, 1997);
 }
 
-void FF7Save_Tests::test_magicOrder()
+void FF7Save_Test::test_magicOrder()
 {
     QCOMPARE(ff7save->magicOrder(0), 0);
     for (int i= 1 ; i < 10 ; i ++) {
@@ -1235,7 +1235,7 @@ void FF7Save_Tests::test_magicOrder()
     }
 }
 
-void FF7Save_Tests::test_materiaCaves()
+void FF7Save_Test::test_materiaCaves()
 {
     QCOMPARE(ff7save->materiaCave(0, FF7Save::CAVE_HPMP), true);
     QCOMPARE(ff7save->materiaCave(0, FF7Save::CAVE_KOTR), true);
@@ -1251,7 +1251,7 @@ void FF7Save_Tests::test_materiaCaves()
     QCOMPARE(ff7save->materiaCave(0, FF7Save::CAVE_QUADMAGIC), false);
 }
 
-void FF7Save_Tests::test_menuLockVisible()
+void FF7Save_Test::test_menuLockVisible()
 {
     for (int i=0; i < 10 ; i++) {
         QCOMPARE(ff7save->menuLocked(0, i), false);
@@ -1267,14 +1267,14 @@ void FF7Save_Tests::test_menuLockVisible()
     }
 }
 
-void FF7Save_Tests::test_messageSpeed()
+void FF7Save_Test::test_messageSpeed()
 {
     QCOMPARE(ff7save->messageSpeed(0), 0);
     ff7save->setMessageSpeed(0, 56);
     QCOMPARE(ff7save->messageSpeed(0), 56);
 }
 
-void FF7Save_Tests::test_midgarTrainFlags()
+void FF7Save_Test::test_midgarTrainFlags()
 {
     QList<bool> checkVal{true, true, true, true, false, false, false, false};
     for (int i=0; i< 8;i++)
@@ -1285,7 +1285,7 @@ void FF7Save_Tests::test_midgarTrainFlags()
         QCOMPARE(ff7save->midgarTrainFlags(0, i ), !checkVal.at(i));
 }
 
-void FF7Save_Tests::test_options()
+void FF7Save_Test::test_options()
 {
     QCOMPARE(ff7save->options(0), 1);
     ff7save->setOptions(0, 0);
@@ -1293,7 +1293,7 @@ void FF7Save_Tests::test_options()
     ff7save->setOptions(0, 1);
 }
 
-void FF7Save_Tests::test_party()
+void FF7Save_Test::test_party()
 {
     QList<int> checkVal{0, 1, 8};
     for(int i=0; i<3; i++)
@@ -1309,7 +1309,7 @@ void FF7Save_Tests::test_party()
         ff7save->setParty(0,i, checkVal.at(i));
 }
 
-void FF7Save_Tests::test_partyMateria()
+void FF7Save_Test::test_partyMateria()
 {
     QCOMPARE(ff7save->partyMateriaId(0, 5), 72);
     QCOMPARE(ff7save->partyMateriaAp(0, 35), 171470);
@@ -1320,7 +1320,7 @@ void FF7Save_Tests::test_partyMateria()
     QCOMPARE(ff7save->partyMateriaAp(0, 0), 127);
 }
 
-void FF7Save_Tests::test_phsAllowedVisible()
+void FF7Save_Test::test_phsAllowedVisible()
 {
     QList<bool> allowedCheck{true, false, false, true, false, false, false, false, false};
     QList<bool> visibleCheck{true, true, true, false, true, true, true, true, true};
@@ -1338,14 +1338,14 @@ void FF7Save_Tests::test_phsAllowedVisible()
     }
 }
 
-void FF7Save_Tests::test_playedPianoOnFlashBack()
+void FF7Save_Test::test_playedPianoOnFlashBack()
 {
     QCOMPARE(ff7save->playedPianoOnFlashback(0), false);
     ff7save->setPlayedPianoOnFlashback(0, true);
     QCOMPARE(ff7save->playedPianoOnFlashback(0), true);
 }
 
-void FF7Save_Tests::test_region()
+void FF7Save_Test::test_region()
 {
     ff7save->loadFile(_saveFileNamePSX);
     QCOMPARE(ff7save->region(0), QStringLiteral("BASCUS-94163FF7-S01"));
@@ -1365,27 +1365,27 @@ void FF7Save_Tests::test_region()
     QCOMPARE(ff7save->region(0), QStringLiteral("BASCUS-94163FF7-S01"));
 }
 
-void FF7Save_Tests::test_runs()
+void FF7Save_Test::test_runs()
 {
     QCOMPARE(ff7save->runs(0), 504);
     ff7save->setRuns(0, 999);
     QCOMPARE(ff7save->runs(0), 999);
 }
 
-void FF7Save_Tests::test_seenPandorasBox()
+void FF7Save_Test::test_seenPandorasBox()
 {
     QCOMPARE(ff7save->seenPandorasBox(0), true);
     ff7save->setSeenPandorasBox(0, false);
     QCOMPARE(ff7save->seenPandorasBox(0), false);
 }
 
-void FF7Save_Tests::test_saveIcon()
+void FF7Save_Test::test_saveIcon()
 {
     QString frame1 = QStringLiteral("00001D57DD3EBA42B75E535A382EF81DF339EE59EC71B31D8E39877D0831FF7FFF152176F3FFFFFFDF5D326366DADDFDDF8A66777756DDFD4F7168137B22D5FD554711813E22A2FDDF1511B35E7252F8AF32312B61B277FD8F376216617367F8CF67BB32B876BBFDBF76EBB3ECB7CBF87FB71B3111E7D7FD7F5B383111EBD8FDBFAAB71131EBDCFDAFDDB818B3CEDEFDDFDDBAEDCCCCDEFDFFFFBFEF5CECEEFF");
     QCOMPARE(ff7save->slotIcon(0).at(0).toHex().toUpper(), frame1);
 }
 
-void FF7Save_Tests::test_snowboardScore_Time()
+void FF7Save_Test::test_snowboardScore_Time()
 {
     QList<int> checkScore{24, 0, 0};
     QList<int> flipScore{38, 42, 78};
@@ -1405,14 +1405,14 @@ void FF7Save_Tests::test_snowboardScore_Time()
     }
 }
 
-void FF7Save_Tests::test_soundMode()
+void FF7Save_Test::test_soundMode()
 {
     QCOMPARE(ff7save->soundMode(0), 1);
     ff7save->setSoundMode(0, 0);
     QCOMPARE(ff7save->soundMode(0), 0);
 }
 
-void FF7Save_Tests::test_speedScore()
+void FF7Save_Test::test_speedScore()
 {
     QList<quint16> checkVar{0, 900, 810, 0};
     QList<quint16> flipVar{0, 8, 90, 10};
@@ -1424,7 +1424,7 @@ void FF7Save_Tests::test_speedScore()
         QCOMPARE(ff7save->speedScore(0,i), flipVar.at(i));
 }
 
-void FF7Save_Tests::test_stableMask_Owned_Occupied()
+void FF7Save_Test::test_stableMask_Owned_Occupied()
 {
     QCOMPARE(ff7save->stablesOwned(0), 6);
     QCOMPARE(ff7save->stablesOccupied(0), 5);
@@ -1437,7 +1437,7 @@ void FF7Save_Tests::test_stableMask_Owned_Occupied()
     QCOMPARE(ff7save->stableMask(0), 15);
 }
 
-void FF7Save_Tests::test_startBombingMissing()
+void FF7Save_Test::test_startBombingMissing()
 {
     QCOMPARE(ff7save->startBombingMission(0), false);
     ff7save->setStartBombingMission(0, true);
@@ -1445,14 +1445,14 @@ void FF7Save_Tests::test_startBombingMissing()
     ff7save->setStartBombingMission(0, false);
 }
 
-void FF7Save_Tests::test_steps()
+void FF7Save_Test::test_steps()
 {
     QCOMPARE(ff7save->steps(0), 65529);
     ff7save->setSteps(0, 14);
     QCOMPARE(ff7save->steps(0), 14);
 }
 
-void FF7Save_Tests::test_stolenMateria()
+void FF7Save_Test::test_stolenMateria()
 {
     QCOMPARE(ff7save->stolenMateriaId(0, 0), 68);
     QCOMPARE(ff7save->stolenMateriaAp(0, 0), 10350);
@@ -1463,21 +1463,21 @@ void FF7Save_Tests::test_stolenMateria()
     QCOMPARE(ff7save->stolenMateriaAp(0, 0), 127);
 }
 
-void FF7Save_Tests::test_subMiniGameVictory()
+void FF7Save_Test::test_subMiniGameVictory()
 {
     QCOMPARE(ff7save->subMiniGameVictory(0), false);
     ff7save->setSubMiniGameVictory(0, true);
     QCOMPARE(ff7save->subMiniGameVictory(0), true);
 }
 
-void FF7Save_Tests::test_time()
+void FF7Save_Test::test_time()
 {
     QCOMPARE(ff7save->time(0), 649716);
     ff7save->setTime(0, 123456);
     QCOMPARE(ff7save->time(0), 123456);
 }
 
-void FF7Save_Tests::test_turtleParadiseFlyersSeen()
+void FF7Save_Test::test_turtleParadiseFlyersSeen()
 {
     QList<bool> checkVar{true, true, true, true, true, true, true};
     QCOMPARE(ff7save->turtleParadiseFlyersSeen(0), 255);
@@ -1485,7 +1485,7 @@ void FF7Save_Tests::test_turtleParadiseFlyersSeen()
         QCOMPARE(ff7save->turtleParadiseFlyerSeen(0, i), checkVar.at(i));
 }
 
-void FF7Save_Tests::test_Tut_Save_Sub()
+void FF7Save_Test::test_Tut_Save_Sub()
 {
     QCOMPARE(ff7save->tutSave(0), 58);
     ff7save->setTutSave(0, 5);
@@ -1495,14 +1495,14 @@ void FF7Save_Tests::test_Tut_Save_Sub()
     QCOMPARE(ff7save->tutSub(0), 4);
 }
 
-void FF7Save_Tests::test_uWeaponHp()
+void FF7Save_Test::test_uWeaponHp()
 {
     QCOMPARE(ff7save->uWeaponHp(0), 6765824);
     ff7save->setUWeaponHp(0, 65538);
     QCOMPARE(ff7save->uWeaponHp(0), 65538);
 }
 
-void FF7Save_Tests::test_unknown()
+void FF7Save_Test::test_unknown()
 {
     QByteArray checkVar = QByteArrayLiteral("\x00\xFB\xDA\x00\x00\xFB\xDA\x00\x00\x00\x00\x00\x00");
     QByteArray flipVar = QByteArrayLiteral("\xFF\xFE\xDB\x33\x33\xFB\xDA\xFE\xFF\x43\x45\x76\xA1");
@@ -1512,7 +1512,7 @@ void FF7Save_Tests::test_unknown()
     ff7save->setUnknown(0, 4, checkVar);
 }
 
-void FF7Save_Tests::test_vincent_yuffie_unlocked()
+void FF7Save_Test::test_vincent_yuffie_unlocked()
 {
     QCOMPARE(ff7save->vincentUnlocked(0), true);
     QCOMPARE(ff7save->yuffieUnlocked(0), true);
@@ -1522,7 +1522,7 @@ void FF7Save_Tests::test_vincent_yuffie_unlocked()
     QCOMPARE(ff7save->yuffieUnlocked(0), false);
 }
 
-void FF7Save_Tests::test_worldChocobo()
+void FF7Save_Test::test_worldChocobo()
 {
     QList<bool> checkVar{false, false, false, false, false, false, false};
     for(int i=0; i<7; i++)
@@ -1533,7 +1533,7 @@ void FF7Save_Tests::test_worldChocobo()
         QCOMPARE(ff7save->worldChocobo(0, i), !checkVar.at(i));
 }
 
-void FF7Save_Tests::test_worldVehicle()
+void FF7Save_Test::test_worldVehicle()
 {
     QList<bool> checkVar{false, false, false, false, true, false, false};
     for(int i=0; i<7; i++)
@@ -1544,7 +1544,7 @@ void FF7Save_Tests::test_worldVehicle()
         QCOMPARE(ff7save->worldVehicle(0, i), !checkVar.at(i));
 }
 
-void FF7Save_Tests::test_worldCoordsBH()
+void FF7Save_Test::test_worldCoordsBH()
 {
     QCOMPARE(ff7save->worldCoordsBhID(0), 3);
     QCOMPARE(ff7save->worldCoordsBhX(0), 171727);
@@ -1563,7 +1563,7 @@ void FF7Save_Tests::test_worldCoordsBH()
     QCOMPARE(ff7save->worldCoordsBhAngle(0), 12);
 }
 
-void FF7Save_Tests::test_worldCoordsDURW()
+void FF7Save_Test::test_worldCoordsDURW()
 {
     QCOMPARE(ff7save->worldCoordsDurwID(0), 29);
     QCOMPARE(ff7save->worldCoordsDurwX(0), 117954);
@@ -1582,7 +1582,7 @@ void FF7Save_Tests::test_worldCoordsDURW()
     QCOMPARE(ff7save->worldCoordsDurwAngle(0), 12);
 }
 
-void FF7Save_Tests::test_worldCoordsLeader()
+void FF7Save_Test::test_worldCoordsLeader()
 {
     QCOMPARE(ff7save->worldCoordsLeaderID(0), 0);
     QCOMPARE(ff7save->worldCoordsLeaderX(0), 108840);
@@ -1601,7 +1601,7 @@ void FF7Save_Tests::test_worldCoordsLeader()
     QCOMPARE(ff7save->worldCoordsLeaderAngle(0), 12);
 }
 
-void FF7Save_Tests::test_worldCoordsSub()
+void FF7Save_Test::test_worldCoordsSub()
 {
     QCOMPARE(ff7save->worldCoordsSubID(0), 13);
     QCOMPARE(ff7save->worldCoordsSubX(0), 133073);
@@ -1620,7 +1620,7 @@ void FF7Save_Tests::test_worldCoordsSub()
     QCOMPARE(ff7save->worldCoordsSubAngle(0), 12);
 }
 
-void FF7Save_Tests::test_worldCoordsTc()
+void FF7Save_Test::test_worldCoordsTc()
 {
     QCOMPARE(ff7save->worldCoordsTcID(0), 19);
     QCOMPARE(ff7save->worldCoordsTcX(0), 239123);
@@ -1639,7 +1639,7 @@ void FF7Save_Tests::test_worldCoordsTc()
     QCOMPARE(ff7save->worldCoordsTcAngle(0), 12);
 }
 
-void FF7Save_Tests::test_worldCoordsWChoco()
+void FF7Save_Test::test_worldCoordsWChoco()
 {
     QCOMPARE(ff7save->worldCoordsWchocoID(0), 4);
     QCOMPARE(ff7save->worldCoordsWchocoX(0), 229402);
@@ -1658,4 +1658,4 @@ void FF7Save_Tests::test_worldCoordsWChoco()
     QCOMPARE(ff7save->worldCoordsWchocoAngle(0), 12);
 }
 
-QTEST_MAIN(FF7Save_Tests)
+QTEST_MAIN(FF7Save_Test)
