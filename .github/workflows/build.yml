@@ -26,7 +26,6 @@ jobs:
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
            , packageName: ff7tk-continuous-Qt5-linux
            , ff7tkInstallPrefix: /usr
-           , ff7tkTestExport: "export QT_QPA_PLATFORM=minimal"
            , releasePackage: "ff7tk-continuous-Qt5-linux.tar.xz"
           }
         - {
@@ -37,7 +36,6 @@ jobs:
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
            , packageName: ff7tk-continuous-Qt6-linux
            , ff7tkInstallPrefix: /usr
-           , ff7tkTestExport: "export QT_QPA_PLATFORM=minimal"
            , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.0/gcc_64/libexec"
            , releasePackage: "ff7tk-continuous-Qt6-linux.tar.xz"
           }
@@ -138,20 +136,17 @@ jobs:
         cmake --build ${{github.workspace}}\zlib-git\build --config ${{env.BUILD_TYPE}}
         cmake --install ${{github.workspace}}\zlib-git\build --strip
 
+    - name: Post Install Zlib (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        mkdir D:\a\ff7tk\ff7tk\build\src\utils
+        copy "C:\zlib\bin\zlib.dll" D:\a\ff7tk\ff7tk\build\src\utils
+
     - name: Build ff7tk
       id: main_build
       run: |
         cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{matrix.config.ff7tkInstallPrefix}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BUILD_TYPE}} -j8
-
-    - name: Prepare for Unittesting (windows)
-      if: runner.os == 'Windows'
-      run: copy "C:\zlib\bin\zlib.dll" D:\a\ff7tk\ff7tk\build\src\utils
-
-    - name: Run UnitTests
-      run: |
-        ${{ matrix.config.ff7tkTestExport }}
-        ctest --test-dir build/unittests --output-on-failure
 
     - name: Install(Linux)
       if: runner.os == 'Linux'

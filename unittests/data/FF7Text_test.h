@@ -18,7 +18,7 @@
 
 #include "../../src/data/FF7Text.h"
 
-class FF7Text_Tests : public QObject
+class FF7Text_Test : public QObject
 {
     Q_OBJECT
 private slots:

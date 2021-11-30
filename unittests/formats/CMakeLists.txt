@@ -1,6 +1,2 @@
-macro (MAKE_FF7TK_FORMATS_TEST NAME FILE)
-    add_executable(${NAME} ${FILE})
-    target_link_libraries(${NAME} ff7tkFormats Qt::Test)
-    add_test(NAME ${NAME} COMMAND $<TARGET_FILE:${NAME}> WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/../../src/formats")
-    set_tests_properties(${NAME} PROPERTIES DEPENDS ff7tkFormats)
-endmacro()
+#Call Macro for Each Test
+#MAKE_TEST(NewTEST TestFile)
