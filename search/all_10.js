@@ -60,6 +60,8 @@ var searchData=
   ['pilebanger',['PileBanger',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7aee853cb287046b6034da9cf824489240',1,'FF7Item']]],
   ['pinwheel',['Pinwheel',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a060add07cd934fcb9f71a8857aaf451d',1,'FF7Item']]],
   ['pixmap',['pixmap',['../class_f_f7_char.html#a1d53bb0feac493ebfd53fcbbe8beb456',1,'FF7Char::pixmap()'],['../class_f_f7_materia.html#acfb145b841b575c9e1d1075a36d6fa81',1,'FF7Materia::pixmap()']]],
+  ['pixmapemptystar',['pixmapEmptyStar',['../class_f_f7_materia.html#a381c1fa91d75fd63f319a1f2a6295bfb',1,'FF7Materia']]],
+  ['pixmapfullstar',['pixmapFullStar',['../class_f_f7_materia.html#aff89c1f96d443d5e1a3bc790663e366a',1,'FF7Materia']]],
   ['platinumbangle',['PlatinumBangle',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a4b498bb0e7c19fa7c52f89c6bb1077ce',1,'FF7Item']]],
   ['platinumfist',['PlatinumFist',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a79161b0e8711ba30ee8cb4a6f5ce76a5',1,'FF7Item']]],
   ['playedpianoonflashback',['playedPianoOnFlashback',['../class_f_f7_save.html#aa4e964003d003c40dc51de027e1af9fd',1,'FF7Save']]],
@@ -136,6 +138,6 @@ var searchData=
   ['psxbutton',['PSXBUTTON',['../class_f_f7_save.html#a539fb7fa3d51b9cebc4a01baa04ec93c',1,'FF7Save']]],
   ['psxdesc',['psxDesc',['../class_f_f7_save.html#a1f20a34d1f448b49ceffc98c2938a1a8',1,'FF7Save']]],
   ['psxicon',['psxIcon',['../class_save_icon.html#ac50bcbc83f6f856ae3ae0e5cc46e0248',1,'SaveIcon']]],
-  ['psxsavenameoffset',['psxSaveNameOffset',['../class_f_f7_save_info.html#a33bc8e38a029c45dba36268e735ecf4b',1,'FF7SaveInfo']]],
+  ['psxsavenameoffset',['psxSaveNameOffset',['../class_f_f7_save_info.html#a7a9fbfd0a2cef04b44191ecc0190d558',1,'FF7SaveInfo']]],
   ['publisher_5fid',['publisher_id',['../struct_volume_descriptor2.html#ab69af55156d15b64e11426448dc8bd61',1,'VolumeDescriptor2']]]
 ];
