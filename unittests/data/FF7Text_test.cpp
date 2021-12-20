@@ -26,9 +26,6 @@ void FF7Text_Test::test_toPCENG()
     QCOMPARE(FF7Text::toPC(range3x), range3xE);
     QCOMPARE(FF7Text::toPC(range4x), range4xE);
     QCOMPARE(FF7Text::toPC(range5x), range5xE);
-#if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
-    qWarning() << qt5Warning;
-#else
     QCOMPARE(FF7Text::toPC(range6x), range6xE);
     QCOMPARE(FF7Text::toPC(range7x), range7xE);
     QCOMPARE(FF7Text::toPC(range8x), range8xE);
@@ -39,7 +36,6 @@ void FF7Text_Test::test_toPCENG()
     QCOMPARE(FF7Text::toPC(rangeDx), rangeDxE);
     QCOMPARE(FF7Text::toPC(rangeEx), rangeExE);
     QCOMPARE(FF7Text::toPC(rangeFx), rangeFxE);
-#endif
 }
 
 void FF7Text_Test::test_toFF7ENG()
@@ -53,9 +49,6 @@ void FF7Text_Test::test_toFF7ENG()
     QByteArray temp = range5x;
     temp.replace('\x5F', '\x00');
     QCOMPARE(FF7Text::toFF7(range5xE), temp);
-#if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
-    qWarning() << qt5Warning;
-#else
     QCOMPARE(FF7Text::toFF7(range6xE), range6x);
     QCOMPARE(FF7Text::toFF7(range7xE), range7x);
     QCOMPARE(FF7Text::toFF7(range8xE), range8x);
@@ -75,7 +68,6 @@ void FF7Text_Test::test_toFF7ENG()
     QCOMPARE(FF7Text::toFF7(rangeExE), temp);
     temp = QByteArray::fromRawData("\x00\x00\x00\x00\x00\x00\x00\x00\x00", 9);
     QCOMPARE(FF7Text::toFF7(rangeFxE), temp);
-#endif
 }
 void FF7Text_Test::test_setJapanese()
 {
@@ -85,9 +77,6 @@ void FF7Text_Test::test_setJapanese()
 
 void FF7Text_Test::test_toPCJPN()
 {
-#if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
-    qWarning() << qt5Warning;
-#else
     QCOMPARE(FF7Text::toPC(range0x), range0xJ);
     QCOMPARE(FF7Text::toPC(range1x), range1xJ);
     QCOMPARE(FF7Text::toPC(range2x), range2xJ);
@@ -175,14 +164,10 @@ void FF7Text_Test::test_toPCJPN()
     QCOMPARE(FF7Text::toPC(rangeFEBx), rangeFEBxJ);
     QCOMPARE(FF7Text::toPC(rangeFECx), rangeFECxJ);
     QCOMPARE(FF7Text::toPC(rangeFEDx), rangeFEDxJ);
-#endif
 }
 
 void FF7Text_Test::test_toFF7JPN()
 {
-#if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
-    qWarning() << qt5Warning;
-#else
     QCOMPARE(FF7Text::toFF7(range0xJ), range0x);
     QCOMPARE(FF7Text::toFF7(range1xJ), range1x);
     QCOMPARE(FF7Text::toFF7(range2xJ), range2x);
@@ -272,7 +257,6 @@ void FF7Text_Test::test_toFF7JPN()
     QCOMPARE(FF7Text::toFF7(rangeFEBxJ), rangeFEBx);
     QCOMPARE(FF7Text::toFF7(rangeFECxJ), rangeFECx);
     QCOMPARE(FF7Text::toFF7(rangeFEDxJ), rangeFEDx);
-#endif
 }
 
 QTEST_MAIN(FF7Text_Test)

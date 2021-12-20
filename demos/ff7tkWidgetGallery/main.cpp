@@ -20,10 +20,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-#if (QT_VERSION_MAJOR < 6)
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    a.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#endif
 
     MainWindow w;
     w.show();

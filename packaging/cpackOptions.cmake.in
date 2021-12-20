@@ -21,8 +21,8 @@ endforeach()
 #    For all targets a qml dir will be guessed based on the name of the target
 function(run_windeploy_qt target)
     cmake_path(GET target STEM targetName)
-    if(EXISTS ${BASE_SOURCE_DIR}/${targetName})
-        set(qml_import_dir ${BASE_SOURCE_DIR}/${targetName})
+    if(EXISTS ${BASE_SOURCE_DIR}/demos/${targetName})
+        set(qml_import_dir ${BASE_SOURCE_DIR}/demos/${targetName})
     else()
         if(targetName MATCHES "^?(lib)ff7tk$")
             set(qml_import_dir ${BASE_SOURCE_DIR}/src/data)
@@ -68,6 +68,5 @@ if(CPACK_GENERATOR MATCHES IFW)
 endif()
 
 if(CPACK_GENERATOR MATCHES DEB)
-    set(CPACK_PACKAGE_VERSION @CMAKE_PROJECT_VERSION@.Qt@QT_DEFAULT_MAJOR_VERSION@)
+    set(CPACK_PACKAGE_VERSION @CMAKE_PROJECT_VERSION@)
 endif()
-
