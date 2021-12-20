@@ -21,7 +21,7 @@ macro (MAKE_TEST NAME FILE)
     set_property(GLOBAL APPEND PROPERTY ff7tk_tests ${NAME})
 endmacro()
 
-find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
     Test
 )
 

@@ -1,7 +1,7 @@
 @PACKAGE_INIT@
 
 include(CMakeFindDependencyMacro)
-find_dependency(Qt@QT_DEFAULT_MAJOR_VERSION@ "@REQUIRED_QT_VERSION@" COMPONENTS
+find_dependency(Qt6 "@REQUIRED_QT_VERSION@" COMPONENTS
     Core
     Gui
     Widgets

@@ -1,4 +1,4 @@
-find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
     Core
     Widgets
     Gui

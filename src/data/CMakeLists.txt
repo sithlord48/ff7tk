@@ -1,13 +1,10 @@
-find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
     Core
+    Core5Compat
+    Svg
     Quick
     Xml
-    Svg
 )
-
-if(${QT_DEFAULT_MAJOR_VERSION} MATCHES "6")
-    find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
-endif()
 
 configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h @ONLY)
 
@@ -47,17 +44,8 @@ set (ff7tk_PublicLIBLINKS
 )
 
 set (ff7tk_PrivateLIBLINKS
+    Qt::Core5Compat
     CRYPTO
 )
 
-if(${QT_DEFAULT_MAJOR_VERSION} EQUAL "6")
-    list(APPEND ff7tk_PrivateLIBLINKS Qt6::Core5Compat)
-endif()
-
 MAKE_LIBRARY(ff7tk ff7tk)
-
-if(WIN32 AND CMAKE_COMPILER_IS_GNUCC)
-    target_compile_options(ff7tk PRIVATE -mno-ms-bitfields)
-elseif(APPLE)
-     target_compile_options(ff7tk PRIVATE -stdlib=libc++)
-endif()

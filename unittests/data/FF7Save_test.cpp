@@ -97,16 +97,9 @@ void FF7Save_Test::test_psxExport()
 
 void FF7Save_Test::test_psxDesc()
 {
-#if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
-    QEXPECT_FAIL("", qt5Warning.toUtf8().constData(), Continue);
-#endif
-
     QCOMPARE(ff7save->psxDesc(0), QStringLiteral("ＦＦ７／ＳＡＶＥ１５／９９：２８"));
     QString desc = QStringLiteral("ＦＶＦＶＦＶＦＶＦＶＦＶＦＶＦＶ");
     ff7save->setPsxDesc(desc, 0);
-#if (defined(Q_OS_WIN) && (QT_VERSION_MAJOR < 6))
-    QEXPECT_FAIL("", qt5Warning.toUtf8().constData(), Continue);
-#endif
     QCOMPARE(ff7save->psxDesc(0), desc);
 }
 

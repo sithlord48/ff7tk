@@ -24,10 +24,6 @@
 #include "Archive.h"
 #include "ff7tkformats_export.h"
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#define QMultiHashIterator QHashIterator
-#endif
-
 class LgpHeaderEntry;
 class LgpToc;
 class Lgp;

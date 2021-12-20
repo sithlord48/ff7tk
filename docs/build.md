@@ -20,7 +20,7 @@ ff7tk Supports Several Build options
 Build Options:
          Option          |            Description                  |   Default Value    | Addtional Requirments |
 :-----------------------:|:---------------------------------------:|:------------------:|:---------------------:|
-QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use          | 5                  | |
+QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use          | 6                  | |
 CMAKE_BUILD_TYPE         | Type of Build that is produced          | ReleaseWithDebInfo | |
 DOCS                     | Build Documentation.                    | ON                 | [doxygen] |
 BUILD_TESTING            | Build and run unit tests                | ON                 | |

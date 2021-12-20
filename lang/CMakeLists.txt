@@ -1,9 +1,6 @@
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 
-find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
-        Core
-        LinguistTools
-)
+find_package(Qt6LinguistTools)
 
 set(ff7tk_TRS
     ff7tk_de.ts
