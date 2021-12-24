@@ -107,5 +107,5 @@ var searchData=
   ['bustersword',['BusterSword',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7a570707f53c87fc52ef14fef371592dbc',1,'FF7Item']]],
   ['butterflyedge',['ButterflyEdge',['../class_f_f7_item.html#a9ef504bbd839e117669cc6fbbaea4fa7ae44e0194d89afc84df7e108a4cf58d78',1,'FF7Item']]],
   ['button_5fclicked',['button_clicked',['../class_slot_select.html#abe4391d3dcfd6447c4300e635f26e006',1,'SlotSelect']]],
-  ['building_20ff7tk',['Building ff7tk',['../md_build.html',1,'']]]
+  ['building_20ff7tk',['Building ff7tk',['../md_docs_build.html',1,'']]]
 ];

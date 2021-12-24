@@ -290,5 +290,5 @@ var searchData=
   ['cursor_5fmemory',['CURSOR_MEMORY',['../class_f_f7_save.html#a4eabf8c1cd1f854319407980f2a25c5aa1c34a7f7e7116abf7f535aac0ad925f1',1,'FF7Save']]],
   ['cursorchanged',['cursorChanged',['../class_options_widget.html#a1f28eebe86222974deac99df5e59fac2',1,'OptionsWidget']]],
   ['cursormode',['cursorMode',['../class_f_f7_save.html#a895efe7216d0c71a1ee6e1d8aee11794',1,'FF7Save::cursorMode(int s)'],['../class_f_f7_save.html#a4eabf8c1cd1f854319407980f2a25c5a',1,'FF7Save::CURSORMODE()']]],
-  ['contributing_20to_20ff7tk',['Contributing To ff7tk',['../md_contrib.html',1,'']]]
+  ['contributing_20to_20ff7tk',['Contributing To ff7tk',['../md_docs_contrib.html',1,'']]]
 ];
