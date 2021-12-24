@@ -28,13 +28,14 @@ add_library (ff7tkFormats
 add_library(ff7tk::ff7tkFormats ALIAS ff7tkFormats)
 
 if(APPLE)
-    set_target_properties(ff7tkFormats PROPERTIES
-        BUILD_WITH_INSTALL_RPATH TRUE
-        INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
-    )
+    set_target_properties(ff7tkFormats PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
     if(${BUILD_FRAMEWORKS})
         target_include_directories(ff7tkFormats PUBLIC  $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkFormats>/Headers>)
     endif()
+endif()
+
+if(UNIX)
+    set_target_properties(ff7tkFormats PROPERTIES INSTALL_RPATH ${INSTALL_RPATH_STRING})
 endif()
 
 set_target_properties(ff7tkFormats PROPERTIES
@@ -76,30 +77,31 @@ configure_package_config_file(
 install(TARGETS ff7tkFormats
     EXPORT ff7tkTargets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        COMPONENT ff7tk_RUNTIME
+        COMPONENT ff7tk_runtime
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_RUNTIME
-        NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_runtime
+        NAMELINK_COMPONENT ff7tk_development
     FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_RUNTIME
+        COMPONENT ff7tk_runtime
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_development
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/formats
-        COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_development
 )
 
 install(
     EXPORT ff7tkTargets
-    COMPONENT ff7tkFormats
     NAMESPACE ff7tk::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+    COMPONENT ff7tk_development
 )
 
 install(
     FILES
       ${CMAKE_CURRENT_BINARY_DIR}/ff7tkFormatsConfig.cmake
       ${CMAKE_CURRENT_BINARY_DIR}/ff7tkFormatsConfigVersion.cmake
-    COMPONENT ff7tkFormats
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+    COMPONENT ff7tk_development
 )
 export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/ff7tkTargets.cmake)
+set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tkFormats)

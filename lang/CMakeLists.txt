@@ -18,4 +18,4 @@ set(ff7tk_TRS
 qt_create_translation(TRS ${CMAKE_SOURCE_DIR} ${ff7tk_TRS} OPTIONS -no-ui-lines -locations none)
 add_custom_target(ff7tk_translations ALL DEPENDS ${TRS})
 
-install(FILES ${TRS} DESTINATION share/ff7tk/lang)
+install(FILES ${TRS} DESTINATION share/ff7tk/lang COMPONENT ff7tk_runtime)

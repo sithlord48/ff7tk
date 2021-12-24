@@ -8,7 +8,7 @@ on:
 
 env:
   BUILD_TYPE: Release
-  packageGlob: ff7tk-continuous-*.*
+  Qt_Tools: tools_ifw
 
 jobs:
   main_build:
@@ -22,20 +22,18 @@ jobs:
            name: "Linux-Qt5-amd64"
            , os: ubuntu-18.04
            , QT_VERSION: 5.15.2, QT_INST_DIR: /opt, QTDIR: /opt/Qt/5.15.2/gcc_64
-           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz > /dev/null"
+           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts > /dev/null"
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
            , packageName: ff7tk-continuous-Qt5-linux
-           , ff7tkInstallPrefix: /usr
            , releasePackage: "ff7tk-continuous-Qt5-linux.tar.xz"
           }
         - {
            name: "Linux-Qt6-amd64"
            , os: ubuntu-latest
            , QT_VERSION: 6.2.0, QT_INST_DIR: /opt, QTDIR: /opt/Qt/6.2.0/gcc_64, QT_MODULES: qt5compat
-           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz > /dev/null"
+           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts > /dev/null"
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
            , packageName: ff7tk-continuous-Qt6-linux
-           , ff7tkInstallPrefix: /usr
            , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.0/gcc_64/libexec"
            , releasePackage: "ff7tk-continuous-Qt6-linux.tar.xz"
           }
@@ -45,9 +43,6 @@ jobs:
             , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/5.15.2/clang_64
             , install_depends: "brew install doxygen graphviz"
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
-            , packageName: ff7tk-continuous-Qt5-macos
-            , ff7tkInstallPrefix: ff7tk-continuous-Qt5-macos
-            , releasePackage: "ff7tk-continuous-Qt5-macos.zip"
           }
         - {
             name: "MacOS-Qt6-amd64"
@@ -55,39 +50,27 @@ jobs:
             , QT_VERSION: 6.2.0, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/6.2.0/clang_64, QT_MODULES: qt5compat
             , install_depends: "brew install doxygen graphviz"
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
-            , packageName: ff7tk-continuous-Qt6-macos
-            , ff7tkInstallPrefix: ff7tk-continuous-Qt6-macos
-            , releasePackage: "ff7tk-continuous-Qt6-macos.zip"
           }
         - {
             name: "Windows-Qt5-x64", WIN_ARCH: "x64"
             , os: windows-latest
             , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019_64", QT_ARCH: win64_msvc2019_64
-            , install_depends: "choco install ninja doxygen.install graphviz"
+            , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
-            , packageName: "ff7tk-continuous-Qt5-win64"
-            , ff7tkInstallPrefix: ff7tk-continuous-Qt5-win64
-            , releasePackage: "ff7tk-continuous-Qt5-win64.zip"
           }
         - {
             name: "Windows-Qt6-x64", WIN_ARCH: "x64"
             , os: windows-latest
             , QT_VERSION: 6.2.0, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/6.2.0/msvc2019_64", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
-            , install_depends: "choco install ninja doxygen.install graphviz"
+            , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=6"
-            , packageName: "ff7tk-continuous-Qt6-win64"
-            , ff7tkInstallPrefix: ff7tk-continuous-Qt6-win64
-            , releasePackage: "ff7tk-continuous-Qt6-win64.zip"
           }
         - {
             name: "Windows-Qt5-x86"
             , os: windows-latest, WIN_ARCH: "amd64_x86"
             , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019", QT_ARCH: win32_msvc2019
-            , install_depends: "choco install ninja doxygen.install graphviz"
+            , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
-            , packageName: "ff7tk-continuous-Qt5-win32"
-            , ff7tkInstallPrefix: ff7tk-continuous-Qt5-win32
-            , releasePackage: "ff7tk-continuous-Qt5-win32.zip"
           }
 
     steps:
@@ -98,15 +81,17 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{matrix.config.QT_INST_DIR}}/Qt
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ matrix.config.QT_VERSION }}
+        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ matrix.config.QT_VERSION }}-${{ env.Qt_Tools }}
 
     - name: Cache Zlib
       id: cache-zlib
       if: runner.os == 'Windows'
       uses: actions/cache@v2
       with:
-        path: C:/zlib
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib
+        path: |
+          C:/zlib
+          D:/a/ff7tk/ff7tk/build/src/utils/zlib.dll
+        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib2
 
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
@@ -127,6 +112,7 @@ jobs:
        version: ${{ matrix.config.QT_VERSION }}
        modules: ${{ matrix.config.QT_MODULES }}
        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+       tools: 'desktop,tools_ifw,qt.tools.ifw.42'
 
     - name: Install Zlib (Windows)
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
@@ -135,77 +121,43 @@ jobs:
         cmake -S${{github.workspace}}\zlib-git -B${{github.workspace}}\zlib-git\build -G Ninja -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=C:/zlib
         cmake --build ${{github.workspace}}\zlib-git\build --config ${{env.BUILD_TYPE}}
         cmake --install ${{github.workspace}}\zlib-git\build --strip
-
-    - name: Post Install Zlib (Windows)
-      if: runner.os == 'Windows'
-      run: |
         mkdir D:\a\ff7tk\ff7tk\build\src\utils
         copy "C:\zlib\bin\zlib.dll" D:\a\ff7tk\ff7tk\build\src\utils
 
     - name: Build ff7tk
       id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{matrix.config.ff7tkInstallPrefix}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON ${{matrix.config.extraCmakeConfig}}
-        cmake --build build --config ${{env.BUILD_TYPE}} -j8
-
-    - name: Install(Linux)
-      if: runner.os == 'Linux'
-      run: |
-        DESTDIR=${{ matrix.config.packageName}} cmake --install build --strip
-        sudo cmake --install build --strip
-
-    - name: Install (Others)
-      if: runner.os != 'Linux'
-      run: cmake --install build --strip
-
-    - name: Prepare Deploy (Unix)
-      if: runner.os != 'Windows'
-      run: |
-        mkdir ff7tk
-        cp -r ${{matrix.config.packageName}}/* ff7tk/
-        mv COPYING.TXT ${{matrix.config.packageName}}/
-        rm -rf ff7tk/usr/bin
+        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.extraCmakeConfig}} 
+        cmake --build build --config ${{env.BUILD_TYPE}} --target package
 
     - name: Deployment (Linux)
       if: runner.os == 'Linux'
       run: |
-       wget -qc "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
-       wget -qc "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
-       chmod a+x linuxdeploy*.AppImage
-       rm -rf ff7tk/usr/share/applications ff7tk/usr/share/pixmaps
-       export VERSION=continuous
-       ${{matrix.config.linuxDeployQtPath}}
-       ./linuxdeploy-x86_64.AppImage --appdir=widgetGallery --plugin=qt --output appimage \
-           -e ${{matrix.config.packageName}}/usr/bin/ff7tkWidgetGallery \
-           -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkWidgetGallery.desktop \
-           -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkWidgetGallery.png
-       export QML_SOURCES_PATHS=ff7tkQmlGallery
-       ./linuxdeploy-x86_64.AppImage --appdir=qmlGallery --plugin=qt --output appimage \
-           -e ${{matrix.config.packageName}}/usr/bin/ff7tkQmlGallery \
-           -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkQmlGallery.desktop \
-           -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkQmlGallery.png
-       mv ff7tk*.AppImage ${{matrix.config.packageName}}/
-       mv ff7tk/ ${{matrix.config.packageName}}
-       rm -rf ${{matrix.config.packageName}}/usr
-       tar -zcvf ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
-
-    - name: Deployment (macOS)
-      if: runner.os == 'macOS'
-      run: |
+        mkdir -p ${{matrix.config.packageName}}/usr ff7tk
+        tar -xf build/ff7tk-*.tar.gz -C ${{matrix.config.packageName}}/usr
+        cp -r ${{matrix.config.packageName}}/* ff7tk/
+        rm -rf ff7tk/usr/bin
+        wget -qc "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
+        wget -qc "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
+        chmod a+x linuxdeploy*.AppImage
+        rm -rf ff7tk/usr/share/applications ff7tk/usr/share/pixmaps
+        export VERSION=continuous
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{matrix.config.packageName}}/usr/lib
+        ${{matrix.config.linuxDeployQtPath}}
+        ./linuxdeploy-x86_64.AppImage --appdir=widgetGallery --plugin=qt --output appimage \
+            -e ${{matrix.config.packageName}}/usr/bin/ff7tkWidgetGallery \
+            -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkWidgetGallery.desktop \
+            -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkWidgetGallery.png
+        export QML_SOURCES_PATHS=ff7tkQmlGallery
+        ./linuxdeploy-x86_64.AppImage --appdir=qmlGallery --plugin=qt --output appimage \
+            -e ${{matrix.config.packageName}}/usr/bin/ff7tkQmlGallery \
+            -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkQmlGallery.desktop \
+            -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkQmlGallery.png
+        mv ff7tk*.AppImage ${{matrix.config.packageName}}/
+        mv ff7tk/usr/COPYING.TXT ${{matrix.config.packageName}}/
         mv ff7tk/ ${{matrix.config.packageName}}
-        mv ${{matrix.config.packageName}}/bin/ff7tk*.app ${{matrix.config.packageName}}/
-        rm -rf ${{matrix.config.packageName}}/bin ${{matrix.config.packageName}}/share ${{matrix.config.packageName}}/lib ${{matrix.config.packageName}}/include ${{matrix.config.packageName}}/share ${{matrix.config.packageName}}/ff7tk/bin
-        zip -r -X ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
-
-    - name: Prepare Deployment (Windows)
-      if: runner.os == 'Windows'
-      run: |
-        move COPYING.TXT ${{matrix.config.packageName}}\
-        copy "C:\zlib\bin\zlib.dll" ${{matrix.config.packageName}}\bin\
-        windeployqt --compiler-runtime --release ${{matrix.config.packageName}}\bin\ff7tk.dll
-        windeployqt --compiler-runtime --release ${{matrix.config.packageName}}\bin\ff7tkWidgetGallery.exe
-        windeployqt --compiler-runtime --release ${{matrix.config.packageName}}\bin\ff7tkQmlGallery.exe
-        7z a -tzip ${{ matrix.config.releasePackage}} ${{matrix.config.packageName}} -r
+        rm -rf ${{matrix.config.packageName}}/usr
+        tar -zcvf build/${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
 
     - name: Deploy Pages
       if: runner.os == 'Linux' && github.ref == 'refs/heads/master' && matrix.config.QT_VERSION == '5.15.2'
@@ -217,7 +169,7 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v2
       with:
-        path: ${{ github.workspace }}/${{matrix.config.releasePackage}}
+        path: ${{ github.workspace }}/build/ff7tk[-_]*.*
 
   release_assets:
     name: Release
@@ -228,9 +180,6 @@ jobs:
     - name: Download Files
       uses: actions/download-artifact@v2
 
-    - name: Move Files
-      run: mv artifact/* ${{github.workspace}}
-
     - name: Deploy Package
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
@@ -238,4 +187,4 @@ jobs:
        automatic_release_tag: "continuous"
        prerelease: false
        title: "Continuous Build"
-       files: ${{env.packageGlob}}
+       files: artifact/*
