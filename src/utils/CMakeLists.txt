@@ -30,13 +30,14 @@ add_library (ff7tkUtils
 add_library(ff7tk::ff7tkUtils ALIAS ff7tkUtils)
 
 if(APPLE)
-    set_target_properties(ff7tkUtils PROPERTIES
-        BUILD_WITH_INSTALL_RPATH TRUE
-        INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
-    )
+    set_target_properties(ff7tkUtils PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
     if(${BUILD_FRAMEWORKS})
         target_include_directories(ff7tkUtils PUBLIC $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkUtils>/Headers>)
     endif()
+endif()
+
+if(UNIX)
+    set_target_properties(ff7tkUtils PROPERTIES INSTALL_RPATH ${INSTALL_RPATH_STRING})
 endif()
 
 set_target_properties(ff7tkUtils PROPERTIES
@@ -77,30 +78,31 @@ configure_package_config_file(
 install(TARGETS ff7tkUtils
     EXPORT ff7tkTargets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        COMPONENT ff7tk_RUNTIME
+        COMPONENT ff7tk_runtime
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_RUNTIME
-        NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_runtime
+        NAMELINK_COMPONENT ff7tk_development
     FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_RUNTIME
+        COMPONENT ff7tk_runtime
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_development
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/utils
-        COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_development
 )
 
 install(
     EXPORT ff7tkTargets
     NAMESPACE ff7tk::
-    COMPONENT ff7tkUtils
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+    COMPONENT ff7tk_development
 )
 
 install(
     FILES
       ${CMAKE_CURRENT_BINARY_DIR}/ff7tkUtilsConfig.cmake
       ${CMAKE_CURRENT_BINARY_DIR}/ff7tkUtilsConfigVersion.cmake
-    COMPONENT ff7tkUtils
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+    COMPONENT ff7tk_development
 )
 export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/ff7tkTargets.cmake)
+set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tkUtils)

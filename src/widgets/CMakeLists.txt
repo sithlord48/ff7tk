@@ -57,13 +57,14 @@ add_library (ff7tkWidgets
 add_library(ff7tk::ff7tkWidgets ALIAS ff7tkWidgets)
 
 if (APPLE)
-    set_target_properties(ff7tkWidgets PROPERTIES
-        BUILD_WITH_INSTALL_RPATH TRUE
-        INSTALL_RPATH "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks"
-    )
+    set_target_properties(ff7tkWidgets PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
     if(${BUILD_FRAMEWORKS})
         target_include_directories(ff7tkWidgets PUBLIC $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkWidgets>/Headers>)
     endif()
+endif()
+
+if(UNIX)
+    set_target_properties(ff7tkWidgets PROPERTIES INSTALL_RPATH ${INSTALL_RPATH_STRING})
 endif()
 
 set_target_properties(ff7tkWidgets PROPERTIES
@@ -107,30 +108,32 @@ configure_package_config_file(
 install(TARGETS ff7tkWidgets
     EXPORT ff7tkTargets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        COMPONENT ff7tk_RUNTIME
+        COMPONENT ff7tk_runtime
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_RUNTIME
-        NAMELINK_COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_runtime
+        NAMELINK_COMPONENT ff7tk_development
     FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_RUNTIME
+        COMPONENT ff7tk_runtime
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_development
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/widgets
-        COMPONENT ff7tk_DEVELOPMENT
+        COMPONENT ff7tk_development
 )
 
 install(
     EXPORT ff7tkTargets
     NAMESPACE ff7tk::
-    COMPONENT ff7tkWidgets
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+    COMPONENT ff7tk_development
 )
 
 install(
     FILES
       ${CMAKE_CURRENT_BINARY_DIR}/ff7tkWidgetsConfig.cmake
       ${CMAKE_CURRENT_BINARY_DIR}/ff7tkWidgetsConfigVersion.cmake
-    COMPONENT ff7tkWidgets
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
+    COMPONENT ff7tk_development
 )
 export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/ff7tkTargets.cmake)
+set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tkWidgets)
+

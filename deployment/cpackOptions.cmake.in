@@ -1,0 +1,68 @@
+#This File is generated to CONFIGURE time
+#This file is run at CPACK Time
+
+#Do not set CPACK used CMAKE_* Vars here
+#    some Generators will fail if you do
+set(BASE_SOURCE_DIR @CMAKE_SOURCE_DIR@)
+set(ZLIB_LIB @ZLIB_TARGET@)
+set(TARGET_FILES @TARGET_FILES@)
+set(PLATFORMDEPLOYQT @PLATFORMDEPLOYQT@)
+
+#Get Target Info from project
+set(RUNTIME_DEPENDS_PATH @RUNTIME_DEPENDS_PATH@)
+foreach(target_file ${TARGET_FILES})
+    file(STRINGS ${target_file} target)
+    list(APPEND TARGETS ${target})
+endforeach()
+
+#Function run_windeploy_qt
+#Run windepoy_qt for a target output into the RUNTIME_DEPENDS_PATH
+#target - Full path of a build target to use.
+#    For all targets a qml dir will be guessed based on the name of the target
+function(run_windeploy_qt target)
+    cmake_path(GET target STEM targetName)
+    if(EXISTS ${BASE_SOURCE_DIR}/${targetName})
+        set(qml_import_dir ${BASE_SOURCE_DIR}/${targetName})
+    else()
+        if(targetName MATCHES "^?(lib)ff7tk$")
+            set(qml_import_dir ${BASE_SOURCE_DIR}/src/data)
+        else()
+            string(REGEX REPLACE "^?(lib)ff7tk" "" Path ${targetName})
+            string(SUBSTRING ${Path} 0 1 FIRST_LETTER)
+            string(TOLOWER ${FIRST_LETTER} FIRST_LETTER)
+            string(REGEX REPLACE "^.(.*)" "${FIRST_LETTER}\\1" path "${Path}")
+            set(qml_import_dir ${BASE_SOURCE_DIR}/src/${path})
+        endif()
+    endif()
+    execute_process( COMMAND ${PLATFORMDEPLOYQT}
+        --no-compiler-runtime
+        --no-system-d3d-compiler
+        -qmldir="${qml_import_dir}"
+        --dir "${RUNTIME_DEPENDS_PATH}"
+        ${target}
+        OUTPUT_QUIET
+    )
+endfunction()
+
+#Gather up Dependencies.
+if(WIN32 AND NOT DEPENDENCY_CHECKED)
+    execute_process(COMMAND "${CMAKE_COMMAND}" -E remove_directory "${RUNTIME_DEPENDS_PATH}" OUTPUT_QUIET)
+    message(STATUS "Gathering Win32 Dependencies")
+    set(CMAKE_INSTALL_SYSTEM_RUNTIME_COMPONENT ${RUNTIME_DEPENDS_PATH})
+    set(CMAKE_INSTALL_UCRT_LIBRARIES TRUE)
+    include(InstallRequiredSystemLibraries)
+    message(STATUS "GONNA CHECK ${ZLIB_LIB}")
+    if(ZLIB_LIB)
+        message(STATUS "CP ZLIBS: ${ZLIB_LIB}")
+        file( COPY ${ZLIB_LIB} DESTINATION ${RUNTIME_DEPENDS_PATH})
+    endif()
+    foreach(target ${TARGETS})
+        run_windeploy_qt(${target})
+    endforeach()
+    set(DEPENDENCY_CHECKED TRUE PARENT_SCOPE)
+endif()
+
+#Make sure the IFW Name ends with -installer.
+if(CPACK_GENERATOR MATCHES IFW)
+    set(CPACK_PACKAGE_FILE_NAME ${CPACK_PACKAGE_FILE_NAME}-installer)
+endif()

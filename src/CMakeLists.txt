@@ -33,4 +33,5 @@ install(
         ff7tkTargets.cmake
     NAMESPACE
         ff7tk::
+    COMPONENT ff7tk_development
 )

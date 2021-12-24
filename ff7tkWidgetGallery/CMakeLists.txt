@@ -65,24 +65,23 @@ if(APPLE)
         MAXOSX_BUNDLE_ICON_FILE ff7tkWidgetGallery.icns
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
-    get_target_property(_qmake_executable Qt${QT_DEFAULT_MAJOR_VERSION}::qmake IMPORTED_LOCATION)
-    find_program(MACDEPLOYQT macdeployqt HINTS "${_qt_bin_dir}")
     add_custom_command(TARGET ff7tkWidgetGallery POST_BUILD
-        COMMAND ${MACDEPLOYQT} ${PROJECT_NAME}.app
+        COMMAND ${PLATFORMDEPLOYQT} ${PROJECT_NAME}.app
     )
 
 elseif(UNIX AND NOT APPLE)
-    set_target_properties(ff7tkWidgetGallery PROPERTIES
-        INSTALL_RPATH "\$ORIGIN/../lib"
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INSTALL_RPATH ${INSTALL_RPATH_STRING}
     )
-    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.desktop" DESTINATION share/applications/ COMPONENT ff7tkWidgetGallery_RUNTIME)
-    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.png" DESTINATION share/pixmaps COMPONENT ff7tkWidgetGallery_RUNTIME)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.desktop" DESTINATION share/applications/ COMPONENT ff7tkWidgetGallery)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkWidgetGallery.png" DESTINATION share/pixmaps COMPONENT ff7tkWidgetGallery)
 endif()
 
 install(TARGETS ff7tkWidgetGallery
-    BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
-      COMPONENT ff7tkWidgetGallery_RUNTIME
+    COMPONENT ff7tkWidgetGallery
+    BUNDLE DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-      COMPONENT ff7tkWidgetGallery_RUNTIME
 )
 
+set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tkWidgetGallery)
+list(APPEND CPACK_PACKAGE_EXECUTABLES ff7tkWidgetGallery "ff7tk Widget Gallery")

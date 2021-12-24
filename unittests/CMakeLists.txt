@@ -47,7 +47,6 @@ get_property( FF7TK_TESTS GLOBAL PROPERTY ff7tk_tests)
 
 add_custom_target (run_tests ALL DEPENDS ${FF7TK_TESTS})
 
-message (STATUS "runTests Depends: ${FF7TK_TESTS}")
 add_custom_command(
     TARGET run_tests
     POST_BUILD

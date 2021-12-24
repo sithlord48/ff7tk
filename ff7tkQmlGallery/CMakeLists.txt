@@ -5,7 +5,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
         Quick
         QuickControls2
-        QmlImportScanner
 )
 
 if(APPLE)
@@ -45,23 +44,22 @@ if(APPLE)
         MAXOSX_BUNDLE_ICON_FILE ff7tkQmlGallery.icns
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
-    get_target_property(_qmake_executable Qt${QT_DEFAULT_MAJOR_VERSION}::qmake IMPORTED_LOCATION)
-    find_program(MACDEPLOYQT macdeployqt HINTS "${_qt_bin_dir}")
     add_custom_command(TARGET ff7tkQmlGallery POST_BUILD
-        COMMAND ${MACDEPLOYQT} ${PROJECT_NAME}.app -qmldir=${CMAKE_SOURCE_DIR}/ff7tkQmlGallery
+        COMMAND ${PLATFORMDEPLOYQT} ${PROJECT_NAME}.app -qmldir=${CMAKE_SOURCE_DIR}/ff7tkQmlGallery
     )
-
 elseif(UNIX AND NOT APPLE)
     set_target_properties(ff7tkQmlGallery PROPERTIES
-        INSTALL_RPATH "\$ORIGIN/../lib"
+        INSTALL_RPATH ${INSTALL_RPATH_STRING}
     )
-    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkQmlGallery.desktop" DESTINATION share/applications/ COMPONENT ff7tkQmlGallery_RUNTIME)
-    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkQmlGallery.png" DESTINATION share/pixmaps COMPONENT ff7tkQmlGallery_RUNTIME)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkQmlGallery.desktop" DESTINATION share/applications/ COMPONENT ff7tkQmlGallery)
+    install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/ff7tkQmlGallery.png" DESTINATION share/pixmaps COMPONENT ff7tkQmlGallery)
 endif()
 
 install(TARGETS ff7tkQmlGallery
-    BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
-     COMPONENT ff7tkQmlGallery_RUNTIME
+    COMPONENT ff7tkQmlGallery
+    BUNDLE DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-     COMPONENT ff7tkQmlGallery_RUNTIME
 )
+
+set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tkQmlGallery)
+list(APPEND CPACK_PACKAGE_EXECUTABLES "ff7tkQmlGallery;ff7tkQmlGallery")

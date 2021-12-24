@@ -12,7 +12,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
-
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -59,6 +58,34 @@ option(QML_GALLERY "Build the qml based gallery" OFF)
 option(DOCS "Build and Install Documents (Requires Doxygen)" OFF)
 option(ENABLE_TESTING "Build and run UnitTests" ON)
 
+#Qt Info to get deploy app
+find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED COMPONENTS Core)
+get_target_property(qmake_executable Qt${QT_DEFAULT_MAJOR_VERSION}::qmake IMPORTED_LOCATION)
+get_filename_component(_qt_bin_dir "${qmake_executable}" DIRECTORY)
+if(WIN32 OR APPLE)
+    if(WIN32)
+        set(deployqtapp windeployqt)
+    elseif(APPLE)
+        set(deployqtapp macdeployqt)
+    endif()
+    find_program(PLATFORMDEPLOYQT ${deployqtapp} HINTS "${_qt_bin_dir}")
+endif()
+
+#Set the Rpath for our libs.
+if(UNIX)
+    if(NOT APPLE)
+        set(INSTALL_RPATH_STRING "\${ORIGIN}:\$ORIGIN/../lib:/lib:/usr/lib:/usr/local/lib:\$HOME/.local/lib:\$HOME/.local/usr/lib")
+    else()
+        set(INSTALL_RPATH_STRING "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks")
+    endif()
+
+endif()
+set(RUNTIME_DEPENDS_PATH ${CMAKE_BINARY_DIR}/runtime_depends)
+if(NOT EXISTS ${RUNTIME_DEPENDS_PATH})
+    file(MAKE_DIRECTORY ${RUNTIME_DEPENDS_PATH})
+endif()
+
+define_property(GLOBAL PROPERTY ff7tk_targets BRIEF_DOCS "Defined Non-Test Targets" FULL_DOCS "Dynamicly Generated list of Targets Tests")
 
 add_subdirectory(src)
 add_subdirectory(lang)
@@ -82,7 +109,9 @@ endif()
 #pkgconfig
 
 configure_file(ff7tk.pc.in ff7tk.pc @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/ff7tk.pc DESTINATION share/pkgconfig)
+install(FILES ${CMAKE_BINARY_DIR}/ff7tk.pc DESTINATION share/pkgconfig COMPONENT ff7tk_development)
+
+install (FILES ${CMAKE_SOURCE_DIR}/COPYING.TXT DESTINATION share/licenses/${CMAKE_PROJECT_NAME} RENAME LICENSE COMPONENT ff7tk_runtime)
 
 # uninstall target
 if(NOT TARGET uninstall)
@@ -94,3 +123,5 @@ if(NOT TARGET uninstall)
   add_custom_target(uninstall
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake)
 endif()
+
+add_subdirectory(deployment)
