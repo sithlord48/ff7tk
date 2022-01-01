@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['y',['y',['../class_f_f7_location.html#acf683edf80cde6a5f92df86468ca3fae',1,'FF7Location::y(int index)'],['../class_f_f7_location.html#aa748c38816769dbebe690adaf146b9a9',1,'FF7Location::y(const QString &amp;fileName)']]],
-  ['ychanged',['yChanged',['../class_location_viewer.html#a797dcd540ac1c6e9e6a015e55ae27ebe',1,'LocationViewer']]],
-  ['yuffieunlocked',['yuffieUnlocked',['../class_f_f7_save.html#a040e6280c1b3242c7f131b0c5856d364',1,'FF7Save']]]
+  ['_7earchive',['~Archive',['../classArchive.html#a2579b14a36caa8c449eed09f001e9cb6',1,'Archive']]],
+  ['_7elgp',['~Lgp',['../classLgp.html#a46549e94126fc7665e22b3c3551a19c9',1,'Lgp']]]
 ];
