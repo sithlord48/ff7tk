@@ -3,6 +3,11 @@ cmake_policy(SET CMP0074 NEW)
 
 project(ff7tk VERSION 0.80.22 DESCRIPTION "Work with Final Fantasy 7 game data")
 
+#Prevent In-sourcebuild
+if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
+    message(FATAL_ERROR "In source builds are not allowed; Set a build path")
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)

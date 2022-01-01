@@ -33,5 +33,7 @@ CMakeLists.txt.user
 #userstuff
 .directory
 
+CMakeCache.txt
+CMakeFiles/*
 #generated build file
 src/about.h
