@@ -1,14 +1,17 @@
 find_package(Doxygen REQUIRED)
 
-set(DOXYGEN_PROJECT_NUMBER "${PROJECT_VERSION}")
-set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
-set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+set(DOXYGEN_PROJECT_NUMBER "${CMAKE_PROJECT_VERSION}")
+set(DOXYGEN_PROJECT_NAME ${CMAKE_PROJECT_NAME})
+set(DOXYGEN_PROJECT_BRIEF ${CMAKE_PROJECT_DESCRIPTION})
+set(DOXYGEN_STRIP_FROM_PATH ${CMAKE_SOURCE_DIR})
+set(DOXYGEN_USE_MDFILE_AS_MAINPAGE mainpage.md)
 
-add_custom_target(doc ALL COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
-    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-    COMMENT "Building user's documentation into doxyDoc build dir..."
+doxygen_add_docs(
+    doxygen
+    ${CMAKE_SOURCE_DIR}/docs
+    ${CMAKE_SOURCE_DIR}/src
+    COMMENT "Generating Documentation"
+    DEPENDS ALL
 )
 
-install (DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/doc/html" DESTINATION share/doc/ff7tk COMPONENT ff7tk_documentation)
-
+install (DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/html" DESTINATION share/doc/ff7tk COMPONENT ff7tk_documentation)
