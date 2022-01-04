@@ -1,0 +1,9 @@
+<map id="src/data/Type_FF7CHAR.h" name="src/data/Type_FF7CHAR.h">
+<area shape="rect" id="node2" href="$FF7Save__Types_8h.html" title="src/data/FF7Save_Types.h" alt="" coords="212,80,400,107"/>
+<area shape="rect" id="node7" href="$CharEditor_8h.html" title="src/widgets/CharEditor.h" alt="" coords="425,80,603,107"/>
+<area shape="rect" id="node3" href="$FF7Save_8h.html" title="src/data/FF7Save.h" alt="" coords="234,155,378,181"/>
+<area shape="rect" id="node4" href="$FF7Save_8cpp.html" title="src/data/FF7Save.cpp" alt="" coords="5,229,164,256"/>
+<area shape="rect" id="node5" href="$MetadataCreator_8cpp.html" title="src/widgets/MetadataCreator.cpp" alt="" coords="189,229,423,256"/>
+<area shape="rect" id="node6" href="$SlotSelect_8cpp.html" title="src/widgets/SlotSelect.cpp" alt="" coords="447,229,639,256"/>
+<area shape="rect" id="node8" href="$CharEditor_8cpp.html" title="src/widgets/CharEditor.cpp" alt="" coords="417,155,611,181"/>
+</map>

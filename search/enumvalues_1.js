@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['aborterror',['AbortError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba10b7863e923d52435e8f68447d2cb883',1,'Archive::AbortError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a09b2dad6ed989ae04fcbeca28b513b12',1,'Lgp::AbortError()']]],
   ['absorb',['Absorb',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455a15399c466251cd9c79adc86a2b6a5530',1,'FF7Item']]],
   ['accessory',['Accessory',['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1da7c376ebe6d8b892cb8f50d9904e0e26f',1,'FF7Item']]],
   ['action_5fcamera',['ACTION_CAMERA',['../classFF7Save.html#a4b0cb5cd9bc8fc86db9d232cc9d8dbe5a1b79aeda0f5af99395c2c773a818cd4b',1,'FF7Save']]],
@@ -35,6 +36,7 @@ var searchData=
   ['armor',['Armor',['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1da2fe87c2ed195e36b511ed67bdada7421',1,'FF7Item']]],
   ['assaultgun',['AssaultGun',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac8717a45fd2c52648d4156433231ed8b',1,'FF7Item']]],
   ['atb_5factive',['ATB_ACTIVE',['../classFF7Save.html#abd1fd74bf3b9927f58058516b1f83dc0a02eeac721edd9c187c3d614db7cd87d5',1,'FF7Save']]],
+  ['atb_5frecommened',['ATB_RECOMMENED',['../classFF7Save.html#abd1fd74bf3b9927f58058516b1f83dc0a0c046b2484cee21e4644d1fec97c7af2',1,'FF7Save']]],
   ['atb_5fwait',['ATB_WAIT',['../classFF7Save.html#abd1fd74bf3b9927f58058516b1f83dc0a58021d8cd8824b4a739cde1b68404ab4',1,'FF7Save']]],
   ['atomicscissors',['AtomicScissors',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7abe237a3fb42a3ee50c3c8bb3fb662b56',1,'FF7Item']]],
   ['auroraarmlet',['AuroraArmlet',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a98c7caea28a4e987db420a24f7c9d673',1,'FF7Item']]],

@@ -2,6 +2,7 @@ var searchData=
 [
   ['fairyring',['FairyRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ab4b267ac8f2b4eda3c78e3fa5a551e3f',1,'FF7Item']]],
   ['fairytale',['FairyTale',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7af65b700fda25e2ad47075c3b5d17dc97',1,'FF7Item']]],
+  ['filenotfounderror',['FileNotFoundError',['../classArchive.html#a2752025d615c69dee4169592342ac5cbae6bb08dc9cc9c81415df1b61cbe19307',1,'Archive::FileNotFoundError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a393ec11f0281263cb39c91cd0c422eb5',1,'Lgp::FileNotFoundError()']]],
   ['finalattack',['FinalAttack',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ac994ec6a63d658a7044366b2ae7bcc3c',1,'FF7Materia']]],
   ['finalheaven',['FinalHeaven',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a0c0e52f81999b4debe4e6664f955e0fc',1,'FF7Item']]],
   ['fire',['Fire',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a0864d2b9b5a5cc905554af97963c32c8',1,'FF7Materia']]],

@@ -9,6 +9,7 @@ var searchData=
   ['independent',['Independent',['../classFF7Materia.html#aa544682547e83581feb2794d1611a747ac2c327a30ec550d149ec7b0f9edae931',1,'FF7Materia']]],
   ['infilict',['Infilict',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455afa06e9384d84a65e8025e501b3c59bd5',1,'FF7Item']]],
   ['ink',['Ink',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a497adca754f7879fbb706125f0b34048',1,'FF7Item']]],
+  ['invaliderror',['InvalidError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba96151f3fe48fe9aba0007f9191413eb5',1,'Archive::InvalidError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a99a275d161732d0b2f71f8880ef2743f',1,'Lgp::InvalidError()']]],
   ['ironbangle',['IronBangle',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7addc56f4d286a7bc439b07bdcbba3f68f',1,'FF7Item']]],
-  ['item',['Item',['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1da2ab3457d86d2163ae5023ce417a9a883',1,'FF7Item']]]
+  ['item',['Item',['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1da2ab3457d86d2163ae5023ce417a9a883',1,'FF7Item::Item()'],['../classLocationViewer.html#ab866e6698e61200ae7c10be4f054eec7aa5d236d28f8eb22dfa92c1788d364fbc',1,'LocationViewer::ITEM()']]]
 ];

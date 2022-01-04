@@ -32,6 +32,7 @@ var searchData=
   ['contain',['Contain',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a423b736f1b9150e13f0df0cd90caee57',1,'FF7Materia']]],
   ['control_5fcustom',['CONTROL_CUSTOM',['../classFF7Save.html#ac5801e5d642e67435599e600060571ebafc2ecfcc3667ad5e29104447964b8db4',1,'FF7Save']]],
   ['control_5fnormal',['CONTROL_NORMAL',['../classFF7Save.html#ac5801e5d642e67435599e600060571eba4f7de5f37986d367c0d03c003af3436b',1,'FF7Save']]],
+  ['copyerror',['CopyError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba548a8eb01bed6b67d37ca8d1a6ec8187',1,'Archive::CopyError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ad9a747a9cb13b0f3f86c7e535f5f760b',1,'Lgp::CopyError()']]],
   ['cornucopia',['Cornucopia',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aea4436eeb6462c8d00aa6c2047d8af53',1,'FF7Item']]],
   ['cosmomemory',['CosmoMemory',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a57360f1c2c4b42369a1aa41abbd48ebb',1,'FF7Item']]],
   ['cottondress',['COTTONDRESS',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95a74bbfe8e0308b387cecb7ecb0cc7b49e',1,'FF7Save']]],

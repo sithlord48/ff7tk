@@ -30,6 +30,7 @@ var searchData=
   ['wmachinegun',['WMachineGun',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a3e3e46c0a860a5951b3a35a9e39c55de',1,'FF7Item']]],
   ['wmagic',['WMagic',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ab842f75e84d9bac1fd050e0dc7e16181',1,'FF7Materia']]],
   ['workglove',['WorkGlove',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac70ae45e1cb33ed820add9989ce6b171',1,'FF7Item']]],
+  ['writeerror',['WriteError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba983497d04a8dea191a4c642550cad5f0',1,'Archive::WriteError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a94e53d5024992860d6e11319bf869d2b',1,'Lgp::WriteError()']]],
   ['wsummon',['WSummon',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ae647769f3439eee962af1578663d2bc9',1,'FF7Materia']]],
   ['wvehcile_5fbuggy',['WVEHCILE_BUGGY',['../classFF7Save.html#a5c831d76488f45ed8a90eea79b93a2c5a267864f6604d3929f5d0b1ea36bb9914',1,'FF7Save']]],
   ['wvehcile_5fhighwind',['WVEHCILE_HIGHWIND',['../classFF7Save.html#a5c831d76488f45ed8a90eea79b93a2c5a88ad886ec8afa7a5b29533012dc86a9a',1,'FF7Save']]],

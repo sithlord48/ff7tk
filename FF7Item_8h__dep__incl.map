@@ -1,0 +1,7 @@
+<map id="src/data/FF7Item.h" name="src/data/FF7Item.h">
+<area shape="rect" id="node2" href="$FF7Item_8cpp.html" title="src/data/FF7Item.cpp" alt="" coords="5,80,163,107"/>
+<area shape="rect" id="node3" href="$CharEditor_8cpp.html" title="src/widgets/CharEditor.cpp" alt="" coords="187,80,381,107"/>
+<area shape="rect" id="node4" href="$ItemList_8cpp.html" title="src/widgets/ItemList.cpp" alt="" coords="406,80,586,107"/>
+<area shape="rect" id="node5" href="$ItemPreview_8cpp.html" title="src/widgets/ItemPreview.cpp" alt="" coords="611,80,819,107"/>
+<area shape="rect" id="node6" href="$ItemSelector_8cpp.html" title="src/widgets/ItemSelector.cpp" alt="" coords="843,80,1053,107"/>
+</map>
