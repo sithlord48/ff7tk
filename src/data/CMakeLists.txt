@@ -4,6 +4,12 @@ find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
     Xml
 )
 
+if(APPLE)
+    find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
+        Svg
+    )
+endif()
+
 if(${QT_DEFAULT_MAJOR_VERSION} MATCHES "6")
     find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
 endif()
@@ -49,6 +55,7 @@ if(WIN32 AND CMAKE_COMPILER_IS_GNUCC)
     #Prevent ms padding on packed structures on gcc compiler
     add_compile_options(-mno-ms-bitfields)
 elseif(APPLE)
+     target_link_libraries(ff7tk PUBLIC Qt::Svg)
      target_compile_options(ff7tk PRIVATE -stdlib=libc++)
      set_target_properties(ff7tk PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
      if(${BUILD_FRAMEWORKS})
