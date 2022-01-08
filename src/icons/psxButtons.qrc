@@ -1,19 +1,19 @@
 <RCC>
    <qresource prefix="/psxButtons">
-        <file alias="left">psxButtons/left.png</file>
-        <file alias="right">psxButtons/right.png</file>
-	<file alias="up">psxButtons/up.png</file>
-	<file alias="down">psxButtons/down.png</file>
-	<file alias="circle">psxButtons/circle.png</file>
-	<file alias="cross">psxButtons/cross.png</file>
-	<file alias="square">psxButtons/square.png</file>
-	<file alias="triangle">psxButtons/triangle.png</file>	
-	<file alias="select">psxButtons/select.png</file>		
-	<file alias="start">psxButtons/start.png</file>		
-	<file alias="l1">psxButtons/l1.png</file>		
-	<file alias="l2">psxButtons/l2.png</file>		
-	<file alias="r1">psxButtons/r1.png</file>		
-	<file alias="r2">psxButtons/r2.png</file>		
+        <file alias="left">psxButtons/left.svg</file>
+        <file alias="right">psxButtons/right.svg</file>
+	<file alias="up">psxButtons/up.svg</file>
+	<file alias="down">psxButtons/down.svg</file>
+	<file alias="circle">psxButtons/circle.svg</file>
+	<file alias="cross">psxButtons/cross.svg</file>
+	<file alias="square">psxButtons/square.svg</file>
+	<file alias="triangle">psxButtons/triangle.svg</file>
+	<file alias="select">psxButtons/select.svg</file>
+	<file alias="start">psxButtons/start.svg</file>
+	<file alias="l1">psxButtons/l1.svg</file>
+	<file alias="l2">psxButtons/l2.svg</file>
+	<file alias="r1">psxButtons/r1.svg</file>
+	<file alias="r2">psxButtons/r2.svg</file>
       </qresource>
 </RCC>
  
