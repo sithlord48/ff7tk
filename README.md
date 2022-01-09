@@ -17,6 +17,6 @@ This project is under [LGPL-3.0]+
 [Bugs]:https://github.com/sithlord48/ff7tk/issues
 [Documentation]:http://sithlord48.github.io/ff7tk/
 [LGPL-3.0]:https://www.gnu.org/licenses/lgpl.html
-[Building]:http://sithlord48.github.io/ff7tk/md_build.html
-[Contribute]:http://sithlord48.github.io/ff7tk/md_contrib.html
+[Building]:http://sithlord48.github.io/ff7tk/md_docs_build.html
+[Contribute]:http://sithlord48.github.io/ff7tk/md_docs_CONTRIBUTING.html
 [Donation]:http://sourceforge.net/p/blackchocobo/donate/

@@ -30,7 +30,7 @@ See: [Building]
 [Web]:https://github.com/sithlord48/ff7tk
 [LGPL-3.0]:https://www.gnu.org/licenses/lgpl.html
 [Building]:build.md
-[Contribute]:contrib.md
+[Contribute]:CONTRIBUTING.md
 [Donation]:http://sourceforge.net/p/blackchocobo/donate/
 [blackchocobo]:https://github.com/sithlord48/blackchocobo
 [makoureactor]:https://github.com/myst6re/makoureactor
