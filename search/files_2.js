@@ -8,5 +8,5 @@ var searchData=
   ['chocobolabel_2eh',['ChocoboLabel.h',['../ChocoboLabel_8h.html',1,'']]],
   ['chocobomanager_2ecpp',['ChocoboManager.cpp',['../ChocoboManager_8cpp.html',1,'']]],
   ['chocobomanager_2eh',['ChocoboManager.h',['../ChocoboManager_8h.html',1,'']]],
-  ['contrib_2emd',['contrib.md',['../contrib_8md.html',1,'']]]
+  ['contributing_2emd',['CONTRIBUTING.md',['../CONTRIBUTING_8md.html',1,'']]]
 ];
