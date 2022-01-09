@@ -6,14 +6,13 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  BUILD_TYPE: Release
-  Qt_Tools: tools_ifw
-
 jobs:
   main_build:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
+    env:
+      BUILD_TYPE: Release
+      Qt_Tools: tools_ifw
     strategy:
       fail-fast: false
       matrix:
@@ -21,8 +20,7 @@ jobs:
         - {
            name: "Linux-Qt5-amd64"
            , os: ubuntu-18.04
-           , QT_VERSION: 5.15.2, QT_INST_DIR: /opt, QTDIR: /opt/Qt/5.15.2/gcc_64
-           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts > /dev/null"
+           , QT_VERSION: 5.15.2, QT_INST_DIR: /opt
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
            , packageName: ff7tk-continuous-Qt5-linux
            , releasePackage: "ff7tk-continuous-Qt5-linux.tar.xz"
@@ -30,48 +28,44 @@ jobs:
         - {
            name: "Linux-Qt6-amd64"
            , os: ubuntu-latest
-           , QT_VERSION: 6.2.0, QT_INST_DIR: /opt, QTDIR: /opt/Qt/6.2.0/gcc_64, QT_MODULES: qt5compat
-           , install_depends: "sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts > /dev/null"
+           , QT_VERSION: 6.2.2, QT_INST_DIR: /opt, QT_MODULES: qt5compat
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
            , packageName: ff7tk-continuous-Qt6-linux
-           , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.0/gcc_64/libexec"
+           , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.2/gcc_64/libexec"
            , releasePackage: "ff7tk-continuous-Qt6-linux.tar.xz"
           }
         - {
             name: "MacOS-Qt5-amd64"
             , os: macos-latest
-            , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/5.15.2/clang_64
-            , install_depends: "brew install doxygen graphviz"
+            , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
           }
         - {
             name: "MacOS-Qt6-amd64"
             , os: macos-latest
-            , QT_VERSION: 6.2.0, QT_INST_DIR: /Users/runner, QTDIR: /Users/runner/Qt/6.2.0/clang_64, QT_MODULES: qt5compat
-            , install_depends: "brew install doxygen graphviz"
+            , QT_VERSION: 6.2.2, QT_INST_DIR: /Users/runner, QT_MODULES: qt5compat
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
           }
         - {
             name: "Windows-Qt5-x64", WIN_ARCH: "x64"
             , os: windows-latest
-            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019_64", QT_ARCH: win64_msvc2019_64
+            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64
             , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
           }
         - {
             name: "Windows-Qt6-x64", WIN_ARCH: "x64"
             , os: windows-latest
-            , QT_VERSION: 6.2.0, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/6.2.0/msvc2019_64", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
-            , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
+            , QT_VERSION: 6.2.2, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=6"
           }
         - {
             name: "Windows-Qt5-x86"
             , os: windows-latest, WIN_ARCH: "amd64_x86"
-            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QTDIR: "C:/Qt/5.15.2/msvc2019", QT_ARCH: win32_msvc2019
-            , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
+            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win32_msvc2019
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
           }
+
 
     steps:
     - uses: actions/checkout@v2
@@ -93,6 +87,17 @@ jobs:
           D:/a/ff7tk/ff7tk/build/src/utils/zlib.dll
         key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib2
 
+    - name: Cache Chocolatey
+      id: cache-choco
+      if: (runner.os == 'Windows')
+      uses: actions/cache@v2
+      with:
+        path: |
+            C:\ProgramData\chocolatey\lib
+            C:\Program Files\doxygen
+            C:\Program Files\Graphviz
+        key: cache-chocolatey-${{ matrix.config.WIN_ARCH }}${{ hashFiles('**/dependencies.config') }}
+
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
@@ -100,7 +105,16 @@ jobs:
         arch: ${{matrix.config.WIN_ARCH}}
 
     - name: Install Dependencies
-      run: ${{matrix.config.install_depends}}
+      if: ((runner.os == 'Windows') && (steps.cache-choco.outputs.cache-hit != 'true')) || (runner.os != 'Windows')
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts > /dev/null
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+            choco install ninja doxygen.install graphviz --ignore-checksums
+        else
+            brew install doxygen graphviz
+        fi
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.14.0
@@ -127,7 +141,7 @@ jobs:
     - name: Build ff7tk
       id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.extraCmakeConfig}} 
+        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BUILD_TYPE}} --target package
 
     - name: Deployment (Linux)
@@ -171,9 +185,63 @@ jobs:
       with:
         path: ${{ github.workspace }}/build/ff7tk[-_]*.*
 
+  container_build:
+    # The host should always be linux
+    runs-on: ubuntu-18.04
+    name: Linux-${{matrix.qtString}}-${{ matrix.arch }}
+
+    # Run steps on a matrix of 3 arch/distro combinations
+    strategy:
+      fail-fast: false
+      matrix:
+        qt:
+          - 5
+          - 6
+        arch:
+          - aarch64
+        distro:
+          - archarm_latest
+        include:
+          - qt: 5
+            qtString: "Qt5"
+          - qt: 6
+            qtString: "Qt6"
+
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - uses: uraimo/run-on-arch-action@v2.1.1
+        name: Build artifact
+        id: build
+        with:
+          arch: ${{ matrix.arch }}
+          distro: ${{ matrix.distro }}
+          githubToken: ${{ github.token }}
+          setup: mkdir -p "${PWD}/artifacts"
+          dockerRunArgs: --volume "${PWD}/artifacts:/artifacts"
+          shell: /bin/sh
+          install: |
+            pacman -Syu --noconfirm
+            pacman -S base-devel cmake git zlib wget doxygen qt5-tools qt5-base qt5-declarative qt5-svg qt5-quickcontrols2 qt6-tools qt6-base qt6-5compat qt6-declarative clang qt6-svg graphviz --noconfirm
+            rm -rf /var/cache/pacman/pkg/
+
+          run: |
+            if [ "${{matrix.qtString}}" == "Qt6" ]; then
+              cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCPACK_PACKAGE_VERSION=continuous -DQT_DEFAULT_MAJOR_VERSION=6
+            else
+              cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCPACK_PACKAGE_VERSION=continuous -DQT_DEFAULT_MAJOR_VERSION=5
+            fi
+            cmake --build build --config Release --target package
+            mv build/ff7tk-*.* /artifacts/
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: ff7tk-container-artifact
+          path: artifacts/ff7tk[-_]*.*
+
   release_assets:
     name: Release
-    needs: main_Build
+    needs: [main_build, container_build]
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
@@ -187,4 +255,6 @@ jobs:
        automatic_release_tag: "continuous"
        prerelease: false
        title: "Continuous Build"
-       files: artifact/*
+       files: |
+         artifact/*
+         ff7tk-container-artifact/*
