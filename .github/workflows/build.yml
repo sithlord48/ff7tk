@@ -22,17 +22,17 @@ jobs:
            , os: ubuntu-18.04
            , QT_VERSION: 5.15.2, QT_INST_DIR: /opt
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
-           , packageName: ff7tk-continuous-Qt5-linux
-           , releasePackage: "ff7tk-continuous-Qt5-linux.tar.xz"
+           , packageName: ff7tk-continuous-Qt5-Linux
+           , releasePackage: "ff7tk-continuous-Qt5-Linux.tar.xz"
           }
         - {
            name: "Linux-Qt6-amd64"
            , os: ubuntu-latest
            , QT_VERSION: 6.2.2, QT_INST_DIR: /opt, QT_MODULES: qt5compat
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
-           , packageName: ff7tk-continuous-Qt6-linux
+           , packageName: ff7tk-continuous-Qt6-Linux
            , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.2/gcc_64/libexec"
-           , releasePackage: "ff7tk-continuous-Qt6-linux.tar.xz"
+           , releasePackage: "ff7tk-continuous-Qt6-Linux.tar.xz"
           }
         - {
             name: "MacOS-Qt5-amd64"
@@ -187,51 +187,62 @@ jobs:
 
   container_build:
     # The host should always be linux
-    runs-on: ubuntu-18.04
-    name: Linux-${{matrix.qtString}}-${{ matrix.arch }}
+    runs-on: ubuntu-latest
+    name: ${{matrix.config.name}}
 
-    # Run steps on a matrix of 3 arch/distro combinations
     strategy:
       fail-fast: false
       matrix:
-        qt:
-          - 5
-          - 6
-        arch:
-          - aarch64
-        distro:
-          - archarm_latest
-        include:
-          - qt: 5
-            qtString: "Qt5"
-          - qt: 6
-            qtString: "Qt6"
+        config:
+        - {
+           name: "Linux-Qt6-aarch64"
+           , qt: 6, qtString: "Qt6", cmakeExtraConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
+           , arch: aarch64, distro: archarm_latest
+          }
+        - {
+           name: "Linux-Qt5-aarch64"
+           , qt: 5, qtString: "Qt5", cmakeExtraConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
+           , arch: aarch64, distro: bullseye
+          }
+        - {
+           name: "Linux-Qt5-armv7"
+           , qt: 5, qtString: "Qt5", cmakeExtraConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
+           , arch: armv7, distro: bullseye
+          }
 
     steps:
       - uses: actions/checkout@v2.1.0
+        
       - uses: uraimo/run-on-arch-action@v2.1.1
         name: Build artifact
         id: build
         with:
-          arch: ${{ matrix.arch }}
-          distro: ${{ matrix.distro }}
+          arch: ${{ matrix.config.arch }}
+          distro: ${{ matrix.config.distro }}
           githubToken: ${{ github.token }}
           setup: mkdir -p "${PWD}/artifacts"
           dockerRunArgs: --volume "${PWD}/artifacts:/artifacts"
           shell: /bin/sh
           install: |
-            pacman -Syu --noconfirm
-            pacman -S base-devel cmake git zlib wget doxygen qt5-tools qt5-base qt5-declarative qt5-svg qt5-quickcontrols2 qt6-tools qt6-base qt6-5compat qt6-declarative clang qt6-svg graphviz --noconfirm
-            rm -rf /var/cache/pacman/pkg/
+            case "${{ matrix.config.distro }}" in
+              bullseye)
+                apt-get update -y
+                apt-get upgrade -y
+                apt-get install -y build-essential git zlib1g-dev wget doxygen graphviz qtbase5-dev qttools5-dev-tools qtbase5-dev-tools qt5-qmake qtdeclarative5-dev devscripts libssl-dev qttools5-dev qtquickcontrols2-5-dev
+                wget https://github.com/sithlord48/fresh-debian-cmake/releases/download/3.22.1/cmake-3.22.1-bullseye_${{matrix.config.arch}}.tar.gz
+                tar -xf cmake-3.22.1-bullseye_${{matrix.config.arch}}.tar.gz --strip-components=3 --one-top-level=/usr
+                ;;
+              arch*)
+                pacman -Syu --noconfirm
+                pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative clang graphviz --noconfirm
+              ;;
+            esac
 
           run: |
-            if [ "${{matrix.qtString}}" == "Qt6" ]; then
-              cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCPACK_PACKAGE_VERSION=continuous -DQT_DEFAULT_MAJOR_VERSION=6
-            else
-              cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCPACK_PACKAGE_VERSION=continuous -DQT_DEFAULT_MAJOR_VERSION=5
-            fi
+            cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.cmakeExtraConfig}}
             cmake --build build --config Release --target package
-            mv build/ff7tk-*.* /artifacts/
+            mv build/ff7tk* /artifacts/
+            rm /artifacts/ff7tk.pc
 
       - name: Upload
         uses: actions/upload-artifact@v2
