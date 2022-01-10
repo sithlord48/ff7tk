@@ -74,7 +74,7 @@ $(function() {
 <li>Additional Libraries ff7tkWidgets, ff7tkUtils and ff7tkFormats.</li>
 <li>Headers for the libraries so you can link to them</li>
 <li>Required CMake parts to find it post install.</li>
-<li>Translation files "ff7tk_&lt;lang&gt;.qm" for english(en), spanish(es), french(fr), german(de), japanese(ja) and reunion retranslation(re).</li>
+<li>Translation files "ff7tk_&lt;lang&gt;.qm" for supported languages</li>
 </ul>
 <h2>Configuration</h2>
 <p>Build Options: </p><table class="doxtable">
@@ -104,17 +104,28 @@ $(function() {
 <h2>Install</h2>
 <p>To test installation run <code>DESTDIR=&lt;installDIR&gt; cmake --install build</code> to install into <code>&lt;installDir&gt;/&lt;CMAKE_INSTALL_PREFIX&gt;</code> <br />
  Running <code>cmake --install build</code> will install to the <code>CMAKE_INSTALL_PREFIX</code></p>
-<h1>Using With your project</h1>
+<h2>Making ff7tk packages</h2>
+<p>ff7tk can generate several packages using cpack To generate packages build the <code>package</code> or <code>package_source</code> target example <code>cmake --build build --target package package_source</code> would generate both package and package source packages. Installing the Qt Installer Framework will allow ff7tk to create a QtIFW installer.</p>
+<h1>Using ff7tk in your project</h1>
 <p>After installing you can use in your cmake project by simply adding <code>find_project(ff7tk)</code> link with <code>ff7tk::ff7tk</code></p>
 <p>Additional Modules include</p>
 <p><code>ff7tkFormats</code> link with <code>ff7tk::ff7tkFormats</code></p>
 <p><code>ff7tkUtils</code> link with <code>ff7tk::ff7tkUtils</code></p>
 <p><code>ff7tkWidgets</code> link with <code>ff7tk::ff7tkWidgets</code></p>
 <p>For QMake you can use the pkgconfig provided by the system <code>config +=link_pkgconfig</code> <code>PKGCONFIG += ff7tk</code></p>
+<h2>ff7tk version info</h2>
+<p>include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version()</p>
 <h2>Translations</h2>
 <p>In addition to ff7tk's language files your application should also ship the qt_base_&lt;lang&gt;.qm</p>
-<h1>ff7tk version info</h1>
-<p>include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version() </p>
+<h2>Deploying ff7tk with your app</h2>
+<p>When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommened to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.</p>
+<h3>Item Depends</h3>
+<ul>
+<li>ff7tk &ndash; QtCore, QtXml, QtQml, QtQuick, QtSvg (MacOS) , Svg Image plugin Core5Compat (for Qt6 builds)</li>
+<li>ff7tkWidgets &ndash; ff7tk, QtWidgets, QtGui</li>
+<li>ff7tkFormats &ndash; QtCore</li>
+<li>ff7tkUtils &ndash; ff7tkFormats, QtGui, ZLib </li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
