@@ -54,6 +54,14 @@ const FF7Location::LOCATION &FF7Location::location(int index)
     return dPtr->_emptyLocation;
 }
 
+const FF7Location::LOCATION &FF7Location::location(const QString &fileName)
+{
+    auto it  = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
+    if( it != dPtr->_locations.end())
+        return *it;
+    return dPtr->_emptyLocation;
+}
+
 int FF7Location::size() const
 {
     return dPtr->_locations.size();
@@ -72,10 +80,7 @@ QString FF7Location::rawLocationString(int index)
 }
 QString FF7Location::rawLocationString(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return it->location;
-    return dPtr->_emptyLocation.filename;
+    return location(fileName).location;
 }
 QString FF7Location::locationString(int index)
 {
@@ -84,10 +89,7 @@ QString FF7Location::locationString(int index)
 
 QString FF7Location::locationString(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return tr(it->location.toLocal8Bit());
-    return dPtr->_emptyLocation.filename;
+    return rawLocationString(fileName).toLocal8Bit();
 }
 
 const QString &FF7Location::mapID(int index)
@@ -97,10 +99,7 @@ const QString &FF7Location::mapID(int index)
 
 const QString &FF7Location::mapID(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return it->map_id;
-    return dPtr->_emptyLocation.map_id;
+    return location(fileName).map_id;
 }
 
 const QString &FF7Location::locationID(int index)
@@ -110,10 +109,7 @@ const QString &FF7Location::locationID(int index)
 
 const QString &FF7Location::locationID(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return it->loc_id;
-    return dPtr->_emptyLocation.loc_id;
+    return location(fileName).loc_id;
 }
 
 const QString &FF7Location::x(int index)
@@ -123,10 +119,8 @@ const QString &FF7Location::x(int index)
 
 const QString &FF7Location::x(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return it->x;
-    return dPtr->_emptyLocation.x;
+    return location(fileName).x;
+
 }
 
 const QString &FF7Location::y(int index)
@@ -136,10 +130,7 @@ const QString &FF7Location::y(int index)
 
 const QString &FF7Location::y(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return it->y;
-    return dPtr->_emptyLocation.y;
+    return location(fileName).y;
 }
 
 const QString &FF7Location::t(int index)
@@ -149,10 +140,7 @@ const QString &FF7Location::t(int index)
 
 const QString &FF7Location::t(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return it->t;
-    return dPtr->_emptyLocation.t;
+    return location(fileName).t;
 }
 
 const QString &FF7Location::d(int index)
@@ -162,7 +150,5 @@ const QString &FF7Location::d(int index)
 
 const QString &FF7Location::d(const QString &fileName)
 {
-    auto it = std::find_if(dPtr->_locations.begin(), dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if(it != dPtr->_locations.end())
-        return it->d;
-    return dPtr->_emptyLocation.d;}
+    return location(fileName).d;
+}

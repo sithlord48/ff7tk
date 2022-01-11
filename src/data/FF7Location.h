@@ -197,9 +197,16 @@ private:
     /*!
      * \brief location return
      * \param index
-     * \return Locations [index] or emptyLocation
+     * \return Locations at index or emptyLocation
      */
     const FF7Location::LOCATION &location(int index);
+
+    /*!
+     * \brief location return
+     * \param filename
+     * \return Location with [filename] or emptyLocation
+     */
+    const FF7Location::LOCATION &location(const QString &filename);
 
     struct FF7LocationPrivate {
         inline static const LOCATION _emptyLocation {QString(), QString(), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")};
