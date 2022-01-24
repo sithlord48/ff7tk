@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -81,7 +81,7 @@ private:
     QList<QPushButton *> btn_stars = {nullptr, nullptr, nullptr, nullptr, nullptr};
     QFrame *box_stars = nullptr;
     QGroupBox *box_skills = nullptr;
-    QGroupBox *eskill_group = nullptr;
+    QWidget *eskill_group = nullptr;
     QListWidget *eskill_list = nullptr;
     QWidget *eskillButtons = nullptr;
     QListWidget *list_skills = nullptr;

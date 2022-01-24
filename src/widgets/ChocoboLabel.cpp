@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -52,7 +52,8 @@ ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *par
     chkOccupied = new QCheckBox(this);
     chkOccupied->setText(titleText);
     chkOccupied->setProperty("HoverStyled", QVariant(true));
-    chkOccupied->setStyleSheet(QStringLiteral("QCheckBox::indicator{width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
+
+    chkOccupied->setStyleSheet(QStringLiteral("QCheckBox{ padding: 1px;} QCheckBox::indicator{width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
     chkOccupied->setChecked(occupied);
     connect(chkOccupied, &QCheckBox::toggled, this, [this](bool checked) {
         emit occupiedToggled(checked);
