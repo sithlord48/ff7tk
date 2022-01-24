@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -16,6 +16,7 @@
 #include <FF7Item.h>
 
 #include <QIcon>
+#include <QtEndian>
 #include <QQmlEngine>
 
 FF7Item *FF7Item::instance()
@@ -156,63 +157,14 @@ int FF7Item::statSPI(int id)
 
 quint16 FF7Item::itemDecode(quint16 itemraw)
 {
-    //see FF7Save::itemDecode for full comments
-    quint16 item;
-#ifdef Q_BYTE_ORDER
-#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
-    item = itemraw;
-#elif Q_BYTE_ORDER == Q_BIG_ENDIAN
-    item = ((itemraw & 0xFF) << 8) | ((itemraw >> 8) & 0xFF);
-#else
-    int one = 1;
-    if (*(char *)&one) {
-        item = itemraw;
-    } else {
-        item = ((itemraw & 0xFF) << 8) | ((itemraw >> 8) & 0xFF);
-    }
-#endif
-#else
-    int one = 1;
-    if (*(char *)&one) {
-        item = itemraw;
-    } else {
-        item = ((itemraw & 0xFF) << 8) | ((itemraw >> 8) & 0xFF);
-    }
-#endif
-    return item;
+    return qFromLittleEndian(itemraw);
 }
+
 quint16 FF7Item::itemEncode(quint16 id, quint8 qty)
 {
-    //see FF7Save::itemEncode for full comments
-    quint16 item, itemraw;
-#ifdef Q_BYTE_ORDER
-#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
+    quint16_le item;
     item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
-    itemraw = item;
-#elif Q_BYTE_ORDER == Q_BIG_ENDIAN
-    item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
-    itemraw = ((item & 0xFF) << 8) | ((item >> 8) & 0xFF);
-#else
-    int one = 1;
-    if (*(char *)&one) {
-        item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
-        itemraw = item;
-    } else {
-        item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
-        itemraw = ((item & 0xFF) << 8) | ((item >> 8) & 0xFF);
-    }
-#endif
-#else
-    int one = 1;
-    if (*(char *)&one) {
-        item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
-        itemraw = item;
-    } else {
-        item = ((qty << 9) & 0xFE00) | (id & 0x1FF);
-        itemraw = ((item & 0xFF) << 8) | ((item >> 8) & 0xFF);
-    }
-#endif
-    return itemraw;
+    return qFromLittleEndian(item);
 }
 
 quint16 FF7Item::itemId(quint16 item)
