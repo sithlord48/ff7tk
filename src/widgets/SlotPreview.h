@@ -51,10 +51,10 @@ public:
     void setMode(int mode);
 
 signals:
-    void clicked(int); /**< \brief Signal: User Clicked on preview . \return index number */
-    void btn_remove_clicked(int); /**< \brief Signal: User Clicked on remove . \return index number */
-    void btn_copy_clicked(int); /**< \brief Signal: User Clicked on copy . \return index number */
-    void btn_paste_clicked(int); /**< \brief Signal: User Clicked on paste . \return index number */
+    void clicked(int); /**< \brief Signal: User Clicked on preview, returns index of click */
+    void btn_remove_clicked(int); /**< \brief Signal: User Clicked on remove, returns index of click */
+    void btn_copy_clicked(int); /**< \brief Signal: User Clicked on copy, returns index of click */
+    void btn_paste_clicked(int); /**< \brief Signal: User Clicked on paste, returns index of click */
 
 protected:
     void mousePressEvent(QMouseEvent *ev);
