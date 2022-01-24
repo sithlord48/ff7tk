@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -45,6 +45,8 @@ private slots:
 private:
     void itemupdate();
     void updateItem(int row);
+    void destroyTooltip();
+    void destroySelector();
     ItemSelector *itemSelector = nullptr;
     ItemPreview *itemPreview = nullptr;
     QList<quint16> itemlist;
