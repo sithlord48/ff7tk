@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -51,11 +51,13 @@ ItemPreview::ItemPreview(QFlags<Qt::WindowType> WindowFlags, QWidget *parent)
         slotLabels.append(new QLabel(this));
         slotLabels.at(i)->setFixedSize(slotSize);
         slotLabels.at(i)->setHidden(true);
+        slotLabels.at(i)->setScaledContents(true);
     }
 
     for(int i =0; i< 4; i++) {
         slotLinks.append(new QLabel(this));
         slotLinks.at(i)->setFixedSize(linkSize);
+        slotLinks.at(i)->setScaledContents(true);
     }
 
     setWindowFlags(WindowFlags);
@@ -65,6 +67,7 @@ ItemPreview::ItemPreview(QFlags<Qt::WindowType> WindowFlags, QWidget *parent)
 
     _id = FF7Item::EmptyItem;
     lbl_icon->setFixedSize(slotSize);
+    lbl_icon->setScaledContents(true);
 
     auto materia_slots = new QHBoxLayout();
     materia_slots->setContentsMargins(2, 0, 2, 0);
@@ -139,7 +142,7 @@ void ItemPreview::setDesc(QString text)
 
 void ItemPreview::setIcon(QPixmap picture)
 {
-    lbl_icon->setPixmap(picture.scaled(lbl_icon->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    lbl_icon->setPixmap(picture);
     lbl_icon->adjustSize();
 }
 
@@ -194,7 +197,7 @@ void ItemPreview::setItem(int id)
 
         if (FF7Item::instance()->type(id) > FF7Item::Item && FF7Item::instance()->type(id) != FF7Item::Accessory) {
             for (auto slot : qAsConst(slotLabels))
-               slot->setPixmap(QPixmap::fromImage(FF7Item::instance()->materiaGrowthRate(id) == 0 ? FF7Item::instance()->imageMateriaSlotNoGrowth() : FF7Item::instance()->imageMateriaSlot()).scaled(slot->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+               slot->setPixmap(QPixmap::fromImage(FF7Item::instance()->materiaGrowthRate(id) == 0 ? FF7Item::instance()->imageMateriaSlotNoGrowth() : FF7Item::instance()->imageMateriaSlot()));
 
             QString ap_rate = tr("APx%1").arg(FF7Item::instance()->materiaGrowthRate(id));
             materia_slot_box->setTitle(ap_rate);
@@ -204,7 +207,7 @@ void ItemPreview::setItem(int id)
                 slotLabels.at(i)->setHidden(false);
 
             for(int i = 0; i < FF7Item::instance()->linkedSlots(id); i++)
-                slotLinks.at(i)->setPixmap(QPixmap::fromImage(FF7Item::instance()->imageMateriaLink().scaled(slotLinks.at(i)->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation)));
+                slotLinks.at(i)->setPixmap(QPixmap::fromImage(FF7Item::instance()->imageMateriaLink()));
         }
     }
     adjustSize();

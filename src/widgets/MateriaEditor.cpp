@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -195,10 +195,10 @@ void MateriaEditor::setStars()
             button->setHidden(true);
         if (data->type(_id) != 0) {
             for (QPushButton *button : qAsConst(btn_stars))
-                button->setIcon(data->pixmapEmptyStar(_id).scaled(button->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+                button->setIcon(data->pixmapEmptyStar(_id));
         }
         for (int i = 0 ; i < _level ; i ++)
-            btn_stars.at(i)->setIcon(data->pixmapFullStar(_id).scaled(btn_stars.at(i)->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            btn_stars.at(i)->setIcon(data->pixmapFullStar(_id));
         for (int i = 0 ; i < data->levels(_id) ; i ++)
             btn_stars.at(i)->setHidden(false);
     }

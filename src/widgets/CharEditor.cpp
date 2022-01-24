@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -437,6 +437,7 @@ void CharEditor::init_display()
 {
     lblAvatar = new QLabel(this);
     lblAvatar->setFixedSize(int(86 * scale), int(98 * scale));
+    lblAvatar->setScaledContents(true);
 
     cb_idChanger = new QCheckBox(this);
     cb_idChanger->setHidden(true);
@@ -1006,7 +1007,8 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
     data = Chardata;
     _name = Processed_Name;
     //more here like setting the gui stuff.
-    lblAvatar->setPixmap(FF7Char::instance()->pixmap(data.id).scaled(lblAvatar->width(), lblAvatar->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+    lblAvatar->setPixmap(FF7Char::instance()->pixmap(data.id));
     lineName->setText(_name);
     sbLevel->setValue(data.level);
     sbCurrentMp->setValue(data.curMP);

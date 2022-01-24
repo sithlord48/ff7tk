@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -124,12 +124,15 @@ void SlotPreview::set_ff7_save(void)
 
     party1 = new QLabel;
     party1->setFixedSize(avatarSize);
+    party1->setScaledContents(true);
 
     party2 = new QLabel;
     party2->setFixedSize(avatarSize);
+    party2->setScaledContents(true);
 
     party3 = new QLabel;
     party3->setFixedSize(avatarSize);
+    party3->setScaledContents(true);
 
     lbl_gil = new QLabel;
     lbl_gil->setAlignment(Qt::AlignCenter);
@@ -191,9 +194,9 @@ void SlotPreview::set_ff7_save(void)
 
 void SlotPreview::setParty(QPixmap p1, QPixmap p2, QPixmap p3)
 {
-    party1->setPixmap(p1.scaled(party1->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    party2->setPixmap(p2.scaled(party2->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    party3->setPixmap(p3.scaled(party3->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    party1->setPixmap(p1);
+    party2->setPixmap(p2);
+    party3->setPixmap(p3);
 }
 
 void SlotPreview::setParty(QString p1_style, QString p2_style, QString p3_style)
