@@ -197,7 +197,6 @@ public:
      * \param s slot number (0-14)
      * \param char_num character slot (0-8)
      * \param new_char raw bytes for a character in ff7
-     * \return true is successful
      */
     void importCharacter(int s, int char_num, QByteArray new_char); //import new_char to slot[s].char[char_num]
 
@@ -292,8 +291,7 @@ public:
     /** \brief set how many time you have won the fort condor mini game
      *  \param s slot number (0-14)
      *  \param wins number of wins in the fort condor mini game
-     *  \return number of wins at fort condor
-    */
+     */
     void setCondorWins(int s, quint8 wins);
 
     /** \brief losses in fort condor mini game
@@ -986,8 +984,8 @@ public:
     }
 
     /**
-     * @brief Returns the format of the loaded file
-     * @return FF7SaveInfo::FORMAT
+     * @brief Set the format of the loaded file
+     * @param newFormat a valid FF7SaveInfo::FORMAT
      */
     void setFormat(FF7SaveInfo::FORMAT newFormat);
 
