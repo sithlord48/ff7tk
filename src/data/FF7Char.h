@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -420,6 +420,10 @@ private:
             {70, 70, 70, 71, 67, 48, 16, 16},
             {65, 63, 76, 61, 49, 36, 28, 20}
         };
+
+        inline static const QList<double> _hp_diff_modifier {0.4F, 0.5F, 0.5F, 0.6F, 0.7F, 0.8F, 0.9F, 1.0F, 1.1F, 1.2F, 1.3F, 1.5F};
+
+        inline static const QList<double> _mp_diff_modifier { 0.2F, 0.3F, 0.3F, 0.5F, 0.7F, 0.8F, 0.9F, 1.0F, 1.1F, 1.2F, 1.4F, 1.6F };
 
         inline static const QList<int> _limitbitarray{0, 1, 3, 4, 6, 7, 9}; /**< Order of bytes used to flag limit breaks as learned*/
     };
