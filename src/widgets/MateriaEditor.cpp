@@ -596,7 +596,7 @@ QWidget *MateriaEditor::makeSkillWidget()
     eskill_layout->addWidget(eskill_list);
     eskill_layout->addWidget(eskillButtons);
 
-    eskill_group = new QGroupBox;
+    eskill_group = new QWidget;
     eskill_group->setHidden(true);
     eskill_group->setLayout(eskill_layout);
     eskill_group->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -607,7 +607,7 @@ QWidget *MateriaEditor::makeSkillWidget()
     list_skills->setSelectionMode(QAbstractItemView::NoSelection);
 
     auto skill_layout = new QVBoxLayout;
-    skill_layout->setContentsMargins(3, 0, 0, 0);
+    skill_layout->setContentsMargins(0, 0, 0, 0);
     skill_layout->setSpacing(2);
     skill_layout->addWidget(list_skills);
     skill_layout->addWidget(eskill_group);
