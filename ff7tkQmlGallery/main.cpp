@@ -30,8 +30,8 @@ int main(int argc, char *argv[])
         app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 #endif
 
-        qmlRegisterSingletonType<FF7TEXT>("org.ff7tk", 1, 0, "FF7Text", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
-        return FF7TEXT::qmlSingletonRegister(engine, jsEngine);
+        qmlRegisterSingletonType<FF7Text>("org.ff7tk", 1, 0, "FF7Text", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
+        return FF7Text::qmlSingletonRegister(engine, jsEngine);
     });
 
     qmlRegisterSingletonType<FF7Item>("org.ff7tk", 1, 0, "FF7Item", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {

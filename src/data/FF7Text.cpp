@@ -19,31 +19,31 @@
 
 /*~~~~~~~~TEXT CLASS~~~~~~~~~*/
 // the PC function is modified from Makou Reactor (thanks Myst6re)
-FF7TEXT *FF7TEXT::instance()
+FF7Text *FF7Text::instance()
 {
-    static FF7TEXT m;
+    static FF7Text m;
     return &m;
 }
 
-FF7TEXT::FF7TEXT(QObject *parent) :
+FF7Text::FF7Text(QObject *parent) :
     QObject(parent)
-    , d(new FF7TEXTPrivate)
+    , d(new FF7TextPrivate)
 {
 }
 
-FF7TEXT::~FF7TEXT()
+FF7Text::~FF7Text()
 {
     delete d;
 }
 
-QObject *FF7TEXT::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
+QObject *FF7Text::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(scriptEngine)
     engine->setObjectOwnership(instance(), QQmlEngine::CppOwnership);
     return instance();
 }
 
-void FF7TEXT::setJapanese(bool japanese)
+void FF7Text::setJapanese(bool japanese)
 {
     if(japanese == instance()->d->in_ja)
         return;
@@ -51,11 +51,11 @@ void FF7TEXT::setJapanese(bool japanese)
     emit instance()->languageChanged();
 }
 
-bool FF7TEXT::isJapanese()
+bool FF7Text::isJapanese()
 {
     return instance()->d->in_ja;
 }
-QString FF7TEXT::toPC(QByteArray text)
+QString FF7Text::toPC(QByteArray text)
 {
     int txt = 0;
     if ((txt = text.indexOf('\xFF')) != -1) {
@@ -120,7 +120,7 @@ QString FF7TEXT::toPC(QByteArray text)
     return String;
 }
 //This Converter is Modified From Hyne (thanks Myst6re)
-QByteArray FF7TEXT::toFF7(const QString &string)
+QByteArray FF7Text::toFF7(const QString &string)
 {
     QByteArray ff7str;
     QChar comp;
@@ -156,7 +156,7 @@ QByteArray FF7TEXT::toFF7(const QString &string)
     return ff7str;
 }
 
-QString FF7TEXT::character(quint8 ord, quint8 table)
+QString FF7Text::character(quint8 ord, quint8 table)
 {
     switch (table) {
     case 1:
