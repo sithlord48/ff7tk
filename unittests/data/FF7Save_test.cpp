@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2021  Chris Rizzitello <sithlord48@gmail.com>               //
+//    copyright 2021 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -1034,7 +1034,7 @@ void FF7Save_Test::test_items()
 {
     QCOMPARE(ff7save->itemId(0, 0), FF7Item::GuardSource);
     QCOMPARE(ff7save->itemQty(0, 0), 1);
-    ff7save->setItem(0, 19, FF7Item::instance()->itemEncode(FF7Item::ChocoFeather, 20));
+    ff7save->setItem(0, 19, FF7Item::itemEncode(FF7Item::ChocoFeather, 20));
     QCOMPARE(ff7save->itemId(0, 19), FF7Item::ChocoFeather);
     QCOMPARE(ff7save->itemQty(0, 19), 20);
 }

@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -36,29 +36,29 @@ public:
      * @sa qmlSingletonRegister()
      */
     static FF7TEXT *instance();
-    
+
     /**
      * @brief Register The FF7TEXT Singleton for QML
      */
-    QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
     
     /*! \brief sets the text mode, if TRUE will return Japanese text */
-    void setJapanese(bool japanese);
+    static void setJapanese(bool japanese);
 
     /*! \brief returns True if using Japanese mode. */
-    bool isJapanese();
+    static bool isJapanese();
 
     /*! \brief convert ff7text to pc string
      *  \param text the raw ff7text to read
      *  \return decoded ff7text
      */
-    Q_INVOKABLE QString toPC(QByteArray text);
+    static Q_INVOKABLE QString toPC(QByteArray text);
 
     /*! \brief convert pc string to ff7text
      *  \param string the raw ff7text to read
      *  \return decoded ff7text
      */
-    Q_INVOKABLE QByteArray toFF7(const QString &string);
+    static Q_INVOKABLE QByteArray toFF7(const QString &string);
 signals:
     /*! \brief emited when switching language used for decode.
      */
@@ -68,7 +68,7 @@ private:
     FF7TEXT(const FF7TEXT &other) = delete;
     explicit FF7TEXT(QObject *parent = nullptr);
     ~FF7TEXT();
-    QString character(quint8 ord, quint8 table); /** convert a single character*/
+    static QString character(quint8 ord, quint8 table); /** convert a single character*/
 
     struct FF7TEXTPrivate{
     inline static const auto eng = QString::fromUtf8(" !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ÄÁÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü⌘°¢£ÙÛ¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂ΣΠπ⌡ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄¤‹›ﬁﬂ■▪‚„‰ÂÊËÁÈíîïìÓÔ ÒÙÛ             \t                               "); /**< character table for latin */

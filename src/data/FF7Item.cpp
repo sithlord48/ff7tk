@@ -46,9 +46,9 @@ QObject *FF7Item::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngi
 const FF7Item::ITEM &FF7Item::item(int id)
 {
     if (id >= 0 && id < size()) {
-        return d->_items.at(id);
+        return FF7Item::instance()->d->_items.at(id);
     }
-    return d->_emptyitem;
+    return FF7Item::instance()->d->_emptyitem;
 }
 
 QString FF7Item::name(int id)
@@ -79,19 +79,19 @@ QIcon FF7Item::icon(int id)
 
 QString FF7Item::materiaSlotNoGrowthResource()
 {
-    QString temp = d->_resourceSlotNoGrowth;
+    QString temp = FF7Item::instance()->d->_resourceSlotNoGrowth;
     return temp.remove(QStringLiteral(":/"));
 }
 
 QString FF7Item::materiaSlotResource()
 {
-    QString temp = d->_resourceSlot;
+    QString temp = FF7Item::instance()->d->_resourceSlot;
     return temp.remove(QStringLiteral(":/"));
 }
 
 QString FF7Item::materiaLinkResource()
 {
-    QString temp = d->_resourceLink;
+    QString temp = FF7Item::instance()->d->_resourceLink;
     return temp.remove(QStringLiteral(":/"));
 }
 
@@ -172,6 +172,7 @@ quint16 FF7Item::itemId(quint16 item)
     quint16 new_item = itemDecode(item);
     return quint16(new_item & 0x1FF);
 }
+
 quint8 FF7Item::itemQty(quint16 item)
 {
     quint16 new_item = itemDecode(item);
@@ -459,37 +460,37 @@ int FF7Item::statusResist(int id)
     return item(id).s_resist;
 }
 
-int FF7Item::size() const
+int FF7Item::size()
 {
-    return d->_items.size();
+    return FF7Item::instance()->d->_items.size();
 }
 
 QImage FF7Item::imageMateriaSlotNoGrowth()
 {
-    return QImage(d->_resourceSlotNoGrowth);
+    return QImage(FF7Item::instance()->d->_resourceSlotNoGrowth);
 }
 
 QImage FF7Item::imageMateriaSlot()
 {
-    return QImage(d->_resourceSlot);
+    return QImage(FF7Item::instance()->d->_resourceSlot);
 }
 
 QImage FF7Item::imageMateriaLink()
 {
-    return QImage(d->_resourceLink);
+    return QImage(FF7Item::instance()->d->_resourceLink);
 }
 
 const QString &FF7Item::styleMateriaSlotNoGrowth()
 {
-    return d->_styleSlotNoGrowth;
+    return FF7Item::instance()->d->_styleSlotNoGrowth;
 }
 
 const QString &FF7Item::styleMateriaSlot()
 {
-    return d->_styleSlot;
+    return FF7Item::instance()->d->_styleSlot;
 }
 
 const QString &FF7Item::styleMateriaLink()
 {
-    return d->_styleLink;
+    return FF7Item::instance()->d->_styleLink;
 }

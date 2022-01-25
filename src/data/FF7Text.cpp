@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -45,15 +45,15 @@ QObject *FF7TEXT::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngi
 
 void FF7TEXT::setJapanese(bool japanese)
 {
-    if(japanese == d->in_ja)
+    if(japanese == instance()->d->in_ja)
         return;
-    d->in_ja = japanese;
-    emit languageChanged();
+    instance()->d->in_ja = japanese;
+    emit instance()->languageChanged();
 }
 
 bool FF7TEXT::isJapanese()
 {
-    return d->in_ja;
+    return instance()->d->in_ja;
 }
 QString FF7TEXT::toPC(QByteArray text)
 {
@@ -69,33 +69,33 @@ QString FF7TEXT::toPC(QByteArray text)
         if (index == 0xFF) {
             break;
         }
-        if (d->in_ja) {
+        if (instance()->d->in_ja) {
             switch (index) {
             case 0xFA:
                 ++i;
-                String += d->jap_fa[quint8(text.at(i))];
+                String += instance()->d->jap_fa[quint8(text.at(i))];
                 break;
             case 0xFB:
                 ++i;
-                String += d->jap_fb[quint8(text.at(i))];
+                String += instance()->d->jap_fb[quint8(text.at(i))];
                 break;
             case 0xFC:
                 ++i;
-                String += d->jap_fc[quint8(text.at(i))];
+                String += instance()->d->jap_fc[quint8(text.at(i))];
                 break;
             case 0xFD:
                 ++i;
-                String += d->jap_fd[quint8(text.at(i))];
+                String += instance()->d->jap_fd[quint8(text.at(i))];
                 break;
             case 0xFE:
                 ++i;
                 if (quint8(text.at(i)) == 0xE2) {
                     i += 4;
                 }
-                String += d->jap_fe[quint8(text.at(i))];
+                String += instance()->d->jap_fe[quint8(text.at(i))];
                 break;
             default:
-                String.append(d->jap.at(index));
+                String.append(instance()->d->jap.at(index));
                 break;
             }
         } else {
@@ -112,7 +112,7 @@ QString FF7TEXT::toPC(QByteArray text)
                 String += "¶";
                 break;
             default:
-                String.append(d->eng.at(index));
+                String.append(instance()->d->eng.at(index));
                 break;
             }
         }
@@ -134,7 +134,7 @@ QByteArray FF7TEXT::toFF7(const QString &string)
                 break;
             }
         }
-        if (d->in_ja) {
+        if (instance()->d->in_ja) {
             for (table = 1 ; table < 7 ; ++table) {
                 for (i = 0 ; i <= 0xff ; ++i) {
                     if (!QString::compare(comp, character(quint8(i), quint8(table)))) {
@@ -160,18 +160,18 @@ QString FF7TEXT::character(quint8 ord, quint8 table)
 {
     switch (table) {
     case 1:
-        return d->jap.at(ord);
+        return instance()->d->jap.at(ord);
     case 2:
-        return d->jap_fa.at(ord);
+        return instance()->d->jap_fa.at(ord);
     case 3:
-        return d->jap_fb.at(ord);
+        return instance()->d->jap_fb.at(ord);
     case 4:
-        return d->jap_fc.at(ord);
+        return instance()->d->jap_fc.at(ord);
     case 5:
-        return d->jap_fd.at(ord);
+        return instance()->d->jap_fd.at(ord);
     case 6:
-        return d->jap_fe.at(ord);
+        return instance()->d->jap_fe.at(ord);
     default:
-        return d->eng.at(ord);
+        return instance()->d->eng.at(ord);
     }
 }

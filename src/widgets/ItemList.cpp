@@ -46,10 +46,10 @@ bool ItemList::eventFilter(QObject *obj, QEvent *ev)
         }
 
         //If the row contains a non Empty Item then show a tooltip
-        if (FF7Item::instance()->itemId(itemlist.at(row)) != FF7Item::EmptyItem) {
+        if (FF7Item::itemId(itemlist.at(row)) != FF7Item::EmptyItem) {
             //make an ItemPreview, but give it A ToolTip Flags so it looks/acts as one
             itemPreview = new ItemPreview(Qt::ToolTip);
-            itemPreview->setItem(FF7Item::instance()->itemId(itemlist.at(row)));
+            itemPreview->setItem(FF7Item::itemId(itemlist.at(row)));
             itemPreview->setGeometry(QRect(cursor().pos(), itemPreview->contentsRect().size()));
             itemPreview->show();
             createdTooltip = true;
@@ -64,7 +64,7 @@ bool ItemList::eventFilter(QObject *obj, QEvent *ev)
             return true;
         }
 
-        if(FF7Item::instance()->itemId(itemlist.at(row)) != itemPreview->id()) {
+        if(FF7Item::itemId(itemlist.at(row)) != itemPreview->id()) {
             // If we have a tooltip  And the item is not the current one, we need to close it.
             // Check for current row because when a new tooltip is created
             // a hoverLeave Event is triggered for the tableItem when the tooltip is placed under the cursor.
@@ -133,8 +133,8 @@ void ItemList::setMaximumItemQty(int maxQty)
     //check that any items Qty is not greater then the new Qty. if so fix it.
     for (int i = 0; i < 320; i++) {
         //qty not above limit and item is not empty.
-        if ((FF7Item::instance()->itemQty(itemlist.at(i)) > itemQtyLimit) && (itemlist.at(i) != FF7Item::EmptyItemData))
-            itemlist.replace(i, FF7Item::instance()->itemEncode(FF7Item::instance()->itemId(itemlist.at(i)), quint8(itemQtyLimit)));
+        if ((FF7Item::itemQty(itemlist.at(i)) > itemQtyLimit) && (itemlist.at(i) != FF7Item::EmptyItemData))
+            itemlist.replace(i, FF7Item::itemEncode(FF7Item::itemId(itemlist.at(i)), quint8(itemQtyLimit)));
     }
     itemupdate();
 }
@@ -226,7 +226,7 @@ void ItemList::updateItem(int row)
         setItem(row, 1, newItem);
         newItem = new QTableWidgetItem(QString(), 0);
         setItem(row, 2, newItem);
-    } else if (FF7Item::instance()->itemId(itemlist.at(row)) > 319) {
+    } else if (FF7Item::itemId(itemlist.at(row)) > 319) {
         newItem = new QTableWidgetItem(QString(), 0);
         setItem(row, 0, newItem);
         newItem = new QTableWidgetItem(tr("-------BAD ID-------"), 0);
@@ -236,11 +236,11 @@ void ItemList::updateItem(int row)
     } else {
         QString qty;
         //Replaced by new item engine. (Vegeta_Ss4)
-        newItem = new QTableWidgetItem(FF7Item::instance()->icon(FF7Item::instance()->itemId(itemlist.at(row))), QString(), 0);
+        newItem = new QTableWidgetItem(FF7Item::icon(FF7Item::itemId(itemlist.at(row))), QString(), 0);
         setItem(row, 0, newItem);
-        newItem = new QTableWidgetItem(FF7Item::instance()->name(FF7Item::instance()->itemId(itemlist.at(row))), 0);
+        newItem = new QTableWidgetItem(FF7Item::name(FF7Item::itemId(itemlist.at(row))), 0);
         setItem(row, 1, newItem);
-        newItem = new QTableWidgetItem(qty.setNum(FF7Item::instance()->itemQty(itemlist.at(row))), 0);
+        newItem = new QTableWidgetItem(qty.setNum(FF7Item::itemQty(itemlist.at(row))), 0);
         setItem(row, 2, newItem);
     }
     setRowHeight(row, fontMetrics().height() + 9);

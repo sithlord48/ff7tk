@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2021  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -142,7 +142,7 @@ void SlotSelect::setSlotPreview(int s)
         image.setPixel(1, 1, ff7->dialogColorLR(s).rgb());
         QImage gradient = image.scaled(preview[s]->width(), preview[s]->height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         preview[s]->setPixmap(QPixmap::fromImage(gradient));
-        preview[s]->setParty(FF7Char::instance()->pixmap(ff7->descParty(s, 0)), FF7Char::instance()->pixmap(ff7->descParty(s, 1)), FF7Char::instance()->pixmap(ff7->descParty(s, 2)));
+        preview[s]->setParty(FF7Char::pixmap(ff7->descParty(s, 0)), FF7Char::pixmap(ff7->descParty(s, 1)), FF7Char::pixmap(ff7->descParty(s, 2)));
         preview[s]->setLocation(ff7->descLocation(s));
         preview[s]->setName(ff7->descName(s));
         preview[s]->setLevel(ff7->descLevel(s));
