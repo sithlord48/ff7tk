@@ -23,22 +23,22 @@
 class QQmlEngine;
 class QJSEngine;
 
-/*! \class FF7TEXT
+/*! \class FF7Text
  * \brief Convert ff7text <-> pc string
  */
-class FF7TK_EXPORT FF7TEXT: public QObject
+class FF7TK_EXPORT FF7Text: public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool japanese READ isJapanese WRITE setJapanese NOTIFY languageChanged)
 public:
     /**
-     * @brief Get the FF7TEXT Instance.
+     * @brief Get the FF7Text Instance.
      * @sa qmlSingletonRegister()
      */
-    static FF7TEXT *instance();
+    static FF7Text *instance();
 
     /**
-     * @brief Register The FF7TEXT Singleton for QML
+     * @brief Register The FF7Text Singleton for QML
      */
     static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
     
@@ -64,13 +64,13 @@ signals:
      */
     void languageChanged();
 private:
-    FF7TEXT *operator = (FF7TEXT &other) = delete;
-    FF7TEXT(const FF7TEXT &other) = delete;
-    explicit FF7TEXT(QObject *parent = nullptr);
-    ~FF7TEXT();
+    FF7Text *operator = (FF7Text &other) = delete;
+    FF7Text(const FF7Text &other) = delete;
+    explicit FF7Text(QObject *parent = nullptr);
+    ~FF7Text();
     static QString character(quint8 ord, quint8 table); /** convert a single character*/
 
-    struct FF7TEXTPrivate{
+    struct FF7TextPrivate{
     inline static const auto eng = QString::fromUtf8(" !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ÄÁÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü⌘°¢£ÙÛ¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂ΣΠπ⌡ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄¤‹›ﬁﬂ■▪‚„‰ÂÊËÁÈíîïìÓÔ ÒÙÛ             \t                               "); /**< character table for latin */
     inline static const auto jap = QString::fromUtf8("バばビびブぶベべボぼガがギぎグぐゲげゴごザざジじズずゼぜゾぞダだヂぢヅづデでドどヴパぱピぴプぷペぺポぽ０１２３４５６７８９、。　ハはヒひフふヘへホほカかキきクくケけコこサさシしスすセせソそタたチちツつテてトとウうアあイいエえオおナなニにヌぬネねノのマまミみムむメめモもラらリりルるレれロろヤやユゆヨよワわンんヲをッっャゃュゅョょァぁィぃゥぅェぇォぉ！？『』．＋ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ・＊ー～⋯％／：＆【】♥→αβ「」（）－＝¶¶¶⑬\n\n¶                      "); /**< character table #1 for japanese */
     inline static const auto jap_fa = QString::fromUtf8("必殺技地獄火炎裁雷大怒斬鉄剣槍海衝聖審判転生改暗黒釜天崩壊零式自爆使放射臭息死宣告凶破晄撃画龍晴点睛超究武神覇癒風邪気封印吹烙星守護命鼓動福音掌打水面蹴乱闘合体疾迅明鏡止抜山蓋世血祭鎧袖一触者滅森羅万象装備器攻魔法召喚獣呼出持相手物確率弱投付与変化片方行決定分直前真似覚列後位置防御発回連続敵全即効果尾毒消金針乙女興奮剤鎮静能薬英雄榴弾右腕砂時計糸戦惑草牙南極冷結晶電鳥角有害質爪光月反巨目砲重力球空双野菜実兵単毛茶色髪¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶"); /**< character table #2 for japanese */
@@ -80,5 +80,5 @@ private:
     inline static const auto jap_fe = QString::fromUtf8("孫継団給抗違提断島栄油就僕存企比浸非応細承編排努締談趣埋営文夏個益損額区寒簡遣例肉博幻量昔臓負討悔膨飲妄越憎増枚皆愚療庫涙照冗壇坂訳抱薄義騒奴丈捕被概招劣較析繁殖耐論貴称千歴史募容噂壱胞鳴表雑職妹氏踊停罪甘健焼払侵頃愛便田舎孤晩清際領評課勤謝才偉誤価欠寄忙従五送周頑労植施販台度嫌諸習緒誘仮借輩席戒弟珍酔試騎霜鉱裕票券専祖惰偶怠罰熟牲燃犠快劇拠厄抵適程繰腹橋白処匹杯暑坊週秀看軽幕和平王姫庭観航横帳丘亭財律布規謀積刻陥類¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶"); /**< character table #6 for japanese */
     bool in_ja = false; /**< if true toPC will give us Japanese characters*/
     };
-    FF7TEXTPrivate *d;
+    FF7TextPrivate *d;
 };
