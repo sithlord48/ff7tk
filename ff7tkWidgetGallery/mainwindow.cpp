@@ -145,19 +145,19 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_btn_showmetaData_clicked()
 {
-    FF7Save *ff7save = new FF7Save();
-    metadataCreator = new MetadataCreator(this, ff7save);
+    auto ff7save = std::make_unique<FF7Save>();
+    metadataCreator = new MetadataCreator(this, ff7save.get());
     metadataCreator->exec();
 }
 
 void MainWindow::on_btn_slotSelect_clicked()
 {
-    FF7Save *ff7save = new FF7Save();
+    auto ff7save = std::make_unique<FF7Save>();
     QString fileFilter = FF7SaveInfo::knownTypesFilter();
     QString filename = QFileDialog::getOpenFileName(this, "Select A Save To Preview", QDir::homePath(), fileFilter);
     if (!filename.isEmpty()) {
-        if (ff7save->loadFile(filename)) {
-            SlotSelect *slotSelect = new SlotSelect(scale, ff7save, ui->cbShowLoad->isChecked());
+        if (ff7save.get()->loadFile(filename)) {
+            SlotSelect *slotSelect = new SlotSelect(scale, ff7save.get(), ui->cbShowLoad->isChecked());
             if (slotSelect->exec() == -1) {
                 on_btn_slotSelect_clicked();
             } else {
@@ -198,7 +198,7 @@ void MainWindow::on_btnExtractLgp_clicked()
     } else {
         auto pDialog = new QProgressDialog(tr("Extracting Archive"), tr("Cancel"), 0, ui->listLgpFile->count(), this);
         bool extracting = true;
-        connect(pDialog, &QProgressDialog::canceled, this, [pDialog, &extracting] {
+        connect(pDialog, &QProgressDialog::canceled, this, [pDialog, extracting]() mutable {
             extracting = false;
             pDialog->close();
         });
