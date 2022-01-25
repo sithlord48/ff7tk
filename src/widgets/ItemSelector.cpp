@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -83,22 +83,22 @@ void ItemSelector::init_connections()
 
 void ItemSelector::init_data()
 {
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::Potion), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::BronzeBangle), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::Ribbon), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::BusterSword), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::GatlingGun), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::GodsHand), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::AdamanClip), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::StrikingStaff), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::Mop), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::FourPointShuriken), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::CrystalMphone), QString());
-    combo_type->addItem(FF7Item::instance()->icon(FF7Item::SupershotST), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::Potion), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::BronzeBangle), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::Ribbon), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::BusterSword), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::GatlingGun), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::GodsHand), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::AdamanClip), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::StrikingStaff), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::Mop), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::FourPointShuriken), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::CrystalMphone), QString());
+    combo_type->addItem(FF7Item::icon(FF7Item::SupershotST), QString());
     sb_qty->setEnabled(false);
     //Fill Combo_Item (all items type is 0 or no filter defalut)
     for (int i = 0; i < 320; i++)
-        combo_item->addItem(FF7Item::instance()->icon(i), FF7Item::instance()->name(i));
+        combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
 
     combo_type->setCurrentIndex(-1);
     combo_item->setCurrentIndex(-1);
@@ -119,21 +119,21 @@ void ItemSelector::btn_remove_clicked()
 void ItemSelector::setFilter(int type)
 {
     type++;//for hiding no filter.
-    int id = FF7Item::instance()->itemId(current_item);
+    int id = FF7Item::itemId(current_item);
     combo_item->blockSignals(true);
     combo_item->clear();
     for (int i = 0; i < 320; i++) {
         if (type != FF7Item::Unknown) {
-            if (FF7Item::instance()->type(i) == type)
-                combo_item->addItem(FF7Item::instance()->icon(i), FF7Item::instance()->name(i));
+            if (FF7Item::type(i) == type)
+                combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
         } else {
-            combo_item->addItem(FF7Item::instance()->icon(i), FF7Item::instance()->name(i));
+            combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
         }
     }
 
-    current_item = FF7Item::instance()->itemEncode(quint16(id), FF7Item::instance()->itemQty(current_item));
+    current_item = FF7Item::itemEncode(quint16(id), FF7Item::itemQty(current_item));
     if (current_item != FF7Item::EmptyItemData)
-        combo_item->setCurrentIndex(combo_item->findText(FF7Item::instance()->name(FF7Item::instance()->itemId(current_item))));
+        combo_item->setCurrentIndex(combo_item->findText(FF7Item::name(FF7Item::itemId(current_item))));
     else
         combo_item->setCurrentIndex(-1);
 
@@ -144,18 +144,18 @@ void ItemSelector::setFilter(int type)
 void ItemSelector::comboItem_changed(int index)
 {
     if (sb_qty->maximum() == 127) {
-        if (combo_item->currentText() == FF7Item::instance()->name(FF7Item::Masamune))
+        if (combo_item->currentText() == FF7Item::name(FF7Item::Masamune))
             sb_qty->setMaximum(126);
         else
             sb_qty->setMaximum(127);
     }
 
     int offset = type_offset(combo_type->currentIndex()+1);
-    if (index+offset != FF7Item::instance()->itemId(current_item)) {
+    if (index+offset != FF7Item::itemId(current_item)) {
         if (current_item == FF7Item::EmptyItemData)
-            current_item = FF7Item::instance()->itemEncode(quint16(index+offset), quint8(sb_qty->value()));
+            current_item = FF7Item::itemEncode(quint16(index+offset), quint8(sb_qty->value()));
         else
-            current_item = FF7Item::instance()->itemEncode(quint16(index+offset), quint8(FF7Item::instance()->itemQty(current_item)));
+            current_item = FF7Item::itemEncode(quint16(index+offset), quint8(FF7Item::itemQty(current_item)));
 
         if (current_item == FF7Item::EmptyItemData)
             sb_qty->setEnabled(false);
@@ -182,10 +182,10 @@ void ItemSelector::setCurrentItem(int id,int qty)
         btn_remove_clicked();
         btn_remove->blockSignals(false);
     } else {
-        combo_type->setCurrentIndex(FF7Item::instance()->type(id) - 1);
-        combo_item->setCurrentIndex(id - type_offset(FF7Item::instance()->type(id)));
+        combo_type->setCurrentIndex(FF7Item::type(id) - 1);
+        combo_item->setCurrentIndex(id - type_offset(FF7Item::type(id)));
         sb_qty->setValue(qty);
-        current_item = FF7Item::instance()->itemEncode(quint16(id), quint8(qty));
+        current_item = FF7Item::itemEncode(quint16(id), quint8(qty));
     }
     blockSignals(false);
 }
@@ -193,17 +193,17 @@ void ItemSelector::setCurrentItem(int id,int qty)
 void ItemSelector::setCurrentItem(quint16 ff7item)
 {
     blockSignals(true);
-    if ((FF7Item::instance()->itemId(ff7item) == FF7Item::Masamune) && (FF7Item::instance()->itemQty(ff7item) == 127))
-        ff7item = FF7Item::instance()->itemEncode(FF7Item::Masamune, 126);
+    if ((FF7Item::itemId(ff7item) == FF7Item::Masamune) && (FF7Item::itemQty(ff7item) == 127))
+        ff7item = FF7Item::itemEncode(FF7Item::Masamune, 126);
 
     if (ff7item == FF7Item::EmptyItemData) {
         btn_remove->blockSignals(true);
         btn_remove_clicked();
         btn_remove->blockSignals(false);
     } else {
-        combo_type->setCurrentIndex(FF7Item::instance()->type(FF7Item::instance()->itemId(ff7item)) - 1);
-        combo_item->setCurrentIndex(FF7Item::instance()->itemId(ff7item) - type_offset(FF7Item::instance()->type(FF7Item::instance()->itemId(ff7item))));
-        sb_qty->setValue(FF7Item::instance()->itemQty(ff7item));
+        combo_type->setCurrentIndex(FF7Item::type(FF7Item::itemId(ff7item)) - 1);
+        combo_item->setCurrentIndex(FF7Item::itemId(ff7item) - type_offset(FF7Item::type(FF7Item::itemId(ff7item))));
+        sb_qty->setValue(FF7Item::itemQty(ff7item));
         current_item = ff7item;
     }
     blockSignals(false);
@@ -211,8 +211,8 @@ void ItemSelector::setCurrentItem(quint16 ff7item)
 
 void ItemSelector::sb_qty_changed(int qty)
 {
-    if (qty != FF7Item::instance()->itemQty(current_item)) {
-        current_item = FF7Item::instance()->itemEncode(FF7Item::instance()->itemId(current_item), quint8(qty));
+    if (qty != FF7Item::itemQty(current_item)) {
+        current_item = FF7Item::itemEncode(FF7Item::itemId(current_item), quint8(qty));
         emit itemChanged(current_item);
     }
 }
@@ -239,7 +239,7 @@ int ItemSelector::type_offset(int type)
 
 int ItemSelector::id(void)
 {
-    return int(FF7Item::instance()->itemId(current_item));
+    return int(FF7Item::itemId(current_item));
 }
 
 int ItemSelector::combo_item_width()

@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -66,7 +66,7 @@ LocationViewer::LocationViewer(qreal Scale, QWidget *parent)
     , translator(new QTranslator(this))
 
 {
-    locationTable->setRowCount(FF7Location::instance()->size());
+    locationTable->setRowCount(FF7Location::size());
     locationTable->setColumnCount(3);
 
     langDir = QStringLiteral("%1/%2").arg(QCoreApplication::applicationDirPath(), QStringLiteral("lang"));
@@ -115,12 +115,12 @@ void LocationViewer::updateText()
     QStringList hozHeaderLabels = {tr("Filename"), tr("Location Name"), tr("LocID")};
     locationTable->setHorizontalHeaderLabels(hozHeaderLabels);
     for (int i = 0; i < locationTable->rowCount(); i++) {
-        QTableWidgetItem *newItem = new QTableWidgetItem(FF7Location::instance()->locationString(i), 0);
+        QTableWidgetItem *newItem = new QTableWidgetItem(FF7Location::locationString(i), 0);
         newItem->setFlags(newItem->flags() &= ~Qt::ItemIsEditable);
         newItem->setTextAlignment(Qt::AlignLeft);
         newItem->setToolTip(_tooltip.arg(
-                                FF7Location::instance()->mapID(i),
-                                FF7Location::instance()->locationID(i),
+                                FF7Location::mapID(i),
+                                FF7Location::locationID(i),
                                 QString::number(320 * scale),
                                 QString::number(480 * scale)));
         locationTable->setItem(i, 1, newItem);
@@ -140,7 +140,7 @@ void LocationViewer::updateText()
     groupFieldItems->setTitle(tr("Field Items"));
 
     if (locationTable->currentRow() > -1)
-        lineLocationName->setText(translate(FF7Location::instance()->rawLocationString(locationTable->item(locationTable->currentRow(), 0)->text())));
+        lineLocationName->setText(translate(FF7Location::rawLocationString(locationTable->item(locationTable->currentRow(), 0)->text())));
 
     if (actionNameSearch->isChecked())
         lineTableFilter->setPlaceholderText(actionNameSearch->text());
@@ -164,18 +164,18 @@ void LocationViewer::init_display(void)
     locationTable->setColumnWidth(1, fontMetrics().horizontalAdvance(QChar('W')) * 15);
     locationTable->setColumnWidth(2, fontMetrics().horizontalAdvance(QChar('W')) * 4);
     for (int i = 0; i < locationTable->rowCount(); i++) {
-        QTableWidgetItem *newItem = new QTableWidgetItem(FF7Location::instance()->fileName(i), 0);
+        QTableWidgetItem *newItem = new QTableWidgetItem(FF7Location::fileName(i), 0);
         newItem->setFlags(newItem->flags() &= ~Qt::ItemIsEditable);
         newItem->setToolTip(_tooltip.arg(
-                                FF7Location::instance()->mapID(i),
-                                FF7Location::instance()->locationID(i),
+                                FF7Location::mapID(i),
+                                FF7Location::locationID(i),
                                 QString::number(320 * scale),
                                 QString::number(480 * scale)));
         newItem->setTextAlignment(Qt::AlignLeft);
         locationTable->setItem(i, 0, newItem);
 
         //To assure proper numerical sorting of location IDs they should all contain the same number of characters.
-        newItem = new QTableWidgetItem(QStringLiteral("%1").arg(FF7Location::instance()->locationID(i).toInt(), 3, 10, QChar('0')).toUpper());
+        newItem = new QTableWidgetItem(QStringLiteral("%1").arg(FF7Location::locationID(i).toInt(), 3, 10, QChar('0')).toUpper());
         newItem->setFlags(newItem->flags() &= ~Qt::ItemIsEditable);
         newItem->setTextAlignment(Qt::AlignHCenter);
         locationTable->setItem(i, 2, newItem);
@@ -334,8 +334,8 @@ void LocationViewer::itemChanged(int currentRow, int currentColumn, int prevRow,
     Q_UNUSED(prevColumn)
 
     if (currentRow != prevRow) {
-        int mapID = FF7Location::instance()->mapID(locationTable->item(currentRow, 0)->text()).toInt();
-        int locID = FF7Location::instance()->locationID(locationTable->item(currentRow, 0)->text()).toInt();
+        int mapID = FF7Location::mapID(locationTable->item(currentRow, 0)->text()).toInt();
+        int locID = FF7Location::locationID(locationTable->item(currentRow, 0)->text()).toInt();
         setLocation(mapID, locID);
     }
 }
@@ -343,7 +343,7 @@ void LocationViewer::itemChanged(int currentRow, int currentColumn, int prevRow,
 void LocationViewer::setSelected(const QString &locFilename)
 {
     locationTable->setCurrentItem(locationTable->item(-1, -1));
-    for (int i = 0; i < FF7Location::instance()->size(); i++) {
+    for (int i = 0; i < FF7Location::size(); i++) {
         if (locationTable->item(i, 0)->text() == locFilename) {
             locationTable->setCurrentItem(locationTable->item(i, 0));
             break;
@@ -354,7 +354,7 @@ void LocationViewer::setSelected(const QString &locFilename)
 void LocationViewer::sbMapIdChanged(int mapId)
 {
     setLocation(mapId, sbLocID->value());
-    QString fileName = FF7Location::instance()->fileName(mapId, sbLocID->value());
+    QString fileName = FF7Location::fileName(mapId, sbLocID->value());
     if (fileName.isEmpty())
         emit mapIdChanged(mapId);
     else
@@ -364,7 +364,7 @@ void LocationViewer::sbMapIdChanged(int mapId)
 void LocationViewer::sbLocIdChanged(int locId)
 {
     setLocation(sbMapID->value(), locId);
-    QString fileName = FF7Location::instance()->fileName(sbMapID->value(), locId);
+    QString fileName = FF7Location::fileName(sbMapID->value(), locId);
     if (fileName.isEmpty())
         emit locIdChanged(locId);
     else
@@ -394,7 +394,7 @@ void LocationViewer::sbDChanged(int d)
 void LocationViewer::setLocation(int mapId, int locId)
 {
     init_disconnect();
-    QString fileName = FF7Location::instance()->fileName(mapId, locId);
+    QString fileName = FF7Location::fileName(mapId, locId);
     setSelected(fileName);
     btnUpdateSaveLocation->setVisible(locId != currentStartingLocation);
 
@@ -402,14 +402,14 @@ void LocationViewer::setLocation(int mapId, int locId)
         lblLocationPreview->setPixmap(QString());
     } else {
         lblLocationPreview->setPixmap(QPixmap(QStringLiteral("://locations/%1_%2").arg(QString::number(mapId), QString::number(locId))).scaledToWidth(lblLocationPreview->width(), Qt::SmoothTransformation));
-        QString oldStr = FF7Location::instance()->rawLocationString(fileName);
+        QString oldStr = FF7Location::rawLocationString(fileName);
         QString newStr = translate(oldStr);
-        sbMapID->setValue(FF7Location::instance()->mapID(fileName).toInt());
-        sbLocID->setValue(FF7Location::instance()->locationID(fileName).toInt());
-        sbX->setValue(FF7Location::instance()->x(fileName).toInt());
-        sbY->setValue(FF7Location::instance()->y(fileName).toInt());
-        sbT->setValue(FF7Location::instance()->t(fileName).toInt());
-        sbD->setValue(FF7Location::instance()->d(fileName).toInt());
+        sbMapID->setValue(FF7Location::mapID(fileName).toInt());
+        sbLocID->setValue(FF7Location::locationID(fileName).toInt());
+        sbX->setValue(FF7Location::x(fileName).toInt());
+        sbY->setValue(FF7Location::y(fileName).toInt());
+        sbT->setValue(FF7Location::t(fileName).toInt());
+        sbD->setValue(FF7Location::d(fileName).toInt());
         lineLocationName->setText(newStr);
         init_fieldItems();
     }
@@ -473,7 +473,7 @@ void LocationViewer::btnUpdateSaveLocationClicked()
     updateItemText(currentStartingLocation, true);
 
     btnUpdateSaveLocation->setVisible(false);
-    emit locationChanged(FF7Location::instance()->fileName(sbMapID->value(), sbLocID->value()));
+    emit locationChanged(FF7Location::fileName(sbMapID->value(), sbLocID->value()));
 }
 
 void LocationViewer::updateItemText(int locID, bool currentLoc)
@@ -587,7 +587,7 @@ void LocationViewer::init_fieldItems(void)
 {
     groupFieldItems->setVisible(false);
     fieldItemList->clear();
-    QString fieldFileName = FF7Location::instance()->fileName(sbMapID->value(), sbLocID->value()); //store our current field's FileName
+    QString fieldFileName = FF7Location::fileName(sbMapID->value(), sbLocID->value()); //store our current field's FileName
     if (fieldFileName.isEmpty()) {
         fieldItemList->setFixedHeight(0);
         return;

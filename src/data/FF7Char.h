@@ -76,77 +76,77 @@ public:
     /**
      * @brief Register The FF7Char Singleton for QML
      */
-    QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
 
     /*! \brief get id value for Character
      * \param who persons id  (they are almost always the same in stock game)
      * \return Chars[who].id
      */
-    Q_INVOKABLE quint8 id(int who);
+    static Q_INVOKABLE quint8 id(int who);
     /*! \brief number of weapons for a Character
      * \param who Characters id number
      * \return Number of Weapons for the given character
      */
-    Q_INVOKABLE int numberOfWeapons(int who);
+    static Q_INVOKABLE int numberOfWeapons(int who);
 
     /*! \brief find what item id is the first weapon for a Character
      * \param who Characters id number
      * \return Item Id of characters first weapon
      */
-    Q_INVOKABLE int weaponStartingId(int who);
+    static Q_INVOKABLE int weaponStartingId(int who);
 
     /*! \brief find what weapon number is the first weapon for a Character
      * \param who Characters id number
      * \return Weapon number of characters first weapon
      */
-    Q_INVOKABLE int weaponOffset(int who);
+    static Q_INVOKABLE int weaponOffset(int who);
 
     /*! \brief default name for a character
      * \param who Characters id number
      * \return Translated default name for character
      */
-    Q_INVOKABLE QString defaultName(int who);
+    static Q_INVOKABLE QString defaultName(int who);
 
     /*! \brief Menu icon for a character
      * \param who Characters id number
      * \return QImage of a characters menu icon
      * \sa icon(),pixmap()
      */
-    QImage image(int who);
+    static QImage image(int who);
 
     /*! \brief Menu icon for a character
      * \param who Characters id number
      * \return QIcon of a characters menu icon
      * \sa image(),pixmap()
      */
-    QIcon icon(int who);
+    static QIcon icon(int who);
 
     /*! \brief Menu icon for a character
      * \param who Characters id number
      * \return QPixmap of a characters menu icon
      * \sa icon(),image()
      */
-    QPixmap pixmap(int who);
+    static QPixmap pixmap(int who);
 
     /*! \brief Limit list for a character
      * \param who Characters id number
      * \return QStringList of Translated names for each limit break
      */
-    Q_INVOKABLE QStringList limits(int who);
+    static Q_INVOKABLE QStringList limits(int who);
 
     /*! \brief Exp needed to reach a level
      * \param who Characters id number
      * \param level Level you want to reach
      * \return Total amount of Exp needed to reach level (ex. to reach level 99 you need 20000000 xp)
      */
-    Q_INVOKABLE quint32 totalExpForLevel(int who, int level);
+    static Q_INVOKABLE quint32 totalExpForLevel(int who, int level);
 
     /*! \brief experance needed to level up
      * \param who Characters id number
      * \param level Level you are trying to reach
      * \return Exp needed to reach the next level. (i.e from 9 to 10 you need 50 exp)
      */
-    Q_INVOKABLE quint32 tnlForLevel(int who, int level);
+    static Q_INVOKABLE quint32 tnlForLevel(int who, int level);
 
     /*! \brief how much to increase stat on level up
      * \param who Characters id number
@@ -156,77 +156,76 @@ public:
      * \param next_lvl level the character is becoming
      * \return how many points to be put in stat.
      */
-    Q_INVOKABLE int statGain(int who, int stat, int stat_amount, int current_lvl, int next_lvl);
+    static Q_INVOKABLE int statGain(int who, int stat, int stat_amount, int current_lvl, int next_lvl);
 
     /*! \brief convert bit to limit offset
      * \param bit to convert
      * \return limit offset to change
      */
-    Q_INVOKABLE int limitBitConvert(int bit);
+    static Q_INVOKABLE int limitBitConvert(int bit);
 private:
-
     /*! \brief characters grade in a stat
     * \param who Characters id number
     * \param stat Stat you want to get grade for (stat: 0 str, 1 vit, 2 mag, 3 spi, 4 dex, 5 luck,6 hp,7mp)
     * \return characters grade in a stat
     */
-    int stat_grade(int who, int stat);
+    static int stat_grade(int who, int stat);
 
     /*! \brief characters base mp for set of levels
     * \param who Characters id number
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return characters base mp for that bracket
     */
-    int mp_base(int who, int lvl_bracket);
+    static int mp_base(int who, int lvl_bracket);
 
     /*! \brief characters mp gradent for set of levels
     * \param who Characters id number
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return characters mp gradent for bracket
     */
-    int mp_gradent(int who, int lvl_bracket);
+    static int mp_gradent(int who, int lvl_bracket);
 
     /*! \brief characters base hp for set of levels
     * \param who Characters id number
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return characters base hp for that bracket
     */
-    int hp_base(int who, int lvl_bracket);
+    static int hp_base(int who, int lvl_bracket);
 
     /*! \brief characters mp gradent for set of levels
     * \param who Characters id number
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return characters mp gradent for bracket
     */
-    int hp_gradent(int who, int lvl_bracket);
+    static int hp_gradent(int who, int lvl_bracket);
 
     /*! \brief characters base luck for set of levels
     * \param who Characters id number
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return characters base luck for that bracket
     */
-    int luck_base(int who, int lvl_bracket);
+    static int luck_base(int who, int lvl_bracket);
 
     /*! \brief characters luck gradent for set of levels
     * \param who Characters id number
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return characters luck gradent for bracket
     */
-    int luck_gradent(int who, int lvl_bracket);
+    static int luck_gradent(int who, int lvl_bracket);
 
     /*! \brief base stat for rank in a set of levels
     * \param rank Rank character is at start (grade)
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return base stat for that bracket
     */
-    int stat_base(int rank, int lvl_bracket);
+    static int stat_base(int rank, int lvl_bracket);
 
     /*! \brief characters mp gradent for set of levels
     * \param rank Rank character is at start (grade)
     * \param lvl_bracket bracket the level falls in (0: lvl 0-9 . 1: 10-19. etc..)
     * \return stat gradent for bracket
     */
-    int stat_gradent(int rank, int lvl_bracket);
+    static int stat_gradent(int rank, int lvl_bracket);
 
     /*! \struct Character
      *  \brief Holds all data for a single Character
@@ -256,7 +255,11 @@ private:
      * \param who whos data to get Or empty data if invalid.
      * \return character data.
      */
-    const FF7Char::Character& character(int who);
+    /**
+     * @brief Get the FF7Item Instance.
+     * @sa qmlSingletonRegister()
+     */
+    static const FF7Char::Character& character(int who);
     FF7Char *operator = (FF7Char &other) = delete;
     FF7Char(const FF7Char &other) = delete;
     explicit FF7Char(QObject *parent = nullptr);

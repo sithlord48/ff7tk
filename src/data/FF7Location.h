@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -39,7 +39,7 @@ public:
     /**
      * @brief Register The FF7Location Singleton for QML
      */
-    QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
 
     /*!
     * \brief get filename for location (flevel file)
@@ -47,7 +47,7 @@ public:
     * \return filename of the location
     *  \sa fileName(int,int)
     */
-    Q_INVOKABLE const QString &fileName(int index);
+    static Q_INVOKABLE const QString &fileName(int index);
 
     /*! \brief get filename for location (flevel file)
     *  \param MapID Map Number location is on
@@ -55,124 +55,124 @@ public:
     *  \return filename of the location
     * \sa fileName(int)
     */
-    Q_INVOKABLE const QString &fileName(int MapID, int LocID);
+    static Q_INVOKABLE const QString &fileName(int MapID, int LocID);
 
     /*! \brief locations String showing menu
      * \param index Number on the locations list
      * \return UnTranslated location string (as shown in menu/save preview)
      * \sa locationString(QString)
      */
-    Q_INVOKABLE QString rawLocationString(int index);
+    static Q_INVOKABLE QString rawLocationString(int index);
 
     /*! \brief locations String showing menu
      * \param fileName fileName of location
      * \return UnTranslated location string (as shown in menu/save preview)
      * \sa locationString(int)
      */
-    Q_INVOKABLE QString rawLocationString(const QString &fileName);
+    static Q_INVOKABLE QString rawLocationString(const QString &fileName);
 
     /*! \brief locations String showing menu
      * \param index Number on the locations list
      * \return Translated location string (as shown in menu/save preview)
      * \sa locationString(QString)
      */
-    Q_INVOKABLE QString locationString(int index);
+    static Q_INVOKABLE QString locationString(int index);
 
     /*! \brief locations String showing menu
      * \param fileName fileName of location
      * \return Translated location string (as shown in menu/save preview)
      * \sa locationString(int)
      */
-    Q_INVOKABLE QString locationString(const QString &fileName);
+    static Q_INVOKABLE QString locationString(const QString &fileName);
 
     /*! \brief get map id number
      *  \param index Number on the locations list
      *  \return MapID as QString
      *  \sa mapID(QString)
      */
-    Q_INVOKABLE const QString &mapID(int index);
+    static Q_INVOKABLE const QString &mapID(int index);
 
     /*! \brief get map id number
      *  \param fileName fileName of location
      *  \return MapID as QString
      *  \sa mapID(int)
      */
-    Q_INVOKABLE const QString &mapID(const QString &fileName);
+    static Q_INVOKABLE const QString &mapID(const QString &fileName);
 
     /*! \brief get location id number
      *  \param index Number on the locations list
      *  \return location id as QString
      *  \sa locationID(QString)
      */
-    Q_INVOKABLE const QString &locationID(int index);
+    static Q_INVOKABLE const QString &locationID(int index);
 
     /*! \brief get location id number
      *  \param fileName fileName of location
      *  \return locationID as QString
      *  \sa locationID(int)
      */
-    Q_INVOKABLE const QString &locationID(const QString &fileName);
+    static Q_INVOKABLE const QString &locationID(const QString &fileName);
 
     /*! \brief x coord of save or valid placement
      *  \param index Number on the locations list
      *  \return x as QString
      *  \sa x(QString)
      */
-    Q_INVOKABLE const QString &x(int index);
+    static Q_INVOKABLE const QString &x(int index);
 
     /*! \brief x coord of save or valid placement
      *  \param fileName fileName of location
      *  \return x as QString
      *  \sa x(int)
      */
-    Q_INVOKABLE const QString &x(const QString &fileName);
+    static Q_INVOKABLE const QString &x(const QString &fileName);
 
     /*! \brief y coord of save or valid placement
      *  \param index Number on the locations list
      *  \return y as QString
      *  \sa y(QString)
      */
-    Q_INVOKABLE const QString &y(int index);
+    static Q_INVOKABLE const QString &y(int index);
 
     /*! \brief y coord of save or valid placement
      *  \param fileName fileName of location
      *  \return y as QString
      *  \sa y(int)
      */
-    Q_INVOKABLE const QString &y(const QString &fileName);
+    static Q_INVOKABLE const QString &y(const QString &fileName);
 
     /*! \brief triangle of save or valid placement
      *  \param index Number on the locations list
      *  \return triangle as QString
      *  \sa t(QString)
      */
-    Q_INVOKABLE const QString &t(int index);
+    static Q_INVOKABLE const QString &t(int index);
 
     /*! \brief triangle of save or valid placement
     *  \param fileName fileName of location
     *  \return t as QString
     *  \sa t(int)
     */
-    Q_INVOKABLE const QString &t(const QString &fileName);
+    static Q_INVOKABLE const QString &t(const QString &fileName);
 
     /*! \brief direction your facing
      *  \param index Number on the locations list
      *  \return d as QString
      *  \sa d(QString)
      */
-    Q_INVOKABLE const QString &d(int index);
+    static Q_INVOKABLE const QString &d(int index);
 
     /*! \brief direction your facing
     *  \param fileName fileName of location
     *  \return d as QString
     *  \sa d(int)
     */
-    Q_INVOKABLE const QString &d(const QString &fileName);
+    static Q_INVOKABLE const QString &d(const QString &fileName);
 
     /*! \brief how many items on the location list do we have
      *  \return length of Locations
      */
-    Q_INVOKABLE int size() const;
+    static Q_INVOKABLE int size();
 private:
     FF7Location *operator = (FF7Location &other) = delete;
     FF7Location(const FF7Location &other) = delete;
@@ -199,14 +199,14 @@ private:
      * \param index
      * \return Locations at index or emptyLocation
      */
-    const FF7Location::LOCATION &location(int index);
+    static const FF7Location::LOCATION &location(int index);
 
     /*!
      * \brief location return
      * \param filename
      * \return Location with [filename] or emptyLocation
      */
-    const FF7Location::LOCATION &location(const QString &filename);
+    static const FF7Location::LOCATION &location(const QString &filename);
 
     struct FF7LocationPrivate {
         inline static const LOCATION _emptyLocation {QString(), QString(), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")};
