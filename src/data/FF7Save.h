@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2021  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -544,10 +544,10 @@ public:
     //item info
     quint16 item(int s, int item_num); //return raw ff7item
     QList<quint16> items(int s);// return all items
-    quint16 itemId(int s, int item_num);
-    quint16 itemId(quint16 rawitem);
-    quint8 itemQty(int s, int item_num);
-    quint8 itemQty(quint16 rawitem);
+//    quint16 itemId(int s, int item_num);
+//    quint16 itemId(quint16 rawitem);
+//    quint8 itemQty(int s, int item_num);
+//    quint8 itemQty(quint16 rawitem);
     void setItems(int s, QList<quint16> items);
     void setItem(int s, int item_num, quint16 rawitem);
     void setItem(int s, int item_num, quint16 new_id, quint8 new_qty);
@@ -1033,8 +1033,6 @@ private:
     void fix_psx_header(int s);
     void fix_vmp_header(void);
     void fix_vmc_header(void);
-    quint16 itemDecode(quint16 itemraw);
-    quint16 itemEncode(quint16 id, quint8 qty);
     void vmcRegionEval(int s);
     //data members
     FF7SLOT buffer_slot;// hold a buffer slot
