@@ -983,7 +983,7 @@ void FF7Save_Test::test_generatePSSignaure()
 {
     QByteArray checkVal = QByteArrayLiteral("\x65\xCF\x0C\x76\xDE\x7F\xDB\x89\x52\x32\x55\x46\xFA\x78\xD5\x62\x95\xF4\x2C\xFC");
     ff7save->setFormat(FF7SaveInfo::FORMAT::PS3);
-    QCOMPARE(ff7save->generatePsSaveSignature(ff7save->slotPsxRawData(0), FF7SaveInfo::instance()->signingKey(FF7SaveInfo::FORMAT::PS3)), checkVal);
+    QCOMPARE(ff7save->generatePsSaveSignature(ff7save->slotPsxRawData(0), FF7SaveInfo::signingKey(FF7SaveInfo::FORMAT::PS3)), checkVal);
     ff7save->setFormat(FF7SaveInfo::FORMAT::PSX);
 }
 

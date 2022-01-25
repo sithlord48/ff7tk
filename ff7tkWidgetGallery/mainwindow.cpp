@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2021 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -153,7 +153,7 @@ void MainWindow::on_btn_showmetaData_clicked()
 void MainWindow::on_btn_slotSelect_clicked()
 {
     FF7Save *ff7save = new FF7Save();
-    QString fileFilter = FF7SaveInfo::instance()->knownTypesFilter();
+    QString fileFilter = FF7SaveInfo::knownTypesFilter();
     QString filename = QFileDialog::getOpenFileName(this, "Select A Save To Preview", QDir::homePath(), fileFilter);
     if (!filename.isEmpty()) {
         if (ff7save->loadFile(filename)) {
