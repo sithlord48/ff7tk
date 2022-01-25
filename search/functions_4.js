@@ -33,5 +33,5 @@ var searchData=
   ['extract',['extract',['../classIsoFile.html#a93ccdc92670f46e28777ed77063288aa',1,'IsoFile::extract()'],['../classIsoArchive.html#a9e278742202100092a24ea61cbb0c99c',1,'IsoArchive::extract()']]],
   ['extractall',['extractAll',['../classIsoArchive.html#a17b3fb949de0c842c655eed0bc3e8ea7',1,'IsoArchive']]],
   ['extractdir',['extractDir',['../classIsoArchive.html#ac7d9b027d1b06095b6a006ee994b24fc',1,'IsoArchive']]],
-  ['extrapsvoffsets',['extraPSVOffsets',['../classFF7SaveInfo.html#a6f4e21f7abc72b5db39f93f8d6fe5598',1,'FF7SaveInfo']]]
+  ['extrapsvoffsets',['extraPSVOffsets',['../classFF7SaveInfo.html#a1acc4c4d70aa30f9acbeb419d0cc9bab',1,'FF7SaveInfo']]]
 ];

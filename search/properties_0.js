@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['japanese',['japanese',['../classFF7TEXT.html#ac276791ccbff2a53a1ba0c3934d2e024',1,'FF7TEXT']]]
+  ['japanese',['japanese',['../classFF7Text.html#a9d1b571a4886a57381bb2bf2bc8b2044',1,'FF7Text']]]
 ];

@@ -13,9 +13,9 @@ var searchData=
   ['timesused3_5fchanged',['timesused3_changed',['../classCharEditor.html#ab5135cbc7d9b19094acbb52df8cad331',1,'CharEditor']]],
   ['tnlforlevel',['tnlForLevel',['../classFF7Char.html#a18062766aa41fe06a60aa15302209fbe',1,'FF7Char']]],
   ['toback',['toBack',['../classLgpIterator.html#aa2000c2ca799bfffa7fe484e9283e88e',1,'LgpIterator']]],
-  ['toff7',['toFF7',['../classFF7TEXT.html#a606af7a2ce379148b20d6e1c4cdf207e',1,'FF7TEXT']]],
+  ['toff7',['toFF7',['../classFF7Text.html#aa54bf6a71daa2371e41bc360191435cf',1,'FF7Text']]],
   ['tofront',['toFront',['../classLgpIterator.html#a6f62f2423e8cc9cde1838fb50e30f71e',1,'LgpIterator']]],
-  ['topc',['toPC',['../classFF7TEXT.html#ab10b0767b3087b47bbf365264f633e91',1,'FF7TEXT']]],
+  ['topc',['toPC',['../classFF7Text.html#adc2284d0ff3676c86bc2169aca8d13e3',1,'FF7Text']]],
   ['topscolor',['toPsColor',['../classPsColor.html#ad03216439f0a23d421dfe8d512c93bf7',1,'PsColor']]],
   ['totalexpforlevel',['totalExpForLevel',['../classFF7Char.html#a34f559c5d6f76eeefe2f2cd0f6ad1e5c',1,'FF7Char']]],
   ['turtleparadiseflyerseen',['turtleParadiseFlyerSeen',['../classFF7Save.html#aeb6cd666ce6048e3d0d297031e1992be',1,'FF7Save']]],
@@ -24,7 +24,7 @@ var searchData=
   ['tutsub',['tutSub',['../classFF7Save.html#a29ba17f967369c2f8ba99609348033e4',1,'FF7Save::tutSub(int s)'],['../classFF7Save.html#af0591da1401d72fb405a03d0a7060b0e',1,'FF7Save::tutSub(int s, int bit)']]],
   ['type',['type',['../classFF7Item.html#a5a65c0344d2e31b5ce2c7855d08cef68',1,'FF7Item::type()'],['../classFF7Materia.html#a392fe848338096fdf864138b33148741',1,'FF7Materia::type()']]],
   ['typechanged',['typeChanged',['../classChocoboEditor.html#ac52e66225c2fca12c9852a827b32b21c',1,'ChocoboEditor::typeChanged()'],['../classChocoboManager.html#a90dd5dff3b23cbeb5b5987f1e5bba478',1,'ChocoboManager::typeChanged()']]],
-  ['typedescription',['typeDescription',['../classFF7SaveInfo.html#a91d639ff256cce97d48db959f213660c',1,'FF7SaveInfo']]],
-  ['typeextension',['typeExtension',['../classFF7SaveInfo.html#a6c92a6150e1e04b463b5e1d403a62d19',1,'FF7SaveInfo']]],
-  ['typefilter',['typeFilter',['../classFF7SaveInfo.html#ad5a67d9c3ecacc38521d3d8daad7053c',1,'FF7SaveInfo']]]
+  ['typedescription',['typeDescription',['../classFF7SaveInfo.html#a3ab9a2af1b4984e7923679ac2ecb920b',1,'FF7SaveInfo']]],
+  ['typeextension',['typeExtension',['../classFF7SaveInfo.html#a785703a3c16374c1c5abcb4e481dc2d3',1,'FF7SaveInfo']]],
+  ['typefilter',['typeFilter',['../classFF7SaveInfo.html#a5f33b075794a0aa12e19b305d324b5e1',1,'FF7SaveInfo']]]
 ];

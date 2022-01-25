@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['languagechanged',['languageChanged',['../classFF7TEXT.html#a61cd186715db046ab6289782fd72bb97',1,'FF7TEXT']]],
+  ['languagechanged',['languageChanged',['../classFF7Text.html#a270fbfc9df12251d262500f294e7c231',1,'FF7Text']]],
   ['lck',['lck',['../classCharEditor.html#a5a1591bb3ca7188ebc4aab63b8643388',1,'CharEditor']]],
   ['lck_5fchanged',['lck_changed',['../classCharEditor.html#a6b71eb4242f2b39f869ee1c4c6e6b420',1,'CharEditor']]],
   ['lckbonus',['lckBonus',['../classCharEditor.html#a1e86a0b2c5dd04e4345c17d42698f249',1,'CharEditor']]],

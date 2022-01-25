@@ -10,8 +10,7 @@ var searchData=
   ['ff7materia',['FF7Materia',['../classFF7Materia.html',1,'']]],
   ['ff7save',['FF7Save',['../classFF7Save.html',1,'']]],
   ['ff7saveinfo',['FF7SaveInfo',['../classFF7SaveInfo.html',1,'']]],
-  ['ff7saveinfoprivate',['FF7SaveInfoPrivate',['../structFF7SaveInfo_1_1FF7SaveInfoPrivate.html',1,'FF7SaveInfo']]],
   ['ff7slot',['FF7SLOT',['../structFF7SLOT.html',1,'']]],
-  ['ff7text',['FF7TEXT',['../classFF7TEXT.html',1,'']]],
+  ['ff7text',['FF7Text',['../classFF7Text.html',1,'']]],
   ['fielditem',['FieldItem',['../structFieldItem.html',1,'']]]
 ];

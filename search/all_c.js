@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['languagechanged',['languageChanged',['../classFF7TEXT.html#a61cd186715db046ab6289782fd72bb97',1,'FF7TEXT']]],
+  ['languagechanged',['languageChanged',['../classFF7Text.html#a270fbfc9df12251d262500f294e7c231',1,'FF7Text']]],
   ['lariat',['Lariat',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a5d175f070ed225dcb96faeb9aaa8a6ec',1,'FF7Item']]],
   ['lasannut',['LasanNut',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a07a0a8fb7f1c724548ade8e0bd8216ac',1,'FF7Item']]],
   ['lck',['lck',['../classCharEditor.html#a5a1591bb3ca7188ebc4aab63b8643388',1,'CharEditor']]],

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.80.23</span>
+   &#160;<span id="projectnumber">0.80.24</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -63,7 +63,6 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classFF7SaveInfo-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -83,11 +82,6 @@ Collaboration diagram for FF7SaveInfo:</div>
 <div class="center"><img src="classFF7SaveInfo__coll__graph.png" border="0" usemap="#FF7SaveInfo_coll__map" alt="Collaboration graph"/></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFF7SaveInfo_1_1FF7SaveInfoPrivate.html">FF7SaveInfoPrivate</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a26b833c52018990f2bd00a27bed3b958"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FORMAT</a> { <br />
@@ -128,95 +122,92 @@ Public Types</h2></td></tr>
 </td></tr>
 <tr class="separator:aafa364c45bcd512fe7b87b585608f446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a76e4373d3dce82b1a77a6816c3bb76df"><td class="memItemLeft" align="right" valign="top">QObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a76e4373d3dce82b1a77a6816c3bb76df">qmlSingletonRegister</a> (QQmlEngine *engine, QJSEngine *scriptEngine)</td></tr>
-<tr class="memdesc:a76e4373d3dce82b1a77a6816c3bb76df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register The <a class="el" href="classFF7SaveInfo.html">FF7SaveInfo</a> Singleton for QML.  <a href="#a76e4373d3dce82b1a77a6816c3bb76df">More...</a><br /></td></tr>
-<tr class="separator:a76e4373d3dce82b1a77a6816c3bb76df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afad9d03be11c3b20e30b917309937b6c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#afad9d03be11c3b20e30b917309937b6c">fileSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:afad9d03be11c3b20e30b917309937b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Size of a Final Fantasy VII Save file.  <a href="#afad9d03be11c3b20e30b917309937b6c">More...</a><br /></td></tr>
-<tr class="separator:afad9d03be11c3b20e30b917309937b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e8a5796ad87ec625ef9c234da702334"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a3e8a5796ad87ec625ef9c234da702334">fileHeaderSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a3e8a5796ad87ec625ef9c234da702334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the format's file header.  <a href="#a3e8a5796ad87ec625ef9c234da702334">More...</a><br /></td></tr>
-<tr class="separator:a3e8a5796ad87ec625ef9c234da702334"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16cc3736f9cd88bf70cc7bae8272ed8a"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a16cc3736f9cd88bf70cc7bae8272ed8a">slotHeaderSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a16cc3736f9cd88bf70cc7bae8272ed8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the format's slot header.  <a href="#a16cc3736f9cd88bf70cc7bae8272ed8a">More...</a><br /></td></tr>
-<tr class="separator:a16cc3736f9cd88bf70cc7bae8272ed8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7153feaf9d545ef4d9f4aa65348eee91"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a7153feaf9d545ef4d9f4aa65348eee91">slotFooterSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a7153feaf9d545ef4d9f4aa65348eee91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the format's slot footer.  <a href="#a7153feaf9d545ef4d9f4aa65348eee91">More...</a><br /></td></tr>
-<tr class="separator:a7153feaf9d545ef4d9f4aa65348eee91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58b55663f773f26702473c6eac758b3d"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a58b55663f773f26702473c6eac758b3d">slotCount</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a58b55663f773f26702473c6eac758b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of save slots in format.  <a href="#a58b55663f773f26702473c6eac758b3d">More...</a><br /></td></tr>
-<tr class="separator:a58b55663f773f26702473c6eac758b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab950649dd10bd38dd12f6f6af14936b"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#aab950649dd10bd38dd12f6f6af14936b">fileIdentifier</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:aab950649dd10bd38dd12f6f6af14936b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magic Numbers for Final Fantasy VII Save Files.  <a href="#aab950649dd10bd38dd12f6f6af14936b">More...</a><br /></td></tr>
-<tr class="separator:aab950649dd10bd38dd12f6f6af14936b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a815ec69d720e0924ed975c33513e896c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a815ec69d720e0924ed975c33513e896c">fileHeader</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a815ec69d720e0924ed975c33513e896c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard File Header for Format.  <a href="#a815ec69d720e0924ed975c33513e896c">More...</a><br /></td></tr>
-<tr class="separator:a815ec69d720e0924ed975c33513e896c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b7f91260de342a713f3b36316d7195c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a2b7f91260de342a713f3b36316d7195c">slotHeader</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format, int slot=0) const</td></tr>
-<tr class="memdesc:a2b7f91260de342a713f3b36316d7195c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard Slot Header for Format.  <a href="#a2b7f91260de342a713f3b36316d7195c">More...</a><br /></td></tr>
-<tr class="separator:a2b7f91260de342a713f3b36316d7195c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e6dada1f5d13d1fb4d6dcfbe732c224"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a1e6dada1f5d13d1fb4d6dcfbe732c224">slotFooter</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a1e6dada1f5d13d1fb4d6dcfbe732c224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard Slot Footer for Format.  <a href="#a1e6dada1f5d13d1fb4d6dcfbe732c224">More...</a><br /></td></tr>
-<tr class="separator:a1e6dada1f5d13d1fb4d6dcfbe732c224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e915d20141689df51fc3fead32836f2"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a8e915d20141689df51fc3fead32836f2">signingKey</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a8e915d20141689df51fc3fead32836f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key Used to Sign The Format.  <a href="#a8e915d20141689df51fc3fead32836f2">More...</a><br /></td></tr>
-<tr class="separator:a8e915d20141689df51fc3fead32836f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f4e21f7abc72b5db39f93f8d6fe5598"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a6f4e21f7abc72b5db39f93f8d6fe5598">extraPSVOffsets</a> (<a class="el" href="classFF7SaveInfo.html#aafa364c45bcd512fe7b87b585608f446">FF7SaveInfo::PSVINFO</a> info) const</td></tr>
-<tr class="memdesc:a6f4e21f7abc72b5db39f93f8d6fe5598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra off set data for psv format.  <a href="#a6f4e21f7abc72b5db39f93f8d6fe5598">More...</a><br /></td></tr>
-<tr class="separator:a6f4e21f7abc72b5db39f93f8d6fe5598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca6bc4d74770c481dde53ccdb6e46b30"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#aca6bc4d74770c481dde53ccdb6e46b30">signingIV</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:aca6bc4d74770c481dde53ccdb6e46b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">IV Used to Sign The Format.  <a href="#aca6bc4d74770c481dde53ccdb6e46b30">More...</a><br /></td></tr>
-<tr class="separator:aca6bc4d74770c481dde53ccdb6e46b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267cee12b9b5f41ab5f4004901cefa05"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a267cee12b9b5f41ab5f4004901cefa05">fileSeedOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a267cee12b9b5f41ab5f4004901cefa05"><td class="mdescLeft">&#160;</td><td class="mdescRight">The offset for the seed for signed saves.  <a href="#a267cee12b9b5f41ab5f4004901cefa05">More...</a><br /></td></tr>
-<tr class="separator:a267cee12b9b5f41ab5f4004901cefa05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04e83702569bc804f5088ceb2fc4775f"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a04e83702569bc804f5088ceb2fc4775f">fileSignatureOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a04e83702569bc804f5088ceb2fc4775f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The offset for the signature for signed saves.  <a href="#a04e83702569bc804f5088ceb2fc4775f">More...</a><br /></td></tr>
-<tr class="separator:a04e83702569bc804f5088ceb2fc4775f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec058531b64db345b35899c08e206ac"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a5ec058531b64db345b35899c08e206ac">fileSignatureSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a5ec058531b64db345b35899c08e206ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size for the signature for signed saves.  <a href="#a5ec058531b64db345b35899c08e206ac">More...</a><br /></td></tr>
-<tr class="separator:a5ec058531b64db345b35899c08e206ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91d639ff256cce97d48db959f213660c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a91d639ff256cce97d48db959f213660c">typeDescription</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a91d639ff256cce97d48db959f213660c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description of the File type.  <a href="#a91d639ff256cce97d48db959f213660c">More...</a><br /></td></tr>
-<tr class="separator:a91d639ff256cce97d48db959f213660c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9765c3c3a086bb8b5e4ec4fbdbc1e45f"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a9765c3c3a086bb8b5e4ec4fbdbc1e45f">slotSize</a> () const</td></tr>
-<tr class="memdesc:a9765c3c3a086bb8b5e4ec4fbdbc1e45f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of an FF7Slot.  <a href="#a9765c3c3a086bb8b5e4ec4fbdbc1e45f">More...</a><br /></td></tr>
-<tr class="separator:a9765c3c3a086bb8b5e4ec4fbdbc1e45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad52a765cb9b0bf095c612f90fe3fcaaa"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QRegularExpression&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#ad52a765cb9b0bf095c612f90fe3fcaaa">validNames</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:ad52a765cb9b0bf095c612f90fe3fcaaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a constructed RegularExpression to check for valid save name.  <a href="#ad52a765cb9b0bf095c612f90fe3fcaaa">More...</a><br /></td></tr>
-<tr class="separator:ad52a765cb9b0bf095c612f90fe3fcaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c92a6150e1e04b463b5e1d403a62d19"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a6c92a6150e1e04b463b5e1d403a62d19">typeExtension</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a6c92a6150e1e04b463b5e1d403a62d19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid Extensions for the File type.  <a href="#a6c92a6150e1e04b463b5e1d403a62d19">More...</a><br /></td></tr>
-<tr class="separator:a6c92a6150e1e04b463b5e1d403a62d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5a67d9c3ecacc38521d3d8daad7053c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#ad5a67d9c3ecacc38521d3d8daad7053c">typeFilter</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:ad5a67d9c3ecacc38521d3d8daad7053c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a constructed filter string for use in save/ load dialogs.  <a href="#ad5a67d9c3ecacc38521d3d8daad7053c">More...</a><br /></td></tr>
-<tr class="separator:ad5a67d9c3ecacc38521d3d8daad7053c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24569d654a92ee753d90c18f3903703e"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a24569d654a92ee753d90c18f3903703e">knownTypesFilter</a> () const</td></tr>
-<tr class="memdesc:a24569d654a92ee753d90c18f3903703e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a constructed filter string for use in save/load Dialogs.  <a href="#a24569d654a92ee753d90c18f3903703e">More...</a><br /></td></tr>
-<tr class="separator:a24569d654a92ee753d90c18f3903703e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f3962cbd5e55490c2349fb2f25052cc"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a2f3962cbd5e55490c2349fb2f25052cc">isTypePC</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a2f3962cbd5e55490c2349fb2f25052cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is using the PC format internally.  <a href="#a2f3962cbd5e55490c2349fb2f25052cc">More...</a><br /></td></tr>
-<tr class="separator:a2f3962cbd5e55490c2349fb2f25052cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2ec793c9fb73ba9a5b1c3d62cb80dab"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#ab2ec793c9fb73ba9a5b1c3d62cb80dab">isTypeVMC</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:ab2ec793c9fb73ba9a5b1c3d62cb80dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is a Virtual Memory card.  <a href="#ab2ec793c9fb73ba9a5b1c3d62cb80dab">More...</a><br /></td></tr>
-<tr class="separator:ab2ec793c9fb73ba9a5b1c3d62cb80dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81c8db684124d3cd60183fb594ff0fd1"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a81c8db684124d3cd60183fb594ff0fd1">isTypeSSS</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a81c8db684124d3cd60183fb594ff0fd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is a SingleSlot Save.  <a href="#a81c8db684124d3cd60183fb594ff0fd1">More...</a><br /></td></tr>
-<tr class="separator:a81c8db684124d3cd60183fb594ff0fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a807d2f8920bc2590d5477b1e3b85909c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a807d2f8920bc2590d5477b1e3b85909c">vmcHeaderOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a807d2f8920bc2590d5477b1e3b85909c"><td class="mdescLeft">&#160;</td><td class="mdescRight">mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves.  <a href="#a807d2f8920bc2590d5477b1e3b85909c">More...</a><br /></td></tr>
-<tr class="separator:a807d2f8920bc2590d5477b1e3b85909c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a9fbfd0a2cef04b44191ecc0190d558"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a7a9fbfd0a2cef04b44191ecc0190d558">psxSaveNameOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format) const</td></tr>
-<tr class="memdesc:a7a9fbfd0a2cef04b44191ecc0190d558"><td class="mdescLeft">&#160;</td><td class="mdescRight">psxSaveNameOffset Return the offset where the psxSaveName starts. Valid only for PS3, PGE and PDA save formats.  <a href="#a7a9fbfd0a2cef04b44191ecc0190d558">More...</a><br /></td></tr>
-<tr class="separator:a7a9fbfd0a2cef04b44191ecc0190d558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac77e8b1505625a444cd9919edd71a988"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFF7SaveInfo.html">FF7SaveInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#ac77e8b1505625a444cd9919edd71a988">instance</a> ()</td></tr>
 <tr class="memdesc:ac77e8b1505625a444cd9919edd71a988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classFF7SaveInfo.html">FF7SaveInfo</a> Instance.  <a href="#ac77e8b1505625a444cd9919edd71a988">More...</a><br /></td></tr>
 <tr class="separator:ac77e8b1505625a444cd9919edd71a988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76e4373d3dce82b1a77a6816c3bb76df"><td class="memItemLeft" align="right" valign="top">static QObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a76e4373d3dce82b1a77a6816c3bb76df">qmlSingletonRegister</a> (QQmlEngine *engine, QJSEngine *scriptEngine)</td></tr>
+<tr class="memdesc:a76e4373d3dce82b1a77a6816c3bb76df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register The <a class="el" href="classFF7SaveInfo.html">FF7SaveInfo</a> Singleton for QML.  <a href="#a76e4373d3dce82b1a77a6816c3bb76df">More...</a><br /></td></tr>
+<tr class="separator:a76e4373d3dce82b1a77a6816c3bb76df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a476280a334f4d233aaed5ff38a049d0b"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a476280a334f4d233aaed5ff38a049d0b">fileSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a476280a334f4d233aaed5ff38a049d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Size of a Final Fantasy VII Save file.  <a href="#a476280a334f4d233aaed5ff38a049d0b">More...</a><br /></td></tr>
+<tr class="separator:a476280a334f4d233aaed5ff38a049d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52a0ddc01f6829601a528da394528297"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a52a0ddc01f6829601a528da394528297">fileHeaderSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a52a0ddc01f6829601a528da394528297"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the format's file header.  <a href="#a52a0ddc01f6829601a528da394528297">More...</a><br /></td></tr>
+<tr class="separator:a52a0ddc01f6829601a528da394528297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad43b89e1a82e0c55253e8b769d356b46"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#ad43b89e1a82e0c55253e8b769d356b46">slotHeaderSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:ad43b89e1a82e0c55253e8b769d356b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the format's slot header.  <a href="#ad43b89e1a82e0c55253e8b769d356b46">More...</a><br /></td></tr>
+<tr class="separator:ad43b89e1a82e0c55253e8b769d356b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbc30c6625718b23814cbce22af506bf"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#afbc30c6625718b23814cbce22af506bf">slotFooterSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:afbc30c6625718b23814cbce22af506bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the format's slot footer.  <a href="#afbc30c6625718b23814cbce22af506bf">More...</a><br /></td></tr>
+<tr class="separator:afbc30c6625718b23814cbce22af506bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d1bb06332237bf68de6a7de09f3d68c"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a5d1bb06332237bf68de6a7de09f3d68c">slotCount</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a5d1bb06332237bf68de6a7de09f3d68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of save slots in format.  <a href="#a5d1bb06332237bf68de6a7de09f3d68c">More...</a><br /></td></tr>
+<tr class="separator:a5d1bb06332237bf68de6a7de09f3d68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39742e9283b4fe0353fbe6687414314f"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a39742e9283b4fe0353fbe6687414314f">fileIdentifier</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a39742e9283b4fe0353fbe6687414314f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magic Numbers for Final Fantasy VII Save Files.  <a href="#a39742e9283b4fe0353fbe6687414314f">More...</a><br /></td></tr>
+<tr class="separator:a39742e9283b4fe0353fbe6687414314f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85745afaa1042238083cc0a1e62ef0d3"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a85745afaa1042238083cc0a1e62ef0d3">fileHeader</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a85745afaa1042238083cc0a1e62ef0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard File Header for Format.  <a href="#a85745afaa1042238083cc0a1e62ef0d3">More...</a><br /></td></tr>
+<tr class="separator:a85745afaa1042238083cc0a1e62ef0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab504bf3966f47d89a434b116cd0dfbc1"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#ab504bf3966f47d89a434b116cd0dfbc1">slotHeader</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format, int slot=0)</td></tr>
+<tr class="memdesc:ab504bf3966f47d89a434b116cd0dfbc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard Slot Header for Format.  <a href="#ab504bf3966f47d89a434b116cd0dfbc1">More...</a><br /></td></tr>
+<tr class="separator:ab504bf3966f47d89a434b116cd0dfbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221d9efbbf15d52135e0d3a363d734ba"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a221d9efbbf15d52135e0d3a363d734ba">slotFooter</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a221d9efbbf15d52135e0d3a363d734ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard Slot Footer for Format.  <a href="#a221d9efbbf15d52135e0d3a363d734ba">More...</a><br /></td></tr>
+<tr class="separator:a221d9efbbf15d52135e0d3a363d734ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57c40e0f82983b79d554b80cc0de5b49"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a57c40e0f82983b79d554b80cc0de5b49">signingKey</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a57c40e0f82983b79d554b80cc0de5b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key Used to Sign The Format.  <a href="#a57c40e0f82983b79d554b80cc0de5b49">More...</a><br /></td></tr>
+<tr class="separator:a57c40e0f82983b79d554b80cc0de5b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1acc4c4d70aa30f9acbeb419d0cc9bab"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a1acc4c4d70aa30f9acbeb419d0cc9bab">extraPSVOffsets</a> (<a class="el" href="classFF7SaveInfo.html#aafa364c45bcd512fe7b87b585608f446">FF7SaveInfo::PSVINFO</a> info)</td></tr>
+<tr class="memdesc:a1acc4c4d70aa30f9acbeb419d0cc9bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra off set data for psv format.  <a href="#a1acc4c4d70aa30f9acbeb419d0cc9bab">More...</a><br /></td></tr>
+<tr class="separator:a1acc4c4d70aa30f9acbeb419d0cc9bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e47f18aad955c73be8223fb97f9dc6a"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a5e47f18aad955c73be8223fb97f9dc6a">signingIV</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a5e47f18aad955c73be8223fb97f9dc6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">IV Used to Sign The Format.  <a href="#a5e47f18aad955c73be8223fb97f9dc6a">More...</a><br /></td></tr>
+<tr class="separator:a5e47f18aad955c73be8223fb97f9dc6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed7102c40dcd713536fc30f8ef203fd9"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#aed7102c40dcd713536fc30f8ef203fd9">fileSeedOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:aed7102c40dcd713536fc30f8ef203fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The offset for the seed for signed saves.  <a href="#aed7102c40dcd713536fc30f8ef203fd9">More...</a><br /></td></tr>
+<tr class="separator:aed7102c40dcd713536fc30f8ef203fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0da6bc1b7814f3741f8bb51356351c1"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#af0da6bc1b7814f3741f8bb51356351c1">fileSignatureOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:af0da6bc1b7814f3741f8bb51356351c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The offset for the signature for signed saves.  <a href="#af0da6bc1b7814f3741f8bb51356351c1">More...</a><br /></td></tr>
+<tr class="separator:af0da6bc1b7814f3741f8bb51356351c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d996e82455fbb9fda1cc4107bd7aea6"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a8d996e82455fbb9fda1cc4107bd7aea6">fileSignatureSize</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a8d996e82455fbb9fda1cc4107bd7aea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size for the signature for signed saves.  <a href="#a8d996e82455fbb9fda1cc4107bd7aea6">More...</a><br /></td></tr>
+<tr class="separator:a8d996e82455fbb9fda1cc4107bd7aea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ab9a2af1b4984e7923679ac2ecb920b"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a3ab9a2af1b4984e7923679ac2ecb920b">typeDescription</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a3ab9a2af1b4984e7923679ac2ecb920b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description of the File type.  <a href="#a3ab9a2af1b4984e7923679ac2ecb920b">More...</a><br /></td></tr>
+<tr class="separator:a3ab9a2af1b4984e7923679ac2ecb920b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbaabc81afda1316a254c3f6fce5115"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a1dbaabc81afda1316a254c3f6fce5115">slotSize</a> ()</td></tr>
+<tr class="memdesc:a1dbaabc81afda1316a254c3f6fce5115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of an FF7Slot.  <a href="#a1dbaabc81afda1316a254c3f6fce5115">More...</a><br /></td></tr>
+<tr class="separator:a1dbaabc81afda1316a254c3f6fce5115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a951a018da93439e5ecd82ead48523c78"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QRegularExpression&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a951a018da93439e5ecd82ead48523c78">validNames</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a951a018da93439e5ecd82ead48523c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a constructed RegularExpression to check for valid save name.  <a href="#a951a018da93439e5ecd82ead48523c78">More...</a><br /></td></tr>
+<tr class="separator:a951a018da93439e5ecd82ead48523c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a785703a3c16374c1c5abcb4e481dc2d3"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a785703a3c16374c1c5abcb4e481dc2d3">typeExtension</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a785703a3c16374c1c5abcb4e481dc2d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valid Extensions for the File type.  <a href="#a785703a3c16374c1c5abcb4e481dc2d3">More...</a><br /></td></tr>
+<tr class="separator:a785703a3c16374c1c5abcb4e481dc2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f33b075794a0aa12e19b305d324b5e1"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a5f33b075794a0aa12e19b305d324b5e1">typeFilter</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a5f33b075794a0aa12e19b305d324b5e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a constructed filter string for use in save/ load dialogs.  <a href="#a5f33b075794a0aa12e19b305d324b5e1">More...</a><br /></td></tr>
+<tr class="separator:a5f33b075794a0aa12e19b305d324b5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70e3bb53431c3a56bb0fa8c740633c23"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a70e3bb53431c3a56bb0fa8c740633c23">knownTypesFilter</a> ()</td></tr>
+<tr class="memdesc:a70e3bb53431c3a56bb0fa8c740633c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a constructed filter string for use in save/load Dialogs.  <a href="#a70e3bb53431c3a56bb0fa8c740633c23">More...</a><br /></td></tr>
+<tr class="separator:a70e3bb53431c3a56bb0fa8c740633c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d21e4b3bc4a97df5498a644c73cdd8"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#ac0d21e4b3bc4a97df5498a644c73cdd8">isTypePC</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:ac0d21e4b3bc4a97df5498a644c73cdd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is using the PC format internally.  <a href="#ac0d21e4b3bc4a97df5498a644c73cdd8">More...</a><br /></td></tr>
+<tr class="separator:ac0d21e4b3bc4a97df5498a644c73cdd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a767c092bf2e3125df0611f47669bc78d"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a767c092bf2e3125df0611f47669bc78d">isTypeVMC</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a767c092bf2e3125df0611f47669bc78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is a Virtual Memory card.  <a href="#a767c092bf2e3125df0611f47669bc78d">More...</a><br /></td></tr>
+<tr class="separator:a767c092bf2e3125df0611f47669bc78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61fc5b20a6f567513d2fd7cbb7bd1d0b"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a61fc5b20a6f567513d2fd7cbb7bd1d0b">isTypeSSS</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a61fc5b20a6f567513d2fd7cbb7bd1d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a format is a SingleSlot Save.  <a href="#a61fc5b20a6f567513d2fd7cbb7bd1d0b">More...</a><br /></td></tr>
+<tr class="separator:a61fc5b20a6f567513d2fd7cbb7bd1d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a162bf1e8315aff495cd1c244ffb79591"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a162bf1e8315aff495cd1c244ffb79591">vmcHeaderOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a162bf1e8315aff495cd1c244ffb79591"><td class="mdescLeft">&#160;</td><td class="mdescRight">mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves.  <a href="#a162bf1e8315aff495cd1c244ffb79591">More...</a><br /></td></tr>
+<tr class="separator:a162bf1e8315aff495cd1c244ffb79591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aa4a0975a30cf3590ef95d85d33c0b7"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7SaveInfo.html#a7aa4a0975a30cf3590ef95d85d33c0b7">psxSaveNameOffset</a> (<a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> format)</td></tr>
+<tr class="memdesc:a7aa4a0975a30cf3590ef95d85d33c0b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">psxSaveNameOffset Return the offset where the psxSaveName starts. Valid only for PS3, PGE and PDA save formats.  <a href="#a7aa4a0975a30cf3590ef95d85d33c0b7">More...</a><br /></td></tr>
+<tr class="separator:a7aa4a0975a30cf3590ef95d85d33c0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a26b833c52018990f2bd00a27bed3b958"></a>
@@ -340,20 +331,28 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6f4e21f7abc72b5db39f93f8d6fe5598"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f4e21f7abc72b5db39f93f8d6fe5598">&#9670;&nbsp;</a></span>extraPSVOffsets()</h2>
+<a id="a1acc4c4d70aa30f9acbeb419d0cc9bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1acc4c4d70aa30f9acbeb419d0cc9bab">&#9670;&nbsp;</a></span>extraPSVOffsets()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::extraPSVOffsets </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#aafa364c45bcd512fe7b87b585608f446">FF7SaveInfo::PSVINFO</a>&#160;</td>
           <td class="paramname"><em>info</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Extra off set data for psv format. </p>
@@ -367,20 +366,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a815ec69d720e0924ed975c33513e896c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a815ec69d720e0924ed975c33513e896c">&#9670;&nbsp;</a></span>fileHeader()</h2>
+<a id="a85745afaa1042238083cc0a1e62ef0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85745afaa1042238083cc0a1e62ef0d3">&#9670;&nbsp;</a></span>fileHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QByteArray FF7SaveInfo::fileHeader </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Standard File Header for Format. </p>
@@ -394,20 +401,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3e8a5796ad87ec625ef9c234da702334"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e8a5796ad87ec625ef9c234da702334">&#9670;&nbsp;</a></span>fileHeaderSize()</h2>
+<a id="a52a0ddc01f6829601a528da394528297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52a0ddc01f6829601a528da394528297">&#9670;&nbsp;</a></span>fileHeaderSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::fileHeaderSize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Size of the format's file header. </p>
@@ -421,20 +436,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aab950649dd10bd38dd12f6f6af14936b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab950649dd10bd38dd12f6f6af14936b">&#9670;&nbsp;</a></span>fileIdentifier()</h2>
+<a id="a39742e9283b4fe0353fbe6687414314f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39742e9283b4fe0353fbe6687414314f">&#9670;&nbsp;</a></span>fileIdentifier()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QByteArray FF7SaveInfo::fileIdentifier </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Magic Numbers for Final Fantasy VII Save Files. </p>
@@ -448,20 +471,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a267cee12b9b5f41ab5f4004901cefa05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a267cee12b9b5f41ab5f4004901cefa05">&#9670;&nbsp;</a></span>fileSeedOffset()</h2>
+<a id="aed7102c40dcd713536fc30f8ef203fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed7102c40dcd713536fc30f8ef203fd9">&#9670;&nbsp;</a></span>fileSeedOffset()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::fileSeedOffset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>The offset for the seed for signed saves. </p>
@@ -475,20 +506,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a04e83702569bc804f5088ceb2fc4775f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04e83702569bc804f5088ceb2fc4775f">&#9670;&nbsp;</a></span>fileSignatureOffset()</h2>
+<a id="af0da6bc1b7814f3741f8bb51356351c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0da6bc1b7814f3741f8bb51356351c1">&#9670;&nbsp;</a></span>fileSignatureOffset()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::fileSignatureOffset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>The offset for the signature for signed saves. </p>
@@ -502,20 +541,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5ec058531b64db345b35899c08e206ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ec058531b64db345b35899c08e206ac">&#9670;&nbsp;</a></span>fileSignatureSize()</h2>
+<a id="a8d996e82455fbb9fda1cc4107bd7aea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d996e82455fbb9fda1cc4107bd7aea6">&#9670;&nbsp;</a></span>fileSignatureSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::fileSignatureSize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>The size for the signature for signed saves. </p>
@@ -529,20 +576,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afad9d03be11c3b20e30b917309937b6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afad9d03be11c3b20e30b917309937b6c">&#9670;&nbsp;</a></span>fileSize()</h2>
+<a id="a476280a334f4d233aaed5ff38a049d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a476280a334f4d233aaed5ff38a049d0b">&#9670;&nbsp;</a></span>fileSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::fileSize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>The Size of a Final Fantasy VII Save file. </p>
@@ -584,20 +639,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2f3962cbd5e55490c2349fb2f25052cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f3962cbd5e55490c2349fb2f25052cc">&#9670;&nbsp;</a></span>isTypePC()</h2>
+<a id="ac0d21e4b3bc4a97df5498a644c73cdd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0d21e4b3bc4a97df5498a644c73cdd8">&#9670;&nbsp;</a></span>isTypePC()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool FF7SaveInfo::isTypePC </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Check if a format is using the PC format internally. </p>
@@ -611,20 +674,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a81c8db684124d3cd60183fb594ff0fd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81c8db684124d3cd60183fb594ff0fd1">&#9670;&nbsp;</a></span>isTypeSSS()</h2>
+<a id="a61fc5b20a6f567513d2fd7cbb7bd1d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61fc5b20a6f567513d2fd7cbb7bd1d0b">&#9670;&nbsp;</a></span>isTypeSSS()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool FF7SaveInfo::isTypeSSS </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Check if a format is a SingleSlot Save. </p>
@@ -638,20 +709,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab2ec793c9fb73ba9a5b1c3d62cb80dab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ec793c9fb73ba9a5b1c3d62cb80dab">&#9670;&nbsp;</a></span>isTypeVMC()</h2>
+<a id="a767c092bf2e3125df0611f47669bc78d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a767c092bf2e3125df0611f47669bc78d">&#9670;&nbsp;</a></span>isTypeVMC()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool FF7SaveInfo::isTypeVMC </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Check if a format is a Virtual Memory card. </p>
@@ -665,19 +744,27 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a24569d654a92ee753d90c18f3903703e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24569d654a92ee753d90c18f3903703e">&#9670;&nbsp;</a></span>knownTypesFilter()</h2>
+<a id="a70e3bb53431c3a56bb0fa8c740633c23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70e3bb53431c3a56bb0fa8c740633c23">&#9670;&nbsp;</a></span>knownTypesFilter()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7SaveInfo::knownTypesFilter </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get a constructed filter string for use in save/load Dialogs. </p>
@@ -685,20 +772,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7a9fbfd0a2cef04b44191ecc0190d558"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a9fbfd0a2cef04b44191ecc0190d558">&#9670;&nbsp;</a></span>psxSaveNameOffset()</h2>
+<a id="a7aa4a0975a30cf3590ef95d85d33c0b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aa4a0975a30cf3590ef95d85d33c0b7">&#9670;&nbsp;</a></span>psxSaveNameOffset()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::psxSaveNameOffset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>psxSaveNameOffset Return the offset where the psxSaveName starts. Valid only for PS3, PGE and PDA save formats. </p>
@@ -717,6 +812,9 @@ Static Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QObject * FF7SaveInfo::qmlSingletonRegister </td>
@@ -736,26 +834,39 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Register The <a class="el" href="classFF7SaveInfo.html">FF7SaveInfo</a> Singleton for QML. </p>
 
 </div>
 </div>
-<a id="aca6bc4d74770c481dde53ccdb6e46b30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca6bc4d74770c481dde53ccdb6e46b30">&#9670;&nbsp;</a></span>signingIV()</h2>
+<a id="a5e47f18aad955c73be8223fb97f9dc6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e47f18aad955c73be8223fb97f9dc6a">&#9670;&nbsp;</a></span>signingIV()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QByteArray FF7SaveInfo::signingIV </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>IV Used to Sign The Format. </p>
@@ -769,20 +880,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8e915d20141689df51fc3fead32836f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e915d20141689df51fc3fead32836f2">&#9670;&nbsp;</a></span>signingKey()</h2>
+<a id="a57c40e0f82983b79d554b80cc0de5b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57c40e0f82983b79d554b80cc0de5b49">&#9670;&nbsp;</a></span>signingKey()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QByteArray FF7SaveInfo::signingKey </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Key Used to Sign The Format. </p>
@@ -796,20 +915,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a58b55663f773f26702473c6eac758b3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58b55663f773f26702473c6eac758b3d">&#9670;&nbsp;</a></span>slotCount()</h2>
+<a id="a5d1bb06332237bf68de6a7de09f3d68c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d1bb06332237bf68de6a7de09f3d68c">&#9670;&nbsp;</a></span>slotCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::slotCount </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Number of save slots in format. </p>
@@ -823,20 +950,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1e6dada1f5d13d1fb4d6dcfbe732c224"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e6dada1f5d13d1fb4d6dcfbe732c224">&#9670;&nbsp;</a></span>slotFooter()</h2>
+<a id="a221d9efbbf15d52135e0d3a363d734ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221d9efbbf15d52135e0d3a363d734ba">&#9670;&nbsp;</a></span>slotFooter()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QByteArray FF7SaveInfo::slotFooter </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Standard Slot Footer for Format. </p>
@@ -850,20 +985,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7153feaf9d545ef4d9f4aa65348eee91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7153feaf9d545ef4d9f4aa65348eee91">&#9670;&nbsp;</a></span>slotFooterSize()</h2>
+<a id="afbc30c6625718b23814cbce22af506bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbc30c6625718b23814cbce22af506bf">&#9670;&nbsp;</a></span>slotFooterSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::slotFooterSize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Size of the format's slot footer. </p>
@@ -877,11 +1020,14 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2b7f91260de342a713f3b36316d7195c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b7f91260de342a713f3b36316d7195c">&#9670;&nbsp;</a></span>slotHeader()</h2>
+<a id="ab504bf3966f47d89a434b116cd0dfbc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab504bf3966f47d89a434b116cd0dfbc1">&#9670;&nbsp;</a></span>slotHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QByteArray FF7SaveInfo::slotHeader </td>
@@ -898,9 +1044,14 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Standard Slot Header for Format. </p>
@@ -915,20 +1066,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a16cc3736f9cd88bf70cc7bae8272ed8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16cc3736f9cd88bf70cc7bae8272ed8a">&#9670;&nbsp;</a></span>slotHeaderSize()</h2>
+<a id="ad43b89e1a82e0c55253e8b769d356b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad43b89e1a82e0c55253e8b769d356b46">&#9670;&nbsp;</a></span>slotHeaderSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::slotHeaderSize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Size of the format's slot header. </p>
@@ -942,19 +1101,27 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9765c3c3a086bb8b5e4ec4fbdbc1e45f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9765c3c3a086bb8b5e4ec4fbdbc1e45f">&#9670;&nbsp;</a></span>slotSize()</h2>
+<a id="a1dbaabc81afda1316a254c3f6fce5115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dbaabc81afda1316a254c3f6fce5115">&#9670;&nbsp;</a></span>slotSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::slotSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Size of an FF7Slot. </p>
@@ -962,20 +1129,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a91d639ff256cce97d48db959f213660c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91d639ff256cce97d48db959f213660c">&#9670;&nbsp;</a></span>typeDescription()</h2>
+<a id="a3ab9a2af1b4984e7923679ac2ecb920b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab9a2af1b4984e7923679ac2ecb920b">&#9670;&nbsp;</a></span>typeDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7SaveInfo::typeDescription </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Description of the File type. </p>
@@ -989,20 +1164,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6c92a6150e1e04b463b5e1d403a62d19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c92a6150e1e04b463b5e1d403a62d19">&#9670;&nbsp;</a></span>typeExtension()</h2>
+<a id="a785703a3c16374c1c5abcb4e481dc2d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785703a3c16374c1c5abcb4e481dc2d3">&#9670;&nbsp;</a></span>typeExtension()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QStringList FF7SaveInfo::typeExtension </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Valid Extensions for the File type. </p>
@@ -1016,20 +1199,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad5a67d9c3ecacc38521d3d8daad7053c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5a67d9c3ecacc38521d3d8daad7053c">&#9670;&nbsp;</a></span>typeFilter()</h2>
+<a id="a5f33b075794a0aa12e19b305d324b5e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f33b075794a0aa12e19b305d324b5e1">&#9670;&nbsp;</a></span>typeFilter()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7SaveInfo::typeFilter </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get a constructed filter string for use in save/ load dialogs. </p>
@@ -1043,20 +1234,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad52a765cb9b0bf095c612f90fe3fcaaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad52a765cb9b0bf095c612f90fe3fcaaa">&#9670;&nbsp;</a></span>validNames()</h2>
+<a id="a951a018da93439e5ecd82ead48523c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a951a018da93439e5ecd82ead48523c78">&#9670;&nbsp;</a></span>validNames()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QRegularExpression FF7SaveInfo::validNames </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get a constructed RegularExpression to check for valid save name. </p>
@@ -1070,20 +1269,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a807d2f8920bc2590d5477b1e3b85909c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a807d2f8920bc2590d5477b1e3b85909c">&#9670;&nbsp;</a></span>vmcHeaderOffset()</h2>
+<a id="a162bf1e8315aff495cd1c244ffb79591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a162bf1e8315aff495cd1c244ffb79591">&#9670;&nbsp;</a></span>vmcHeaderOffset()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int FF7SaveInfo::vmcHeaderOffset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a>&#160;</td>
           <td class="paramname"><em>format</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves. </p>

@@ -4,7 +4,7 @@ var searchData=
   ['camera_5fauto',['CAMERA_AUTO',['../classFF7Save.html#ada7e04d3c9ee0dd1a7396371c31be785aa749344402a75cca8e9efbe500fd6488',1,'FF7Save']]],
   ['camera_5ffixed',['CAMERA_FIXED',['../classFF7Save.html#ada7e04d3c9ee0dd1a7396371c31be785aba9645ad4e548a3a02d13570be341342',1,'FF7Save']]],
   ['camerachanged',['cameraChanged',['../classOptionsWidget.html#a85c5d7038a011674f167749f271011fa',1,'OptionsWidget']]],
-  ['cameramode',['cameraMode',['../classFF7Save.html#a02735deff91b362abf60490b9cdc0aa3',1,'FF7Save::cameraMode(int s)'],['../classFF7Save.html#ada7e04d3c9ee0dd1a7396371c31be785',1,'FF7Save::CAMERAMODE()']]],
+  ['cameramode',['CAMERAMODE',['../classFF7Save.html#ada7e04d3c9ee0dd1a7396371c31be785',1,'FF7Save::CAMERAMODE()'],['../classFF7Save.html#a02735deff91b362abf60490b9cdc0aa3',1,'FF7Save::cameraMode(int s)']]],
   ['canfightninjainforest',['canFightNinjaInForest',['../classFF7Save.html#a52683700acaa3450da43cd7eee1ecb31',1,'FF7Save']]],
   ['cannonball',['CannonBall',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aacd3749f72edf39ad7262ac8ea1e1c83',1,'FF7Item']]],
   ['canreadline',['canReadLine',['../classIsoFileIO.html#a951298b0f487bc70ed80327fd7603186',1,'IsoFileIO::canReadLine()'],['../classLgpIO.html#a3897404eb18a78d7316ab84e61504b7c',1,'LgpIO::canReadLine()']]],

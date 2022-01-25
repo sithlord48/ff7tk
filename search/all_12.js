@@ -15,7 +15,7 @@ var searchData=
   ['reflectring',['ReflectRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a144b234588335e234328b16ade06645d',1,'FF7Item']]],
   ['region',['region',['../classFF7Save.html#a313c106a2f50dcd95077aa3925938851',1,'FF7Save']]],
   ['remedy',['Remedy',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a71887033aceb7272693791d6b6d74ea7',1,'FF7Item']]],
-  ['remove',['Remove',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455a67a684b151ea5fcdf6e17e0f1a334107',1,'FF7Item::Remove()'],['../classChocoboLabel.html#a0188fa6d31c58573400b5a60afdd0edc',1,'ChocoboLabel::remove()']]],
+  ['remove',['remove',['../classChocoboLabel.html#a0188fa6d31c58573400b5a60afdd0edc',1,'ChocoboLabel::remove()'],['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455a67a684b151ea5fcdf6e17e0f1a334107',1,'FF7Item::Remove()']]],
   ['removeentry',['removeEntry',['../classLgpToc.html#ac35d8f79c45c268595c551c794221050',1,'LgpToc']]],
   ['removeerror',['RemoveError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba7bb9e4b84457f60f7e9417096efc885e',1,'Archive::RemoveError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ad53e5696f2a58a170c2022dcef44d131',1,'Lgp::RemoveError()']]],
   ['removefile',['removeFile',['../classArchive.html#add7ac1bb6998b0001c39a8dd8151fe33',1,'Archive::removeFile()'],['../classLgp.html#a304fdd7388121f693e1fad864c4971ff',1,'Lgp::removeFile()']]],

@@ -23,5 +23,5 @@ var searchData=
   ['psx_5fblock_5fsize',['psx_block_size',['../classFF7Save.html#ac80f923ef270b92cf14ac46b6dab97d1',1,'FF7Save']]],
   ['psx_5fblock_5ftype',['psx_block_type',['../classFF7Save.html#aebd13be616572ebba6c7e310e0c50799',1,'FF7Save']]],
   ['psxdesc',['psxDesc',['../classFF7Save.html#a1f20a34d1f448b49ceffc98c2938a1a8',1,'FF7Save']]],
-  ['psxsavenameoffset',['psxSaveNameOffset',['../classFF7SaveInfo.html#a7a9fbfd0a2cef04b44191ecc0190d558',1,'FF7SaveInfo']]]
+  ['psxsavenameoffset',['psxSaveNameOffset',['../classFF7SaveInfo.html#a7aa4a0975a30cf3590ef95d85d33c0b7',1,'FF7SaveInfo']]]
 ];

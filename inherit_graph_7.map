@@ -7,6 +7,6 @@
 <area shape="rect" id="node7" href="$classFF7Materia.html" title="FF7Materia" alt="" coords="150,259,243,285"/>
 <area shape="rect" id="node8" href="$classFF7Save.html" title="edit saves from Final Fantasy 7 " alt="" coords="159,309,235,336"/>
 <area shape="rect" id="node9" href="$classFF7SaveInfo.html" title="FF7SaveInfo" alt="" coords="146,360,247,387"/>
-<area shape="rect" id="node10" href="$classFF7TEXT.html" title="Convert ff7text &lt;&#45;&gt; pc string. " alt="" coords="158,411,235,437"/>
+<area shape="rect" id="node10" href="$classFF7Text.html" title="Convert ff7text &lt;&#45;&gt; pc string. " alt="" coords="161,411,232,437"/>
 <area shape="rect" id="node11" href="$classSaveIcon.html" title="PSX icon data as a QPixmap. " alt="" coords="156,461,237,488"/>
 </map>

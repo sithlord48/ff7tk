@@ -25,9 +25,9 @@ var searchData=
   ['toback',['toBack',['../classLgpIterator.html#aa2000c2ca799bfffa7fe484e9283e88e',1,'LgpIterator']]],
   ['tocindex',['tocIndex',['../structLgpConflictEntry.html#adb675d1d8a908d767d43c4982d3799f9',1,'LgpConflictEntry::tocIndex()'],['../structLgpTocEntry.html#a5f529f3e29e2033de3fad9edd6dda8ef',1,'LgpTocEntry::tocIndex()']]],
   ['todo_20list',['Todo List',['../todo.html',1,'']]],
-  ['toff7',['toFF7',['../classFF7TEXT.html#a606af7a2ce379148b20d6e1c4cdf207e',1,'FF7TEXT']]],
+  ['toff7',['toFF7',['../classFF7Text.html#aa54bf6a71daa2371e41bc360191435cf',1,'FF7Text']]],
   ['tofront',['toFront',['../classLgpIterator.html#a6f62f2423e8cc9cde1838fb50e30f71e',1,'LgpIterator']]],
-  ['topc',['toPC',['../classFF7TEXT.html#ab10b0767b3087b47bbf365264f633e91',1,'FF7TEXT']]],
+  ['topc',['toPC',['../classFF7Text.html#adc2284d0ff3676c86bc2169aca8d13e3',1,'FF7Text']]],
   ['topscolor',['toPsColor',['../classPsColor.html#ad03216439f0a23d421dfe8d512c93bf7',1,'PsColor']]],
   ['totalexpforlevel',['totalExpForLevel',['../classFF7Char.html#a34f559c5d6f76eeefe2f2cd0f6ad1e5c',1,'FF7Char']]],
   ['toughring',['ToughRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a008099e335557aaf7dbc33f3ba51a86c',1,'FF7Item']]],
@@ -49,8 +49,8 @@ var searchData=
   ['type_5fpath_5ftable',['type_path_table',['../structVolumeDescriptor1.html#a6254778b1094d347f8bac53deebb09ac',1,'VolumeDescriptor1']]],
   ['type_5fpath_5ftable2',['type_path_table2',['../structVolumeDescriptor1.html#a511f272d7261a8514d1c3a9b2a90d47f',1,'VolumeDescriptor1']]],
   ['typechanged',['typeChanged',['../classChocoboEditor.html#ac52e66225c2fca12c9852a827b32b21c',1,'ChocoboEditor::typeChanged()'],['../classChocoboManager.html#a90dd5dff3b23cbeb5b5987f1e5bba478',1,'ChocoboManager::typeChanged()']]],
-  ['typedescription',['typeDescription',['../classFF7SaveInfo.html#a91d639ff256cce97d48db959f213660c',1,'FF7SaveInfo']]],
-  ['typeextension',['typeExtension',['../classFF7SaveInfo.html#a6c92a6150e1e04b463b5e1d403a62d19',1,'FF7SaveInfo']]],
-  ['typefilter',['typeFilter',['../classFF7SaveInfo.html#ad5a67d9c3ecacc38521d3d8daad7053c',1,'FF7SaveInfo']]],
+  ['typedescription',['typeDescription',['../classFF7SaveInfo.html#a3ab9a2af1b4984e7923679ac2ecb920b',1,'FF7SaveInfo']]],
+  ['typeextension',['typeExtension',['../classFF7SaveInfo.html#a785703a3c16374c1c5abcb4e481dc2d3',1,'FF7SaveInfo']]],
+  ['typefilter',['typeFilter',['../classFF7SaveInfo.html#a5f33b075794a0aa12e19b305d324b5e1',1,'FF7SaveInfo']]],
   ['typhoon',['Typhoon',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a65845474bdb7b42c8cc77a650e886d6f',1,'FF7Materia']]]
 ];
