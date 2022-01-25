@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk.                                           //
 //                                                                          //
@@ -170,7 +170,7 @@ QVBoxLayout *MetadataCreator::makeLineLayout()
         connect(button, &QPushButton::clicked, this, [this, i, lineSave] {
             load = true;
             QString file = QFile(lineSave->text()).fileName();
-            file = getOpenFileName(parentWidget(), tr("Select A File To Use As Save0%1").arg(QString::number(i)), QDir::homePath(), FF7SaveInfo::instance()->knownTypesFilter(), file);
+            file = getOpenFileName(parentWidget(), tr("Select A File To Use As Save0%1").arg(QString::number(i)), QDir::homePath(), FF7SaveInfo::knownTypesFilter(), file);
             if (ff7->loadFile(file)) {
                 InFiles.replace(i, file);
                 lineSave->setText(InFiles.at(i));

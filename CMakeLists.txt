@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
-project(ff7tk VERSION 0.80.23 DESCRIPTION "Work with Final Fantasy 7 game data")
+project(ff7tk VERSION 0.80.24 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 #Prevent In-sourcebuild
 if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
