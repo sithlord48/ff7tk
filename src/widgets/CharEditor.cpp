@@ -577,10 +577,10 @@ void CharEditor::init_display()
     materia_edit->setStarsSize(int(32 * scale));
 
     auto elemental = new QHBoxLayout();
-    elemental->setContentsMargins(0, 0, 0, 0);
+    elemental->setContentsMargins(3, 3, 3, 3);
     elemental->addWidget(elemental_effects);
 
-    elemental_box->setContentsMargins(3, 3, 3, 3);
+    elemental_box->setContentsMargins(3, fontMetrics().height() + 2 , 3, 6);
     elemental_box->setLayout(elemental);
     elemental_box->setHidden(true);
 
@@ -590,10 +590,10 @@ void CharEditor::init_display()
     elemental_layout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
 
     auto status = new QHBoxLayout();
-    status->setContentsMargins(0, 0, 0, 0);
+    status->setContentsMargins(3, 3, 3, 3);
     status->addWidget(status_effects);
 
-    status_box->setContentsMargins(3, 3, 3, 3);
+    status_box->setContentsMargins(3, fontMetrics().height() + 2, 3, 6);
     status_box->setLayout(status);
     status_box->setHidden(true);
 
@@ -1989,7 +1989,8 @@ void CharEditor::elemental_info()
                 if (!effect.isNull() && !m_effect.contains(effect, Qt::CaseSensitive)) {
                     m_effect.append(effect);
                     elemental_effects->addItem(effect);
-                    show = true; y += elemental_effects->sizeHintForRow(0);
+                    show = true;
+                    y += elemental_effects->sizeHintForRow(0);
                 }
             }//end of for Loop
             elemental_effects->setFixedHeight(y);
