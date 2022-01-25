@@ -104,7 +104,15 @@ private:
     QSize _iconSize;
     bool _editable;
     inline static const auto _buttonStyle = QStringLiteral("QPushButton:enabled{background-color: rgba(0,0,0,0);border:0px solid;} QPushButton:hover{background-color:rgba(%1);}");
-    inline static const auto _itemStyle = QStringLiteral("QListWidget::item { padding-left: 0px; padding-top: 1px; padding-bottom: 1px;} QListView::item:hover { background-color: rgba(%1); } QListView::item:focus { background-color: rgba(%1); } QListView::indicator { width: %2px; height: %2px; } QListView::indicator:unchecked {image: url(:/materia/command_star_empty);} QListView::indicator:checked{image: url(:/materia/command_star_full);}");
+    inline static const auto _itemStyle = QStringLiteral("::item { padding-left: 0px; padding-top: 1px; padding-bottom: 1px;}"
+                                                         "::indicator { width: %2px; height: %2px; }"
+                                                         "::indicator:unchecked {image: url(:/materia/command_star_empty);}"
+                                                         "::indicator:checked{image: url(:/materia/command_star_full);}"
+                                                         "::item:hover { background-color: rgba(%1); }"
+                                                         //Give unfocused items a transparent border to work around Qt6 bug where indicator is set only for listed states.
+                                                         "::item:!focus { border: 1px solid transparent;}"
+                                                         "::item:focus { background-color: rgba(%1); }");
+
 private slots:
     void typeChanged(int new_type);
     void materia_changed(const QString &new_name);
