@@ -636,6 +636,9 @@ void CharEditor::init_display()
     weapon_materia_box->setLayout(weapon_materia_slots);
     weapon_materia_box->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
+    weapon_selection->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    weapon_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+
     auto weapon_layout = new QVBoxLayout;
     weapon_layout->setContentsMargins(0, 0, 0, 0);
     weapon_layout->addWidget(weapon_selection);
@@ -663,6 +666,9 @@ void CharEditor::init_display()
     armor_materia_box->setLayout(armor_materia_slots);
     armor_materia_box->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
+    armor_selection->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    armor_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+
     auto armor_layout = new QVBoxLayout;
     armor_layout->setContentsMargins(0, 0, 0, 0);
     armor_layout->addWidget(armor_selection);
@@ -670,6 +676,9 @@ void CharEditor::init_display()
     armor_layout->addWidget(armor_materia_box);
 
     armor_box->setLayout(armor_layout);
+
+    accessory_selection->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    accessory_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
 
     auto accessory_layout = new QVBoxLayout;
     accessory_layout->setContentsMargins(0, 0, 0, 0);

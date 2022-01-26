@@ -366,7 +366,6 @@ void MateriaEditor::editMode()
 void MateriaEditor::setEditableMateriaCombo(bool enabled)
 {
     combo_materia->setEditable(enabled);
-    combo_materia->setInsertPolicy(QComboBox::NoInsert);
 }
 
 QPushButton *MateriaEditor::newStyledButton(const QIcon &icon, QKeySequence shortcut, const QString &tooltip, QWidget *parent)
@@ -400,6 +399,9 @@ QHBoxLayout *MateriaEditor::makeNameLayout()
     combo_materia->setIconSize(_iconSize);
     combo_materia->setMinimumHeight(fontMetrics().height());
     combo_materia->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+    combo_materia->setInsertPolicy(QComboBox::NoInsert);
+    combo_materia->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+    combo_materia->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     for (int i = 0; i < 91; i++) {
         if (data->name(i) != "DON'T USE")
             combo_materia->addItem(data->pixmap(i), data->name(i));

@@ -16,6 +16,7 @@
 #include <ItemSelector.h>
 
 #include <QComboBox>
+#include <QAbstractItemView>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QSpinBox>
@@ -56,6 +57,9 @@ void ItemSelector::init_display()
     btn_remove->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     combo_type->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     combo_item->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
+    combo_item->setInsertPolicy(QComboBox::NoInsert);
+    combo_item->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+    combo_item->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
@@ -273,5 +277,4 @@ void ItemSelector::setFixedWidth(int w)
 void ItemSelector::setEditableItemCombo(bool editable)
 {
     combo_item->setEditable(editable);
-    combo_item->setInsertPolicy(QComboBox::NoInsert);
 }
