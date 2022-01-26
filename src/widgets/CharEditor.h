@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -376,5 +376,6 @@ private:
     inline static const int quint8Max = 255;
     inline static const int qint16Max = 32767;
     inline static const int quint16Max = 65535;
+    inline static const int expMax = 2147483647;
 
 };

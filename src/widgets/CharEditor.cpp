@@ -149,7 +149,7 @@ void CharEditor::updateText()
     if (!sbTotalExp) {
         sbTotalExp = new QSpinBox(this);
         sbTotalExp->setMaximumWidth(fontMetrics().horizontalAdvance(QChar('9')) * 16);
-        sbTotalExp->setMaximum(2147483647);
+        sbTotalExp->setMaximum(expMax);
         sbTotalExp->setWrapping(true);
     }
     sbTotalExp->setPrefix(tr("Exp: "));
@@ -1110,12 +1110,7 @@ void CharEditor::setLevel(int level)
 {
     if (data.level == level)
         return;
-    if (level < 0)
-        data.level = 0;
-    else if (level > 99)
-        data.level = 99;
-    else
-        data.level = quint8(level);
+    data.level = quint8(std::clamp(level, 0, 99));
     emit level_changed(qint8(data.level));
 }
 
@@ -1147,12 +1142,7 @@ void CharEditor::setMaxHp(int maxHp)
 {
     if (data.maxHP == maxHp)
         return;
-    if (maxHp < 0)
-        data.maxHP = 0;
-    else if (maxHp > qint16Max)
-        data.maxHP = qint16Max;
-    else
-        data.maxHP = quint16(maxHp);
+    data.maxHP = quint16(std::clamp(maxHp, 0, qint16Max));
     emit maxHp_changed(data.maxHP);
 }
 
@@ -1160,12 +1150,7 @@ void CharEditor::setCurHp(int curHp)
 {
     if (data.curHP == curHp)
         return;
-    if (curHp < 0)
-        data.curHP = 0;
-    else if (curHp > qint16Max)
-        data.curHP = qint16Max;
-    else
-        data.curHP = quint16(curHp);
+    data.curHP = quint16(std::clamp(curHp, 0, qint16Max));
     emit curHp_changed(data.curHP);
 }
 
@@ -1173,8 +1158,7 @@ void CharEditor::setMaxMp(int maxMp)
 {
     if (data.maxMP == maxMp)
         return;
-    maxMp = std::clamp(maxMp, 0, qint16Max);
-    data.maxMP = quint16(maxMp);
+    data.maxMP = quint16(std::clamp(maxMp, 0, qint16Max));
     emit maxMp_changed(data.maxMP);
 }
 
@@ -1182,12 +1166,7 @@ void CharEditor::setCurMp(int curMp)
 {
     if (data.curMP == curMp)
         return;
-    if (curMp < 0)
-        data.curMP = 0;
-    else if (curMp > qint16Max)
-        data.curMP = qint16Max;
-    else
-        data.curMP = quint16(curMp);
+    data.curMP = quint16(std::clamp(curMp, 0, qint16Max));
     emit curMp_changed(data.curMP);
 }
 
@@ -1195,12 +1174,7 @@ void CharEditor::setKills(int kills)
 {
     if (data.kills == kills)
         return;
-    if (kills < 0)
-        data.kills = 0;
-    else if (kills > quint16Max)
-        data.kills = quint16Max;
-    else
-        data.kills = quint16(kills);
+    data.kills = quint16(std::clamp(kills, 0, quint16Max));
     emit kills_changed(data.kills);
 }
 
@@ -1231,12 +1205,7 @@ void CharEditor::setStr(int strength)
 {
     if (data.strength == strength)
         return;
-    if (strength < 0)
-        data.strength = 0;
-    else if (strength > quint8Max)
-        data.strength = quint8Max;
-    else
-        data.strength = quint8(strength);
+    data.strength = quint8(std::clamp(strength, 0, quint8Max));
     emit str_changed(data.strength);
     calc_stats();
 }
@@ -1245,12 +1214,7 @@ void CharEditor::setVit(int vitality)
 {
     if (data.vitality == vitality)
         return;
-    if (vitality < 0)
-        data.vitality = 0;
-    else if (vitality > quint8Max)
-        data.vitality = quint8Max;
-    else
-        data.vitality = quint8(vitality);
+    data.vitality = quint8(std::clamp(vitality, 0, quint8Max));
     emit vit_changed(data.vitality);
     calc_stats();
 }
@@ -1259,12 +1223,7 @@ void CharEditor::setMag(int magic)
 {
     if (data.magic == magic)
         return;
-    if (magic < 0)
-        data.magic = 0;
-    else if (magic > quint8Max)
-        data.magic = quint8Max;
-    else
-        data.magic = quint8(magic);
+    data.magic = quint8(std::clamp(magic, 0, quint8Max));
     emit mag_changed(data.magic);
     calc_stats();
 }
@@ -1273,12 +1232,7 @@ void CharEditor::setMag(int magic)
 {
     if (data.spirit == spirit)
         return;
-    if (spirit < 0)
-        data.spirit = 0;
-    else if (spirit > quint8Max)
-        data.spirit = quint8Max;
-    else
-        data.spirit = quint8(spirit);
+    data.spirit = quint8(std::clamp(spirit, 0, quint8Max));
     emit spi_changed(data.spirit);
     calc_stats();
 }
@@ -1287,12 +1241,7 @@ void CharEditor::setDex(int dexterity)
 {
     if (data.dexterity == dexterity)
         return;
-    if (dexterity < 0)
-        data.dexterity = 0;
-    else if (dexterity > quint8Max)
-        data.dexterity = quint8Max;
-    else
-        data.dexterity = quint8(dexterity);
+    data.dexterity = quint8(std::clamp(dexterity, 0, quint8Max));
     emit dex_changed(data.dexterity);
     calc_stats();
 }
@@ -1301,12 +1250,7 @@ void CharEditor::setLck(int luck)
 {
     if (data.luck == luck)
         return;
-    if (luck < 0)
-        data.luck = 0;
-    else if (luck > quint8Max)
-        data.luck = quint8Max;
-    else
-        data.luck = quint8(luck);
+    data.luck = quint8(std::clamp(luck, 0, quint8Max));
     emit lck_changed(data.luck);
     calc_stats();
 }
@@ -1315,12 +1259,7 @@ void CharEditor::setStrBonus(int strength_bonus)
 {
     if (data.strength_bonus == strength_bonus)
         return;
-    if (strength_bonus < 0)
-        data.strength_bonus = 0;
-    else if (strength_bonus > quint8Max)
-        data.strength_bonus = quint8Max;
-    else
-        data.strength_bonus = quint8(strength_bonus);
+    data.strength_bonus = quint8(std::clamp(strength_bonus, 0, quint8Max));
     emit strBonus_changed(data.strength_bonus);
     calc_stats();
 }
@@ -1329,12 +1268,7 @@ void CharEditor::setVitBonus(int vitality_bonus)
 {
     if (data.vitality_bonus == vitality_bonus)
         return;
-    if (vitality_bonus < 0)
-        data.vitality_bonus = 0;
-    else if (vitality_bonus > quint8Max)
-        data.vitality_bonus = quint8Max;
-    else
-        data.vitality_bonus = quint8(vitality_bonus);
+    data.vitality_bonus = quint8(std::clamp(vitality_bonus, 0, quint8Max));
     emit vitBonus_changed(data.vitality_bonus);
     calc_stats();
 }
@@ -1343,12 +1277,7 @@ void CharEditor::setMagBonus(int magic_bonus)
 {
     if (data.magic_bonus == magic_bonus)
         return;
-    if (magic_bonus < 0)
-        data.magic_bonus = 0;
-    else if (magic_bonus > quint8Max)
-        data.magic_bonus = quint8Max;
-    else
-        data.magic_bonus = quint8(magic_bonus);
+    data.magic_bonus = quint8(std::clamp(magic_bonus, 0, quint8Max));
     emit magBonus_changed(data.magic_bonus);
     calc_stats();
 }
@@ -1357,12 +1286,7 @@ void CharEditor::setSpiBonus(int spirit_bonus)
 {
     if (data.spirit_bonus == spirit_bonus)
         return;
-    if (spirit_bonus < 0)
-        data.spirit_bonus = 0;
-    else if (spirit_bonus > quint8Max)
-        data.spirit_bonus = quint8Max;
-    else
-        data.spirit_bonus = quint8(spirit_bonus);
+    data.spirit_bonus = quint8(std::clamp(spirit_bonus, 0, quint8Max));
     emit spiBonus_changed(data.spirit_bonus);
     calc_stats();
 }
@@ -1371,12 +1295,7 @@ void CharEditor::setDexBonus(int dexterity_bonus)
 {
     if (data.dexterity_bonus == dexterity_bonus)
         return;
-    if (dexterity_bonus < 0)
-        data.dexterity_bonus = 0;
-    else if (dexterity_bonus > quint8Max)
-        data.dexterity_bonus = quint8Max;
-    else
-        data.dexterity_bonus = quint8(dexterity_bonus);
+    data.dexterity_bonus = quint8(std::clamp(dexterity_bonus, 0, quint8Max));
     emit dexBonus_changed(data.dexterity_bonus);
     calc_stats();
 }
@@ -1385,12 +1304,7 @@ void CharEditor::setLckBonus(int luck_bonus)
 {
     if (data.luck_bonus == luck_bonus)
         return;
-    if (luck_bonus < 0)
-        data.luck_bonus = 0;
-    else if (luck_bonus > quint8Max)
-        data.luck_bonus = quint8Max;
-    else
-        data.luck_bonus = quint8(luck_bonus);
+    data.luck_bonus = quint8(std::clamp(luck_bonus, 0, quint8Max));
     emit lckBonus_changed(data.luck_bonus);
     calc_stats();
 }
@@ -1399,12 +1313,7 @@ void CharEditor::setLimitLevel(int limitlevel)
 {
     if (data.limitlevel == limitlevel)
         return;
-    if (limitlevel < 0)
-        data.limitlevel = 0;
-    else if (limitlevel > 4)
-        data.limitlevel = 4;
-    else
-        data.limitlevel = qint8(limitlevel);
+    data.limitlevel = qint8(std::clamp(limitlevel, 0, 4));
     emit limitLevel_changed(data.limitlevel);
 }
 
@@ -1412,12 +1321,7 @@ void CharEditor::setLimitBar(int limitbar)
 {
     if (data.limitbar == limitbar)
         return;
-    if (limitbar < 0)
-        data.limitbar = 0;
-    else if (limitbar > quint8Max)
-        data.limitbar = quint8Max;
-    else
-        data.limitbar = quint8(limitbar);
+    data.limitbar = quint8(std::clamp(limitbar, 0, quint8Max));
     emit limitBar_changed(data.limitbar);
 }
 
@@ -1504,12 +1408,7 @@ void CharEditor::setLevelProgress(int level_progress)
     //Level progress bar (0-63) game ingores values <4 4-63 are visible as "progress"
     if (level_progress == data.flags[2])
         return;
-    if (level_progress < 0)
-        data.flags[2] = 0;
-    else if (level_progress > 63)
-        data.flags[2] = 63;
-    else
-        data.flags[2] = quint8(level_progress);
+    data.flags[2] = quint8(std::clamp(level_progress, 0, 63));
     emit levelProgress_changed(data.flags[2]);
 }
 
@@ -1517,12 +1416,7 @@ void CharEditor::setLimits(int limits)
 {
     if (limits == data.limits)
         return;
-    if (limits < 0)
-        data.limits = 0;
-    else if (limits > qint16Max)
-        data.limits = qint16Max;
-    else
-        data.limits = quint16(limits);
+    data.limits = quint16(std::clamp(limits, 0, qint16Max));
     emit limits_changed(data.limits);
 }
 
@@ -1530,12 +1424,7 @@ void CharEditor::setTimesused1(int timesused)
 {
     if (timesused == data.timesused1)
         return;
-    if (timesused < 0)
-        data.timesused1 = 0;
-    else if (timesused > quint16Max)
-        data.timesused1 = quint16Max;
-    else
-        data.timesused1 = quint16(timesused);
+    data.timesused1 = quint16(std::clamp(timesused, 0, quint16Max));
     emit timesused1_changed(data.timesused1);
 }
 
@@ -1543,12 +1432,7 @@ void CharEditor::setTimesused2(int timesused)
 {
     if (timesused == data.timesused2)
         return;
-    if (timesused < 0)
-        data.timesused2 = 0;
-    else if (timesused > quint16Max)
-        data.timesused2 = quint16Max;
-    else
-        data.timesused2 = quint16(timesused);
+    data.timesused2 = quint16(std::clamp(timesused, 0, quint16Max));
     emit timesused2_changed(data.timesused2);
 }
 
@@ -1556,12 +1440,7 @@ void CharEditor::setTimesused3(int timesused)
 {
     if (timesused == data.timesused3)
         return;
-    if (timesused < 0)
-        data.timesused3 = 0;
-    else if (timesused > quint16Max)
-        data.timesused3 = quint16Max;
-    else
-        data.timesused3 = quint16(timesused);
+    data.timesused3 = quint16(std::clamp(timesused, 0, quint16Max));
     emit timesused3_changed(data.timesused3);
 }
 
@@ -1569,13 +1448,7 @@ void CharEditor::setBaseHp(int baseHp)
 {
     if (data.baseHP == baseHp)
         return;
-
-    if (baseHp < 0)
-        data.baseHP = 0;
-    else if (baseHp > qint16Max)
-        data.baseHP = qint16Max;
-    else
-        data.baseHP = quint16(baseHp);
+    data.baseHP = quint16(std::clamp(baseHp, 0, qint16Max));
     emit baseHp_changed(data.baseHP);
     calc_stats();
 }
@@ -1584,12 +1457,7 @@ void CharEditor::setBaseMp(int baseMp)
 {
     if (data.baseMP == baseMp)
         return;
-    if (baseMp < 0)
-        data.baseMP = 0;
-    else if (baseMp > qint16Max)
-        data.baseMP = qint16Max;
-    else
-        data.baseMP = quint16(baseMp);
+    data.baseMP = quint16(std::clamp(baseMp, 0, qint16Max));
     emit baseMp_changed(data.baseMP);
     calc_stats();
 }
@@ -1598,10 +1466,7 @@ void CharEditor::setExp(int exp)
 {
     if (data.exp == quint32(exp))
         return;
-    if (exp < 0)
-        data.exp = 0;
-    else
-        data.exp = quint32(exp);
+    data.exp = std::clamp(exp, 0, expMax);
     emit exp_changed(data.exp);
 }
 
@@ -1609,10 +1474,7 @@ void CharEditor::setExpNext(int expNext)
 {
     if (data.expNext == quint32(expNext))
         return;
-    if (expNext < 0)
-        data.expNext = 0;
-    else
-        data.expNext = quint32(expNext);
+    data.expNext = data.exp = std::clamp(expNext, 0, expMax);
     emit expNext_changed(data.expNext);
 }
 
