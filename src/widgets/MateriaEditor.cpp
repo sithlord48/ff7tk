@@ -303,7 +303,7 @@ void MateriaEditor::setStarsSize(int size)
 
     auto layout = dynamic_cast<QGridLayout *>(frm_ap_stars->layout());
 
-    if (size <= sb_ap->contentsRect().height()) {
+    if (size <= fontMetrics().height() * 2) {
         layout->addWidget(box_stars, 0, 0, 1, 1, Qt::AlignLeft);
         layout->addWidget(frm_ap, 0, 1, 1, 1, Qt::AlignRight);
         if (box_stars->sizeHint().height() < frm_ap->sizeHint().height())
