@@ -574,6 +574,7 @@ void CharEditor::init_display()
     left_Final->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Preferred, QSizePolicy::MinimumExpanding));
 
     materia_edit  = new MateriaEditor(this);
+    materia_edit->setVisible(false);
     materia_edit->setStarsSize(int(32 * scale));
 
     auto elemental = new QHBoxLayout();
@@ -616,8 +617,10 @@ void CharEditor::init_display()
         });
     }
 
-    for(int i = 0; i< 16; i++)
+    for(int i = 0; i< 16; i++) {
         materiaSlotFrames.append(new QFrame);
+        materiaSlotFrames.at(i)->setStyleSheet(QStringLiteral("QFrame{background-color:rgba(0,0,0,0);}"));
+    }
 
     weapon_m_link_1 = new QLabel(this);
     weapon_m_link_2 = new QLabel(this);
@@ -1433,6 +1436,8 @@ void CharEditor::setWeapon(int weapon)
     elemental_info();
     status_info();
     update_materia_slots();
+    materiaSlotClicked(-1);
+
 }
 
 void CharEditor::setArmor(int armor)
@@ -1449,6 +1454,7 @@ void CharEditor::setArmor(int armor)
     elemental_info();
     status_info();
     update_materia_slots();
+    materiaSlotClicked(-1);
 }
 
 void CharEditor::setAccessory(int accessory)
@@ -2078,14 +2084,12 @@ void CharEditor::status_info()
 
 void CharEditor::update_materia_slots()
 {
-    QSize isize = QSize(int(24 * scale), int(24 * scale));
-
     QList<QPushButton *> buttons = weapon_box->findChildren<QPushButton *>();
     int i = 0;
     for(auto button : qAsConst(buttons)) {
         button->setVisible((i+1) <= FF7Item::materiaSlots(data.weapon + 128));
         if (data.materias[i].id != FF7Materia::EmptyId) {
-            button->setIcon(QIcon(Materias.pixmap(data.materias[i].id).scaled(isize, Qt::KeepAspectRatio, Qt::SmoothTransformation)));
+            button->setIcon(Materias.icon(data.materias[i].id));
         } else {
             button->setIcon(QIcon());
         }
@@ -2095,26 +2099,22 @@ void CharEditor::update_materia_slots()
     for(auto button : qAsConst(buttons)) {
         button->setVisible((i-7) <= FF7Item::materiaSlots(data.armor + 256));
         if (data.materias[i].id != FF7Materia::EmptyId) {
-            button->setIcon(QIcon(Materias.pixmap(data.materias[i].id).scaled(isize, Qt::KeepAspectRatio, Qt::SmoothTransformation)));
+            button->setIcon(Materias.icon(data.materias[i].id));
         } else {
             button->setIcon(QIcon());
         }
         i++;
     }
 
-    //reset style sheet for the outer slot frames and links to ensure they are not visible reguardless of hosts stylesheet.
-    for(auto frame : qAsConst(materiaSlotFrames))
-        frame->setStyleSheet(QString("QFrame{background-color:rgba(0,0,0,0);}"));
-
-    QList<QLabel *> labels = weapon_box->findChildren<QLabel *>();
-    labels.append(armor_box->findChildren<QLabel *>());
-    for(auto label : qAsConst(labels))
-        label->setStyleSheet(QString("background-color:rgba(0,0,0,0);"));
-
     updateMateriaToolTips();
     //set up weapon
     QString ap_rate = tr("AP:x%1").arg(FF7Item::materiaGrowthRate(data.weapon + 128));
     lblWeaponStats->setText(ap_rate);
+
+    QList<QLabel *> labels = weapon_box->findChildren<QLabel *>();
+    labels.append(armor_box->findChildren<QLabel *>());
+    for(auto label : qAsConst(labels))
+        label->setStyleSheet(QString());
 
     switch (FF7Item::linkedSlots((data.weapon + 128))) {
     case 4: weapon_m_link_4->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
@@ -2168,27 +2168,34 @@ void CharEditor::matAp_changed(qint32 ap)
 
 void CharEditor::materiaSlotClicked(int slotClicked)
 {
-    load = true;
-    if (slotClicked < 0)
+    if (slotClicked == mslotsel) {
+        if(slotClicked < 0 )
+            return;
+        load = true;
+        materia_edit->setMateria(char_materia(mslotsel).id, Materias.ap2num(char_materia(mslotsel).ap));
+        load = false;
         return;
-    if (slotClicked != mslotsel) {
-        mslotsel = slotClicked;
-        materia_edit->setMateria(char_materia(mslotsel).id, Materias.ap2num(char_materia(mslotsel).ap));
-        setSlotFrame();
-        emit mslotChanged(mslotsel);
-    } else {
-        materia_edit->setMateria(char_materia(mslotsel).id, Materias.ap2num(char_materia(mslotsel).ap));
     }
-    load = false;
-}
 
-void CharEditor::setSlotFrame()
-{
+    mslotsel = slotClicked;
+
     for(auto frame : qAsConst(materiaSlotFrames)) {
         frame->setFrameShape(QFrame::NoFrame);
     }
+
+    if (slotClicked < 0) {
+        materia_edit->setVisible(false);
+        return;
+    }
+    materia_edit->setVisible(true);
     materiaSlotFrames.at(mslotsel)->setFrameShape(QFrame::Box);
+
+    load = true;
+    materia_edit->setMateria(char_materia(mslotsel).id, Materias.ap2num(char_materia(mslotsel).ap));
+    emit mslotChanged(mslotsel);
+    load = false;
 }
+
 
 void CharEditor::cb_idChanger_toggled(bool checked)
 {
@@ -2271,7 +2278,6 @@ void CharEditor::MaxEquip()
         emit Materias_changed(data.materias[mslotsel]);
     }
     update_materia_slots();
-    setSlotFrame();
     cbFrontRow->setCheckState(Qt::Unchecked);
 }
 
@@ -2372,9 +2378,11 @@ QFrame * CharEditor::makeStatFrame()
 QHBoxLayout * CharEditor::makeMateriaSlotPair(QPushButton* button1, QPushButton* button2, QFrame *frame1, QFrame *frame2, QLabel* linkLabel)
 {
     QSize slotSize = QSize(int(32 * scale), int(32 * scale));
+    QSize frameSize = QSize(int(34 * scale), int(34 * scale));
+    QSize materiaSize = QSize(int(24 * scale), int(24 * scale));
     QSize linkSize = QSize(int(12 * scale), int(16 * scale));
     button1->setFixedSize(slotSize);
-    button1->setIconSize(slotSize);
+    button1->setIconSize(materiaSize);
     button1->setStyleSheet(FF7Item::styleMateriaSlotNoGrowth());
     button1->setHidden(1);
 
@@ -2382,7 +2390,7 @@ QHBoxLayout * CharEditor::makeMateriaSlotPair(QPushButton* button1, QPushButton*
     slotLayout->setContentsMargins(0, 0, 0, 0);
     slotLayout->addWidget(button1);
 
-    frame1->setFixedSize(slotSize);
+    frame1->setFixedSize(frameSize);
     frame1->setFrameShape(QFrame::NoFrame);
     frame1->setFrameShadow(QFrame::Plain);
     frame1->setLayout(slotLayout);
@@ -2390,7 +2398,7 @@ QHBoxLayout * CharEditor::makeMateriaSlotPair(QPushButton* button1, QPushButton*
     linkLabel->setFixedSize(linkSize);
 
     button2->setFixedSize(slotSize);
-    button2->setIconSize(slotSize);
+    button2->setIconSize(materiaSize);
     button2->setStyleSheet(FF7Item::styleMateriaSlotNoGrowth());
     button2->setHidden(1);
 
@@ -2398,7 +2406,7 @@ QHBoxLayout * CharEditor::makeMateriaSlotPair(QPushButton* button1, QPushButton*
     slotLayout2->setContentsMargins(0, 0, 0, 0);
     slotLayout2->addWidget(button2);
 
-    frame2->setFixedSize(slotSize);
+    frame2->setFixedSize(frameSize);
     frame2->setFrameShape(QFrame::NoFrame);
     frame2->setFrameShadow(QFrame::Plain);
     frame2->setLayout(slotLayout2);
