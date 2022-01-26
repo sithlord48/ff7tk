@@ -53,5 +53,5 @@ private:
     int itemQtyLimit;
     bool createdSelector;
     bool createdTooltip;
-    bool editableItemCombo;
+    bool editableItemCombo = false;
 };
