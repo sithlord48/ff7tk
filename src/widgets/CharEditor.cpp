@@ -343,8 +343,8 @@ void CharEditor::updateText()
         accessory_selection->setInsertPolicy(QComboBox::NoInsert);
         accessory_selection->setIconSize(iconSize);
         for (int i = 288; i < 320; i++)
-            accessory_selection->addItem(QPixmap::fromImage(FF7Item::image(i)), FF7Item::name(i));
-        accessory_selection->addItem(QPixmap::fromImage(FF7Item::image(288)), tr("-NONE-"));
+            accessory_selection->addItem(FF7Item::icon(i), FF7Item::name(i));
+        accessory_selection->addItem(FF7Item::icon(288), tr("-NONE-"));
     } else {
         for (int i = 0; i < accessory_selection->count() - 1; i++)
             accessory_selection->setItemText(i, FF7Item::name(i + 288));
@@ -356,7 +356,7 @@ void CharEditor::updateText()
         armor_selection->setInsertPolicy(QComboBox::NoInsert);
         armor_selection->setIconSize(iconSize);
         for (int i = 256; i < 288; i++)
-            armor_selection->addItem(QPixmap::fromImage(FF7Item::image(i)), FF7Item::name(i));
+            armor_selection->addItem(FF7Item::icon(i), FF7Item::name(i));
     } else {
         for (int i = 0; i < armor_selection->count(); i++)
             armor_selection->setItemText(i, FF7Item::name(i + 256));
@@ -718,7 +718,7 @@ void CharEditor::init_display()
     auto tabEquipment = new QFrame;
     tabEquipment->setLayout(right_Final);
     tabEquipment->adjustSize();
-    toolbox->addItem(tabEquipment, QIcon(QPixmap::fromImage(FF7Item::image(256))), tr("Equipment"));
+    toolbox->addItem(tabEquipment, QIcon(FF7Item::icon(256)), tr("Equipment"));
 
     auto toolbox_layout = new QVBoxLayout;
     toolbox_layout->setContentsMargins(0, 0, 0, 0);
@@ -1079,7 +1079,7 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
 
     weapon_selection->clear();
     for (int i = FF7Char::weaponStartingId(data.id); i < FF7Char::numberOfWeapons(data.id) + FF7Char::weaponStartingId(data.id); i++)
-        weapon_selection->addItem(QPixmap::fromImage(FF7Item::image(i)), FF7Item::name(i));
+        weapon_selection->addItem(FF7Item::icon(i), FF7Item::name(i));
     weapon_selection->setCurrentIndex(data.weapon - FF7Char::weaponOffset(data.id));
 
     if (weapon_selection->currentText().isEmpty()) {
