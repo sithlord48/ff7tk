@@ -31,7 +31,7 @@ var searchData=
   ['phslistwidget',['PhsListWidget',['../classPhsListWidget.html',1,'PhsListWidget'],['../classPhsListWidget.html#ae4e30b868ab14ff297b01a4fe253ae76',1,'PhsListWidget::PhsListWidget()']]],
   ['phslistwidget_2ecpp',['PhsListWidget.cpp',['../PhsListWidget_8cpp.html',1,'']]],
   ['phslistwidget_2eh',['PhsListWidget.h',['../PhsListWidget_8h.html',1,'']]],
-  ['phsvisible',['PHSVISIBLE',['../classPhsListWidget.html#a66a746887dc6bde6f9654cb9b31c4078a076108b3762e611b4dab8570ad186636',1,'PhsListWidget::PHSVISIBLE()'],['../classFF7Save.html#adf0748be41768bbf417817cdf8d2fda0',1,'FF7Save::phsVisible(int s, int who)'],['../classFF7Save.html#a08757f34af78840bec6bc092abcbfe88',1,'FF7Save::phsVisible(int s)']]],
+  ['phsvisible',['phsVisible',['../classFF7Save.html#adf0748be41768bbf417817cdf8d2fda0',1,'FF7Save::phsVisible(int s, int who)'],['../classFF7Save.html#a08757f34af78840bec6bc092abcbfe88',1,'FF7Save::phsVisible(int s)'],['../classPhsListWidget.html#a66a746887dc6bde6f9654cb9b31c4078a076108b3762e611b4dab8570ad186636',1,'PhsListWidget::PHSVISIBLE()']]],
   ['pilebanger',['PileBanger',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aee853cb287046b6034da9cf824489240',1,'FF7Item']]],
   ['pinwheel',['Pinwheel',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a060add07cd934fcb9f71a8857aaf451d',1,'FF7Item']]],
   ['pixmap',['pixmap',['../classFF7Char.html#a1d53bb0feac493ebfd53fcbbe8beb456',1,'FF7Char::pixmap()'],['../classFF7Materia.html#acfb145b841b575c9e1d1075a36d6fa81',1,'FF7Materia::pixmap()']]],
