@@ -1340,7 +1340,9 @@ void CharEditor::setWeapon(int weapon)
     elemental_info();
     status_info();
     update_materia_slots();
-    materiaSlotClicked(-1);
+    if(mslotsel >= 0 && mslotsel <= 7) {
+        materiaSlotClicked(-1);
+    }
 
 }
 
@@ -1358,7 +1360,9 @@ void CharEditor::setArmor(int armor)
     elemental_info();
     status_info();
     update_materia_slots();
-    materiaSlotClicked(-1);
+    if(mslotsel >= 8 && mslotsel <= 15) {
+        materiaSlotClicked(-1);
+    }
 }
 
 void CharEditor::setAccessory(int accessory)
