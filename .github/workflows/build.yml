@@ -27,41 +27,41 @@ jobs:
           }
         - {
            name: "Linux-Qt6-amd64"
-           , os: ubuntu-latest
-           , QT_VERSION: 6.2.2, QT_INST_DIR: /opt, QT_MODULES: qt5compat
+           , os: ubuntu-20.04
+           , QT_VERSION: 6.2.3, QT_INST_DIR: /opt, QT_MODULES: qt5compat
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
            , packageName: ff7tk-continuous-Qt6-Linux
-           , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.2/gcc_64/libexec"
+           , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.3/gcc_64/libexec"
            , releasePackage: "ff7tk-continuous-Qt6-Linux.tar.xz"
           }
         - {
             name: "MacOS-Qt5-amd64"
-            , os: macos-latest
+            , os: macos-10.15
             , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
           }
         - {
             name: "MacOS-Qt6-amd64"
-            , os: macos-latest
-            , QT_VERSION: 6.2.2, QT_INST_DIR: /Users/runner, QT_MODULES: qt5compat
+            , os: macos-10.15
+            , QT_VERSION: 6.2.3, QT_INST_DIR: /Users/runner, QT_MODULES: qt5compat
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
           }
         - {
             name: "Windows-Qt5-x64", WIN_ARCH: "x64"
-            , os: windows-latest
+            , os: windows-2019
             , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64
             , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
           }
         - {
             name: "Windows-Qt6-x64", WIN_ARCH: "x64"
-            , os: windows-latest
-            , QT_VERSION: 6.2.2, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
+            , os: windows-2019
+            , QT_VERSION: 6.2.3, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=6"
           }
         - {
             name: "Windows-Qt5-x86"
-            , os: windows-latest, WIN_ARCH: "amd64_x86"
+            , os: windows-2019, WIN_ARCH: "amd64_x86"
             , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win32_msvc2019
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
           }
