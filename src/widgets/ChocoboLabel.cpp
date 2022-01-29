@@ -24,7 +24,13 @@
 
 bool ChocoboLabel::event(QEvent *ev)
 {
-    if (ev->type() == QEvent::MouseButtonPress && isEnabled) {
+    if(ev->type() == QEvent::PaletteChange) {
+        setHoverColorStyle(QStringLiteral("rgba(%1,%2,%3,128);")
+                .arg(QString::number(palette().highlight().color().red())
+                    , QString::number(palette().highlight().color().green())
+                    , QString::number(palette().highlight().color().blue())));
+        return true;
+    } else if (ev->type() == QEvent::MouseButtonPress && isEnabled) {
         emit clicked();
         return true;
     } else if (ev->type() == QEvent::LanguageChange) {
@@ -141,6 +147,12 @@ ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *par
 
     this->setLayout(finalLayout);
     this->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+
+    setHoverColorStyle(QStringLiteral("rgba(%1,%2,%3,128);")
+            .arg(QString::number(palette().highlight().color().red())
+                , QString::number(palette().highlight().color().green())
+                , QString::number(palette().highlight().color().blue())));
+
     enable(occupied);
 }
 
