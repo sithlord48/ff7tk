@@ -6,30 +6,32 @@ To build ff7tk you will a minimum of:
     - [zlib]
 
 
-Currently ff7tk will build: 
+A Default Build of ff7tk will build: 
      - A Required Core Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)
      - Additional Libraries ff7tkWidgets, ff7tkUtils and ff7tkFormats.
      - Headers for the libraries so you can link to them
      - Required CMake parts to find it post install.
      - Translation files "ff7tk_<lang>.qm" for supported languages
-
+     - Documentation if [doxygen] was found on your system
+     - Unit Test that will be run as part of the build process.
 
 ## Configuration
+ff7tk Supports Several Build options
 Build Options:
-    Option     |            Description                  | Default Value | Addtional Requirments |
-:-------------:|:---------------------------------------:|:-------------:|:---------------------:|
-WIDGET_GALLERY | Build the Widget based gallery.         | OFF           | |
-QML_GALLERY    | Build the QML based gallery.            | OFF           | |
-DOCS           | Build Documentation.                    | OFF           | [doxygen] |
-FORMATS        | Build ff7tkFormats                      | ON            | |
-UTILS          | Build ff7tkUtils.                       | ON            | [zlib] |
-WIDGETS        | Build ff7tkWidgets.                     | ON            | |
-QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use| 5             | |
+         Option          |            Description                  | Default Value  | Addtional Requirments |
+:-----------------------:|:---------------------------------------:|:--------------:|:---------------------:|
+QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use          | 5              | |
+CMAKE_BUILD_TYPE         | Type of Build that is produced          | Release        | |
+DOCS                     | Build Documentation.                    | ON             | [doxygen] |
+BUILD_TESTING            | Build and run unit tests                | ON             | |
+WIDGET_GALLERY           | Build the Widget based gallery.         | OFF            | |
+QML_GALLERY              | Build the QML based gallery.            | OFF            | |
+FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF            | Mac Os Only |
+FORMATS                  | Build ff7tkFormats                      | ON             | |
+UTILS                    | Build ff7tkUtils.                       | ON             | [zlib] |
+WIDGETS                  | Build ff7tkWidgets.                     | ON             | |
 
-Example workflow.
-
-## Configure
-
+Example cmake configuration.
 `cmake -S. -Bbuild -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=<INSTALLPREFIX>`
 
 ## Build
@@ -69,14 +71,14 @@ For QMake you can use the pkgconfig provided by the system
  include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version()
 
 ## Translations
-  In addition to ff7tk's language files your application should also ship the qt_base_<lang>.qm
+  In addition to ff7tk's language files your application should also ship the qt_base_<lang>.qm these are required to translate strings from inside Qt libraries.
 
 ## Deploying ff7tk with your app
  When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommened to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.
  
 ### Item Depends
   - ff7tk
-    -- QtCore, QtXml, QtQml, QtQuick, QtSvg (MacOS) , Svg Image plugin Core5Compat (for Qt6 builds) 
+    -- QtCore, QtXml, QtQml, QtQuick, QtSvg, Svg Image plugin, Core5Compat (for Qt6 builds) 
   - ff7tkWidgets
     -- ff7tk, QtWidgets, QtGui
   - ff7tkFormats
