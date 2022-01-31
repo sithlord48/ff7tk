@@ -2,6 +2,8 @@ include (CPackIFW)
 
 ##Cpack Deployment Info
 #Generate list of built Targets
+set(RUNTIME_DEPENDS_PATH ${CMAKE_BINARY_DIR}/runtime_depends)
+
 get_property( TARGETS GLOBAL PROPERTY ff7tk_targets)
 set(TARGET_FILES "")
 foreach (_target ${TARGETS})
@@ -10,13 +12,11 @@ foreach (_target ${TARGETS})
 endforeach()
 
 if(TARGET ff7tkUtils)
-    message (STATUS: "BUILDING UTILS")
     if(EXISTS ${ZLIB_ROOT}/bin/zlib.dll)
         set(ZLIB_TARGET "${ZLIB_ROOT}/bin/zlib.dll")
     elseif(EXISTS ${ZLIB_ROOT}/bin/libzlib.dll)
         set(ZLIB_TARGET "${ZLIB_ROOT}/bin/libzlib.dll")
     endif()
-    message(STATUS "ZLIB_TARGET: ${ZLIB_TARGET}")
 endif()
 
 #Generic Info
@@ -162,14 +162,7 @@ set(CPACK_SOURCE_IGNORE_FILES "build" .directory .git* )
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${CMAKE_PROJECT_VERSION}-src")
 set(CPACK_SOURCE_GENERATOR "TGZ;ZIP")
 
-if(UNIX AND NOT APPLE)
-    install(
-        DIRECTORY ${RUNTIME_DEPENDS_PATH}/
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_runtime_depends
-        FILES_MATCHING PATTERN "*.*"
-    )
-elseif(WIN32)
+if(WIN32)
     install(
         DIRECTORY ${RUNTIME_DEPENDS_PATH}/
         DESTINATION ${CMAKE_INSTALL_BINDIR}
