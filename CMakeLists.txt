@@ -79,15 +79,12 @@ if(UNIX)
     endif()
 
 endif()
-set(RUNTIME_DEPENDS_PATH ${CMAKE_BINARY_DIR}/runtime_depends)
-if(NOT EXISTS ${RUNTIME_DEPENDS_PATH})
-    file(MAKE_DIRECTORY ${RUNTIME_DEPENDS_PATH})
-endif()
 
 define_property(GLOBAL PROPERTY ff7tk_targets BRIEF_DOCS "Defined Non-Test Targets" FULL_DOCS "Dynamicly Generated list of Targets Tests")
 
 add_subdirectory(docs)
 add_subdirectory(lang)
+add_subdirectory(packaging)
 add_subdirectory(src)
 
 if(WIDGET_GALLERY)
@@ -103,7 +100,6 @@ if(ENABLE_TESTING)
 endif()
 
 #pkgconfig
-
 configure_file(ff7tk.pc.in ff7tk.pc @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/ff7tk.pc DESTINATION share/pkgconfig COMPONENT ff7tk_development)
 
@@ -120,4 +116,3 @@ if(NOT TARGET uninstall)
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake)
 endif()
 
-add_subdirectory(packaging)
