@@ -18,19 +18,19 @@
 #pragma once
 #include <QtWidgets/QMainWindow>
 
-#include "../src/widgets/MateriaEditor.h"
-#include "../src/widgets/CharEditor.h"
-#include "../src/widgets/ItemList.h"
-#include "../src/widgets/MetadataCreator.h"
-#include "../src/widgets/SlotSelect.h"
-#include "../src/widgets/PhsListWidget.h"
-#include "../src/widgets/MenuListWidget.h"
-#include "../src/widgets/OptionsWidget.h"
-#include "../src/widgets/LocationViewer.h"
-#include "../src/widgets/ChocoboManager.h"
-#include "../src/widgets/AchievementEditor.h"
+#include <MateriaEditor.h>
+#include <CharEditor.h>
+#include <ItemList.h>
+#include <MetadataCreator.h>
+#include <SlotSelect.h>
+#include <PhsListWidget.h>
+#include <MenuListWidget.h>
+#include <OptionsWidget.h>
+#include <LocationViewer.h>
+#include <ChocoboManager.h>
+#include <AchievementEditor.h>
 
-#include "../src/formats/Lgp.h"
+#include <Lgp.h>
 
 namespace Ui
 {

@@ -25,27 +25,12 @@ endif()
 
 add_executable(ff7tkWidgetGallery WIN32 MACOSX_BUNDLE
         main.cpp
-        mainwindow.cpp
+        mainwindow.cpp mainwindow.h mainwindow.ui
         ${PLATFORM_EX_SRC}
     )
 
 add_dependencies(ff7tkWidgetGallery ff7tk ff7tkFormats ff7tkUtils ff7tkWidgets)
 
-if(${BUILD_FRAMEWORKS})
-    target_include_directories(ff7tkWidgetGallery PRIVATE
-        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tk>/Headers>
-        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkFormats>/Headers>
-        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkUtils>/Headers>
-        $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tkWidgets>/Headers>
-    )
-else()
-    target_include_directories(ff7tkWidgetGallery PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/data>
-        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/formats>
-        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/utils>
-        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/widgets>
-    )
-endif()
 target_link_libraries ( ff7tkWidgetGallery PRIVATE
         Qt::Widgets
         ff7tk::ff7tk

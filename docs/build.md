@@ -24,8 +24,9 @@ QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use          | 5          
 CMAKE_BUILD_TYPE         | Type of Build that is produced          | Release        | |
 DOCS                     | Build Documentation.                    | ON             | [doxygen] |
 BUILD_TESTING            | Build and run unit tests                | ON             | |
-WIDGET_GALLERY           | Build the Widget based gallery.         | OFF            | |
-QML_GALLERY              | Build the QML based gallery.            | OFF            | |
+BUILD_DEMOS              | Build The Demo Applications             | OFF            | |
+WIDGET_GALLERY           | Build the Widget based gallery.         | ON             | Depends on BUILD_DEMOS|
+QML_GALLERY              | Build the QML based gallery.            | ON             | Depends on BUILD_DEMOS|
 FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF            | Mac Os Only |
 FORMATS                  | Build ff7tkFormats                      | ON             | |
 UTILS                    | Build ff7tkUtils.                       | ON             | [zlib] |

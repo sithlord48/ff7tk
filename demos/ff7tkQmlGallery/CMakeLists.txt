@@ -22,11 +22,6 @@ add_executable(ff7tkQmlGallery WIN32 MACOSX_BUNDLE
 
 add_dependencies(ff7tkQmlGallery ff7tk)
 
-target_include_directories(ff7tkQmlGallery
-    PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/src/data>
-)
-
 target_link_libraries ( ff7tkQmlGallery PUBLIC
         Qt::Quick
         Qt::QuickControls2
@@ -45,7 +40,7 @@ if(APPLE)
         MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     )
     add_custom_command(TARGET ff7tkQmlGallery POST_BUILD
-        COMMAND ${PLATFORMDEPLOYQT} ${PROJECT_NAME}.app -qmldir=${CMAKE_SOURCE_DIR}/ff7tkQmlGallery
+        COMMAND ${PLATFORMDEPLOYQT} ${PROJECT_NAME}.app -qmldir=${CMAKE_CURRENT_SOURCE_DIR}
     )
 elseif(UNIX AND NOT APPLE)
     set_target_properties(ff7tkQmlGallery PROPERTIES

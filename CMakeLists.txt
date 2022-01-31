@@ -53,10 +53,6 @@ IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
   ELSE()
 ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
 
-option(WIDGET_GALLERY "Build the widget based gallery" OFF)
-option(QML_GALLERY "Build the qml based gallery" OFF)
-option(ENABLE_TESTING "Build and run UnitTests" ON)
-
 #Qt Info to get deploy app
 find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED COMPONENTS Core)
 get_target_property(qmake_executable Qt${QT_DEFAULT_MAJOR_VERSION}::qmake IMPORTED_LOCATION)
@@ -83,18 +79,17 @@ endif()
 define_property(GLOBAL PROPERTY ff7tk_targets BRIEF_DOCS "Defined Non-Test Targets" FULL_DOCS "Dynamicly Generated list of Targets Tests")
 
 add_subdirectory(docs)
+
+option(BUILD_DEMOS "Build Demo Apps" OFF)
+if(BUILD_DEMOS)
+    add_subdirectory(demos)
+endif()
+
 add_subdirectory(lang)
 add_subdirectory(packaging)
 add_subdirectory(src)
 
-if(WIDGET_GALLERY)
-    add_subdirectory(ff7tkWidgetGallery)
-endif()
-
-if(QML_GALLERY)
-    add_subdirectory(ff7tkQmlGallery)
-endif()
-
+option(ENABLE_TESTING "Build and run UnitTests" ON)
 if(ENABLE_TESTING)
     add_subdirectory(unittests)
 endif()
