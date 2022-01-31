@@ -141,7 +141,7 @@ jobs:
     - name: Build ff7tk
       id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DDOCS=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.extraCmakeConfig}}
+        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_DEMOS=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BUILD_TYPE}} --target package
 
     - name: Deployment (Linux)
@@ -162,7 +162,7 @@ jobs:
             -e ${{matrix.config.packageName}}/usr/bin/ff7tkWidgetGallery \
             -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkWidgetGallery.desktop \
             -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkWidgetGallery.png
-        export QML_SOURCES_PATHS=ff7tkQmlGallery
+        export QML_SOURCES_PATHS=demos/ff7tkQmlGallery
         ./linuxdeploy-x86_64.AppImage --appdir=qmlGallery --plugin=qt --output appimage \
             -e ${{matrix.config.packageName}}/usr/bin/ff7tkQmlGallery \
             -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkQmlGallery.desktop \
@@ -239,7 +239,7 @@ jobs:
             esac
 
           run: |
-            cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DDOCS=ON -DWIDGET_GALLERY=ON -DQML_GALLERY=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.cmakeExtraConfig}}
+            cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DBUILD_DEMOS=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.cmakeExtraConfig}}
             cmake --build build --config Release --target package
             mv build/ff7tk* /artifacts/
             rm /artifacts/ff7tk.pc
