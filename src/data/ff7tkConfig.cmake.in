@@ -3,15 +3,10 @@
 include(CMakeFindDependencyMacro)
 find_dependency(Qt@QT_DEFAULT_MAJOR_VERSION@ "@REQUIRED_QT_VERSION@" COMPONENTS
     Core
+    Svg
     Quick
     Xml
 )
-
-if(APPLE)
-find_dependency(Qt@QT_DEFAULT_MAJOR_VERSION@ "@REQUIRED_QT_VERSION@" COMPONENTS
-    Svg
-)
-endif()
 
 if(@QT_DEFAULT_MAJOR_VERSION@ MATCHES "6")
     find_package(Qt6 COMPONENTS Core5Compat REQUIRED)

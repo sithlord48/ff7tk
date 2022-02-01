@@ -106,6 +106,8 @@ cpack_ifw_configure_component(ff7tk_development
     LICENSES "LGPL3+" ${CPACK_RESOURCE_FILE_LICENSE}
 )
 
+cpack_ifw_configure_component_group(ff7tk_demos)
+
 cpack_ifw_configure_component(ff7tkWidgetGallery
     DISPLAY_NAME "DemoApp: Widget Gallery"
     DESCRIPTION "A Demo Application using ff7tk's widgets"

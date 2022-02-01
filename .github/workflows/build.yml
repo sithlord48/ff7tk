@@ -228,13 +228,13 @@ jobs:
               bullseye)
                 apt-get update -y
                 apt-get upgrade -y
-                apt-get install -y build-essential git zlib1g-dev wget doxygen graphviz qtbase5-dev qttools5-dev-tools qtbase5-dev-tools qt5-qmake qtdeclarative5-dev devscripts libssl-dev qttools5-dev qtquickcontrols2-5-dev
+                apt-get install -y build-essential git zlib1g-dev wget doxygen graphviz qtbase5-dev libqt5svg5-dev qttools5-dev-tools qtbase5-dev-tools qt5-qmake qtdeclarative5-dev devscripts libssl-dev qttools5-dev qtquickcontrols2-5-dev
                 wget https://github.com/sithlord48/fresh-debian-cmake/releases/download/3.22.1/cmake-3.22.1-bullseye_${{matrix.config.arch}}.tar.gz
                 tar -xf cmake-3.22.1-bullseye_${{matrix.config.arch}}.tar.gz --strip-components=3 --one-top-level=/usr
                 ;;
               arch*)
                 pacman -Syu --noconfirm
-                pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative clang graphviz --noconfirm
+                pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative qt6-svg clang graphviz --noconfirm
               ;;
             esac
 
