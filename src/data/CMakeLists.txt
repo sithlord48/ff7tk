@@ -2,13 +2,8 @@ find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
     Core
     Quick
     Xml
+    Svg
 )
-
-if(APPLE)
-    find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED NO_MODULE COMPONENTS
-        Svg
-    )
-endif()
 
 if(${QT_DEFAULT_MAJOR_VERSION} MATCHES "6")
     find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
@@ -16,15 +11,16 @@ endif()
 
 configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h @ONLY)
 
-set ( ff7tkData_SRC
+
+set ( ff7tk_SRC
         crypto/aes.c
         FF7Achievements.cpp  FF7Char.cpp     FF7FieldItemList.cpp
         FF7Item.cpp          FF7Location.cpp FF7Materia.cpp
         FF7Save.cpp          FF7SaveInfo.cpp FF7Text.cpp
         SaveIcon.cpp
-    )
+)
 
-set (ff7tkData_HEADERS
+set (ff7tk_HEADERS
     FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
     FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
@@ -32,63 +28,32 @@ set (ff7tkData_HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h
 )
 
-set ( ff7tkIcons
-        ../icons/achievements.qrc
-        ../icons/characters.qrc
-        ../icons/chocobo.qrc
-        ../icons/common.qrc
-        ../icons/items.qrc
-        ../icons/locations.qrc
-        ../icons/materia.qrc
-        ../icons/psxButtons.qrc
+set ( ff7tk_RESOURCES
+        ${CMAKE_SOURCE_DIR}/src/icons/achievements.qrc
+        ${CMAKE_SOURCE_DIR}/src/icons/characters.qrc
+        ${CMAKE_SOURCE_DIR}/src/icons/chocobo.qrc
+        ${CMAKE_SOURCE_DIR}/src/icons/common.qrc
+        ${CMAKE_SOURCE_DIR}/src/icons/items.qrc
+        ${CMAKE_SOURCE_DIR}/src/icons/locations.qrc
+        ${CMAKE_SOURCE_DIR}/src/icons/materia.qrc
+        ${CMAKE_SOURCE_DIR}/src/icons/psxButtons.qrc
 )
 
-add_library (ff7tk SHARED
-        ${ff7tkIcons}
-        ${ff7tkData_SRC}
-        ${ff7tkData_HEADERS}
-)
-add_library (ff7tk::ff7tk ALIAS ff7tk)
-
-if(WIN32 AND CMAKE_COMPILER_IS_GNUCC)
-    #Prevent ms padding on packed structures on gcc compiler
-    add_compile_options(-mno-ms-bitfields)
-elseif(APPLE)
-     target_link_libraries(ff7tk PUBLIC Qt::Svg)
-     target_compile_options(ff7tk PRIVATE -stdlib=libc++)
-     set_target_properties(ff7tk PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
-     if(${BUILD_FRAMEWORKS})
-         target_include_directories(ff7tk PUBLIC $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:ff7tk>/Headers>)
-     endif()
-endif()
-
-if(UNIX)
-    set_target_properties(ff7tk PROPERTIES INSTALL_RPATH ${INSTALL_RPATH_STRING})
-endif()
-
-set_target_properties(ff7tk PROPERTIES
-    FRAMEWORK ${BUILD_FRAMEWORKS}
-    FRAMEWORK_VERSION ${PROJECT_VERSION_MAJOR}
-    MACOSX_FRAMEWORK_IDENTIFIER com.sithlord48.ff7tk
-    VERSION ${PROJECT_VERSION}
-    SOVERSION ${PROJECT_VERSION_MAJOR}
-    PUBLIC_HEADER "${ff7tkData_HEADERS}"
-)
-
-target_include_directories(ff7tk PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-    $<INSTALL_INTERFACE:include/ff7tk>
-)
-
-target_link_libraries (ff7tk PUBLIC
-        Qt::Core
-        Qt::Quick
-        Qt::Xml
+set (ff7tk_PublicLIBLINKS
+      Qt::Core
+      Qt::Quick
+      Qt::Xml
+      Qt::Svg
 )
 
 if(${QT_DEFAULT_MAJOR_VERSION} EQUAL "6")
-    target_link_libraries(ff7tk PRIVATE Qt6::Core5Compat)
+    set(ff7tk_PrivateLIBLINKS Qt6::Core5Compat)
 endif()
 
-INSTALL_LIBRARY(ff7tk ff7tk)
+MAKE_LIBRARY(ff7tk ff7tk)
+
+if(WIN32 AND CMAKE_COMPILER_IS_GNUCC)
+    target_compile_options(ff7tk PRIVATE -mno-ms-bitfields)
+elseif(APPLE)
+     target_compile_options(ff7tk PRIVATE -stdlib=libc++)
+endif()
