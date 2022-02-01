@@ -30,7 +30,6 @@ set (ff7tkData_HEADERS
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h
-
 )
 
 set ( ff7tkIcons
@@ -82,20 +81,6 @@ target_include_directories(ff7tk PUBLIC
     $<INSTALL_INTERFACE:include/ff7tk>
 )
 
-generate_export_header(ff7tk)
-
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfigVersion.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY AnyNewerVersion
-)
-
-configure_package_config_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfig.cmake
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-)
-
 target_link_libraries (ff7tk PUBLIC
         Qt::Core
         Qt::Quick
@@ -106,36 +91,4 @@ if(${QT_DEFAULT_MAJOR_VERSION} EQUAL "6")
     target_link_libraries(ff7tk PRIVATE Qt6::Core5Compat)
 endif()
 
-install(TARGETS ff7tk
-    EXPORT ff7tkTargets
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        COMPONENT ff7tk_runtime
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_runtime
-        NAMELINK_COMPONENT ff7tk_development
-    FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_runtime
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_development
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk
-        COMPONENT ff7tk_development
-)
-
-install(
-    EXPORT ff7tkTargets
-    NAMESPACE ff7tk::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-    COMPONENT ff7tk_development
-)
-
-install(
-    FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfig.cmake
-      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkConfigVersion.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-    COMPONENT ff7tk_development
-)
-
-export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/ff7tkTargets.cmake)
-
-set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tk)
+INSTALL_LIBRARY(ff7tk ff7tk)

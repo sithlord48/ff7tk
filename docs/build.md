@@ -18,19 +18,19 @@ A Default Build of ff7tk will build:
 ## Configuration
 ff7tk Supports Several Build options
 Build Options:
-         Option          |            Description                  | Default Value  | Addtional Requirments |
-:-----------------------:|:---------------------------------------:|:--------------:|:---------------------:|
-QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use          | 5              | |
-CMAKE_BUILD_TYPE         | Type of Build that is produced          | Release        | |
-DOCS                     | Build Documentation.                    | ON             | [doxygen] |
-BUILD_TESTING            | Build and run unit tests                | ON             | |
-BUILD_DEMOS              | Build The Demo Applications             | OFF            | |
-WIDGET_GALLERY           | Build the Widget based gallery.         | ON             | Depends on BUILD_DEMOS|
-QML_GALLERY              | Build the QML based gallery.            | ON             | Depends on BUILD_DEMOS|
-FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF            | Mac Os Only |
-FORMATS                  | Build ff7tkFormats                      | ON             | |
-UTILS                    | Build ff7tkUtils.                       | ON             | [zlib] |
-WIDGETS                  | Build ff7tkWidgets.                     | ON             | |
+         Option          |            Description                  |   Default Value    | Addtional Requirments |
+:-----------------------:|:---------------------------------------:|:------------------:|:---------------------:|
+QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use          | 5                  | |
+CMAKE_BUILD_TYPE         | Type of Build that is produced          | ReleaseWithDebInfo | |
+DOCS                     | Build Documentation.                    | ON                 | [doxygen] |
+BUILD_TESTING            | Build and run unit tests                | ON                 | |
+BUILD_DEMOS              | Build The Demo Applications             | OFF                | |
+WIDGET_GALLERY           | Build the Widget based gallery.         | ON                 | Depends on BUILD_DEMOS|
+QML_GALLERY              | Build the QML based gallery.            | ON                 | Depends on BUILD_DEMOS|
+FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF                | Mac Os Only |
+FORMATS                  | Build ff7tkFormats                      | ON                 | |
+UTILS                    | Build ff7tkUtils.                       | ON                 | [zlib] |
+WIDGETS                  | Build ff7tkWidgets.                     | ON                 | |
 
 Example cmake configuration.
 `cmake -S. -Bbuild -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=<INSTALLPREFIX>`

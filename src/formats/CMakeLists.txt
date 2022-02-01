@@ -60,48 +60,4 @@ target_link_libraries (ff7tkFormats PUBLIC
         ff7tk::ff7tkUtils
 )
 
-generate_export_header(ff7tkFormats BASE_NAME ff7tkformats)
-
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkFormatsConfigVersion.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY AnyNewerVersion
-)
-
-configure_package_config_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkFormatsConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkFormatsConfig.cmake
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-)
-
-install(TARGETS ff7tkFormats
-    EXPORT ff7tkTargets
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        COMPONENT ff7tk_runtime
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_runtime
-        NAMELINK_COMPONENT ff7tk_development
-    FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_runtime
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_development
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/formats
-        COMPONENT ff7tk_development
-)
-
-install(
-    EXPORT ff7tkTargets
-    NAMESPACE ff7tk::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-    COMPONENT ff7tk_development
-)
-
-install(
-    FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkFormatsConfig.cmake
-      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkFormatsConfigVersion.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-    COMPONENT ff7tk_development
-)
-export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/ff7tkTargets.cmake)
-set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tkFormats)
+INSTALL_LIBRARY(ff7tkFormats ff7tk/formats)
