@@ -11,7 +11,7 @@ jobs:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
     env:
-      BUILD_TYPE: Release
+      BUILD_TYPE: RelWithDebInfo
       Qt_Tools: tools_ifw
     strategy:
       fail-fast: false

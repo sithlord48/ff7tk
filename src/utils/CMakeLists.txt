@@ -61,48 +61,4 @@ target_link_libraries (ff7tkUtils PUBLIC
     ZLIB::ZLIB
  )
 
-generate_export_header(ff7tkUtils BASE_NAME ff7tkutils)
-
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkUtilsConfigVersion.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY AnyNewerVersion
-)
-
-configure_package_config_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/ff7tkUtilsConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tkUtilsConfig.cmake
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-)
-
-install(TARGETS ff7tkUtils
-    EXPORT ff7tkTargets
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        COMPONENT ff7tk_runtime
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_runtime
-        NAMELINK_COMPONENT ff7tk_development
-    FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_runtime
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        COMPONENT ff7tk_development
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ff7tk/utils
-        COMPONENT ff7tk_development
-)
-
-install(
-    EXPORT ff7tkTargets
-    NAMESPACE ff7tk::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-    COMPONENT ff7tk_development
-)
-
-install(
-    FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkUtilsConfig.cmake
-      ${CMAKE_CURRENT_BINARY_DIR}/ff7tkUtilsConfigVersion.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-    COMPONENT ff7tk_development
-)
-export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/ff7tkTargets.cmake)
-set_property(GLOBAL APPEND PROPERTY ff7tk_targets ff7tkUtils)
+INSTALL_LIBRARY(ff7tkUtils ff7tk/utils)

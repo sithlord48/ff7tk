@@ -30,7 +30,7 @@ elseif (${QT_DEFAULT_MAJOR_VERSION} MATCHES "6")
 endif()
 
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release CACHE STRING "" FORCE)
+    set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "" FORCE)
 endif()
 
 include(CMakePackageConfigHelpers)
