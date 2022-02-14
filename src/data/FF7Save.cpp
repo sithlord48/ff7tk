@@ -863,7 +863,8 @@ void FF7Save::setSaveNumber(int s, int saveNum)
     if (!isFF7(s))
         return;
 
-    SG_Region_String[s] = region(s).mid(0, region(s).size() - 2).append(QString("%1").arg(QString::number(saveNum + 1), 2, QChar('0')));
+    SG_Region_String[s].replace(SG_Region_String[s].lastIndexOf(QChar('S'))+ 1, 2, QString("%1").arg(QString::number(saveNum + 1), 2, QChar('0')));
+
     switch(format()) {
         default: break;
         case FF7SaveInfo::FORMAT::VMC:
@@ -919,7 +920,7 @@ void FF7Save::pasteSlot(int s)
 {
     slot[s] = buffer_slot;
     SG_Region_String[s] = buffer_region;
-    SG_Region_String[s].replace(SG_Region_String[s].length() - 2, 2, QString("%1").arg(QString::number(s + 1), 2, QChar('0')));
+    SG_Region_String[s].replace(SG_Region_String[s].lastIndexOf(QChar('S'))+ 1, 2, QString("%1").arg(QString::number(s + 1), 2, QChar('0')));
     if (FF7SaveInfo::isTypeVMC(fileFormat)) {
         vmcRegionEval(s);
         fix_vmc_header();
