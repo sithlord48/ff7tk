@@ -604,6 +604,12 @@ public:
     quint16 runs(int s);
     void setRuns(int s, int runs);
     quint8 party(int s, int pos);
+    /**
+     * @brief Set the party member to an ID. When changing a party member the slots description data is also updated.
+     * @param s - Slot to set th party in
+     * @param pos - Party slot to set
+     * @param new_id - Id of character
+     */
     void setParty(int s, int pos, int new_id);
     qint8 chocoboPen(int s, int pos);
     void setChocoboPen(int s, int pos, int type);

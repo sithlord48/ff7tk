@@ -28,6 +28,7 @@
 #include <QtEndian>
 #include <FF7Text.h>
 #include <FF7Item.h>
+#include <FF7Char.h>
 
 // I'm not installing this header.
 #include "crypto/aes.h"
@@ -2472,19 +2473,49 @@ quint8 FF7Save::party(int s, int pos)
 {
     return slot[s].party[pos];
 }
+
 void FF7Save::setParty(int s, int pos, int new_id)
 {
     if (pos >= 0 && pos < 3) {
         if (new_id >= 0 && new_id < 12) {
             slot[s].party[pos] = new_id;
             slot[s].f_party[pos] = new_id;
+            slot[s].desc.party[pos] = new_id;
         } else {
-            slot[s].party[pos] = 0xFF;
-            slot[s].f_party[pos] = 0xFF;
+            slot[s].party[pos] = FF7Char::Empty;
+            slot[s].f_party[pos] = FF7Char::Empty;
+            slot[s].desc.party[pos] = FF7Char::Empty;
+        }
+        if(pos == 0) {
+            if(new_id == FF7Char::Empty) {
+                slot[s].desc.curHP = 0;
+                slot[s].desc.maxHP = 0;
+                slot[s].desc.curMP = 0;
+                slot[s].desc.maxMP = 0;
+                slot[s].desc.level = 0;
+                for (int i = 0; i < 16; i++)
+                    slot[s].desc.name[i] = 0xFF;
+            } else {
+                //Read party member 0 unless the Id > 9 Then we need to read the charSlot 6-8.
+                int charToRead = party(s, 0);
+                if (new_id == FF7Char::YoungCloud)
+                    charToRead = 6;
+                else if (new_id == FF7Char::Sephiroth)
+                    charToRead = 7;
+                else if (new_id == 11)//Chocobo may not work
+                    charToRead = 8;
+                slot[s].desc.curHP = charCurrentHp(s, charToRead);
+                slot[s].desc.maxHP = charMaxHp(s, charToRead);
+                slot[s].desc.curMP = charCurrentMp(s, charToRead);
+                slot[s].desc.maxMP = charMaxMp(s, charToRead);
+                slot[s].desc.level = charLevel(s, charToRead);
+                setDescName(s, charName(s, charToRead));
+            }
         }
         setFileModified(true, s);
     }
 }
+
 QString FF7Save::snowboardTime(int s, int course)
 {
     quint32 time = 0;
