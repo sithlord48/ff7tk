@@ -2998,10 +2998,6 @@ The km/h speeds are calculated while playing </source>
         <translation>Pogromca Miecza</translation>
     </message>
     <message>
-        <source>Initial equiping</source>
-        <translation>Wyposażenie Początkowe</translation>
-    </message>
-    <message>
         <source>Mythril Saber</source>
         <translation>Mithrilowa szabla</translation>
     </message>
@@ -3952,6 +3948,10 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Increases Manipulation rate</source>
         <translation>Zwiększa Szybkość Manipulacji</translation>
+    </message>
+    <message>
+        <source>Initial equipment</source>
+        <translation>Wyposażenie Początkowe</translation>
     </message>
 </context>
 <context>
@@ -7080,207 +7080,6 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Field Items</source>
         <translation>Elementy Pól</translation>
-    </message>
-</context>
-<context>
-    <name>MainWindow</name>
-    <message>
-        <source>FF7tk Widget Demo</source>
-        <translation>FF7tk Widżet Demo</translation>
-    </message>
-    <message>
-        <source>Select Widget...</source>
-        <translation>Wybierz Widżet...</translation>
-    </message>
-    <message>
-        <source>OptionsWidget</source>
-        <translation>Opcje Widżetów</translation>
-    </message>
-    <message>
-        <source>Materia Editor</source>
-        <translation>Edytor Materii</translation>
-    </message>
-    <message>
-        <source>ItemList</source>
-        <translation>Lista Elementów</translation>
-    </message>
-    <message>
-        <source>CharEditor</source>
-        <translation>Edytor Znaków</translation>
-    </message>
-    <message>
-        <source>MetaData Creator</source>
-        <translation>Kreator Danych Meta</translation>
-    </message>
-    <message>
-        <source>SlotSelect</source>
-        <translation>Wybierz Slot</translation>
-    </message>
-    <message>
-        <source>PhsListWidget</source>
-        <translation>Widżet Listy Phs</translation>
-    </message>
-    <message>
-        <source>MenuListWidget</source>
-        <translation>Widżet Listy Menu</translation>
-    </message>
-    <message>
-        <source>Lgp Utility</source>
-        <translation>Narzędzie Lgp</translation>
-    </message>
-    <message>
-        <source>LocationViewer</source>
-        <translation>Przeglądarka Lokalizacji</translation>
-    </message>
-    <message>
-        <source>ChocoboManager</source>
-        <translation>Menadżer Chocobo</translation>
-    </message>
-    <message>
-        <source>AchievementEditor</source>
-        <translation>Edytor Osiągnięć</translation>
-    </message>
-    <message>
-        <source>Widget Scale : </source>
-        <translation>Skala Widżetu : </translation>
-    </message>
-    <message>
-        <source>Editable Item Combo</source>
-        <translation>Edytowalna Kombinacja Elementów</translation>
-    </message>
-    <message>
-        <source>GroupBox</source>
-        <translation>Grupa Elementów</translation>
-    </message>
-    <message>
-        <source>setStarSize(int)</source>
-        <translation>ustawRozmiarGwiazdy(int)</translation>
-    </message>
-    <message>
-        <source>Editable Combo</source>
-        <translation>Edytowalna Kombinacja</translation>
-    </message>
-    <message>
-        <source>is Editable</source>
-        <translation>Edytowalne</translation>
-    </message>
-    <message>
-        <source>Initilze Char Data</source>
-        <translation type="vanished">Zainicjuj dane znaków</translation>
-    </message>
-    <message>
-        <source>Debug</source>
-        <translation>Odpluskwianie</translation>
-    </message>
-    <message>
-        <source>Editable Combos </source>
-        <translation>Edytowalne kombinacje </translation>
-    </message>
-    <message>
-        <source>Show Dialog</source>
-        <translation>Pokaż Okno Dialogowe</translation>
-    </message>
-    <message>
-        <source>Allow Loading of new file from dialog</source>
-        <translation>Pozwól na Ładowanie nowego pliku z okna dialogowego</translation>
-    </message>
-    <message>
-        <source>Select File to Preview</source>
-        <translation>Wybierz Plik do Podglądu</translation>
-    </message>
-    <message>
-        <source>View / Extract</source>
-        <translation>Pokaż / Wyodrębnij</translation>
-    </message>
-    <message>
-        <source>Select Lgp To Preview</source>
-        <translation>Wybierz Lgp do Podglądu</translation>
-    </message>
-    <message>
-        <source>Extract To...</source>
-        <translation>Wyodrębnij Do...</translation>
-    </message>
-    <message>
-        <source>Create / Add File(s)</source>
-        <translation>Utwórz / Dodaj Plik(i)</translation>
-    </message>
-    <message>
-        <source>Demo Coming Soon</source>
-        <translation>Demo Już Wkrótce</translation>
-    </message>
-    <message>
-        <source>Advanced Mode</source>
-        <translation>Tryb Zaawansowany</translation>
-    </message>
-    <message>
-        <source>Region</source>
-        <translation>Region</translation>
-    </message>
-    <message>
-        <source>FF7-S01BASCUS-94163</source>
-        <translation>FF7-S01BASCUS-94163</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00867</source>
-        <translation>FF7-S01BESCES-00867</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00868</source>
-        <translation>FF7-S01BESCES-00868</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00869</source>
-        <translation>FF7-S01BESCES-00869</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00900</source>
-        <translation>FF7-S01BESCES-00900</translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-00700</source>
-        <translation>FF7-S01BISLPS-00700</translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-01057</source>
-        <translation>FF7-S01BISLPS-01057</translation>
-    </message>
-    <message>
-        <source>Select Achievement to Preview</source>
-        <translation>Wybierz Osiągnięcie do Podglądu</translation>
-    </message>
-    <message>
-        <source>Save File</source>
-        <translation>Zapisz Plik</translation>
-    </message>
-    <message>
-        <source>File Error</source>
-        <translation>Błąd Pliku</translation>
-    </message>
-    <message>
-        <source>Error Loading File: %1</source>
-        <translation>Błąd Podczas Ładowania Pliku: %1</translation>
-    </message>
-    <message>
-        <source>Extracting Archive</source>
-        <translation>Wyodrębnij Archiwum</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Anuluj</translation>
-    </message>
-    <message>
-        <source>File Write Error</source>
-        <translation>Błąd Zapisu Pliku</translation>
-    </message>
-    <message>
-        <source>Unable to write to file:
-%1</source>
-        <translation>Nie można zapisać do pliku:
-%1</translation>
-    </message>
-    <message>
-        <source>Initialize Char Data</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1125,7 +1125,7 @@ private:
             {QT_TR_NOOP("DON'T USE"), QString(), 0, QString(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             //cloud weapons 128 -143
             {
-                QT_TR_NOOP("Buster Sword"), QT_TR_NOOP("Initial equiping"), 4, QStringLiteral(":/items/sword"),
+                QT_TR_NOOP("Buster Sword"), QT_TR_NOOP("Initial equipment"), 4, QStringLiteral(":/items/sword"),
                         1, 2, 1, 0, 0, 0, 0, 0, 0, +2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, +1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
             {

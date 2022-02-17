@@ -2999,10 +2999,6 @@ The km/h speeds are calculated while playing </source>
         <translation type="unfinished">バスターソード</translation>
     </message>
     <message>
-        <source>Initial equiping</source>
-        <translation type="unfinished">最初から持っている剣</translation>
-    </message>
-    <message>
         <source>Mythril Saber</source>
         <translation type="unfinished">ミスリルセイバー</translation>
     </message>
@@ -3953,6 +3949,10 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Increases Manipulation rate</source>
         <translation type="unfinished">あやつりの確率アップ</translation>
+    </message>
+    <message>
+        <source>Initial equipment</source>
+        <translation>最初から持っている剣</translation>
     </message>
 </context>
 <context>
@@ -6553,26 +6553,6 @@ The km/h speeds are calculated while playing </source>
         <translation type="unfinished">ナイツオブラウンド</translation>
     </message>
     <message>
-        <source>KOTR x1 (250mp)</source>
-        <translation type="obsolete">ナイツオブラウンド x1 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x2 (250mp)</source>
-        <translation type="obsolete">ナイツオブラウンド x2 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x3 (250mp)</source>
-        <translation type="obsolete">ナイツオブラウンド x3 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x4 (250mp)</source>
-        <translation type="obsolete">ナイツオブラウンド x4 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x5 (250mp)</source>
-        <translation type="obsolete">ナイツオブラウンド x5 (250MP)</translation>
-    </message>
-    <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
         <translation type="unfinished">MAXHP:-10% MAXMP:+20% 魔力:+8 魔防:+8</translation>
     </message>
@@ -7104,202 +7084,6 @@ The km/h speeds are calculated while playing </source>
     </message>
 </context>
 <context>
-    <name>MainWindow</name>
-    <message>
-        <source>FF7tk Widget Demo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Widget...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>OptionsWidget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Materia Editor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ItemList</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CharEditor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MetaData Creator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SlotSelect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PhsListWidget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MenuListWidget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lgp Utility</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>LocationViewer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ChocoboManager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>AchievementEditor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Widget Scale : </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Editable Item Combo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GroupBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>setStarSize(int)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Editable Combo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>is Editable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Debug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Editable Combos </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow Loading of new file from dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select File to Preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View / Extract</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Lgp To Preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extract To...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create / Add File(s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Demo Coming Soon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Advanced Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Achievement to Preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>File Error</source>
-        <translation type="unfinished">ファイルエラー</translation>
-    </message>
-    <message>
-        <source>Error Loading File: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extracting Archive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">キャンセル</translation>
-    </message>
-    <message>
-        <source>File Write Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unable to write to file:
-%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BASCUS-94163</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00867</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00868</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00869</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00900</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-00700</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-01057</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Initialize Char Data</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MateriaEditor</name>
     <message>
         <source>Delete</source>
@@ -7410,7 +7194,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Locked</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ロック済み</translation>
     </message>
 </context>
 <context>

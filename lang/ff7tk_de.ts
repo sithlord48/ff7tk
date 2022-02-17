@@ -441,11 +441,11 @@
     </message>
     <message>
         <source>Base HP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Basis HP</translation>
     </message>
     <message>
         <source>Base MP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Basis MP</translation>
     </message>
     <message>
         <source>1-1</source>
@@ -2017,19 +2017,19 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Member&apos;s Card</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Schlüsselgegenstände: Mitgliedskarte</translation>
     </message>
     <message>
         <source>KeyItem: Keystone</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Schlüsselgegenstände: Schlussstein</translation>
     </message>
     <message>
         <source>KeyItem: Black Materia</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Schlüsselgegenstände: Schwarze Materia</translation>
     </message>
     <message>
         <source>Slash-All</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alle streichen</translation>
     </message>
 </context>
 <context>
@@ -2961,10 +2961,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     <message>
         <source>Buster Sword</source>
         <translation>Meisterschwert</translation>
-    </message>
-    <message>
-        <source>Initial equiping</source>
-        <translation>Anfangsausrüstung</translation>
     </message>
     <message>
         <source>Mythril Saber</source>
@@ -3920,39 +3916,43 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>Uses [Poison/Confu/Sleepel/Silence/Small/Frog]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gießen Gift/Verwirrung/Schlaf/Stummheit/Klein/Frosch]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Omnislash]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Omnischlag]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Catastrophe]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Katastrophe]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Final Heaven]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Himmelsfaust]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Great Gospel]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Engels Chor]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Cosmo Memory]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Kosmo-Glut]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [All Creation]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Zorn der Götter]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Chaos]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Chaos]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Highwind]</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lern Fähigkeit [Highwind]</translation>
+    </message>
+    <message>
+        <source>Initial equipment</source>
+        <translation>Anfangsausrüstung</translation>
     </message>
 </context>
 <context>
@@ -5143,19 +5143,19 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>Woodlands Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wälder-Region</translation>
     </message>
     <message>
         <source>Nibel Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nibel-Region</translation>
     </message>
     <message>
         <source>Rocket Launch Pad Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Raketenstartrampe-Region</translation>
     </message>
     <message>
         <source>Icicle Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Eiszapfen-Region</translation>
     </message>
 </context>
 <context>
@@ -6541,26 +6541,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation>Ritter der Runde</translation>
     </message>
     <message>
-        <source>KOTR x1 (250mp)</source>
-        <translation type="vanished">RdR x1 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x2 (250mp)</source>
-        <translation type="vanished">RdR x2 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x3 (250mp)</source>
-        <translation type="vanished">RdR x3 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x4 (250mp)</source>
-        <translation type="vanished">RdR x4 (250MP)</translation>
-    </message>
-    <message>
-        <source>KOTR x5 (250mp)</source>
-        <translation type="vanished">RdR x5 (250MP)</translation>
-    </message>
-    <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
         <translation>Hp:-10% Mp:+20% Zau:+8 Gem:+8</translation>
     </message>
@@ -6678,7 +6658,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>Slash-All</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alle streichen</translation>
     </message>
     <message>
         <source>Knights of the Round x1 (250mp)</source>
@@ -7104,202 +7084,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
 </context>
 <context>
-    <name>MainWindow</name>
-    <message>
-        <source>FF7tk Widget Demo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Widget...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>OptionsWidget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Materia Editor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ItemList</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CharEditor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MetaData Creator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SlotSelect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PhsListWidget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MenuListWidget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lgp Utility</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>LocationViewer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ChocoboManager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>AchievementEditor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Widget Scale : </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Editable Item Combo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>GroupBox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>setStarSize(int)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Editable Combo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>is Editable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Debug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Editable Combos </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow Loading of new file from dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select File to Preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View / Extract</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Lgp To Preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extract To...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create / Add File(s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Demo Coming Soon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Advanced Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Achievement to Preview</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>File Error</source>
-        <translation type="unfinished">Dateifehler</translation>
-    </message>
-    <message>
-        <source>Error Loading File: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extracting Archive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">Abbrechen</translation>
-    </message>
-    <message>
-        <source>File Write Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unable to write to file:
-%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Region</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BASCUS-94163</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00867</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00868</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00869</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00900</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-00700</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-01057</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Initialize Char Data</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MateriaEditor</name>
     <message>
         <source>Delete</source>
@@ -7410,7 +7194,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>Locked</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gesperrt</translation>
     </message>
 </context>
 <context>

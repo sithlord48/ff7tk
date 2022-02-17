@@ -2999,10 +2999,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>Buster Sword</translation>
     </message>
     <message>
-        <source>Initial equiping</source>
-        <translation>Initial equiping</translation>
-    </message>
-    <message>
         <source>Mythril Saber</source>
         <translation>Mythril Saber</translation>
     </message>
@@ -3953,6 +3949,10 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Increases Manipulation rate</source>
         <translation>Increases Manipulation rate</translation>
+    </message>
+    <message>
+        <source>Initial equipment</source>
+        <translation>Initial equipment</translation>
     </message>
 </context>
 <context>
@@ -6557,26 +6557,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>Knights of the Round</translation>
     </message>
     <message>
-        <source>KOTR x1 (250mp)</source>
-        <translation type="vanished">KOTR x1 (250mp)</translation>
-    </message>
-    <message>
-        <source>KOTR x2 (250mp)</source>
-        <translation type="vanished">KOTR x2 (250mp)</translation>
-    </message>
-    <message>
-        <source>KOTR x3 (250mp)</source>
-        <translation type="vanished">KOTR x3 (250mp)</translation>
-    </message>
-    <message>
-        <source>KOTR x4 (250mp)</source>
-        <translation type="vanished">KOTR x4 (250mp)</translation>
-    </message>
-    <message>
-        <source>KOTR x5 (250mp)</source>
-        <translation type="vanished">KOTR x5 (250mp)</translation>
-    </message>
-    <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
         <translation>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</translation>
     </message>
@@ -7101,207 +7081,6 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Set as current location</source>
         <translation>Set as current location</translation>
-    </message>
-</context>
-<context>
-    <name>MainWindow</name>
-    <message>
-        <source>FF7tk Widget Demo</source>
-        <translation>FF7tk Widget Demo</translation>
-    </message>
-    <message>
-        <source>Select Widget...</source>
-        <translation>Select Widget...</translation>
-    </message>
-    <message>
-        <source>OptionsWidget</source>
-        <translation>OptionsWidget</translation>
-    </message>
-    <message>
-        <source>Materia Editor</source>
-        <translation>Materia Editor</translation>
-    </message>
-    <message>
-        <source>ItemList</source>
-        <translation>ItemList</translation>
-    </message>
-    <message>
-        <source>CharEditor</source>
-        <translation>CharEditor</translation>
-    </message>
-    <message>
-        <source>MetaData Creator</source>
-        <translation>MetaData Creator</translation>
-    </message>
-    <message>
-        <source>SlotSelect</source>
-        <translation>SlotSelect</translation>
-    </message>
-    <message>
-        <source>PhsListWidget</source>
-        <translation>PhsListWidget</translation>
-    </message>
-    <message>
-        <source>MenuListWidget</source>
-        <translation>MenuListWidget</translation>
-    </message>
-    <message>
-        <source>Lgp Utility</source>
-        <translation>Lgp Utility</translation>
-    </message>
-    <message>
-        <source>LocationViewer</source>
-        <translation>LocationViewer</translation>
-    </message>
-    <message>
-        <source>ChocoboManager</source>
-        <translation>ChocoboManager</translation>
-    </message>
-    <message>
-        <source>AchievementEditor</source>
-        <translation>AchievementEditor</translation>
-    </message>
-    <message>
-        <source>Widget Scale : </source>
-        <translation>Widget Scale : </translation>
-    </message>
-    <message>
-        <source>Editable Item Combo</source>
-        <translation>Editable Item Combo</translation>
-    </message>
-    <message>
-        <source>GroupBox</source>
-        <translation>GroupBox</translation>
-    </message>
-    <message>
-        <source>setStarSize(int)</source>
-        <translation>setStarSize(int)</translation>
-    </message>
-    <message>
-        <source>Editable Combo</source>
-        <translation>Editable Combo</translation>
-    </message>
-    <message>
-        <source>is Editable</source>
-        <translation>is Editable</translation>
-    </message>
-    <message>
-        <source>Initilze Char Data</source>
-        <translation type="vanished">Initilze Char Data</translation>
-    </message>
-    <message>
-        <source>Debug</source>
-        <translation>Debug</translation>
-    </message>
-    <message>
-        <source>Editable Combos </source>
-        <translation>Editable Combos </translation>
-    </message>
-    <message>
-        <source>Show Dialog</source>
-        <translation>Show Dialog</translation>
-    </message>
-    <message>
-        <source>Allow Loading of new file from dialog</source>
-        <translation>Allow Loading of new file from dialog</translation>
-    </message>
-    <message>
-        <source>Select File to Preview</source>
-        <translation>Select File to Preview</translation>
-    </message>
-    <message>
-        <source>View / Extract</source>
-        <translation>View / Extract</translation>
-    </message>
-    <message>
-        <source>Select Lgp To Preview</source>
-        <translation>Select Lgp To Preview</translation>
-    </message>
-    <message>
-        <source>Extract To...</source>
-        <translation>Extract To...</translation>
-    </message>
-    <message>
-        <source>Create / Add File(s)</source>
-        <translation>Create / Add File(s)</translation>
-    </message>
-    <message>
-        <source>Demo Coming Soon</source>
-        <translation>Demo Coming Soon</translation>
-    </message>
-    <message>
-        <source>Advanced Mode</source>
-        <translation>Advanced Mode</translation>
-    </message>
-    <message>
-        <source>Select Achievement to Preview</source>
-        <translation>Select Achievement to Preview</translation>
-    </message>
-    <message>
-        <source>Save File</source>
-        <translation>Save File</translation>
-    </message>
-    <message>
-        <source>File Error</source>
-        <translation>File Error</translation>
-    </message>
-    <message>
-        <source>Error Loading File: %1</source>
-        <translation>Error Loading File: %1</translation>
-    </message>
-    <message>
-        <source>Extracting Archive</source>
-        <translation>Extracting Archive</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Cancel</translation>
-    </message>
-    <message>
-        <source>File Write Error</source>
-        <translation>File Write Error</translation>
-    </message>
-    <message>
-        <source>Unable to write to file:
-%1</source>
-        <translation>Unable to write to file:
-%1</translation>
-    </message>
-    <message>
-        <source>Region</source>
-        <translation>Region</translation>
-    </message>
-    <message>
-        <source>FF7-S01BASCUS-94163</source>
-        <translation>FF7-S01BASCUS-94163</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00867</source>
-        <translation>FF7-S01BESCES-00867</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00868</source>
-        <translation>FF7-S01BESCES-00868</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00869</source>
-        <translation>FF7-S01BESCES-00869</translation>
-    </message>
-    <message>
-        <source>FF7-S01BESCES-00900</source>
-        <translation>FF7-S01BESCES-00900</translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-00700</source>
-        <translation>FF7-S01BISLPS-00700</translation>
-    </message>
-    <message>
-        <source>FF7-S01BISLPS-01057</source>
-        <translation>FF7-S01BISLPS-01057</translation>
-    </message>
-    <message>
-        <source>Initialize Char Data</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
