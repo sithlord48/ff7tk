@@ -1100,6 +1100,10 @@ Los km/h son calculados mientras se juega </translation>
         <source>Sephiroth</source>
         <translation>Sefirot</translation>
     </message>
+    <message>
+        <source>Choco</source>
+        <translation type="unfinished">Choco</translation>
+    </message>
 </context>
 <context>
     <name>FF7FieldItemList</name>

@@ -1099,6 +1099,10 @@ The km/h speeds are calculated while playing </source>
         <source>Sephiroth</source>
         <translation>Sephiroth</translation>
     </message>
+    <message>
+        <source>Choco</source>
+        <translation>Choco</translation>
+    </message>
 </context>
 <context>
     <name>FF7FieldItemList</name>

@@ -10,7 +10,8 @@
     <file alias="vincent">characters/vincent.jpg</file>
     <file alias="cid">characters/cid.jpg</file>
     <file alias="y_cloud">characters/y_cloud.jpg</file>
-    <file alias="sep">characters/sep.jpg</file>     
+    <file alias="sep">characters/sep.jpg</file>
+    <file alias="choco">chocobo/yellow_chocobo.svg</file>
   </qresource>
 </RCC>
   

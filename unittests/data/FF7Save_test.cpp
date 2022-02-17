@@ -18,6 +18,7 @@
 
 #include "FF7Save_test.h"
 #include "../../src/data/FF7Item.h"
+#include "../../src/data/FF7Char.h"
 
 void FF7Save_Test::initTestCase()
 {
@@ -219,11 +220,6 @@ void FF7Save_Test::test_canFightNinjaInForest()
     QCOMPARE(ff7save->canFightNinjaInForest(0), false);
     ff7save->setCanFightNinjaInForest(0, true);
     QCOMPARE(ff7save->canFightNinjaInForest(0), true);
-}
-
-void FF7Save_Test::test_rawCharacterData()
-{
-    QCOMPARE(ff7save->rawCharacterData(0, 0), (_cloudData));
 }
 
 void FF7Save_Test::test_charAccessory()
@@ -905,7 +901,7 @@ void FF7Save_Test::test_exportCharacter()
     file.open(QFile::ReadOnly);
     QByteArray charData = file.readAll();
     ff7save->importCharacter(0, 1, charData);
-    QCOMPARE(ff7save->rawCharacterData(0, 1), charData);
+    QCOMPARE(FF7Char::toByteArray(ff7save->character(0, 1)), charData);
 }
 
 void FF7Save_Test::test_fieldHelp()

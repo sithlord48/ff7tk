@@ -49,7 +49,6 @@ private slots:
     void test_bmProgress3();
     void test_cameraMode();
     void test_canFightNinjaInForest();
-    void test_rawCharacterData();
     void test_charAccessory();
     void test_charArmor();
     void test_charBaseHp();

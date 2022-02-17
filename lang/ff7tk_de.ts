@@ -1100,6 +1100,10 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Sephiroth</source>
         <translation>Sephiroth</translation>
     </message>
+    <message>
+        <source>Choco</source>
+        <translation type="unfinished">Choco</translation>
+    </message>
 </context>
 <context>
     <name>FF7FieldItemList</name>

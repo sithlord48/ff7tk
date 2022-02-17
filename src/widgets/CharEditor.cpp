@@ -331,10 +331,10 @@ void CharEditor::updateText()
         comboId->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
         comboId->setIconSize(iconSize);
         comboId->setHidden(true);
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i <= FF7Char::totalCharacters(); i++)
             comboId->addItem(FF7Char::icon(i), FF7Char::defaultName(i));
     } else {
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i <= FF7Char::totalCharacters(); i++)
             comboId->setItemText(i, FF7Char::defaultName(i));
     }
 
@@ -921,15 +921,15 @@ quint16 CharEditor::kills()
 }
 quint8 CharEditor::row()
 {
-    return data.flags[1];
+    return data.rowFlag;
 }
 quint8 CharEditor::levelProgress()
 {
-    return data.flags[2];
+    return data.tnlFlag;
 }
 quint8 CharEditor::sadnessfury()
 {
-    return data.flags[0];
+    return data.statusFlag;
 }
 quint16 CharEditor::limits()
 {
@@ -1029,14 +1029,14 @@ void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
     lblMaxMp->setNum(data.maxMP);
     sbKills->setValue(data.kills);
     comboId->setCurrentIndex(data.id);
-    cbFury->setChecked(data.flags[0] == FF7Char::Fury);
-    cbSadness->setChecked(data.flags[0] == FF7Char::Sadness);
-    cbFrontRow->setChecked(data.flags[1] == FF7Char::FrontRow);
+    cbFury->setChecked(data.statusFlag == FF7Char::Fury);
+    cbSadness->setChecked(data.statusFlag == FF7Char::Sadness);
+    cbFrontRow->setChecked(data.rowFlag == FF7Char::FrontRow);
     sbTotalExp->setValue(int(data.exp));
     lbl_level_next->setText(tr("Next: %1").arg(QString::number(data.expNext)));
     slider_limit->setValue(data.limitbar);
     lcdLimitValue->display(int(data.limitbar));
-    bar_tnl->setValue(data.flags[2]);
+    bar_tnl->setValue(data.tnlFlag);
     sbStr->setValue(data.strength);
     sbStrSourceUse->setValue(data.strength_bonus);
     sbVit->setValue(data.vitality);
@@ -1383,37 +1383,37 @@ void CharEditor::setAccessory(int accessory)
 
 void CharEditor::setSadnessFury(int sad_fury)
 {
-    if (sad_fury == data.flags[0])
+    if (sad_fury != FF7Char::Fury && sad_fury != FF7Char::Sadness && sad_fury != FF7Char::Normal)
+        sad_fury = FF7Char::Normal;
+
+    if (sad_fury == data.statusFlag)
         return;
-    if (sad_fury == FF7Char::Fury)
-        data.flags[0] = FF7Char::Fury;
-    else if (sad_fury == FF7Char::Sadness)
-        data.flags[0] = FF7Char::Sadness;
-    else
-        data.flags[0] = 0;
-    emit sadnessfury_changed(data.flags[0]);
+
+    data.statusFlag = sad_fury;
+    emit sadnessfury_changed(sad_fury);
 }
 
 void CharEditor::setRow(bool front_row)
 {
-    if ((front_row) && (data.flags[1] == FF7Char::FrontRow))
+    if ((front_row) && (data.rowFlag == FF7Char::FrontRow))
         return;
-    if ((!front_row) && (data.flags[1] == FF7Char::BackRow))
+    if ((!front_row) && (data.rowFlag == FF7Char::BackRow))
         return;
+
     if (front_row)
-        data.flags[1] = FF7Char::FrontRow;
+        data.rowFlag = FF7Char::FrontRow;
     else
-        data.flags[1] = FF7Char::BackRow;
-    emit row_changed(data.flags[1]);
+        data.rowFlag = FF7Char::BackRow;
+    emit row_changed(data.rowFlag);
 }
 
 void CharEditor::setLevelProgress(int level_progress)
 {
     //Level progress bar (0-63) game ingores values <4 4-63 are visible as "progress"
-    if (level_progress == data.flags[2])
+    if (level_progress == data.tnlFlag)
         return;
-    data.flags[2] = quint8(std::clamp(level_progress, 0, 63));
-    emit levelProgress_changed(data.flags[2]);
+    data.tnlFlag = quint8(std::clamp(level_progress, 0, 63));
+    emit levelProgress_changed(data.tnlFlag);
 }
 
 void CharEditor::setLimits(int limits)
@@ -1819,7 +1819,7 @@ void CharEditor::update_tnl_bar()
         setExpNext(0);
         setLevelProgress(0x3D);
     }
-    bar_tnl->setValue(data.flags[2]);
+    bar_tnl->setValue(data.tnlFlag);
     if (bar_tnl->value() < 4) {
         bar_tnl->setValue(0);   //ff7 ingores the value if its <4 (but we don't save this)
     }

@@ -578,13 +578,13 @@ bool FF7Save::exportCharacter(int s, int char_num, QString fileName)
     if (!file.open(QIODevice::ReadWrite))
         return false;
 
-    file.write(rawCharacterData(s, char_num), 132);
+    file.write(FF7Char::toByteArray(character(s, char_num)), 132);
     file.close();
     return true;
 }
 void FF7Save::importCharacter(int s, int char_num, QByteArray new_char)
 {
-    memcpy(&slot[s].chars[char_num], new_char.data(), 132);
+    slot[s].chars[char_num] = FF7Char::fromByteArray(new_char);
     setFileModified(true, s);
 }
 
@@ -1013,7 +1013,7 @@ void FF7Save::setPsx_block_size(int s, int blockSize)
     default: break;
     }
 
-    if (s < 0 || s > 14 || blockSize > 15) 
+    if (s < 0 || s > 14 || blockSize > 15)
         return;
 
     quint32 filesize = quint32(blockSize * FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX));
@@ -1740,12 +1740,6 @@ FF7CHAR FF7Save::character(int s, int char_num)
     return slot[s].chars[char_num];
 }
 
-QByteArray FF7Save::rawCharacterData(int s, int char_num)
-{
-    QByteArray temp;
-    temp.setRawData(reinterpret_cast <char *>(&slot[s].chars[char_num]), 132);
-    return temp;
-}
 quint8 FF7Save::charID(int s, int char_num)
 {
     return slot[s].chars[char_num].id;
@@ -1824,7 +1818,13 @@ quint8 FF7Save::charAccessory(int s, int char_num)
 }
 quint8 FF7Save::charFlag(int s, int char_num, int flag_num)
 {
-    return slot[s].chars[char_num].flags[flag_num];
+    if(flag_num == 0)
+        return slot[s].chars[char_num].statusFlag;
+    if(flag_num == 1)
+        return slot[s].chars[char_num].rowFlag;
+    if(flag_num == 2)
+        return slot[s].chars[char_num].tnlFlag;
+    return 0;
 }
 quint16 FF7Save::charLimits(int s, int char_num)
 {
@@ -1979,7 +1979,12 @@ void  FF7Save::setCharAccessory(int s, int char_num, quint8 accessory)
 }
 void  FF7Save::setCharFlag(int s, int char_num, int flag_num, quint8 flag_value)
 {
-    slot[s].chars[char_num].flags[flag_num] = flag_value;
+    if(flag_num == 0)
+        slot[s].chars[char_num].statusFlag = flag_value;
+    if(flag_num == 1)
+        slot[s].chars[char_num].rowFlag = flag_value;
+    if(flag_num == 2)
+        slot[s].chars[char_num].tnlFlag = flag_value;
     setFileModified(true, s);
 }
 void  FF7Save::setCharLimits(int s, int char_num, quint16 new_limits)
@@ -2479,45 +2484,40 @@ quint8 FF7Save::party(int s, int pos)
 
 void FF7Save::setParty(int s, int pos, int new_id)
 {
-    if (pos >= 0 && pos < 3) {
-        if (new_id >= 0 && new_id < 12) {
-            slot[s].party[pos] = new_id;
-            slot[s].f_party[pos] = new_id;
-            slot[s].desc.party[pos] = new_id;
-        } else {
-            slot[s].party[pos] = FF7Char::Empty;
-            slot[s].f_party[pos] = FF7Char::Empty;
-            slot[s].desc.party[pos] = FF7Char::Empty;
-        }
-        if(pos == 0) {
-            if(new_id == FF7Char::Empty) {
-                slot[s].desc.curHP = 0;
-                slot[s].desc.maxHP = 0;
-                slot[s].desc.curMP = 0;
-                slot[s].desc.maxMP = 0;
-                slot[s].desc.level = 0;
-                for (int i = 0; i < 16; i++)
-                    slot[s].desc.name[i] = 0xFF;
-            } else {
-                //Read party member 0 unless the Id > 9 Then we need to read the charSlot 6-8.
-                int charToRead = party(s, 0);
-                if (new_id == FF7Char::YoungCloud)
-                    charToRead = 6;
-                else if (new_id == FF7Char::Sephiroth)
-                    charToRead = 7;
-                else if (new_id == 11)//Chocobo may not work
-                    charToRead = 8;
-                slot[s].desc.curHP = charCurrentHp(s, charToRead);
-                slot[s].desc.maxHP = charMaxHp(s, charToRead);
-                slot[s].desc.curMP = charCurrentMp(s, charToRead);
-                slot[s].desc.maxMP = charMaxMp(s, charToRead);
-                slot[s].desc.level = charLevel(s, charToRead);
-                setDescName(s, charName(s, charToRead));
-            }
-        }
-        setFileModified(true, s);
+    if (s < 0 || s > 14)
+        return;
+
+    if (pos <0 || pos > 2)
+        return;
+
+    if(!FF7Char::validID(new_id))
+        new_id = FF7Char::Empty;
+
+    slot[s].party[pos] = new_id;
+    slot[s].f_party[pos] = new_id;
+    slot[s].desc.party[pos] = new_id;
+
+    if(pos == 0) {
+        //Read party member 0 unless the Id > 9 Then we need to read the charSlot 6-8.
+        int charToRead = party(s, 0);
+        if(new_id == FF7Char::Empty)
+            charToRead = FF7Char::Empty;
+        if (new_id == FF7Char::YoungCloud)
+            charToRead = 6;
+        else if (new_id == FF7Char::Sephiroth)
+            charToRead = 7;
+        else if (new_id == FF7Char::Chocobo)//Chocobo may not work
+            charToRead = 8;
+        slot[s].desc.curHP = charCurrentHp(s, charToRead);
+        slot[s].desc.maxHP = charMaxHp(s, charToRead);
+        slot[s].desc.curMP = charCurrentMp(s, charToRead);
+        slot[s].desc.maxMP = charMaxMp(s, charToRead);
+        slot[s].desc.level = charLevel(s, charToRead);
+        setDescName(s, charName(s, charToRead));
     }
+    setFileModified(true, s);
 }
+
 
 QString FF7Save::snowboardTime(int s, int course)
 {

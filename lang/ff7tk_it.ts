@@ -1102,6 +1102,10 @@ La velocità in km/h viene calcolata a runtime</translation>
         <source>Sephiroth</source>
         <translation>Sephiroth</translation>
     </message>
+    <message>
+        <source>Choco</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FF7FieldItemList</name>

@@ -46,68 +46,92 @@ QObject *FF7Char::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngi
 }
 const FF7Char::Character &FF7Char::character(int who)
 {
-    if (who >= 0 && who <= FF7Char::instance()->d->_charData.size() - 1) {
-        return FF7Char::instance()->d->_charData.at(who);
-    }
-    return FF7Char::instance()->d->_emptyChar;
+    if (!validID(who))
+        return FF7Char::instance()->d->_emptyChar;
+    return FF7Char::instance()->d->_charData.at(who);
 }
 
 quint32 FF7Char::totalExpForLevel(int who, int level)
 {
+    if (!validID(who))
+        return 0;
     level = std::clamp(level, 0, int(character(who)._charlvls.size()) - 1);
     return character(who)._charlvls.at(level);
 }
 
 quint32 FF7Char::tnlForLevel(int who, int level)
 {
+    if (!validID(who))
+        return 0;
     level = std::clamp(level, 0, int(character(who)._charlvls.size()) - 1);
     return character(who)._chartnls.at(level);
 }
 
 quint8 FF7Char::id(int who)
 {
+    if (!validID(who))
+        return FF7Char::Empty;
     return character(who)._id;
+}
+
+bool FF7Char::validID(int id)
+{
+    return !(id < 0 || id > 11);
 }
 
 int FF7Char::numberOfWeapons(int who)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._num_weapons;
 }
 
 int FF7Char::weaponStartingId(int who)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._starting_weapon_id;
 }
 
 int FF7Char::weaponOffset(int who)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._weapon_offset;
 }
 
 QString FF7Char::defaultName(int who)
 {
-    who = std::clamp(who, 0, 10);
+    if (!validID(who))
+        return QString();
     return tr(FF7Char::instance()->d->_charData.at(who)._def_name.toLocal8Bit());
 }
 
 QImage FF7Char::image(int who)
 {
+    if (!validID(who))
+        return QImage();
     return QImage(character(who)._avatarString);
 }
 
 QIcon FF7Char::icon(int who)
 {
+    if (!validID(who))
+        return QIcon();
     return QIcon(pixmap(who));
 }
 
 QPixmap FF7Char::pixmap(int who)
 {
+    if (!validID(who))
+        return QPixmap();
     return QPixmap(character(who)._avatarString);
 }
 
 QStringList FF7Char::limits(int who)
 {
-    who = std::clamp(who, 0, 10);
+    if (!validID(who))
+        return FF7Char::instance()->d->_emptyChar._limits;
     QStringList translated_list;
     for (const QString &limit : qAsConst(FF7Char::instance()->d->_charData.at(who)._limits)) {
         translated_list.append(tr(limit.toLocal8Bit()));
@@ -120,38 +144,69 @@ int FF7Char::limitBitConvert(int bit)
     return FF7Char::instance()->d->_limitbitarray.at(bit);
 }
 
+QByteArray FF7Char::toByteArray(FF7CHAR ff7char)
+{
+    QByteArray temp;
+    temp.setRawData(reinterpret_cast<char *>(&ff7char), 132);
+    temp.detach();
+    return temp;
+}
+
+FF7CHAR FF7Char::fromByteArray(const QByteArray &ba)
+{
+    if (ba.size() != 132)
+        return FF7CHAR();
+    FF7CHAR temp;
+    memcpy(&temp, ba, 132);
+    return temp;
+}
+
 int FF7Char::stat_grade(int who, int stat)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._stat_grade.at(stat);
 }
 
 int FF7Char::mp_base(int who, int lvl_bracket)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._mp_base.at(lvl_bracket);
 }
 
 int FF7Char::mp_gradent(int who, int lvl_bracket)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._mp_gradent.at(lvl_bracket);
 }
 
 int FF7Char::hp_base(int who, int lvl_bracket)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._hp_base.at(lvl_bracket);
 }
 
 int FF7Char::hp_gradent(int who, int lvl_bracket)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._hp_gradent.at(lvl_bracket);
 }
 
 int FF7Char::luck_base(int who, int lvl_bracket)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._luck_base.at(lvl_bracket);
 }
 
 int FF7Char::luck_gradent(int who, int lvl_bracket)
 {
+    if (!validID(who))
+        return 0;
     return character(who)._luck_gradent.at(lvl_bracket);
 }
 
@@ -167,6 +222,8 @@ int FF7Char::stat_gradent(int rank, int lvl_bracket)
 
 int FF7Char::statGain(int who, int stat, int stat_amount, int current_lvl, int next_lvl)
 {
+    if (!validID(who))
+        return 0;
     who = std::clamp(who, 0, 10);
     stat = std::clamp(stat, 0, 7);
     stat_amount = std::clamp(stat_amount, 1, 255); // the stat must be at least one

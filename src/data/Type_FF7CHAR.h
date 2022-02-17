@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2020  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -19,6 +19,7 @@
 #ifndef ff7tk_export_h
     #include <ff7tk_export.h>
 #endif
+
 /*! \struct FF7CHAR
  * \brief  Character Info in the save game.
  *
@@ -47,7 +48,9 @@ struct FF7TK_EXPORT FF7CHAR {
     quint8 weapon;          /**< [0x001C] Equipped weapon*/
     quint8 armor;           /**< [0x001D] Equipped armor*/
     quint8 accessory;       /**< [0x001E] Equipped accessory*/
-    quint8 flags[3];        /**< [0x001F] Character flags[0:0x10] 1: Sadness.[0:0x20] 1: Fury. [1:0x01] 1: Front row.  0: Back row. [2:0x00-0xFF] TNL bar.*/
+    quint8 statusFlag;      /**< [0x001F] Character Status 00: normal 0x10 Sadness, 0x20: Fury */
+    quint8 rowFlag;         /**< [0x0020] Character Row; 0x00: backrow 0x01x:Front Row */
+    quint8 tnlFlag;         /**< [0x0021] [0x00-0xFF] TNL bar.*/
     quint16 limits;         /**< [0x0022] Learned limit skills*/
     quint16 kills;          /**< [0x0024] Kills Character Has*/
     quint16 timesused1;     /**< [0x0026] Times limit 1-1 used*/
