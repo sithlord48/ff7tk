@@ -122,7 +122,8 @@ $(function() {
 <p><code>ff7tkWidgets</code> link with <code>ff7tk::ff7tkWidgets</code></p>
 <p>For QMake you can use the pkgconfig provided by the system <code>config +=link_pkgconfig</code> <code>PKGCONFIG += ff7tk</code></p>
 <h2>ff7tk version info</h2>
-<p>include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version()</p>
+<p>include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version() </p><h3>ff7tk version compatibility</h3>
+<p>ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.</p>
 <h2>Translations</h2>
 <p>In addition to ff7tk's language files your application should also ship the qt_base_&lt;lang&gt;.qm these are required to translate strings from inside Qt libraries.</p>
 <h2>Deploying ff7tk with your app</h2>
