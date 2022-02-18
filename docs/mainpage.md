@@ -20,6 +20,8 @@ ff7tk is written by:
 
  - Item Icons from[Team Avalanche GUI]
 
+ - Char Images from [Aavock UI Overhaul]
+
 ## Building with ff7tk
  - [Building]
  - [Project Page]
@@ -34,6 +36,7 @@ ff7tk is written by:
  - Support us by making a [Donation].
  - [Contribute] to ff7tk.
 
+[Aavock UI Overhaul]:https://forums.qhimm.com/index.php?topic=20331
 [Tango Desktop Project]:http://tango.freedesktop.org/Tango_Desktop_Project
 [Team Avalanche GUI]:https://forums.qhimm.com/index.php?topic=18397
 [Bugs]:https://github.com/sithlord48/ff7tk/issues
