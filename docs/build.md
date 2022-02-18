@@ -70,6 +70,8 @@ For QMake you can use the pkgconfig provided by the system
 
 ## ff7tk version info
  include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version()
+### ff7tk version compatibility
+ ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.
 
 ## Translations
   In addition to ff7tk's language files your application should also ship the qt_base_<lang>.qm these are required to translate strings from inside Qt libraries.

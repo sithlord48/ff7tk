@@ -65,7 +65,7 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
     write_basic_package_version_file(
         ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}ConfigVersion.cmake
         VERSION ${PROJECT_VERSION}
-        COMPATIBILITY AnyNewerVersion
+        COMPATIBILITY SameMinorVersion
     )
     configure_package_config_file(
         ${CMAKE_CURRENT_SOURCE_DIR}/${LIB_TARGET}Config.cmake.in
