@@ -236,13 +236,13 @@ void SlotPreview::setTime(int hr, int min)
     lbl_time->setText(QString(tr("Time:%1:%2")).arg(QString::number(hr), QString("%1").arg(QString::number(min), 2, QChar('0'))));
 }
 
-void SlotPreview::setPsxIcon(QByteArray icon_data, quint8 frames)
+void SlotPreview::setPsxIcon(const QByteArray &icon_data, quint8 frames)
 {
     icon->setAll(icon_data, frames);
     party1->setPixmap(icon->icon());
 }
 
-void SlotPreview::setPsxIcon(QList<QByteArray> icon_data)
+void SlotPreview::setPsxIcon(const QList<QByteArray> &icon_data)
 {
     icon->setAll(icon_data);
     party1->setPixmap(icon->icon());

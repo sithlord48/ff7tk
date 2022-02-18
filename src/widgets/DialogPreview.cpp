@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2021  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -16,97 +16,108 @@
 #include <DialogPreview.h>
 
 #include <QColorDialog>
-#include <QPushButton>
+#include <QMouseEvent>
+#include <QPaintEvent>
+#include <QPainter>
 
 DialogPreview::DialogPreview(QWidget *parent) :
     QLabel(parent)
-    , btn_ul(new QPushButton(this))
-    , btn_ur(new QPushButton(this))
-    , btn_ll(new QPushButton(this))
-    , btn_lr(new QPushButton(this))
 {
-    setStyleSheet(_style.arg(palette().highlight().color().name(QColor::HexRgb).insert(1, QStringLiteral("60"))));
+    setMouseTracking(true);
     setMinimumSize(60, 30);
-
-    connect(btn_ul, &QPushButton::clicked, this, [this] {
-        QColor color = QColorDialog::getColor(upper_left, this);
-        if (color.isValid())
-            setULeft(color);
-    });
-
-    connect(btn_ur, &QPushButton::clicked, this, [this] {
-        QColor color = QColorDialog::getColor(upper_right, this);
-        if (color.isValid())
-            setURight(color);
-    });
-
-    connect(btn_ll, &QPushButton::clicked, this, [this] {
-        QColor color = QColorDialog::getColor(lower_left, this);
-        if (color.isValid())
-            setLLeft(color);
-    });
-
-    connect(btn_lr, &QPushButton::clicked, this, [this] {
-        QColor color = QColorDialog::getColor(lower_right, this);
-        if (color.isValid())
-            setLRight(color);
-    });
-
-    draw();
 }
 
-void DialogPreview::setLLeft(QColor newColor)
+const QColor &DialogPreview::color(DialogPreview::CORNER corner)
 {
-    if (lower_left != newColor) {
-        lower_left = newColor;
-        emit LL_ColorChanged(newColor);
-        draw();
-    }
+    return colors.at(corner);
 }
 
-void DialogPreview::setULeft(QColor newColor)
+void DialogPreview::setColor(DialogPreview::CORNER corner, const QColor &newColor)
 {
-    if (upper_left != newColor) {
-        upper_left = newColor;
-        emit UL_ColorChanged(newColor);
-        draw();
-    }
+    if(newColor == colors.at(corner))
+        return;
+    colors.replace(corner, newColor);
+    emit colorChanged(corner, newColor);
 }
 
-void DialogPreview::setLRight(QColor newColor)
+void DialogPreview::setEnabled(bool enabled)
 {
-    if (lower_right != newColor) {
-        lower_right = newColor;
-        emit LR_ColorChanged(newColor);
-        draw();
-    }
+    setMouseTracking(enabled);
+    QWidget::setEnabled(enabled);
 }
 
-void DialogPreview::setURight(QColor newColor)
+DialogPreview::CORNER DialogPreview::getQuad(const QPoint &point)
 {
-    if (upper_right != newColor) {
-        upper_right = newColor;
-        emit UR_ColorChanged(newColor);
-        draw();
-    }
+    if(point.isNull())
+        return CORNER::TOPLEFT;
+    const int hwidth = width() / 2;
+    const int hheight = height () / 2;
+    const int x = point.x();
+    const int y = point.y();
+    if ( x <= hwidth && y <= hheight)
+        return CORNER::TOPLEFT;
+    if (x >= hwidth && y <= hheight)
+        return CORNER::TOPRIGHT;
+    if (x <= hwidth && y >= hheight)
+        return CORNER::BOTTOMLEFT;
+    else
+        return CORNER::BOTTOMRIGHT;
 }
 
-void DialogPreview::draw()
+void DialogPreview::paintEvent(QPaintEvent *ev)
 {
     QImage image(2, 2, QImage::Format_ARGB32);
-    image.setPixel(0, 0, upper_left.rgb());
-    image.setPixel(0, 1, lower_left.rgb());
-    image.setPixel(1, 0, upper_right.rgb());
-    image.setPixel(1, 1, lower_right.rgb());
+    image.setPixel(0, 0, colors.at(CORNER::TOPLEFT).rgb());
+    image.setPixel(0, 1, colors.at(CORNER::BOTTOMLEFT).rgb());
+    image.setPixel(1, 0, colors.at(CORNER::TOPRIGHT).rgb());
+    image.setPixel(1, 1, colors.at(CORNER::BOTTOMRIGHT).rgb());
     QImage gradient = image.scaled(width(), height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-    setPixmap(QPixmap::fromImage(gradient));
-    btn_ul->setGeometry(0, 0, width() / 2, height() / 2);
-    btn_ur->setGeometry(btn_ul->width(), 0, width() / 2, height() / 2);
-    btn_ll->setGeometry(0, height() / 2, width() / 2, height() / 2);
-    btn_lr->setGeometry(btn_ll->width(), height() / 2, width() / 2, height() / 2);
+
+    QPainter painter(this);
+    painter.fillRect(ev->rect(), gradient);
+    if(isEnabled()) {
+        QRect highlight_rect = {0,0,0,0};
+        int hh = height() /2;
+        int hw = width() /2;
+        if(m_cquad == 0)
+            highlight_rect = {0,0, hw, hh};
+        if(m_cquad == 1)
+            highlight_rect = {hw, 0, hw , hh};
+        if(m_cquad == 2)
+            highlight_rect = {hw, hh , hw, hh};
+        if(m_cquad == 3)
+            highlight_rect = {0, hh, hw, hh};
+        painter.setCompositionMode(QPainter::CompositionMode::CompositionMode_SourceOver);
+        painter.setOpacity(0.35F);
+        painter.fillRect(highlight_rect, palette().highlight());
+    }
 }
 
-void DialogPreview::resizeEvent(QResizeEvent *)
+bool DialogPreview::event(QEvent *ev)
 {
-    draw();
+    if(ev->type() == QEvent::Leave && isEnabled()) {
+        m_cquad = -1;
+        repaint();
+        return true;
+    }
+
+    if(ev->type() == QEvent::MouseMove) {
+        auto e = static_cast<QMouseEvent*>(ev);
+        int quad = static_cast<int>(getQuad(e->pos()));
+        if(m_cquad != quad) {
+            m_cquad = quad;
+            repaint();
+        }
+        return true;
+    }
+
+    if(ev->type() == QEvent::MouseButtonPress && isEnabled()) {
+        auto e = static_cast<QMouseEvent*>(ev);
+        auto quad = getQuad(e->pos());
+        QColor color = QColorDialog::getColor(colors.at(quad), this);
+        if(color.isValid())
+            setColor(quad, color);
+        return true;
+    }
+    return QWidget::event(ev);
 }

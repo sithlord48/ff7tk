@@ -57,10 +57,15 @@ OptionsWidget::OptionsWidget(QWidget *parent) :
 {
     updateText();
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    connect(dialogPreview, &DialogPreview::UL_ColorChanged, this, &OptionsWidget::dialogColorULChanged);
-    connect(dialogPreview, &DialogPreview::UR_ColorChanged, this, &OptionsWidget::dialogColorURChanged);
-    connect(dialogPreview, &DialogPreview::LL_ColorChanged, this, &OptionsWidget::dialogColorLLChanged);
-    connect(dialogPreview, &DialogPreview::LR_ColorChanged, this, &OptionsWidget::dialogColorLRChanged);
+
+    connect(dialogPreview, &DialogPreview::colorChanged, this, [this](DialogPreview::CORNER corner, const QColor &newColor){
+        switch(corner) {
+            case DialogPreview::TOPLEFT: Q_EMIT dialogColorULChanged(newColor); break;
+            case DialogPreview::BOTTOMLEFT: Q_EMIT dialogColorLLChanged(newColor); break;
+            case DialogPreview::TOPRIGHT: Q_EMIT dialogColorURChanged(newColor); break;
+            case DialogPreview::BOTTOMRIGHT: Q_EMIT dialogColorLRChanged(newColor); break;
+        };
+    });
 
     auto layout = new QHBoxLayout;
     layout->addWidget(dialogPreview);
@@ -276,12 +281,13 @@ void OptionsWidget::updateText()
 void OptionsWidget::setDialogColors(QColor ul, QColor ur, QColor ll, QColor lr)
 {
     dialogPreview->blockSignals(true);
-    dialogPreview->setULeft(ul);
-    dialogPreview->setURight(ur);
-    dialogPreview->setLLeft(ll);
-    dialogPreview->setLRight(lr);
+    dialogPreview->setColor(DialogPreview::CORNER::TOPLEFT, ul);
+    dialogPreview->setColor(DialogPreview::CORNER::TOPRIGHT, ur);
+    dialogPreview->setColor(DialogPreview::CORNER::BOTTOMLEFT, ll);
+    dialogPreview->setColor(DialogPreview::CORNER::BOTTOMRIGHT, lr);
     dialogPreview->blockSignals(false);
 }
+
 void OptionsWidget::setAtbMode(int mode)
 {
     comboAtb->blockSignals(true);

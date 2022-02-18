@@ -46,8 +46,8 @@ public:
     void setLocation(QString);
     void setGil(int);
     void setTime(int hour, int min);
-    void setPsxIcon(QByteArray icon_data, quint8 frames = 1);
-    void setPsxIcon(QList<QByteArray> icon_data);
+    void setPsxIcon(const QByteArray &icon_data, quint8 frames = 1);
+    void setPsxIcon(const QList<QByteArray> &icon_data);
     void setMode(int mode);
 
 signals:

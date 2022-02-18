@@ -21,51 +21,43 @@
     #include <ff7tkwidgets_export.h>
 #endif
 
-class QPushButton;
-
 class FF7TKWIDGETS_EXPORT DialogPreview : public QLabel
 {
     Q_OBJECT
+
 public:
+    /**
+     * @brief Describes a corner the the dialog preview
+     */
+    enum CORNER {
+        TOPLEFT=0,
+        TOPRIGHT=1,
+        BOTTOMRIGHT=2,
+        BOTTOMLEFT=3,
+    };
+    Q_ENUM(CORNER);
+
     DialogPreview(QWidget *parent = nullptr);
     ~DialogPreview() = default;
-    inline QColor ll()
-    {
-        return lower_left;
-    }
-    inline QColor lr()
-    {
-        return lower_right;
-    }
-    inline QColor ul()
-    {
-        return upper_left;
-    }
-    inline QColor ur()
-    {
-        return upper_right;
-    };
-    void setLLeft(QColor newColor);
-    void setULeft(QColor newColor);
-    void setLRight(QColor newColor);
-    void setURight(QColor newColor);
+    const QColor& color(DialogPreview::CORNER);
+    void setColor(DialogPreview::CORNER corner, const QColor &newColor = QColor());
+    void setEnabled(bool enabled);
+
 signals:
-    void LL_ColorChanged(QColor color);
-    void LR_ColorChanged(QColor color);
-    void UL_ColorChanged(QColor color);
-    void UR_ColorChanged(QColor color);
+    /**
+     * @brief A Color has Changed
+     * @param corner the corner where the change happend
+     * @param color the new color
+     * @sa CORNER
+     */
+    void colorChanged(DialogPreview::CORNER corner, const QColor& color= QColor());
+
 private:
-    void draw();
-    QColor upper_left;
-    QColor upper_right;
-    QColor lower_left;
-    QColor lower_right;
-    QPushButton *btn_ul = nullptr;
-    QPushButton *btn_ur = nullptr;
-    QPushButton *btn_ll = nullptr;
-    QPushButton *btn_lr = nullptr;
-    inline static const QString _style = QStringLiteral("QPushButton:enabled{background-color: #00000000;border:0px;} QPushButton:hover{background-color: %1;}");
+    DialogPreview::CORNER getQuad(const QPoint& point = QPoint());
+    QList<QColor> colors = {"transparent", "transparent", "transparent", "transparent"};
+    int m_cquad=-1;
 protected:
-    void resizeEvent(QResizeEvent *);
+    void paintEvent(QPaintEvent *ev) override;
+    bool event(QEvent *ev) override;
 };
 
