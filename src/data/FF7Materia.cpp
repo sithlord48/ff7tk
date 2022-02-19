@@ -15,12 +15,40 @@
 /****************************************************************************/
 #include <FF7Materia.h>
 
+#include <QQmlEngine>
+
+FF7Materia *FF7Materia::get()
+{
+    static FF7Materia m;
+    return &m;
+}
+
+QObject *FF7Materia::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(scriptEngine)
+    engine->setObjectOwnership(get(), QQmlEngine::CppOwnership);
+    return get();
+}
+
+
+FF7Materia::FF7Materia(QObject *parent)
+    : QObject(parent)
+    , d(new FF7MateriaPrivate)
+{
+}
+
+FF7Materia::~FF7Materia()
+{
+    delete d;
+}
+
+
 const FF7Materia::MATERIA &FF7Materia::Materias(int id)
 {
     if (id >= 0 && id <= 0x5A) {
-        return _materiaList.at(id);
+        return get()->d->_materiaList.at(id);
     }
-    return _emptyMateria;
+    return get()->d->_emptyMateria;
 }
 
 qint32 FF7Materia::ap(int id, int lvl)
@@ -28,6 +56,7 @@ qint32 FF7Materia::ap(int id, int lvl)
     lvl = std::clamp(lvl, 0, 4);
     return Materias(id).ap.at(lvl);
 }
+
 
 QString FF7Materia::name(int id)
 {
@@ -41,26 +70,26 @@ QString FF7Materia::statString(int id)
 
 QString FF7Materia::enemySkill(int id)
 {
-    id = std::clamp(id, 0, int(_enemySkills.size()) -1);
-    return tr(_enemySkills.at(id).toLocal8Bit());
+    id = std::clamp(id, 0, int(get()->d->_enemySkills.size()) -1);
+    return tr(get()->d->_enemySkills.at(id).toLocal8Bit());
 }
 
 QString FF7Materia::masterCommandSkill(int id)
 {
-    id = std::clamp(id, 0, int(_masterCommandList.size()) -1);
-    return tr(_masterCommandList.at(id).toLocal8Bit());
+    id = std::clamp(id, 0, int(get()->d->_masterCommandList.size()) -1);
+    return tr(get()->d->_masterCommandList.at(id).toLocal8Bit());
 }
 
 QString FF7Materia::masterSummonSkill(int id)
 {
-    id = std::clamp(id, 0, int(_masterSummonList.size()) -1);
-    return tr(_masterSummonList.at(id).toLocal8Bit());
+    id = std::clamp(id, 0, int(get()->d->_masterSummonList.size()) -1);
+    return tr(get()->d->_masterSummonList.at(id).toLocal8Bit());
 }
 
 QString FF7Materia::masterMagicSkill(int id)
 {
-    id = std::clamp(id, 0, int(_masterMagicList.size()) -1);
-    return tr(_masterMagicList.at(id).toLocal8Bit());
+    id = std::clamp(id, 0, int(get()->d->_masterMagicList.size()) -1);
+    return tr(get()->d->_masterMagicList.at(id).toLocal8Bit());
 }
 
 QString FF7Materia::element(int id)

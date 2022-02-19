@@ -16,7 +16,6 @@
 #pragma once
 
 #include <QWidget>
-#include <FF7Materia.h>
 #include <Type_FF7CHAR.h>
 
 #ifndef ff7tkwidgets_export_h
@@ -254,7 +253,6 @@ private:
     bool advancedMode{false};
     int mslotsel{-1};
     qint32 ap{0};
-    FF7Materia Materias;
     FF7CHAR data;
     QString _name;
     qreal scale;

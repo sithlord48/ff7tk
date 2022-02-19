@@ -33,6 +33,7 @@
 
 #include <FF7Char.h>
 #include <FF7Item.h>
+#include <FF7Materia.h>
 #include <MateriaEditor.h>
 
 CharEditor::CharEditor(qreal Scale, QWidget *parent) : QWidget(parent)
@@ -425,7 +426,7 @@ void CharEditor::updateMateriaToolTips()
     int i =0;
     for(auto button : qAsConst(materiaSlots)) {
         if (data.materias[i].id != FF7Materia::EmptyId) {
-            button->setToolTip(Materias.name(data.materias[i].id));
+            button->setToolTip(FF7Materia::name(data.materias[i].id));
         } else {
             button->setToolTip(QString(tr("-Empty-")));
         }
@@ -1690,49 +1691,49 @@ void CharEditor::calc_stats()
         for (int i = 0; i < 16; i++) {
             if (data.materias[i].id != FF7Materia::EmptyId) {
                 int level = 0;
-                qint32 aptemp = (Materias.ap2num(data.materias[i].ap));
-                for (int m = 0; m < Materias.levels(data.materias[i].id); m++) {
-                    if (aptemp >= Materias.ap(data.materias[i].id, m)) {
+                qint32 aptemp = (FF7Materia::ap2num(data.materias[i].ap));
+                for (int m = 0; m < FF7Materia::levels(data.materias[i].id); m++) {
+                    if (aptemp >= FF7Materia::ap(data.materias[i].id, m)) {
                         level++;
                     }
                 }
 
                 if (!materiaSlots.at(i)->isHidden()) {
                     // no special materia that affects these stats.
-                    str_bonus += Materias.statSTR(data.materias[i].id);
-                    vit_bonus += Materias.statVIT(data.materias[i].id);
-                    spi_bonus += Materias.statSPI(data.materias[i].id);
+                    str_bonus += FF7Materia::statSTR(data.materias[i].id);
+                    vit_bonus += FF7Materia::statVIT(data.materias[i].id);
+                    spi_bonus += FF7Materia::statSPI(data.materias[i].id);
 
                     //Show in Percentage.
                     if (data.materias[i].id == FF7Materia::MpPlus) {
                         mp_bonus += (10 * level);
                     } else {
-                        mp_bonus += Materias.statMP(data.materias[i].id);
+                        mp_bonus += FF7Materia::statMP(data.materias[i].id);
                     }
 
                     if (data.materias[i].id == FF7Materia::HpPlus) {
                         hp_bonus += (10 * level);
                     } else {
-                        hp_bonus += Materias.statHP(data.materias[i].id);
+                        hp_bonus += FF7Materia::statHP(data.materias[i].id);
                     }
 
                     //show exact numbers
                     if (data.materias[i].id == FF7Materia::SpeedPlus) {
                         dex_bonus += data.dexterity * int(0.01 * (level * 10));
                     } else {
-                        dex_bonus += Materias.statDEX(data.materias[i].id);
+                        dex_bonus += FF7Materia::statDEX(data.materias[i].id);
                     }
 
                     if (data.materias[i].id == FF7Materia::MagicPlus) {
                         mag_bonus += data.magic * int(0.01 * (level * 10));
                     } else {
-                        mag_bonus += Materias.statMAG(data.materias[i].id);
+                        mag_bonus += FF7Materia::statMAG(data.materias[i].id);
                     }
 
                     if (data.materias[i].id == FF7Materia::LuckPlus) {
                         lck_bonus += data.luck * int(0.01 * (level * 10));
                     } else {
-                        lck_bonus += Materias.statLCK(data.materias[i].id);
+                        lck_bonus += FF7Materia::statLCK(data.materias[i].id);
                     }
                 }// end of add case.
             }
@@ -1955,7 +1956,7 @@ void CharEditor::update_materia_slots()
     for(auto button : qAsConst(buttons)) {
         button->setVisible((i+1) <= FF7Item::materiaSlots(data.weapon + 128));
         if (data.materias[i].id != FF7Materia::EmptyId) {
-            button->setIcon(Materias.icon(data.materias[i].id));
+            button->setIcon(FF7Materia::icon(data.materias[i].id));
         } else {
             button->setIcon(QIcon());
         }
@@ -1965,7 +1966,7 @@ void CharEditor::update_materia_slots()
     for(auto button : qAsConst(buttons)) {
         button->setVisible((i-7) <= FF7Item::materiaSlots(data.armor + 256));
         if (data.materias[i].id != FF7Materia::EmptyId) {
-            button->setIcon(Materias.icon(data.materias[i].id));
+            button->setIcon(FF7Materia::icon(data.materias[i].id));
         } else {
             button->setIcon(QIcon());
         }
@@ -2038,7 +2039,7 @@ void CharEditor::materiaSlotClicked(int slotClicked)
         if(slotClicked < 0 )
             return;
         load = true;
-        materia_edit->setMateria(char_materia(mslotsel).id, Materias.ap2num(char_materia(mslotsel).ap));
+        materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::ap2num(char_materia(mslotsel).ap));
         load = false;
         return;
     }
@@ -2057,7 +2058,7 @@ void CharEditor::materiaSlotClicked(int slotClicked)
     materiaSlotFrames.at(mslotsel)->setFrameShape(QFrame::Box);
 
     load = true;
-    materia_edit->setMateria(char_materia(mslotsel).id, Materias.ap2num(char_materia(mslotsel).ap));
+    materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::ap2num(char_materia(mslotsel).ap));
     emit mslotChanged(mslotsel);
     load = false;
 }
