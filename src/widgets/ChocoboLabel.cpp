@@ -31,7 +31,7 @@ bool ChocoboLabel::event(QEvent *ev)
                     , QString::number(palette().highlight().color().blue())));
         return true;
     } else if (ev->type() == QEvent::MouseButtonPress && isEnabled) {
-        emit clicked();
+        Q_EMIT clicked();
         return true;
     } else if (ev->type() == QEvent::LanguageChange) {
         btnCopy->setToolTip(QString(tr("Copy")));
@@ -62,7 +62,7 @@ ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *par
     chkOccupied->setStyleSheet(QStringLiteral("QCheckBox{ padding: 1px;} QCheckBox::indicator{width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
     chkOccupied->setChecked(occupied);
     connect(chkOccupied, &QCheckBox::toggled, this, [this](bool checked) {
-        emit occupiedToggled(checked);
+        Q_EMIT occupiedToggled(checked);
         enable(checked);
     });
 
@@ -92,7 +92,7 @@ ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *par
     btnRemove->setIconSize(iconSize);
     btnRemove->setMaximumSize(iconSize);
     connect(btnRemove, &QPushButton::clicked, this, [this] {
-        emit remove();
+        Q_EMIT remove();
         clearLabel();
         chkOccupied->setChecked(false);
     });

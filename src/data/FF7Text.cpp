@@ -48,7 +48,7 @@ void FF7Text::setJapanese(bool japanese)
     if(japanese == instance()->d->in_ja)
         return;
     instance()->d->in_ja = japanese;
-    emit instance()->languageChanged();
+    Q_EMIT instance()->languageChanged();
 }
 
 bool FF7Text::isJapanese()

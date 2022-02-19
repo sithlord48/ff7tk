@@ -117,7 +117,7 @@ void ItemSelector::btn_remove_clicked()
     combo_item->blockSignals(false);
     sb_qty->setEnabled(false);
     current_item = FF7Item::EmptyItemData;
-    emit itemChanged(current_item);
+    Q_EMIT itemChanged(current_item);
 }
 
 void ItemSelector::setFilter(int type)
@@ -166,7 +166,7 @@ void ItemSelector::comboItem_changed(int index)
         else
             sb_qty->setEnabled(true);
 
-        emit itemChanged(current_item);
+        Q_EMIT itemChanged(current_item);
     }
 }
 
@@ -217,7 +217,7 @@ void ItemSelector::sb_qty_changed(int qty)
 {
     if (qty != FF7Item::itemQty(current_item)) {
         current_item = FF7Item::itemEncode(FF7Item::itemId(current_item), quint8(qty));
-        emit itemChanged(current_item);
+        Q_EMIT itemChanged(current_item);
     }
 }
 

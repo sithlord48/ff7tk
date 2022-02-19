@@ -411,7 +411,7 @@ QGridLayout *OptionsWidget::makeControllerLayout()
         comboBox->addItem(QIcon(QPixmap(":/psxButtons/left")), QString());
 
         connect(comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [comboBox, i, this] {
-            emit inputChanged(i, comboBox->currentIndex());
+            Q_EMIT inputChanged(i, comboBox->currentIndex());
         });
 
         auto layout = new QHBoxLayout;

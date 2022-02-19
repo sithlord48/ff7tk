@@ -1112,7 +1112,7 @@ void CharEditor::setLevel(int level)
     if (data.level == level)
         return;
     data.level = quint8(std::clamp(level, 0, 99));
-    emit level_changed(qint8(data.level));
+    Q_EMIT level_changed(qint8(data.level));
 }
 
 void CharEditor::cb_sadness_toggled(bool sad)
@@ -1144,7 +1144,7 @@ void CharEditor::setMaxHp(int maxHp)
     if (data.maxHP == maxHp)
         return;
     data.maxHP = quint16(std::clamp(maxHp, 0, qint16Max));
-    emit maxHp_changed(data.maxHP);
+    Q_EMIT maxHp_changed(data.maxHP);
 }
 
 void CharEditor::setCurHp(int curHp)
@@ -1152,7 +1152,7 @@ void CharEditor::setCurHp(int curHp)
     if (data.curHP == curHp)
         return;
     data.curHP = quint16(std::clamp(curHp, 0, qint16Max));
-    emit curHp_changed(data.curHP);
+    Q_EMIT curHp_changed(data.curHP);
 }
 
 void CharEditor::setMaxMp(int maxMp)
@@ -1160,7 +1160,7 @@ void CharEditor::setMaxMp(int maxMp)
     if (data.maxMP == maxMp)
         return;
     data.maxMP = quint16(std::clamp(maxMp, 0, qint16Max));
-    emit maxMp_changed(data.maxMP);
+    Q_EMIT maxMp_changed(data.maxMP);
 }
 
 void CharEditor::setCurMp(int curMp)
@@ -1168,7 +1168,7 @@ void CharEditor::setCurMp(int curMp)
     if (data.curMP == curMp)
         return;
     data.curMP = quint16(std::clamp(curMp, 0, qint16Max));
-    emit curMp_changed(data.curMP);
+    Q_EMIT curMp_changed(data.curMP);
 }
 
 void CharEditor::setKills(int kills)
@@ -1176,7 +1176,7 @@ void CharEditor::setKills(int kills)
     if (data.kills == kills)
         return;
     data.kills = quint16(std::clamp(kills, 0, quint16Max));
-    emit kills_changed(data.kills);
+    Q_EMIT kills_changed(data.kills);
 }
 
 void CharEditor::setName(const QString &name)
@@ -1184,7 +1184,7 @@ void CharEditor::setName(const QString &name)
     if (_name == name)
         return;
     _name = name;
-    emit name_changed(_name);
+    Q_EMIT name_changed(_name);
 }
 
 void CharEditor::setId(int id)
@@ -1199,7 +1199,7 @@ void CharEditor::setId(int id)
         data.id = quint8(id);
     setWeapon(0);
     setChar(data, lineName->text());
-    emit id_changed(qint8(data.id));
+    Q_EMIT id_changed(qint8(data.id));
 }
 
 void CharEditor::setStr(int strength)
@@ -1207,7 +1207,7 @@ void CharEditor::setStr(int strength)
     if (data.strength == strength)
         return;
     data.strength = quint8(std::clamp(strength, 0, quint8Max));
-    emit str_changed(data.strength);
+    Q_EMIT str_changed(data.strength);
     calc_stats();
 }
 
@@ -1216,7 +1216,7 @@ void CharEditor::setVit(int vitality)
     if (data.vitality == vitality)
         return;
     data.vitality = quint8(std::clamp(vitality, 0, quint8Max));
-    emit vit_changed(data.vitality);
+    Q_EMIT vit_changed(data.vitality);
     calc_stats();
 }
 
@@ -1225,7 +1225,7 @@ void CharEditor::setMag(int magic)
     if (data.magic == magic)
         return;
     data.magic = quint8(std::clamp(magic, 0, quint8Max));
-    emit mag_changed(data.magic);
+    Q_EMIT mag_changed(data.magic);
     calc_stats();
 }
 
@@ -1234,7 +1234,7 @@ void CharEditor::setMag(int magic)
     if (data.spirit == spirit)
         return;
     data.spirit = quint8(std::clamp(spirit, 0, quint8Max));
-    emit spi_changed(data.spirit);
+    Q_EMIT spi_changed(data.spirit);
     calc_stats();
 }
 
@@ -1243,7 +1243,7 @@ void CharEditor::setDex(int dexterity)
     if (data.dexterity == dexterity)
         return;
     data.dexterity = quint8(std::clamp(dexterity, 0, quint8Max));
-    emit dex_changed(data.dexterity);
+    Q_EMIT dex_changed(data.dexterity);
     calc_stats();
 }
 
@@ -1252,7 +1252,7 @@ void CharEditor::setLck(int luck)
     if (data.luck == luck)
         return;
     data.luck = quint8(std::clamp(luck, 0, quint8Max));
-    emit lck_changed(data.luck);
+    Q_EMIT lck_changed(data.luck);
     calc_stats();
 }
 
@@ -1261,7 +1261,7 @@ void CharEditor::setStrBonus(int strength_bonus)
     if (data.strength_bonus == strength_bonus)
         return;
     data.strength_bonus = quint8(std::clamp(strength_bonus, 0, quint8Max));
-    emit strBonus_changed(data.strength_bonus);
+    Q_EMIT strBonus_changed(data.strength_bonus);
     calc_stats();
 }
 
@@ -1270,7 +1270,7 @@ void CharEditor::setVitBonus(int vitality_bonus)
     if (data.vitality_bonus == vitality_bonus)
         return;
     data.vitality_bonus = quint8(std::clamp(vitality_bonus, 0, quint8Max));
-    emit vitBonus_changed(data.vitality_bonus);
+    Q_EMIT vitBonus_changed(data.vitality_bonus);
     calc_stats();
 }
 
@@ -1279,7 +1279,7 @@ void CharEditor::setMagBonus(int magic_bonus)
     if (data.magic_bonus == magic_bonus)
         return;
     data.magic_bonus = quint8(std::clamp(magic_bonus, 0, quint8Max));
-    emit magBonus_changed(data.magic_bonus);
+    Q_EMIT magBonus_changed(data.magic_bonus);
     calc_stats();
 }
 
@@ -1288,7 +1288,7 @@ void CharEditor::setSpiBonus(int spirit_bonus)
     if (data.spirit_bonus == spirit_bonus)
         return;
     data.spirit_bonus = quint8(std::clamp(spirit_bonus, 0, quint8Max));
-    emit spiBonus_changed(data.spirit_bonus);
+    Q_EMIT spiBonus_changed(data.spirit_bonus);
     calc_stats();
 }
 
@@ -1297,7 +1297,7 @@ void CharEditor::setDexBonus(int dexterity_bonus)
     if (data.dexterity_bonus == dexterity_bonus)
         return;
     data.dexterity_bonus = quint8(std::clamp(dexterity_bonus, 0, quint8Max));
-    emit dexBonus_changed(data.dexterity_bonus);
+    Q_EMIT dexBonus_changed(data.dexterity_bonus);
     calc_stats();
 }
 
@@ -1306,7 +1306,7 @@ void CharEditor::setLckBonus(int luck_bonus)
     if (data.luck_bonus == luck_bonus)
         return;
     data.luck_bonus = quint8(std::clamp(luck_bonus, 0, quint8Max));
-    emit lckBonus_changed(data.luck_bonus);
+    Q_EMIT lckBonus_changed(data.luck_bonus);
     calc_stats();
 }
 
@@ -1315,7 +1315,7 @@ void CharEditor::setLimitLevel(int limitlevel)
     if (data.limitlevel == limitlevel)
         return;
     data.limitlevel = qint8(std::clamp(limitlevel, 0, 4));
-    emit limitLevel_changed(data.limitlevel);
+    Q_EMIT limitLevel_changed(data.limitlevel);
 }
 
 void CharEditor::setLimitBar(int limitbar)
@@ -1323,7 +1323,7 @@ void CharEditor::setLimitBar(int limitbar)
     if (data.limitbar == limitbar)
         return;
     data.limitbar = quint8(std::clamp(limitbar, 0, quint8Max));
-    emit limitBar_changed(data.limitbar);
+    Q_EMIT limitBar_changed(data.limitbar);
 }
 
 void CharEditor::setWeapon(int weapon)
@@ -1336,7 +1336,7 @@ void CharEditor::setWeapon(int weapon)
         data.weapon = quint8(FF7Char::numberOfWeapons(data.id) + FF7Char::weaponOffset(data.id));
     else
         data.weapon = quint8(weapon + FF7Char::weaponOffset(data.id));
-    emit weapon_changed(data.weapon);
+    Q_EMIT weapon_changed(data.weapon);
 
     elemental_info();
     status_info();
@@ -1357,7 +1357,7 @@ void CharEditor::setArmor(int armor)
         data.armor = FF7Char::EmptyArmor;
     else
         data.armor = quint8(armor);
-    emit armor_changed(data.armor);
+    Q_EMIT armor_changed(data.armor);
     elemental_info();
     status_info();
     update_materia_slots();
@@ -1376,7 +1376,7 @@ void CharEditor::setAccessory(int accessory)
         data.accessory = FF7Char::EmptyAccessory;
     else
         data.accessory = quint8(accessory);
-    emit accessory_changed(data.accessory);
+    Q_EMIT accessory_changed(data.accessory);
     elemental_info();
     status_info();
     calc_stats();
@@ -1391,7 +1391,7 @@ void CharEditor::setSadnessFury(int sad_fury)
         return;
 
     data.statusFlag = sad_fury;
-    emit sadnessfury_changed(sad_fury);
+    Q_EMIT sadnessfury_changed(sad_fury);
 }
 
 void CharEditor::setRow(bool front_row)
@@ -1405,7 +1405,7 @@ void CharEditor::setRow(bool front_row)
         data.rowFlag = FF7Char::FrontRow;
     else
         data.rowFlag = FF7Char::BackRow;
-    emit row_changed(data.rowFlag);
+    Q_EMIT row_changed(data.rowFlag);
 }
 
 void CharEditor::setLevelProgress(int level_progress)
@@ -1414,7 +1414,7 @@ void CharEditor::setLevelProgress(int level_progress)
     if (level_progress == data.tnlFlag)
         return;
     data.tnlFlag = quint8(std::clamp(level_progress, 0, 63));
-    emit levelProgress_changed(data.tnlFlag);
+    Q_EMIT levelProgress_changed(data.tnlFlag);
 }
 
 void CharEditor::setLimits(int limits)
@@ -1422,7 +1422,7 @@ void CharEditor::setLimits(int limits)
     if (limits == data.limits)
         return;
     data.limits = quint16(std::clamp(limits, 0, qint16Max));
-    emit limits_changed(data.limits);
+    Q_EMIT limits_changed(data.limits);
 }
 
 void CharEditor::setTimesused1(int timesused)
@@ -1430,7 +1430,7 @@ void CharEditor::setTimesused1(int timesused)
     if (timesused == data.timesused1)
         return;
     data.timesused1 = quint16(std::clamp(timesused, 0, quint16Max));
-    emit timesused1_changed(data.timesused1);
+    Q_EMIT timesused1_changed(data.timesused1);
 }
 
 void CharEditor::setTimesused2(int timesused)
@@ -1438,7 +1438,7 @@ void CharEditor::setTimesused2(int timesused)
     if (timesused == data.timesused2)
         return;
     data.timesused2 = quint16(std::clamp(timesused, 0, quint16Max));
-    emit timesused2_changed(data.timesused2);
+    Q_EMIT timesused2_changed(data.timesused2);
 }
 
 void CharEditor::setTimesused3(int timesused)
@@ -1446,7 +1446,7 @@ void CharEditor::setTimesused3(int timesused)
     if (timesused == data.timesused3)
         return;
     data.timesused3 = quint16(std::clamp(timesused, 0, quint16Max));
-    emit timesused3_changed(data.timesused3);
+    Q_EMIT timesused3_changed(data.timesused3);
 }
 
 void CharEditor::setBaseHp(int baseHp)
@@ -1454,7 +1454,7 @@ void CharEditor::setBaseHp(int baseHp)
     if (data.baseHP == baseHp)
         return;
     data.baseHP = quint16(std::clamp(baseHp, 0, qint16Max));
-    emit baseHp_changed(data.baseHP);
+    Q_EMIT baseHp_changed(data.baseHP);
     calc_stats();
 }
 
@@ -1463,7 +1463,7 @@ void CharEditor::setBaseMp(int baseMp)
     if (data.baseMP == baseMp)
         return;
     data.baseMP = quint16(std::clamp(baseMp, 0, qint16Max));
-    emit baseMp_changed(data.baseMP);
+    Q_EMIT baseMp_changed(data.baseMP);
     calc_stats();
 }
 
@@ -1472,7 +1472,7 @@ void CharEditor::setExp(int exp)
     if (data.exp == quint32(exp))
         return;
     data.exp = std::clamp(exp, 0, expMax);
-    emit exp_changed(data.exp);
+    Q_EMIT exp_changed(data.exp);
 }
 
 void CharEditor::setExpNext(int expNext)
@@ -1480,7 +1480,7 @@ void CharEditor::setExpNext(int expNext)
     if (data.expNext == quint32(expNext))
         return;
     data.expNext = data.exp = std::clamp(expNext, 0, expMax);
-    emit expNext_changed(data.expNext);
+    Q_EMIT expNext_changed(data.expNext);
 }
 
 void CharEditor::calc_limit_value(QModelIndex item)
@@ -2010,7 +2010,7 @@ void CharEditor::matId_changed(qint8 id)
         data.materias[mslotsel].id = FF7Materia::EmptyId;
 
     if (!load)
-        emit Materias_changed(data.materias[mslotsel]);
+        Q_EMIT Materias_changed(data.materias[mslotsel]);
     update_materia_slots();
 }
 void CharEditor::matAp_changed(qint32 ap)
@@ -2028,7 +2028,7 @@ void CharEditor::matAp_changed(qint32 ap)
         data.materias[mslotsel].ap[2] = quint8Max;
     }
     if (!load) {
-        emit Materias_changed(data.materias[mslotsel]);
+        Q_EMIT Materias_changed(data.materias[mslotsel]);
     }
     update_materia_slots();
 }
@@ -2059,7 +2059,7 @@ void CharEditor::materiaSlotClicked(int slotClicked)
 
     load = true;
     materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::ap2num(char_materia(mslotsel).ap));
-    emit mslotChanged(mslotsel);
+    Q_EMIT mslotChanged(mslotsel);
     load = false;
 }
 
@@ -2141,8 +2141,8 @@ void CharEditor::MaxEquip()
         data.materias[mslotsel].ap[1] = quint8Max;
         data.materias[mslotsel].ap[2] = quint8Max;
 
-        emit mslotChanged(mslotsel);
-        emit Materias_changed(data.materias[mslotsel]);
+        Q_EMIT mslotChanged(mslotsel);
+        Q_EMIT Materias_changed(data.materias[mslotsel]);
     }
     update_materia_slots();
     cbFrontRow->setCheckState(Qt::Unchecked);

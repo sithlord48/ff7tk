@@ -215,100 +215,100 @@ void ChocoboEditor::init_connections()
     connect(combo_sex, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int newSex) {
         if (choco_data.sex != newSex) {
             choco_data.sex = quint8(newSex);
-            emit sexChanged(choco_data.sex);
+            Q_EMIT sexChanged(choco_data.sex);
         }
     });
     connect(combo_type, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int newType) {
         if (choco_data.type != newType) {
             choco_data.type = quint8(newType);
-            emit typeChanged(choco_data.type);
+            Q_EMIT typeChanged(choco_data.type);
         }
     });
     connect(line_name, &QLineEdit::textChanged, this, [this](QString newName) {
         if (newName != choco_name) {
             choco_name = newName.mid(0, 6);
-            emit nameChanged(newName);
+            Q_EMIT nameChanged(newName);
         }
     });
     connect(cb_cantMate, &QCheckBox::toggled, this, [this](bool checked) {
         if (choco_cant_mate != checked) {
             choco_cant_mate = checked;
-            emit cantMateChanged(checked);
+            Q_EMIT cantMateChanged(checked);
         }
     });
     connect(sb_speed, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int speed)    {
         if (choco_data.speed != speed) {
             choco_data.speed = quint16(speed);
-            emit speedChanged(choco_data.speed);
+            Q_EMIT speedChanged(choco_data.speed);
         }
     });
     connect(sb_mSpeed, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int max_speed) {
         if (choco_data.maxspeed != max_speed) {
             choco_data.maxspeed = quint16(max_speed);
-            emit mSpeedChanged(choco_data.maxspeed);
+            Q_EMIT mSpeedChanged(choco_data.maxspeed);
         }
     });
     connect(sb_sprint, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int sprint_speed)  {
         if (choco_data.sprintspd != sprint_speed) {
             choco_data.sprintspd = quint16(sprint_speed);
-            emit sprintChanged(choco_data.sprintspd);
+            Q_EMIT sprintChanged(choco_data.sprintspd);
         }
     });
     connect(sb_mSprint, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int max_sprint_speed)    {
         if (choco_data.maxsprintspd != max_sprint_speed) {
             choco_data.maxsprintspd = quint16(max_sprint_speed);
-            emit mSprintChanged(choco_data.maxsprintspd);
+            Q_EMIT mSprintChanged(choco_data.maxsprintspd);
         }
     });
     connect(sb_accel, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int accel) {
         if (choco_data.accel != accel) {
             choco_data.accel = quint8(accel);
-            emit accelChanged(choco_data.accel);
+            Q_EMIT accelChanged(choco_data.accel);
         }
     });
     connect(sb_stamina, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int stamina) {
         if (choco_stamina != stamina) {
             choco_stamina = quint16(stamina);
-            emit staminaChanged(choco_stamina);
+            Q_EMIT staminaChanged(choco_stamina);
         }
     });
     connect(sb_wins, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int wins) {
         if (choco_data.raceswon != wins) {
             choco_data.raceswon = quint8(wins);
             getRank();
-            emit winsChanged(choco_data.raceswon);
+            Q_EMIT winsChanged(choco_data.raceswon);
         }
     });
     connect(sb_coop, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int coop) {
         if (choco_data.coop != coop) {
             choco_data.coop = quint8(coop);
-            emit coopChanged(choco_data.coop);
+            Q_EMIT coopChanged(choco_data.coop);
         }
     });
     connect(sb_intel, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int intel) {
         if (choco_data.intelligence != intel) {
             choco_data.intelligence = quint8(intel);
-            emit intelligenceChanged(choco_data.intelligence);
+            Q_EMIT intelligenceChanged(choco_data.intelligence);
         }
     });
     connect(sb_pCount, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int pCount) {
         if (choco_data.pcount != pCount) {
             choco_data.pcount = quint8(pCount);
-            emit pCountChanged(choco_data.pcount);
+            Q_EMIT pCountChanged(choco_data.pcount);
         }
     });
     connect(sb_personality, QOverload<int>::of(&QSpinBox::valueChanged), this, [this](int personality) {
         //need to be researched further.
         if (choco_data.personality != personality) {
             choco_data.personality = quint8(personality);
-            emit personalityChanged(choco_data.personality);
+            Q_EMIT personalityChanged(choco_data.personality);
         }
     });
 
     connect(combo_rating, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int rating) {
         if (choco_rating != rating) {
             choco_rating = quint8(rating);
-            emit ratingChanged(choco_rating);
+            Q_EMIT ratingChanged(choco_rating);
         }
     });
 }

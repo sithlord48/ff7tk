@@ -123,75 +123,75 @@ void PhsListWidget::setChecked(int row, int box, bool checked)
 
 void PhsListWidget::cb_cloud_allowedToggled(bool checked)
 {
-    emit allowedToggled(0, checked);
+    Q_EMIT allowedToggled(0, checked);
 }
 void PhsListWidget::cb_cloud_visibleToggled(bool checked)
 {
-    emit visibleToggled(0, checked);
+    Q_EMIT visibleToggled(0, checked);
 }
 void PhsListWidget::cb_barret_allowedToggled(bool checked)
 {
-    emit allowedToggled(1, checked);
+    Q_EMIT allowedToggled(1, checked);
 }
 void PhsListWidget::cb_barret_visibleToggled(bool checked)
 {
-    emit visibleToggled(1, checked);
+    Q_EMIT visibleToggled(1, checked);
 }
 void PhsListWidget::cb_tifa_allowedToggled(bool checked)
 {
-    emit allowedToggled(2, checked);
+    Q_EMIT allowedToggled(2, checked);
 }
 void PhsListWidget::cb_tifa_visibleToggled(bool checked)
 {
-    emit visibleToggled(2, checked);
+    Q_EMIT visibleToggled(2, checked);
 }
 void PhsListWidget::cb_aerith_allowedToggled(bool checked)
 {
-    emit allowedToggled(3, checked);
+    Q_EMIT allowedToggled(3, checked);
 }
 void PhsListWidget::cb_aerith_visibleToggled(bool checked)
 {
-    emit visibleToggled(3, checked);
+    Q_EMIT visibleToggled(3, checked);
 }
 void PhsListWidget::cb_red_allowedToggled(bool checked)
 {
-    emit allowedToggled(4, checked);
+    Q_EMIT allowedToggled(4, checked);
 }
 void PhsListWidget::cb_red_visibleToggled(bool checked)
 {
-    emit visibleToggled(4, checked);
+    Q_EMIT visibleToggled(4, checked);
 }
 void PhsListWidget::cb_yuffie_allowedToggled(bool checked)
 {
-    emit allowedToggled(5, checked);
+    Q_EMIT allowedToggled(5, checked);
 }
 void PhsListWidget::cb_yuffie_visibleToggled(bool checked)
 {
-    emit visibleToggled(5, checked);
+    Q_EMIT visibleToggled(5, checked);
 }
 void PhsListWidget::cb_cait_allowedToggled(bool checked)
 {
-    emit allowedToggled(6, checked);
+    Q_EMIT allowedToggled(6, checked);
 }
 void PhsListWidget::cb_cait_visibleToggled(bool checked)
 {
-    emit visibleToggled(6, checked);
+    Q_EMIT visibleToggled(6, checked);
 }
 void PhsListWidget::cb_vincent_allowedToggled(bool checked)
 {
-    emit allowedToggled(7, checked);
+    Q_EMIT allowedToggled(7, checked);
 }
 void PhsListWidget::cb_vincent_visibleToggled(bool checked)
 {
-    emit visibleToggled(7, checked);
+    Q_EMIT visibleToggled(7, checked);
 }
 void PhsListWidget::cb_cid_allowedToggled(bool checked)
 {
-    emit allowedToggled(8, checked);
+    Q_EMIT allowedToggled(8, checked);
 }
 void PhsListWidget::cb_cid_visibleToggled(bool checked)
 {
-    emit visibleToggled(8, checked);
+    Q_EMIT visibleToggled(8, checked);
 }
 
 void PhsListWidget::connectAll()

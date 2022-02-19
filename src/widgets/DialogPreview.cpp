@@ -37,7 +37,7 @@ void DialogPreview::setColor(DialogPreview::CORNER corner, const QColor &newColo
     if(newColor == colors.at(corner))
         return;
     colors.replace(corner, newColor);
-    emit colorChanged(corner, newColor);
+    Q_EMIT colorChanged(corner, newColor);
 }
 
 void DialogPreview::setEnabled(bool enabled)

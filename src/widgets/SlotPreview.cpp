@@ -42,15 +42,15 @@ void SlotPreview::init_display(void)
 
     btn_remove = new QPushButton(QIcon::fromTheme(QString("edit-clear"), QPixmap(":/common/edit-clear")), "", this);
     btn_remove->setToolTip(tr("Clear Slot"));
-    connect(btn_remove, &QPushButton::clicked, this, [this] { emit btn_remove_clicked(m_index); });
+    connect(btn_remove, &QPushButton::clicked, this, [this] { Q_EMIT btn_remove_clicked(m_index); });
 
     btn_copy = new QPushButton(QIcon::fromTheme(QString("edit-copy"), QPixmap(":/common/edit-copy")), "", this);
     btn_copy->setToolTip(tr("Copy Slot"));
-    connect(btn_copy, &QPushButton::clicked, this, [this] { emit btn_copy_clicked(m_index); });
+    connect(btn_copy, &QPushButton::clicked, this, [this] { Q_EMIT btn_copy_clicked(m_index); });
 
     btn_paste = new QPushButton(QIcon::fromTheme(QString("edit-paste"), QPixmap(":/common/edit-paste")), "", this);
     btn_paste->setToolTip(tr("Paste Into Slot"));
-    connect(btn_paste, &QPushButton::clicked, this, [this] { emit btn_paste_clicked(m_index); });
+    connect(btn_paste, &QPushButton::clicked, this, [this] { Q_EMIT btn_paste_clicked(m_index); });
 
     const QList<QPushButton*> buttons = findChildren<QPushButton *>();
     for (auto btn : buttons) {
@@ -251,5 +251,5 @@ void SlotPreview::setPsxIcon(const QList<QByteArray> &icon_data)
 void SlotPreview::mousePressEvent(QMouseEvent *ev)
 {
     if (ev->button() == Qt::LeftButton)
-        emit clicked(index());
+        Q_EMIT clicked(index());
 }

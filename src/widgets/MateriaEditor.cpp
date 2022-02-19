@@ -64,12 +64,12 @@ void MateriaEditor::setMateria(quint8 materia_id, qint32 materia_ap)
         if (_id != materia_id) {
             _id = materia_id;
             sb_ap->setEnabled(1);
-            emit idChanged(qint8(_id));
+            Q_EMIT idChanged(qint8(_id));
         }
     } else {
         //Invalid Data Reset Materia.
         if (_id != FF7Materia::EmptyId)
-            emit idChanged(qint8(FF7Materia::EmptyId));
+            Q_EMIT idChanged(qint8(FF7Materia::EmptyId));
         _id = FF7Materia::EmptyId;
         sb_ap->setEnabled(false);
         sb_ap->setValue(FF7Materia::MaxMateriaAp);
@@ -86,7 +86,7 @@ void MateriaEditor::setAP(qint32 ap)
     if (FF7Materia::levels(_id) == 1) {
         if (_current_ap != ap) {
             _current_ap = ap;
-            emit apChanged(_current_ap);
+            Q_EMIT apChanged(_current_ap);
         }
         if (_id == FF7Materia::EnemySkill) {
             for (int i = 0; i < 24; i++) {
@@ -105,7 +105,7 @@ void MateriaEditor::setAP(qint32 ap)
             _current_ap = FF7Materia::MaxMateriaAp;
             sb_ap->setValue(FF7Materia::ap(_id, FF7Materia::levels(_id) - 1));
         }
-        emit apChanged(_current_ap);
+        Q_EMIT apChanged(_current_ap);
     }
     setLevel();
 }
@@ -549,7 +549,7 @@ QWidget *MateriaEditor::makeSkillWidget()
             _current_ap |= (1 << i);
         else
             _current_ap &= ~(1 << i);
-        emit apChanged(_current_ap);
+        Q_EMIT apChanged(_current_ap);
     });
 
     btn_eskill_clear = new QPushButton(tr("Clear"));

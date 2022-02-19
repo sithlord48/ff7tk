@@ -149,5 +149,5 @@ void SaveIcon::nextFrame()
     QPixmap pix = icon();
 
     if (!pix.isNull())
-        emit nextIcon(pix);
+        Q_EMIT nextIcon(pix);
 }

@@ -356,9 +356,9 @@ void LocationViewer::sbMapIdChanged(int mapId)
     setLocation(mapId, sbLocID->value());
     QString fileName = FF7Location::fileName(mapId, sbLocID->value());
     if (fileName.isEmpty())
-        emit mapIdChanged(mapId);
+        Q_EMIT mapIdChanged(mapId);
     else
-        emit locationChanged(fileName);
+        Q_EMIT locationChanged(fileName);
 }
 
 void LocationViewer::sbLocIdChanged(int locId)
@@ -366,29 +366,29 @@ void LocationViewer::sbLocIdChanged(int locId)
     setLocation(sbMapID->value(), locId);
     QString fileName = FF7Location::fileName(sbMapID->value(), locId);
     if (fileName.isEmpty())
-        emit locIdChanged(locId);
+        Q_EMIT locIdChanged(locId);
     else
-        emit locationChanged(fileName);
+        Q_EMIT locationChanged(fileName);
 }
 
 void LocationViewer::sbXChanged(int x)
 {
-    emit xChanged(x);
+    Q_EMIT xChanged(x);
 }
 
 void LocationViewer::sbYChanged(int y)
 {
-    emit yChanged(y);
+    Q_EMIT yChanged(y);
 }
 
 void LocationViewer::sbTChanged(int t)
 {
-    emit tChanged(t);
+    Q_EMIT tChanged(t);
 }
 
 void LocationViewer::sbDChanged(int d)
 {
-    emit dChanged(d);
+    Q_EMIT dChanged(d);
 }
 
 void LocationViewer::setLocation(int mapId, int locId)
@@ -418,7 +418,7 @@ void LocationViewer::setLocation(int mapId, int locId)
 
 void LocationViewer::lineLocationNameChanged(const QString &locName)
 {
-    emit locationStringChanged(locName);
+    Q_EMIT locationStringChanged(locName);
 }
 
 void LocationViewer::setX(int x)
@@ -473,7 +473,7 @@ void LocationViewer::btnUpdateSaveLocationClicked()
     updateItemText(currentStartingLocation, true);
 
     btnUpdateSaveLocation->setVisible(false);
-    emit locationChanged(FF7Location::fileName(sbMapID->value(), sbLocID->value()));
+    Q_EMIT locationChanged(FF7Location::fileName(sbMapID->value(), sbLocID->value()));
 }
 
 void LocationViewer::updateItemText(int locID, bool currentLoc)
@@ -598,8 +598,8 @@ void LocationViewer::init_fieldItems(void)
                     QListWidgetItem *newItem = new QListWidgetItem(fieldItems->text(i));
                     newItem->setCheckState(Qt::Unchecked);
                     fieldItemList->addItem(newItem);
-                    emit fieldItemConnectRequest(quint8(fieldItemList->count()) - 1, fieldItems->offset(i), fieldItems->bit(i));
-                    emit fieldItemCheck(fieldItemList->count() - 1);
+                    Q_EMIT fieldItemConnectRequest(quint8(fieldItemList->count()) - 1, fieldItems->offset(i), fieldItems->bit(i));
+                    Q_EMIT fieldItemCheck(fieldItemList->count() - 1);
                 }
             }
         }
@@ -626,7 +626,7 @@ void LocationViewer::fieldItemListItemChanged(QModelIndex index)
     else
         checked = false;
 
-    emit fieldItemChanged(index.row(), checked);
+    Q_EMIT fieldItemChanged(index.row(), checked);
 
 }
 void LocationViewer::setFieldItemChecked(int row, bool checked)

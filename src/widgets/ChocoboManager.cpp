@@ -105,13 +105,13 @@ void ChocoboManager::setStablesOwned(int value)
         disableChocoLabels();
         enableChocoboLabels(value);
         stablesOwned = qint8(value);
-        emit ownedChanged(qint8(value));
+        Q_EMIT ownedChanged(qint8(value));
         for (int i = value; i < 6 ; i++) {
             if (chocoboLabel[i]->isOccupied()) {
                 chocoboLabel[i]->setOccupied(false);
                 setOccupied(stablesOccupied - 1, stableMask &= ~(1 << i));
-                emit occupiedChanged(stablesOccupied);
-                emit stableMaskChanged(stableMask);
+                Q_EMIT occupiedChanged(stablesOccupied);
+                Q_EMIT stableMaskChanged(stableMask);
                 if (i == selectedStable) {
                     selectedStable = -1;
                     chocoboEditor->setHidden(true);
@@ -128,101 +128,101 @@ void ChocoboManager::connectEditor()
         if (name != chocoboName[selectedStable]) {
             chocoboName[selectedStable] = name;
             labelUpdate(selectedStable);
-            emit nameChanged(selectedStable, name);
+            Q_EMIT nameChanged(selectedStable, name);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::sexChanged, this, [this](quint8 sex) {
         if (sex != chocoboData[selectedStable].sex) {
             chocoboData[selectedStable].sex = sex;
             labelUpdate(selectedStable);
-            emit sexChanged(selectedStable, sex);
+            Q_EMIT sexChanged(selectedStable, sex);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::typeChanged, this, [this](quint8 type) {
         if (type != chocoboData[selectedStable].type) {
             chocoboData[selectedStable].type = type;
             labelUpdate(selectedStable);
-            emit typeChanged(selectedStable, type);
+            Q_EMIT typeChanged(selectedStable, type);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::sprintChanged, this, [this](quint16 sprint) {
         if (sprint != chocoboData[selectedStable].sprintspd) {
             chocoboData[selectedStable].sprintspd = sprint;
-            emit sprintChanged(selectedStable, sprint);
+            Q_EMIT sprintChanged(selectedStable, sprint);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::mSprintChanged, this, [this](quint16 Msprint) {
         if (Msprint != chocoboData[selectedStable].maxsprintspd) {
             chocoboData[selectedStable].maxsprintspd = Msprint;
-            emit mSprintChanged(selectedStable, Msprint);
+            Q_EMIT mSprintChanged(selectedStable, Msprint);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::speedChanged, this, [this](quint16 speed) {
         if (speed != chocoboData[selectedStable].speed) {
             chocoboData[selectedStable].speed = speed;
-            emit speedChanged(selectedStable, speed);
+            Q_EMIT speedChanged(selectedStable, speed);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::mSpeedChanged, this, [this](quint16 Mspeed) {
         if (Mspeed != chocoboData[selectedStable].maxspeed) {
             chocoboData[selectedStable].maxspeed = Mspeed;
-            emit mSpeedChanged(selectedStable, Mspeed);
+            Q_EMIT mSpeedChanged(selectedStable, Mspeed);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::staminaChanged, this, [this](quint16 stamina) {
         if (stamina != chocoboStamina[selectedStable]) {
             chocoboStamina[selectedStable] = stamina;
-            emit staminaChanged(selectedStable, stamina);
+            Q_EMIT staminaChanged(selectedStable, stamina);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::accelChanged, this, [this](quint8 accel) {
         if (accel != chocoboData[selectedStable].accel) {
             chocoboData[selectedStable].accel = accel;
-            emit accelChanged(selectedStable, accel);
+            Q_EMIT accelChanged(selectedStable, accel);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::coopChanged, this, [this](quint8 coop) {
         if (coop != chocoboData[selectedStable].coop) {
             chocoboData[selectedStable].coop = coop;
-            emit coopChanged(selectedStable, coop);
+            Q_EMIT coopChanged(selectedStable, coop);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::intelligenceChanged, this, [this](quint8 intelligence) {
         if (intelligence != chocoboData[selectedStable].intelligence) {
             chocoboData[selectedStable].intelligence = intelligence;
-            emit intelligenceChanged(selectedStable, intelligence);
+            Q_EMIT intelligenceChanged(selectedStable, intelligence);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::personalityChanged, this, [this](quint8 personality) {
         if (personality != chocoboData[selectedStable].personality) {
             chocoboData[selectedStable].personality = personality;
-            emit personalityChanged(selectedStable, personality);
+            Q_EMIT personalityChanged(selectedStable, personality);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::pCountChanged, this, [this](quint8 pCount) {
         if (pCount != chocoboData[selectedStable].pcount) {
             chocoboData[selectedStable].pcount = pCount;
-            emit pCountChanged(selectedStable, pCount);
+            Q_EMIT pCountChanged(selectedStable, pCount);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::winsChanged, this, [this](quint8 wins) {
         if (wins != chocoboData[selectedStable].raceswon) {
             chocoboData[selectedStable].raceswon = wins;
             labelUpdate(selectedStable);
-            emit winsChanged(selectedStable, wins);
+            Q_EMIT winsChanged(selectedStable, wins);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::cantMateChanged, this, [this](bool cantmate) {
         if (cantmate != cantMate[selectedStable]) {
             cantMate[selectedStable] = cantmate;
-            emit cantMateChanged(selectedStable, cantmate);
+            Q_EMIT cantMateChanged(selectedStable, cantmate);
         }
     });
     connect(chocoboEditor, &ChocoboEditor::ratingChanged, this, [this](quint8 rating) {
         if (rating != chocoboRatings[selectedStable]) {
             chocoboRatings[selectedStable] = rating;
             labelUpdate(selectedStable);
-            emit ratingChanged(selectedStable, rating);
+            Q_EMIT ratingChanged(selectedStable, rating);
         }
     });
 }
@@ -364,22 +364,22 @@ void ChocoboManager::setOccupied(int occupied, int mask)
 }
 void ChocoboManager::ChocoboChanged(int s)
 {
-    emit nameChanged(s, chocoboName[s]);
-    emit staminaChanged(s, chocoboStamina[s]);
-    emit cantMateChanged(s, cantMate[s]);
-    emit sexChanged(s, chocoboData[s].sex);
-    emit typeChanged(s, chocoboData[s].type);
-    emit sprintChanged(s, chocoboData[s].sprintspd);
-    emit mSprintChanged(s, chocoboData[s].maxsprintspd);
-    emit speedChanged(s, chocoboData[s].speed);
-    emit mSpeedChanged(s, chocoboData[s].maxspeed);
-    emit accelChanged(s, chocoboData[s].accel);
-    emit coopChanged(s, chocoboData[s].coop);
-    emit intelligenceChanged(s, chocoboData[s].intelligence);
-    emit personalityChanged(s, chocoboData[s].personality);
-    emit pCountChanged(s, chocoboData[s].pcount);
-    emit winsChanged(s, chocoboData[s].raceswon);
-    emit ratingChanged(s, chocoboRatings[s]);
+    Q_EMIT nameChanged(s, chocoboName[s]);
+    Q_EMIT staminaChanged(s, chocoboStamina[s]);
+    Q_EMIT cantMateChanged(s, cantMate[s]);
+    Q_EMIT sexChanged(s, chocoboData[s].sex);
+    Q_EMIT typeChanged(s, chocoboData[s].type);
+    Q_EMIT sprintChanged(s, chocoboData[s].sprintspd);
+    Q_EMIT mSprintChanged(s, chocoboData[s].maxsprintspd);
+    Q_EMIT speedChanged(s, chocoboData[s].speed);
+    Q_EMIT mSpeedChanged(s, chocoboData[s].maxspeed);
+    Q_EMIT accelChanged(s, chocoboData[s].accel);
+    Q_EMIT coopChanged(s, chocoboData[s].coop);
+    Q_EMIT intelligenceChanged(s, chocoboData[s].intelligence);
+    Q_EMIT personalityChanged(s, chocoboData[s].personality);
+    Q_EMIT pCountChanged(s, chocoboData[s].pcount);
+    Q_EMIT winsChanged(s, chocoboData[s].raceswon);
+    Q_EMIT ratingChanged(s, chocoboRatings[s]);
 }
 bool ChocoboManager::isEmpty(FF7CHOCOBO choco)
 {
@@ -489,8 +489,8 @@ QGridLayout *ChocoboManager::createChocoboLabelGrid()
             {
                 chocoboLabel[s]->setOccupied(true);
                 setOccupied(stablesOccupied + 1, stableMask |= (1 << s));
-                emit occupiedChanged(stablesOccupied);
-                emit stableMaskChanged(stableMask);
+                Q_EMIT occupiedChanged(stablesOccupied);
+                Q_EMIT stableMaskChanged(stableMask);
             }
         });
         connect(chocoboLabel[i], &ChocoboLabel::remove, this, [this] {
@@ -513,8 +513,8 @@ QGridLayout *ChocoboManager::createChocoboLabelGrid()
                 }
             }
             stablesOccupied = qint8(lcdStablesOccupied->intValue());
-            emit occupiedChanged(stablesOccupied);
-            emit stableMaskChanged(stableMask);
+            Q_EMIT occupiedChanged(stablesOccupied);
+            Q_EMIT stableMaskChanged(stableMask);
         });
         rmChocobo(i);
     }
@@ -530,7 +530,7 @@ QGridLayout *ChocoboManager::createChocoboPenGrid()
         comboChocoPen[i]->setObjectName(QString::number(i));
         gridLayout->addWidget(comboChocoPen[i], i / 2, i % 2, 1, 1);
         connect(comboChocoPen[i], QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int index) {
-            emit penChanged(sender()->objectName().toInt(), index);
+            Q_EMIT penChanged(sender()->objectName().toInt(), index);
         });
     }
     updateCombos();

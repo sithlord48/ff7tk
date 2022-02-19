@@ -2636,7 +2636,7 @@ void FF7Save::setFileModified(bool changed, int s)
         for (int i = 0; i < 15; i++)
             slotChanged[i] = changed;
     }
-    emit fileChanged(fileHasChanged);
+    Q_EMIT fileChanged(fileHasChanged);
 }
 QVector< SubContainer > FF7Save::parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID)
 {
