@@ -70,7 +70,7 @@
     </message>
     <message>
         <source>Exp: </source>
-        <translation>EXP: </translation>
+        <translation type="unfinished">ESP: </translation>
     </message>
     <message>
         <source>0x34</source>
