@@ -1102,7 +1102,7 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Choco</source>
-        <translation type="unfinished">Choco</translation>
+        <translation>Choco</translation>
     </message>
 </context>
 <context>
@@ -5465,20 +5465,8 @@ The km/h speeds are calculated while playing </translation>
         <translation>Slash-All</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation>Flash</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation>Double Cut</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation>2x-Cut</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation>4x-Cut</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5745,10 +5733,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>Steal</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation>Mug</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation>Sense</translation>
     </message>
@@ -5757,20 +5741,12 @@ The km/h speeds are calculated while playing </translation>
         <translation>Throw</translation>
     </message>
     <message>
-        <source>Coin</source>
-        <translation>Coin</translation>
-    </message>
-    <message>
         <source>Morph</source>
         <translation>Morph</translation>
     </message>
     <message>
         <source>Deathblow</source>
         <translation>Deathblow</translation>
-    </message>
-    <message>
-        <source>DeathBlow</source>
-        <translation>DeathBlow</translation>
     </message>
     <message>
         <source>Manipulate</source>
@@ -6747,6 +6723,74 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation>Knights Of The Round (250mp)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation>DeathBlow</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation>Manipulate</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation>Mime</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation>Throw</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation>Coin</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation>Steal</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation>Sense</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation>Morph</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation>Slash-All</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation>Flash</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation>2x-Cut</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation>4x-Cut</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation>W-Magic</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation>W-Summon</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation>W-Item</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation>Mug</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation>Enemy Skill</translation>
     </message>
 </context>
 <context>

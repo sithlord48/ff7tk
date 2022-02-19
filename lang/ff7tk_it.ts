@@ -5474,20 +5474,8 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation>Radiale</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation>Iainuki</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation>Assalto</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation>Assalto</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation>Raffica</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5754,10 +5742,6 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation>Ruba</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation>Scippo</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation>Scan</translation>
     </message>
@@ -5766,12 +5750,7 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation>Tira</translation>
     </message>
     <message>
-        <source>Coin</source>
-        <translation>Elemosina</translation>
-    </message>
-    <message>
         <source>Morph</source>
-        <translatorcomment>Skill name should be &quot;Muta&quot; but forced to use materia name for both</translatorcomment>
         <translation>Mutante</translation>
     </message>
     <message>
@@ -5779,22 +5758,15 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation>Letale</translation>
     </message>
     <message>
-        <source>DeathBlow</source>
-        <translation>Critico</translation>
-    </message>
-    <message>
         <source>Manipulate</source>
-        <translatorcomment>Skill name should be &quot;Controlla&quot; but forced to use materia name for both</translatorcomment>
         <translation>Manipolatrice</translation>
     </message>
     <message>
         <source>Mime</source>
-        <translatorcomment>Skill name should be &quot;Mima&quot; but forced to use materia name for both</translatorcomment>
         <translation>Imitatrice</translation>
     </message>
     <message>
         <source>Enemy Skill</source>
-        <translatorcomment>Skill name should be &quot;Nemitec&quot; but forced to use materia name for both</translatorcomment>
         <translation>Eclettica</translation>
     </message>
     <message>
@@ -6760,6 +6732,74 @@ La velocità in km/h viene calcolata a runtime</translation>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation>Cavalieri mitici (250pm)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation>Critico</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation>Controlla</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation>Mima</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation>Tira</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation>Elemosina</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation>Ruba</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation>Scan</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation>Muta</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation>Radiale</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation>Iainuki</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation>Assalto</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation>Raffica</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation>Bimagia</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation>Turbinvoca</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation>Alchimia</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation>Scippo</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation>Nemitec</translation>
     </message>
 </context>
 <context>

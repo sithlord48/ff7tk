@@ -5461,20 +5461,8 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation>Konter Attacke 100%</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation>Flash</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation>Multiangriff</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation>2xSchlag</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation>4xSchlag</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5741,10 +5729,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation>Raub</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation>Überfall</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation>Analyse</translation>
     </message>
@@ -5753,19 +5737,11 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation>Wurf</translation>
     </message>
     <message>
-        <source>Coin</source>
-        <translation>Münze</translation>
-    </message>
-    <message>
         <source>Morph</source>
         <translation>Morph</translation>
     </message>
     <message>
         <source>Deathblow</source>
-        <translation>Todesstoß</translation>
-    </message>
-    <message>
-        <source>DeathBlow</source>
         <translation>Todesstoß</translation>
     </message>
     <message>
@@ -6747,6 +6723,74 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation type="unfinished">Ritter der Runde (250MP)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation type="unfinished">Todesstoß</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation type="unfinished">Manipulation</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation type="unfinished">Mimik</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation type="unfinished">Wurf</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation type="unfinished">Münze</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation type="unfinished">Raub</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation type="unfinished">Analyse</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation type="unfinished">Morph</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation type="unfinished">Alle streichen</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation type="unfinished">Flash</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation type="unfinished">2xSchlag</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation type="unfinished">4xSchlag</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation type="unfinished">2xZauber</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation type="unfinished">2xBeschwörung</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation type="unfinished">2xObjekt</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation type="unfinished">Überfall</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation type="unfinished">Feindtechnick</translation>
     </message>
 </context>
 <context>

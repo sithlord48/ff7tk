@@ -5465,20 +5465,8 @@ The km/h speeds are calculated while playing </source>
         <translation type="unfinished">ぜんたいぎり</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation type="unfinished">いあいぬき</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation type="unfinished">れんぞくぎり</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation type="unfinished">れんぞくぎり</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation type="unfinished">みだれうち</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5510,7 +5498,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Underwater</source>
-        <translation type="unfinished">せんすい</translation>
+        <translation>せんすい</translation>
     </message>
     <message>
         <source>HP &lt;-&gt; MP</source>
@@ -5518,15 +5506,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>W-Magic</source>
-        <translation type="unfinished">Ｗまほう</translation>
+        <translation>Ｗまほう</translation>
     </message>
     <message>
         <source>W-Summon</source>
-        <translation type="unfinished">Ｗしょうかん</translation>
+        <translation>Ｗしょうかん</translation>
     </message>
     <message>
         <source>W-Item</source>
-        <translation type="unfinished">Ｗアイテム</translation>
+        <translation>Ｗアイテム</translation>
     </message>
     <message>
         <source>DON&apos;T USE</source>
@@ -5710,11 +5698,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Steal-As-Well</source>
-        <translation type="unfinished">ついでにぬすむ</translation>
+        <translation>ついでにぬすむ</translation>
     </message>
     <message>
         <source>Steal as well</source>
-        <translation type="unfinished">ついでにぬすむ</translation>
+        <translation>ついでにぬすむ</translation>
     </message>
     <message>
         <source>Quadra Magic</source>
@@ -5745,20 +5733,12 @@ The km/h speeds are calculated while playing </source>
         <translation type="unfinished">ぬすむ</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation type="unfinished">ぶんどる</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation type="unfinished">みやぶる</translation>
     </message>
     <message>
         <source>Throw</source>
-        <translation type="unfinished">なげる</translation>
-    </message>
-    <message>
-        <source>Coin</source>
-        <translation type="unfinished">ぜになげ</translation>
+        <translation>なげる</translation>
     </message>
     <message>
         <source>Morph</source>
@@ -5766,10 +5746,6 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Deathblow</source>
-        <translation type="unfinished">ひっさつ</translation>
-    </message>
-    <message>
-        <source>DeathBlow</source>
         <translation type="unfinished">ひっさつ</translation>
     </message>
     <message>
@@ -5966,7 +5942,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Transform</source>
-        <translation type="unfinished">へんしん</translation>
+        <translation>へんしん</translation>
     </message>
     <message>
         <source>Mini (10mp)</source>
@@ -5974,7 +5950,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Toad (14mp)</source>
-        <translation type="unfinished">トード (14MP)</translation>
+        <translation>トード (14MP)</translation>
     </message>
     <message>
         <source>[Mini]</source>
@@ -6054,7 +6030,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Wall (58mp)</source>
-        <translation type="unfinished">ウォール (58MP)</translation>
+        <translation>ウォール (58MP)</translation>
     </message>
     <message>
         <source>Comet</source>
@@ -6070,7 +6046,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished">じかん</translation>
+        <translation>じかん</translation>
     </message>
     <message>
         <source>Haste (18mp)</source>
@@ -6082,7 +6058,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Stop (34mp)</source>
-        <translation type="unfinished">ストップ (34MP)</translation>
+        <translation>ストップ (34MP)</translation>
     </message>
     <message>
         <source>[Slow]</source>
@@ -6126,7 +6102,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Tornado (90mp)</source>
-        <translation type="unfinished">トルネド (90MP)</translation>
+        <translation>トルネド (90MP)</translation>
     </message>
     <message>
         <source>Flare (100mp)</source>
@@ -6154,11 +6130,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Ultima</source>
-        <translation type="unfinished">アルテマ</translation>
+        <translation>アルテマ</translation>
     </message>
     <message>
         <source>Ultima (130mp)</source>
-        <translation type="unfinished">アルテマ (130MP)</translation>
+        <translation>アルテマ (130MP)</translation>
     </message>
     <message>
         <source>Master Magic</source>
@@ -6270,27 +6246,27 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Titan</source>
-        <translation type="unfinished">タイタン</translation>
+        <translation>タイタン</translation>
     </message>
     <message>
         <source>Titan x1 (46mp)</source>
-        <translation type="unfinished">タイタン x1 (46MP)</translation>
+        <translation>タイタン x1 (46MP)</translation>
     </message>
     <message>
         <source>Titan x2 (46mp)</source>
-        <translation type="unfinished">タイタン x2 (46MP)</translation>
+        <translation>タイタン x2 (46MP)</translation>
     </message>
     <message>
         <source>Titan x3 (46mp)</source>
-        <translation type="unfinished">タイタン x3 (46MP)</translation>
+        <translation>タイタン x3 (46MP)</translation>
     </message>
     <message>
         <source>Titan x4 (46mp)</source>
-        <translation type="unfinished">タイタン x4 (46MP)</translation>
+        <translation>タイタン x4 (46MP)</translation>
     </message>
     <message>
         <source>Titan x5 (46mp)</source>
-        <translation type="unfinished">タイタン x5 (46MP)</translation>
+        <translation>タイタン x5 (46MP)</translation>
     </message>
     <message>
         <source>Odin</source>
@@ -6506,27 +6482,27 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Typhon</source>
-        <translation type="unfinished">テュポーン</translation>
+        <translation>テュポーン</translation>
     </message>
     <message>
         <source>Typhon x1 (160mp)</source>
-        <translation type="unfinished">テュポーン x1 (160MP)</translation>
+        <translation>テュポーン x1 (160MP)</translation>
     </message>
     <message>
         <source>Typhon x2 (160mp)</source>
-        <translation type="unfinished">テュポーン x2 (160MP)</translation>
+        <translation>テュポーン x2 (160MP)</translation>
     </message>
     <message>
         <source>Typhon x3 (160mp)</source>
-        <translation type="unfinished">テュポーン x3 (160MP)</translation>
+        <translation>テュポーン x3 (160MP)</translation>
     </message>
     <message>
         <source>Typhon x4 (160mp)</source>
-        <translation type="unfinished">テュポーン x4 (160MP)</translation>
+        <translation>テュポーン x4 (160MP)</translation>
     </message>
     <message>
         <source>Typhon x5 (160mp)</source>
-        <translation type="unfinished">テュポーン x5 (160MP)</translation>
+        <translation>テュポーン x5 (160MP)</translation>
     </message>
     <message>
         <source>Bahamut ZERO</source>
@@ -6578,7 +6554,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>White Wind</source>
-        <translation type="unfinished">ホワイトウィンド</translation>
+        <translation>ホワイトウィンド</translation>
     </message>
     <message>
         <source>Big Guard</source>
@@ -6622,7 +6598,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Trine</source>
-        <translation type="unfinished">トライン</translation>
+        <translation>トライン</translation>
     </message>
     <message>
         <source>Magic Breath</source>
@@ -6630,7 +6606,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">？？？？</translation>
+        <translation>？？？？</translation>
     </message>
     <message>
         <source>Goblin Punch</source>
@@ -6662,7 +6638,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Shield</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">シールド</translation>
     </message>
     <message>
         <source>Knights of the Round x1 (250mp)</source>
@@ -6702,7 +6678,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Titan (46mp)</source>
-        <translation type="unfinished">タイタン (46MP)</translation>
+        <translation>タイタン (46MP)</translation>
     </message>
     <message>
         <source>Odin (80mp)</source>
@@ -6738,7 +6714,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Typhon (160mp)</source>
-        <translation type="unfinished">テュポーン (160MP)</translation>
+        <translation>テュポーン (160MP)</translation>
     </message>
     <message>
         <source>Bahamut ZERO (180mp)</source>
@@ -6747,6 +6723,74 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation type="unfinished">ナイツオブラウンド (250MP)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation type="unfinished">ひっさつ</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation type="unfinished">あやつる</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation type="unfinished">ものまね</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation type="unfinished">なげる</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation type="unfinished">ぜになげ</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation type="unfinished">ぬすむ</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation type="unfinished">みやぶる</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation type="unfinished">へんか</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation type="unfinished">ぜんたいぎり</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation type="unfinished">いあいぬき</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation type="unfinished">れんぞくぎり</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation type="unfinished">みだれうち</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation type="unfinished">Ｗまほう</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation type="unfinished">Ｗしょうかん</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation type="unfinished">Ｗアイテム</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation type="unfinished">ぶんどる</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation type="unfinished">てきのわざ</translation>
     </message>
 </context>
 <context>

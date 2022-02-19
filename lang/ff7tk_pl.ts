@@ -5464,20 +5464,8 @@ The km/h speeds are calculated while playing </source>
         <translation>Slash-All</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation>Błyskawica</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation>Podwójne Cięcie</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation>2x-Cięcie</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation>4x-Cięcie</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5744,10 +5732,6 @@ The km/h speeds are calculated while playing </source>
         <translation>Ukradnij</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation>Kubek</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation>Zmysł</translation>
     </message>
@@ -5756,19 +5740,11 @@ The km/h speeds are calculated while playing </source>
         <translation>Rzuć</translation>
     </message>
     <message>
-        <source>Coin</source>
-        <translation>Moneta</translation>
-    </message>
-    <message>
         <source>Morph</source>
         <translation>Morph</translation>
     </message>
     <message>
         <source>Deathblow</source>
-        <translation>Śmiertelny Cios</translation>
-    </message>
-    <message>
-        <source>DeathBlow</source>
         <translation>Śmiertelny Cios</translation>
     </message>
     <message>
@@ -6746,6 +6722,74 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation>Rycerze Rundy (250PM)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation type="unfinished">Śmiertelny Cios</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation type="unfinished">Manipuluj</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation type="unfinished">Mim</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation type="unfinished">Rzuć</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation type="unfinished">Moneta</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation type="unfinished">Ukradnij</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation type="unfinished">Zmysł</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation type="unfinished">Morph</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation type="unfinished">Slash-All</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation type="unfinished">Błyskawica</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation type="unfinished">2x-Cięcie</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation type="unfinished">4x-Cięcie</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation type="unfinished">Magia-W</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation type="unfinished">W-Wezwanie</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation type="unfinished">Przedmiot-W</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation type="unfinished">Kubek</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation type="unfinished">Umiejętność Wroga</translation>
     </message>
 </context>
 <context>

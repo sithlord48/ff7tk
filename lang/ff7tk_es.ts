@@ -5465,20 +5465,8 @@ Los km/h son calculados mientras se juega </translation>
         <translation>Fulminar a todos</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation>Flash</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation>Corte Doble</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation>2x Corte</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation>4x Corte</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5745,10 +5733,6 @@ Los km/h son calculados mientras se juega </translation>
         <translation>Robar</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation>Toma</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation>Sentir</translation>
     </message>
@@ -5757,19 +5741,11 @@ Los km/h son calculados mientras se juega </translation>
         <translation>Lanzar</translation>
     </message>
     <message>
-        <source>Coin</source>
-        <translation>Mon.</translation>
-    </message>
-    <message>
         <source>Morph</source>
         <translation>Morfo</translation>
     </message>
     <message>
         <source>Deathblow</source>
-        <translation>Golpe mortal</translation>
-    </message>
-    <message>
-        <source>DeathBlow</source>
         <translation>Golpe mortal</translation>
     </message>
     <message>
@@ -6747,6 +6723,74 @@ Los km/h son calculados mientras se juega </translation>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation>Caballeros de la Mesa Redonda (250pm)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation type="unfinished">Golpe mortal</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation type="unfinished">Manipular</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation type="unfinished">Gesticular</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation type="unfinished">Lanzar</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation type="unfinished">Mon.</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation type="unfinished">Robar</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation type="unfinished">Sentir</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation type="unfinished">Morfo</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation type="unfinished">Fulminar a todos</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation type="unfinished">Flash</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation type="unfinished">2x Corte</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation type="unfinished">4x Corte</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation type="unfinished">Magia W</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation type="unfinished">Invocación W</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation type="unfinished">Objeto W</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation type="unfinished">Toma</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation type="unfinished">Habil. Enem</translation>
     </message>
 </context>
 <context>

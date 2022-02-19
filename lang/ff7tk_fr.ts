@@ -5465,20 +5465,8 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <translation>FurieMax</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation>Eclair</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation>Attaque double</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation>2x</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation>4x</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5741,10 +5729,6 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <translation>Voler</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation>Assaut</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation>Sentir</translation>
     </message>
@@ -5753,20 +5737,12 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <translation>Lancer</translation>
     </message>
     <message>
-        <source>Coin</source>
-        <translation>Argent</translation>
-    </message>
-    <message>
         <source>Morph</source>
         <translation>Trans</translation>
     </message>
     <message>
         <source>Deathblow</source>
         <translation>Coup mortel</translation>
-    </message>
-    <message>
-        <source>DeathBlow</source>
-        <translation>CoupM</translation>
     </message>
     <message>
         <source>Manipulate</source>
@@ -6747,6 +6723,74 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation>Chevaliers de la Table Ronde (250 MP)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation type="unfinished">Coup mortel</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation type="unfinished">Manipuler</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation type="unfinished">Mimer</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation type="unfinished">Lancer</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation type="unfinished">Argent</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation type="unfinished">Voler</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation type="unfinished">Sentir</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation type="unfinished">Trans</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation type="unfinished">FurieMax</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation type="unfinished">Eclair</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation type="unfinished">2x</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation type="unfinished">4x</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation type="unfinished">Magie-W</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation type="unfinished">Invocation-W</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation type="unfinished">Elément-W</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation type="unfinished">Assaut</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation type="unfinished">Talent de l&apos;ennemi</translation>
     </message>
 </context>
 <context>

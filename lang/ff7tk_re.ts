@@ -5465,20 +5465,8 @@ The km/h speeds are calculated while playing </translation>
         <translation>Strike All</translation>
     </message>
     <message>
-        <source>Flash</source>
-        <translation>Iainuki</translation>
-    </message>
-    <message>
         <source>Double Cut</source>
         <translation>Consecutive Cut</translation>
-    </message>
-    <message>
-        <source>2x-Cut</source>
-        <translation>2x Atk</translation>
-    </message>
-    <message>
-        <source>4x-Cut</source>
-        <translation>4x Atk</translation>
     </message>
     <message>
         <source>Cover</source>
@@ -5745,10 +5733,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>Steal</translation>
     </message>
     <message>
-        <source>Mug</source>
-        <translation>Mug</translation>
-    </message>
-    <message>
         <source>Sense</source>
         <translation>Sense</translation>
     </message>
@@ -5757,20 +5741,12 @@ The km/h speeds are calculated while playing </translation>
         <translation>Throw</translation>
     </message>
     <message>
-        <source>Coin</source>
-        <translation>Coin</translation>
-    </message>
-    <message>
         <source>Morph</source>
         <translation>Morph</translation>
     </message>
     <message>
         <source>Deathblow</source>
         <translation>Death Blow</translation>
-    </message>
-    <message>
-        <source>DeathBlow</source>
-        <translation>DeathBlow</translation>
     </message>
     <message>
         <source>Manipulate</source>
@@ -6747,6 +6723,74 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Knights Of The Round (250mp)</source>
         <translation type="unfinished">Knights of Round (250mp)</translation>
+    </message>
+    <message>
+        <source>Skill: DeathBlow</source>
+        <translation type="unfinished">Death Blow</translation>
+    </message>
+    <message>
+        <source>Skill: Manipulate</source>
+        <translation type="unfinished">Manipulate</translation>
+    </message>
+    <message>
+        <source>Skill: Mime</source>
+        <translation type="unfinished">Mime</translation>
+    </message>
+    <message>
+        <source>Skill: Throw</source>
+        <translation type="unfinished">Throw</translation>
+    </message>
+    <message>
+        <source>Skill: Coin</source>
+        <translation type="unfinished">Coin</translation>
+    </message>
+    <message>
+        <source>Skill: Steal</source>
+        <translation type="unfinished">Steal</translation>
+    </message>
+    <message>
+        <source>Skill: Sense</source>
+        <translation type="unfinished">Sense</translation>
+    </message>
+    <message>
+        <source>Skill: Morph</source>
+        <translation type="unfinished">Morph</translation>
+    </message>
+    <message>
+        <source>Skill: Slash-All</source>
+        <translation type="unfinished">Strike All</translation>
+    </message>
+    <message>
+        <source>Skill: Flash</source>
+        <translation type="unfinished">Flash</translation>
+    </message>
+    <message>
+        <source>Skill: 2x-Cut</source>
+        <translation type="unfinished">2x Atk</translation>
+    </message>
+    <message>
+        <source>Skill: 4x-Cut</source>
+        <translation type="unfinished">4x Atk</translation>
+    </message>
+    <message>
+        <source>Skill: W-Magic</source>
+        <translation type="unfinished">Double Magic</translation>
+    </message>
+    <message>
+        <source>Skill: W-Summon</source>
+        <translation type="unfinished">Double Summon</translation>
+    </message>
+    <message>
+        <source>Skill: W-Item</source>
+        <translation type="unfinished">Double Item</translation>
+    </message>
+    <message>
+        <source>Skill: Mug</source>
+        <translation type="unfinished">Mug</translation>
+    </message>
+    <message>
+        <source>Skill: Enemy Skill</source>
+        <translation type="unfinished">Enemy Skill</translation>
     </message>
 </context>
 <context>
