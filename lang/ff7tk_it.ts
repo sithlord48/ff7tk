@@ -5,15 +5,15 @@
     <name>CharEditor</name>
     <message>
         <source>Name</source>
-        <translation>Alfabetico</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Current HP</source>
-        <translation type="unfinished">PV Attuali</translation>
+        <translation>PV attuali</translation>
     </message>
     <message>
         <source>Base HP</source>
-        <translation type="unfinished">PV fondamento</translation>
+        <translation>PV base</translation>
     </message>
     <message>
         <source>HP</source>
@@ -21,27 +21,27 @@
     </message>
     <message>
         <source>Materia and Equipment Bonus</source>
-        <translation type="unfinished">Bonus Materie e Attrezzatura</translation>
+        <translation>Bonus materie e equipaggiamento</translation>
     </message>
     <message>
         <source>Maximum HP</source>
-        <translation type="unfinished">PV massimo</translation>
+        <translation>PV massimi</translation>
     </message>
     <message>
         <source>Current MP</source>
-        <translation type="unfinished">PM attuali</translation>
+        <translation>PM attuali</translation>
     </message>
     <message>
         <source>Base MP</source>
-        <translation type="unfinished">PM fondamento</translation>
+        <translation>PM base</translation>
     </message>
     <message>
         <source>MP</source>
-        <translation type="unfinished">PM</translation>
+        <translation>PM</translation>
     </message>
     <message>
         <source>Maximum MP</source>
-        <translation>Massimo PM</translation>
+        <translation>PM massimi</translation>
     </message>
     <message>
         <source>Level</source>
@@ -49,27 +49,28 @@
     </message>
     <message>
         <source>Kills</source>
-        <translation>uccide</translation>
+        <translation>Uccisioni</translation>
     </message>
     <message>
         <source>Fury</source>
-        <translation type="unfinished">Furia</translation>
+        <translation>Furia</translation>
     </message>
     <message>
         <source>Sadness</source>
-        <translation type="unfinished">Apatia</translation>
+        <translation>Sconforto</translation>
     </message>
     <message>
         <source>Front Row</source>
-        <translation type="unfinished">Prima fila</translation>
+        <translation>Prima fila</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">Avanti</translation>
+        <translatorcomment>Double check where it&apos;s used</translatorcomment>
+        <translation>Prossimo</translation>
     </message>
     <message>
         <source>Exp: </source>
-        <translation>ESP: </translation>
+        <translation>EXP: </translation>
     </message>
     <message>
         <source>0x34</source>
@@ -89,123 +90,123 @@
     </message>
     <message>
         <source>Str</source>
-        <translation type="unfinished"></translation>
+        <translation>Frz</translation>
     </message>
     <message>
         <source>Base Strength</source>
-        <translation type="unfinished">Forza fondamento</translation>
+        <translation>Forza base</translation>
     </message>
     <message>
         <source>Power Sources Used</source>
-        <translation type="unfinished"></translation>
+        <translation>Forza up usati</translation>
     </message>
     <message>
         <source>Strength Stat Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Forza totale</translation>
     </message>
     <message>
         <source>Vit</source>
-        <translation type="unfinished">Vig</translation>
+        <translation>Vig</translation>
     </message>
     <message>
         <source>Base Vitality</source>
-        <translation type="unfinished">Vigore fondamento</translation>
+        <translation>Vigore base</translation>
     </message>
     <message>
         <source>Guard Sources Used</source>
-        <translation type="unfinished">Spirito up usato</translation>
+        <translation>Vigore up usati</translation>
     </message>
     <message>
         <source>Vitality Stat Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Vigore totale</translation>
     </message>
     <message>
         <source>Mag</source>
-        <translation type="unfinished">Mag</translation>
+        <translation>Mag</translation>
     </message>
     <message>
         <source>Base Magic</source>
-        <translation type="unfinished">Magia fondamento</translation>
+        <translation>Magia base</translation>
     </message>
     <message>
         <source>Magic Sources Used</source>
-        <translation type="unfinished">Magia up Usi</translation>
+        <translation>Magia up usati</translation>
     </message>
     <message>
         <source>Magic Stat Total</source>
-        <translation type="unfinished">Magia statistica totale</translation>
+        <translation>Magia totale</translation>
     </message>
     <message>
         <source>Spi</source>
-        <translation type="unfinished"></translation>
+        <translation>Spi</translation>
     </message>
     <message>
         <source>Base Spirit</source>
-        <translation type="unfinished">Spirito fondamento</translation>
+        <translation>Spirito base</translation>
     </message>
     <message>
         <source>Mind Sources Used</source>
-        <translation type="unfinished">Spirito Up Usi</translation>
+        <translation>Spirito up usati</translation>
     </message>
     <message>
         <source>Spirit Stat Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Spirito totale</translation>
     </message>
     <message>
         <source>Dex</source>
-        <translation type="unfinished">Vel</translation>
+        <translation>Vel</translation>
     </message>
     <message>
         <source>Base Dexterity</source>
-        <translation type="unfinished">Velocità fondamento</translation>
+        <translation>Velocità base</translation>
     </message>
     <message>
         <source>Speed Sources Used</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocità up usati</translation>
     </message>
     <message>
         <source>Dexterity Stat Total</source>
-        <translation type="unfinished">Velocità Totale</translation>
+        <translation>Velocità totale</translation>
     </message>
     <message>
         <source>Lck</source>
-        <translation type="unfinished">For</translation>
+        <translation>For</translation>
     </message>
     <message>
         <source>Base Luck</source>
-        <translation type="unfinished">Fortuna fondamento</translation>
+        <translation>Fortuna base</translation>
     </message>
     <message>
         <source>Luck Sources Used</source>
-        <translation type="unfinished">Fortuna up Usi</translation>
+        <translation>Fortuna up usati</translation>
     </message>
     <message>
         <source>Luck Stat Total</source>
-        <translation type="unfinished">Fortuna statistica totale</translation>
+        <translation>Fortuna totale</translation>
     </message>
     <message>
         <source>Status Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Parametri</translation>
     </message>
     <message>
         <source>Equipment</source>
-        <translation type="unfinished">Attrezzature</translation>
+        <translation>Equipaggiamento</translation>
     </message>
     <message>
         <source>Elemental Effects</source>
-        <translation type="unfinished">Effetti elementali</translation>
+        <translation>Effetti elementali</translation>
     </message>
     <message>
         <source>Status Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Effetti status</translation>
     </message>
     <message>
         <source>Weapon</source>
-        <translation type="unfinished"></translation>
+        <translation>Arma</translation>
     </message>
     <message>
         <source>Armor</source>
-        <translation type="unfinished">Protezione</translation>
+        <translation>Protezione</translation>
     </message>
     <message>
         <source>Accessory</source>
@@ -213,19 +214,19 @@
     </message>
     <message>
         <source>AP:x%1</source>
-        <translation type="unfinished">PA:x%1</translation>
+        <translation>PA: x%1</translation>
     </message>
     <message>
         <source>-NONE-</source>
-        <translation type="unfinished">-Nessuna-</translation>
+        <translation>- NESSUNO -</translation>
     </message>
     <message>
         <source>Limit Bar</source>
-        <translation type="unfinished">Barra limite</translation>
+        <translation>Barra limite</translation>
     </message>
     <message>
         <source>Limit Uses</source>
-        <translation type="unfinished">Limita gli usi</translation>
+        <translation># Usi</translation>
     </message>
     <message>
         <source>1-1</source>
@@ -241,59 +242,59 @@
     </message>
     <message>
         <source>Limit Level</source>
-        <translation type="unfinished">Livello limite</translation>
+        <translation>Liv. limite</translation>
     </message>
     <message>
         <source>-Empty-</source>
-        <translation type="unfinished">-Vuoto-</translation>
+        <translation>- Vuoto -</translation>
     </message>
     <message>
         <source>Next: %1</source>
-        <translation type="unfinished">Avanti: %1</translation>
+        <translation>Al level up: %1</translation>
     </message>
     <message>
         <source>Young Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>Giovane Cloud</translation>
     </message>
     <message>
         <source>Sephiroth</source>
-        <translation type="unfinished">Sephiroth</translation>
+        <translation>Sephiroth</translation>
     </message>
     <message>
         <source> Str:+%1</source>
-        <translation type="unfinished"></translation>
+        <translation> Frz:+%1</translation>
     </message>
     <message>
         <source> Vit:+%1</source>
-        <translation type="unfinished"> Vig:+%1</translation>
+        <translation> Vig:+%1</translation>
     </message>
     <message>
         <source> Dex:+%1</source>
-        <translation type="unfinished"> Vel: +%1</translation>
+        <translation> Vel: +%1</translation>
     </message>
     <message>
         <source> Spi:+%1</source>
-        <translation type="unfinished"></translation>
+        <translation> Spi:+%1</translation>
     </message>
     <message>
         <source> Mag:+%1</source>
-        <translation type="unfinished"> Mag:+%1</translation>
+        <translation> Mag:+%1</translation>
     </message>
     <message>
         <source> Lck:+%1</source>
-        <translation type="unfinished"> For:+%1</translation>
+        <translation> For:+%1</translation>
     </message>
     <message>
         <source> Hp:+%1%</source>
-        <translation type="unfinished"> PV:+%1%</translation>
+        <translation> PV:+%1%</translation>
     </message>
     <message>
         <source> Mp:+%1%</source>
-        <translation type="unfinished"> PM:+%1%</translation>
+        <translation> PM:+%1%</translation>
     </message>
     <message>
         <source>Restoration</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarigione</translation>
     </message>
     <message>
         <source>Fire</source>
@@ -301,103 +302,103 @@
     </message>
     <message>
         <source>Cold</source>
-        <translation type="unfinished">Gelo</translation>
+        <translation>Gelo</translation>
     </message>
     <message>
         <source>Lightning</source>
-        <translation type="unfinished">Tuono</translation>
+        <translation>Tuono</translation>
     </message>
     <message>
         <source>Earth</source>
-        <translation type="unfinished">Terra</translation>
+        <translation>Terra</translation>
     </message>
     <message>
         <source>Wind</source>
-        <translation type="unfinished">Aria</translation>
+        <translation>Vento</translation>
     </message>
     <message>
         <source>Water</source>
-        <translation type="unfinished">Acqua</translation>
+        <translation>Acqua</translation>
     </message>
     <message>
         <source>Gravity</source>
-        <translation type="unfinished">Gravità</translation>
+        <translation>Gravità</translation>
     </message>
     <message>
         <source>Holy</source>
-        <translation type="unfinished">Santo</translation>
+        <translation>Sacro</translation>
     </message>
     <message>
         <source>Poison</source>
-        <translation type="unfinished">Veleno</translation>
+        <translation>Veleno</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">Taglia</translation>
+        <translation>Taglio</translation>
     </message>
     <message>
         <source>Shoot</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparo</translation>
     </message>
     <message>
         <source>Punch</source>
-        <translation type="unfinished">Pugno</translation>
+        <translation>Pugno</translation>
     </message>
     <message>
         <source>Hit</source>
-        <translation type="unfinished">Colpire</translation>
+        <translation>Colpo</translation>
     </message>
     <message>
         <source>Absorb:</source>
-        <translation type="unfinished">Assorbe:</translation>
+        <translation>Assorbe: </translation>
     </message>
     <message>
         <source>Nullify:</source>
-        <translation type="unfinished">Annullare:</translation>
+        <translation>Annulla: </translation>
     </message>
     <message>
         <source>Halve:</source>
-        <translation type="unfinished">Dimezzare:</translation>
+        <translation>Dimezza: </translation>
     </message>
     <message>
         <source>Attack:</source>
-        <translation type="unfinished">Attacco:</translation>
+        <translation>Attacco: </translation>
     </message>
     <message>
         <source>Death</source>
-        <translation type="unfinished">Morte</translation>
+        <translation>Morte</translation>
     </message>
     <message>
         <source>Slow-Numb</source>
-        <translation type="unfinished"></translation>
+        <translation>Pietrosi</translation>
     </message>
     <message>
         <source>D.Sentence</source>
-        <translation type="unfinished">Sentenza</translation>
+        <translation>Sentenza</translation>
     </message>
     <message>
         <source>Paralysis</source>
-        <translation type="unfinished">Paralisi</translation>
+        <translation>Paralisi</translation>
     </message>
     <message>
         <source>Petrify</source>
-        <translation type="unfinished">Pietra</translation>
+        <translation>Pietra</translation>
     </message>
     <message>
         <source>Silence</source>
-        <translation type="unfinished">Mutismo</translation>
+        <translation>Mutismo</translation>
     </message>
     <message>
         <source>Sleep</source>
-        <translation type="unfinished">Sonno</translation>
+        <translation>Sonno</translation>
     </message>
     <message>
         <source>Confusion</source>
-        <translation type="unfinished">Caos</translation>
+        <translation>Caos</translation>
     </message>
     <message>
         <source>Berserk</source>
-        <translation type="unfinished">Furia</translation>
+        <translation>Berserk</translation>
     </message>
     <message>
         <source>Frog</source>
@@ -405,432 +406,434 @@
     </message>
     <message>
         <source>Mini</source>
-        <translation type="unfinished">Minimum</translation>
+        <translation>Minimum</translation>
     </message>
     <message>
         <source>Darkness</source>
-        <translation type="unfinished">Cecità</translation>
+        <translation>Cecità</translation>
     </message>
     <message>
         <source>Haste</source>
-        <translation type="unfinished">Sprint</translation>
+        <translation>Sprint</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">Lento</translation>
+        <translation>Lentezza</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Ferma</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Barrier</source>
-        <translation type="unfinished">Aegis</translation>
+        <translation>Aegis</translation>
     </message>
     <message>
         <source>M.Barrier</source>
-        <translation type="unfinished">Sphaera</translation>
+        <translation>Sphaera</translation>
     </message>
     <message>
         <source>Reflect</source>
-        <translation type="unfinished">Reflex</translation>
+        <translation>Reflex</translation>
     </message>
     <message>
         <source>Shield</source>
-        <translation type="unfinished">Scudo</translation>
+        <translation>Scudo</translation>
     </message>
     <message>
         <source>Regen</source>
-        <translation type="unfinished">Rigene</translation>
+        <translation>Rigene</translation>
     </message>
     <message>
         <source>Resist</source>
-        <translation type="unfinished"></translation>
+        <translation>Saldezza</translation>
     </message>
     <message>
         <source>Protect:</source>
-        <translation type="unfinished">Veste:</translation>
+        <translation>Previene: </translation>
     </message>
     <message>
         <source>Remove:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuove: </translation>
     </message>
     <message>
         <source>Inflict:</source>
-        <translation type="unfinished">Infliggere:</translation>
+        <translation>Infligge: </translation>
     </message>
     <message>
         <source>OnBattle:</source>
-        <translation type="unfinished"></translation>
+        <translation>Attiva: </translation>
     </message>
 </context>
 <context>
     <name>ChocoboEditor</name>
     <message>
         <source>Run Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocità di corsa</translation>
     </message>
     <message>
         <source>Sprint Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocità in accelerazione</translation>
     </message>
     <message>
         <source>Acceleration</source>
-        <translation type="unfinished"></translation>
+        <translation>Accelerazione</translation>
     </message>
     <message>
         <source>Stamina</source>
-        <translation type="unfinished"></translation>
+        <translation>Resistenza</translation>
     </message>
     <message>
         <source>Races Won</source>
-        <translation type="unfinished"></translation>
+        <translation>Corse vinte</translation>
     </message>
     <message>
         <source>Cooperation</source>
-        <translation type="unfinished"></translation>
+        <translation>Cooperazione</translation>
     </message>
     <message>
         <source>Intelligence</source>
-        <translation type="unfinished"></translation>
+        <translation>Intelligenza</translation>
     </message>
     <message>
         <source>pCount</source>
+        <translatorcomment>what is this?</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Personality</source>
-        <translation type="unfinished"></translation>
+        <translation>Personalità</translation>
     </message>
     <message>
         <source>Choco Billy&apos;s Rating: </source>
-        <translation type="unfinished"></translation>
+        <translation>Valutazione di Choco Billy: </translation>
     </message>
     <message>
         <source>Speed Values Are The Raw Values
 The km/h speeds are calculated while playing </source>
-        <translation type="unfinished"></translation>
+        <translation>I valori delle velocità sopra sono quelli interni al gioco
+La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Alfabetico</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Unable To Mate</source>
-        <translation type="unfinished"></translation>
+        <translation>Non può accoppiarsi</translation>
     </message>
     <message>
         <source>Male %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Maschio %1</translation>
     </message>
     <message>
         <source>Female %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Femmina %1</translation>
     </message>
     <message>
         <source>Yellow</source>
-        <translation type="unfinished"></translation>
+        <translation>Giallo</translation>
     </message>
     <message>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Verde</translation>
     </message>
     <message>
         <source>Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Blu</translation>
     </message>
     <message>
         <source>Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Nero</translation>
     </message>
     <message>
         <source>Gold</source>
-        <translation type="unfinished"></translation>
+        <translation>Oro</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Vuoto</translation>
     </message>
     <message>
         <source>Wonderful</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoloso</translation>
     </message>
     <message>
         <source>Great</source>
-        <translation type="unfinished"></translation>
+        <translation>Ottimo</translation>
     </message>
     <message>
         <source>Good</source>
-        <translation type="unfinished"></translation>
+        <translation>Buono</translation>
     </message>
     <message>
         <source>Fair</source>
-        <translation type="unfinished"></translation>
+        <translation>Sopra la media</translation>
     </message>
     <message>
         <source>Average</source>
-        <translation type="unfinished"></translation>
+        <translation>Decente</translation>
     </message>
     <message>
         <source>Poor</source>
-        <translation type="unfinished"></translation>
+        <translation>Scarso</translation>
     </message>
     <message>
         <source>Bad</source>
-        <translation type="unfinished"></translation>
+        <translation>Pessimo</translation>
     </message>
     <message>
         <source>Terrible</source>
-        <translation type="unfinished"></translation>
+        <translation>Terribile</translation>
     </message>
     <message>
         <source>Rank: C</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: C</translation>
     </message>
     <message>
         <source>Rank: B</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: B</translation>
     </message>
     <message>
         <source>Rank: A</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: A</translation>
     </message>
     <message>
         <source>Rank: S</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: S</translation>
     </message>
 </context>
 <context>
     <name>ChocoboLabel</name>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Incolla</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi</translation>
     </message>
     <message>
         <source>Rank:C</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: C</translation>
     </message>
     <message>
         <source>Rank:B</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: B</translation>
     </message>
     <message>
         <source>Rank:A</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: A</translation>
     </message>
     <message>
         <source>Rank:S</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe: S</translation>
     </message>
 </context>
 <context>
     <name>ChocoboManager</name>
     <message>
         <source>Stables Owned</source>
-        <translation type="unfinished"></translation>
+        <translation>Box posseduti</translation>
     </message>
     <message>
         <source>Stables Occupied</source>
-        <translation type="unfinished"></translation>
+        <translation>Box occupati</translation>
     </message>
     <message>
         <source>Fenced Chocobos</source>
-        <translation type="unfinished"></translation>
+        <translation>Chocobo nel recinto</translation>
     </message>
     <message>
         <source>Stable:%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Box: %1</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Vuoto</translation>
     </message>
     <message>
         <source>Wonderful</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoloso</translation>
     </message>
     <message>
         <source>Great</source>
-        <translation type="unfinished"></translation>
+        <translation>Ottimo</translation>
     </message>
     <message>
         <source>Good</source>
-        <translation type="unfinished"></translation>
+        <translation>Buono</translation>
     </message>
     <message>
         <source>Fair</source>
-        <translation type="unfinished"></translation>
+        <translation>Sopra la media</translation>
     </message>
     <message>
         <source>Average</source>
-        <translation type="unfinished"></translation>
+        <translation>Decente</translation>
     </message>
     <message>
         <source>Poor</source>
-        <translation type="unfinished"></translation>
+        <translation>Scarso</translation>
     </message>
     <message>
         <source>Bad</source>
-        <translation type="unfinished"></translation>
+        <translation>Pessimo</translation>
     </message>
     <message>
         <source>Terrible</source>
-        <translation type="unfinished"></translation>
+        <translation>Terribile</translation>
     </message>
 </context>
 <context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>
-        <translation type="unfinished">Dadi</translation>
+        <translation>Dadi</translation>
     </message>
     <message>
         <source>Sled Fang</source>
-        <translation type="unfinished">Zanna perforante</translation>
+        <translation>Zanna rotante</translation>
     </message>
     <message>
         <source>Greased Lightning</source>
-        <translation type="unfinished">Colpo fulmineo</translation>
+        <translation>Colpo fulmineo</translation>
     </message>
     <message>
         <source>Beat Rush</source>
-        <translation type="unfinished">Attacco d&apos;impeto</translation>
+        <translation>Frenesia guerriera</translation>
     </message>
     <message>
         <source>Boost Jump</source>
-        <translation type="unfinished">Supersalto</translation>
+        <translation>Supersalto</translation>
     </message>
     <message>
         <source>Healing Wind</source>
-        <translation type="unfinished">Vento curativo</translation>
+        <translation>Vento guaritore</translation>
     </message>
     <message>
         <source>Galian Beast</source>
-        <translation type="unfinished">Bestia Galian</translation>
+        <translation>Bestia Galian</translation>
     </message>
     <message>
         <source>Big Shot</source>
-        <translation type="unfinished">Colpo potente</translation>
+        <translation>Colpo pesante</translation>
     </message>
     <message>
         <source>Braver</source>
-        <translation type="unfinished">Colpo audace</translation>
+        <translation>Colpo audace</translation>
     </message>
     <message>
         <source>First Battle</source>
-        <translation type="unfinished"></translation>
+        <translation>Prima battaglia</translation>
     </message>
     <message>
         <source>Gold Chocobo</source>
-        <translation type="unfinished"></translation>
+        <translation>Chocobo Oro</translation>
     </message>
     <message>
         <source>Battle Square</source>
-        <translation type="unfinished">Battle Square</translation>
+        <translation>Battle Square</translation>
     </message>
     <message>
         <source>Materia Overlord</source>
-        <translation type="unfinished"></translation>
+        <translation>Signore delle materie</translation>
     </message>
     <message>
         <source>Yuffie</source>
-        <translation type="unfinished">Yuffie</translation>
+        <translation>Yuffie</translation>
     </message>
     <message>
         <source>Vincent</source>
-        <translation type="unfinished">Vincent</translation>
+        <translation>Vincent</translation>
     </message>
     <message>
         <source>Emerald Weapon</source>
-        <translation type="unfinished"></translation>
+        <translation>Emerald Weapon</translation>
     </message>
     <message>
         <source>Ruby Weapon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruby Weapon</translation>
     </message>
     <message>
         <source>Diamond Weapon</source>
-        <translation type="unfinished"></translation>
+        <translation>Diamond Weapon</translation>
     </message>
     <message>
         <source>Ultimate Weapon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ultima Weapon</translation>
     </message>
     <message>
         <source>Bahamut Zero</source>
-        <translation type="unfinished">Bahamut Zero</translation>
+        <translation>Bahamut Zero</translation>
     </message>
     <message>
         <source>Slots</source>
-        <translation type="unfinished">Slot</translation>
+        <translation>Slot</translation>
     </message>
     <message>
         <source>Cosmo Memory</source>
-        <translation type="unfinished">Memoria di Cosmo</translation>
+        <translation>Memoria di Cosmo</translation>
     </message>
     <message>
         <source>All Creation</source>
-        <translation type="unfinished">Universo</translation>
+        <translation>Universo</translation>
     </message>
     <message>
         <source>Final Heaven</source>
-        <translation type="unfinished">Giudizio finale</translation>
+        <translation>Giudizio finale</translation>
     </message>
     <message>
         <source>Highwind</source>
-        <translation type="unfinished">Highwind</translation>
+        <translation>Highwind</translation>
     </message>
     <message>
         <source>Great Gospel</source>
-        <translation type="unfinished">Buona novella</translation>
+        <translation>Buona novella</translation>
     </message>
     <message>
         <source>Chaos</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaos</translation>
     </message>
     <message>
         <source>Catastrophe</source>
-        <translation type="unfinished">Catastrofe</translation>
+        <translation>Catastrofe</translation>
     </message>
     <message>
         <source>Omnislash</source>
-        <translation type="unfinished">Colpo omni</translation>
+        <translation>Colpo omni</translation>
     </message>
     <message>
         <source>Knights of the Round</source>
-        <translation type="unfinished">Cav. della tavola</translation>
+        <translation>Cavalieri mitici</translation>
     </message>
     <message>
         <source>Top Level</source>
-        <translation type="unfinished"></translation>
+        <translation>Livello massimo</translation>
     </message>
     <message>
         <source>Master of Gil</source>
-        <translation type="unfinished"></translation>
+        <translation>Re dei guil</translation>
     </message>
     <message>
         <source>Master Materia</source>
-        <translation type="unfinished"></translation>
+        <translation>Materia suprema</translation>
     </message>
     <message>
         <source>End of Game</source>
-        <translation type="unfinished"></translation>
+        <translation>Fine del gioco</translation>
     </message>
     <message>
         <source>End of Part II</source>
-        <translation type="unfinished"></translation>
+        <translation>Fine della seconda parte</translation>
     </message>
     <message>
         <source>End of Part I</source>
-        <translation type="unfinished"></translation>
+        <translation>Fine della prima parte</translation>
     </message>
 </context>
 <context>
@@ -873,7 +876,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Big Shot</source>
-        <translation>Colpo potente</translation>
+        <translation>Colpo pesante</translation>
     </message>
     <message>
         <source>Mindblow</source>
@@ -881,7 +884,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Grenade Bomb</source>
-        <translation>Bomba granata</translation>
+        <translation>Scarica deflagrante</translation>
     </message>
     <message>
         <source>Hammerblow</source>
@@ -893,7 +896,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Angermax</source>
-        <translation>Ultrafuria</translation>
+        <translation>Ira funesta</translation>
     </message>
     <message>
         <source>Catastrophe</source>
@@ -905,7 +908,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Beat Rush</source>
-        <translation>Attacco d&apos;impeto</translation>
+        <translation>Frenesia guerriera</translation>
     </message>
     <message>
         <source>Somersault</source>
@@ -917,11 +920,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Meteodrive</source>
-        <translation>Meteor Drive</translation>
+        <translation>Meteoimpulso</translation>
     </message>
     <message>
         <source>Dolphin Blow</source>
-        <translation>Colpo di delfino</translation>
+        <translation>Colpo del delfino</translation>
     </message>
     <message>
         <source>Meteor Strike</source>
@@ -953,7 +956,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Planet Protector</source>
-        <translation>Protettore planetario</translation>
+        <translation>Tutela del pianeta</translation>
     </message>
     <message>
         <source>Pulse of Life</source>
@@ -969,7 +972,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sled Fang</source>
-        <translation>Zanna perforante</translation>
+        <translation>Zanna rotante</translation>
     </message>
     <message>
         <source>Lunatic High</source>
@@ -981,7 +984,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Stardust Ray</source>
-        <translation>Pioggia stellare</translation>
+        <translation>Raggio stellare</translation>
     </message>
     <message>
         <source>Howling Moon</source>
@@ -1013,7 +1016,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Bloodfest</source>
-        <translation>Bagno di sangue</translation>
+        <translation>Tripudio di sangue</translation>
     </message>
     <message>
         <source>Gauntlet</source>
@@ -1057,7 +1060,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Chaos</source>
-        <translation>Maschera crudele</translation>
+        <translation>Chaos</translation>
     </message>
     <message>
         <source>Cid</source>
@@ -1093,7 +1096,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Y.Cloud</source>
-        <translation>Y.Cloud</translation>
+        <translation>Giovane Cloud</translation>
     </message>
     <message>
         <source>Sephiroth</source>
@@ -1104,355 +1107,355 @@ The km/h speeds are calculated while playing </source>
     <name>FF7FieldItemList</name>
     <message>
         <source>Hi-Potion</source>
-        <translation type="unfinished">Granpozione</translation>
+        <translation>Granpozione</translation>
     </message>
     <message>
         <source>Echo Screen</source>
-        <translation type="unfinished">Erba dell&apos;eco</translation>
+        <translation>Erba dell&apos;eco</translation>
     </message>
     <message>
         <source>Potion</source>
-        <translation type="unfinished">Pozione</translation>
+        <translation>Pozione</translation>
     </message>
     <message>
         <source>Ether</source>
-        <translation type="unfinished">Etere</translation>
+        <translation>Etere</translation>
     </message>
     <message>
         <source>Elixir</source>
-        <translation type="unfinished">Elisir</translation>
+        <translation>Elisir</translation>
     </message>
     <message>
         <source>Safety Bit</source>
-        <translation type="unfinished">Gioiello tutelare</translation>
+        <translation>Gioiello tutelare</translation>
     </message>
     <message>
         <source>Mind Source</source>
-        <translation type="unfinished">Spirito up</translation>
+        <translation>Spirito up</translation>
     </message>
     <message>
         <source>Sneak Glove</source>
-        <translation type="unfinished">Polsino del ladro</translation>
+        <translation>Guanti del ladro</translation>
     </message>
     <message>
         <source>Premium Heart</source>
-        <translation type="unfinished">Cuore speciale</translation>
+        <translation>Cuore speciale</translation>
     </message>
     <message>
         <source>Phoenix Down</source>
-        <translation type="unfinished">Coda di fenice</translation>
+        <translation>Coda di fenice</translation>
     </message>
     <message>
         <source>Cover</source>
-        <translation type="unfinished">Altruismo</translation>
+        <translation>Altruismo</translation>
     </message>
     <message>
         <source>Choco/Mog</source>
-        <translation type="unfinished">Chocomoguri</translation>
+        <translation>Chocomoguri</translation>
     </message>
     <message>
         <source>Sense</source>
-        <translation type="unfinished">Scan</translation>
+        <translation>Scan</translation>
     </message>
     <message>
         <source>Ramuh</source>
-        <translation type="unfinished">Ramuh</translation>
+        <translation>Ramuh</translation>
     </message>
     <message>
         <source>KeyItem: Mythril</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Mithril</translation>
     </message>
     <message>
         <source>Mime</source>
-        <translation type="unfinished">Mima</translation>
+        <translation>Mima</translation>
     </message>
     <message>
         <source>HP &lt;-&gt; MP</source>
-        <translation type="unfinished">Scambio PV/PM</translation>
+        <translation>Inversione</translation>
     </message>
     <message>
         <source>Quadra Magic</source>
-        <translation type="unfinished">Tetramagia</translation>
+        <translation>Tetramagia</translation>
     </message>
     <message>
         <source>Knights of the Round</source>
-        <translation type="unfinished">Cav. della tavola</translation>
+        <translation>Cavalieri mitici</translation>
     </message>
     <message>
         <source>X-Potion</source>
-        <translation type="unfinished">Extrapozione</translation>
+        <translation>Extrapozione</translation>
     </message>
     <message>
         <source>Turbo Ether</source>
-        <translation type="unfinished">Turboetere</translation>
+        <translation>Turboetere</translation>
     </message>
     <message>
         <source>Vaccine</source>
-        <translation type="unfinished">Vaccino</translation>
+        <translation>Vaccino</translation>
     </message>
     <message>
         <source>Magic Counter</source>
-        <translation type="unfinished">Contramagia</translation>
+        <translation>Contramagia</translation>
     </message>
     <message>
         <source>Speed Source</source>
-        <translation type="unfinished">Velocità up</translation>
+        <translation>Velocità up</translation>
     </message>
     <message>
         <source>Mega All</source>
-        <translation type="unfinished">Omni totale</translation>
+        <translation>Megaomni</translation>
     </message>
     <message>
         <source>Luck Source</source>
-        <translation type="unfinished">Fortuna up</translation>
+        <translation>Fortuna up</translation>
     </message>
     <message>
         <source>Remedy</source>
-        <translation type="unfinished">Panacea</translation>
+        <translation>Panacea</translation>
     </message>
     <message>
         <source>Bolt Ring</source>
-        <translation type="unfinished">Vera tonum</translation>
+        <translation>Vera tonum</translation>
     </message>
     <message>
         <source>Gold Armlet</source>
-        <translation type="unfinished">Bracciale d&apos;oro</translation>
+        <translation>Bracciale d&apos;oro</translation>
     </message>
     <message>
         <source>Great Gospel</source>
-        <translation type="unfinished">Buona novella</translation>
+        <translation>Buona novella</translation>
     </message>
     <message>
         <source>Umbrella</source>
-        <translation type="unfinished">Ombrello</translation>
+        <translation>Ombrello</translation>
     </message>
     <message>
         <source>Flayer</source>
-        <translation type="unfinished">Celestiale</translation>
+        <translation>Celestiale</translation>
     </message>
     <message>
         <source>Chaos</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaos</translation>
     </message>
     <message>
         <source>Enemy Skill</source>
-        <translation type="unfinished">Apprendimento</translation>
+        <translation>Eclettica</translation>
     </message>
     <message>
         <source>Hyper</source>
-        <translation type="unfinished">Stimolante</translation>
+        <translation>Stimolante</translation>
     </message>
     <message>
         <source>Magic Source</source>
-        <translation type="unfinished">Magia up</translation>
+        <translation>Magia up</translation>
     </message>
     <message>
         <source>KeyItem: Midgar parts</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Parte di Midgar</translation>
     </message>
     <message>
         <source>KeyItem: Keycard 66</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tessera 66</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Omni</translation>
+        <translation>Omni</translation>
     </message>
     <message>
         <source>Wind Slash</source>
-        <translation type="unfinished">Kazekiri</translation>
+        <translation>Kazekiri</translation>
     </message>
     <message>
         <source>Fairy Ring</source>
-        <translation type="unfinished">Anello fatato</translation>
+        <translation>Anello fatato</translation>
     </message>
     <message>
         <source>Added Effect</source>
-        <translation type="unfinished">Alterazione</translation>
+        <translation>Alterante</translation>
     </message>
     <message>
         <source>Black M-phone</source>
-        <translation type="unfinished">Megafono nero</translation>
+        <translation>Megafono nero</translation>
     </message>
     <message>
         <source>HP Absorb</source>
-        <translation type="unfinished">Assorbivita</translation>
+        <translation>Sanguisuga</translation>
     </message>
     <message>
         <source>Magic Shuriken</source>
-        <translation type="unfinished">Shuriken di Fuuma</translation>
+        <translation>Shuriken di Fuuma</translation>
     </message>
     <message>
         <source>Hairpin</source>
-        <translation type="unfinished">Kanzashi</translation>
+        <translation>Kanzashi</translation>
     </message>
     <message>
         <source>KeyItem: Keycard 62</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tessera 62</translation>
     </message>
     <message>
         <source>Swift Bolt</source>
-        <translation type="unfinished">Testo di tuono</translation>
+        <translation>Testo di tuono</translation>
     </message>
     <message>
         <source>Pile Banger</source>
-        <translation type="unfinished">Demolitore</translation>
+        <translation>Arpione demolitore</translation>
     </message>
     <message>
         <source>Master Fist</source>
-        <translation type="unfinished">Pugno superiore</translation>
+        <translation>Pugno maestro</translation>
     </message>
     <message>
         <source>Behemoth Horn</source>
-        <translation type="unfinished">Corno di behemoth</translation>
+        <translation>Corno di behemoth</translation>
     </message>
     <message>
         <source>Full Cure</source>
-        <translation type="unfinished">Megaene</translation>
+        <translation>Megaene</translation>
     </message>
     <message>
         <source>KeyItem: Member&apos;s Card</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tessera di socio</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Fort Condor</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Megamateria (Forte Condor)</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: UnderWater</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Megamateria (Reattore subacqueo)</translation>
     </message>
     <message>
         <source>KeyItem: Key to Ancients</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Chiave degli Antichi</translation>
     </message>
     <message>
         <source>KeyItem: PHS</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: PHS</translation>
     </message>
     <message>
         <source>KeyItem: Keystone</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Chiavelite</translation>
     </message>
     <message>
         <source>KeyItem: Black Materia</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Materia nera</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Corel</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Megamateria (Corel)</translation>
     </message>
     <message>
         <source>Ultima</source>
-        <translation type="unfinished">Ultima</translation>
+        <translation>Ultima</translation>
     </message>
     <message>
         <source>KeyItem: Snowboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Snowboard</translation>
     </message>
     <message>
         <source>KeyItem: Glacier Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Mappa del ghiacciaio</translation>
     </message>
     <message>
         <source>Shiva</source>
-        <translation type="unfinished">Shiva</translation>
+        <translation>Shiva</translation>
     </message>
     <message>
         <source>KeyItem: Cologne</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Colonia</translation>
     </message>
     <message>
         <source>KeyItem: Flower Cologne</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Colonia floreale</translation>
     </message>
     <message>
         <source>KeyItem: Sexy Cologne</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Colonia sexy</translation>
     </message>
     <message>
         <source>KeyItem: Pharmacy Coupon</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Buono farmacia</translation>
     </message>
     <message>
         <source>KeyItem: Wig</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Parrucca riccia</translation>
     </message>
     <message>
         <source>KeyItem: Dyed Wig</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Parrucca castana</translation>
     </message>
     <message>
         <source>KeyItem: Blonde Wig</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Parrucca bionda</translation>
     </message>
     <message>
         <source>KeyItem: Cotton Dress</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Veste di cotone</translation>
     </message>
     <message>
         <source>KeyItem: Satin Dress</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Veste di raso</translation>
     </message>
     <message>
         <source>KeyItem: Silk Dress</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Veste di seta</translation>
     </message>
     <message>
         <source>KeyItem: Disinfectant</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Disinfettante</translation>
     </message>
     <message>
         <source>KeyItem: Deodorant</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Deodorante</translation>
     </message>
     <message>
         <source>KeyItem: Digestive</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Digestivo</translation>
     </message>
     <message>
         <source>KeyItem: Glass Tiara</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tiara di vetro</translation>
     </message>
     <message>
         <source>KeyItem: Ruby Tiara</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tiara di rubini</translation>
     </message>
     <message>
         <source>KeyItem: Diamond Tiara</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tiara di diamanti</translation>
     </message>
     <message>
         <source>Batteries</source>
-        <translation type="unfinished">Batteria</translation>
+        <translation>Batterie</translation>
     </message>
     <message>
         <source>Phoenix</source>
-        <translation type="unfinished">Fenice</translation>
+        <translation>Fenice</translation>
     </message>
     <message>
         <source>Magic Comb</source>
-        <translation type="unfinished">Pettine magico</translation>
+        <translation>Pettine magico</translation>
     </message>
     <message>
         <source>Peace Ring</source>
-        <translation type="unfinished">Anello della pace</translation>
+        <translation>Anello della pace</translation>
     </message>
     <message>
         <source>Megalixir</source>
-        <translation type="unfinished">Megaelisir</translation>
+        <translation>Megaelisir</translation>
     </message>
     <message>
         <source>Super Ball</source>
-        <translation type="unfinished"></translation>
+        <translation>Palla pazza</translation>
     </message>
     <message>
         <source>Alexander</source>
-        <translation type="unfinished">Alexander</translation>
+        <translation>Alexander</translation>
     </message>
     <message>
         <source>Added Cut</source>
-        <translation type="unfinished">Aggressività</translation>
+        <translation>Aggressività</translation>
     </message>
     <message>
         <source>Can Advance</source>
@@ -1460,582 +1463,582 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>KeyItem: KeyCard 68</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tessera 68</translation>
     </message>
     <message>
         <source>KeyItem: Lunar Harp</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Arpa lunare</translation>
     </message>
     <message>
         <source>KeyItem: Key To Basement</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Chiave dei sotterranei</translation>
     </message>
     <message>
         <source>Mind Plus</source>
-        <translation type="unfinished"></translation>
+        <translation>Spirito up</translation>
     </message>
     <message>
         <source>Platinum Fist</source>
-        <translation type="unfinished">Pugno di platino</translation>
+        <translation>Pugno di platino</translation>
     </message>
     <message>
         <source>KeyItem: Gold Ticket</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Biglietto d&apos;oro</translation>
     </message>
     <message>
         <source>Gil Plus</source>
-        <translation type="unfinished">Bonus guil</translation>
+        <translation>Prospera</translation>
     </message>
     <message>
         <source>Exp Plus</source>
-        <translation type="unfinished"></translation>
+        <translation>Formativa</translation>
     </message>
     <message>
         <source>Sprint Shoes</source>
-        <translation type="unfinished">Scarpe di Ermes</translation>
+        <translation>Scarpe di Ermes</translation>
     </message>
     <message>
         <source>Omnislash</source>
-        <translation type="unfinished">Colpo omni</translation>
+        <translation>Colpo omni</translation>
     </message>
     <message>
         <source>W-Summon</source>
-        <translation type="unfinished">Turbinvoca</translation>
+        <translation>Turbinvoca</translation>
     </message>
     <message>
         <source>Found hidden draw</source>
-        <translation type="unfinished"></translation>
+        <translation>Trovato cassetto nascosto</translation>
     </message>
     <message>
         <source>Stole boys 5 gil</source>
-        <translation type="unfinished"></translation>
+        <translation>Rubato 5 guil al bambino</translation>
     </message>
     <message>
         <source>KeyItem: Keycard 60</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tessera 60</translation>
     </message>
     <message>
         <source>Initialized the Machine</source>
-        <translation type="unfinished"></translation>
+        <translation>Avviato la macchina</translation>
     </message>
     <message>
         <source>KeyItem: A Coupon</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Coupon A</translation>
     </message>
     <message>
         <source>KeyItem: B Coupon</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Coupon B</translation>
     </message>
     <message>
         <source>KeyItem: C Coupon</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Coupon C</translation>
     </message>
     <message>
         <source>Star Pendant</source>
-        <translation type="unfinished">Ciondolo stellare</translation>
+        <translation>Ciondolo stellare</translation>
     </message>
     <message>
         <source>Four Slots</source>
-        <translation type="unfinished">Quattro slot</translation>
+        <translation>Quattro slot</translation>
     </message>
     <message>
         <source>Grow Lance</source>
-        <translation type="unfinished">Lancia radiosa</translation>
+        <translation>Lancia radiosa</translation>
     </message>
     <message>
         <source>KeyItem: Keycard 65</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Tessera 65</translation>
     </message>
     <message>
         <source>Elemental</source>
-        <translation type="unfinished">Elementale</translation>
+        <translation>Elementale</translation>
     </message>
     <message>
         <source>MP Absorb</source>
-        <translation type="unfinished">Assorbimagia</translation>
+        <translation>Osmotica</translation>
     </message>
     <message>
         <source>Bahamut Zero</source>
-        <translation type="unfinished">Bahamut Zero</translation>
+        <translation>Bahamut Zero</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #1</source>
-        <translation type="unfinished">Il volantino della tartaruga felice #1</translation>
+        <translation>Volantino della tartaruga felice #1</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #2</source>
-        <translation type="unfinished">Il volantino della tartaruga felice #2</translation>
+        <translation>Volantino della tartaruga felice #2</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #3</source>
-        <translation type="unfinished">Il volantino della tartaruga felice #3</translation>
+        <translation>Volantino della tartaruga felice #3</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #4</source>
-        <translation type="unfinished">Il volantino della tartaruga felice #4</translation>
+        <translation>Volantino della tartaruga felice #4</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #5</source>
-        <translation type="unfinished">Il volantino della tartaruga felice #5</translation>
+        <translation>Volantino della tartaruga felice #5</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #6</source>
-        <translation type="unfinished">Il volantino della tartaruga felice #6</translation>
+        <translation>Volantino della tartaruga felice #6</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #7</source>
-        <translation type="unfinished">Il volantino della tartaruga felice #7</translation>
+        <translation>Volantino della tartaruga felice #7</translation>
     </message>
     <message>
         <source>Rewarded for viewing all Turtle Paradise Flyers</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricompensa per i volantini della tartaruga felice</translation>
     </message>
     <message>
         <source>KeyItem: Bikini briefs</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Mutandine</translation>
     </message>
     <message>
         <source>KeyItem: Lingerie</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Lingerie</translation>
     </message>
     <message>
         <source>Work Glove</source>
-        <translation type="unfinished">Guanto da lavoro</translation>
+        <translation>Guanti da lavoro</translation>
     </message>
     <message>
         <source>Nail Bat</source>
-        <translation type="unfinished">Mazzartiglio</translation>
+        <translation>Mazza chiodata</translation>
     </message>
     <message>
         <source>Rewards From Ester</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricompense da Ester</translation>
     </message>
     <message>
         <source>Ink</source>
-        <translation type="unfinished">Inchiostro</translation>
+        <translation>Inchiostro</translation>
     </message>
     <message>
         <source>T/S Bomb</source>
-        <translation type="unfinished">Bomba spaziotempo</translation>
+        <translation>Bomba spaziotempo</translation>
     </message>
     <message>
         <source>Dragon Fang</source>
-        <translation type="unfinished">Zanna di bicefalo</translation>
+        <translation>Zanna di bicefalo</translation>
     </message>
     <message>
         <source>Dragon Scales</source>
-        <translation type="unfinished">Squame abissali</translation>
+        <translation>Squame abissali</translation>
     </message>
     <message>
         <source>Cauldron</source>
-        <translation type="unfinished">Calderone magico</translation>
+        <translation>Calderone magico</translation>
     </message>
     <message>
         <source>Chocobo Lure</source>
-        <translation type="unfinished">Chocoesca</translation>
+        <translation>Chocoesca</translation>
     </message>
     <message>
         <source>Final Heaven (+other stuff?)</source>
-        <translation type="unfinished"></translation>
+        <translation>Giudizio finale (+ altro?)</translation>
     </message>
     <message>
         <source>Elemental(+other stuff?)</source>
-        <translation type="unfinished"></translation>
+        <translation>Elementale (+ altro?)</translation>
     </message>
     <message>
         <source>Enhance Sword</source>
-        <translation type="unfinished">Magnifica</translation>
+        <translation>Magnifica</translation>
     </message>
     <message>
         <source>Fire Armlet</source>
-        <translation type="unfinished">Bracciale focum</translation>
+        <translation>Bracciale focum</translation>
     </message>
     <message>
         <source>Javelin</source>
-        <translation type="unfinished">Giavellotto</translation>
+        <translation>Giavellotto</translation>
     </message>
     <message>
         <source>Ribbon</source>
-        <translation type="unfinished">Fiocco</translation>
+        <translation>Fiocco</translation>
     </message>
     <message>
         <source>Catastrophe</source>
-        <translation type="unfinished">Catastrofe</translation>
+        <translation>Catastrofe</translation>
     </message>
     <message>
         <source>Hero Drink</source>
-        <translation type="unfinished">Medicina dell&apos;eroe</translation>
+        <translation>Medicina dell&apos;eroe</translation>
     </message>
     <message>
         <source>Neo Bahamut</source>
-        <translation type="unfinished">Neo Bahamut</translation>
+        <translation>Neo Bahamut</translation>
     </message>
     <message>
         <source>Poison Ring</source>
-        <translation type="unfinished">Anello vaccino</translation>
+        <translation>Anello vaccino</translation>
     </message>
     <message>
         <source>MP Turbo</source>
-        <translation type="unfinished">Amplificamagia</translation>
+        <translation>Amplificamagia</translation>
     </message>
     <message>
         <source>Poison</source>
-        <translation type="unfinished">Veleno</translation>
+        <translation>Veleno</translation>
     </message>
     <message>
         <source>Bolt Armlet</source>
-        <translation type="unfinished">Bracciale tonum</translation>
+        <translation>Bracciale tonum</translation>
     </message>
     <message>
         <source>HypnoCrown</source>
-        <translation type="unfinished">Corona ipnos</translation>
+        <translation>Corona ipnos</translation>
     </message>
     <message>
         <source>Kujata</source>
-        <translation type="unfinished">Kujata</translation>
+        <translation>Kujata</translation>
     </message>
     <message>
         <source>Destruct</source>
-        <translation type="unfinished">Distruzione</translation>
+        <translation>Distruttiva</translation>
     </message>
     <message>
         <source>Odin</source>
-        <translation type="unfinished">Odino</translation>
+        <translation>Odino</translation>
     </message>
     <message>
         <source>Counter</source>
-        <translation type="unfinished">Contracomando</translation>
+        <translation>Contracomando</translation>
     </message>
     <message>
         <source>Magic Plus</source>
-        <translation type="unfinished">Bonus magia</translation>
+        <translation>Occulta</translation>
     </message>
     <message>
         <source>Steal</source>
-        <translation type="unfinished">Ruba</translation>
+        <translation>Predatrice</translation>
     </message>
     <message>
         <source>Twin Viper</source>
-        <translation type="unfinished">Serpi gemelle</translation>
+        <translation>Serpi gemelle</translation>
     </message>
     <message>
         <source>Silver M-phone</source>
-        <translation type="unfinished">Megafono d&apos;argento</translation>
+        <translation>Megafono d&apos;argento</translation>
     </message>
     <message>
         <source>Enemy Launcher</source>
-        <translation type="unfinished">Lanciarazzi</translation>
+        <translation>Lanciarazzi</translation>
     </message>
     <message>
         <source>Buntline</source>
-        <translation type="unfinished">Buntline</translation>
+        <translation>Buntline</translation>
     </message>
     <message>
         <source>Aurora Armlet</source>
-        <translation type="unfinished">Bracciale gelum</translation>
+        <translation>Bracciale gelum</translation>
     </message>
     <message>
         <source>Viper Halberd</source>
-        <translation type="unfinished">Lancia ofidica</translation>
+        <translation>Lancia serpente</translation>
     </message>
     <message>
         <source>Rune Blade</source>
-        <translation type="unfinished">Spada runica</translation>
+        <translation>Spada runica</translation>
     </message>
     <message>
         <source>Plus Barrette</source>
-        <translation type="unfinished">Fermaglio di platino</translation>
+        <translation>Fermaglio di platino</translation>
     </message>
     <message>
         <source>Powersoul</source>
-        <translation type="unfinished">Supranima</translation>
+        <translation>Supranima</translation>
     </message>
     <message>
         <source>Sniper CR</source>
-        <translation type="unfinished">Sniper CR</translation>
+        <translation>Sniper CR</translation>
     </message>
     <message>
         <source>Power Source</source>
-        <translation type="unfinished">Forza up</translation>
+        <translation>Forza up</translation>
     </message>
     <message>
         <source>Water Ring</source>
-        <translation type="unfinished">Vera acqueum</translation>
+        <translation>Vera acqueum</translation>
     </message>
     <message>
         <source>Typhon</source>
-        <translation type="unfinished">Tyfon</translation>
+        <translation>Tyfon</translation>
     </message>
     <message>
         <source>Supershot ST</source>
-        <translation type="unfinished">Super ST</translation>
+        <translation>Super ST</translation>
     </message>
     <message>
         <source>Slash-All</source>
-        <translation type="unfinished">Colpo radiale</translation>
+        <translation>Radiale</translation>
     </message>
     <message>
         <source>Minerva Band</source>
-        <translation type="unfinished">Fascia di Minerva</translation>
+        <translation>Bracciale di Minerva</translation>
     </message>
     <message>
         <source>Apocalypse</source>
-        <translation type="unfinished">ApocalypseApocalypse</translation>
+        <translation>Apocalypse</translation>
     </message>
     <message>
         <source>Spring Gun Clip</source>
-        <translation type="unfinished">Molletta spriggan</translation>
+        <translation>Molletta spriggan</translation>
     </message>
     <message>
         <source>Mop</source>
-        <translation type="unfinished">Ramazza</translation>
+        <translation>Ramazza</translation>
     </message>
     <message>
         <source>KeyItem: Key To Sector 5</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Chiave del Settore 5</translation>
     </message>
     <message>
         <source>Tent</source>
-        <translation type="unfinished">Tenda</translation>
+        <translation>Tenda</translation>
     </message>
     <message>
         <source>Long Range</source>
-        <translation type="unfinished">Prolunga</translation>
+        <translation>Prolungante</translation>
     </message>
     <message>
         <source>Titan</source>
-        <translation type="unfinished">Titano</translation>
+        <translation>Titano</translation>
     </message>
     <message>
         <source>Comet</source>
-        <translation type="unfinished">Cometa</translation>
+        <translation>Meteorica</translation>
     </message>
     <message>
         <source>Deathblow</source>
-        <translation type="unfinished">Colpo finale</translation>
+        <translation>Letale</translation>
     </message>
     <message>
         <source>Hades</source>
-        <translation type="unfinished">Hades</translation>
+        <translation>Hades</translation>
     </message>
     <message>
         <source>Outsider</source>
-        <translation type="unfinished">Outsider</translation>
+        <translation>Outsider</translation>
     </message>
     <message>
         <source>Escort Guard</source>
-        <translation type="unfinished">Vigilis</translation>
+        <translation>Vigilis</translation>
     </message>
     <message>
         <source>Conformer</source>
-        <translation type="unfinished">Nemesis</translation>
+        <translation>Nemesis</translation>
     </message>
     <message>
         <source>Spirit Lance</source>
-        <translation type="unfinished">Longinus</translation>
+        <translation>Longinus</translation>
     </message>
     <message>
         <source>Heaven&apos;s Cloud</source>
-        <translation type="unfinished">Murakumo</translation>
+        <translation>Murakumo</translation>
     </message>
     <message>
         <source>Guard Source</source>
-        <translation type="unfinished">Vigore up</translation>
+        <translation>Vigore up</translation>
     </message>
     <message>
         <source>Mystile</source>
-        <translation type="unfinished">Mistile</translation>
+        <translation>Mistile</translation>
     </message>
     <message>
         <source>Tetra Elemental</source>
-        <translation type="unfinished">Tetraelementale</translation>
+        <translation>Tetraelementale</translation>
     </message>
     <message>
         <source>White M-phone</source>
-        <translation type="unfinished">Megafono bianco</translation>
+        <translation>Megafono bianco</translation>
     </message>
     <message>
         <source>Drill Arm</source>
-        <translation type="unfinished">Braccio trivella</translation>
+        <translation>Braccio trivella</translation>
     </message>
     <message>
         <source>Yoshiyuki</source>
-        <translation type="unfinished">Mutsunokami</translation>
+        <translation>Mutsunokami</translation>
     </message>
     <message>
         <source>Venus Gospel</source>
-        <translation type="unfinished">Venus</translation>
+        <translation>Venus</translation>
     </message>
     <message>
         <source>Save Crystal</source>
-        <translation type="unfinished">Salvocristallo</translation>
+        <translation>Salvocristallo</translation>
     </message>
     <message>
         <source>Peacemaker</source>
-        <translation type="unfinished">Epopea</translation>
+        <translation>Epopea</translation>
     </message>
     <message>
         <source>Fourth Bracelet</source>
-        <translation type="unfinished">Fascia di Atlante</translation>
+        <translation>Braccialetto risonante</translation>
     </message>
     <message>
         <source>Double Cut</source>
-        <translation type="unfinished">Attacco multiplo</translation>
+        <translation>Assalto</translation>
     </message>
     <message>
         <source>Highwind</source>
-        <translation type="unfinished">Highwind</translation>
+        <translation>Highwind</translation>
     </message>
     <message>
         <source>Show Underwater</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra Respiratore</translation>
     </message>
     <message>
         <source>Show Master Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra Comando supremo</translation>
     </message>
     <message>
         <source>Show Master Magic</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra Magia suprema</translation>
     </message>
     <message>
         <source>Show Master Summon</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra Invocazione suprema</translation>
     </message>
     <message>
         <source>Show Gold Chocobo</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra Chocobo Oro</translation>
     </message>
     <message>
         <source>Morph</source>
-        <translation type="unfinished">Metamorfosi</translation>
+        <translation>Mutante</translation>
     </message>
     <message>
         <source>Luck Plus</source>
-        <translation type="unfinished">Bonus fortuna</translation>
+        <translation>Propizia</translation>
     </message>
     <message>
         <source>Princess Guard</source>
-        <translation type="unfinished">Scettro regale</translation>
+        <translation>Scettro regale</translation>
     </message>
     <message>
         <source>Trumpet Shell</source>
-        <translation type="unfinished">Conchiglia</translation>
+        <translation>Conchiglia</translation>
     </message>
     <message>
         <source>Bahamut</source>
-        <translation type="unfinished">Bahamut</translation>
+        <translation>Bahamut</translation>
     </message>
     <message>
         <source>Trident</source>
-        <translation type="unfinished">Tridente</translation>
+        <translation>Tridente</translation>
     </message>
     <message>
         <source>Rocket Punch</source>
-        <translation type="unfinished">Pugno missile</translation>
+        <translation>Pugno missile</translation>
     </message>
     <message>
         <source>Silver Rifle</source>
-        <translation type="unfinished">Pistola giocattolo</translation>
+        <translation>Pistola giocattolo</translation>
     </message>
     <message>
         <source>Motor Drive</source>
-        <translation type="unfinished">Pugno di ferro</translation>
+        <translation>Pugno di ferro</translation>
     </message>
     <message>
         <source>Fire Ring</source>
-        <translation type="unfinished">Vera focum</translation>
+        <translation>Vera focum</translation>
     </message>
     <message>
         <source>Purchased The House</source>
-        <translation type="unfinished"></translation>
+        <translation>Villa acquistata</translation>
     </message>
     <message>
         <source>W Machine Gun</source>
-        <translation type="unfinished">Mitragliatrice</translation>
+        <translation>Mitragliatrice doppia</translation>
     </message>
     <message>
         <source>Transform</source>
-        <translation type="unfinished">Trasformazione</translation>
+        <translation>Trasformante</translation>
     </message>
     <message>
         <source>1/35 soldier</source>
-        <translation type="unfinished">Soldatino 1:35</translation>
+        <translation>Soldatini 1:35</translation>
     </message>
     <message>
         <source>KeyItem: Leviathan Scales</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Squama di Leviatano</translation>
     </message>
     <message>
         <source>Steal-As-Well</source>
-        <translation type="unfinished">Cleptomania</translation>
+        <translation>Cleptomania</translation>
     </message>
     <message>
         <source>Dragoon Lance</source>
-        <translation type="unfinished">Lancia del dragone</translation>
+        <translation>Lancia del dragone</translation>
     </message>
     <message>
         <source>W-Item</source>
-        <translation type="unfinished">Alchimia</translation>
+        <translation>Alchimia</translation>
     </message>
     <message>
         <source>Max Ray</source>
-        <translation type="unfinished">Raggio maximum</translation>
+        <translation>Raggio maximum</translation>
     </message>
     <message>
         <source>Aegis Armlet</source>
-        <translation type="unfinished">Bracciale egida</translation>
+        <translation>Bracciale egida</translation>
     </message>
     <message>
         <source>Scimitar</source>
-        <translation type="unfinished">Lancia crescente</translation>
+        <translation>Lancia crescente</translation>
     </message>
     <message>
         <source>Battle Trumpet</source>
-        <translation type="unfinished">Tromba bellica</translation>
+        <translation>Tromba bellica</translation>
     </message>
     <message>
         <source>Leviathan</source>
-        <translation type="unfinished">Leviatano</translation>
+        <translation>Leviatano</translation>
     </message>
     <message>
         <source>Oritsuru</source>
-        <translation type="unfinished">Orizuru</translation>
+        <translation>Orizuru</translation>
     </message>
     <message>
         <source>Starlight Phone</source>
-        <translation type="unfinished">Megafono stellare</translation>
+        <translation>Megafono stellare</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Rocket</source>
-        <translation type="unfinished"></translation>
+        <translation>Rarità: Megamateria (Razzo)</translation>
     </message>
     <message>
         <source>Missing Score</source>
-        <translation type="unfinished">Segno intangibile</translation>
+        <translation>Segno intangibile</translation>
     </message>
     <message>
         <source>Shield</source>
-        <translation type="unfinished">Scudo</translation>
+        <translation>Scudo</translation>
     </message>
     <message>
         <source>W-Magic</source>
-        <translation type="unfinished">Bimagia</translation>
+        <translation>Bimagia</translation>
     </message>
     <message>
         <source>Imperial Guard</source>
-        <translation type="unfinished">Difensore imperiale</translation>
+        <translation type="unfinished">Baluardo imperiale</translation>
     </message>
     <message>
         <source>Contain</source>
-        <translation type="unfinished">Apocrifa</translation>
+        <translation>Apocrifa</translation>
     </message>
 </context>
 <context>
     <name>FF7Item</name>
     <message>
         <source>Restoration</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarigione</translation>
     </message>
     <message>
         <source>Fire</source>
@@ -2055,7 +2058,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Wind</source>
-        <translation>Aria</translation>
+        <translation>Vento</translation>
     </message>
     <message>
         <source>Water</source>
@@ -2067,7 +2070,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Holy</source>
-        <translation>Santo</translation>
+        <translation>Sacro</translation>
     </message>
     <message>
         <source>Poison</source>
@@ -2075,19 +2078,19 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cut</source>
-        <translation>Taglia</translation>
+        <translation>Taglio</translation>
     </message>
     <message>
         <source>Shoot</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparo</translation>
     </message>
     <message>
         <source>Punch</source>
-        <translation type="unfinished">Pugno</translation>
+        <translation>Pugno</translation>
     </message>
     <message>
         <source>Hit</source>
-        <translation>Colpire</translation>
+        <translation>Colpo</translation>
     </message>
     <message>
         <source>Absorb:</source>
@@ -2095,11 +2098,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Nullify:</source>
-        <translation>Annullare:</translation>
+        <translation>Annulla:</translation>
     </message>
     <message>
         <source>Halve:</source>
-        <translation>Dimezzare:</translation>
+        <translation>Dimezza:</translation>
     </message>
     <message>
         <source>Attack:</source>
@@ -2111,7 +2114,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Slow-Numb</source>
-        <translation type="unfinished"></translation>
+        <translation>Pietrosi</translation>
     </message>
     <message>
         <source>D.Sentence</source>
@@ -2139,7 +2142,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Berserk</source>
-        <translation>Furia</translation>
+        <translation>Berserk</translation>
     </message>
     <message>
         <source>Frog</source>
@@ -2155,7 +2158,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sadness</source>
-        <translation>Apatia</translation>
+        <translation>Sconforto</translation>
     </message>
     <message>
         <source>Darkness</source>
@@ -2167,7 +2170,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lento</translation>
+        <translation>Lentezza</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -2195,23 +2198,23 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Resist</source>
-        <translation type="unfinished"></translation>
+        <translation>Saldezza</translation>
     </message>
     <message>
         <source>Protect:</source>
-        <translation type="unfinished">Veste:</translation>
+        <translation>Previene: </translation>
     </message>
     <message>
         <source>Remove:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuove: </translation>
     </message>
     <message>
         <source>Inflict:</source>
-        <translation>Infliggere:</translation>
+        <translation>Infligge:</translation>
     </message>
     <message>
         <source>OnBattle:</source>
-        <translation type="unfinished"></translation>
+        <translation>Attiva: </translation>
     </message>
     <message>
         <source>Potion</source>
@@ -2235,7 +2238,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Restores all lost HP</source>
-        <translation type="unfinished">Ripristina PV</translation>
+        <translation>Ripristina i PV</translation>
     </message>
     <message>
         <source>Ether</source>
@@ -2251,7 +2254,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Restores all lost MP</source>
-        <translation type="unfinished">Ripristina PM</translation>
+        <translation>Ripristina i PM</translation>
     </message>
     <message>
         <source>Elixir</source>
@@ -2323,15 +2326,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cures [Sadness]</source>
-        <translation>Cura status Apatia o causa status Furore</translation>
+        <translation>Cura status Sconforto o causa status Furia</translation>
     </message>
     <message>
         <source>Tranquilizer</source>
-        <translation>Tranquillante</translation>
+        <translation>Calmante</translation>
     </message>
     <message>
         <source>Cures [Fury]</source>
-        <translation>Cura status Furore o causa status Apatia</translation>
+        <translation>Cura status Furia o causa status Sconforto</translation>
     </message>
     <message>
         <source>Remedy</source>
@@ -2355,7 +2358,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Casts [Haste] on one ally</source>
-        <translation>Attiva [Sprint] su un alleato</translation>
+        <translation>Attiva Sprint su un alleato</translation>
     </message>
     <message>
         <source>Hero Drink</source>
@@ -2515,7 +2518,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Deadly Waste</source>
-        <translation>Scorie tossiche</translation>
+        <translation>Sostanza tossica</translation>
     </message>
     <message>
         <source>Uses [Bio2] on all opponents</source>
@@ -2635,7 +2638,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Molotov</source>
-        <translation>Bomba molotov</translation>
+        <translation>Cocktail di fuoco</translation>
     </message>
     <message>
         <source>Fire damage on one opponent</source>
@@ -2643,7 +2646,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>S-mine</source>
-        <translation>Mina S</translation>
+        <translation>Ordigno S</translation>
     </message>
     <message>
         <source>Explosive damage on one opponent</source>
@@ -2655,7 +2658,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Graviball</source>
-        <translation>Gravisfera</translation>
+        <translation>Sfera gravitazionale</translation>
     </message>
     <message>
         <source>Uses [Demi] against one opponent</source>
@@ -2927,7 +2930,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Masamune Blade</source>
-        <translation type="unfinished">Masamune</translation>
+        <translation>Masamune</translation>
     </message>
     <message>
         <source>A prefect copy of Sephiroth&apos;s sword!</source>
@@ -3035,11 +3038,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Nail Bat</source>
-        <translation>Mazzartiglio</translation>
+        <translation>Mazza chiodata</translation>
     </message>
     <message>
         <source>Yoshiyuki</source>
-        <translation type="unfinished">Yoshiyuki</translation>
+        <translation>Mutsunokami</translation>
     </message>
     <message>
         <source>Sword is used when an ally is down</source>
@@ -3047,7 +3050,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Apocalypse</source>
-        <translation>ApocalypseApocalypse</translation>
+        <translation>Apocalypse</translation>
     </message>
     <message>
         <source>Heaven&apos;s Cloud</source>
@@ -3107,7 +3110,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Work Glove</source>
-        <translation>Guanto da lavoro</translation>
+        <translation>Guanti da lavoro</translation>
     </message>
     <message>
         <source>Powersoul</source>
@@ -3119,7 +3122,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Master Fist</source>
-        <translation>Pugno superiore</translation>
+        <translation>Pugno maestro</translation>
     </message>
     <message>
         <source>Power up when condition changes</source>
@@ -3135,7 +3138,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Gatling Gun</source>
-        <translation>Fucile gatling</translation>
+        <translation>Mitraglia automatica</translation>
     </message>
     <message>
         <source>Initial equip. Long Range Weapon</source>
@@ -3151,11 +3154,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cannon Ball</source>
-        <translation>Palla di cannone</translation>
+        <translation>Sfera aguzza</translation>
     </message>
     <message>
         <source>Atomic Scissors</source>
-        <translation>Forbice atomica</translation>
+        <translation>Tenaglia atomica</translation>
     </message>
     <message>
         <source>Heavy Vulcan</source>
@@ -3175,7 +3178,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>W Machine Gun</source>
-        <translation>Mitragliatrice</translation>
+        <translation>Mitragliatrice doppia</translation>
     </message>
     <message>
         <source>Drill Arm</source>
@@ -3195,7 +3198,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Pile Banger</source>
-        <translation>Demolitore</translation>
+        <translation>Arpione demolitore</translation>
     </message>
     <message>
         <source>Max Ray</source>
@@ -3267,7 +3270,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Guard Stick</source>
-        <translation>Asta bloccante</translation>
+        <translation>Asta salvatrice</translation>
     </message>
     <message>
         <source>Mythril Rod</source>
@@ -3275,11 +3278,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Full Metal Staff</source>
-        <translation>Asta di metallo</translation>
+        <translation>Asta rinforzata</translation>
     </message>
     <message>
         <source>Striking Staff</source>
-        <translation>Asta stordente</translation>
+        <translation>Asta affilata</translation>
     </message>
     <message>
         <source>Prism Staff</source>
@@ -3291,7 +3294,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Wizard Staff</source>
-        <translation>Asta magica</translation>
+        <translation>Asta del mago</translation>
     </message>
     <message>
         <source>Wizer Staff</source>
@@ -3335,7 +3338,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Viper Halberd</source>
-        <translation>Lancia ofidica</translation>
+        <translation>Lancia serpente</translation>
     </message>
     <message>
         <source>Javelin</source>
@@ -3371,7 +3374,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>4-point Shuriken</source>
-        <translation>Stella crociata</translation>
+        <translation>Shuriken crociato</translation>
     </message>
     <message>
         <source>Boomerang</source>
@@ -3387,7 +3390,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Hawkeye</source>
-        <translation>Occhio di falco</translation>
+        <translation>Hawkeye</translation>
     </message>
     <message>
         <source>Crystal Cross</source>
@@ -3563,7 +3566,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Diamond Bangle</source>
-        <translation>Fascia di diamante</translation>
+        <translation>Banda di diamante</translation>
     </message>
     <message>
         <source>Crystal Bangle</source>
@@ -3583,11 +3586,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Wizard Bracelet</source>
-        <translation>Bracciale fatato</translation>
+        <translation>Braccialetto fatato</translation>
     </message>
     <message>
         <source>Adaman Bangle</source>
-        <translation>Fascia adamantina</translation>
+        <translation>Banda adamantina</translation>
     </message>
     <message>
         <source>Gigas Armlet</source>
@@ -3595,7 +3598,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Imperial Guard</source>
-        <translation>Difensore imperiale</translation>
+        <translation>Baluardo imperiale</translation>
     </message>
     <message>
         <source>Aegis Armlet</source>
@@ -3603,11 +3606,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Fourth Bracelet</source>
-        <translation>Fascia di Atlante</translation>
+        <translation>Braccialetto risonante</translation>
     </message>
     <message>
         <source>Warrior Bangle</source>
-        <translation>Fascia guerriera</translation>
+        <translation>Banda guerriera</translation>
     </message>
     <message>
         <source>Shinra Beta</source>
@@ -3647,7 +3650,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Dragon Armlet</source>
-        <translation>Fascia dragone</translation>
+        <translation>Bracciale dragone</translation>
     </message>
     <message>
         <source>Drains 1/2 [Fire/Cold/Lightning] attack</source>
@@ -3655,7 +3658,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Minerva Band</source>
-        <translation>Fascia di Minerva</translation>
+        <translation>Bracciale di Minerva</translation>
     </message>
     <message>
         <source>Women&apos;s Armlet nullifies [Fire/Cold/Gravity/Holy]</source>
@@ -3695,7 +3698,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Power Wrist</source>
-        <translation>Gala del potere</translation>
+        <translation>Polsiera potente</translation>
     </message>
     <message>
         <source>Strength +10</source>
@@ -3711,7 +3714,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Earring</source>
-        <translation>Orecchino</translation>
+        <translation>Orecchini</translation>
     </message>
     <message>
         <source>Magic +10</source>
@@ -3743,7 +3746,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Champion Belt</source>
-        <translation>Cintura del campione</translation>
+        <translation>Cintura master</translation>
     </message>
     <message>
         <source>Power &amp; Vitality +30</source>
@@ -3759,7 +3762,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Tough Ring</source>
-        <translation>Anello defens</translation>
+        <translation>Anello difensivo</translation>
     </message>
     <message>
         <source>Vitality &amp; Spirit +50</source>
@@ -3767,7 +3770,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Circlet</source>
-        <translation>Cerchietto</translation>
+        <translation>Diadema</translation>
     </message>
     <message>
         <source>Magic &amp; Spirit +30</source>
@@ -3807,7 +3810,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Jem Ring</source>
-        <translation type="unfinished">Anello gemma</translation>
+        <translation>Anello gemma</translation>
     </message>
     <message>
         <source>Protects against [Paralyze/Petrify/Slow-numb]</source>
@@ -3887,7 +3890,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Fury Ring</source>
-        <translation>Vera dell&apos;ira</translation>
+        <translation>Anello dell&apos;ira</translation>
     </message>
     <message>
         <source>Automatically puts you in [Berserk]</source>
@@ -3935,7 +3938,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sneak Glove</source>
-        <translation>Polsino del ladro</translation>
+        <translation>Guanti del ladro</translation>
     </message>
     <message>
         <source>Increases Stealing rate</source>
@@ -3958,15 +3961,15 @@ The km/h speeds are calculated while playing </source>
     <name>FF7Location</name>
     <message>
         <source>Cloud&apos;s Past</source>
-        <translation type="unfinished"></translation>
+        <translation>Passato di Cloud</translation>
     </message>
     <message>
         <source>Cloud&apos;s Villa</source>
-        <translation type="unfinished"></translation>
+        <translation>Villa Cloud</translation>
     </message>
     <message>
         <source>Test Fight</source>
-        <translation type="unfinished"></translation>
+        <translation>Test combattimento</translation>
     </message>
     <message>
         <source>Midgar Area</source>
@@ -4022,7 +4025,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Icicle Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area di Loggia Gelata</translation>
     </message>
     <message>
         <source>Round Island</source>
@@ -4030,15 +4033,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Last Underwater Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ultima posizione subacquea</translation>
     </message>
     <message>
         <source>Underwater (Gelnika)</source>
-        <translation>Subacqueo (Gelnika)</translation>
+        <translation>Fondo del mare (Gelnika)</translation>
     </message>
     <message>
         <source>Last Worldmap Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ultima posizione sulla mappa</translation>
     </message>
     <message>
         <source>Start of Juion Ship Sequence</source>
@@ -4054,7 +4057,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Debug Room [ja]</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug Room [ja]</translation>
     </message>
     <message>
         <source>Highwind</source>
@@ -4142,7 +4145,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sector 1</source>
-        <translation type="unfinished">Settore 1</translation>
+        <translation>Settore 1</translation>
     </message>
     <message>
         <source>No.1 Reactor</source>
@@ -4154,7 +4157,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sector 8</source>
-        <translation type="unfinished">Settore 8</translation>
+        <translation>Settore 8</translation>
     </message>
     <message>
         <source>Last Train From Midgar</source>
@@ -5317,7 +5320,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Lck:+1</source>
-        <translation>Frt:+1</translation>
+        <translation>For:+1</translation>
     </message>
     <message>
         <source>Gil Plus</source>
@@ -5357,7 +5360,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Lck:-1</source>
-        <translation>Frt:-1</translation>
+        <translation>For:-1</translation>
     </message>
     <message>
         <source>Chocobo Lure</source>
@@ -5401,11 +5404,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Dex:+2</source>
-        <translation>Vig: +2</translation>
+        <translation>Vel: +2</translation>
     </message>
     <message>
         <source>Long Range</source>
-        <translation>Prolunga</translation>
+        <translation>Prolungante</translation>
     </message>
     <message>
         <source>Mega All</source>
@@ -5457,7 +5460,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Slash-All</source>
-        <translation>Colpo radiale</translation>
+        <translation>Radiale</translation>
     </message>
     <message>
         <source>Flash</source>
@@ -5465,7 +5468,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Double Cut</source>
-        <translation>Attacco multiplo</translation>
+        <translation>Assalto</translation>
     </message>
     <message>
         <source>2x-Cut</source>
@@ -5509,7 +5512,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>HP &lt;-&gt; MP</source>
-        <translation>Scambio PV/PM</translation>
+        <translation>Inversione</translation>
     </message>
     <message>
         <source>W-Magic</source>
@@ -5525,7 +5528,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>DON&apos;T USE</source>
-        <translation>DON&apos;T USE</translation>
+        <translation>NON UTILIZZARE</translation>
     </message>
     <message>
         <source>All</source>
@@ -5625,11 +5628,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>MP Absorb</source>
-        <translation>Assorbimagia</translation>
+        <translation>Osmotica</translation>
     </message>
     <message>
         <source>HP Absorb</source>
-        <translation>Assorbivita</translation>
+        <translation>Sanguisuga</translation>
     </message>
     <message>
         <source>Elemental</source>
@@ -5649,7 +5652,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Added Effect</source>
-        <translation>Alterazione</translation>
+        <translation>Alterante</translation>
     </message>
     <message>
         <source>Sneak Attack</source>
@@ -5757,11 +5760,12 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Morph</source>
-        <translation>Metamorfosi</translation>
+        <translatorcomment>Skill name should be &quot;Muta&quot; but forced to use materia name for both</translatorcomment>
+        <translation>Mutante</translation>
     </message>
     <message>
         <source>Deathblow</source>
-        <translation>Colpo finale</translation>
+        <translation>Letale</translation>
     </message>
     <message>
         <source>DeathBlow</source>
@@ -5769,15 +5773,18 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Manipulate</source>
-        <translation>Manipolazione</translation>
+        <translatorcomment>Skill name should be &quot;Controlla&quot; but forced to use materia name for both</translatorcomment>
+        <translation>Manipolatrice</translation>
     </message>
     <message>
         <source>Mime</source>
-        <translation>Mima</translation>
+        <translatorcomment>Skill name should be &quot;Mima&quot; but forced to use materia name for both</translatorcomment>
+        <translation>Imitatrice</translation>
     </message>
     <message>
         <source>Enemy Skill</source>
-        <translation>Apprendimento</translation>
+        <translatorcomment>Skill name should be &quot;Nemitec&quot; but forced to use materia name for both</translatorcomment>
+        <translation>Eclettica</translation>
     </message>
     <message>
         <source>Master Command</source>
@@ -5785,7 +5792,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Fire</source>
-        <translation>Fuoco</translation>
+        <translation>Ardente</translation>
     </message>
     <message>
         <source>Fire (4mp)</source>
@@ -5809,11 +5816,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Ice</source>
-        <translation>Crio</translation>
+        <translation>Glaciale</translation>
     </message>
     <message>
         <source>Ice (4mp)</source>
-        <translation>Gelo (4pm)</translation>
+        <translation>Crio (4pm)</translation>
     </message>
     <message>
         <source>Ice2 (22mp)</source>
@@ -5829,7 +5836,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Earth</source>
-        <translation>Terra</translation>
+        <translation>Tellurica</translation>
     </message>
     <message>
         <source>Quake (6mp)</source>
@@ -5849,7 +5856,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Lightning</source>
-        <translation>Tuono</translation>
+        <translation>Galvanica</translation>
     </message>
     <message>
         <source>Bolt (4mp)</source>
@@ -5869,7 +5876,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Restore</source>
-        <translation>Guarigione</translation>
+        <translation>Energetica</translation>
     </message>
     <message>
         <source>Cure (5mp)</source>
@@ -5889,7 +5896,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Heal</source>
-        <translation>Ripristino</translation>
+        <translation>Curativa</translation>
     </message>
     <message>
         <source>Poisona (3mp)</source>
@@ -5905,7 +5912,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Revive</source>
-        <translation>Resurrezione</translation>
+        <translation>Rianimante</translation>
     </message>
     <message>
         <source>Life (34mp)</source>
@@ -5921,7 +5928,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Seal</source>
-        <translation>Inibizione</translation>
+        <translation>Limitante</translation>
     </message>
     <message>
         <source>Sleepel (8mp)</source>
@@ -5941,7 +5948,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Mystify</source>
-        <translation>Mystify</translation>
+        <translation>Disorientante</translation>
     </message>
     <message>
         <source>Confu (18mp)</source>
@@ -5957,11 +5964,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>[Berserk]</source>
-        <translation>[Furia]</translation>
+        <translation>[Berserk]</translation>
     </message>
     <message>
         <source>Transform</source>
-        <translation>Trasformazione</translation>
+        <translation>Trasformante</translation>
     </message>
     <message>
         <source>Mini (10mp)</source>
@@ -5981,7 +5988,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Ritirata</translation>
+        <translation>Dimensionale</translation>
     </message>
     <message>
         <source>Exit (16mp)</source>
@@ -5993,7 +6000,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Poison</source>
-        <translation>Veleno</translation>
+        <translation>Venefica</translation>
     </message>
     <message>
         <source>Bio (8mp)</source>
@@ -6013,7 +6020,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Gravity</source>
-        <translation>Gravità</translation>
+        <translation>Gravitazionale</translation>
     </message>
     <message>
         <source>Demi (14mp)</source>
@@ -6033,7 +6040,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Barrier</source>
-        <translation>Aegis</translation>
+        <translation>Protettiva</translation>
     </message>
     <message>
         <source>Barrier (16mp)</source>
@@ -6053,11 +6060,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Comet</source>
-        <translation>Cometa</translation>
+        <translation>Meteorica</translation>
     </message>
     <message>
         <source>Comet (70mp)</source>
-        <translation>Meteorite (70pm)</translation>
+        <translation>Cometa (70pm)</translation>
     </message>
     <message>
         <source>Comet2 (110mp)</source>
@@ -6065,7 +6072,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Time</source>
-        <translation>Tempo</translation>
+        <translation>Temporale</translation>
     </message>
     <message>
         <source>Haste (18mp)</source>
@@ -6081,7 +6088,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>[Slow]</source>
-        <translation>[Lento]</translation>
+        <translation>[Lentezza]</translation>
     </message>
     <message>
         <source>[Stop]</source>
@@ -6089,11 +6096,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Destruct</source>
-        <translation>Distruzione</translation>
+        <translation>Distruttiva</translation>
     </message>
     <message>
         <source>DeBarrier (12mp)</source>
-        <translation>Destructio (12pm)</translation>
+        <translation>Antibarriera (12pm)</translation>
     </message>
     <message>
         <source>DeSpell (20mp)</source>
@@ -6105,7 +6112,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>[Death]</source>
-        <translation>[Ade]</translation>
+        <translation>[Morte]</translation>
     </message>
     <message>
         <source>Contain</source>
@@ -6193,7 +6200,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>[Wind]</source>
-        <translation>[Aria]</translation>
+        <translation>[Vento]</translation>
     </message>
     <message>
         <source>Shiva</source>
@@ -6553,7 +6560,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Knights of the Round</source>
-        <translation>Cav. della tavola</translation>
+        <translation>Cavalieri mitici</translation>
     </message>
     <message>
         <source>MaxHp:-10% MaxMp:+20% Mag:+8 Spi:+8</source>
@@ -6661,23 +6668,23 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Knights of the Round x1 (250mp)</source>
-        <translation>Cav. della tavola x1 (250pm)</translation>
+        <translation>Cavalieri mitici x1 (250pm)</translation>
     </message>
     <message>
         <source>Knights of the Round x2 (250mp)</source>
-        <translation>Cav. della tavola x2 (250pm)</translation>
+        <translation>Cavalieri mitici x2 (250pm)</translation>
     </message>
     <message>
         <source>Knights of the Round x3 (250mp)</source>
-        <translation>Cav. della tavola x3 (250pm)</translation>
+        <translation>Cavalieri mitici x3 (250pm)</translation>
     </message>
     <message>
         <source>Knights of the Round x4 (250mp)</source>
-        <translation>Cav. della tavola x4 (250pm)</translation>
+        <translation>Cavalieri mitici x4 (250pm)</translation>
     </message>
     <message>
         <source>Knights of the Round x5 (250mp)</source>
-        <translation>Cav. della tavola x5 (250pm)</translation>
+        <translation>Cavalieri mitici x5 (250pm)</translation>
     </message>
     <message>
         <source>Choco/Mog (14mp)</source>
@@ -6741,76 +6748,76 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Knights Of The Round (250mp)</source>
-        <translation>Cav. della tavola (250pm)</translation>
+        <translation>Cavalieri mitici (250pm)</translation>
     </message>
 </context>
 <context>
     <name>FF7Save</name>
     <message>
         <source>Unable to open PSV of Type %2: 0x%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile aprire PSV di tipo %2: 0x%1</translation>
     </message>
     <message>
         <source>New Game +</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuovo gioco +</translation>
     </message>
 </context>
 <context>
     <name>FF7SaveInfo</name>
     <message>
         <source>PC Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>File di salvataggio PC</translation>
     </message>
     <message>
         <source>Switch Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>File di salvataggio Switch</translation>
     </message>
     <message>
         <source>PSX Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>File di salvataggio PSX</translation>
     </message>
     <message>
         <source>PSV Save File</source>
-        <translation type="unfinished"></translation>
+        <translation>File di salvataggio PSV</translation>
     </message>
     <message>
         <source>Virtual Memory Card</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtual Memory Card</translation>
     </message>
     <message>
         <source>PSP and PsVita Virtual Memory Card</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtual Memory Card PSP e PsVita</translation>
     </message>
     <message>
         <source>Virtual Game Station Memory Card</source>
-        <translation type="unfinished"></translation>
+        <translation>Memory Card Virtual Game Station</translation>
     </message>
     <message>
         <source>DEX Drive Virtual Memory Card</source>
-        <translation type="unfinished"></translation>
+        <translation>Memory Card DEX Drive</translation>
     </message>
     <message>
         <source>PSXGameEdit Memory Juggler</source>
-        <translation type="unfinished"></translation>
+        <translation>Memory Juggler PSXGameEdit</translation>
     </message>
     <message>
         <source>XP AR GS Caetla SmartLink Dantel</source>
-        <translation type="unfinished"></translation>
+        <translation>XP AR GS Caetla SmartLink Dantel</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutti i file (*)</translation>
     </message>
     <message>
         <source>Known FF7 Save Types (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>File di salvataggio FF7 noti (%1)</translation>
     </message>
 </context>
 <context>
     <name>ItemList</name>
     <message>
         <source>-------EMPTY--------</source>
-        <translation type="unfinished"></translation>
+        <translation>-------VUOTO--------</translation>
     </message>
     <message>
         <source>-------BAD ID-------</source>
@@ -6821,217 +6828,217 @@ The km/h speeds are calculated while playing </source>
     <name>ItemPreview</name>
     <message>
         <source>Elemental Effects</source>
-        <translation type="unfinished">Effetti elementali</translation>
+        <translation>Effetti elementali</translation>
     </message>
     <message>
         <source>Status Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Effetti status</translation>
     </message>
     <message>
         <source>APx%1</source>
-        <translation type="unfinished"></translation>
+        <translation>PA: x%1</translation>
     </message>
     <message>
         <source>Restoration</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarigione</translation>
     </message>
     <message>
         <source>Fire</source>
-        <translation type="unfinished">1</translation>
+        <translation>Fuoco</translation>
     </message>
     <message>
         <source>Cold</source>
-        <translation type="unfinished">Gelo</translation>
+        <translation>Gelo</translation>
     </message>
     <message>
         <source>Lightning</source>
-        <translation type="unfinished">Tuono</translation>
+        <translation>Tuono</translation>
     </message>
     <message>
         <source>Earth</source>
-        <translation type="unfinished">Terra</translation>
+        <translation>Terra</translation>
     </message>
     <message>
         <source>Wind</source>
-        <translation type="unfinished">Aria</translation>
+        <translation>Vento</translation>
     </message>
     <message>
         <source>Water</source>
-        <translation type="unfinished">Acqua</translation>
+        <translation>Acqua</translation>
     </message>
     <message>
         <source>Gravity</source>
-        <translation type="unfinished">Gravità</translation>
+        <translation>Gravità</translation>
     </message>
     <message>
         <source>Holy</source>
-        <translation type="unfinished">Santo</translation>
+        <translation>Sacro</translation>
     </message>
     <message>
         <source>Poison</source>
-        <translation type="unfinished">Veleno</translation>
+        <translation>Veleno</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">Taglia</translation>
+        <translation>Taglio</translation>
     </message>
     <message>
         <source>Shoot</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparo</translation>
     </message>
     <message>
         <source>Punch</source>
-        <translation type="unfinished">Pugno</translation>
+        <translation>Pugno</translation>
     </message>
     <message>
         <source>Hit</source>
-        <translation type="unfinished">Colpire</translation>
+        <translation>Colpo</translation>
     </message>
     <message>
         <source>Absorb:</source>
-        <translation type="unfinished">Assorbe:</translation>
+        <translation>Assorbe: </translation>
     </message>
     <message>
         <source>Nullify:</source>
-        <translation type="unfinished">Annullare:</translation>
+        <translation>Annulla: </translation>
     </message>
     <message>
         <source>Halve:</source>
-        <translation type="unfinished">Dimezzare:</translation>
+        <translation>Dimezza: </translation>
     </message>
     <message>
         <source>Attack:</source>
-        <translation type="unfinished">Attacco:</translation>
+        <translation>Attacco: </translation>
     </message>
     <message>
         <source>Death</source>
-        <translation type="unfinished">Morte</translation>
+        <translation>Morte</translation>
     </message>
     <message>
         <source>Slow-Numb</source>
-        <translation type="unfinished"></translation>
+        <translation>Pietrosi</translation>
     </message>
     <message>
         <source>D.Sentence</source>
-        <translation type="unfinished">Sentenza</translation>
+        <translation>Sentenza</translation>
     </message>
     <message>
         <source>Paralysis</source>
-        <translation type="unfinished">Paralisi</translation>
+        <translation>Paralisi</translation>
     </message>
     <message>
         <source>Petrify</source>
-        <translation type="unfinished">Pietra</translation>
+        <translation>Pietra</translation>
     </message>
     <message>
         <source>Silence</source>
-        <translation type="unfinished">Mutismo</translation>
+        <translation>Mutismo</translation>
     </message>
     <message>
         <source>Sleep</source>
-        <translation type="unfinished">Sonno</translation>
+        <translation>Sonno</translation>
     </message>
     <message>
         <source>Confusion</source>
-        <translation type="unfinished">Caos</translation>
+        <translation>Caos</translation>
     </message>
     <message>
         <source>Berserk</source>
-        <translation type="unfinished">1</translation>
+        <translation>Berserk</translation>
     </message>
     <message>
         <source>Frog</source>
-        <translation type="unfinished">Rospo</translation>
+        <translation>Rospo</translation>
     </message>
     <message>
         <source>Mini</source>
-        <translation type="unfinished">Minimum</translation>
+        <translation>Minimum</translation>
     </message>
     <message>
         <source>Fury</source>
-        <translation></translation>
+        <translation>Furia</translation>
     </message>
     <message>
         <source>Sadness</source>
-        <translation type="unfinished">Apatia</translation>
+        <translation>Sconforto</translation>
     </message>
     <message>
         <source>Darkness</source>
-        <translation type="unfinished">Cecità</translation>
+        <translation>Cecità</translation>
     </message>
     <message>
         <source>Haste</source>
-        <translation type="unfinished">Sprint</translation>
+        <translation>Sprint</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished">Lento</translation>
+        <translation>Lentezza</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Stop</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Barrier</source>
-        <translation type="unfinished">Aegis</translation>
+        <translation>Aegis</translation>
     </message>
     <message>
         <source>M.Barrier</source>
-        <translation type="unfinished">Sphaera</translation>
+        <translation>Sphaera</translation>
     </message>
     <message>
         <source>Reflect</source>
-        <translation type="unfinished">Reflex</translation>
+        <translation>Reflex</translation>
     </message>
     <message>
         <source>Shield</source>
-        <translation type="unfinished">Scudo</translation>
+        <translation>Scudo</translation>
     </message>
     <message>
         <source>Regen</source>
-        <translation type="unfinished">Rigene</translation>
+        <translation>Rigene</translation>
     </message>
     <message>
         <source>Resist</source>
-        <translation type="unfinished"></translation>
+        <translation>Saldezza</translation>
     </message>
     <message>
         <source>Protect:</source>
-        <translation></translation>
+        <translation>Previene: </translation>
     </message>
     <message>
         <source>Remove:</source>
-        <translation></translation>
+        <translation>Rimuove: </translation>
     </message>
     <message>
         <source>Inflict:</source>
-        <translation type="unfinished">Infliggere:</translation>
+        <translation>Infligge: </translation>
     </message>
     <message>
         <source>OnBattle:</source>
-        <translation type="unfinished"></translation>
+        <translation>Attiva: </translation>
     </message>
 </context>
 <context>
     <name>ItemSelector</name>
     <message>
         <source>Empty Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Vuoto</translation>
     </message>
 </context>
 <context>
     <name>LocationViewer</name>
     <message>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome file</translation>
     </message>
     <message>
         <source>Location Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome luogo</translation>
     </message>
     <message>
         <source>LocID</source>
-        <translation type="unfinished"></translation>
+        <translation>LocID</translation>
     </message>
     <message>
         <source>Filter Mode: Name / Location String</source>
@@ -7043,35 +7050,35 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Process Regular Expressions</source>
-        <translation type="unfinished"></translation>
+        <translation>Processa Espressione regolare</translation>
     </message>
     <message>
         <source>Case Sensitive</source>
-        <translation type="unfinished"></translation>
+        <translation>Case Sensitive</translation>
     </message>
     <message>
         <source>MapID: </source>
-        <translation type="unfinished"></translation>
+        <translation>MapID: </translation>
     </message>
     <message>
         <source>LocID: </source>
-        <translation type="unfinished"></translation>
+        <translation>LocID: </translation>
     </message>
     <message>
         <source>X: </source>
-        <translation type="unfinished"></translation>
+        <translation>X: </translation>
     </message>
     <message>
         <source>Y: </source>
-        <translation type="unfinished"></translation>
+        <translation>Y: </translation>
     </message>
     <message>
         <source>T: </source>
-        <translation type="unfinished"></translation>
+        <translation>T: </translation>
     </message>
     <message>
         <source>D: </source>
-        <translation type="unfinished"></translation>
+        <translation>D: </translation>
     </message>
     <message>
         <source>Set as current location</source>
@@ -7086,55 +7093,55 @@ The km/h speeds are calculated while playing </source>
     <name>MateriaEditor</name>
     <message>
         <source>Skills</source>
-        <translation type="unfinished"></translation>
+        <translation>Abilità</translation>
     </message>
     <message>
         <source>All Materia</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutte le materie</translation>
     </message>
     <message>
         <source>Magic</source>
-        <translation type="unfinished"></translation>
+        <translation>Magiche</translation>
     </message>
     <message>
         <source>Summon</source>
-        <translation type="unfinished"></translation>
+        <translation>Di invocazione</translation>
     </message>
     <message>
         <source>Independent</source>
-        <translation type="unfinished"></translation>
+        <translation>Indipendenti</translation>
     </message>
     <message>
         <source>Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Supporto</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Comando</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Incolla</translation>
     </message>
     <message>
         <source>Added Effect</source>
-        <translation type="unfinished">Alterazione</translation>
+        <translation>Effetti extra</translation>
     </message>
     <message>
         <source>Stat Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifiche ai parametri</translation>
     </message>
     <message>
         <source>Master</source>
-        <translation type="unfinished"></translation>
+        <translation>Supreme</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -7145,55 +7152,55 @@ The km/h speeds are calculated while playing </source>
     <name>MenuListWidget</name>
     <message>
         <source>Visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Visibile</translation>
     </message>
     <message>
         <source>Locked</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloccato</translation>
     </message>
     <message>
         <source>Menu Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestione Menu</translation>
     </message>
     <message>
         <source>Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Inventario</translation>
     </message>
     <message>
         <source>Magic</source>
-        <translation type="unfinished"></translation>
+        <translation>Abilità</translation>
     </message>
     <message>
         <source>Materia</source>
-        <translation type="unfinished"></translation>
+        <translation>Materia</translation>
     </message>
     <message>
         <source>Equip</source>
-        <translation type="unfinished"></translation>
+        <translation>Equipaggiamento</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Order</source>
-        <translation type="unfinished"></translation>
+        <translation>Formazione</translation>
     </message>
     <message>
         <source>Limit</source>
-        <translation type="unfinished"></translation>
+        <translation>Limite</translation>
     </message>
     <message>
         <source>Config</source>
-        <translation type="unfinished"></translation>
+        <translation>Opzioni</translation>
     </message>
     <message>
         <source>P.H.S</source>
-        <translation type="unfinished"></translation>
+        <translation>PHS</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva</translation>
     </message>
 </context>
 <context>
@@ -7458,19 +7465,19 @@ The km/h speeds are calculated while playing </source>
     <name>PhsListWidget</name>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"></translation>
+        <translation>Selezionabile</translation>
     </message>
     <message>
         <source>Visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Visibile</translation>
     </message>
     <message>
         <source>PHS Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestione PHS</translation>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished">Cloud</translation>
+        <translation>Cloud</translation>
     </message>
     <message>
         <source>Barret</source>
@@ -7478,38 +7485,38 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Tifa</source>
-        <translation type="unfinished">Tifa</translation>
+        <translation>Tifa</translation>
     </message>
     <message>
         <source>Aerith</source>
-        <translation type="unfinished">Aerith</translation>
+        <translation>Aerith</translation>
     </message>
     <message>
         <source>Red XIII</source>
-        <translation type="unfinished">Red XIII</translation>
+        <translation>Red XIII</translation>
     </message>
     <message>
         <source>Yuffie</source>
-        <translation type="unfinished">Yuffie</translation>
+        <translation>Yuffie</translation>
     </message>
     <message>
         <source>Cait Sith</source>
-        <translation type="unfinished">Cait Sith</translation>
+        <translation>Cait Sith</translation>
     </message>
     <message>
         <source>Vincent</source>
-        <translation type="unfinished">Vincent</translation>
+        <translation>Vincent</translation>
     </message>
     <message>
         <source>Cid</source>
-        <translation type="unfinished">Cid</translation>
+        <translation>Cid</translation>
     </message>
 </context>
 <context>
     <name>SlotPreview</name>
     <message>
         <source>Slot: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Slot: %1</translation>
     </message>
     <message>
         <source>Clear Slot</source>
@@ -7533,11 +7540,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Gil:%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Guil:%1</translation>
     </message>
     <message>
         <source>Time:%1:%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempo:%1:%2</translation>
     </message>
 </context>
 <context>
