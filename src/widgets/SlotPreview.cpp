@@ -17,10 +17,10 @@
 
 #include <QHBoxLayout>
 #include <QMouseEvent>
-#include <QPushButton>
+#include <QToolButton>
 #include <QVBoxLayout>
 
-#include <../data/SaveIcon.h>
+#include <SaveIcon.h>
 
 SlotPreview::SlotPreview(int index, qreal Scale, QWidget *parent)
     : QLabel(parent)
@@ -40,19 +40,22 @@ void SlotPreview::init_display(void)
     lbl_Slot = new QLabel;
     lbl_Slot->setText(QString(tr("Slot: %1")).arg(QString::number(index() + 1)));
 
-    btn_remove = new QPushButton(QIcon::fromTheme(QString("edit-clear"), QPixmap(":/common/edit-clear")), "", this);
+    btn_remove = new QToolButton(this);
+    btn_remove->setIcon(QIcon::fromTheme(QString("edit-clear"), QPixmap(":/common/edit-clear")));
     btn_remove->setToolTip(tr("Clear Slot"));
-    connect(btn_remove, &QPushButton::clicked, this, [this] { Q_EMIT btn_remove_clicked(m_index); });
+    connect(btn_remove, &QToolButton::clicked, this, [this] { Q_EMIT btn_remove_clicked(m_index); });
 
-    btn_copy = new QPushButton(QIcon::fromTheme(QString("edit-copy"), QPixmap(":/common/edit-copy")), "", this);
+    btn_copy = new QToolButton(this);
+    btn_copy->setIcon(QIcon::fromTheme(QString("edit-copy"), QPixmap(":/common/edit-copy")));
     btn_copy->setToolTip(tr("Copy Slot"));
-    connect(btn_copy, &QPushButton::clicked, this, [this] { Q_EMIT btn_copy_clicked(m_index); });
+    connect(btn_copy, &QToolButton::clicked, this, [this] { Q_EMIT btn_copy_clicked(m_index); });
 
-    btn_paste = new QPushButton(QIcon::fromTheme(QString("edit-paste"), QPixmap(":/common/edit-paste")), "", this);
+    btn_paste = new QToolButton(this);
+    btn_paste->setIcon(QIcon::fromTheme(QString("edit-paste"), QPixmap(":/common/edit-paste")));
     btn_paste->setToolTip(tr("Paste Into Slot"));
-    connect(btn_paste, &QPushButton::clicked, this, [this] { Q_EMIT btn_paste_clicked(m_index); });
+    connect(btn_paste, &QToolButton::clicked, this, [this] { Q_EMIT btn_paste_clicked(m_index); });
 
-    const QList<QPushButton*> buttons = findChildren<QPushButton *>();
+    const QList<QToolButton*> buttons = findChildren<QToolButton *>();
     for (auto btn : buttons) {
         btn->setMaximumSize(int(22 * scale), int(22 * scale));
         btn->setCursor(Qt::BitmapCursor);
@@ -115,7 +118,6 @@ void SlotPreview::set_psx_game(void)
     top_layout->addLayout(btnLayout);
     top_layout->addItem(layout);
     Final->addLayout(top_layout);
-
 }
 
 void SlotPreview::set_ff7_save(void)

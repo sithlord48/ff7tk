@@ -22,7 +22,7 @@
 #endif
 
 class QHBoxLayout;
-class QPushButton;
+class QToolButton;
 class QVBoxLayout;
 class SaveIcon;
 
@@ -73,9 +73,9 @@ private:
     QLabel *lbl_level = nullptr;
     QLabel *location = nullptr;
     QLabel *lbl_gil = nullptr;
-    QPushButton *btn_copy = nullptr;
-    QPushButton *btn_paste = nullptr;
-    QPushButton *btn_remove = nullptr;
+    QToolButton *btn_copy = nullptr;
+    QToolButton *btn_paste = nullptr;
+    QToolButton *btn_remove = nullptr;
     SaveIcon *icon = nullptr;
     QHBoxLayout *btnLayout = nullptr;
     QVBoxLayout *Final = nullptr;
