@@ -4045,15 +4045,17 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Start of Juion Ship Sequence</source>
+        <translatorcomment>World Map; Jump used for start of first trip to costa del sol.</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Almost at Costa del Sol</source>
+        <translatorcomment>Middle of Ocean Bettween Junion and Costa Del Sol (heading to Costa Del Sol, shown after fighting jenova on the boat.</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Crater Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area di Cratere</translation>
     </message>
     <message>
         <source>Debug Room [ja]</source>
@@ -4065,27 +4067,27 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>deck</source>
-        <translation type="unfinished"></translation>
+        <translation>Highwind - Ponte</translation>
     </message>
     <message>
         <source>Bridge</source>
-        <translation type="unfinished"></translation>
+        <translation>Highwind</translation>
     </message>
     <message>
         <source>Inside airship</source>
-        <translation type="unfinished"></translation>
+        <translation>Highwind - Interno</translation>
     </message>
     <message>
         <source>Old man&apos;s house</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa dell&apos;anziano</translation>
     </message>
     <message>
         <source>Weapon seller</source>
-        <translation type="unfinished"></translation>
+        <translation>Casupola dell&apos;armaiolo</translation>
     </message>
     <message>
         <source>Chocobo Sage&apos;s house</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa dell&apos;Eremita</translation>
     </message>
     <message>
         <source>???</source>
@@ -4093,43 +4095,44 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Materia Cave</source>
-        <translation type="unfinished"></translation>
+        <translation>Grotta di materia</translation>
     </message>
     <message>
         <source>Hallway</source>
-        <translation type="unfinished"></translation>
+        <translation>Aeronave - Passaggio</translation>
     </message>
     <message>
         <source>Research Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Aeronave - Laboratorio</translation>
     </message>
     <message>
         <source>Cargo Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Aeronave - Stiva</translation>
     </message>
     <message>
         <source>Debug Room [en]</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug Room [en]</translation>
     </message>
     <message>
         <source>DEBUG MODE</source>
-        <translation type="unfinished"></translation>
+        <translation>DEBUG MODE</translation>
     </message>
     <message>
         <source>DEBUG</source>
-        <translation type="unfinished"></translation>
+        <translation>DEBUG</translation>
     </message>
     <message>
         <source>BLACKBGH</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>BLACKBGI</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Dark city fourth street</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Not Translated in flevel</translatorcomment>
+        <translation>Dark city fourth street</translation>
     </message>
     <message>
         <source>Mt. Nibel</source>
@@ -4137,11 +4140,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 1 - Stazione</translation>
     </message>
     <message>
         <source>Sector 1 Station</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 1 - Stazione</translation>
     </message>
     <message>
         <source>Sector 1</source>
@@ -4165,11 +4168,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Inside Train</source>
-        <translation type="unfinished"></translation>
+        <translation>Carrozza passeggeri</translation>
     </message>
     <message>
         <source>Last Train from Midgar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ultimo treno da Midgar</translation>
     </message>
     <message>
         <source>Train Graveyard</source>
@@ -4177,27 +4180,27 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Sector 7 Station</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 7 - Stazione</translation>
     </message>
     <message>
         <source>Sector 7 Weapon Shop</source>
-        <translation type="unfinished"></translation>
+        <translation>Armeria - Piano terra</translation>
     </message>
     <message>
         <source>Beginner&apos;s Hall</source>
-        <translation type="unfinished"></translation>
+        <translation>Armeria - Primo piano</translation>
     </message>
     <message>
         <source>Sector 7 Slums</source>
-        <translation type="unfinished"></translation>
+        <translation>Bassifondi Settore 7</translation>
     </message>
     <message>
         <source>Sector 7 Item Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Emporio</translation>
     </message>
     <message>
         <source>Johnny&apos;s Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa di Johnny</translation>
     </message>
     <message>
         <source>7th Heaven</source>
@@ -4209,11 +4212,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Sector 7 Mechanized Tower</source>
-        <translation type="unfinished"></translation>
+        <translation>Torre meccanica</translation>
     </message>
     <message>
         <source>Plate Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilastro</translation>
     </message>
     <message>
         <source>Winding Tunnel</source>
@@ -4221,43 +4224,43 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>4th Street Plate Int.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Interno del piatto</translation>
     </message>
     <message>
         <source>Lower Sector 4 Plate</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 4 - Sottosuolo</translation>
     </message>
     <message>
         <source>Slum Outskirts</source>
-        <translation type="unfinished"></translation>
+        <translation>Bassifondi - Periferia</translation>
     </message>
     <message>
         <source>Sector 5 Slum</source>
-        <translation type="unfinished"></translation>
+        <translation>Bassifondi Settore 5</translation>
     </message>
     <message>
         <source>House 1f.</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa - Piano terra</translation>
     </message>
     <message>
         <source>House 2f.</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa - Primo piano</translation>
     </message>
     <message>
         <source>Earthen Pipe</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 5 - Tubo</translation>
     </message>
     <message>
         <source>Weapon Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Armeria</translation>
     </message>
     <message>
         <source>Item Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 5 - Emporio</translation>
     </message>
     <message>
         <source>Materia store</source>
-        <translation type="unfinished"></translation>
+        <translation>Negozio di materie</translation>
     </message>
     <message>
         <source>Church</source>
@@ -4269,7 +4272,7 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Inside the Church</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiesa - Interno</translation>
     </message>
     <message>
         <source>Church Roof</source>
@@ -4277,15 +4280,15 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Aerith&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa di Aerith</translation>
     </message>
     <message>
         <source>Sector 6</source>
-        <translation type="unfinished">Settore 6</translation>
+        <translation>Settore 6</translation>
     </message>
     <message>
         <source>Sector 6 park</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 6 - Parco</translation>
     </message>
     <message>
         <source>Wall Market</source>
@@ -4297,95 +4300,95 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Locanda</translation>
     </message>
     <message>
         <source>Materia Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Negozio di materie</translation>
     </message>
     <message>
         <source>Boutique</source>
-        <translation type="unfinished"></translation>
+        <translation>Boutique</translation>
     </message>
     <message>
         <source>Diner</source>
-        <translation type="unfinished"></translation>
+        <translation>Tavola calda</translation>
     </message>
     <message>
         <source>Pharmacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Farmacia</translation>
     </message>
     <message>
         <source>Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bar</translation>
     </message>
     <message>
         <source>Corneo Hall</source>
-        <translation type="unfinished">Villa di Corneo</translation>
+        <translation>Villa di Corneo</translation>
     </message>
     <message>
         <source>Corneo Hall,1f.</source>
-        <translation type="unfinished">Villa di Corneo,1p.</translation>
+        <translation>Villa di Corneo,1p.</translation>
     </message>
     <message>
         <source>Corneo Hall,2f.</source>
-        <translation type="unfinished">Villa di Corneo,2p.</translation>
+        <translation>Villa di Corneo,2p.</translation>
     </message>
     <message>
         <source>Torture Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Stanza delle torture</translation>
     </message>
     <message>
         <source>Sewer</source>
-        <translation type="unfinished">Fogne</translation>
+        <translation>Fogne</translation>
     </message>
     <message>
         <source>Honey Bee Inn</source>
-        <translation type="unfinished">Club privé Ape regina</translation>
+        <translation>Club privé Ape regina</translation>
     </message>
     <message>
         <source>Plate Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Piattaforma - Sezione</translation>
     </message>
     <message>
         <source>Sector 0</source>
-        <translation type="unfinished">Settore 0</translation>
+        <translation>Settore 0</translation>
     </message>
     <message>
         <source>Outside Plates</source>
-        <translation type="unfinished"></translation>
+        <translation>Piattaforma - Fine</translation>
     </message>
     <message>
         <source>Shinra Bldg.</source>
-        <translation type="unfinished">Palazzo Shinra</translation>
+        <translation>Palazzo Shinra</translation>
     </message>
     <message>
         <source>Shinra Bldg. Stairs</source>
-        <translation type="unfinished"></translation>
+        <translation>Palazzo Shinra - Scale</translation>
     </message>
     <message>
         <source>Elevator</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascensore</translation>
     </message>
     <message>
         <source>Outside Elevator</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascensore esterno</translation>
     </message>
     <message>
         <source>Shinra Bldg. 1f. lobby</source>
-        <translation type="unfinished"></translation>
+        <translation>Palazzo Shinra - 1º p</translation>
     </message>
     <message>
         <source>Shinra Bldg. 2f. Lobby</source>
-        <translation type="unfinished"></translation>
+        <translation>Palazzo Shinra - 2º p</translation>
     </message>
     <message>
         <source>Shinra Bldg. 2f. Shop</source>
-        <translation type="unfinished"></translation>
+        <translation>Negozio</translation>
     </message>
     <message>
         <source>Shinra Bldg. 3f. Lobby</source>
-        <translation type="unfinished"></translation>
+        <translation>Palazzo Shinra - 3º p</translation>
     </message>
     <message>
         <source>Shinra Bldg. 59f.</source>
@@ -4421,7 +4424,7 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Conference Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Sala riunioni</translation>
     </message>
     <message>
         <source>Shinra Bldg.67f.</source>
@@ -4441,19 +4444,19 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Nibelheim Item Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Emporio</translation>
     </message>
     <message>
         <source>Nibelheim House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa</translation>
     </message>
     <message>
         <source>Nibelheim Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Nibelheim - Locanda</translation>
     </message>
     <message>
         <source>Cloud&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa di Cloud</translation>
     </message>
     <message>
         <source>Nibelheim</source>
@@ -4461,23 +4464,23 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Tifa&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa di Tifa</translation>
     </message>
     <message>
         <source>Mansion, 1f.</source>
-        <translation type="unfinished"></translation>
+        <translation>Residenza Shinra</translation>
     </message>
     <message>
         <source>Mansion, 2f.</source>
-        <translation type="unfinished"></translation>
+        <translation>Residenza Shinra</translation>
     </message>
     <message>
         <source>Mansion, Hidden Steps</source>
-        <translation type="unfinished"></translation>
+        <translation>Passaggio segreto</translation>
     </message>
     <message>
         <source>Mansion, Basement</source>
-        <translation type="unfinished"></translation>
+        <translation>Residenza - Sottosuolo</translation>
     </message>
     <message>
         <source>Nibel Reactor</source>
@@ -4489,23 +4492,23 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Nibel Reactor(Int.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Reattore Nibel</translation>
     </message>
     <message>
         <source>Inn: 1f</source>
-        <translation type="unfinished"></translation>
+        <translation>Locanda - Piano terra</translation>
     </message>
     <message>
         <source>Inn: 2f</source>
-        <translation type="unfinished"></translation>
+        <translation>Locanda - Primo piano</translation>
     </message>
     <message>
         <source>House: 1f</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa - Piano terra</translation>
     </message>
     <message>
         <source>House: 2f</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa - Primo piano</translation>
     </message>
     <message>
         <source>Kalm</source>
@@ -4513,7 +4516,7 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Rear Tower (Pagoda)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalm - Torre sul retro</translation>
     </message>
     <message>
         <source>Chocobo farm</source>
@@ -4525,7 +4528,7 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Marshes</source>
-        <translation type="unfinished"></translation>
+        <translation>Palude</translation>
     </message>
     <message>
         <source>Mythril Mine</source>
@@ -4533,11 +4536,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Base of Fort Condor</source>
-        <translation type="unfinished"></translation>
+        <translation>Forte Condor - Base</translation>
     </message>
     <message>
         <source>Entrance to Fort Condor</source>
-        <translation type="unfinished"></translation>
+        <translation>Forte Condor - Base</translation>
     </message>
     <message>
         <source>Fort Condor</source>
@@ -4549,103 +4552,103 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>top of the mountian</source>
-        <translation type="unfinished"></translation>
+        <translation>Cima della montagna</translation>
     </message>
     <message>
         <source>Upper Junon</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa della nonna</translation>
     </message>
     <message>
         <source>Barracks</source>
-        <translation type="unfinished"></translation>
+        <translation>Alloggiamenti</translation>
     </message>
     <message>
         <source>Lower Junon</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon ovest</translation>
     </message>
     <message>
         <source>Junon Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon - Locanda</translation>
     </message>
     <message>
         <source>Shinra Member&apos;s Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Bar della Shinra</translation>
     </message>
     <message>
         <source>Respectable Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Sala dell&apos;esperto</translation>
     </message>
     <message>
         <source>Junon Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon - Porto</translation>
     </message>
     <message>
         <source>Airport</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon - Aeroporto</translation>
     </message>
     <message>
         <source>Junon Airport Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Aeroporto - Passaggio</translation>
     </message>
     <message>
         <source>Locker Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon - Spogliatoio</translation>
     </message>
     <message>
         <source>Path 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Passaggio 2</translation>
     </message>
     <message>
         <source>Junon Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon - Passaggio</translation>
     </message>
     <message>
         <source>Junon Branch, 1f.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sede di Junon</translation>
     </message>
     <message>
         <source>Junon Office F2</source>
-        <translation type="unfinished"></translation>
+        <translation>Sede di Junon - 1º p</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished"></translation>
+        <translation>Sede di Junon</translation>
     </message>
     <message>
         <source>Dr.&apos;s Office</source>
-        <translation type="unfinished"></translation>
+        <translation>Infermeria</translation>
     </message>
     <message>
         <source>Press Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Sala conferenze</translation>
     </message>
     <message>
         <source>Gas Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Camera a gas</translation>
     </message>
     <message>
         <source>Submarine Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon - Darsena</translation>
     </message>
     <message>
         <source>Submarine Bridge</source>
-        <translation type="unfinished"></translation>
+        <translation>Sottomarino - Comando</translation>
     </message>
     <message>
         <source>Inside Submarine</source>
-        <translation type="unfinished"></translation>
+        <translation>Sottomarino</translation>
     </message>
     <message>
         <source>Aljunon</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon est</translation>
     </message>
     <message>
         <source>Canon</source>
-        <translation type="unfinished"></translation>
+        <translation>Junon - Cannone</translation>
     </message>
     <message>
         <source>Junon branch,(ext.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sede di Junon</translation>
     </message>
     <message>
         <source>Underwater Reactor</source>
@@ -4661,15 +4664,15 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Priscilla&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa di Priscilla</translation>
     </message>
     <message>
         <source>Cargo Ship</source>
-        <translation type="unfinished"></translation>
+        <translation>Nave cargo</translation>
     </message>
     <message>
         <source>Costa del Sol Harbor</source>
-        <translation type="unfinished"></translation>
+        <translation>Costa del Sol - Porto</translation>
     </message>
     <message>
         <source>Costa del Sol</source>
@@ -4677,19 +4680,19 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Costa del Sol Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Locanda</translation>
     </message>
     <message>
         <source>House for Sale</source>
-        <translation type="unfinished"></translation>
+        <translation>Ex-Villa Shinra</translation>
     </message>
     <message>
         <source>Cellar</source>
-        <translation type="unfinished"></translation>
+        <translation>Cantina</translation>
     </message>
     <message>
         <source>Johnny&apos;s New Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuova casa di Johnny</translation>
     </message>
     <message>
         <source>North Corel</source>
@@ -4697,11 +4700,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>North Corel Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Corel Nord - Locanda</translation>
     </message>
     <message>
         <source>Ropeway Station</source>
-        <translation type="unfinished"></translation>
+        <translation>Stazione funivia</translation>
     </message>
     <message>
         <source>Mt. Corel</source>
@@ -4709,67 +4712,67 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Corel Reactor</source>
-        <translation type="unfinished"></translation>
+        <translation>Reattore mako di Corel</translation>
     </message>
     <message>
         <source>Corel Prison</source>
-        <translation type="unfinished"></translation>
+        <translation>Prigione di Corel</translation>
     </message>
     <message>
         <source>Basement</source>
-        <translation type="unfinished"></translation>
+        <translation>Seminterrato</translation>
     </message>
     <message>
         <source>Prison Pub</source>
-        <translation type="unfinished"></translation>
+        <translation>Pub della prigione</translation>
     </message>
     <message>
         <source>Mayor&apos;s Old House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa del sindaco</translation>
     </message>
     <message>
         <source>Container</source>
-        <translation type="unfinished"></translation>
+        <translation>Container di Coates</translation>
     </message>
     <message>
         <source>Corel Desert</source>
-        <translation type="unfinished"></translation>
+        <translation>Deserto di Corel</translation>
     </message>
     <message>
         <source>Event square</source>
-        <translation type="unfinished"></translation>
+        <translation>Event Square</translation>
     </message>
     <message>
         <source>Speed square</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed square</translation>
     </message>
     <message>
         <source>Round Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Round Square</translation>
     </message>
     <message>
         <source>Inside the Ferris Wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota panoramica</translation>
     </message>
     <message>
         <source>Ghost Hotel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ghost Square</translation>
     </message>
     <message>
         <source>Hotel Lobby</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotel Spettro - Atrio</translation>
     </message>
     <message>
         <source>Hotel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotel Spettro - Camera</translation>
     </message>
     <message>
         <source>Hotel Shop</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotel - Emporio</translation>
     </message>
     <message>
         <source>Terminal Floor</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingresso del parco</translation>
     </message>
     <message>
         <source>Battle Square</source>
@@ -4777,63 +4780,63 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Arena Lobby</source>
-        <translation type="unfinished"></translation>
+        <translation>Arena - Atrio</translation>
     </message>
     <message>
         <source>Arena</source>
-        <translation type="unfinished"></translation>
+        <translation>Arena</translation>
     </message>
     <message>
         <source>Dio&apos;s Museum</source>
-        <translation type="unfinished"></translation>
+        <translation>Museo di Dio</translation>
     </message>
     <message>
         <source>Wonder Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Wonder Square</translation>
     </message>
     <message>
         <source>Building 1f.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sala giochi</translation>
     </message>
     <message>
         <source>Building 2f.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sala giochi - 1º piano</translation>
     </message>
     <message>
         <source>Chocobo Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Chocobo Square</translation>
     </message>
     <message>
         <source>Ticket Office</source>
-        <translation type="unfinished"></translation>
+        <translation>Biglietteria</translation>
     </message>
     <message>
         <source>Waiting Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Sala d&apos;attesa</translation>
     </message>
     <message>
         <source>Jungle</source>
-        <translation type="unfinished"></translation>
+        <translation>Giungla</translation>
     </message>
     <message>
         <source>Meltdown Reactor</source>
-        <translation type="unfinished"></translation>
+        <translation>Reattore mako fuso</translation>
     </message>
     <message>
         <source>Gongaga Village</source>
-        <translation type="unfinished"></translation>
+        <translation>Gongaga</translation>
     </message>
     <message>
         <source>Weapons Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Armeria</translation>
     </message>
     <message>
         <source>Zack&apos;s Home</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Casa di Zack</translation>
     </message>
     <message>
         <source>Mayor&apos;s Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa del sindaco</translation>
     </message>
     <message>
         <source>Cosmo Canyon</source>
@@ -4841,15 +4844,15 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Cosmo Candle</source>
-        <translation type="unfinished"></translation>
+        <translation>Candela di Cosmo</translation>
     </message>
     <message>
         <source>Elder&apos;s Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Stanza dell&apos;anziano</translation>
     </message>
     <message>
         <source>Gate of Naught</source>
-        <translation type="unfinished"></translation>
+        <translation>Cosmo Canyon - Porta</translation>
     </message>
     <message>
         <source>Pub &quot;Starlet&quot; </source>
@@ -4857,27 +4860,27 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Sealed Cave</source>
-        <translation type="unfinished"></translation>
+        <translation>Grotta sigillata</translation>
     </message>
     <message>
         <source>Materia Shop</source>
-        <translation type="unfinished"></translation>
+        <translation>Negozio di materie</translation>
     </message>
     <message>
         <source>Nanaki&apos;s Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Stanza di Nanaki</translation>
     </message>
     <message>
         <source>Shildra Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Locanda Syldra</translation>
     </message>
     <message>
         <source>Observatory</source>
-        <translation type="unfinished"></translation>
+        <translation>Osservatorio</translation>
     </message>
     <message>
         <source>Bugen Research Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Laboratorio di Bugen</translation>
     </message>
     <message>
         <source>Cave of the Gi</source>
@@ -4885,83 +4888,87 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Cet Wall</source>
-        <translation type="unfinished"></translation>
+        <translation>Muro di Seto</translation>
     </message>
     <message>
         <source>House</source>
-        <translation type="unfinished"></translation>
+        <translation>Borgo Razzo - Casa</translation>
     </message>
     <message>
         <source>Shanghai Inn</source>
-        <translation type="unfinished"></translation>
+        <translation>Locanda Shanghai</translation>
     </message>
     <message>
         <source>Rocket Town</source>
-        <translation type="unfinished">Borgo Razzo</translation>
+        <translation>Borgo Razzo</translation>
     </message>
     <message>
         <source>Junon -&gt; Costa Del Sol</source>
+        <translatorcomment>World Map Location, On boat leaving Junon for Costa Del Sol (normally not accessable)</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Costa del Sol -&gt; Junon</source>
+        <translatorcomment>WM Location on boat from coasta heading t0 junon</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Junon Area (Highwind)</source>
+        <translatorcomment>World Map In Highwind over junion, Not normally accessable; I think this jump is used when you steal the highwind from junon after saving tifa.</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Junon Area (Underwater)</source>
+        <translatorcomment>World Map, Jump Used when you first win the sub mini game</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rocket Launching Pad</source>
-        <translation type="unfinished"></translation>
+        <translation>Rampa di lancio</translation>
     </message>
     <message>
         <source>Duct</source>
-        <translation type="unfinished"></translation>
+        <translation>Razzo - Condotto</translation>
     </message>
     <message>
         <source>Ship Hallway</source>
-        <translation type="unfinished"></translation>
+        <translation>Razzo - Passaggio</translation>
     </message>
     <message>
         <source>Materia Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Stanza della materia</translation>
     </message>
     <message>
         <source>Cockpit</source>
-        <translation type="unfinished"></translation>
+        <translation>Cabina di pilotaggio</translation>
     </message>
     <message>
         <source>Engine Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Sala macchine</translation>
     </message>
     <message>
         <source>Escape Pod</source>
-        <translation type="unfinished"></translation>
+        <translation>Capsula di salvataggio</translation>
     </message>
     <message>
         <source>Wilderness</source>
-        <translation type="unfinished"></translation>
+        <translation>Terre desolate</translation>
     </message>
     <message>
         <source>Plains</source>
-        <translation type="unfinished"></translation>
+        <translation>Pianure</translation>
     </message>
     <message>
         <source>Wutai</source>
-        <translation type="unfinished">Wutai</translation>
+        <translation>Wutai</translation>
     </message>
     <message>
         <source>Wutai, Cat&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Wutai - Casa dei gatti</translation>
     </message>
     <message>
         <source>Wutai, Old Man&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Wutai - Casa</translation>
     </message>
     <message>
         <source>Bar [Turtle Paradise]</source>
@@ -4969,11 +4976,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Yuffie&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa di Yuffie</translation>
     </message>
     <message>
         <source>Hidden Passage</source>
-        <translation type="unfinished"></translation>
+        <translation>Passaggio segreto</translation>
     </message>
     <message>
         <source>Wutai, Godo&apos;s Pagoda</source>
@@ -4985,15 +4992,15 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Wutai, Main Mtn.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wutai - Tempio</translation>
     </message>
     <message>
         <source>Hidden Room</source>
-        <translation type="unfinished"></translation>
+        <translation>Stanza segreta</translation>
     </message>
     <message>
         <source>Wutai, Da-chao Statue</source>
-        <translation type="unfinished"></translation>
+        <translation>Wutai - Statua Da Zhao</translation>
     </message>
     <message>
         <source>Temple of the Ancients</source>
@@ -5021,11 +5028,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Corel Valley Cave</source>
-        <translation type="unfinished">Grotta, Valle dei coralli</translation>
+        <translation>Grotta, Valle dei coralli</translation>
     </message>
     <message>
         <source>Forgotten Capital</source>
-        <translation type="unfinished">Città dimenticata</translation>
+        <translation>Città dimenticata</translation>
     </message>
     <message>
         <source>Water Altar</source>
@@ -5037,11 +5044,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Icicle Inn Bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Loggia Gelata - Pub</translation>
     </message>
     <message>
         <source>Gast&apos;s House</source>
-        <translation type="unfinished"></translation>
+        <translation>Casa di Gast</translation>
     </message>
     <message>
         <source>Great Glacier</source>
@@ -5061,7 +5068,7 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Base of Gaea&apos;s Cliff</source>
-        <translation type="unfinished"></translation>
+        <translation>Base della rupe</translation>
     </message>
     <message>
         <source>Gaea&apos;s Cliff</source>
@@ -5069,11 +5076,11 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Inside of Gaea&apos;s Cliff</source>
-        <translation type="unfinished"></translation>
+        <translation>Rupe di Gaia - Interno</translation>
     </message>
     <message>
         <source>Crater</source>
-        <translation type="unfinished"></translation>
+        <translation>Cratere</translation>
     </message>
     <message>
         <source>Whirlwind Maze</source>
@@ -5081,7 +5088,7 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Great Cave</source>
-        <translation type="unfinished"></translation>
+        <translation>Grande cratere</translation>
     </message>
     <message>
         <source>Mideel</source>
@@ -5089,51 +5096,51 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Mideel,Weapon Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Mideel - Armeria</translation>
     </message>
     <message>
         <source>Mideel,Item Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Mideel - Emporio</translation>
     </message>
     <message>
         <source>Mideel,Materia Store</source>
-        <translation type="unfinished"></translation>
+        <translation>Negozio di materia</translation>
     </message>
     <message>
         <source>Mideel,Clinic</source>
-        <translation type="unfinished"></translation>
+        <translation>Mideel - Clinica</translation>
     </message>
     <message>
         <source>Mideel,House1</source>
-        <translation type="unfinished"></translation>
+        <translation>Mideel - Casa</translation>
     </message>
     <message>
         <source>Mideel,House2</source>
-        <translation type="unfinished"></translation>
+        <translation>Mideel - Casa</translation>
     </message>
     <message>
         <source>Coal Train</source>
-        <translation type="unfinished"></translation>
+        <translation>Treno a vapore</translation>
     </message>
     <message>
         <source>8th Street</source>
-        <translation type="unfinished"></translation>
+        <translation>Midgar - Settore 8</translation>
     </message>
     <message>
         <source>Midgar, Sector 8</source>
-        <translation type="unfinished"></translation>
+        <translation>Midgar - Settore 8</translation>
     </message>
     <message>
         <source>Sector 8, Underground</source>
-        <translation type="unfinished"></translation>
+        <translation>Settore 8 - Sottosuolo</translation>
     </message>
     <message>
         <source>Mako Cannon</source>
-        <translation type="unfinished"></translation>
+        <translation>Cannone mako</translation>
     </message>
     <message>
         <source>Highwind, on deck</source>
-        <translation type="unfinished"></translation>
+        <translation>Highwind - Ponte</translation>
     </message>
     <message>
         <source>Northern Cave Crater</source>
@@ -5145,15 +5152,15 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Inside Northern Cave</source>
-        <translation type="unfinished"></translation>
+        <translation>Grande cratere</translation>
     </message>
     <message>
         <source>Bottom of Northern Cave</source>
-        <translation type="unfinished"></translation>
+        <translation>Grande cratere - Fondo</translation>
     </message>
     <message>
         <source>Inside the Planet</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuore del pianeta</translation>
     </message>
     <message>
         <source>????</source>
