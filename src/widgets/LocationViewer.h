@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2013 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -19,7 +19,6 @@
 #include <QModelIndex>
 #include <QWidget>
 
-#include <FF7FieldItemList.h>
 
 #ifndef ff7tkwidgets_export_h
     #include <ff7tkwidgets_export.h>
@@ -114,7 +113,6 @@ private:
     bool caseSensitive;
     bool _advancedMode;
     quint8 searchMode;
-    FF7FieldItemList *fieldItems;
     QTableWidget *locationTable;
     QToolButton *btnSearchOptions;
     QAction *actionNameSearch;

@@ -36,6 +36,7 @@
 #include <QCoreApplication>
 
 #include <FF7Location.h>
+#include <FF7FieldItemList.h>
 
 LocationViewer::LocationViewer(qreal Scale, QWidget *parent)
     : QWidget(parent)
@@ -44,7 +45,6 @@ LocationViewer::LocationViewer(qreal Scale, QWidget *parent)
     , regExpSearch(false)
     , caseSensitive(false)
     , _advancedMode(false)
-    , fieldItems(new FF7FieldItemList())
     , locationTable(new QTableWidget)
     , btnSearchOptions(new QToolButton)
     , actionNameSearch(new QAction(btnSearchOptions))
@@ -592,13 +592,13 @@ void LocationViewer::init_fieldItems(void)
         fieldItemList->setFixedHeight(0);
         return;
     } else {
-        for (int i = 0; i < fieldItems->size(); i++) {
-            for (int j = 0; j < fieldItems->maps(i).count(); j++) {
-                if (fieldItems->maps(i).at(j) == fieldFileName) {
-                    QListWidgetItem *newItem = new QListWidgetItem(fieldItems->text(i));
+        for (int i = 0; i < FF7FieldItemList::size(); i++) {
+            for (int j = 0; j < FF7FieldItemList::maps(i).count(); j++) {
+                if (FF7FieldItemList::maps(i).at(j) == fieldFileName) {
+                    QListWidgetItem *newItem = new QListWidgetItem(FF7FieldItemList::text(i));
                     newItem->setCheckState(Qt::Unchecked);
                     fieldItemList->addItem(newItem);
-                    Q_EMIT fieldItemConnectRequest(quint8(fieldItemList->count()) - 1, fieldItems->offset(i), fieldItems->bit(i));
+                    Q_EMIT fieldItemConnectRequest(quint8(fieldItemList->count()) - 1, FF7FieldItemList::offset(i), FF7FieldItemList::bit(i));
                     Q_EMIT fieldItemCheck(fieldItemList->count() - 1);
                 }
             }
@@ -667,13 +667,13 @@ void LocationViewer::searchItem(QRegularExpression exp)
 {
     QStringList locationNames;
     if(regExpSearch) {
-        for (const FieldItem &fieldItem : fieldItems->fieldItemList()) {
+        for (const FieldItem &fieldItem : FF7FieldItemList::fieldItemList()) {
                 if (exp.match(fieldItem.Text).hasMatch())
                     locationNames.append(fieldItem.Maps);
         }
     } else {
         Qt::CaseSensitivity caseSensitiveValue = caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive;
-        for (const FieldItem &fieldItem : fieldItems->fieldItemList()) {
+        for (const FieldItem &fieldItem : FF7FieldItemList::fieldItemList()) {
             if (fieldItem.Text.contains(exp.pattern(), caseSensitiveValue))
                 locationNames.append(fieldItem.Maps);
         }

@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2013 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -16,32 +16,56 @@
 #include <FF7FieldItemList.h>
 
 #include<QStringList>
+#include <QQmlEngine>
 
+FF7FieldItemList *FF7FieldItemList::get()
+{
+    static FF7FieldItemList m;
+    return &m;
+}
+
+QObject *FF7FieldItemList::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(scriptEngine)
+    engine->setObjectOwnership(get(), QQmlEngine::CppOwnership);
+    return get();
+}
+
+FF7FieldItemList::FF7FieldItemList(QObject *parent)
+    : QObject(parent)
+    , d(new FF7FieldItemListPrivate)
+{
+}
+
+FF7FieldItemList::~FF7FieldItemList()
+{
+    delete d;
+}
 const QList<quint16> &FF7FieldItemList::offset(int index)
 {
     index = std::clamp(index, 0, size() - 1);
-    return _fieldItemList.at(index).Offset;
+    return get()->d->_fieldItemList.at(index).Offset;
 }
 
 const QList<quint8> &FF7FieldItemList::bit(int index)
 {
     index = std::clamp(index, 0, size() - 1);
-    return _fieldItemList.at(index).Bit;
+    return get()->d->_fieldItemList.at(index).Bit;
 }
 
 const QStringList &FF7FieldItemList::maps(int index)
 {
     index = std::clamp(index, 0, size() - 1);
-    return _fieldItemList.at(index).Maps;
+    return get()->d->_fieldItemList.at(index).Maps;
 }
 
 QString FF7FieldItemList::text(int index)
 {
     index = std::clamp(index, 0, size() -1);
-    return tr(_fieldItemList.at(index).Text.toLocal8Bit());
+    return tr(get()->d->_fieldItemList.at(index).Text.toLocal8Bit());
 }
 
-const QList<FieldItem> &FF7FieldItemList::fieldItemList() const
+const QList<FieldItem> &FF7FieldItemList::fieldItemList()
 {
-    return _fieldItemList;
+    return get()->d->_fieldItemList;
 }
