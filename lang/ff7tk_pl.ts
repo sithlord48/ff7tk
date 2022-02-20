@@ -4865,10 +4865,6 @@ The km/h speeds are calculated while playing </source>
         <translation>Brama Nicości</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
-        <translation>Pub &quot;Starlet&quot; </translation>
-    </message>
-    <message>
         <source>Sealed Cave</source>
         <translation>Zapieczętowana Jaskinia</translation>
     </message>
@@ -5155,6 +5151,10 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>????</source>
         <translation>????</translation>
+    </message>
+    <message>
+        <source>Pub &quot;Starlet&quot;</source>
+        <translation type="unfinished">Pub &quot;Starlet&quot;</translation>
     </message>
 </context>
 <context>

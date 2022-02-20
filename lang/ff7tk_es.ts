@@ -4754,10 +4754,6 @@ Los km/h son calculados mientras se juega </translation>
         <translation>Puerta cero</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
-        <translation>Pub &quot;Estrellita&quot;</translation>
-    </message>
-    <message>
         <source>Sealed Cave</source>
         <translation>Cueva sellada</translation>
     </message>
@@ -5156,6 +5152,10 @@ Los km/h son calculados mientras se juega </translation>
     <message>
         <source>Arena</source>
         <translation type="unfinished">Arena</translation>
+    </message>
+    <message>
+        <source>Pub &quot;Starlet&quot;</source>
+        <translation type="unfinished">Pub &quot;Estrellita&quot;</translation>
     </message>
 </context>
 <context>

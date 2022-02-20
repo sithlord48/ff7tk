@@ -795,7 +795,7 @@ private:
 
             , {QStringLiteral("cosin1_1"), QT_TR_NOOP("Elder's Room"), QStringLiteral("1"), QStringLiteral("530"), QStringLiteral("99"), QStringLiteral("-140"), QStringLiteral("7"), QStringLiteral("32")}
             , {QStringLiteral("cosin2"), QT_TR_NOOP("Gate of Naught"), QStringLiteral("1"), QStringLiteral("531"), QStringLiteral("8"), QStringLiteral("-88"), QStringLiteral("71"), QStringLiteral("32")}
-            , {QStringLiteral("cosin3"), QT_TR_NOOP("Pub \"Starlet\" "), QStringLiteral("1"), QStringLiteral("532"), QStringLiteral("403"), QStringLiteral("-43"), QStringLiteral("22"), QStringLiteral("32")}
+            , {QStringLiteral("cosin3"), QT_TR_NOOP("Pub \"Starlet\""), QStringLiteral("1"), QStringLiteral("532"), QStringLiteral("403"), QStringLiteral("-43"), QStringLiteral("22"), QStringLiteral("32")}
             , {QStringLiteral("cosin4"), QT_TR_NOOP("Cosmo Canyon"), QStringLiteral("1"), QStringLiteral("533"), QStringLiteral("27"), QStringLiteral("245"), QStringLiteral("8"), QStringLiteral("32")}
             , {QStringLiteral("cosin5"), QT_TR_NOOP("Sealed Cave"), QStringLiteral("1"), QStringLiteral("534"), QStringLiteral("-145"), QStringLiteral("624"), QStringLiteral("47"), QStringLiteral("32")}
             , {QStringLiteral("cosmin2"), QT_TR_NOOP("Materia Shop"), QStringLiteral("1"), QStringLiteral("535"), QStringLiteral("-33"), QStringLiteral("108"), QStringLiteral("11"), QStringLiteral("32")}

@@ -4750,10 +4750,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>Gate of Naught</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
-        <translation>Pub &quot;Starlet&quot; </translation>
-    </message>
-    <message>
         <source>Sealed Cave</source>
         <translation>Sealed Cave</translation>
     </message>
@@ -5156,6 +5152,10 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Great Cave</source>
         <translation>Great Cave</translation>
+    </message>
+    <message>
+        <source>Pub &quot;Starlet&quot;</source>
+        <translation>Pub &quot;Starlet&quot;</translation>
     </message>
 </context>
 <context>

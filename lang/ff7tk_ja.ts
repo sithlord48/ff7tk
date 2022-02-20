@@ -4750,10 +4750,6 @@ The km/h speeds are calculated while playing </source>
         <translation type="unfinished">『無用の扉』前</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
-        <translation type="unfinished">パブ『スターレット』</translation>
-    </message>
-    <message>
         <source>Sealed Cave</source>
         <translation type="unfinished">封印の洞窟</translation>
     </message>
@@ -5156,6 +5152,10 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>top of the mountian</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pub &quot;Starlet&quot;</source>
+        <translation>パブ『スターレット』</translation>
     </message>
 </context>
 <context>

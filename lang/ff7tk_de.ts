@@ -4738,10 +4738,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation>Tor des Nichts</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
-        <translation>Gasthaus &quot;Starlet&quot;</translation>
-    </message>
-    <message>
         <source>Sealed Cave</source>
         <translation>Versiegelte Höhle</translation>
     </message>
@@ -5156,6 +5152,10 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     <message>
         <source>Icicle Area</source>
         <translation type="unfinished">Eiszapfen-Region</translation>
+    </message>
+    <message>
+        <source>Pub &quot;Starlet&quot;</source>
+        <translation type="unfinished">Gasthaus &quot;Starlet&quot;</translation>
     </message>
 </context>
 <context>

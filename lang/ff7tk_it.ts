@@ -4855,7 +4855,7 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation>Cosmo Canyon - Porta</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
+        <source>Pub &quot;Starlet&quot;</source>
         <translation type="unfinished">Pub &quot;Starlet&quot;</translation>
     </message>
     <message>

@@ -4750,10 +4750,6 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <translation>Porte du Néant</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
-        <translation>Bar &quot;Starlet&quot;</translation>
-    </message>
-    <message>
         <source>Sealed Cave</source>
         <translation>Grotte à sceau</translation>
     </message>
@@ -5156,6 +5152,10 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <message>
         <source>Costa del Sol</source>
         <translation type="unfinished">Costa del Sol</translation>
+    </message>
+    <message>
+        <source>Pub &quot;Starlet&quot;</source>
+        <translation type="unfinished">Bar &quot;Starlet&quot;</translation>
     </message>
 </context>
 <context>

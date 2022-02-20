@@ -4854,10 +4854,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>&quot;Useless Door&quot;</translation>
     </message>
     <message>
-        <source>Pub &quot;Starlet&quot; </source>
-        <translation>Pub: Starlet</translation>
-    </message>
-    <message>
         <source>Sealed Cave</source>
         <translation>Sealed Cave</translation>
     </message>
@@ -5156,6 +5152,10 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Cloud&apos;s Villa</source>
         <translation>Cloud&apos;s Villa</translation>
+    </message>
+    <message>
+        <source>Pub &quot;Starlet&quot;</source>
+        <translation type="unfinished">Pub: Starlet</translation>
     </message>
 </context>
 <context>
