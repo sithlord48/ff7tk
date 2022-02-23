@@ -109,7 +109,6 @@ static void KeyExpansion(uint8_t* RoundKey, const uint8_t* Key)
     RoundKey[(i * 4) + 2] = Key[(i * 4) + 2];
     RoundKey[(i * 4) + 3] = Key[(i * 4) + 3];
   }
-
   // All other round keys are found from the previous round keys.
   for (i = Nk; i < Nb * (Nr + 1); ++i)
   {
@@ -120,7 +119,6 @@ static void KeyExpansion(uint8_t* RoundKey, const uint8_t* Key)
       tempa[1]=RoundKey[k + 1];
       tempa[2]=RoundKey[k + 2];
       tempa[3]=RoundKey[k + 3];
-
     }
 
     if (i % Nk == 0)
