@@ -1079,10 +1079,13 @@ bool FF7Save::isSlotModified(int s)
 
 bool FF7Save::isSlotEmpty(int s)
 {
-    bool check = true;
-    if (FF7SaveInfo::isTypeVMC(format()) && !FF7SaveInfo::isTypePC(format()))
-            check = (psx_block_type(s) == '\xA0');
-    return check && ff7Checksum(s) == 0x4D1D;
+    if (FF7SaveInfo::isTypeVMC(format()))
+            return (psx_block_type(s) == static_cast<char>(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_EMPTY)
+                    || psx_block_type(s) == static_cast<char>(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_MIDLINK)
+                    || psx_block_type(s) == static_cast<char>(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED)
+                    || psx_block_type(s) == static_cast<char>(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_ENDLINK)
+                   );
+    return ff7Checksum(s) == 0x4D1D;
 }
 bool FF7Save::isFF7(int s)
 {
@@ -2765,11 +2768,13 @@ QByteArray FF7Save::generatePsSaveSignature(QByteArray data, QByteArray keySeed)
     const int signatureSize = FF7SaveInfo::fileSignatureSize(saveFormat);
     QByteArray buffer = keySeed;
     QByteArray decryptedKeySeed(0x40, '\x00');
+    QByteArray skey = FF7SaveInfo::signingKey(saveFormat);
+    QByteArray iv = FF7SaveInfo::signingIV(saveFormat);
 
     struct AES_ctx ctx;
     AES_init_ctx_iv(&ctx,
-                    reinterpret_cast<const uint8_t*>(FF7SaveInfo::signingKey(saveFormat).data()),
-                    reinterpret_cast<const uint8_t*>(FF7SaveInfo::signingIV(saveFormat).data()));
+                    reinterpret_cast<const uint8_t*>(skey.data()),
+                    reinterpret_cast<const uint8_t*>(iv.data()));
 
     AES_ECB_decrypt(&ctx, reinterpret_cast<uint8_t*>(buffer.data()));
 
