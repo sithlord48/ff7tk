@@ -11,9 +11,9 @@ endif()
 
 configure_file(ff7tkAbout.h.in ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h @ONLY)
 
+add_subdirectory(crypto)
 
 set ( ff7tk_SRC
-        crypto/aes.c
         FF7Achievements.cpp  FF7Char.cpp     FF7FieldItemList.cpp
         FF7Item.cpp          FF7Location.cpp FF7Materia.cpp
         FF7Save.cpp          FF7SaveInfo.cpp FF7Text.cpp
@@ -46,8 +46,12 @@ set (ff7tk_PublicLIBLINKS
       Qt::Svg
 )
 
+set (ff7tk_PrivateLIBLINKS
+    CRYPTO
+)
+
 if(${QT_DEFAULT_MAJOR_VERSION} EQUAL "6")
-    set(ff7tk_PrivateLIBLINKS Qt6::Core5Compat)
+    list(APPEND ff7tk_PrivateLIBLINKS Qt6::Core5Compat)
 endif()
 
 MAKE_LIBRARY(ff7tk ff7tk)
