@@ -7067,6 +7067,14 @@ The km/h speeds are calculated while playing </translation>
         <source>Empty Item</source>
         <translation type="unfinished">Empty Item</translation>
     </message>
+    <message>
+        <source>DON&apos;T USE</source>
+        <translation type="unfinished">DON&apos;T USE</translation>
+    </message>
+    <message>
+        <source>Item #%1</source>
+        <translation type="unfinished">Item #%1</translation>
+    </message>
 </context>
 <context>
     <name>LocationViewer</name>

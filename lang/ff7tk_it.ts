@@ -7076,6 +7076,14 @@ La velocità in km/h viene calcolata a runtime</translation>
         <source>Empty Item</source>
         <translation>Vuoto</translation>
     </message>
+    <message>
+        <source>DON&apos;T USE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Item #%1</source>
+        <translation type="unfinished">Item #%1</translation>
+    </message>
 </context>
 <context>
     <name>LocationViewer</name>

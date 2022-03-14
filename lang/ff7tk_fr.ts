@@ -7067,6 +7067,14 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <source>Empty Item</source>
         <translation>Object vide</translation>
     </message>
+    <message>
+        <source>DON&apos;T USE</source>
+        <translation type="unfinished">NE PAS UTILISER</translation>
+    </message>
+    <message>
+        <source>Item #%1</source>
+        <translation type="unfinished">Elément #%1</translation>
+    </message>
 </context>
 <context>
     <name>LocationViewer</name>

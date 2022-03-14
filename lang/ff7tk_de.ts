@@ -7067,6 +7067,14 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Empty Item</source>
         <translation>leere Artikel</translation>
     </message>
+    <message>
+        <source>DON&apos;T USE</source>
+        <translation type="unfinished">NICHT BENUTZEN</translation>
+    </message>
+    <message>
+        <source>Item #%1</source>
+        <translation type="unfinished">Item #%1</translation>
+    </message>
 </context>
 <context>
     <name>LocationViewer</name>

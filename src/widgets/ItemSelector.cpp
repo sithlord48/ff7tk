@@ -101,8 +101,13 @@ void ItemSelector::init_data()
     combo_type->addItem(FF7Item::icon(FF7Item::SupershotST), QString());
     sb_qty->setEnabled(false);
     //Fill Combo_Item (all items type is 0 or no filter defalut)
-    for (int i = 0; i < 320; i++)
+    for (int i = 0; i < 320; i++) {
+        if(FF7Item::name(i) == QT_TR_NOOP("DON'T USE")) {
+            combo_item->addItem(FF7Item::icon(i), tr("Item #%1").arg(i));
+            continue;
+        }
         combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
+    }
 
     combo_type->setCurrentIndex(-1);
     combo_item->setCurrentIndex(-1);

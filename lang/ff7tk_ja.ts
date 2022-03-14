@@ -7067,6 +7067,14 @@ The km/h speeds are calculated while playing </source>
         <source>Empty Item</source>
         <translation type="unfinished">アイテムなし</translation>
     </message>
+    <message>
+        <source>DON&apos;T USE</source>
+        <translation type="unfinished">使用不可</translation>
+    </message>
+    <message>
+        <source>Item #%1</source>
+        <translation type="unfinished">アイテム #%1</translation>
+    </message>
 </context>
 <context>
     <name>LocationViewer</name>
