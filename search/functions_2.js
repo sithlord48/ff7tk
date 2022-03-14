@@ -77,6 +77,8 @@ var searchData=
   ['clearslot',['clearSlot',['../classFF7Save.html#aec43466004be11a03da773a5ca3ffeb2',1,'FF7Save']]],
   ['clicked',['clicked',['../classChocoboLabel.html#a3e8ee01c9552712bb398e3c0e0661833',1,'ChocoboLabel::clicked()'],['../classSlotPreview.html#a2fbe67c45c5a6495cbfa3aea2fbbb184',1,'SlotPreview::clicked()']]],
   ['close',['close',['../classArchive.html#aabb6ff12fa3ad59c7eefeeaea0580de1',1,'Archive::close()'],['../classIsoArchive.html#ac26c13e0b4f5452b49ba36b1c3ef4b03',1,'IsoArchive::close()'],['../classQLockedFile.html#aab84c682931f0f81baa2f66c0631ada8',1,'QLockedFile::close()']]],
+  ['color',['color',['../classDialogPreview.html#ab3512ae169823b5767af623fe6482fa2',1,'DialogPreview']]],
+  ['colorchanged',['colorChanged',['../classDialogPreview.html#a4a507029f1b48fdd95c28062312a9f15',1,'DialogPreview']]],
   ['combo_5fitem_5fwidth',['combo_item_width',['../classItemSelector.html#ad9a1ec68e5a42569264e8e85a3ec3341',1,'ItemSelector']]],
   ['combo_5ftype_5fwidth',['combo_type_width',['../classItemSelector.html#a16b7f6b12f41aa3924b640f9264acffd',1,'ItemSelector']]],
   ['companyname',['companyName',['../classLgp.html#ab2791429690cc543ce225a95c08de02f',1,'Lgp']]],

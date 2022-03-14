@@ -15,7 +15,7 @@ var searchData=
   ['level_5fchanged',['level_changed',['../classCharEditor.html#a2d3cf807caffa404fd999c26e512b9bc',1,'CharEditor']]],
   ['levelprogress',['levelProgress',['../classCharEditor.html#a0cce364f6062e9bd6c346fa0b54851ed',1,'CharEditor']]],
   ['levelprogress_5fchanged',['levelProgress_changed',['../classCharEditor.html#a9382613f2438e33b0479e606203a9a2a',1,'CharEditor']]],
-  ['levels',['levels',['../classFF7Materia.html#a3d9c7c5cf30955f221988f0325cbfbad',1,'FF7Materia']]],
+  ['levels',['levels',['../classFF7Materia.html#afcbb08bb1f9f1bc22fff9a1abc03c549',1,'FF7Materia']]],
   ['lgp',['Lgp',['../classLgp.html#a7a3206c61216780d56feaa464b6aa263',1,'Lgp::Lgp()'],['../classLgp.html#abe362ad8571a623dbb483231b1b40fbd',1,'Lgp::Lgp(const QString &amp;name)'],['../classLgp.html#a580a334d6bcdd3680eb0045c4bccc636',1,'Lgp::Lgp(QFile *device)']]],
   ['lgpconflictentry',['LgpConflictEntry',['../structLgpConflictEntry.html#a3bdefbef562b5a803f652beb52f7700e',1,'LgpConflictEntry::LgpConflictEntry()'],['../structLgpConflictEntry.html#a14d2129307b0ffc1d316694a8ddc8fff',1,'LgpConflictEntry::LgpConflictEntry(const QString &amp;fileDir, quint16 tocIndex=0)']]],
   ['lgpheaderentry',['LgpHeaderEntry',['../classLgpHeaderEntry.html#a52d2bdadc4b9fe707daac46e568ea6c8',1,'LgpHeaderEntry']]],
@@ -31,8 +31,6 @@ var searchData=
   ['limits',['limits',['../classFF7Char.html#a772e0833e6ebb709b4dc40f6d0c1f4d4',1,'FF7Char::limits()'],['../classCharEditor.html#a9350509e6ad89ea8ff52cba3793a03e1',1,'CharEditor::limits()']]],
   ['limits_5fchanged',['limits_changed',['../classCharEditor.html#a72fffcd2ae8d1df3efea0fd1f95d5d04',1,'CharEditor']]],
   ['linkedslots',['linkedSlots',['../classFF7Item.html#af9f639361d9c0543b05f51c4c8712032',1,'FF7Item']]],
-  ['ll',['ll',['../classDialogPreview.html#af8b40ec39a6b984bfb50b714f6a49a0a',1,'DialogPreview']]],
-  ['ll_5fcolorchanged',['LL_ColorChanged',['../classDialogPreview.html#a9e305f8746c32170b2e66a5b02b6b285',1,'DialogPreview']]],
   ['loadfile',['loadFile',['../classFF7Save.html#a3b27bc60ddaa252c8d4fab7af557ae19',1,'FF7Save']]],
   ['location',['location',['../classFF7Save.html#a859b9ed1ff7806d213dafe6730d943fb',1,'FF7Save::location()'],['../classIsoFileOrDirectory.html#a49e8675e81d20b7548161b36709c0fda',1,'IsoFileOrDirectory::location()']]],
   ['locationafter',['locationAfter',['../classIsoFileOrDirectory.html#aaca213421d68b412c27bd8a8663490d9',1,'IsoFileOrDirectory']]],
@@ -47,7 +45,5 @@ var searchData=
   ['locationy',['locationY',['../classFF7Save.html#aa163b6c5bc25d8ea90bb90dc755526bb',1,'FF7Save']]],
   ['locidchanged',['locIdChanged',['../classLocationViewer.html#a2cdb3817ce0e2cfbf8a819a7e3fb5d94',1,'LocationViewer']]],
   ['lockedtoggled',['lockedToggled',['../classMenuListWidget.html#add98dfda713604a51b394f5473706de3',1,'MenuListWidget']]],
-  ['love',['love',['../classFF7Save.html#ac44d5d8fda99ed4a6176faeb39f56e84',1,'FF7Save']]],
-  ['lr',['lr',['../classDialogPreview.html#a4a540673344a65e6ba0b1a5e7d2d1e07',1,'DialogPreview']]],
-  ['lr_5fcolorchanged',['LR_ColorChanged',['../classDialogPreview.html#ad5b48872189a519c11b0f95c879647d4',1,'DialogPreview']]]
+  ['love',['love',['../classFF7Save.html#ac44d5d8fda99ed4a6176faeb39f56e84',1,'FF7Save']]]
 ];

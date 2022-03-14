@@ -1,15 +1,13 @@
 var searchData=
 [
   ['ff7achievements',['FF7Achievements',['../classFF7Achievements.html#aa0695f3e980b54953489f9844404e202',1,'FF7Achievements']]],
-  ['ff7fielditemlist',['FF7FieldItemList',['../classFF7FieldItemList.html#adc264674c53da7914e513191a87aba72',1,'FF7FieldItemList']]],
-  ['ff7materia',['FF7Materia',['../classFF7Materia.html#a9f485336979be0762549f3735784b8bf',1,'FF7Materia']]],
   ['ff7save',['FF7Save',['../classFF7Save.html#a7be8e04b9dd01c44b8653b1d12aa1382',1,'FF7Save']]],
   ['fieldhelp',['fieldHelp',['../classFF7Save.html#af48732e61b0ad0fd97cba29e325f11b9',1,'FF7Save']]],
   ['fieldhelpchanged',['fieldHelpChanged',['../classOptionsWidget.html#ae8553337e3114acbcb7f89f2595f9fc1',1,'OptionsWidget']]],
   ['fielditemchanged',['fieldItemChanged',['../classLocationViewer.html#aecc719565ca236779755e8cf61a837ae',1,'LocationViewer']]],
   ['fielditemcheck',['fieldItemCheck',['../classLocationViewer.html#a272c0c18ef9fc9a8c233a4fce5532ff3',1,'LocationViewer']]],
   ['fielditemconnectrequest',['fieldItemConnectRequest',['../classLocationViewer.html#abb3af50cded7708e378c71278cd24b03',1,'LocationViewer']]],
-  ['fielditemlist',['fieldItemList',['../classFF7FieldItemList.html#a7ea5b5b79643e958484b0f644e0f6f93',1,'FF7FieldItemList']]],
+  ['fielditemlist',['fieldItemList',['../classFF7FieldItemList.html#ac969820f85cda0c9875c4a2f5d6c0fd7',1,'FF7FieldItemList']]],
   ['fieldmessagespeedchanged',['fieldMessageSpeedChanged',['../classOptionsWidget.html#ab2ec5ab52ffc59aa7b4eab331eaf2ef9',1,'OptionsWidget']]],
   ['file',['file',['../classArchive.html#acfffc78fc3b03199771292637700e28e',1,'Archive::file()'],['../classIsoFile.html#a2b618a04baa54ce75e148741c81610ff',1,'IsoFile::file()'],['../classIsoDirectory.html#ad886d9c39720ee5a38e81cd66ce49378',1,'IsoDirectory::file()'],['../classIsoArchive.html#ac868e5bfdd172c10dc04fdbfdb3cbf40',1,'IsoArchive::file()'],['../classLgpIterator.html#a01dfdc991b7842de27cda1de6718a684',1,'LgpIterator::file()'],['../classLgp.html#a457a7e5859fd4378d1f4ccb9f3843ce6',1,'Lgp::file()'],['../classLgpHeaderEntry.html#a3da998125c9ff6070de6696963c8ded5',1,'LgpHeaderEntry::file()']]],
   ['filechanged',['fileChanged',['../classFF7Save.html#af73a40be2a832cbe9f421142b1f937e7',1,'FF7Save']]],
@@ -37,6 +35,7 @@ var searchData=
   ['fix_5fpc_5fbytemask',['fix_pc_bytemask',['../classFF7Save.html#a72006d1bfcfb396bb28541cde50a648d',1,'FF7Save']]],
   ['fixmetadata',['fixMetaData',['../classFF7Save.html#a5506bdc1dcbeb7945060427f36c8baba',1,'FF7Save']]],
   ['format',['format',['../classFF7Save.html#aead09f96fac8b358b6cb3fb2738f8dec',1,'FF7Save']]],
+  ['frombytearray',['fromByteArray',['../classFF7Char.html#ac5189d30eda331af88e0a1fa5f45dc9f',1,'FF7Char']]],
   ['frompscolor',['fromPsColor',['../classPsColor.html#a0b3e12dae61f9bb8323b21f38d62b82c',1,'PsColor']]],
   ['fullstarresource',['fullStarResource',['../classFF7Materia.html#a5de323c8c81b1491aacf817b8329bbe1',1,'FF7Materia']]]
 ];

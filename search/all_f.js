@@ -5,7 +5,7 @@ var searchData=
   ['occupiedchanged',['occupiedChanged',['../classChocoboManager.html#a46c2ae8e4ea3b2aea7c42b432521e0f7',1,'ChocoboManager']]],
   ['occupiedtoggled',['occupiedToggled',['../classChocoboLabel.html#a068e546c3d53589d34eba28cb7f473a6',1,'ChocoboLabel']]],
   ['odin',['Odin',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8addea075098755bd34919bde1ec787248',1,'FF7Materia']]],
-  ['offset',['Offset',['../structFieldItem.html#a177840a6ed6ebaf95ed8e44bccfd3a59',1,'FieldItem::Offset()'],['../classFF7FieldItemList.html#a186e8611387ca5e2c1c85ee7c5406f9c',1,'FF7FieldItemList::offset()']]],
+  ['offset',['offset',['../classFF7FieldItemList.html#a186e8611387ca5e2c1c85ee7c5406f9c',1,'FF7FieldItemList::offset()'],['../structFieldItem.html#a177840a6ed6ebaf95ed8e44bccfd3a59',1,'FieldItem::Offset()']]],
   ['omnislash',['Omnislash',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a463645d573dda21cb90ee1a7624331e4',1,'FF7Item']]],
   ['open',['open',['../classArchive.html#a74b56830b2e8f6d31f8b7a3de1a62aee',1,'Archive::open()'],['../classIsoArchiveIO.html#abc1887529d00caea5c65ec2519ded5f1',1,'IsoArchiveIO::open()'],['../classIsoFileIO.html#a78a52d41cdbd81c48f2dedbea0816fc3',1,'IsoFileIO::open()'],['../classIsoArchive.html#ad085e2c40b307345bb16e5ce9c14cb38',1,'IsoArchive::open()'],['../classLgpIO.html#a792b09cb16505406d4371b5baf4780f6',1,'LgpIO::open()'],['../classQLockedFile.html#a85b4ba29249a88ee874d8a47f79c3f7c',1,'QLockedFile::open()']]],
   ['openerror',['OpenError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba4e072b982e79535bc8d50677116e4461',1,'Archive::OpenError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a4102e7aabfeb708a050dfbea640d709e',1,'Lgp::OpenError()']]],

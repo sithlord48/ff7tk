@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['backrow',['BackRow',['../classFF7Char.html#a26e66dfd9b7247399f409e04d7566a84a953dd36246abb8acc52537513bc3fc1f',1,'FF7Char']]],
+  ['backrow',['BackRow',['../classFF7Char.html#a67e9a7b3822421fa496a2602130aa00ba953dd36246abb8acc52537513bc3fc1f',1,'FF7Char']]],
   ['bahamut',['Bahamut',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a05dec6a0cac30ba2105fba8241254b0c',1,'FF7Materia']]],
   ['bahamutzero',['BahamutZERO',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ae1b9b63e7bf44b29ff1eaa185ab0676d',1,'FF7Materia']]],
-  ['barret',['Barret',['../classFF7Char.html#a82123a0b752138a8484cfeb435af9119a90c128fa373ccf579007daaac065edff',1,'FF7Char']]],
+  ['barret',['Barret',['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a90c128fa373ccf579007daaac065edff',1,'FF7Char']]],
   ['barrier',['Barrier',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ac0f294e4ab17ef7cc79e316dcc442262',1,'FF7Materia']]],
   ['basementkey',['BASEMENTKEY',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95aa58a93e251aa666278aa7efca54ef6a0',1,'FF7Save']]],
   ['battery',['Battery',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7af6b3468e38407908c45321c568a03fa9',1,'FF7Item']]],
@@ -26,6 +26,8 @@ var searchData=
   ['boltplume',['BoltPlume',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a724c877b354b74f49658a566c9080128',1,'FF7Item']]],
   ['boltring',['BoltRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a9d9afb7d678e27513da8caf98feb22e4',1,'FF7Item']]],
   ['boomerang',['Boomerang',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a8162105c52f02ba4437a9b610a34a5b5',1,'FF7Item']]],
+  ['bottomleft',['BOTTOMLEFT',['../classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afd027352801eb7140795aa753ced63f2',1,'DialogPreview']]],
+  ['bottomright',['BOTTOMRIGHT',['../classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afcdfcbcc251a62244160c98bf89e27ad',1,'DialogPreview']]],
   ['bronzebangle',['BronzeBangle',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a7c93bb1396f844ff0196bf7aea5febcb',1,'FF7Item']]],
   ['btn_5fcircle',['BTN_CIRCLE',['../classFF7Save.html#a539fb7fa3d51b9cebc4a01baa04ec93ca8dc736f61cf5abba4ae3df8b35272915',1,'FF7Save']]],
   ['btn_5fdown',['BTN_DOWN',['../classFF7Save.html#a539fb7fa3d51b9cebc4a01baa04ec93ca2b0836bb08445fdcf37ac06bef11739e',1,'FF7Save']]],

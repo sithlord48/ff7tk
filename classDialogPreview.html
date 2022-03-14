@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.80.26</span>
+   &#160;<span id="projectnumber">0.81.00</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -61,6 +61,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
@@ -82,45 +83,67 @@ Collaboration diagram for DialogPreview:</div>
 <div class="center"><img src="classDialogPreview__coll__graph.png" border="0" usemap="#DialogPreview_coll__map" alt="Collaboration graph"/></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aac6ee2dc9809f18e4140def446eeb8a9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">CORNER</a> { <a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9ad349da2f53709c4bfb1aaa8b4ff9031a">TOPLEFT</a> =0, 
+<a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9a1bc2626bb3a0d4e5496f9db52e485d99">TOPRIGHT</a> =1, 
+<a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afcdfcbcc251a62244160c98bf89e27ad">BOTTOMRIGHT</a> =2, 
+<a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afd027352801eb7140795aa753ced63f2">BOTTOMLEFT</a> =3
+ }<tr class="memdesc:aac6ee2dc9809f18e4140def446eeb8a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a corner the the dialog preview.  <a href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:aac6ee2dc9809f18e4140def446eeb8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:a9e305f8746c32170b2e66a5b02b6b285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a9e305f8746c32170b2e66a5b02b6b285">LL_ColorChanged</a> (QColor color)</td></tr>
-<tr class="separator:a9e305f8746c32170b2e66a5b02b6b285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5b48872189a519c11b0f95c879647d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#ad5b48872189a519c11b0f95c879647d4">LR_ColorChanged</a> (QColor color)</td></tr>
-<tr class="separator:ad5b48872189a519c11b0f95c879647d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac771b548a9a9292f6e07a32a5a18492a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#ac771b548a9a9292f6e07a32a5a18492a">UL_ColorChanged</a> (QColor color)</td></tr>
-<tr class="separator:ac771b548a9a9292f6e07a32a5a18492a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6da2990431bf975ea26e2c5c25f36462"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a6da2990431bf975ea26e2c5c25f36462">UR_ColorChanged</a> (QColor color)</td></tr>
-<tr class="separator:a6da2990431bf975ea26e2c5c25f36462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a507029f1b48fdd95c28062312a9f15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a4a507029f1b48fdd95c28062312a9f15">colorChanged</a> (<a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">DialogPreview::CORNER</a> corner, const QColor &amp;<a class="el" href="classDialogPreview.html#ab3512ae169823b5767af623fe6482fa2">color</a>=QColor())</td></tr>
+<tr class="memdesc:a4a507029f1b48fdd95c28062312a9f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Color has Changed.  <a href="#a4a507029f1b48fdd95c28062312a9f15">More...</a><br /></td></tr>
+<tr class="separator:a4a507029f1b48fdd95c28062312a9f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:acd1e006b61e52e311a0b342836631d92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#acd1e006b61e52e311a0b342836631d92">Q_ENUM</a> (<a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">CORNER</a>)</td></tr>
+<tr class="separator:acd1e006b61e52e311a0b342836631d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4742ae61dab861f046fe4025347a954c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a4742ae61dab861f046fe4025347a954c">DialogPreview</a> (QWidget *parent=nullptr)</td></tr>
 <tr class="separator:a4742ae61dab861f046fe4025347a954c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcbaa23bce5cfcb4e59ca0bd70cabe61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#afcbaa23bce5cfcb4e59ca0bd70cabe61">~DialogPreview</a> ()=default</td></tr>
 <tr class="separator:afcbaa23bce5cfcb4e59ca0bd70cabe61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8b40ec39a6b984bfb50b714f6a49a0a"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#af8b40ec39a6b984bfb50b714f6a49a0a">ll</a> ()</td></tr>
-<tr class="separator:af8b40ec39a6b984bfb50b714f6a49a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a540673344a65e6ba0b1a5e7d2d1e07"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a4a540673344a65e6ba0b1a5e7d2d1e07">lr</a> ()</td></tr>
-<tr class="separator:a4a540673344a65e6ba0b1a5e7d2d1e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc588655a82ac0dcdd8016bcfd33cec8"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#adc588655a82ac0dcdd8016bcfd33cec8">ul</a> ()</td></tr>
-<tr class="separator:adc588655a82ac0dcdd8016bcfd33cec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13da7e52666fdbca2863b07a9a629ac8"><td class="memItemLeft" align="right" valign="top">QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a13da7e52666fdbca2863b07a9a629ac8">ur</a> ()</td></tr>
-<tr class="separator:a13da7e52666fdbca2863b07a9a629ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47af8703e979bae0204616ea1e5ee052"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a47af8703e979bae0204616ea1e5ee052">setLLeft</a> (QColor newColor)</td></tr>
-<tr class="separator:a47af8703e979bae0204616ea1e5ee052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cab54c5caae01707bc39b4bf4f6ebf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a9cab54c5caae01707bc39b4bf4f6ebf9">setULeft</a> (QColor newColor)</td></tr>
-<tr class="separator:a9cab54c5caae01707bc39b4bf4f6ebf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaef3cd0f1410efb6141a8e0bc95a6661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#aaef3cd0f1410efb6141a8e0bc95a6661">setLRight</a> (QColor newColor)</td></tr>
-<tr class="separator:aaef3cd0f1410efb6141a8e0bc95a6661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a284126e61f290d2aadd1f16abba5d644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a284126e61f290d2aadd1f16abba5d644">setURight</a> (QColor newColor)</td></tr>
-<tr class="separator:a284126e61f290d2aadd1f16abba5d644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3512ae169823b5767af623fe6482fa2"><td class="memItemLeft" align="right" valign="top">const QColor &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#ab3512ae169823b5767af623fe6482fa2">color</a> (<a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">DialogPreview::CORNER</a>)</td></tr>
+<tr class="separator:ab3512ae169823b5767af623fe6482fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46532f7ae4cd52fdc8f8000fabc8e33f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a46532f7ae4cd52fdc8f8000fabc8e33f">setColor</a> (<a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">DialogPreview::CORNER</a> corner, const QColor &amp;newColor=QColor())</td></tr>
+<tr class="separator:a46532f7ae4cd52fdc8f8000fabc8e33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae751ad5bfda5baaf233593decc4231a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#ae751ad5bfda5baaf233593decc4231a4">setEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:ae751ad5bfda5baaf233593decc4231a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1e2bde28dd6af66dbf0615673fa0c3ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a1e2bde28dd6af66dbf0615673fa0c3ab">resizeEvent</a> (QResizeEvent *)</td></tr>
-<tr class="separator:a1e2bde28dd6af66dbf0615673fa0c3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658beae06ddb77c82f92b4eac917391d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a658beae06ddb77c82f92b4eac917391d">paintEvent</a> (QPaintEvent *ev) override</td></tr>
+<tr class="separator:a658beae06ddb77c82f92b4eac917391d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52465dc71b3d25454720ddd6147ec936"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDialogPreview.html#a52465dc71b3d25454720ddd6147ec936">event</a> (QEvent *ev) override</td></tr>
+<tr class="separator:a52465dc71b3d25454720ddd6147ec936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aac6ee2dc9809f18e4140def446eeb8a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6ee2dc9809f18e4140def446eeb8a9">&#9670;&nbsp;</a></span>CORNER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">DialogPreview::CORNER</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Describes a corner the the dialog preview. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aac6ee2dc9809f18e4140def446eeb8a9ad349da2f53709c4bfb1aaa8b4ff9031a"></a>TOPLEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aac6ee2dc9809f18e4140def446eeb8a9a1bc2626bb3a0d4e5496f9db52e485d99"></a>TOPRIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aac6ee2dc9809f18e4140def446eeb8a9afcdfcbcc251a62244160c98bf89e27ad"></a>BOTTOMRIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aac6ee2dc9809f18e4140def446eeb8a9afd027352801eb7140795aa753ced63f2"></a>BOTTOMLEFT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4742ae61dab861f046fe4025347a954c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4742ae61dab861f046fe4025347a954c">&#9670;&nbsp;</a></span>DialogPreview()</h2>
@@ -166,33 +189,26 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af8b40ec39a6b984bfb50b714f6a49a0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8b40ec39a6b984bfb50b714f6a49a0a">&#9670;&nbsp;</a></span>ll()</h2>
+<a id="ab3512ae169823b5767af623fe6482fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3512ae169823b5767af623fe6482fa2">&#9670;&nbsp;</a></span>color()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QColor DialogPreview::ll </td>
+          <td class="memname">const QColor &amp; DialogPreview::color </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">DialogPreview::CORNER</a>&#160;</td>
+          <td class="paramname"><em>corner</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9e305f8746c32170b2e66a5b02b6b285"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e305f8746c32170b2e66a5b02b6b285">&#9670;&nbsp;</a></span>LL_ColorChanged</h2>
+<a id="a4a507029f1b48fdd95c28062312a9f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a507029f1b48fdd95c28062312a9f15">&#9670;&nbsp;</a></span>colorChanged</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,62 +217,21 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void DialogPreview::LL_ColorChanged </td>
+          <td class="memname">void DialogPreview::colorChanged </td>
           <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">DialogPreview::CORNER</a>&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4a540673344a65e6ba0b1a5e7d2d1e07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a540673344a65e6ba0b1a5e7d2d1e07">&#9670;&nbsp;</a></span>lr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">QColor DialogPreview::lr </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>color</em> = <code>QColor()</code>&#160;</td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad5b48872189a519c11b0f95c879647d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5b48872189a519c11b0f95c879647d4">&#9670;&nbsp;</a></span>LR_ColorChanged</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void DialogPreview::LR_ColorChanged </td>
-          <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -266,10 +241,20 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A Color has Changed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">corner</td><td>the corner where the change happend </td></tr>
+    <tr><td class="paramname">color</td><td>the new color </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9" title="Describes a corner the the dialog preview. ">CORNER</a> </dd></dl>
+
 </div>
 </div>
-<a id="a1e2bde28dd6af66dbf0615673fa0c3ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e2bde28dd6af66dbf0615673fa0c3ab">&#9670;&nbsp;</a></span>resizeEvent()</h2>
+<a id="a52465dc71b3d25454720ddd6147ec936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52465dc71b3d25454720ddd6147ec936">&#9670;&nbsp;</a></span>event()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,192 +263,108 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void DialogPreview::resizeEvent </td>
+          <td class="memname">bool DialogPreview::event </td>
           <td>(</td>
-          <td class="paramtype">QResizeEvent *&#160;</td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>ev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a658beae06ddb77c82f92b4eac917391d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a658beae06ddb77c82f92b4eac917391d">&#9670;&nbsp;</a></span>paintEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DialogPreview::paintEvent </td>
+          <td>(</td>
+          <td class="paramtype">QPaintEvent *&#160;</td>
+          <td class="paramname"><em>ev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd1e006b61e52e311a0b342836631d92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd1e006b61e52e311a0b342836631d92">&#9670;&nbsp;</a></span>Q_ENUM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DialogPreview::Q_ENUM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">CORNER</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a47af8703e979bae0204616ea1e5ee052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47af8703e979bae0204616ea1e5ee052">&#9670;&nbsp;</a></span>setLLeft()</h2>
+<a id="a46532f7ae4cd52fdc8f8000fabc8e33f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46532f7ae4cd52fdc8f8000fabc8e33f">&#9670;&nbsp;</a></span>setColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void DialogPreview::setLLeft </td>
+          <td class="memname">void DialogPreview::setColor </td>
           <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>newColor</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9">DialogPreview::CORNER</a>&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>newColor</em> = <code>QColor()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aaef3cd0f1410efb6141a8e0bc95a6661"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaef3cd0f1410efb6141a8e0bc95a6661">&#9670;&nbsp;</a></span>setLRight()</h2>
+<a id="ae751ad5bfda5baaf233593decc4231a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae751ad5bfda5baaf233593decc4231a4">&#9670;&nbsp;</a></span>setEnabled()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void DialogPreview::setLRight </td>
+          <td class="memname">void DialogPreview::setEnabled </td>
           <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>newColor</em></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9cab54c5caae01707bc39b4bf4f6ebf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cab54c5caae01707bc39b4bf4f6ebf9">&#9670;&nbsp;</a></span>setULeft()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DialogPreview::setULeft </td>
-          <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>newColor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a284126e61f290d2aadd1f16abba5d644"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a284126e61f290d2aadd1f16abba5d644">&#9670;&nbsp;</a></span>setURight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DialogPreview::setURight </td>
-          <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>newColor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adc588655a82ac0dcdd8016bcfd33cec8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc588655a82ac0dcdd8016bcfd33cec8">&#9670;&nbsp;</a></span>ul()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QColor DialogPreview::ul </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac771b548a9a9292f6e07a32a5a18492a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac771b548a9a9292f6e07a32a5a18492a">&#9670;&nbsp;</a></span>UL_ColorChanged</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DialogPreview::UL_ColorChanged </td>
-          <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a13da7e52666fdbca2863b07a9a629ac8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13da7e52666fdbca2863b07a9a629ac8">&#9670;&nbsp;</a></span>ur()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QColor DialogPreview::ur </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6da2990431bf975ea26e2c5c25f36462"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6da2990431bf975ea26e2c5c25f36462">&#9670;&nbsp;</a></span>UR_ColorChanged</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DialogPreview::UR_ColorChanged </td>
-          <td>(</td>
-          <td class="paramtype">QColor&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

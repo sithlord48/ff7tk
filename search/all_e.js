@@ -16,6 +16,7 @@ var searchData=
   ['nk',['Nk',['../aes_8c.html#a7b1938df390b1afe917e8baa663c22af',1,'aes.c']]],
   ['noeffect',['NoEffect',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455a7e705b11fe1514c833102e492a6a197d',1,'FF7Item']]],
   ['noerror',['NoError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba4ddf485d8ed78b620febd3be20991909',1,'Archive::NoError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4a4292923bfe2f205b083f3fb694d8d648',1,'Lgp::NoError()']]],
+  ['normal',['Normal',['../classFF7Char.html#a1384ff313f8e1f8ed83347d331706378a562a9b3cd60e842e71de444779e8d728',1,'FF7Char']]],
   ['nr',['Nr',['../aes_8c.html#a9d210afc812225ee0a0bcd51bb984246',1,'aes.c']]],
   ['nullify',['Nullify',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455a5fe5bcff6f73a5d518d6789a51a235e3',1,'FF7Item']]],
   ['numberofslots',['numberOfSlots',['../classFF7Save.html#a4a64c5d109f6f0f558eb8fb9e022a673',1,'FF7Save']]],

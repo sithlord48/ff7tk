@@ -1,10 +1,12 @@
 <map id="src/data/Type_materia.h" name="src/data/Type_materia.h">
-<area shape="rect" id="node2" href="$Type__FF7CHAR_8h.html" title="src/data/Type_FF7CHAR.h" alt="" coords="317,80,503,107"/>
-<area shape="rect" id="node3" href="$FF7Save__Types_8h.html" title="src/data/FF7Save_Types.h" alt="" coords="212,155,400,181"/>
-<area shape="rect" id="node8" href="$CharEditor_8h.html" title="src/widgets/CharEditor.h" alt="" coords="425,155,603,181"/>
-<area shape="rect" id="node4" href="$FF7Save_8h.html" title="src/data/FF7Save.h" alt="" coords="234,229,378,256"/>
-<area shape="rect" id="node5" href="$FF7Save_8cpp.html" title="src/data/FF7Save.cpp" alt="" coords="5,304,164,331"/>
-<area shape="rect" id="node6" href="$MetadataCreator_8cpp.html" title="src/widgets/MetadataCreator.cpp" alt="" coords="189,304,423,331"/>
-<area shape="rect" id="node7" href="$SlotSelect_8cpp.html" title="src/widgets/SlotSelect.cpp" alt="" coords="447,304,639,331"/>
-<area shape="rect" id="node9" href="$CharEditor_8cpp.html" title="src/widgets/CharEditor.cpp" alt="" coords="417,229,611,256"/>
+<area shape="rect" id="node2" href="$Type__FF7CHAR_8h.html" title="src/data/Type_FF7CHAR.h" alt="" coords="520,80,707,107"/>
+<area shape="rect" id="node3" href="$FF7Char_8h.html" title="src/data/FF7Char.h" alt="" coords="543,155,684,181"/>
+<area shape="rect" id="node8" href="$FF7Save__Types_8h.html" title="src/data/FF7Save_Types.h" alt="" coords="309,155,497,181"/>
+<area shape="rect" id="node11" href="$CharEditor_8h.html" title="src/widgets/CharEditor.h" alt="" coords="727,155,905,181"/>
+<area shape="rect" id="node4" href="$FF7Char_8cpp.html" title="src/data/FF7Char.cpp" alt="" coords="558,229,714,256"/>
+<area shape="rect" id="node5" href="$FF7Save_8cpp.html" title="src/data/FF7Save.cpp" alt="" coords="481,304,639,331"/>
+<area shape="rect" id="node6" href="$CharEditor_8cpp.html" title="src/widgets/CharEditor.cpp" alt="" coords="739,229,933,256"/>
+<area shape="rect" id="node7" href="$SlotSelect_8cpp.html" title="src/widgets/SlotSelect.cpp" alt="" coords="264,304,456,331"/>
+<area shape="rect" id="node9" href="$FF7Save_8h.html" title="src/data/FF7Save.h" alt="" coords="288,229,432,256"/>
+<area shape="rect" id="node10" href="$MetadataCreator_8cpp.html" title="src/widgets/MetadataCreator.cpp" alt="" coords="5,304,240,331"/>
 </map>

@@ -7,8 +7,6 @@ var searchData=
   ['_7edialogpreview',['~DialogPreview',['../classDialogPreview.html#afcbaa23bce5cfcb4e59ca0bd70cabe61',1,'DialogPreview']]],
   ['_7edoublecheckbox',['~DoubleCheckBox',['../classDoubleCheckBox.html#a23acf030ede9b89fd1c5725f6696d145',1,'DoubleCheckBox']]],
   ['_7eff7achievements',['~FF7Achievements',['../classFF7Achievements.html#a9883cf5d58433c5e2034ec4475d2ad89',1,'FF7Achievements']]],
-  ['_7eff7fielditemlist',['~FF7FieldItemList',['../classFF7FieldItemList.html#a1017208491280bb9391793bca58dbac4',1,'FF7FieldItemList']]],
-  ['_7eff7materia',['~FF7Materia',['../classFF7Materia.html#a18c67034b34997d57449b07ccd65e628',1,'FF7Materia']]],
   ['_7eisoarchive',['~IsoArchive',['../classIsoArchive.html#a6950edbbe9e11e66ddfa30336c1167b7',1,'IsoArchive']]],
   ['_7eisoarchiveio',['~IsoArchiveIO',['../classIsoArchiveIO.html#a920248fd96aed5eb58ef8f465d43d52b',1,'IsoArchiveIO']]],
   ['_7eisodirectory',['~IsoDirectory',['../classIsoDirectory.html#aee8a5948ee48b45e536737e881b5f926',1,'IsoDirectory']]],

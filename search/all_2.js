@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['backrow',['BackRow',['../classFF7Char.html#a26e66dfd9b7247399f409e04d7566a84a953dd36246abb8acc52537513bc3fc1f',1,'FF7Char']]],
+  ['backrow',['BackRow',['../classFF7Char.html#a67e9a7b3822421fa496a2602130aa00ba953dd36246abb8acc52537513bc3fc1f',1,'FF7Char']]],
   ['bahamut',['Bahamut',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a05dec6a0cac30ba2105fba8241254b0c',1,'FF7Materia']]],
   ['bahamutzero',['BahamutZERO',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ae1b9b63e7bf44b29ff1eaa185ab0676d',1,'FF7Materia']]],
-  ['barret',['Barret',['../classFF7Char.html#a82123a0b752138a8484cfeb435af9119a90c128fa373ccf579007daaac065edff',1,'FF7Char']]],
+  ['barret',['Barret',['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a90c128fa373ccf579007daaac065edff',1,'FF7Char']]],
   ['barrier',['Barrier',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ac0f294e4ab17ef7cc79e316dcc442262',1,'FF7Materia']]],
   ['basehp',['baseHp',['../classCharEditor.html#a4dfc5435ce48f59e9c9d25ea427e7bd8',1,'CharEditor']]],
   ['basehp_5fchanged',['baseHp_changed',['../classCharEditor.html#aeda385f678b59c6248b19a79da29bdea',1,'CharEditor']]],
@@ -46,6 +46,8 @@ var searchData=
   ['boltplume',['BoltPlume',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a724c877b354b74f49658a566c9080128',1,'FF7Item']]],
   ['boltring',['BoltRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a9d9afb7d678e27513da8caf98feb22e4',1,'FF7Item']]],
   ['boomerang',['Boomerang',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a8162105c52f02ba4437a9b610a34a5b5',1,'FF7Item']]],
+  ['bottomleft',['BOTTOMLEFT',['../classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afd027352801eb7140795aa753ced63f2',1,'DialogPreview']]],
+  ['bottomright',['BOTTOMRIGHT',['../classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afcdfcbcc251a62244160c98bf89e27ad',1,'DialogPreview']]],
   ['box',['BOX',['../classMenuListWidget.html#aa4e4ac078936a8584f52aa14be043d9d',1,'MenuListWidget::BOX()'],['../classPhsListWidget.html#a66a746887dc6bde6f9654cb9b31c4078',1,'PhsListWidget::Box()']]],
   ['box1_5ftoggled',['box1_toggled',['../classDoubleCheckBox.html#ab3534008fedb84194438a3bd85513ba5',1,'DoubleCheckBox']]],
   ['box2_5ftoggled',['box2_toggled',['../classDoubleCheckBox.html#ab19595f0414a6ea692f14d330385ca4e',1,'DoubleCheckBox']]],

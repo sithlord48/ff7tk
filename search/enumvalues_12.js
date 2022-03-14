@@ -5,7 +5,7 @@ var searchData=
   ['razorring',['RazorRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a7797286b5dfcf38388e96ca17327cee3',1,'FF7Item']]],
   ['readerror',['ReadError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba07ec74a088c43a82d86e46cb03837b7c',1,'Archive::ReadError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ad0ca819e8010cc06e1d45b8e5c07bc5c',1,'Lgp::ReadError()']]],
   ['reagangreens',['ReaganGreens',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a7e50269e13760ec0b7136026fd987751',1,'FF7Item']]],
-  ['red',['Red',['../classFF7Char.html#a82123a0b752138a8484cfeb435af9119a81128fb32ce46830b7435ebaa599b700',1,'FF7Char']]],
+  ['red',['Red',['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a81128fb32ce46830b7435ebaa599b700',1,'FF7Char']]],
   ['redmphone',['RedMphone',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a21f04c6ae0067ebde1cdf561196418ee',1,'FF7Item']]],
   ['reflectring',['ReflectRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a144b234588335e234328b16ade06645d',1,'FF7Item']]],
   ['remedy',['Remedy',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a71887033aceb7272693791d6b6d74ea7',1,'FF7Item']]],

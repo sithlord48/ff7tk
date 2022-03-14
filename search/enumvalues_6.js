@@ -16,9 +16,9 @@ var searchData=
   ['fourpointshuriken',['FourPointShuriken',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a523833d1e58de18b5af37f2c2cf9ee7f',1,'FF7Item']]],
   ['fourslots',['FourSlots',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac436b46ef18acc940aa7f4310085c277',1,'FF7Item']]],
   ['fourthbracelet',['FourthBracelet',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a1257cbd9cfe1dd22a0e380a6a3756eaa',1,'FF7Item']]],
-  ['frontrow',['FrontRow',['../classFF7Char.html#a26e66dfd9b7247399f409e04d7566a84a39d3017e5ea58993f0d012c6797442b7',1,'FF7Char']]],
+  ['frontrow',['FrontRow',['../classFF7Char.html#a67e9a7b3822421fa496a2602130aa00ba39d3017e5ea58993f0d012c6797442b7',1,'FF7Char']]],
   ['fullcure',['FullCure',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8aad2253e05000cd16522184be322d677e',1,'FF7Materia']]],
   ['fullmetalstaff',['FullMetalStaff',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ae387361a26b6b1591fc7b5f790980388',1,'FF7Item']]],
-  ['fury',['Fury',['../classFF7Char.html#a26e66dfd9b7247399f409e04d7566a84a0a9d0715a95313b02ed813a5ebd5b148',1,'FF7Char']]],
+  ['fury',['Fury',['../classFF7Char.html#a1384ff313f8e1f8ed83347d331706378a0a9d0715a95313b02ed813a5ebd5b148',1,'FF7Char']]],
   ['furyring',['FuryRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aab28fd7e81d8df563d08ed9bab31fc79',1,'FF7Item']]]
 ];

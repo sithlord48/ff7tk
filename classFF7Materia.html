@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.80.26</span>
+   &#160;<span id="projectnumber">0.81.00</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classFF7Materia-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FF7Materia Class Reference</div>  </div>
@@ -85,7 +85,7 @@ Collaboration diagram for FF7Materia:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:aa544682547e83581feb2794d1611a747"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aa544682547e83581feb2794d1611a747">MateriaType</a> { <br />
-&#160;&#160;<a class="el" href="classFF7Materia.html#aa544682547e83581feb2794d1611a747a863866d81951be34c2edda2f5986f121">Unknown</a>, 
+&#160;&#160;<a class="el" href="classFF7Materia.html#aa544682547e83581feb2794d1611a747ad914e38e942f5faa52f1787851948db3">AllMaterias</a>, 
 <a class="el" href="classFF7Materia.html#aa544682547e83581feb2794d1611a747a6d92f3d5165a2c3b389400d9f20a8e08">Magic</a>, 
 <a class="el" href="classFF7Materia.html#aa544682547e83581feb2794d1611a747a19f034909f4d24e7ce9f9b33152338f7">Summon</a>, 
 <a class="el" href="classFF7Materia.html#aa544682547e83581feb2794d1611a747ac2c327a30ec550d149ec7b0f9edae931">Independent</a>, 
@@ -206,80 +206,84 @@ Public Types</h2></td></tr>
  }</td></tr>
 <tr class="separator:a992eb8c9016a9bdd29b2d92c350e5fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a9f485336979be0762549f3735784b8bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a9f485336979be0762549f3735784b8bf">FF7Materia</a> ()=default</td></tr>
-<tr class="separator:a9f485336979be0762549f3735784b8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18c67034b34997d57449b07ccd65e628"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a18c67034b34997d57449b07ccd65e628">~FF7Materia</a> ()=default</td></tr>
-<tr class="separator:a18c67034b34997d57449b07ccd65e628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a649358137a107de60e6901d78dd7792e"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a649358137a107de60e6901d78dd7792e">name</a> (int id)</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa15bbcb4e539351baa98c8db764c9d7b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFF7Materia.html">FF7Materia</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aa15bbcb4e539351baa98c8db764c9d7b">get</a> ()</td></tr>
+<tr class="memdesc:aa15bbcb4e539351baa98c8db764c9d7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classFF7Materia.html">FF7Materia</a> Instance.  <a href="#aa15bbcb4e539351baa98c8db764c9d7b">More...</a><br /></td></tr>
+<tr class="separator:aa15bbcb4e539351baa98c8db764c9d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd53d4ae886ddff4faa093369507cb7"><td class="memItemLeft" align="right" valign="top">static QObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#abdd53d4ae886ddff4faa093369507cb7">qmlSingletonRegister</a> (QQmlEngine *engine, QJSEngine *scriptEngine)</td></tr>
+<tr class="memdesc:abdd53d4ae886ddff4faa093369507cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register The <a class="el" href="classFF7Materia.html">FF7Materia</a> Singleton for QML.  <a href="#abdd53d4ae886ddff4faa093369507cb7">More...</a><br /></td></tr>
+<tr class="separator:abdd53d4ae886ddff4faa093369507cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af759f1659aed9321f529034f8291c427"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#af759f1659aed9321f529034f8291c427">totalMateria</a> ()</td></tr>
+<tr class="separator:af759f1659aed9321f529034f8291c427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649358137a107de60e6901d78dd7792e"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a649358137a107de60e6901d78dd7792e">name</a> (int id)</td></tr>
 <tr class="separator:a649358137a107de60e6901d78dd7792e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9612dfb12ef2a879fd90cf41a22ed59"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ae9612dfb12ef2a879fd90cf41a22ed59">statString</a> (int id)</td></tr>
+<tr class="memitem:ae9612dfb12ef2a879fd90cf41a22ed59"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ae9612dfb12ef2a879fd90cf41a22ed59">statString</a> (int id)</td></tr>
 <tr class="separator:ae9612dfb12ef2a879fd90cf41a22ed59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319fa3012be36d27dbb2380324c4d9af"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a319fa3012be36d27dbb2380324c4d9af">enemySkill</a> (int id)</td></tr>
+<tr class="memitem:a319fa3012be36d27dbb2380324c4d9af"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a319fa3012be36d27dbb2380324c4d9af">enemySkill</a> (int id)</td></tr>
 <tr class="separator:a319fa3012be36d27dbb2380324c4d9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f6fcebd1941f84450b636bf0d426c1b"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a7f6fcebd1941f84450b636bf0d426c1b">masterCommandSkill</a> (int id)</td></tr>
+<tr class="memitem:a7f6fcebd1941f84450b636bf0d426c1b"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a7f6fcebd1941f84450b636bf0d426c1b">masterCommandSkill</a> (int id)</td></tr>
 <tr class="separator:a7f6fcebd1941f84450b636bf0d426c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ce2b24a59ca8b435b50f42e7f5de3b"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a85ce2b24a59ca8b435b50f42e7f5de3b">masterSummonSkill</a> (int id)</td></tr>
+<tr class="memitem:a85ce2b24a59ca8b435b50f42e7f5de3b"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a85ce2b24a59ca8b435b50f42e7f5de3b">masterSummonSkill</a> (int id)</td></tr>
 <tr class="separator:a85ce2b24a59ca8b435b50f42e7f5de3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeee666ffb5958ca969b8b9642ee3955d"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aeee666ffb5958ca969b8b9642ee3955d">masterMagicSkill</a> (int id)</td></tr>
+<tr class="memitem:aeee666ffb5958ca969b8b9642ee3955d"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aeee666ffb5958ca969b8b9642ee3955d">masterMagicSkill</a> (int id)</td></tr>
 <tr class="separator:aeee666ffb5958ca969b8b9642ee3955d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27b6105af80a5560e8e4da030830558a"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a27b6105af80a5560e8e4da030830558a">element</a> (int id)</td></tr>
+<tr class="memitem:a27b6105af80a5560e8e4da030830558a"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a27b6105af80a5560e8e4da030830558a">element</a> (int id)</td></tr>
 <tr class="separator:a27b6105af80a5560e8e4da030830558a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad52ac9b6049589fa48a13accef94b563"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ad52ac9b6049589fa48a13accef94b563">skills</a> (int id)</td></tr>
+<tr class="memitem:ad52ac9b6049589fa48a13accef94b563"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ad52ac9b6049589fa48a13accef94b563">skills</a> (int id)</td></tr>
 <tr class="separator:ad52ac9b6049589fa48a13accef94b563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb96e4062fd2111e59d8020c11bb1343"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#afb96e4062fd2111e59d8020c11bb1343">status</a> (int id)</td></tr>
+<tr class="memitem:afb96e4062fd2111e59d8020c11bb1343"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#afb96e4062fd2111e59d8020c11bb1343">status</a> (int id)</td></tr>
 <tr class="separator:afb96e4062fd2111e59d8020c11bb1343"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a170889c7fb3e0097a88796d4d94f468a"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a170889c7fb3e0097a88796d4d94f468a">ap</a> (int id, int lvl)</td></tr>
+<tr class="memitem:a170889c7fb3e0097a88796d4d94f468a"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a170889c7fb3e0097a88796d4d94f468a">ap</a> (int id, int lvl)</td></tr>
 <tr class="separator:a170889c7fb3e0097a88796d4d94f468a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3d1b2911ba8e415ee931be7ac4f8a3f"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ac3d1b2911ba8e415ee931be7ac4f8a3f">statSTR</a> (int id)</td></tr>
-<tr class="separator:ac3d1b2911ba8e415ee931be7ac4f8a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e7694960a046d6d3d5281ae53b96b7"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a67e7694960a046d6d3d5281ae53b96b7">statVIT</a> (int id)</td></tr>
-<tr class="separator:a67e7694960a046d6d3d5281ae53b96b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8b03d37a298b8336b082b0f6bd9c954"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ad8b03d37a298b8336b082b0f6bd9c954">statMAG</a> (int id)</td></tr>
-<tr class="separator:ad8b03d37a298b8336b082b0f6bd9c954"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1aaf0ca8038628d8dd6e80927459acb"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aa1aaf0ca8038628d8dd6e80927459acb">statSPI</a> (int id)</td></tr>
-<tr class="separator:aa1aaf0ca8038628d8dd6e80927459acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad984e26e1bb42084cb8ddf5cb7687363"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ad984e26e1bb42084cb8ddf5cb7687363">statDEX</a> (int id)</td></tr>
-<tr class="separator:ad984e26e1bb42084cb8ddf5cb7687363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d8b180e3209c5168ff93c0dc48a2e72"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a7d8b180e3209c5168ff93c0dc48a2e72">statLCK</a> (int id)</td></tr>
-<tr class="separator:a7d8b180e3209c5168ff93c0dc48a2e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a464aad328cc0c062fc5c3e5b0ac3fbbb"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a464aad328cc0c062fc5c3e5b0ac3fbbb">statHP</a> (int id)</td></tr>
-<tr class="separator:a464aad328cc0c062fc5c3e5b0ac3fbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb9636dd26d0055df5f8ab05b9321114"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#abb9636dd26d0055df5f8ab05b9321114">statMP</a> (int id)</td></tr>
-<tr class="separator:abb9636dd26d0055df5f8ab05b9321114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d9c7c5cf30955f221988f0325cbfbad"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a3d9c7c5cf30955f221988f0325cbfbad">levels</a> (int id)</td></tr>
-<tr class="separator:a3d9c7c5cf30955f221988f0325cbfbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a392fe848338096fdf864138b33148741"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a392fe848338096fdf864138b33148741">type</a> (int id)</td></tr>
-<tr class="separator:a392fe848338096fdf864138b33148741"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1afde49164f1b75c89d14c84ce6be67"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE qint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ac1afde49164f1b75c89d14c84ce6be67">ap2num</a> (quint8 <a class="el" href="classFF7Materia.html#a170889c7fb3e0097a88796d4d94f468a">ap</a>[3])</td></tr>
-<tr class="separator:ac1afde49164f1b75c89d14c84ce6be67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62b9a60d54fa624d856cfc79db92276c"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a62b9a60d54fa624d856cfc79db92276c">imageAllResource</a> () const</td></tr>
-<tr class="separator:a62b9a60d54fa624d856cfc79db92276c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83f9a55cfe7d9e4b752f8412599bf48f"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a83f9a55cfe7d9e4b752f8412599bf48f">iconResource</a> (int id)</td></tr>
+<tr class="memitem:a03c5778024adadda1bcf66895f6fdc77"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a03c5778024adadda1bcf66895f6fdc77">statSTR</a> (int id)</td></tr>
+<tr class="separator:a03c5778024adadda1bcf66895f6fdc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae88b214a69787759c7991d5a95ba18"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#abae88b214a69787759c7991d5a95ba18">statVIT</a> (int id)</td></tr>
+<tr class="separator:abae88b214a69787759c7991d5a95ba18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d1700dee5adcc37b2f3294e5c55be8"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ab4d1700dee5adcc37b2f3294e5c55be8">statMAG</a> (int id)</td></tr>
+<tr class="separator:ab4d1700dee5adcc37b2f3294e5c55be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae477fb3741cf77a0ccd6379e5aa40bb"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aae477fb3741cf77a0ccd6379e5aa40bb">statSPI</a> (int id)</td></tr>
+<tr class="separator:aae477fb3741cf77a0ccd6379e5aa40bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a950d09f80713556469e7ae03c89114c5"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a950d09f80713556469e7ae03c89114c5">statDEX</a> (int id)</td></tr>
+<tr class="separator:a950d09f80713556469e7ae03c89114c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23a713a56bbc05b253f381221a0e42ef"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a23a713a56bbc05b253f381221a0e42ef">statLCK</a> (int id)</td></tr>
+<tr class="separator:a23a713a56bbc05b253f381221a0e42ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24ce18769f4c8494953a898d948a8e4c"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a24ce18769f4c8494953a898d948a8e4c">statHP</a> (int id)</td></tr>
+<tr class="separator:a24ce18769f4c8494953a898d948a8e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe291fc1e3db0a69cd5882828465527f"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#afe291fc1e3db0a69cd5882828465527f">statMP</a> (int id)</td></tr>
+<tr class="separator:afe291fc1e3db0a69cd5882828465527f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcbb08bb1f9f1bc22fff9a1abc03c549"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#afcbb08bb1f9f1bc22fff9a1abc03c549">levels</a> (int id)</td></tr>
+<tr class="separator:afcbb08bb1f9f1bc22fff9a1abc03c549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a49f578981d8bbbd452175f86530d3"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a08a49f578981d8bbbd452175f86530d3">type</a> (int id)</td></tr>
+<tr class="separator:a08a49f578981d8bbbd452175f86530d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae412921de91f6e25d221efe0ccd65f05"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE qint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ae412921de91f6e25d221efe0ccd65f05">ap2num</a> (quint8 <a class="el" href="classFF7Materia.html#a170889c7fb3e0097a88796d4d94f468a">ap</a>[3])</td></tr>
+<tr class="separator:ae412921de91f6e25d221efe0ccd65f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8133612b279f059e44afe5a7c019fb"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a6f8133612b279f059e44afe5a7c019fb">imageAllResource</a> ()</td></tr>
+<tr class="separator:a6f8133612b279f059e44afe5a7c019fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83f9a55cfe7d9e4b752f8412599bf48f"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a83f9a55cfe7d9e4b752f8412599bf48f">iconResource</a> (int id)</td></tr>
 <tr class="separator:a83f9a55cfe7d9e4b752f8412599bf48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5de323c8c81b1491aacf817b8329bbe1"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a5de323c8c81b1491aacf817b8329bbe1">fullStarResource</a> (int id)</td></tr>
+<tr class="memitem:a5de323c8c81b1491aacf817b8329bbe1"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a5de323c8c81b1491aacf817b8329bbe1">fullStarResource</a> (int id)</td></tr>
 <tr class="separator:a5de323c8c81b1491aacf817b8329bbe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef2b731b2dfb6d1179e6748561020c89"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aef2b731b2dfb6d1179e6748561020c89">emptyStartResource</a> (int id)</td></tr>
+<tr class="memitem:aef2b731b2dfb6d1179e6748561020c89"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aef2b731b2dfb6d1179e6748561020c89">emptyStartResource</a> (int id)</td></tr>
 <tr class="separator:aef2b731b2dfb6d1179e6748561020c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a428f33e47d6c797204cfc6be48e561d3"><td class="memItemLeft" align="right" valign="top">QIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a428f33e47d6c797204cfc6be48e561d3">icon</a> (int id)</td></tr>
-<tr class="separator:a428f33e47d6c797204cfc6be48e561d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfb145b841b575c9e1d1075a36d6fa81"><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#acfb145b841b575c9e1d1075a36d6fa81">pixmap</a> (int id)</td></tr>
-<tr class="separator:acfb145b841b575c9e1d1075a36d6fa81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a150d14f0f3e5e070ea9b58d348ec6f74"><td class="memItemLeft" align="right" valign="top">QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a150d14f0f3e5e070ea9b58d348ec6f74">image</a> (int id)</td></tr>
-<tr class="separator:a150d14f0f3e5e070ea9b58d348ec6f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a381c1fa91d75fd63f319a1f2a6295bfb"><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a381c1fa91d75fd63f319a1f2a6295bfb">pixmapEmptyStar</a> (int id)</td></tr>
-<tr class="separator:a381c1fa91d75fd63f319a1f2a6295bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4a4c5088d93d9f8f8c5a6327b5ee71"><td class="memItemLeft" align="right" valign="top">QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a9b4a4c5088d93d9f8f8c5a6327b5ee71">imageEmptyStar</a> (int id)</td></tr>
-<tr class="separator:a9b4a4c5088d93d9f8f8c5a6327b5ee71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff89c1f96d443d5e1a3bc790663e366a"><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#aff89c1f96d443d5e1a3bc790663e366a">pixmapFullStar</a> (int id)</td></tr>
-<tr class="separator:aff89c1f96d443d5e1a3bc790663e366a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a010df158f0b5e2e088369aa95f04605c"><td class="memItemLeft" align="right" valign="top">QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a010df158f0b5e2e088369aa95f04605c">imageFullStar</a> (int id)</td></tr>
-<tr class="separator:a010df158f0b5e2e088369aa95f04605c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18862b8ff8a9563805e5f99dd1f2287f"><td class="memItemLeft" align="right" valign="top">QIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a18862b8ff8a9563805e5f99dd1f2287f">iconAllMateria</a> () const</td></tr>
-<tr class="separator:a18862b8ff8a9563805e5f99dd1f2287f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6314baa8db53db706e431cf402a92a19"><td class="memItemLeft" align="right" valign="top">QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a6314baa8db53db706e431cf402a92a19">imageAllMateria</a> () const</td></tr>
-<tr class="separator:a6314baa8db53db706e431cf402a92a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f400ee276e3859b776cc42e25ba97b"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ae5f400ee276e3859b776cc42e25ba97b">icon</a> (int id)</td></tr>
+<tr class="separator:ae5f400ee276e3859b776cc42e25ba97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abccbc1eb1d886dd7896a57968a170d81"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#abccbc1eb1d886dd7896a57968a170d81">pixmap</a> (int id)</td></tr>
+<tr class="separator:abccbc1eb1d886dd7896a57968a170d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0857feaac6e4d547c562063c3f5404"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a6d0857feaac6e4d547c562063c3f5404">image</a> (int id)</td></tr>
+<tr class="separator:a6d0857feaac6e4d547c562063c3f5404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59104b3fed161acf083e8ed22d499ade"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a59104b3fed161acf083e8ed22d499ade">pixmapEmptyStar</a> (int id)</td></tr>
+<tr class="separator:a59104b3fed161acf083e8ed22d499ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97fed3d06993c988c228044cd18b221a"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a97fed3d06993c988c228044cd18b221a">imageEmptyStar</a> (int id)</td></tr>
+<tr class="separator:a97fed3d06993c988c228044cd18b221a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1398181365042ccac9bd2f1f40815890"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a1398181365042ccac9bd2f1f40815890">pixmapFullStar</a> (int id)</td></tr>
+<tr class="separator:a1398181365042ccac9bd2f1f40815890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0918a7870426a0e84931c76272bd25cd"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a0918a7870426a0e84931c76272bd25cd">imageFullStar</a> (int id)</td></tr>
+<tr class="separator:a0918a7870426a0e84931c76272bd25cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b1b5938c9e611911cc88336cca56e8"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QIcon&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#a90b1b5938c9e611911cc88336cca56e8">iconAllMateria</a> ()</td></tr>
+<tr class="separator:a90b1b5938c9e611911cc88336cca56e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53effb075e2f7c25c698766c5b1ad15"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Materia.html#ab53effb075e2f7c25c698766c5b1ad15">imageAllMateria</a> ()</td></tr>
+<tr class="separator:ab53effb075e2f7c25c698766c5b1ad15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a992eb8c9016a9bdd29b2d92c350e5fd8"></a>
@@ -480,7 +484,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa544682547e83581feb2794d1611a747a863866d81951be34c2edda2f5986f121"></a>Unknown&#160;</td><td class="fielddoc"><p>0 </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa544682547e83581feb2794d1611a747ad914e38e942f5faa52f1787851948db3"></a>AllMaterias&#160;</td><td class="fielddoc"><p>0 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aa544682547e83581feb2794d1611a747a6d92f3d5165a2c3b389400d9f20a8e08"></a>Magic&#160;</td><td class="fielddoc"><p>1 </p>
 </td></tr>
@@ -496,63 +500,15 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9f485336979be0762549f3735784b8bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f485336979be0762549f3735784b8bf">&#9670;&nbsp;</a></span>FF7Materia()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FF7Materia::FF7Materia </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a18c67034b34997d57449b07ccd65e628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18c67034b34997d57449b07ccd65e628">&#9670;&nbsp;</a></span>~FF7Materia()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FF7Materia::~FF7Materia </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a170889c7fb3e0097a88796d4d94f468a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a170889c7fb3e0097a88796d4d94f468a">&#9670;&nbsp;</a></span>ap()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">qint32 FF7Materia::ap </td>
@@ -572,12 +528,17 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac1afde49164f1b75c89d14c84ce6be67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1afde49164f1b75c89d14c84ce6be67">&#9670;&nbsp;</a></span>ap2num()</h2>
+<a id="ae412921de91f6e25d221efe0ccd65f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae412921de91f6e25d221efe0ccd65f05">&#9670;&nbsp;</a></span>ap2num()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -586,7 +547,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint32 FF7Materia::ap2num </td>
+          <td class="memname">static Q_INVOKABLE qint32 FF7Materia::ap2num </td>
           <td>(</td>
           <td class="paramtype">quint8&#160;</td>
           <td class="paramname"><em>ap</em>[3]</td><td>)</td>
@@ -595,7 +556,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -607,6 +568,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::element </td>
@@ -616,6 +580,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -625,6 +594,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::emptyStartResource </td>
@@ -634,6 +606,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -643,6 +620,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::enemySkill </td>
@@ -652,6 +632,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -661,6 +646,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::fullStarResource </td>
@@ -670,12 +658,17 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a428f33e47d6c797204cfc6be48e561d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a428f33e47d6c797204cfc6be48e561d3">&#9670;&nbsp;</a></span>icon()</h2>
+<a id="aa15bbcb4e539351baa98c8db764c9d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa15bbcb4e539351baa98c8db764c9d7b">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -684,7 +677,35 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QIcon FF7Materia::icon </td>
+          <td class="memname"><a class="el" href="classFF7Materia.html">FF7Materia</a> * FF7Materia::get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the <a class="el" href="classFF7Materia.html">FF7Materia</a> Instance. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFF7Materia.html#abdd53d4ae886ddff4faa093369507cb7" title="Register The FF7Materia Singleton for QML. ">qmlSingletonRegister()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae5f400ee276e3859b776cc42e25ba97b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f400ee276e3859b776cc42e25ba97b">&#9670;&nbsp;</a></span>icon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Q_INVOKABLE QIcon FF7Materia::icon </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -693,15 +714,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a18862b8ff8a9563805e5f99dd1f2287f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18862b8ff8a9563805e5f99dd1f2287f">&#9670;&nbsp;</a></span>iconAllMateria()</h2>
+<a id="a90b1b5938c9e611911cc88336cca56e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b1b5938c9e611911cc88336cca56e8">&#9670;&nbsp;</a></span>iconAllMateria()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -710,15 +731,15 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QIcon FF7Materia::iconAllMateria </td>
+          <td class="memname">static Q_INVOKABLE QIcon FF7Materia::iconAllMateria </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -730,6 +751,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::iconResource </td>
@@ -739,12 +763,17 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a150d14f0f3e5e070ea9b58d348ec6f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a150d14f0f3e5e070ea9b58d348ec6f74">&#9670;&nbsp;</a></span>image()</h2>
+<a id="a6d0857feaac6e4d547c562063c3f5404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d0857feaac6e4d547c562063c3f5404">&#9670;&nbsp;</a></span>image()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -753,7 +782,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QImage FF7Materia::image </td>
+          <td class="memname">static Q_INVOKABLE QImage FF7Materia::image </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -762,15 +791,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a6314baa8db53db706e431cf402a92a19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6314baa8db53db706e431cf402a92a19">&#9670;&nbsp;</a></span>imageAllMateria()</h2>
+<a id="ab53effb075e2f7c25c698766c5b1ad15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53effb075e2f7c25c698766c5b1ad15">&#9670;&nbsp;</a></span>imageAllMateria()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -779,23 +808,23 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QImage FF7Materia::imageAllMateria </td>
+          <td class="memname">static Q_INVOKABLE QImage FF7Materia::imageAllMateria </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a62b9a60d54fa624d856cfc79db92276c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62b9a60d54fa624d856cfc79db92276c">&#9670;&nbsp;</a></span>imageAllResource()</h2>
+<a id="a6f8133612b279f059e44afe5a7c019fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8133612b279f059e44afe5a7c019fb">&#9670;&nbsp;</a></span>imageAllResource()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -804,23 +833,23 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE const QString&amp; FF7Materia::imageAllResource </td>
+          <td class="memname">static Q_INVOKABLE const QString&amp; FF7Materia::imageAllResource </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9b4a4c5088d93d9f8f8c5a6327b5ee71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b4a4c5088d93d9f8f8c5a6327b5ee71">&#9670;&nbsp;</a></span>imageEmptyStar()</h2>
+<a id="a97fed3d06993c988c228044cd18b221a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97fed3d06993c988c228044cd18b221a">&#9670;&nbsp;</a></span>imageEmptyStar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -829,7 +858,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QImage FF7Materia::imageEmptyStar </td>
+          <td class="memname">static Q_INVOKABLE QImage FF7Materia::imageEmptyStar </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -838,15 +867,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a010df158f0b5e2e088369aa95f04605c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a010df158f0b5e2e088369aa95f04605c">&#9670;&nbsp;</a></span>imageFullStar()</h2>
+<a id="a0918a7870426a0e84931c76272bd25cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0918a7870426a0e84931c76272bd25cd">&#9670;&nbsp;</a></span>imageFullStar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -855,7 +884,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QImage FF7Materia::imageFullStar </td>
+          <td class="memname">static Q_INVOKABLE QImage FF7Materia::imageFullStar </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -864,15 +893,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3d9c7c5cf30955f221988f0325cbfbad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d9c7c5cf30955f221988f0325cbfbad">&#9670;&nbsp;</a></span>levels()</h2>
+<a id="afcbb08bb1f9f1bc22fff9a1abc03c549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcbb08bb1f9f1bc22fff9a1abc03c549">&#9670;&nbsp;</a></span>levels()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -881,7 +910,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::levels </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::levels </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -890,7 +919,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -902,6 +931,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::masterCommandSkill </td>
@@ -911,6 +943,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -920,6 +957,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::masterMagicSkill </td>
@@ -929,6 +969,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -938,6 +983,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::masterSummonSkill </td>
@@ -947,6 +995,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -956,6 +1009,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::name </td>
@@ -965,12 +1021,17 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="acfb145b841b575c9e1d1075a36d6fa81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfb145b841b575c9e1d1075a36d6fa81">&#9670;&nbsp;</a></span>pixmap()</h2>
+<a id="abccbc1eb1d886dd7896a57968a170d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abccbc1eb1d886dd7896a57968a170d81">&#9670;&nbsp;</a></span>pixmap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -979,7 +1040,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QPixmap FF7Materia::pixmap </td>
+          <td class="memname">static Q_INVOKABLE QPixmap FF7Materia::pixmap </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -988,15 +1049,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a381c1fa91d75fd63f319a1f2a6295bfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a381c1fa91d75fd63f319a1f2a6295bfb">&#9670;&nbsp;</a></span>pixmapEmptyStar()</h2>
+<a id="a59104b3fed161acf083e8ed22d499ade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59104b3fed161acf083e8ed22d499ade">&#9670;&nbsp;</a></span>pixmapEmptyStar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1005,7 +1066,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QPixmap FF7Materia::pixmapEmptyStar </td>
+          <td class="memname">static Q_INVOKABLE QPixmap FF7Materia::pixmapEmptyStar </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1014,15 +1075,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aff89c1f96d443d5e1a3bc790663e366a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff89c1f96d443d5e1a3bc790663e366a">&#9670;&nbsp;</a></span>pixmapFullStar()</h2>
+<a id="a1398181365042ccac9bd2f1f40815890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1398181365042ccac9bd2f1f40815890">&#9670;&nbsp;</a></span>pixmapFullStar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1031,7 +1092,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QPixmap FF7Materia::pixmapFullStar </td>
+          <td class="memname">static Q_INVOKABLE QPixmap FF7Materia::pixmapFullStar </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1040,10 +1101,48 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="abdd53d4ae886ddff4faa093369507cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdd53d4ae886ddff4faa093369507cb7">&#9670;&nbsp;</a></span>qmlSingletonRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QObject * FF7Materia::qmlSingletonRegister </td>
+          <td>(</td>
+          <td class="paramtype">QQmlEngine *&#160;</td>
+          <td class="paramname"><em>engine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QJSEngine *&#160;</td>
+          <td class="paramname"><em>scriptEngine</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Register The <a class="el" href="classFF7Materia.html">FF7Materia</a> Singleton for QML. </p>
 
 </div>
 </div>
@@ -1052,6 +1151,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QStringList FF7Materia::skills </td>
@@ -1061,38 +1163,17 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad984e26e1bb42084cb8ddf5cb7687363"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad984e26e1bb42084cb8ddf5cb7687363">&#9670;&nbsp;</a></span>statDEX()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statDEX </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a464aad328cc0c062fc5c3e5b0ac3fbbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a464aad328cc0c062fc5c3e5b0ac3fbbb">&#9670;&nbsp;</a></span>statHP()</h2>
+<a id="a950d09f80713556469e7ae03c89114c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a950d09f80713556469e7ae03c89114c5">&#9670;&nbsp;</a></span>statDEX()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1101,7 +1182,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statHP </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statDEX </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1110,15 +1191,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7d8b180e3209c5168ff93c0dc48a2e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d8b180e3209c5168ff93c0dc48a2e72">&#9670;&nbsp;</a></span>statLCK()</h2>
+<a id="a24ce18769f4c8494953a898d948a8e4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ce18769f4c8494953a898d948a8e4c">&#9670;&nbsp;</a></span>statHP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1127,7 +1208,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statLCK </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statHP </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1136,15 +1217,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad8b03d37a298b8336b082b0f6bd9c954"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8b03d37a298b8336b082b0f6bd9c954">&#9670;&nbsp;</a></span>statMAG()</h2>
+<a id="a23a713a56bbc05b253f381221a0e42ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23a713a56bbc05b253f381221a0e42ef">&#9670;&nbsp;</a></span>statLCK()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1153,7 +1234,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statMAG </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statLCK </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1162,15 +1243,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="abb9636dd26d0055df5f8ab05b9321114"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb9636dd26d0055df5f8ab05b9321114">&#9670;&nbsp;</a></span>statMP()</h2>
+<a id="ab4d1700dee5adcc37b2f3294e5c55be8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4d1700dee5adcc37b2f3294e5c55be8">&#9670;&nbsp;</a></span>statMAG()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1179,7 +1260,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statMP </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statMAG </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1188,15 +1269,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aa1aaf0ca8038628d8dd6e80927459acb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1aaf0ca8038628d8dd6e80927459acb">&#9670;&nbsp;</a></span>statSPI()</h2>
+<a id="afe291fc1e3db0a69cd5882828465527f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe291fc1e3db0a69cd5882828465527f">&#9670;&nbsp;</a></span>statMP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1205,7 +1286,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statSPI </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statMP </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1214,15 +1295,15 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac3d1b2911ba8e415ee931be7ac4f8a3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3d1b2911ba8e415ee931be7ac4f8a3f">&#9670;&nbsp;</a></span>statSTR()</h2>
+<a id="aae477fb3741cf77a0ccd6379e5aa40bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae477fb3741cf77a0ccd6379e5aa40bb">&#9670;&nbsp;</a></span>statSPI()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1231,7 +1312,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statSTR </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statSPI </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1240,7 +1321,33 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03c5778024adadda1bcf66895f6fdc77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c5778024adadda1bcf66895f6fdc77">&#9670;&nbsp;</a></span>statSTR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statSTR </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1252,6 +1359,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QString FF7Materia::statString </td>
@@ -1261,6 +1371,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -1270,6 +1385,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">QStringList FF7Materia::status </td>
@@ -1279,38 +1397,17 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a67e7694960a046d6d3d5281ae53b96b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67e7694960a046d6d3d5281ae53b96b7">&#9670;&nbsp;</a></span>statVIT()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::statVIT </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a392fe848338096fdf864138b33148741"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a392fe848338096fdf864138b33148741">&#9670;&nbsp;</a></span>type()</h2>
+<a id="abae88b214a69787759c7991d5a95ba18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae88b214a69787759c7991d5a95ba18">&#9670;&nbsp;</a></span>statVIT()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1319,7 +1416,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Q_INVOKABLE qint8 FF7Materia::type </td>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::statVIT </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -1328,7 +1425,58 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af759f1659aed9321f529034f8291c427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af759f1659aed9321f529034f8291c427">&#9670;&nbsp;</a></span>totalMateria()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Q_INVOKABLE int FF7Materia::totalMateria </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08a49f578981d8bbbd452175f86530d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a49f578981d8bbbd452175f86530d3">&#9670;&nbsp;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Q_INVOKABLE qint8 FF7Materia::type </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

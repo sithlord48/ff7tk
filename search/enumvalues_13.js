@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sadness',['Sadness',['../classFF7Char.html#a26e66dfd9b7247399f409e04d7566a84a0c094b1cee264584d1688aedb422b632',1,'FF7Char']]],
+  ['sadness',['Sadness',['../classFF7Char.html#a1384ff313f8e1f8ed83347d331706378a0c094b1cee264584d1688aedb422b632',1,'FF7Char']]],
   ['safetybit',['SafetyBit',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a0c327954efe90ca63a58dfc27a5d08f9',1,'FF7Item']]],
   ['saharanut',['SaharaNut',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ae6f8f9d43d9feedc70defc7ac641d9cd',1,'FF7Item']]],
   ['satindress',['SATINDRESS',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95ae465d84c8f44392e2f18962b310cea81',1,'FF7Save']]],
@@ -11,7 +11,7 @@ var searchData=
   ['seal',['Seal',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8af5b69227907cac096823eba09189b960',1,'FF7Materia']]],
   ['selfcast',['SelfCast',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455ad74618677be5a4f269f95ea07001659a',1,'FF7Item']]],
   ['sense',['Sense',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ac0db347a7ba617b010ecfe257269b401',1,'FF7Materia']]],
-  ['sephiroth',['Sephiroth',['../classFF7Char.html#a82123a0b752138a8484cfeb435af9119a006277a9d76992edad1db11993c3bf99',1,'FF7Char']]],
+  ['sephiroth',['Sephiroth',['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a006277a9d76992edad1db11993c3bf99',1,'FF7Char']]],
   ['seraphcomb',['SeraphComb',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a5cd4708a4ddfcab5285e5a385d443d6e',1,'FF7Item']]],
   ['sexycologne',['SEXYCOLOGNE',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95a206634647743894e4e2189b32bcef876',1,'FF7Save']]],
   ['shield',['Shield',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a4a245fe709586172b9f6e570f689ae97',1,'FF7Materia']]],
