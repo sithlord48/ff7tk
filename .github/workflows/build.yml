@@ -68,7 +68,15 @@ jobs:
 
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - run: |
+        git tag -d continuous
+        git checkout -b buildBranch
+        git merge --squash buildBranch
+        git log --oneline
+        git describe
 
     - name: Cache Qt
       id: cache-qt
@@ -174,7 +182,7 @@ jobs:
         tar -zcvf build/${{ matrix.config.releasePackage}} ${{matrix.config.packageName}}
 
     - name: Deploy Pages
-      if: runner.os == 'Linux' && github.ref == 'refs/heads/master' && matrix.config.QT_VERSION == '5.15.2'
+      if: runner.os == 'Linux' && github.ref == 'refs --prune  --tags/heads/master' && matrix.config.QT_VERSION == '5.15.2'
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
        branch: gh-pages
@@ -211,8 +219,10 @@ jobs:
           }
 
     steps:
-      - uses: actions/checkout@v2.1.0
-        
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: git fetch
       - uses: uraimo/run-on-arch-action@v2.1.1
         name: Build artifact
         id: build
