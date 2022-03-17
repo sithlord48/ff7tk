@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
-project(ff7tk VERSION 0.81.00 DESCRIPTION "Work with Final Fantasy 7 game data")
+#Version will be written by tag v1.2.2-4
+project(ff7tk VERSION 0.81.0.0 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 #Prevent In-sourcebuild
 if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
@@ -42,16 +43,36 @@ IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
   FIND_PACKAGE(Git)
   IF(GIT_FOUND)
     EXECUTE_PROCESS(
-      COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+      COMMAND ${GIT_EXECUTABLE} describe --long --match v*
       WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-      OUTPUT_VARIABLE "GIT_VERSION"
+      OUTPUT_VARIABLE GITREV
       ERROR_QUIET
       OUTPUT_STRIP_TRAILING_WHITESPACE)
-    MESSAGE( STATUS "Git Commit: ${GIT_VERSION}" )
-    add_definitions( -DGIT_VERSION="${GIT_VERSION}")
+      string(REGEX MATCH [0-9]+ MAJOR ${GITREV})
+      string(REGEX MATCH \\.[0-9]+ MINOR ${GITREV})
+      string(REPLACE "." "" MINOR ${MINOR})
+      string(REGEX MATCH [0-9]+\- PATCH ${GITREV})
+      string(REPLACE "-" "" PATCH ${PATCH})
+      string(REGEX MATCH \-[0-9]+\- TWEAK ${GITREV})
+      string(REPLACE "-" "" TWEAK ${TWEAK})
+      set(CMAKE_PROJECT_VERSION_MAJOR ${MAJOR})
+      set(CMAKE_PROJECT_VERSION_MINOR ${MINOR})
+      set(CMAKE_PROJECT_VERSION_PATCH ${PATCH})
+      set(CMAKE_PROJECT_VERSION_TWEAK ${TWEAK})
+      set(CMAKE_PROJECT_VERSION "${MAJOR}.${MINOR}.${PATCH}.${TWEAK}")
   ENDIF(GIT_FOUND)
   ELSE()
 ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
+
+#SET FF7TK_VERSION Used for user facing strings and package version string
+set(FF7TK_VERSION "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}")
+if(NOT CMAKE_PROJECT_VERSION_MAJOR EQUAL 0)
+    string(APPEND FF7TK_VERSION ".${CMAKE_PROJECT_VERSION_PATCH}")
+endif()
+if(NOT CMAKE_PROJECT_VERSION_TWEAK EQUAL 0)
+    string(APPEND FF7TK_VERSION "-${CMAKE_PROJECT_VERSION_TWEAK}")
+endif()
+MESSAGE(STATUS "Building FF7TK: ${FF7TK_VERSION}")
 
 #Qt Info to get deploy app
 find_package(Qt${QT_DEFAULT_MAJOR_VERSION} REQUIRED COMPONENTS Core)

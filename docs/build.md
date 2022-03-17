@@ -69,7 +69,11 @@ For QMake you can use the pkgconfig provided by the system
 `PKGCONFIG += ff7tk`
 
 ## ff7tk version info
- include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version()
+ ff7tk Versions are based on its git info. Failing this the project version is updated on every release.
+ include the file ff7tkAbout.h and use the function(s)
+  - ff7tk_version() To get version info in to form of Major.minor.patch.tweak (Qt<QtMajorVersion>)
+   -- If patch or rev are empty they are excluded from the version number
+   -- tweak is Number of commits since the last tag
 ### ff7tk version compatibility
  ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.
 

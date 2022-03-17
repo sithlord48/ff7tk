@@ -2,7 +2,7 @@ name: Release Builder
 on:
   push:
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v*'
 
 jobs:
   main_build:
@@ -60,9 +60,11 @@ jobs:
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
           }
 
-
     steps:
-    - uses: actions/checkout@v2.1.0
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - run: git fetch
 
     - name: Cache Qt
       id: cache-qt
@@ -158,6 +160,11 @@ jobs:
            , arch: aarch64, distro: archarm_latest
           }
         - {
+           name: "Linux-Qt6-armv7"
+           , qt: 6, qtString: "Qt6", cmakeExtraConfig: "-DQT_DEFAULT_MAJOR_VERSION=6 -DDOCS=OFF"
+           , arch: armv7, distro: archarm_latest
+          }
+        - {
            name: "Linux-Qt5-aarch64"
            , qt: 5, qtString: "Qt5", cmakeExtraConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
            , arch: aarch64, distro: bullseye
@@ -169,8 +176,9 @@ jobs:
           }
 
     steps:
-      - uses: actions/checkout@v2.1.0
-
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: uraimo/run-on-arch-action@v2.1.1
         name: Build artifact
         id: build

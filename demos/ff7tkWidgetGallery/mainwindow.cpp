@@ -29,7 +29,7 @@
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1-%2").arg(ff7tk_version().append(ff7tk_revision()), ff7tk_qt_version()));
+    setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tk_version()));
     hideAllBoxes();
     QScreen *screen = QGuiApplication::screens().at(0);
     screen->logicalDotsPerInchX();

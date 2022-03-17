@@ -5,24 +5,7 @@
  * @return: Version of ff7tk
 */
 QString ff7tk_version() {
-    return QStringLiteral("@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@");
-}
-
-/**
- * @brief Get the checked out revision of the ff7tk in use
- * @return: Revision of ff7tk if build from checked out Git repo
-*/
-QString ff7tk_revision() {
-    QString revision = QStringLiteral("@GIT_VERSION@");
-    if(!QString("@GIT_VERSION@").isEmpty())
-        revision.prepend(QStringLiteral("."));
-    return revision;
-}
-
-/**
- * @brief Get the major version of Qt that was used to build ff7tk
- * @return: Qt5 or Qt6 depending on what library was used to build ff7tk
-*/
-QString ff7tk_qt_version() {
-    return QStringLiteral("Qt@QT_DEFAULT_MAJOR_VERSION@");
+    QString version = QStringLiteral("@FF7TK_VERSION@");
+    version.append(QStringLiteral(" (Qt@QT_DEFAULT_MAJOR_VERSION@)"));
+    return version;
 }
