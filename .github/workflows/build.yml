@@ -1,5 +1,4 @@
 name: CI/CD
-
 on:
   push:
     branches: [ master ]
@@ -12,7 +11,8 @@ jobs:
     runs-on: ${{ matrix.config.os }}
     env:
       BUILD_TYPE: RelWithDebInfo
-      Qt_Tools: tools_ifw
+      Qt_Tools: 'desktop,tools_ifw,qt.tools.ifw.43'
+      Qt_Tools_Key: "ifw_43"
     strategy:
       fail-fast: false
       matrix:
@@ -20,7 +20,7 @@ jobs:
         - {
            name: "Linux-Qt5-amd64"
            , os: ubuntu-18.04
-           , QT_VERSION: 5.15.2, QT_INST_DIR: /opt
+           , QT_VERSION: 5.15.2, QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.3"
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
            , packageName: ff7tk-continuous-Qt5-Linux
            , releasePackage: "ff7tk-continuous-Qt5-Linux.tar.xz"
@@ -28,41 +28,40 @@ jobs:
         - {
            name: "Linux-Qt6-amd64"
            , os: ubuntu-20.04
-           , QT_VERSION: 6.2.3, QT_INST_DIR: /opt, QT_MODULES: qt5compat
+           , QT_VERSION: 6.2.4, QT_INST_DIR: /opt, QT_MODULES: qt5compat, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.3"
            , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
            , packageName: ff7tk-continuous-Qt6-Linux
-           , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.3/gcc_64/libexec"
+           , linuxDeployQtPath: "export PATH=$PATH:/opt/Qt/6.2.4/gcc_64/libexec"
            , releasePackage: "ff7tk-continuous-Qt6-Linux.tar.xz"
           }
         - {
             name: "MacOS-Qt5-amd64"
             , os: macos-10.15
-            , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner
+            , QT_VERSION: 5.15.2, QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.3"
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=5"
           }
         - {
             name: "MacOS-Qt6-amd64"
             , os: macos-10.15
-            , QT_VERSION: 6.2.3, QT_INST_DIR: /Users/runner, QT_MODULES: qt5compat
+            , QT_VERSION: 6.2.4, QT_INST_DIR: /Users/runner, QT_MODULES: qt5compat, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.3"
             , extraCmakeConfig: "-DQT_DEFAULT_MAJOR_VERSION=6"
           }
         - {
             name: "Windows-Qt5-x64", WIN_ARCH: "x64"
             , os: windows-2019
-            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64
-            , install_depends: "choco install ninja doxygen.install graphviz --ignore-checksums"
+            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64, Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.3"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
           }
         - {
             name: "Windows-Qt6-x64", WIN_ARCH: "x64"
             , os: windows-2019
-            , QT_VERSION: 6.2.3, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat
+            , QT_VERSION: 6.2.4, QT_INST_DIR: "C:/", QT_ARCH: win64_msvc2019_64, QT_MODULES: qt5compat, Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.3"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=6"
           }
         - {
             name: "Windows-Qt5-x86"
             , os: windows-2019, WIN_ARCH: "amd64_x86"
-            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win32_msvc2019
+            , QT_VERSION: 5.15.2, QT_INST_DIR: "C:/", QT_ARCH: win32_msvc2019, Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.3"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja -DQT_DEFAULT_MAJOR_VERSION=5"
           }
 
@@ -76,7 +75,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{matrix.config.QT_INST_DIR}}/Qt
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ matrix.config.QT_VERSION }}-${{ env.Qt_Tools }}
+        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ matrix.config.QT_VERSION }}-${{ env.Qt_Tools_Key }}
 
     - name: Cache Zlib
       id: cache-zlib
@@ -127,7 +126,7 @@ jobs:
        version: ${{ matrix.config.QT_VERSION }}
        modules: ${{ matrix.config.QT_MODULES }}
        cached: ${{ steps.cache-qt.outputs.cache-hit }}
-       tools: 'desktop,tools_ifw,qt.tools.ifw.42'
+       tools: ${{env.Qt_Tools}}
 
     - name: Install Zlib (Windows)
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
@@ -142,7 +141,7 @@ jobs:
     - name: Build ff7tk
       id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_DEMOS=ON -DCPACK_PACKAGE_VERSION=continuous ${{matrix.config.extraCmakeConfig}}
+        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_DEMOS=ON -DCPACK_PACKAGE_VERSION=continuous -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BUILD_TYPE}} --target package
 
     - name: Deployment (Linux)
