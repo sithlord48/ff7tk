@@ -1,2 +1,4 @@
 <map id="CharEditor" name="CharEditor">
+<area shape="rect" id="node1" title="Widget to allow editing of a character using FF7Char for data." alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="11,5,90,32"/>
 </map>

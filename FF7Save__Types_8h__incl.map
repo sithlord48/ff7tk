@@ -1,5 +1,8 @@
 <map id="src/data/FF7Save_Types.h" name="src/data/FF7Save_Types.h">
-<area shape="rect" id="node4" href="$Type__FF7CHAR_8h.html" title="Type_FF7CHAR.h" alt="" coords="154,80,285,107"/>
-<area shape="rect" id="node6" href="$Type__FF7CHOCOBO_8h.html" title="Type_FF7CHOCOBO.h" alt="" coords="352,155,511,181"/>
-<area shape="rect" id="node5" href="$Type__materia_8h.html" title="Type_materia.h" alt="" coords="205,155,327,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="73,5,264,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,79,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="160,229,273,256"/>
+<area shape="rect" id="node4" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="155,80,287,107"/>
+<area shape="rect" id="node6" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="351,155,514,181"/>
+<area shape="rect" id="node5" href="$Type__materia_8h.html" title=" " alt="" coords="205,155,327,181"/>
 </map>

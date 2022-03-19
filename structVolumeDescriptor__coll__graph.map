@@ -1,7 +1,8 @@
 <map id="VolumeDescriptor" name="VolumeDescriptor">
-<area shape="rect" id="node2" href="$structVolumeDescriptor1.html" title="VolumeDescriptor1" alt="" coords="5,139,152,165"/>
-<area shape="rect" id="node3" href="$structVolumeDescriptor2.html" title="VolumeDescriptor2" alt="" coords="176,139,323,165"/>
-<area shape="rect" id="node4" href="$structIsoTime.html" title="IsoTime" alt="" coords="212,5,287,32"/>
-<area shape="rect" id="node5" href="$structDirectoryRecord.html" title="DirectoryRecord" alt="" coords="347,139,474,165"/>
-<area shape="rect" id="node6" href="$structDirectoryRecordHead.html" title="DirectoryRecordHead" alt="" coords="331,5,491,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="180,228,319,255"/>
+<area shape="rect" id="node2" href="$structVolumeDescriptor1.html" title=" " alt="" coords="5,139,152,165"/>
+<area shape="rect" id="node3" href="$structVolumeDescriptor2.html" title=" " alt="" coords="176,139,323,165"/>
+<area shape="rect" id="node4" href="$structIsoTime.html" title=" " alt="" coords="212,5,287,32"/>
+<area shape="rect" id="node5" href="$structDirectoryRecord.html" title=" " alt="" coords="347,139,474,165"/>
+<area shape="rect" id="node6" href="$structDirectoryRecordHead.html" title=" " alt="" coords="330,5,491,32"/>
 </map>

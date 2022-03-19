@@ -1,11 +1,12 @@
 <map id="src/data/Type_FF7CHAR.h" name="src/data/Type_FF7CHAR.h">
-<area shape="rect" id="node2" href="$FF7Char_8h.html" title="src/data/FF7Char.h" alt="" coords="543,80,684,107"/>
-<area shape="rect" id="node7" href="$FF7Save__Types_8h.html" title="src/data/FF7Save_Types.h" alt="" coords="309,80,497,107"/>
-<area shape="rect" id="node10" href="$CharEditor_8h.html" title="src/widgets/CharEditor.h" alt="" coords="727,80,905,107"/>
-<area shape="rect" id="node3" href="$FF7Char_8cpp.html" title="src/data/FF7Char.cpp" alt="" coords="558,155,714,181"/>
-<area shape="rect" id="node4" href="$FF7Save_8cpp.html" title="src/data/FF7Save.cpp" alt="" coords="481,229,639,256"/>
-<area shape="rect" id="node5" href="$CharEditor_8cpp.html" title="src/widgets/CharEditor.cpp" alt="" coords="739,155,933,181"/>
-<area shape="rect" id="node6" href="$SlotSelect_8cpp.html" title="src/widgets/SlotSelect.cpp" alt="" coords="264,229,456,256"/>
-<area shape="rect" id="node8" href="$FF7Save_8h.html" title="src/data/FF7Save.h" alt="" coords="288,155,432,181"/>
-<area shape="rect" id="node9" href="$MetadataCreator_8cpp.html" title="src/widgets/MetadataCreator.cpp" alt="" coords="5,229,240,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="524,5,712,32"/>
+<area shape="rect" id="node2" href="$FF7Char_8h.html" title=" " alt="" coords="547,80,689,107"/>
+<area shape="rect" id="node7" href="$FF7Save__Types_8h.html" title=" " alt="" coords="311,80,501,107"/>
+<area shape="rect" id="node10" href="$CharEditor_8h.html" title=" " alt="" coords="733,80,911,107"/>
+<area shape="rect" id="node3" href="$FF7Char_8cpp.html" title=" " alt="" coords="561,155,720,181"/>
+<area shape="rect" id="node4" href="$FF7Save_8cpp.html" title=" " alt="" coords="483,229,644,256"/>
+<area shape="rect" id="node5" href="$CharEditor_8cpp.html" title=" " alt="" coords="745,155,939,181"/>
+<area shape="rect" id="node6" href="$SlotSelect_8cpp.html" title=" " alt="" coords="266,229,458,256"/>
+<area shape="rect" id="node8" href="$FF7Save_8h.html" title=" " alt="" coords="289,155,435,181"/>
+<area shape="rect" id="node9" href="$MetadataCreator_8cpp.html" title=" " alt="" coords="5,229,241,256"/>
 </map>

@@ -1,11 +1,12 @@
 <map id="src/data/Type_FF7CHOCOBO.h" name="src/data/Type_FF7CHOCOBO.h">
-<area shape="rect" id="node2" href="$FF7Save__Types_8h.html" title="src/data/FF7Save_Types.h" alt="" coords="219,80,407,107"/>
-<area shape="rect" id="node7" href="$ChocoboEditor_8h.html" title="src/widgets/ChocoboEditor.h" alt="" coords="434,80,639,107"/>
-<area shape="rect" id="node3" href="$FF7Save_8h.html" title="src/data/FF7Save.h" alt="" coords="235,155,379,181"/>
-<area shape="rect" id="node4" href="$FF7Save_8cpp.html" title="src/data/FF7Save.cpp" alt="" coords="5,229,164,256"/>
-<area shape="rect" id="node5" href="$MetadataCreator_8cpp.html" title="src/widgets/MetadataCreator.cpp" alt="" coords="189,229,423,256"/>
-<area shape="rect" id="node6" href="$SlotSelect_8cpp.html" title="src/widgets/SlotSelect.cpp" alt="" coords="447,229,639,256"/>
-<area shape="rect" id="node8" href="$ChocoboEditor_8cpp.html" title="src/widgets/ChocoboEditor.cpp" alt="" coords="427,155,647,181"/>
-<area shape="rect" id="node9" href="$ChocoboManager_8h.html" title="src/widgets/ChocoboManager.h" alt="" coords="671,155,893,181"/>
-<area shape="rect" id="node10" href="$ChocoboManager_8cpp.html" title="src/widgets/ChocoboManager.cpp" alt="" coords="664,229,903,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="315,5,534,32"/>
+<area shape="rect" id="node2" href="$FF7Save__Types_8h.html" title=" " alt="" coords="219,80,409,107"/>
+<area shape="rect" id="node7" href="$ChocoboEditor_8h.html" title=" " alt="" coords="437,80,642,107"/>
+<area shape="rect" id="node3" href="$FF7Save_8h.html" title=" " alt="" coords="237,155,383,181"/>
+<area shape="rect" id="node4" href="$FF7Save_8cpp.html" title=" " alt="" coords="5,229,167,256"/>
+<area shape="rect" id="node5" href="$MetadataCreator_8cpp.html" title=" " alt="" coords="191,229,427,256"/>
+<area shape="rect" id="node6" href="$SlotSelect_8cpp.html" title=" " alt="" coords="451,229,643,256"/>
+<area shape="rect" id="node8" href="$ChocoboEditor_8cpp.html" title=" " alt="" coords="429,155,649,181"/>
+<area shape="rect" id="node9" href="$ChocoboManager_8h.html" title=" " alt="" coords="674,155,898,181"/>
+<area shape="rect" id="node10" href="$ChocoboManager_8cpp.html" title=" " alt="" coords="668,229,907,256"/>
 </map>

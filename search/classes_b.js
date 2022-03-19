@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['saveicon',['SaveIcon',['../classSaveIcon.html',1,'']]],
-  ['slotpreview',['SlotPreview',['../classSlotPreview.html',1,'']]],
-  ['slotselect',['SlotSelect',['../classSlotSelect.html',1,'']]]
+  ['saveicon_1880',['SaveIcon',['../classSaveIcon.html',1,'']]],
+  ['slotpreview_1881',['SlotPreview',['../classSlotPreview.html',1,'']]],
+  ['slotselect_1882',['SlotSelect',['../classSlotSelect.html',1,'']]]
 ];
