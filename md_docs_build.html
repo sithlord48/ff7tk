@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.81.00</span>
+   &#160;<span id="projectnumber">0.81.0.0</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -122,7 +122,10 @@ $(function() {
 <p><code>ff7tkWidgets</code> link with <code>ff7tk::ff7tkWidgets</code></p>
 <p>For QMake you can use the pkgconfig provided by the system <code>config +=link_pkgconfig</code> <code>PKGCONFIG += ff7tk</code></p>
 <h2>ff7tk version info</h2>
-<p>include the file ff7tkAbout.h and use the function(s) ff7tk_version(), ff7tk_revision() or ff7tk_qt_version() </p><h3>ff7tk version compatibility</h3>
+<p>ff7tk Versions are based on its git info. Failing this the project version is updated on every release. include the file ff7tkAbout.h and use the function(s)</p><ul>
+<li>ff7tk_version() To get version info in to form of Major.minor.patch.tweak (Qt&lt;QtMajorVersion&gt;) &ndash; If patch or rev are empty they are excluded from the version number &ndash; tweak is Number of commits since the last tag <h3>ff7tk version compatibility</h3>
+</li>
+</ul>
 <p>ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.</p>
 <h2>Translations</h2>
 <p>In addition to ff7tk's language files your application should also ship the qt_base_&lt;lang&gt;.qm these are required to translate strings from inside Qt libraries.</p>
