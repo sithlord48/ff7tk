@@ -28,7 +28,7 @@
  */
 PACK(
 struct FF7TK_EXPORT FF7CHAR {
-    quint8 id;              /**< [0x0000] Character id (used by Sephiroth/Vincent slot)*/
+    quint8 id = 0XFF;       /**< [0x0000] Character id (used by Sephiroth/Vincent slot)*/
     quint8 level;           /**< [0x0001] Level (0-99)*/
     quint8 strength;        /**< [0x0002] Strength Stat (0-255)*/
     quint8 vitality;        /**< [0x0003] Vitality Stat(0-255)*/

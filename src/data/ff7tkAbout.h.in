@@ -5,7 +5,5 @@
  * @return: Version of ff7tk
 */
 QString ff7tk_version() {
-    QString version = QStringLiteral("@FF7TK_VERSION@");
-    version.append(QStringLiteral(" (Qt@QT_DEFAULT_MAJOR_VERSION@)"));
-    return version;
+    return QStringLiteral("@FF7TK_VERSION@");
 }
