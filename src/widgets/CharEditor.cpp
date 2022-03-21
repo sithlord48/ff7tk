@@ -355,6 +355,7 @@ void CharEditor::updateText()
         comboId->setSizePolicy(sbSizePolicy);
         comboId->setIconSize(iconSize);
         comboId->setHidden(true);
+        comboId->setMaxVisibleItems(12);
         for (int i = 0; i <= FF7Char::totalCharacters(); i++)
             comboId->addItem(FF7Char::icon(i), FF7Char::defaultName(i));
     } else {
@@ -1031,6 +1032,9 @@ void CharEditor::Level_Changed(int level)
 void CharEditor::setChar(const FF7CHAR &Chardata, const QString &Processed_Name)
 {
     disconnectAll();// remove all connections. safer signal blocking!
+    if(data.id != Chardata.id)
+        materiaSlotClicked(-1);
+
     data = Chardata;
     _name = Processed_Name;
     //more here like setting the gui stuff.
