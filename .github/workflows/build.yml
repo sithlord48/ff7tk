@@ -6,9 +6,9 @@ on:
     branches: [ master ]
 
 env:
-  QtVersion: 6.2.4
+  QtVersion: 6.3.0
   QtTools: 'desktop,tools_ifw,qt.tools.ifw.43'
-  QtKey: "6.2.4-ifw_43"
+  QtKey: "6.3.0-ifw_43"
   BuildType: RelWithDebInfo
   ff7tkVersion: continuous
 
@@ -117,6 +117,7 @@ jobs:
     - name: Deployment (Linux)
       if: runner.os == 'Linux'
       run: |
+        sudo tar -xf build/ff7tk-*.tar.gz --one-top-level=/usr --exclude COPYING.TXT
         mkdir -p ${{matrix.config.packageName}}/usr ff7tk
         tar -xf build/ff7tk-*.tar.gz -C ${{matrix.config.packageName}}/usr
         cp -r ${{matrix.config.packageName}}/* ff7tk/
@@ -128,7 +129,6 @@ jobs:
         export VERSION=${{env.ff7tkVersion}}
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{matrix.config.packageName}}/usr/lib
         export PATH=$PATH:${{matrix.config.QT_INST_DIR}}/Qt/${{ env.QtVersion }}/gcc_64/libexec
-        ${{matrix.config.linuxDeployQtPath}}
         ./linuxdeploy-x86_64.AppImage --appdir=widgetGallery --plugin=qt --output appimage \
             -e ${{matrix.config.packageName}}/usr/bin/ff7tkWidgetGallery \
             -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkWidgetGallery.desktop \

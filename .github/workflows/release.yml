@@ -4,9 +4,9 @@ on:
     tags:
       - 'v*'
 env:
-  QtVersion: 6.2.4
+  QtVersion: 6.3.0
   QtTools: 'desktop,tools_ifw,qt.tools.ifw.43'
-  QtKey: "6.2.4-ifw_43"
+  QtKey: "6.3.0-ifw_43"
   BuildType: RelWithDebInfo
 
 jobs:
