@@ -21,11 +21,13 @@ jobs:
            name: "Linux-amd64"
            , os: ubuntu-20.04
            , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.3"
+           , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib"
           }
         - {
             name: "MacOS-amd64"
             , os: macos-10.15
             , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.3"
+            , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
           }
         - {
             name: "Windows-x64"
