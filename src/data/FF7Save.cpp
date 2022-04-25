@@ -49,10 +49,16 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
     auto file_size = file.size();
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~Set File Type Vars ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     //decide the file type
-    if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PC)) && (file.peek(25).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PC))) && file.fileName().endsWith(QStringLiteral("ff7")))
-        return FF7SaveInfo::FORMAT::PC;
-    if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::SWITCH)) && (file.peek(25).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::SWITCH))) && file.fileName().startsWith(QStringLiteral("ff7")))
-        return FF7SaveInfo::FORMAT::SWITCH;
+    if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PC)) && (file.peek(25).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PC)))) {
+        qDebug() << file.fileName();
+        if(file.fileName().endsWith(QStringLiteral("ff7")))
+            return FF7SaveInfo::FORMAT::PC;
+        else if(file.fileName().contains(QStringLiteral("ff7slot")))
+            return FF7SaveInfo::FORMAT::SWITCH;
+        else {
+
+        }
+    }
     if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::VMC)) && (file.peek(25).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::VMC))))
         return FF7SaveInfo::FORMAT::VMC;
     if (((FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PS3) - FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PS3)) % FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX) == 0) && (file.peek(25)).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PS3)))

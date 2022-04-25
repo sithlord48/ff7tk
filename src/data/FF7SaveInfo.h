@@ -283,7 +283,7 @@ private:
         inline static const int SWITCH_FILE_HEADER_SIZE = PC_FILE_HEADER_SIZE;
         inline static const QString SWITCH_FILE_DESCRIPTION = QT_TR_NOOP("Switch Save File");
         inline static const QStringList SWITCH_VALID_EXTENSIONS {QStringLiteral("ff7slot*")};
-        inline static const QRegularExpression SWITCH_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("ff7slot[0-9]"));
+        inline static const QRegularExpression SWITCH_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("ff7slot0[0-9]"));
         inline static const QByteArray SWITCH_FILE_ID = PC_FILE_ID;
         /*~~~~~~~~~~~~~~~~~~ Psx save file ~~~~~~~~~~~~~~~~*/
         inline static const int PSX_FILE_SIZE = 0x2000;
