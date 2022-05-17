@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2022 Chris Rizzitello <sithlord48@gmail.com>                //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -14,44 +14,26 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #pragma once
+#include <QStyledItemDelegate>
+#include <ff7tkwidgets_export.h>
 
-#include <QTableWidget>
-#include <QEvent>
-
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
-
-class ItemPreview;
-class ItemSelector;
-
-class FF7TKWIDGETS_DEPRECATED_EXPORT ItemList : public QTableWidget
+class FF7TKWIDGETS_EXPORT ItemSelectionDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ItemList(QWidget *parent = nullptr);
+    ItemSelectionDelegate(QObject * parent = nullptr);
+    QWidget *createEditor (QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index = QModelIndex()) const override;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void setMaximumQty(int maxQty);
+    void setEditableItemCombo(bool editable);
 protected:
-    bool eventFilter(QObject *, QEvent *);
-    void changeEvent(QEvent *e);
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 signals:
-    void itemsChanged(QList<quint16> items);
-public slots:
-    void setItems(const QList<quint16> &items);
-    void setMaximumItemQty(int maxQty);
-    void setEditableItemCombo(bool);
-private slots:
-    void listSelectionChanged(int row, int colum, int prevRow, int prevColum);
-    void itemSelector_changed(quint16);
+    void commitData(QWidget *editor) const;
 private:
-    void itemupdate();
-    void updateItem(int row);
-    void destroyTooltip();
-    void destroySelector();
-    ItemSelector *itemSelector = nullptr;
-    ItemPreview *itemPreview = nullptr;
-    QList<quint16> itemlist;
-    int itemQtyLimit;
-    bool createdSelector;
-    bool createdTooltip;
-    bool editableItemCombo = false;
+    int m_maxQty = 127;
+    bool m_editableItemCombo = false;
 };
+

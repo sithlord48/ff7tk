@@ -20,7 +20,6 @@
 
 #include <MateriaEditor.h>
 #include <CharEditor.h>
-#include <ItemList.h>
 #include <MetadataCreator.h>
 #include <SlotSelect.h>
 #include <PhsListWidget.h>
@@ -29,7 +28,7 @@
 #include <LocationViewer.h>
 #include <ChocoboManager.h>
 #include <AchievementEditor.h>
-
+#include <ItemListView.h>
 #include <Lgp.h>
 
 namespace Ui
@@ -62,16 +61,17 @@ private slots:
     void on_checkBox_2_toggled(bool checked);
     void on_checkBox_3_clicked(bool checked);
     void on_cbEditableMateriaCombos_clicked(bool checked);
-    void on_checkBox_4_clicked(bool checked);
 
     void on_comboRegion_currentIndexChanged(const QString &arg1);
+
+    void on_cb_itemSelectionDeleageEditable_toggled(bool checked);
+    void on_sb_itemListViewMaxQty_editingFinished();
 
 private:
 
     Ui::MainWindow *ui = nullptr;
     MateriaEditor *materia_editor = nullptr;
     CharEditor *char_editor = nullptr;
-    ItemList *item_list = nullptr;
     MetadataCreator *metadataCreator = nullptr;
     PhsListWidget *ListPHS = nullptr;
     MenuListWidget *ListMenu = nullptr;
@@ -80,4 +80,5 @@ private:
     OptionsWidget *optionsWidget = nullptr;
     ChocoboManager *chocoboManager = nullptr;
     AchievementEditor *achievementEditor = nullptr;
+    ItemListView *itemlistView = nullptr;
 };

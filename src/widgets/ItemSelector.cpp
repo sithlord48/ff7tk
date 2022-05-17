@@ -43,6 +43,7 @@ void ItemSelector::init_display()
     sb_qty->setAlignment(Qt::AlignLeft);
     sb_qty->setMinimum(1);
     sb_qty->setMaximum(127);
+    sb_qty->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWWW")) + 3);
     sb_qty->setToolTip("");
     sb_qty->setWrapping(true);
 
@@ -277,6 +278,11 @@ void ItemSelector::setFixedHeight(int h)
 void ItemSelector::setFixedWidth(int w)
 {
     QWidget::setFixedWidth(w);
+}
+
+quint16 ItemSelector::currentItem()
+{
+    return current_item;
 }
 
 void ItemSelector::setEditableItemCombo(bool editable)

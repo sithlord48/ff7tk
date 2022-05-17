@@ -3959,6 +3959,25 @@ The km/h speeds are calculated while playing </source>
     </message>
 </context>
 <context>
+    <name>FF7ItemModel</name>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Rodzaj</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nazwa</translation>
+    </message>
+    <message>
+        <source>Qty</source>
+        <translation type="unfinished">Ilość</translation>
+    </message>
+    <message>
+        <source>-------EMPTY--------</source>
+        <translation type="unfinished">-------PUSTY--------</translation>
+    </message>
+</context>
+<context>
     <name>FF7Location</name>
     <message>
         <source>Cloud&apos;s Past</source>
@@ -6852,17 +6871,6 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Known FF7 Save Types (%1)</source>
         <translation>Znane Typy Plików FF7 (%1)</translation>
-    </message>
-</context>
-<context>
-    <name>ItemList</name>
-    <message>
-        <source>-------EMPTY--------</source>
-        <translation>-------PUSTY--------</translation>
-    </message>
-    <message>
-        <source>-------BAD ID-------</source>
-        <translation>-------ZŁE ID--------</translation>
     </message>
 </context>
 <context>

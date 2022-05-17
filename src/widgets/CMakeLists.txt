@@ -15,8 +15,10 @@ set ( ff7tkWidgets_SRC
     DialogPreview.cpp
     DoubleCheckBox.cpp
     ItemList.cpp
+    ItemListView.cpp
     ItemPreview.cpp
     ItemSelector.cpp
+    ItemSelectionDelegate.cpp
     LocationViewer.cpp
     MateriaEditor.cpp
     MenuListWidget.cpp
@@ -32,11 +34,13 @@ set (ff7tkWidgets_HEADERS
     ChocoboLabel.h
     DoubleCheckBox.h
     ItemSelector.h
+    ItemSelectionDelegate.h
     MenuListWidget.h
     PhsListWidget.h
     CharEditor.h
     ChocoboManager.h
     ItemList.h
+    ItemListView.h
     LocationViewer.h
     MetadataCreator.h
     SlotPreview.h

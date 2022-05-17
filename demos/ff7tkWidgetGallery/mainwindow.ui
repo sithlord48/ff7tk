@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>178</width>
-    <height>46</height>
+    <width>175</width>
+    <height>32</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -40,7 +40,7 @@
       </item>
       <item>
        <property name="text">
-        <string>ItemList</string>
+        <string>ItemListView</string>
        </property>
       </item>
       <item>
@@ -88,29 +88,6 @@
         <string>AchievementEditor</string>
        </property>
       </item>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="item_list_box">
-      <property name="title">
-       <string/>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_11">
-       <item>
-        <widget class="QCheckBox" name="checkBox_4">
-         <property name="text">
-          <string>Editable Item Combo</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="itemList_box">
-         <property name="title">
-          <string>GroupBox</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
     <item>
@@ -522,6 +499,81 @@
         <widget class="QPushButton" name="btn_saveAchievement">
          <property name="text">
           <string>Save File</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="itemListView_Group" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>0</width>
+        <height>53</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_15">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QCheckBox" name="cb_itemSelectionDeleageEditable">
+           <property name="text">
+            <string>Editable Combos</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Max Qty</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="sb_itemListViewMaxQty">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximum">
+            <number>127</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="itemListView_Box">
+         <property name="title">
+          <string>ItemListView</string>
          </property>
         </widget>
        </item>
