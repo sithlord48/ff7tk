@@ -93,6 +93,19 @@ public:
     };
     Q_ENUM(ItemId)
 
+    /*!
+     * \brief The FF7ItemRoles enum
+     * Custom Roles for FF7Item Based Models.
+     */
+    enum FF7ItemRoles {
+        ItemNameRole = Qt::UserRole + 1
+        , ItemTypeRole
+        , ItemQtyRole
+        , ChangeMaxQtyRole
+    };
+    Q_ENUM(FF7ItemRoles)
+
+
     /**
      * @brief Get the FF7Item Instance.
      * @sa qmlSingletonRegister()

@@ -3960,6 +3960,25 @@ The km/h speeds are calculated while playing </translation>
     </message>
 </context>
 <context>
+    <name>FF7ItemModel</name>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>Qty</source>
+        <translation>Qty</translation>
+    </message>
+    <message>
+        <source>-------EMPTY--------</source>
+        <translation>-------EMPTY--------</translation>
+    </message>
+</context>
+<context>
     <name>FF7Location</name>
     <message>
         <source>Midgar Area</source>
@@ -6853,17 +6872,6 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>XP AR GS Caetla SmartLink Dantel</source>
         <translation>XP AR GS Caetla SmartLink Dantel</translation>
-    </message>
-</context>
-<context>
-    <name>ItemList</name>
-    <message>
-        <source>-------EMPTY--------</source>
-        <translation>-------EMPTY--------</translation>
-    </message>
-    <message>
-        <source>-------BAD ID-------</source>
-        <translation>-------BAD ID-------</translation>
     </message>
 </context>
 <context>

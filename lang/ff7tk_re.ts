@@ -3960,6 +3960,25 @@ The km/h speeds are calculated while playing </translation>
     </message>
 </context>
 <context>
+    <name>FF7ItemModel</name>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Type</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <source>Qty</source>
+        <translation type="unfinished">Qty</translation>
+    </message>
+    <message>
+        <source>-------EMPTY--------</source>
+        <translation type="unfinished">-------EMPTY--------</translation>
+    </message>
+</context>
+<context>
     <name>FF7Location</name>
     <message>
         <source>Midgar Area</source>
@@ -6853,17 +6872,6 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Known FF7 Save Types (%1)</source>
         <translation>Known FF7 Save Types (%1)</translation>
-    </message>
-</context>
-<context>
-    <name>ItemList</name>
-    <message>
-        <source>-------EMPTY--------</source>
-        <translation>-------EMPTY--------</translation>
-    </message>
-    <message>
-        <source>-------BAD ID-------</source>
-        <translation>-------BAD ID-------</translation>
     </message>
 </context>
 <context>

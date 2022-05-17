@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2022 Chris Rizzitello <sithlord48@gmail.com>                //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -15,43 +15,24 @@
 /****************************************************************************/
 #pragma once
 
-#include <QTableWidget>
-#include <QEvent>
-
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
-
+#include <QTableView>
+#include <ff7tkwidgets_export.h>
+#include <ItemSelector.h>
 class ItemPreview;
-class ItemSelector;
-
-class FF7TKWIDGETS_DEPRECATED_EXPORT ItemList : public QTableWidget
+class FF7TKWIDGETS_EXPORT ItemListView : public QTableView
 {
-    Q_OBJECT
 public:
-    explicit ItemList(QWidget *parent = nullptr);
-protected:
-    bool eventFilter(QObject *, QEvent *);
-    void changeEvent(QEvent *e);
-signals:
-    void itemsChanged(QList<quint16> items);
-public slots:
-    void setItems(const QList<quint16> &items);
-    void setMaximumItemQty(int maxQty);
-    void setEditableItemCombo(bool);
-private slots:
-    void listSelectionChanged(int row, int colum, int prevRow, int prevColum);
-    void itemSelector_changed(quint16);
-private:
-    void itemupdate();
-    void updateItem(int row);
+    explicit ItemListView(QWidget *parent = nullptr);
+    void setMaximumItemQty(int itemQtyLimit);
+    int maximumItemQty() {return m_itemQtyLimit;}
+    void setEditableItemCombo(bool editable);
+    bool editableItemCombo() {return m_editableItemCombo;}
+    void setModel(QAbstractItemModel* model);
+    bool viewportEvent(QEvent *event);
     void destroyTooltip();
-    void destroySelector();
-    ItemSelector *itemSelector = nullptr;
+private:
+    int m_itemQtyLimit = 127;
+    bool m_editableItemCombo = false;
+    bool m_createdTooltip = false;
     ItemPreview *itemPreview = nullptr;
-    QList<quint16> itemlist;
-    int itemQtyLimit;
-    bool createdSelector;
-    bool createdTooltip;
-    bool editableItemCombo = false;
 };

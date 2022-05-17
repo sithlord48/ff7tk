@@ -3962,6 +3962,25 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
 </context>
 <context>
+    <name>FF7ItemModel</name>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Tipo</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nome</translation>
+    </message>
+    <message>
+        <source>Qty</source>
+        <translation type="unfinished">Qtà</translation>
+    </message>
+    <message>
+        <source>-------EMPTY--------</source>
+        <translation type="unfinished">-------VUOTO--------</translation>
+    </message>
+</context>
+<context>
     <name>FF7Location</name>
     <message>
         <source>Cloud&apos;s Past</source>
@@ -6862,17 +6881,6 @@ La velocità in km/h viene calcolata a runtime</translation>
     <message>
         <source>Known FF7 Save Types (%1)</source>
         <translation>File di salvataggio FF7 noti (%1)</translation>
-    </message>
-</context>
-<context>
-    <name>ItemList</name>
-    <message>
-        <source>-------EMPTY--------</source>
-        <translation>-------VUOTO--------</translation>
-    </message>
-    <message>
-        <source>-------BAD ID-------</source>
-        <translation type="unfinished">-------BAD ID-------</translation>
     </message>
 </context>
 <context>

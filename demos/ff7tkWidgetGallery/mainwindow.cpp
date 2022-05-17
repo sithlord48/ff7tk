@@ -25,6 +25,7 @@
 
 #include <FF7Save.h>
 #include <ff7tkAbout.h>
+#include <FF7ItemModel.h>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -58,11 +59,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     char_editor_layout->addWidget(char_editor);
     ui->charEditor_box->setLayout(char_editor_layout);
 
-    item_list = new ItemList(this);
-    QHBoxLayout *item_list_layout = new QHBoxLayout;
-    item_list_layout->addWidget(item_list);
-    ui->itemList_box->setLayout(item_list_layout);
-
     locViewer = new LocationViewer(this);
     QHBoxLayout *locLayout = new QHBoxLayout();
     locLayout->addWidget(locViewer);
@@ -79,6 +75,14 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->achievementEditor_Frame->setLayout(AchievementLayout);
 
     lgpFile = nullptr;
+
+    itemlistView = new ItemListView(this);
+    itemlistView->setModel(new FF7ItemModel());
+    ui->cb_itemSelectionDeleageEditable->setChecked(itemlistView->editableItemCombo());
+    ui->sb_itemListViewMaxQty->setValue(itemlistView->maximumItemQty());
+    auto itemlistLayout = new QVBoxLayout ();
+    itemlistLayout->addWidget(itemlistView);
+    ui->itemListView_Box->setLayout(itemlistLayout);
 }
 
 MainWindow::~MainWindow()
@@ -98,7 +102,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     switch (index) {
     case 1: ui->dialog_preview_box->setVisible(1); break;
     case 2: ui->materia_editor_box->setVisible(1); break;
-    case 3: ui->item_list_box->setVisible(1); break;
+    case 3: ui->itemListView_Group->setVisible(1); break;
     case 4: ui->char_editor_box->setVisible(1); break;
     case 5: ui->metadata_box->setVisible(1); break;
     case 6: ui->slotSelect_Box->setVisible(1); break;
@@ -232,7 +236,7 @@ void MainWindow::hideAllBoxes(void)
     ui->dialog_preview_box->setVisible(0);
     ui->materia_editor_box->setVisible(0);
     ui->char_editor_box->setVisible(0);
-    ui->item_list_box->setVisible(0);
+    ui->itemListView_Group->setVisible(0);
     ui->metadata_box->setVisible(0);
     ui->slotSelect_Box->setVisible(0);
     ui->phsListBox->setVisible(0);
@@ -272,7 +276,13 @@ void MainWindow::on_cbEditableMateriaCombos_clicked(bool checked)
 {
     materia_editor->setEditableMateriaCombo(checked);
 }
-void MainWindow::on_checkBox_4_clicked(bool checked)
+
+void MainWindow::on_cb_itemSelectionDeleageEditable_toggled(bool checked)
 {
-    item_list->setEditableItemCombo(checked);
+    itemlistView->setEditableItemCombo(checked);
+}
+
+void MainWindow::on_sb_itemListViewMaxQty_editingFinished()
+{
+    itemlistView->setMaximumItemQty(ui->sb_itemListViewMaxQty->value());
 }
