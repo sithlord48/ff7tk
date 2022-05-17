@@ -16,10 +16,7 @@
 #pragma once
 
 #include <QLabel>
-
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
+#include <ff7tkwidgets_export.h>
 
 class QHBoxLayout;
 class QToolButton;

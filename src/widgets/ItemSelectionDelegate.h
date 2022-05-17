@@ -14,6 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #pragma once
+
 #include <QStyledItemDelegate>
 #include <ff7tkwidgets_export.h>
 

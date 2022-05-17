@@ -15,6 +15,7 @@
 /****************************************************************************/
 #pragma once
 
+#include <QtCore/qglobal.h>
 #ifdef _MSC_VER
 #   define PACK(structure)          \
     __pragma(pack(push, 1))     \
@@ -25,9 +26,8 @@
 #else
 #define PACK(structure) structure Q_PACKED
 #endif
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif/*! \struct materia
+#include <ff7tk_export.h>
+/*! \struct materia
  *  \brief materia format saved in materia list or on a character
  *
  * Total Size 4 Bytes 100% known!

@@ -15,10 +15,9 @@
 /****************************************************************************/
 #pragma once
 
+#include <QtCore/qglobal.h>
 #include <Type_materia.h>
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif
+#include <ff7tk_export.h>
 
 /*! \struct FF7CHAR
  * \brief  Character Info in the save game.

@@ -16,8 +16,8 @@
 #pragma once
 
 #include <QAbstractTableModel>
-#include <FF7Item.h>
 #include <ff7tk_export.h>
+#include <FF7Item.h>
 
 class FF7TK_EXPORT FF7ItemModel : public QAbstractTableModel
 {

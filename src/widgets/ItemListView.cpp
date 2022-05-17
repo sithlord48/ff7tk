@@ -14,12 +14,14 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include <ItemListView.h>
-#include <ItemSelectionDelegate.h>
-#include <QScrollBar>
-#include <QHeaderView>
-#include <FF7Item.h>
+
 #include <QEvent>
+#include <QHeaderView>
+#include <QScrollBar>
+#include <FF7Item.h>
 #include <ItemPreview.h>
+#include <ItemSelector.h>
+#include <ItemSelectionDelegate.h>
 
 ItemListView::ItemListView(QWidget *parent)
     : QTableView(parent)

@@ -16,12 +16,7 @@
 #pragma once
 
 #include <QDialog>
-
-#include <FF7SaveInfo.h>
-
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
+#include <ff7tkwidgets_export.h>
 
 class FF7Save;
 class QDialogButtonBox;

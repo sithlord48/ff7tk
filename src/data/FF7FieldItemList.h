@@ -15,12 +15,9 @@
 /****************************************************************************/
 #pragma once
 
-#include<QObject>
+#include <QObject>
 #include <QtGlobal>
-
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif
+#include <ff7tk_export.h>
 
 class QQmlEngine;
 class QJSEngine;

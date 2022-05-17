@@ -16,10 +16,7 @@
 #pragma once
 
 #include <QScrollArea>
-
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
+#include <ff7tkwidgets_export.h>
 
 class QComboBox;
 class QCheckBox;

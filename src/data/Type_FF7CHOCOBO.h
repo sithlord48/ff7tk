@@ -14,6 +14,8 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #pragma once
+#include <QtCore/qglobal.h>
+#include <ff7tk_export.h>
 
 #ifdef _MSC_VER
 #   define PACK(structure)          \
@@ -25,9 +27,8 @@
 #else
 #define PACK(structure) structure Q_PACKED
 #endif
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif/*! \struct FF7CHOCOBO
+
+/*! \struct FF7CHOCOBO
  *  \brief a chocobo in save game
  *
  *  16 Bytes total size 15 known 1 Byte Unknown

@@ -14,8 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 
-#ifndef FF7SAVE_TYPES_H
-#define FF7SAVE_TYPES_H
+#pragma once
 
 #ifdef _MSC_VER
 #   define PACK(structure)          \
@@ -29,10 +28,8 @@
 #endif
 
 #include <QVector>
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif
-    #include <Type_FF7CHAR.h>
+#include <ff7tk_export.h>
+#include <Type_FF7CHAR.h>
 #include <Type_FF7CHOCOBO.h>
 //Materia Type is included as part of FF7Char
 /*~~~~~~~~~~~~~~~~~~~~~~~~STRUCT TYPES AND SAVE STRUCT~~~~~~~~~~~~~~~~*/
@@ -239,4 +236,3 @@ struct FF7TK_EXPORT FF7HEADFOOT {
 });
 
 typedef QVector< QString > SubContainer;
-#endif // FF7SAVE_TYPES_H

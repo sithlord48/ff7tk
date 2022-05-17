@@ -19,7 +19,7 @@
  * inspired from LGP/UnLGP tool written by Aali.
  * http://forums.qhimm.com/index.php?topic=8641.0
  */
-#include "Lgp_p.h"
+#include <Lgp_p.h>
 #include <QDebug>
 
 LgpHeaderEntry::LgpHeaderEntry(const QString &fileName, quint32 filePosition) :

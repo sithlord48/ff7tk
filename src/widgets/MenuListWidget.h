@@ -17,12 +17,8 @@
 
 #include <QWidget>
 #include <QEvent>
-
+#include <ff7tkwidgets_export.h>
 #include <DoubleCheckBox.h>
-
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
 
 /** \class MenuListWidget
  *  \brief easily manage the menus in Final Fantasy 7

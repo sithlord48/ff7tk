@@ -13,7 +13,7 @@
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "GZIPPS.h"
+#include <GZIPPS.h>
 
 QByteArray GZIPPS::decompress(const char *data, int size)
 {

@@ -19,9 +19,9 @@
  * inspired from LGP/UnLGP tool written by Aali.
  * http://forums.qhimm.com/index.php?topic=8641.0
  */
-#include "Lgp.h"
-#include "Lgp_p.h"
-#include "../utils/QLockedFile.h"
+#include <Lgp.h>
+#include <Lgp_p.h>
+#include <QLockedFile.h>
 
 /*!
  * You must use Lgp::iterator() instead.

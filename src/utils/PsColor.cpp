@@ -13,7 +13,7 @@
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include "PsColor.h"
+#include <PsColor.h>
 
 quint16 PsColor::toPsColor(const QRgb &color)
 {

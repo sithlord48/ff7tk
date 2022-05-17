@@ -17,10 +17,7 @@
 
 #include <QObject>
 #include <QIcon>
-
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif
+#include <ff7tk_export.h>
 
 class QQmlEngine;
 class QJSEngine;

@@ -16,7 +16,7 @@
 #pragma once
 
 #include <QtCore>
-#include "ff7tkutils_export.h"
+#include <ff7tkutils_export.h>
 
 class FF7TKUTILS_EXPORT GZIP
 {

@@ -16,10 +16,8 @@
 #pragma once
 
 #include <QObject>
+#include <ff7tk_export.h>
 
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif
 class QIcon;
 class QQmlEngine;
 class QJSEngine;

@@ -25,7 +25,7 @@
 #include <QString>
 #include <QMultiHash>
 
-#include "ff7tkformats_export.h"
+#include <ff7tkformats_export.h>
 
 #define LGP_COMPANY_NAME_SIZE    12
 #define LGP_PRODUCT_NAME_SIZE    14

@@ -16,15 +16,13 @@
 #pragma once
 
 #include <QWidget>
+#include <ff7tkwidgets_export.h>
 
 class QCheckBox;
 class QFrame;
 class QLabel;
 class QPushButton;
 
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
 
 /** \class ChocoboLabel
  * \brief A Label to display a single chocobo's brief data.

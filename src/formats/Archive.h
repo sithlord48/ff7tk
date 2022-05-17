@@ -20,7 +20,7 @@
 #include <QByteArray>
 #include <QFile>
 #include <QDebug>
-#include "ff7tkformats_export.h"
+#include <ff7tkformats_export.h>
 
 struct FF7TKFORMATS_EXPORT ArchiveObserver {
     ArchiveObserver() {}

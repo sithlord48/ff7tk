@@ -16,12 +16,8 @@
 #pragma once
 
 #include <QWidget>
+#include <ff7tkwidgets_export.h>
 #include <Type_FF7CHAR.h>
-
-#ifndef ff7tkwidgets_export_h
-    #include <ff7tkwidgets_export.h>
-#endif
-
 
 class QCheckBox;
 class QComboBox;
@@ -40,7 +36,6 @@ class QFrame;
 class QSlider;
 class QPushButton;
 
-class FF7Item;
 class MateriaEditor;
 
 /** \class CharEditor

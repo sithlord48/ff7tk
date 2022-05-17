@@ -17,7 +17,7 @@
 
 #include <QtCore>
 #include <QRgb>
-#include "ff7tkutils_export.h"
+#include <ff7tkutils_export.h>
 
 #define COEFF_COLOR    8.2258064516129032258064516129032 // 255/31
 

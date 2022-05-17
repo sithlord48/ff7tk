@@ -17,8 +17,9 @@
 
 #include <QTableView>
 #include <ff7tkwidgets_export.h>
-#include <ItemSelector.h>
+
 class ItemPreview;
+
 class FF7TKWIDGETS_EXPORT ItemListView : public QTableView
 {
 public:

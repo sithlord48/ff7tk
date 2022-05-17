@@ -18,8 +18,8 @@
 
 #include <QIODevice>
 #include <QString>
-#include "Archive.h"
-#include "ff7tkformats_export.h"
+#include <Archive.h>
+#include <ff7tkformats_export.h>
 
 #define MAX_ISO_READ            10000
 #define MAX_FILENAME_LENGTH     207

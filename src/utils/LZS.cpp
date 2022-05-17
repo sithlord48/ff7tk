@@ -21,7 +21,7 @@
         NIFTY-Serve PAF01022
         CompuServe  74050,1022
 **************************************************************/
-#include "LZS.h"
+#include <LZS.h>
 
 qint32 LZS::match_length = 0; // of longest match. These are set by the InsertNode() procedure.
 qint32 LZS::match_position = 0;

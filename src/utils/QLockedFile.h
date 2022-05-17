@@ -26,7 +26,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #endif
-#include "ff7tkutils_export.h"
+#include <ff7tkutils_export.h>
+
 class FF7TKUTILS_EXPORT QLockedFile : public QFile
 {
     Q_OBJECT

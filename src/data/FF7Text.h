@@ -14,11 +14,9 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #pragma once
-#include <QObject>
 
-#ifndef ff7tk_export_h
-    #include <ff7tk_export.h>
-#endif
+#include <QObject>
+#include <ff7tk_export.h>
 
 class QQmlEngine;
 class QJSEngine;
