@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['japanese_3691',['japanese',['../classFF7Text.html#a9d1b571a4886a57381bb2bf2bc8b2044',1,'FF7Text']]]
+  ['items_3756',['items',['../classFF7ItemModel.html#ac75365b382b43c516b03ef5a718eb914',1,'FF7ItemModel']]]
 ];

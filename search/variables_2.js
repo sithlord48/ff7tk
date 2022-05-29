@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bibliographic_5ffile_5fid_2976',['bibliographic_file_id',['../structVolumeDescriptor2.html#ac08df90ce306dd2cebf9bcd57d00b215',1,'VolumeDescriptor2']]],
-  ['bit_2977',['Bit',['../structFieldItem.html#a5ab27ac62809b4804828b3d9524dd81e',1,'FieldItem']]]
+  ['bibliographic_5ffile_5fid_3036',['bibliographic_file_id',['../structVolumeDescriptor2.html#ac08df90ce306dd2cebf9bcd57d00b215',1,'VolumeDescriptor2']]],
+  ['bit_3037',['Bit',['../structFieldItem.html#a5ab27ac62809b4804828b3d9524dd81e',1,'FieldItem']]]
 ];
