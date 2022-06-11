@@ -17,7 +17,10 @@
 
 #include <QObject>
 #include <QIcon>
+#include <QtEndian>
+
 #include <ff7tk_export.h>
+#include <Type_materia.h>
 
 class QQmlEngine;
 class QJSEngine;
@@ -59,19 +62,44 @@ public:
      */
     static QObject * qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
 
-    static Q_INVOKABLE int totalMateria() {return FF7Materia::MasterSummon;}
+    /**
+     * @brief totalMateria Total number of materia
+     * @return Return 90 the total number of materias in the game
+     */
+    static Q_INVOKABLE int totalMateria() { return 90; } const
 
-    static Q_INVOKABLE QString name(int id);
-    static Q_INVOKABLE QString statString(int id);
-    static Q_INVOKABLE QString enemySkill(int id);
-    static Q_INVOKABLE QString masterCommandSkill(int id);
-    static Q_INVOKABLE QString masterSummonSkill(int id);
-    static Q_INVOKABLE QString masterMagicSkill(int id);
-    static Q_INVOKABLE QString element(int id);
+    /**
+     * @brief name - Name of materia
+     * @param id - Materia ID
+     * @return Materia Name
+     * @sa FF7Materia::name(materia mat);
+     */
+    static Q_INVOKABLE QString name(int id) { return tr(Materias(idClamp(id)).name.toLocal8Bit()); }
+
+    /**
+     * @brief statString - Get the status String for a materia
+     * @param id - Materia ID
+     * @return String contining stat changes when materia is equiped.
+     */
+    static Q_INVOKABLE QString statString(int id) { return tr(Materias(idClamp(id)).stats.toLocal8Bit()); }
+
+    static Q_INVOKABLE QString enemySkill(int skill);
+    static Q_INVOKABLE QString masterCommandSkill(int skill);
+    static Q_INVOKABLE QString masterSummonSkill(int skill);
+    static Q_INVOKABLE QString masterMagicSkill(int skill);
+
+    static Q_INVOKABLE QString element(int id) { return tr(Materias(idClamp(id)).elemental.toLocal8Bit()); }
     static Q_INVOKABLE QStringList skills(int id);
     static Q_INVOKABLE QStringList status(int id);
-    static Q_INVOKABLE qint32 ap(int id, int lvl);
-    static Q_INVOKABLE qint8 statSTR(int id) { return Materias(id).str; }
+
+    /**
+     * @brief apForLevel - Returns the ap needed for a materia at a level
+     * @param id - Materia Id
+     * @param level - Level that you want to know the ap needed for
+     * @return  the ap needed for that materia to reach the level (0 if invalid)
+     */
+    static Q_INVOKABLE qint32 apForLevel(int id, int level) { return Materias(id).ap.at(std::clamp(level, 0, 4)); }
+static Q_INVOKABLE qint8 statSTR(int id) { return Materias(id).str; }
     static Q_INVOKABLE qint8 statVIT(int id) { return Materias(id).vit; }
     static Q_INVOKABLE qint8 statMAG(int id) { return Materias(id).mag; }
     static Q_INVOKABLE qint8 statSPI(int id) { return Materias(id).spi; }
@@ -81,26 +109,56 @@ public:
     static Q_INVOKABLE qint8 statMP(int id) { return Materias(id).mp; }
     static Q_INVOKABLE qint8 levels(int id) { return Materias(id).levels; }
     static Q_INVOKABLE qint8 type(int id) { return Materias(id).type; }
-    static Q_INVOKABLE qint32 ap2num(quint8 ap[3]) { return qint32(ap[0] | (ap[1] << 8) | (ap[2] << 16)); }
-    static Q_INVOKABLE const QString &imageAllResource() { return get()->d->_resourceAllMateria; }
-    static Q_INVOKABLE QString iconResource(int id);
-    static Q_INVOKABLE QString fullStarResource(int id);
-    static Q_INVOKABLE QString emptyStartResource(int id);
+    static Q_INVOKABLE materia encodeMateria(int id, qint32 ap);
+    static Q_INVOKABLE int materiaID(materia mat);
+    /**
+     * @brief materiaAP - Transform 3 bytes into a materia AP
+     * @param ap1 First Ap Byte
+     * @param ap2 Second Ap Byte
+     * @param ap3 Third Ap Byte
+     * @return qint32 value of AP
+     */
+    static Q_INVOKABLE qint32 materiaAP(quint8 ap1 , quint8 ap2, quint8 ap3) { return qFromLittleEndian( qint32(ap1 | (ap2 << 8) | (ap3 << 16))); }
+    static Q_INVOKABLE qint32 materiaAP(materia mat) { return materiaAP(mat.ap[0], mat.ap[1], mat.ap[2]); }
+    static Q_INVOKABLE qint32 materiaAP(quint8 ap[3]) { return materiaAP(ap[0], ap[1], ap[2]); }
+
+
     //Image Functions
     static Q_INVOKABLE QIcon icon(int id) { return QIcon(QPixmap(Materias(id).imageString)); }
+
     static Q_INVOKABLE QPixmap pixmap(int id) { return QPixmap(Materias(id).imageString); }
     static Q_INVOKABLE QImage image(int id) { return QImage(Materias(id).imageString); }
+    static Q_INVOKABLE QString iconResource(int id) { return Materias(id).imageString.mid(0).remove(QStringLiteral(":/")); }
+
     static Q_INVOKABLE QPixmap pixmapEmptyStar(int id) { return QPixmap(Materias(id).emptyStarString); }
     static Q_INVOKABLE QImage imageEmptyStar(int id) { return QImage(Materias(id).emptyStarString); }
+    static Q_INVOKABLE QString emptyStartResource(int id) { return Materias(idClamp(id)).emptyStarString.mid(0).remove(QStringLiteral(":/")); }
+
     static Q_INVOKABLE QPixmap pixmapFullStar(int id) { return QPixmap(Materias(id).fullStarString); }
     static Q_INVOKABLE QImage imageFullStar(int id) { return QImage(Materias(id).fullStarString); }
+    static Q_INVOKABLE QString fullStarResource(int id) { return Materias(id).fullStarString.mid(0).remove(QStringLiteral(":/")); }
+
     static Q_INVOKABLE QIcon iconAllMateria() { return QIcon(QPixmap(QStringLiteral(":/materia/all"))); }
     static Q_INVOKABLE QImage imageAllMateria() { return QImage(QStringLiteral(":/materia/all")); }
+    static Q_INVOKABLE const QString &imageAllResource() { return get()->d->_resourceAllMateria; }
+
+    // Deprecated Methods
+    [[ deprecated ("Replace with FF7Materia::materiaAP") ]]
+    static qint32 ap2num(quint8 ap[3]) { return qFromLittleEndian( qint32(ap[0] | (ap[1] << 8) | (ap[2] << 16))); }
+    [[ deprecated ("Replace with FF7Materia::apForLevel") ]]
+    static Q_INVOKABLE qint32 ap(int id, int lvl) { return apForLevel(id, lvl); }
+
 private:
     FF7Materia *operator = (FF7Materia &other) = delete;
     FF7Materia(const FF7Materia &other) = delete;
-    explicit FF7Materia(QObject *parent = nullptr);
-    ~FF7Materia();
+    explicit FF7Materia(QObject *parent = nullptr) : QObject(parent), d(new FF7MateriaPrivate()){ };
+    ~FF7Materia() { delete d;}
+    /**
+     * @brief idClamp returns a valid id from provided one. used for internal checks.
+     * @param id - current ID
+     * @return Valid ID or FF7Materia::EmptyID
+     */
+    static int idClamp(int id = 0xFF) { return (id == 0xFF ) ? id : std::clamp(id, 0, 90); }
     /*! \struct MATERIA
      *  \brief MATERIA data storage
      */

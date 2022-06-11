@@ -98,12 +98,12 @@ void MateriaEditor::setAP(qint32 ap)
         }
     } else {
         //All Other Materia
-        if ((ap < FF7Materia::MaxMateriaAp) && (ap < FF7Materia::ap(_id, FF7Materia::levels(_id) - 1))) {
+        if ((ap < FF7Materia::MaxMateriaAp) && (ap < FF7Materia::apForLevel(_id, FF7Materia::levels(_id) - 1))) {
             _current_ap = ap;
             sb_ap->setValue(_current_ap);
         } else {
             _current_ap = FF7Materia::MaxMateriaAp;
-            sb_ap->setValue(FF7Materia::ap(_id, FF7Materia::levels(_id) - 1));
+            sb_ap->setValue(FF7Materia::apForLevel(_id, FF7Materia::levels(_id) - 1));
         }
         Q_EMIT apChanged(_current_ap);
     }
@@ -165,7 +165,7 @@ void MateriaEditor::setLevel()
         _level = 1;
     } else if (_id != FF7Materia::EmptyId) {
         for (int i = 0; i < FF7Materia::levels(_id); i++) {
-            if (_current_ap >= FF7Materia::ap(_id, i))
+            if (_current_ap >= FF7Materia::apForLevel(_id, i))
                 _level++;
         }
     }
@@ -266,7 +266,7 @@ qint32 MateriaEditor::MaxAP(void)
     if (FF7Materia::levels(_id) == 1)
         return FF7Materia::MaxMateriaAp;
     else
-        return FF7Materia::ap(_id, FF7Materia::levels(_id) - 1);
+        return FF7Materia::apForLevel(_id, FF7Materia::levels(_id) - 1);
 }
 
 void MateriaEditor::setStarsSize(int size)
@@ -447,7 +447,7 @@ QWidget *MateriaEditor::makeStarWidget()
         btn_stars.replace(i, newStyledButton());
         if (i < 4) {
             connect(btn_stars.at(i), &QPushButton::clicked, this, [this, i] {
-                setAP(FF7Materia::ap(_id, i));
+                setAP(FF7Materia::apForLevel(_id, i));
                 setLevel();
             });
         } else {

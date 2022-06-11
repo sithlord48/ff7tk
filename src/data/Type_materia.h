@@ -16,6 +16,7 @@
 #pragma once
 
 #include <QtCore/qglobal.h>
+#include <QMetaType>
 #ifdef _MSC_VER
 #   define PACK(structure)          \
     __pragma(pack(push, 1))     \
@@ -37,3 +38,4 @@ struct FF7TK_EXPORT materia{// sizeof 4
     quint8 id;      /**< materias id */
     quint8 ap[3];   /** Ap Storage is done as a 24bit int. */
 });
+Q_DECLARE_METATYPE(materia);
