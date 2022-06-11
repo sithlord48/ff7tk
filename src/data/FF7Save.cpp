@@ -28,6 +28,7 @@
 #include <QtEndian>
 #include <FF7Text.h>
 #include <FF7Item.h>
+#include <FF7Materia.h>
 #include <FF7Char.h>
 
 // I'm not installing this header.
@@ -1629,58 +1630,29 @@ void FF7Save::setChocoName(int s, int choco_num, QString new_name)
     memcpy(slot[s].chocobonames[choco_num], temp, size_t(temp.length()));
     setFileModified(true, s);
 }
+
 void FF7Save::setPartyMateria(int s, int mat_num, quint8 id, qint32 ap)
 {
-    ap = qToLittleEndian(ap);
-    //if invalid set to 0xFF
-    if ((id < 91) && ((ap >= 0) && (ap <= 16777215))) {
-        //Valid Id and Ap provided.
-        slot[s].materias[mat_num].id = id;
-        int a = (ap & 0xff);
-        int b = (ap & 0xff00) >> 8;
-        int c = (ap & 0xff0000) >> 16;
-        slot[s].materias[mat_num].ap[0] = a;
-        slot[s].materias[mat_num].ap[1] = b;
-        slot[s].materias[mat_num].ap[2] = c;
-    } else {
-        //invalid ID set Empty
-        slot[s].materias[mat_num].id = 0xFF;
-        slot[s].materias[mat_num].ap[0] = 0xFF;
-        slot[s].materias[mat_num].ap[1] = 0xFF;
-        slot[s].materias[mat_num].ap[2] = 0xFF;
-    }
+    slot[s].materias[mat_num] = FF7Materia::encodeMateria(id, ap);
     setFileModified(true, s);
 }
+
 quint8 FF7Save::partyMateriaId(int s, int mat_num)
 {
     return slot[s].materias[mat_num].id;
 }
+
 qint32 FF7Save::partyMateriaAp(int s, int mat_num)
 {
-    qint32 ap_temp = slot[s].materias[mat_num].ap[0] | (slot[s].materias[mat_num].ap[1] << 8) | slot[s].materias[mat_num].ap[2] << 16;
-    return qFromLittleEndian(ap_temp);
+    return FF7Materia::materiaAP(slot[s].materias[mat_num]);
 }
+
 void FF7Save::setStolenMateria(int s, int mat_num, quint8 id, qint32 ap)
 {
-    ap = qToLittleEndian(ap);
-    if ((id < 91) && ((ap >= 0) && (ap <= 16777215))) {
-        //Valid Id and Ap provided.
-        slot[s].stolen[mat_num].id = id;
-        int a = (ap & 0xff);
-        int b = (ap & 0xff00) >> 8;
-        int c = (ap & 0xff0000) >> 16;
-        slot[s].stolen[mat_num].ap[0] = a;
-        slot[s].stolen[mat_num].ap[1] = b;
-        slot[s].stolen[mat_num].ap[2] = c;
-    } else {
-        //invalid ID set Empty
-        slot[s].stolen[mat_num].id = 0xFF;
-        slot[s].stolen[mat_num].ap[0] = 0xFF;
-        slot[s].stolen[mat_num].ap[1] = 0xFF;
-        slot[s].stolen[mat_num].ap[2] = 0xFF;
-    }
+    slot[s].stolen[mat_num] = FF7Materia::encodeMateria(id, ap);;
     setFileModified(true, s);
 }
+
 quint8 FF7Save::stolenMateriaId(int s, int mat_num)
 {
     return slot[s].stolen[mat_num].id;
@@ -1688,9 +1660,9 @@ quint8 FF7Save::stolenMateriaId(int s, int mat_num)
 
 qint32 FF7Save::stolenMateriaAp(int s, int mat_num)
 {
-    qint32 ap_temp = slot[s].stolen[mat_num].ap[0] | (slot[s].stolen[mat_num].ap[1] << 8) | slot[s].stolen[mat_num].ap[2] << 16;
-    return qFromLittleEndian(ap_temp);
+    return FF7Materia::materiaAP(slot[s].stolen[mat_num]);
 }
+
 QColor FF7Save::dialogColorUL(int s)
 {
     return QColor(slot[s].colors[0][0], slot[s].colors[0][1], slot[s].colors[0][2]);
@@ -2052,6 +2024,7 @@ void  FF7Save::setCharCurrentExp(int s, int char_num, quint32 exp)
     slot[s].chars[char_num].exp = qToLittleEndian(exp);
     setFileModified(true, s);
 }
+
 void  FF7Save::setCharNextExp(int s, int char_num, quint32 next)
 {
     slot[s].chars[char_num].expNext = qToLittleEndian(next);
@@ -2060,39 +2033,27 @@ void  FF7Save::setCharNextExp(int s, int char_num, quint32 next)
 
 void FF7Save::setCharMateria(int s, int who, int mat_num, quint8 id, qint32 ap)
 {
-    ap = qToLittleEndian(ap);
-    if ((id < 91) && ((ap >= 0) && (ap <= 16777215))) {
-        //Valid Id and Ap provided.
-        slot[s].chars[who].materias[mat_num].id = id;
-        int a = (ap & 0xff);
-        int b = (ap & 0xff00) >> 8;
-        int c = (ap & 0xff0000) >> 16;
-        slot[s].chars[who].materias[mat_num].ap[0] = a;
-        slot[s].chars[who].materias[mat_num].ap[1] = b;
-        slot[s].chars[who].materias[mat_num].ap[2] = c;
-    } else {
-        //invalid ID set Empty
-        slot[s].chars[who].materias[mat_num].id = 0xFF;
-        slot[s].chars[who].materias[mat_num].ap[0] = 0xFF;
-        slot[s].chars[who].materias[mat_num].ap[1] = 0xFF;
-        slot[s].chars[who].materias[mat_num].ap[2] = 0xFF;
-    }
+    auto mat = FF7Materia::encodeMateria(id, ap);
+    slot[s].chars[who].materias[mat_num]= mat;
     setFileModified(true, s);
 }
+
 void FF7Save::setCharMateria(int s, int who, int mat_num, materia mat)
 {
     slot[s].chars[who].materias[mat_num] = mat;
     setFileModified(true, s);
 }
+
 quint8 FF7Save::charMateriaId(int s, int who, int mat_num)
 {
     return slot[s].chars[who].materias[mat_num].id;
 }
+
 qint32 FF7Save::charMateriaAp(int s, int who, int mat_num)
 {
-    qint32 ap_temp = slot[s].chars[who].materias[mat_num].ap[0] | (slot[s].chars[who].materias[mat_num].ap[1] << 8) | slot[s].chars[who].materias[mat_num].ap[2] << 16;
-    return qToLittleEndian(ap_temp);
+    return FF7Materia::materiaAP(slot[s].chars[who].materias[mat_num]);
 }
+
 FF7CHOCOBO FF7Save::chocobo(int s, int chocoSlot)
 {
     if (chocoSlot > -1 && chocoSlot < 4) {

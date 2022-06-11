@@ -1708,9 +1708,9 @@ void CharEditor::calc_stats()
         for (int i = 0; i < 16; i++) {
             if (data.materias[i].id != FF7Materia::EmptyId) {
                 int level = 0;
-                qint32 aptemp = (FF7Materia::ap2num(data.materias[i].ap));
+                qint32 aptemp = FF7Materia::materiaAP(data.materias[i]);
                 for (int m = 0; m < FF7Materia::levels(data.materias[i].id); m++) {
-                    if (aptemp >= FF7Materia::ap(data.materias[i].id, m)) {
+                    if (aptemp >= FF7Materia::apForLevel(data.materias[i].id, m)) {
                         level++;
                     }
                 }
@@ -2057,7 +2057,7 @@ void CharEditor::materiaSlotClicked(int slotClicked)
         if(slotClicked < 0 )
             return;
         load = true;
-        materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::ap2num(char_materia(mslotsel).ap));
+        materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::materiaAP(char_materia(mslotsel)));
         load = false;
         return;
     }
@@ -2076,7 +2076,7 @@ void CharEditor::materiaSlotClicked(int slotClicked)
     materiaSlotFrames.at(mslotsel)->setFrameShape(QFrame::Box);
 
     load = true;
-    materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::ap2num(char_materia(mslotsel).ap));
+    materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::materiaAP(char_materia(mslotsel)));
     Q_EMIT mslotChanged(mslotsel);
     load = false;
 }

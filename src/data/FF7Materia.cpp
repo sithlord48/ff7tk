@@ -30,105 +30,72 @@ QObject *FF7Materia::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptE
     return get();
 }
 
-
-FF7Materia::FF7Materia(QObject *parent)
-    : QObject(parent)
-    , d(new FF7MateriaPrivate)
-{
-}
-
-FF7Materia::~FF7Materia()
-{
-    delete d;
-}
-
-
 const FF7Materia::MATERIA &FF7Materia::Materias(int id)
 {
-    if (id >= 0 && id <= 0x5A) {
+    if (id >= 0 && id <= 90)
         return get()->d->_materiaList.at(id);
-    }
     return get()->d->_emptyMateria;
 }
 
-qint32 FF7Materia::ap(int id, int lvl)
+materia FF7Materia::encodeMateria(int id, qint32 ap)
 {
-    lvl = std::clamp(lvl, 0, 4);
-    return Materias(id).ap.at(lvl);
+    materia temp;
+    ap = qToLittleEndian(ap);
+    if ( (id >= 0 )  && (id <= 90 ) && ((ap >= 0) && (ap <= 16777215))) {
+        temp.id = id;
+        temp.ap[0] = (ap & 0xff);
+        temp.ap[1] = (ap & 0xff00) >> 8;
+        temp.ap[2] = (ap & 0xff0000) >> 16;
+    } else {
+        temp.id = FF7Materia::EmptyId;
+        temp.ap[0] = 0xFF;
+        temp.ap[1] = 0xFF;
+        temp.ap[2] = 0xFF;
+    }
+    return temp;
 }
 
-
-QString FF7Materia::name(int id)
+int FF7Materia::materiaID(materia mat)
 {
-    return tr(Materias(id).name.toLocal8Bit());
+    return idClamp(mat.id);
 }
 
-QString FF7Materia::statString(int id)
+QString FF7Materia::enemySkill(int skill)
 {
-    return tr(Materias(id).stats.toLocal8Bit());
+    skill = std::clamp(skill, 0, int(get()->d->_enemySkills.size()) -1);
+    return tr(get()->d->_enemySkills.at(skill).toLocal8Bit());
 }
 
-QString FF7Materia::enemySkill(int id)
+QString FF7Materia::masterCommandSkill(int skill)
 {
-    id = std::clamp(id, 0, int(get()->d->_enemySkills.size()) -1);
-    return tr(get()->d->_enemySkills.at(id).toLocal8Bit());
+    skill = std::clamp(skill, 0, int(get()->d->_masterCommandList.size()) -1);
+    return tr(get()->d->_masterCommandList.at(skill).toLocal8Bit());
 }
 
-QString FF7Materia::masterCommandSkill(int id)
+QString FF7Materia::masterSummonSkill(int skill)
 {
-    id = std::clamp(id, 0, int(get()->d->_masterCommandList.size()) -1);
-    return tr(get()->d->_masterCommandList.at(id).toLocal8Bit());
+    skill = std::clamp(skill, 0, int(get()->d->_masterSummonList.size()) -1);
+    return tr(get()->d->_masterSummonList.at(skill).toLocal8Bit());
 }
 
-QString FF7Materia::masterSummonSkill(int id)
+QString FF7Materia::masterMagicSkill(int skill)
 {
-    id = std::clamp(id, 0, int(get()->d->_masterSummonList.size()) -1);
-    return tr(get()->d->_masterSummonList.at(id).toLocal8Bit());
-}
-
-QString FF7Materia::masterMagicSkill(int id)
-{
-    id = std::clamp(id, 0, int(get()->d->_masterMagicList.size()) -1);
-    return tr(get()->d->_masterMagicList.at(id).toLocal8Bit());
-}
-
-QString FF7Materia::element(int id)
-{
-    return tr(Materias(id).elemental.toLocal8Bit());
+    skill = std::clamp(skill, 0, int(get()->d->_masterMagicList.size()) -1);
+    return tr(get()->d->_masterMagicList.at(skill).toLocal8Bit());
 }
 
 QStringList FF7Materia::skills(int id)
 {
     QStringList translated_list;
-    for(const QString &skill : Materias(id).skills) {
+    for(const QString &skill : Materias(idClamp(id)).skills)
         translated_list.append(tr(skill.toLocal8Bit()));
-    }
     return translated_list;
 }
 
 QStringList FF7Materia::status(int id)
 {
     QStringList translated_list;
-    for(const QString& stat : Materias(id).status) {
+    for(const QString& stat : Materias(idClamp(id)).status)
         translated_list.append(tr(stat.toLocal8Bit()));
-    }
     return translated_list;
 }
-QString FF7Materia::iconResource(int id)
-{
-    QString temp = Materias(id).imageString;
-    return temp.remove(QStringLiteral(":/"));
-}
-
-QString FF7Materia::fullStarResource(int id)
-{
-    QString temp = Materias(id).fullStarString;
-    return temp.remove(QStringLiteral(":/"));
-}
-
-QString FF7Materia::emptyStartResource(int id)
-{
-    QString temp = Materias(id).emptyStarString;
-    return temp.remove(QStringLiteral(":/"));
-}
-
