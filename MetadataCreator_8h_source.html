@@ -89,42 +89,36 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QDialog&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="FF7SaveInfo_8h.html">FF7SaveInfo.h</a>&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef ff7tkwidgets_export_h</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">    #include &lt;ff7tkwidgets_export.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span><a class="code" href="classFF7Save.html">FF7Save</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>QDialogButtonBox;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>QVBoxLayout;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classMetadataCreator.html">   30</a></span>&#160;<span class="keyword">class </span>FF7TKWIDGETS_EXPORT <a class="code" href="classMetadataCreator.html">MetadataCreator</a> : <span class="keyword">public</span> QDialog</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMetadataCreator.html">MetadataCreator</a>(QWidget *parent = <span class="keyword">nullptr</span>, <a class="code" href="classFF7Save.html">FF7Save</a> *ff7save = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> initDisplay();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> onAccepted();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QString getOpenFileName(QWidget  *parent = <span class="keyword">nullptr</span>, <span class="keyword">const</span> QString &amp;title = QString(), <span class="keyword">const</span> QString &amp;path = QString(), <span class="keyword">const</span> QString &amp;nameFilters = QString(), <span class="keyword">const</span> QString &amp;initSelection = QString());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    QString getExistingDirectory(QWidget *parent = <span class="keyword">nullptr</span>, <span class="keyword">const</span> QString &amp;title = QString(), <span class="keyword">const</span> QString &amp;path = QString(), <span class="keyword">const</span> QString &amp;initSelection = QString());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QVBoxLayout *makeLineLayout();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//Data Parts</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> load;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classFF7Save.html">FF7Save</a> *ff7;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QStringList InFiles;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QString OutPath;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QString UserID;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QDialogButtonBox *btnBox = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;ff7tkwidgets_export.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="classFF7Save.html">FF7Save</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span>QDialogButtonBox;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span>QVBoxLayout;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classMetadataCreator.html">   25</a></span>&#160;<span class="keyword">class </span>FF7TKWIDGETS_EXPORT <a class="code" href="classMetadataCreator.html">MetadataCreator</a> : <span class="keyword">public</span> QDialog</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMetadataCreator.html">MetadataCreator</a>(QWidget *parent = <span class="keyword">nullptr</span>, <a class="code" href="classFF7Save.html">FF7Save</a> *ff7save = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> initDisplay();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> onAccepted();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QString getOpenFileName(QWidget  *parent = <span class="keyword">nullptr</span>, <span class="keyword">const</span> QString &amp;title = QString(), <span class="keyword">const</span> QString &amp;path = QString(), <span class="keyword">const</span> QString &amp;nameFilters = QString(), <span class="keyword">const</span> QString &amp;initSelection = QString());</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QString getExistingDirectory(QWidget *parent = <span class="keyword">nullptr</span>, <span class="keyword">const</span> QString &amp;title = QString(), <span class="keyword">const</span> QString &amp;path = QString(), <span class="keyword">const</span> QString &amp;initSelection = QString());</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QVBoxLayout *makeLineLayout();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//Data Parts</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> load;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classFF7Save.html">FF7Save</a> *ff7;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    QStringList InFiles;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QString OutPath;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QString UserID;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QDialogButtonBox *btnBox = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassFF7Save_html"><div class="ttname"><a href="classFF7Save.html">FF7Save</a></div><div class="ttdoc">edit saves from Final Fantasy 7</div><div class="ttdef"><b>Definition:</b> FF7Save.h:67</div></div>
-<div class="ttc" id="aclassMetadataCreator_html"><div class="ttname"><a href="classMetadataCreator.html">MetadataCreator</a></div><div class="ttdef"><b>Definition:</b> MetadataCreator.h:30</div></div>
-<div class="ttc" id="aFF7SaveInfo_8h_html"><div class="ttname"><a href="FF7SaveInfo_8h.html">FF7SaveInfo.h</a></div></div>
+<div class="ttc" id="aclassFF7Save_html"><div class="ttname"><a href="classFF7Save.html">FF7Save</a></div><div class="ttdoc">edit saves from Final Fantasy 7</div><div class="ttdef"><b>Definition:</b> FF7Save.h:64</div></div>
+<div class="ttc" id="aclassMetadataCreator_html"><div class="ttname"><a href="classMetadataCreator.html">MetadataCreator</a></div><div class="ttdef"><b>Definition:</b> MetadataCreator.h:25</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

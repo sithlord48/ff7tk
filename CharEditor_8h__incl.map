@@ -1,8 +1,9 @@
 <map id="src/widgets/CharEditor.h" name="src/widgets/CharEditor.h">
-<area shape="rect" id="node1" title=" " alt="" coords="85,5,263,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="101,5,279,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,84,107"/>
-<area shape="rect" id="node3" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="108,80,240,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="264,80,428,107"/>
-<area shape="rect" id="node4" href="$Type__materia_8h.html" title=" " alt="" coords="63,155,186,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="117,229,231,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="108,80,272,107"/>
+<area shape="rect" id="node4" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="296,80,428,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="223,229,354,256"/>
+<area shape="rect" id="node6" href="$Type__materia_8h.html" title=" " alt="" coords="301,155,423,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="391,229,504,256"/>
 </map>

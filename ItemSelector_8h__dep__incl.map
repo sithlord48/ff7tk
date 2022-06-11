@@ -1,8 +1,7 @@
 <map id="src/widgets/ItemSelector.h" name="src/widgets/ItemSelector.h">
-<area shape="rect" id="node1" title=" " alt="" coords="318,5,513,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="330,5,525,32"/>
 <area shape="rect" id="node2" href="$ItemList_8cpp.html" title=" " alt="" coords="5,87,185,114"/>
-<area shape="rect" id="node3" href="$ItemListView_8h.html" title=" " alt="" coords="209,87,405,114"/>
-<area shape="rect" id="node5" href="$ItemSelectionDelegate_8cpp.html" title=" " alt="" coords="429,80,620,121"/>
-<area shape="rect" id="node6" href="$ItemSelector_8cpp.html" title=" " alt="" coords="644,87,853,114"/>
-<area shape="rect" id="node4" href="$ItemListView_8cpp.html" title=" " alt="" coords="202,169,413,196"/>
+<area shape="rect" id="node3" href="$ItemListView_8cpp.html" title=" " alt="" coords="210,87,421,114"/>
+<area shape="rect" id="node4" href="$ItemSelectionDelegate_8cpp.html" title=" " alt="" coords="445,80,636,121"/>
+<area shape="rect" id="node5" href="$ItemSelector_8cpp.html" title=" " alt="" coords="660,87,869,114"/>
 </map>

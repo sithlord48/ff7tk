@@ -1,11 +1,11 @@
 <map id="src/widgets/AchievementEditor.cpp" name="src/widgets/AchievementEditor.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="213,5,463,32"/>
-<area shape="rect" id="node2" href="$AchievementEditor_8h.html" title=" " alt="" coords="105,80,262,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="287,80,389,107"/>
-<area shape="rect" id="node9" title=" " alt="" coords="414,80,515,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="219,5,470,32"/>
+<area shape="rect" id="node2" href="$AchievementEditor_8h.html" title=" " alt="" coords="111,80,269,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="293,80,396,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="421,80,522,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,155,84,181"/>
-<area shape="rect" id="node4" href="$FF7Achievements_8h.html" title=" " alt="" coords="108,155,259,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="283,155,447,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="86,229,161,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="185,229,299,256"/>
+<area shape="rect" id="node4" title=" " alt="" coords="108,155,272,181"/>
+<area shape="rect" id="node5" href="$FF7Achievements_8h.html" title=" " alt="" coords="296,155,447,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="274,229,349,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="373,229,487,256"/>
 </map>

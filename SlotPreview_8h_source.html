@@ -89,76 +89,73 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef ff7tkwidgets_export_h</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    #include &lt;ff7tkwidgets_export.h&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>QHBoxLayout;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span>QToolButton;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span>QVBoxLayout;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span><a class="code" href="classSaveIcon.html">SaveIcon</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classSlotPreview.html">   34</a></span>&#160;<span class="keyword">class </span>FF7TKWIDGETS_EXPORT <a class="code" href="classSlotPreview.html">SlotPreview</a> : <span class="keyword">public</span> QLabel</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493">   39</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493">MODE</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d">   40</a></span>&#160;    {MODE_EMPTY, <a class="code" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d">MODE_PSXGAME</a>,  MODE_FF7SAVE  };</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classSlotPreview.html">SlotPreview</a>(<span class="keywordtype">int</span> index = 0, QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> index(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> setParty(QPixmap p1, QPixmap p2, QPixmap p3);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> setParty(QString p1_style, QString p2_style, QString p3_style);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setName(QString);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setLevel(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> setLocation(QString);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setGil(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setTime(<span class="keywordtype">int</span> hour, <span class="keywordtype">int</span> min);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> setPsxIcon(<span class="keyword">const</span> QByteArray &amp;icon_data, quint8 frames = 1);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> setPsxIcon(<span class="keyword">const</span> QList&lt;QByteArray&gt; &amp;icon_data);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setMode(<span class="keywordtype">int</span> mode);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;signals:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> clicked(<span class="keywordtype">int</span>); </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> btn_remove_clicked(<span class="keywordtype">int</span>); </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> btn_copy_clicked(<span class="keywordtype">int</span>); </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> btn_paste_clicked(<span class="keywordtype">int</span>); </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> mousePressEvent(QMouseEvent *ev);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> init_display(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> set_ff7_save(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> set_empty(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> set_psx_game(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    QLabel *party1 = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    QLabel *party2 = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    QLabel *party3 = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    QLabel *name = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QLabel *lbl_Slot = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    QLabel *lbl_time = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    QLabel *lbl_level = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    QLabel *location = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    QLabel *lbl_gil = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    QToolButton *btn_copy = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    QToolButton *btn_paste = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QToolButton *btn_remove = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classSaveIcon.html">SaveIcon</a> *icon = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    QHBoxLayout *btnLayout = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    QVBoxLayout *Final = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    QVBoxLayout *top_layout = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">int</span> m_index;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> m_lineHeight;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> QString _previewStyle = QStringLiteral(R<span class="stringliteral">&quot;(SlotPreview{border: .5ex solid;}\nQToolButton{border: 1px solid})&quot;);</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">inline</span> QString _genericStyle = QStringLiteral(R<span class="stringliteral">&quot;(font: 75 16pt &quot;Verdana&quot;; color: white)&quot;);</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">inline</span> QString _ff7SlotStyle = QStringLiteral(R<span class="stringliteral">&quot;(background-color:rgba(0,0,0,0);font: 75 16pt &quot;Verdana&quot;;color:white)&quot;);</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">inline</span> QString _emptyTextStyle = QStringLiteral(R<span class="stringliteral">&quot;(font: 75 20pt &quot;Verdana&quot;; color:yellow;)&quot;);</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">};</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;ff7tkwidgets_export.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span>QHBoxLayout;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span>QToolButton;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span>QVBoxLayout;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span><a class="code" href="classSaveIcon.html">SaveIcon</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classSlotPreview.html">   31</a></span>&#160;<span class="keyword">class </span>FF7TKWIDGETS_EXPORT <a class="code" href="classSlotPreview.html">SlotPreview</a> : <span class="keyword">public</span> QLabel</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493">   36</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493">MODE</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d">   37</a></span>&#160;    {MODE_EMPTY, <a class="code" href="classSlotPreview.html#a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d">MODE_PSXGAME</a>,  MODE_FF7SAVE  };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classSlotPreview.html">SlotPreview</a>(<span class="keywordtype">int</span> index = 0, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> index(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setParty(QPixmap p1, QPixmap p2, QPixmap p3);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> setParty(QString p1_style, QString p2_style, QString p3_style);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> setName(QString);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> setLevel(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> setLocation(QString);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setGil(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setTime(<span class="keywordtype">int</span> hour, <span class="keywordtype">int</span> min);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> setPsxIcon(<span class="keyword">const</span> QByteArray &amp;icon_data, quint8 frames = 1);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setPsxIcon(<span class="keyword">const</span> QList&lt;QByteArray&gt; &amp;icon_data);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setMode(<span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;signals:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> clicked(<span class="keywordtype">int</span>); </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> btn_remove_clicked(<span class="keywordtype">int</span>); </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> btn_copy_clicked(<span class="keywordtype">int</span>); </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> btn_paste_clicked(<span class="keywordtype">int</span>); </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> mousePressEvent(QMouseEvent *ev);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> init_display(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> set_ff7_save(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> set_empty(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> set_psx_game(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    QLabel *party1 = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    QLabel *party2 = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    QLabel *party3 = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    QLabel *name = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    QLabel *lbl_Slot = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    QLabel *lbl_time = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    QLabel *lbl_level = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QLabel *location = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    QLabel *lbl_gil = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    QToolButton *btn_copy = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    QToolButton *btn_paste = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    QToolButton *btn_remove = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classSaveIcon.html">SaveIcon</a> *icon = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    QHBoxLayout *btnLayout = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QVBoxLayout *Final = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    QVBoxLayout *top_layout = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">int</span> m_index;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">int</span> m_lineHeight;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> QString _previewStyle = QStringLiteral(R<span class="stringliteral">&quot;(SlotPreview{border: .5ex solid;}\nQToolButton{border: 1px solid})&quot;);</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">inline</span> QString _genericStyle = QStringLiteral(R<span class="stringliteral">&quot;(font: 75 16pt &quot;Verdana&quot;; color: white)&quot;);</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">inline</span> QString _ff7SlotStyle = QStringLiteral(R<span class="stringliteral">&quot;(background-color:rgba(0,0,0,0);font: 75 16pt &quot;Verdana&quot;;color:white)&quot;);</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">    </span><span class="keyword">static</span> <span class="keyword">inline</span> QString _emptyTextStyle = QStringLiteral(R<span class="stringliteral">&quot;(font: 75 20pt &quot;Verdana&quot;; color:yellow;)&quot;);</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">};</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassSlotPreview_html_a308b73573ecff499188e194b141b8493"><div class="ttname"><a href="classSlotPreview.html#a308b73573ecff499188e194b141b8493">SlotPreview::MODE</a></div><div class="ttdeci">MODE</div><div class="ttdef"><b>Definition:</b> SlotPreview.h:39</div></div>
-<div class="ttc" id="aclassSaveIcon_html"><div class="ttname"><a href="classSaveIcon.html">SaveIcon</a></div><div class="ttdoc">PSX icon data as a QPixmap.</div><div class="ttdef"><b>Definition:</b> SaveIcon.h:28</div></div>
-<div class="ttc" id="aclassSlotPreview_html_a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d"><div class="ttname"><a href="classSlotPreview.html#a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d">SlotPreview::MODE_PSXGAME</a></div><div class="ttdeci">@ MODE_PSXGAME</div><div class="ttdoc">PSX Game or linked block.</div><div class="ttdef"><b>Definition:</b> SlotPreview.h:40</div></div>
-<div class="ttc" id="aclassSlotPreview_html"><div class="ttname"><a href="classSlotPreview.html">SlotPreview</a></div><div class="ttdoc">Preview a Single Slot on a Psx memory card or FF7 Save file.</div><div class="ttdef"><b>Definition:</b> SlotPreview.h:34</div></div>
+<div class="ttc" id="aclassSlotPreview_html_a308b73573ecff499188e194b141b8493"><div class="ttname"><a href="classSlotPreview.html#a308b73573ecff499188e194b141b8493">SlotPreview::MODE</a></div><div class="ttdeci">MODE</div><div class="ttdef"><b>Definition:</b> SlotPreview.h:36</div></div>
+<div class="ttc" id="aclassSaveIcon_html"><div class="ttname"><a href="classSaveIcon.html">SaveIcon</a></div><div class="ttdoc">PSX icon data as a QPixmap.</div><div class="ttdef"><b>Definition:</b> SaveIcon.h:26</div></div>
+<div class="ttc" id="aclassSlotPreview_html_a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d"><div class="ttname"><a href="classSlotPreview.html#a308b73573ecff499188e194b141b8493a990335f75a3d812235670bad39af5c3d">SlotPreview::MODE_PSXGAME</a></div><div class="ttdeci">@ MODE_PSXGAME</div><div class="ttdoc">PSX Game or linked block.</div><div class="ttdef"><b>Definition:</b> SlotPreview.h:37</div></div>
+<div class="ttc" id="aclassSlotPreview_html"><div class="ttname"><a href="classSlotPreview.html">SlotPreview</a></div><div class="ttdoc">Preview a Single Slot on a Psx memory card or FF7 Save file.</div><div class="ttdef"><b>Definition:</b> SlotPreview.h:31</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,8 +1,9 @@
 <map id="src/widgets/ChocoboEditor.h" name="src/widgets/ChocoboEditor.h">
-<area shape="rect" id="node1" title=" " alt="" coords="110,5,315,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="111,5,317,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,84,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="109,80,178,107"/>
-<area shape="rect" id="node4" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="202,80,365,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="389,80,553,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="227,155,340,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="203,80,367,107"/>
+<area shape="rect" id="node5" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="391,80,554,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="334,155,465,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="489,155,603,181"/>
 </map>

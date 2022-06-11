@@ -87,36 +87,37 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//    GNU General Public License for more details.                          //</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/****************************************************************************/</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#   define PACK(structure)          \</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">    __pragma(pack(push, 1))     \</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    structure                   \</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">    __pragma(pack(pop))</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#elif defined(__MINGW32__)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define PACK(structure) structure __attribute__ ((gcc_struct, __packed__))</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="Type__FF7CHOCOBO_8h.html#a8ee8a6eb8ddaacd31eb7354dc91866c5">   26</a></span>&#160;<span class="preprocessor">#define PACK(structure) structure Q_PACKED</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef ff7tk_export_h</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">    #include &lt;ff7tk_export.h&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">PACK(</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">struct </span>FF7TK_EXPORT <a class="code" href="structFF7CHOCOBO.html">FF7CHOCOBO</a> {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    quint16 sprintspd = 0;      </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    quint16 maxsprintspd = 0;   </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    quint16 speed = 0;          </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    quint16 maxspeed = 0;       </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    quint8 accel = 0;           </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    quint8 coop = 0;            </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    quint8 intelligence = 0;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    quint8 personality = 0;     </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    quint8 pcount = 0;          </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    quint8 raceswon = 0;        </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    quint8 sex = 0;             </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    quint8 type = 0;            </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;});</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QtCore/qglobal.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;ff7tk_export.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#   define PACK(structure)          \</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">    __pragma(pack(push, 1))     \</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">    structure                   \</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">    __pragma(pack(pop))</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#elif defined(__MINGW32__)</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define PACK(structure) structure __attribute__ ((gcc_struct, __packed__))</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="Type__FF7CHOCOBO_8h.html#a8ee8a6eb8ddaacd31eb7354dc91866c5">   28</a></span>&#160;<span class="preprocessor">#define PACK(structure) structure Q_PACKED</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<a class="code" href="Type__FF7CHOCOBO_8h.html#a8ee8a6eb8ddaacd31eb7354dc91866c5">PACK</a>(</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">struct</span> FF7TK_EXPORT <a class="code" href="structFF7CHOCOBO.html">FF7CHOCOBO</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    quint16 sprintspd = 0;      </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    quint16 maxsprintspd = 0;   </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    quint16 speed = 0;          </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    quint16 maxspeed = 0;       </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    quint8 accel = 0;           </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    quint8 coop = 0;            </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    quint8 intelligence = 0;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    quint8 personality = 0;     </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    quint8 pcount = 0;          </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    quint8 raceswon = 0;        </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    quint8 sex = 0;             </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    quint8 type = 0;            </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;});</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aType__FF7CHOCOBO_8h_html_a8ee8a6eb8ddaacd31eb7354dc91866c5"><div class="ttname"><a href="Type__FF7CHOCOBO_8h.html#a8ee8a6eb8ddaacd31eb7354dc91866c5">PACK</a></div><div class="ttdeci">#define PACK(structure)</div><div class="ttdef"><b>Definition:</b> Type_FF7CHOCOBO.h:28</div></div>
 <div class="ttc" id="astructFF7CHOCOBO_html"><div class="ttname"><a href="structFF7CHOCOBO.html">FF7CHOCOBO</a></div><div class="ttdoc">a chocobo in save game</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

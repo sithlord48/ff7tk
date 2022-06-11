@@ -1,8 +1,9 @@
 <map id="src/data/FF7Char.h" name="src/data/FF7Char.h">
-<area shape="rect" id="node1" title=" " alt="" coords="137,5,279,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="111,5,254,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,80,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="105,80,183,107"/>
-<area shape="rect" id="node4" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="207,80,339,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="270,229,383,256"/>
-<area shape="rect" id="node5" href="$Type__materia_8h.html" title=" " alt="" coords="167,155,289,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="215,229,329,256"/>
+<area shape="rect" id="node5" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="282,80,414,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="379,229,509,256"/>
+<area shape="rect" id="node7" href="$Type__materia_8h.html" title=" " alt="" coords="309,155,432,181"/>
 </map>
