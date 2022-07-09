@@ -12,18 +12,19 @@
 <area shape="rect" id="node13" title=" " alt="" coords="1221,80,1327,107"/>
 <area shape="rect" id="node14" title=" " alt="" coords="1352,80,1417,107"/>
 <area shape="rect" id="node15" title=" " alt="" coords="1441,80,1552,107"/>
-<area shape="rect" id="node16" href="$FF7Save_8h.html" title=" " alt="" coords="1577,80,1667,107"/>
-<area shape="rect" id="node20" href="$FF7SaveInfo_8h.html" title=" " alt="" coords="1714,155,1829,181"/>
+<area shape="rect" id="node16" href="$FF7Save_8h.html" title=" " alt="" coords="1658,80,1749,107"/>
+<area shape="rect" id="node20" href="$FF7SaveInfo_8h.html" title=" " alt="" coords="1517,155,1631,181"/>
 <area shape="rect" id="node3" title=" " alt="" coords="194,155,269,181"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,155,169,181"/>
-<area shape="rect" id="node17" title=" " alt="" coords="1573,229,1647,256"/>
-<area shape="rect" id="node18" title=" " alt="" coords="1624,155,1689,181"/>
-<area shape="rect" id="node19" title=" " alt="" coords="1403,379,1516,405"/>
-<area shape="rect" id="node22" href="$FF7Save__Types_8h.html" title=" " alt="" coords="1291,155,1425,181"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1672,229,1825,256"/>
-<area shape="rect" id="node23" title=" " alt="" coords="1195,229,1268,256"/>
-<area shape="rect" id="node24" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="1292,229,1424,256"/>
-<area shape="rect" id="node27" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="1037,304,1199,331"/>
-<area shape="rect" id="node25" title=" " alt="" coords="1171,379,1302,405"/>
-<area shape="rect" id="node26" href="$Type__materia_8h.html" title=" " alt="" coords="1274,304,1397,331"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1607,229,1682,256"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1757,155,1823,181"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1785,379,1899,405"/>
+<area shape="rect" id="node22" href="$FF7Save__Types_8h.html" title=" " alt="" coords="1847,155,1981,181"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1429,229,1583,256"/>
+<area shape="rect" id="node23" title=" " alt="" coords="1808,229,1881,256"/>
+<area shape="rect" id="node24" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="1999,229,2131,256"/>
+<area shape="rect" id="node28" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="1807,304,1970,331"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1949,379,2079,405"/>
+<area shape="rect" id="node26" href="$Type__materia_8h.html" title=" " alt="" coords="2045,304,2167,331"/>
+<area shape="rect" id="node27" title=" " alt="" coords="2104,379,2199,405"/>
 </map>
