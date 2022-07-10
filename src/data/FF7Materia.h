@@ -83,9 +83,32 @@ public:
      */
     static Q_INVOKABLE QString statString(int id) { return tr(Materias(idClamp(id)).stats.toLocal8Bit()); }
 
+    /**
+     * @brief enemySkill - Get translated string of an enemy skill
+     * @param skill - Skill Number
+     * @return Name of Enemy Skill skill
+     */
     static Q_INVOKABLE QString enemySkill(int skill);
+
+    /**
+     * @brief masterCommandSkill - Get translated string of the Master Command skill
+     * @param skill - Skill Number
+     * @return Name of the skill
+     */
     static Q_INVOKABLE QString masterCommandSkill(int skill);
+
+    /**
+     * @brief masterSummonSkill - Get translated string of the Master Summon skill
+     * @param skill - Skill Number
+     * @return Name of the skill
+     */
     static Q_INVOKABLE QString masterSummonSkill(int skill);
+
+    /**
+     * @brief masterMagicSkill - Get translated string of the Master Magic skill
+     * @param skill - Skill Number
+     * @return Name of the skill
+     */
     static Q_INVOKABLE QString masterMagicSkill(int skill);
 
     static Q_INVOKABLE QString element(int id) { return tr(Materias(idClamp(id)).elemental.toLocal8Bit()); }
@@ -99,7 +122,8 @@ public:
      * @return  the ap needed for that materia to reach the level (0 if invalid)
      */
     static Q_INVOKABLE qint32 apForLevel(int id, int level) { return Materias(id).ap.at(std::clamp(level, 0, 4)); }
-static Q_INVOKABLE qint8 statSTR(int id) { return Materias(id).str; }
+    static Q_INVOKABLE qint32 apToMax(int id) { return Materias(id).ap.at(std::max(Materias(id).levels -1, 0)); }
+    static Q_INVOKABLE qint8 statSTR(int id) { return Materias(id).str; }
     static Q_INVOKABLE qint8 statVIT(int id) { return Materias(id).vit; }
     static Q_INVOKABLE qint8 statMAG(int id) { return Materias(id).mag; }
     static Q_INVOKABLE qint8 statSPI(int id) { return Materias(id).spi; }
@@ -122,7 +146,6 @@ static Q_INVOKABLE qint8 statSTR(int id) { return Materias(id).str; }
     static Q_INVOKABLE qint32 materiaAP(materia mat) { return materiaAP(mat.ap[0], mat.ap[1], mat.ap[2]); }
     static Q_INVOKABLE qint32 materiaAP(quint8 ap[3]) { return materiaAP(ap[0], ap[1], ap[2]); }
 
-
     //Image Functions
     static Q_INVOKABLE QIcon icon(int id) { return QIcon(QPixmap(Materias(id).imageString)); }
 
@@ -144,7 +167,7 @@ static Q_INVOKABLE qint8 statSTR(int id) { return Materias(id).str; }
 
     // Deprecated Methods
     [[ deprecated ("Replace with FF7Materia::materiaAP") ]]
-    static qint32 ap2num(quint8 ap[3]) { return qFromLittleEndian( qint32(ap[0] | (ap[1] << 8) | (ap[2] << 16))); }
+    static qint32 ap2num(quint8 ap[3]) { return materiaAP(ap); }
     [[ deprecated ("Replace with FF7Materia::apForLevel") ]]
     static Q_INVOKABLE qint32 ap(int id, int lvl) { return apForLevel(id, lvl); }
 
