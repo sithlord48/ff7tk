@@ -2995,10 +2995,6 @@ Los km/h son calculados mientras se juega </translation>
         <translation>Mapa en naufragios</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NO USAR</translation>
-    </message>
-    <message>
         <source>Buster Sword</source>
         <translation>Espada Mortal</translation>
     </message>
@@ -5536,10 +5532,6 @@ Los km/h son calculados mientras se juega </translation>
         <translation>Objeto W</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NO USAR</translation>
-    </message>
-    <message>
         <source>All</source>
         <translation>Todo</translation>
     </message>
@@ -7085,10 +7077,6 @@ Los km/h son calculados mientras se juega </translation>
     <message>
         <source>Empty Item</source>
         <translation>Objeto vacío</translation>
-    </message>
-    <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">NO USAR</translation>
     </message>
     <message>
         <source>Item #%1</source>

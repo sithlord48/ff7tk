@@ -2959,10 +2959,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation>Weltk. in Schiffen</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NICHT BENUTZEN</translation>
-    </message>
-    <message>
         <source>Buster Sword</source>
         <translation>Meisterschwert</translation>
     </message>
@@ -5532,10 +5528,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <translation>2xObjekt</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NICHT BENUTZEN</translation>
-    </message>
-    <message>
         <source>All</source>
         <translation>Alle</translation>
     </message>
@@ -7085,10 +7077,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     <message>
         <source>Empty Item</source>
         <translation>leere Artikel</translation>
-    </message>
-    <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">NICHT BENUTZEN</translation>
     </message>
     <message>
         <source>Item #%1</source>

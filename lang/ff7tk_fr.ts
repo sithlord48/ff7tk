@@ -2995,10 +2995,6 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <translation>Carte d&apos;un autre monde. Epaves de vaisseaux</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NE PAS UTILISER</translation>
-    </message>
-    <message>
         <source>Buster Sword</source>
         <translation>Epée broyante</translation>
     </message>
@@ -5536,10 +5532,6 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <translation>Elément-W</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NE PAS UTILISER</translation>
-    </message>
-    <message>
         <source>All</source>
         <translation>Tout</translation>
     </message>
@@ -7085,10 +7077,6 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <message>
         <source>Empty Item</source>
         <translation>Object vide</translation>
-    </message>
-    <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">NE PAS UTILISER</translation>
     </message>
     <message>
         <source>Item #%1</source>

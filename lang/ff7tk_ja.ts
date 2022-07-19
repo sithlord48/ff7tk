@@ -2995,10 +2995,6 @@ The km/h speeds are calculated while playing </source>
         <translation type="unfinished">沈んだ船とともに眠る、異世界の地図</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">使用不可</translation>
-    </message>
-    <message>
         <source>Buster Sword</source>
         <translation type="unfinished">バスターソード</translation>
     </message>
@@ -5536,10 +5532,6 @@ The km/h speeds are calculated while playing </source>
         <translation>Ｗアイテム</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">使用不可</translation>
-    </message>
-    <message>
         <source>All</source>
         <translation type="unfinished">ぜんたいか</translation>
     </message>
@@ -7085,10 +7077,6 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Empty Item</source>
         <translation type="unfinished">アイテムなし</translation>
-    </message>
-    <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">使用不可</translation>
     </message>
     <message>
         <source>Item #%1</source>
