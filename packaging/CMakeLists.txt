@@ -28,8 +28,8 @@ set(CPACK_PACKAGE_VENDOR "sithlord48")
 set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/sithlord48/ff7tk")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY ${CMAKE_PROJECT_DESCRIPTION})
 
-if (NOT CPACK_PACKAGE_VERSION )
-    set(CPACK_PACKAGE_VERSION ${FF7TK_VERSION})
+if (NOT CPACK_PACKAGE_VERSION)
+    set(CPACK_PACKAGE_VERSION ${CMAKE_PROJECT_VERSION})
 endif()
 
 set(CPACK_PACKAGE_INSTALL_DIRECTORY ${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION})
@@ -50,16 +50,16 @@ cpack_add_component(ff7tk_runtime
     REQUIRED
 )
 
-cpack_add_component(ff7tk_development
-    DISPLAY_NAME "ff7tk Development Files"
-    DESCRIPTION "Files needed to develop applications using ff7tk"
-    DEPENDS ff7tk_runtime
-    DISABLED
-)
+set(CPACK_COMPONENT_FF7TK_DEVELOPMENT_DISPLAY_NAME "ff7tk Development Files")
+set(CPACK_COMPONENT_FF7TK_DEVELOPMENT_DESCRIPTION "Files needed to develop applications using ff7tk")
+set(CPACK_COMPONENT_FF7TK_DEVELOPMENT_DEPENDS ff7tk_runtime)
+set(CPACK_COMPONENT_FF7TK_DEVELOPMENT_DISABLED FALSE)
 
 cpack_add_component_group(ff7tk_demos
     DISPLAY_NAME "ff7tk Demos"
     DESCRIPTION "Demo applicaions using ff7tk"
+    ARCHIVE_FILE ff7tk-demos
+    EXPANDED
 )
 
 cpack_add_component(ff7tkWidgetGallery
@@ -101,9 +101,10 @@ cpack_ifw_configure_component(ff7tk_runtime
 )
 
 cpack_ifw_configure_component(ff7tk_development
+    COMMON
     DISPLAY_NAME "ff7tk Dev Files"
     DESCRIPTION "Files needed to build applications with ff7tk"
-    DEFAULT FALSE
+    DEFAULT TRUE
     SORTING_PRIORITY 3
     LICENSES "LGPL3+" ${CPACK_RESOURCE_FILE_LICENSE}
 )
@@ -144,11 +145,19 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
         list(APPEND CPACK_GENERATOR "DEB")
         set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
         set(CPACK_DEBIAN_PACKAGE_PROVIDES ${CPACK_PACKAGE_NAME})
+        set(CPACK_DEBIAN_PACKAGE_NAME libff7tk)
         set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
+        set(CPACK_DEB_COMPONENT_INSTALL FALSE)
+        set(CPACK_DEBIAN_FF7TK_RUNTIME_PACKAGE_NAME libff7tk)
+        set(CPACK_DEBIAN_FF7TK_DEVELOPMENT_PACKAGE_NAME libff7tk-dev)
+        set(CPACK_DEBIAN_FF7TK_DEVELOPMENT_PACKAGE_PROVIDES libff7tk-dev)
+        set(CPACK_DEBIAN_FF7TK_DEVELOPMENT_PACKAGE_ENHANCES libff7tk)
+        set(CPACK_DEBIAN_FF7TK_DEMOS_PACKAGE_NAME libff7tk-demos)
+        set(CPACK_DEBIAN_FF7TK_DEMOS_PACKAGE_PROVIDES libff7tk-demos)
     endif()
     if(EXISTS "/usr/bin/rpmbuild")
         list(APPEND CPACK_GENERATOR "RPM")
-        set(CPACK_RPM_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CMAKE_SYSTEM_PROCESSOR}.rpm")
+        set(CPACK_RPM_FILE_NAME "lib${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CMAKE_SYSTEM_PROCESSOR}.rpm")
     endif()
 else()
     set(OS_STRING ${CMAKE_SYSTEM_NAME}_${CMAKE_SYSTEM_PROCESSOR})
@@ -173,15 +182,22 @@ if(WIN32)
         COMPONENT ff7tk_runtime_depends
         FILES_MATCHING PATTERN "*.*"
     )
-    cpack_add_component(ff7tk_runtime_depends
-            HIDDEN
-            REQUIRED
-        )
+
+    set(CPACK_COMPONENT_FF7TK_RUNTIME_DEPENDS_HIDDEN TRUE)
+    set(CPACK_COMPONENT_FF7TK_RUNTIME_DEPENDS_REQUIRED TRUE)
+
 endif()
 
 include(CPackIFW)
 cpack_ifw_configure_component(ff7tk_runtime_depends
     VIRTUAL FORCED_INSTALLATION
 )
+
+get_cmake_property(CPACK_COMPONENTS_ALL COMPONENTS)
+list(FIND CPACK_COMPONENTS_ALL "ff7tk_development" hasDev)
+if (${hasDev} EQUAL -1)
+    list(PREPEND CPACK_COMPONENTS_ALL "ff7tk_development")
+endif()
+message(STATUS ${CPACK_COMPONENTS_ALL})
 
 include(CPack)

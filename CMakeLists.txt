@@ -34,32 +34,36 @@ include(GenerateExportHeader)
 include(GNUInstallDirs)
 
 # Get the version from git if it's a git repository
-IF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
-  FIND_PACKAGE(Git)
-  IF(GIT_FOUND)
-    EXECUTE_PROCESS(
-      COMMAND ${GIT_EXECUTABLE} describe --long --match v*
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
+  find_package(Git)
+  if(GIT_FOUND)
+    execute_process(
+      COMMAND ${GIT_EXECUTABLE} describe --long --match v* --always
       WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
       OUTPUT_VARIABLE GITREV
       ERROR_QUIET
       OUTPUT_STRIP_TRAILING_WHITESPACE)
-      string(REGEX MATCH [0-9]+ MAJOR ${GITREV})
-      string(REGEX MATCH \\.[0-9]+ MINOR ${GITREV})
-      string(REPLACE "." "" MINOR ${MINOR})
-      string(REGEX MATCH [0-9]+\- PATCH ${GITREV})
-      string(REPLACE "-" "" PATCH ${PATCH})
-      string(REGEX MATCH \-[0-9]+\- TWEAK ${GITREV})
-      string(REPLACE "-" "" TWEAK ${TWEAK})
-      set(CMAKE_PROJECT_VERSION_MAJOR ${MAJOR})
-      set(CMAKE_PROJECT_VERSION_MINOR ${MINOR})
-      set(CMAKE_PROJECT_VERSION_PATCH ${PATCH})
-      set(CMAKE_PROJECT_VERSION_TWEAK ${TWEAK})
-      set(CMAKE_PROJECT_VERSION "${MAJOR}.${MINOR}.${PATCH}.${TWEAK}")
-  ENDIF(GIT_FOUND)
-  ELSE()
-ENDIF(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
+      string(FIND ${GITREV} "v" isRev)
+      if(NOT ifRev EQUAL -1)
+        string(REGEX MATCH [0-9]+ MAJOR ${GITREV})
+        string(REGEX MATCH \\.[0-9]+ MINOR ${GITREV})
+        string(REPLACE "." "" MINOR ${MINOR})
+        string(REGEX MATCH [0-9]+\- PATCH ${GITREV})
+        string(REPLACE "-" "" PATCH ${PATCH})
+        string(REGEX MATCH \-[0-9]+\- TWEAK ${GITREV})
+        string(REPLACE "-" "" TWEAK ${TWEAK})
+        set(CMAKE_PROJECT_VERSION_MAJOR ${MAJOR})
+        set(CMAKE_PROJECT_VERSION_MINOR ${MINOR})
+        set(CMAKE_PROJECT_VERSION_PATCH ${PATCH})
+        set(CMAKE_PROJECT_VERSION_TWEAK ${TWEAK})
+      elseif(NOT ${GITREV} STREQUAL "")
+        set(CMAKE_PROJECT_VERSION_TWEAK ${GITREV})
+      endif()
+        set(CMAKE_PROJECT_VERSION "${MAJOR}.${MINOR}.${PATCH}.${TWEAK}")
+  endif()
+endif()
 
-#SET FF7TK_VERSION Used for user facing strings and package version string
+#SET FF7TK_VERSION Used for user facing strings
 set(FF7TK_VERSION "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}")
 if(NOT CMAKE_PROJECT_VERSION_PATCH EQUAL 0)
     string(APPEND FF7TK_VERSION ".${CMAKE_PROJECT_VERSION_PATCH}")
@@ -67,7 +71,7 @@ endif()
 if(NOT CMAKE_PROJECT_VERSION_TWEAK EQUAL 0)
     string(APPEND FF7TK_VERSION "-${CMAKE_PROJECT_VERSION_TWEAK}")
 endif()
-MESSAGE(STATUS "Building FF7TK: ${FF7TK_VERSION}")
+message(STATUS "Building FF7TK: ${FF7TK_VERSION}")
 
 #Qt Info to get deploy app
 find_package(Qt6 REQUIRED COMPONENTS Core)

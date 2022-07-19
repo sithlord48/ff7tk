@@ -63,7 +63,7 @@ if(WIN32 AND NOT DEPENDENCY_CHECKED)
 endif()
 
 #Make sure the IFW Name ends with -installer.
-if(CPACK_GENERATOR MATCHES IFW)
+if(CPACK_GENERATOR MATCHES IFW|WIX|NSIS)
     set(CPACK_PACKAGE_FILE_NAME ${CPACK_PACKAGE_FILE_NAME}-installer)
 endif()
 
