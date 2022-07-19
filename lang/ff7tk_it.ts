@@ -2997,10 +2997,6 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation>Mappa di un altro mondo</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>DON&apos;T USE</translation>
-    </message>
-    <message>
         <source>Buster Sword</source>
         <translation>Spada potens</translation>
     </message>
@@ -5545,10 +5541,6 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation>Alchimia</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NON UTILIZZARE</translation>
-    </message>
-    <message>
         <source>All</source>
         <translation>Omni</translation>
     </message>
@@ -7094,10 +7086,6 @@ La velocità in km/h viene calcolata a runtime</translation>
     <message>
         <source>Empty Item</source>
         <translation>Vuoto</translation>
-    </message>
-    <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Item #%1</source>

@@ -103,7 +103,7 @@ void ItemSelector::init_data()
     sb_qty->setEnabled(false);
     //Fill Combo_Item (all items type is 0 or no filter defalut)
     for (int i = 0; i < 320; i++) {
-        if(FF7Item::name(i) == QT_TR_NOOP("DON'T USE")) {
+        if(FF7Item::name(i).isEmpty()) {
             combo_item->addItem(FF7Item::icon(i), tr("Item #%1").arg(i));
             continue;
         }

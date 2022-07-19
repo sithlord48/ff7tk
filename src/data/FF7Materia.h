@@ -111,8 +111,23 @@ public:
      */
     static Q_INVOKABLE QString masterMagicSkill(int skill);
 
+    /**
+     * @brief element - Get Elemental Type(s) for materia
+     * @param id - Id of materia to get the type of
+     * @return An Elemental String Or QString()
+     */
     static Q_INVOKABLE QString element(int id) { return tr(Materias(idClamp(id)).elemental.toLocal8Bit()); }
+    /**
+     * @brief skills - Get Skill for a materia
+     * @param id - Id of Materia
+     * @return  List of skills the materia can have
+     */
     static Q_INVOKABLE QStringList skills(int id);
+    /**
+     * @brief status - Get Status Changes for a materia
+     * @param id - ID of Materia
+     * @return List of Status Changes
+     */
     static Q_INVOKABLE QStringList status(int id);
 
     /**
@@ -309,7 +324,7 @@ private:
 
         inline static const MATERIA _emptyMateria{
             QT_TR_NOOP("EMPTY")
-            , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+            , {QString(), QString(), QString(), QString(), QString()}
             , QStringLiteral("ID:0xFF"), QString(), QString(), QString()
             , 0XFF, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
         };
@@ -446,8 +461,8 @@ private:
                 , 0x15, 0, 0, 0, 0, 0, 0, 0, 0, {0, 250000, 0, 0, 0}, 5, 2, QString(), {QString()}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x16"), QString(), QString(), QString()
                 , 0X16, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
@@ -542,8 +557,8 @@ private:
                 , 0x25, 0, 0, 0, 0, 0, 0, 0, 0, {0, 40000, 0, 0, 0}, 5, 2, QString(), {QString()}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x26"), QString(), QString(), QString()
                 , 0X26, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
@@ -584,20 +599,20 @@ private:
                 , 0x2C, 0, 0, 0, 0, 0, 0, 0, 0, {16777215, 0, 0, 0, 0}, 5, 1, QString(), {QString()}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x2D"), QString(), QString(), QString()
                 , 0X2D, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x2E"), QString(), QString(), QString()
                 , 0X2E, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x2F"), QString(), QString(), QString()
                 , 0X2F, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
@@ -692,8 +707,8 @@ private:
                 , 0x3E, -5, +5, -2, -1, 0, 0, +2, +1, {0, 5000, 15000, 30000, 45000}, 1, 5, QString(), {QString()}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x3F"), QString(), QString(), QString()
                 , 0X3F, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
@@ -710,14 +725,14 @@ private:
                 , 0x41, -5, +5, -2, -1, 0, 0, +2, +1, {0, 10000, 20000, 42000, 0}, 1, 4, QString(), {QT_TR_NOOP("[Slow]"), QT_TR_NOOP("[Stop]")}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x42"), QString(), QString(), QString()
                 , 0X42, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
-                QT_TR_NOOP("DON'T USE")
-                , {QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?"), QStringLiteral("?")}
+                QString()
+                , {QString(), QString(), QString(), QString(), QString()}
                 , QStringLiteral("ID:0x43"), QString(), QString(), QString()
                 , 0X43, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },

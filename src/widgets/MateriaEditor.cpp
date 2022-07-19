@@ -225,7 +225,7 @@ void MateriaEditor::typeChanged(int new_type)
     combo_materia->blockSignals(true);
     if (new_type == 0) {
         for (int i = 0; i < 91; i++) {
-            if (FF7Materia::name(i) != "DON'T USE")
+            if (!FF7Materia::name(i).isEmpty())
                 combo_materia->addItem(FF7Materia::icon(i), FF7Materia::name(i));
         }
     } else {
@@ -382,7 +382,7 @@ QHBoxLayout *MateriaEditor::makeNameLayout()
     combo_materia->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
     combo_materia->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     for (int i = 0; i < 91; i++) {
-        if (FF7Materia::name(i) != "DON'T USE")
+        if (!FF7Materia::name(i).isEmpty())
             combo_materia->addItem(FF7Materia::pixmap(i), FF7Materia::name(i));
     }
     connect(combo_materia, &QComboBox::currentTextChanged, this, &MateriaEditor::materia_changed);

@@ -2994,10 +2994,6 @@ The km/h speeds are calculated while playing </source>
         <translation>Mapa innego świata. Śpi z zatopionymi statkami</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NIE UŻYWAĆ</translation>
-    </message>
-    <message>
         <source>Buster Sword</source>
         <translation>Pogromca Miecza</translation>
     </message>
@@ -5535,10 +5531,6 @@ The km/h speeds are calculated while playing </source>
         <translation>Przedmiot-W</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>NIE UŻYWAĆ</translation>
-    </message>
-    <message>
         <source>All</source>
         <translation>Wszystko</translation>
     </message>
@@ -7084,10 +7076,6 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Empty Item</source>
         <translation>Pusty element</translation>
-    </message>
-    <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">NIE UŻYWAĆ</translation>
     </message>
     <message>
         <source>Item #%1</source>

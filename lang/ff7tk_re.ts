@@ -2995,10 +2995,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>Map of another world that slumbered with a sunken ship</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>DON&apos;T USE</translation>
-    </message>
-    <message>
         <source>Buster Sword</source>
         <translation>Buster Sword</translation>
     </message>
@@ -5536,10 +5532,6 @@ The km/h speeds are calculated while playing </translation>
         <translation>Double Item</translation>
     </message>
     <message>
-        <source>DON&apos;T USE</source>
-        <translation>DON&apos;T USE</translation>
-    </message>
-    <message>
         <source>All</source>
         <translation>All</translation>
     </message>
@@ -7085,10 +7077,6 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Empty Item</source>
         <translation type="unfinished">Empty Item</translation>
-    </message>
-    <message>
-        <source>DON&apos;T USE</source>
-        <translation type="unfinished">DON&apos;T USE</translation>
     </message>
     <message>
         <source>Item #%1</source>
