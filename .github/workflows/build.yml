@@ -1,21 +1,43 @@
-name: CI/CD
+name: CI
+
 on:
   push:
     branches: [ master ]
+    tags:
+      'v*'
   pull_request:
     branches: [ master ]
-
 env:
-  QtVersion: 6.3.0
-  QtTools: 'desktop,tools_ifw,qt.tools.ifw.43'
-  QtKey: "6.3.0-ifw_43"
-  BuildType: RelWithDebInfo
-  ff7tkVersion: continuous
-
+    QtVersion: 6.3.1
+    QtTools: 'desktop,tools_ifw,qt.tools.ifw.44'
+    QtKey: "6.3.1-ifw_44"
+    BuildType: RelWithDebInfo
 jobs:
+  precheck:
+    name: Job Info
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.checkbuild.outputs.version }}
+      isRelease: ${{ steps.checkbuild.outputs.isRelease }}
+    steps:
+      - name: Run Info
+        id: checkbuild
+        run: |
+          RELEASE="false"
+          if [[ "$GITHUB_REF" == *"tags/v" || "$GITHUB_REF" == *"refs/heads/release" ]]; then
+              RELEASE="true"
+              VER="$GITHUB_REF_NAME"
+          fi
+          if [[ "$NAME" == "" ]]; then
+              VER="continuous"
+          fi
+          echo "::set-output name=version::$VER"
+          echo "::set-output name=isRelease::$RELEASE"
+
   main_build:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
+    needs: precheck
     strategy:
       fail-fast: false
       matrix:
@@ -23,24 +45,29 @@ jobs:
         - {
            name: "Linux-amd64"
            , os: ubuntu-20.04
-           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.3"
-           , packageName: "ff7tk-continuous-linux-amd64"
+           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.4"
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib"
           }
         - {
-            name: "MacOS-amd64"
-            , os: macos-10.15
-            , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.3"
+            name: "MacOS"
+            , os: macos-11
+            , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.4"
             , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
           }
         - {
             name: "Windows-x64"
             , os: windows-2019
-            , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.3"
+            , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.4"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
           }
 
     steps:
+    - name: Setup env
+      shell: bash
+      run: |
+        echo "name=ff7tk-${{ needs.precheck.outputs.version }}" >> $GITHUB_ENV
+        echo "ff7tkVersion=${{ needs.precheck.outputs.version }}" >> $GITHUB_ENV
+
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
@@ -117,34 +144,34 @@ jobs:
         cmake --build build --config ${{env.BuildType}} --target package
 
     - name: Deployment (Linux)
-      if: runner.os == 'Linux'
+      if: (runner.os == 'Linux')
       run: |
         sudo tar -xf build/ff7tk-*.tar.gz --one-top-level=/usr --exclude COPYING.TXT
-        mkdir -p ${{matrix.config.packageName}}/usr ff7tk
-        tar -xf build/ff7tk-*.tar.gz -C ${{matrix.config.packageName}}/usr
-        cp -r ${{matrix.config.packageName}}/* ff7tk/
+        mkdir -p ${{env.name}}-linux-amd64/usr ff7tk
+        tar -xf build/ff7tk-*.tar.gz -C ${{env.name}}-linux-amd64/usr
+        cp -r ${{env.name}}-linux-amd64/* ff7tk/
         rm -rf ff7tk/usr/bin
         wget -qc "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
         wget -qc "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
         chmod a+x linuxdeploy*.AppImage
         rm -rf ff7tk/usr/share/applications ff7tk/usr/share/pixmaps
         export VERSION=${{env.ff7tkVersion}}
-        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{matrix.config.packageName}}/usr/lib
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{env.name}}-linux-amd64/usr/lib
         export PATH=$PATH:${{matrix.config.QT_INST_DIR}}/Qt/${{ env.QtVersion }}/gcc_64/libexec
         ./linuxdeploy-x86_64.AppImage --appdir=widgetGallery --plugin=qt --output appimage \
-            -e ${{matrix.config.packageName}}/usr/bin/ff7tkWidgetGallery \
-            -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkWidgetGallery.desktop \
-            -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkWidgetGallery.png
+            -e ${{env.name}}-linux-amd64/usr/bin/ff7tkWidgetGallery \
+            -d ${{env.name}}-linux-amd64/usr/share/applications/ff7tkWidgetGallery.desktop \
+            -i ${{env.name}}-linux-amd64/usr/share/pixmaps/ff7tkWidgetGallery.png
         export QML_SOURCES_PATHS=demos/ff7tkQmlGallery
         ./linuxdeploy-x86_64.AppImage --appdir=qmlGallery --plugin=qt --output appimage \
-            -e ${{matrix.config.packageName}}/usr/bin/ff7tkQmlGallery \
-            -d ${{matrix.config.packageName}}/usr/share/applications/ff7tkQmlGallery.desktop \
-            -i ${{matrix.config.packageName}}/usr/share/pixmaps/ff7tkQmlGallery.png
-        mv ff7tk*.AppImage ${{matrix.config.packageName}}/
-        mv ff7tk/usr/COPYING.TXT ${{matrix.config.packageName}}/
-        mv ff7tk/ ${{matrix.config.packageName}}
-        rm -rf ${{matrix.config.packageName}}/usr
-        tar -zcvf build/${{ matrix.config.packageName}}.tar.xz ${{matrix.config.packageName}}
+            -e ${{env.name}}-linux-amd64/usr/bin/ff7tkQmlGallery \
+            -d ${{env.name}}-linux-amd64/usr/share/applications/ff7tkQmlGallery.desktop \
+            -i ${{env.name}}-linux-amd64/usr/share/pixmaps/ff7tkQmlGallery.png
+        mv ff7tk*.AppImage ${{env.name}}-linux-amd64/
+        mv ff7tk/usr/COPYING.TXT ${{env.name}}-linux-amd64/
+        mv ff7tk/ ${{env.name}}-linux-amd64
+        rm -rf ${{env.name}}-linux-amd64/usr
+        tar -zcvf build/${{env.name}}-linux-amd64.tar.xz ${{env.name}}-linux-amd64
 
     - name: Deploy Pages
       if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
@@ -152,9 +179,8 @@ jobs:
       with:
        branch: gh-pages
        folder: build/docs/html
-
     - name: Upload
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         path: ${{ github.workspace }}/build/ff7tk[-_]*.*
 
@@ -162,7 +188,7 @@ jobs:
     # The host should always be linux
     runs-on: ubuntu-latest
     name: ${{matrix.config.name}}
-
+    needs: precheck
     strategy:
       fail-fast: false
       matrix:
@@ -177,10 +203,12 @@ jobs:
            , cmakeExtraConfig: "-DDOCS=OFF"
           }
     steps:
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - run: git fetch --tags --force
+
       - uses: uraimo/run-on-arch-action@v2.1.1
         name: Build artifact
         id: build
@@ -192,17 +220,16 @@ jobs:
           dockerRunArgs: --volume "${PWD}/artifacts:/artifacts"
           shell: /bin/sh
           install: |
-                pacman -Syu --noconfirm
-                pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative qt6-svg clang graphviz --noconfirm
-
+            pacman -Syu --noconfirm
+            pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative qt6-svg clang graphviz --noconfirm
           run: |
+            git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
             cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DBUILD_DEMOS=ON -DCPACK_PACKAGE_VERSION=${{env.ff7tkVersion}} -DQT_DEFAULT_MAJOR_VERSION=6 ${{matrix.config.cmakeExtraConfig}}
             cmake --build build --config ${{env.BuildType}} --target package
             mv build/ff7tk* /artifacts/
             rm /artifacts/ff7tk.pc
-
       - name: Upload
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ff7tk-container-artifact
           path: artifacts/ff7tk[-_]*.*
@@ -210,19 +237,27 @@ jobs:
   release_assets:
     name: Release
     needs: [main_build, container_build]
-    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
     - name: Download Files
-      uses: actions/download-artifact@v2
-
-    - name: Deploy Package
+      uses: actions/download-artifact@v3
+    - name: Deploy Continuous
+      if: github.ref == 'refs/heads/master'
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
        repo_token: "${{ secrets.DEPLOYTOKEN }}"
        automatic_release_tag: "continuous"
        prerelease: false
        title: "Continuous Build"
+       files: |
+         artifact/*
+         ff7tk-container-artifact/*
+    - name: Deploy Release
+      if: needs.precheck.outputs.isRelease == 'true'
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+       repo_token: "${{ secrets.DEPLOYTOKEN }}"
+       prerelease: false
        files: |
          artifact/*
          ff7tk-container-artifact/*
