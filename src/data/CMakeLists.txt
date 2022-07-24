@@ -42,10 +42,10 @@ set (ff7tk_PublicLIBLINKS
       Qt::Quick
       Qt::Xml
       Qt::Svg
+      Qt::Core5Compat
 )
 
 set (ff7tk_PrivateLIBLINKS
-    Qt::Core5Compat
     CRYPTO
 )
 
