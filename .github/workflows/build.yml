@@ -42,7 +42,7 @@ jobs:
       matrix:
         config:
         - {
-           name: "Linux-amd64"
+           name: "Linux-x86_64"
            , os: ubuntu-20.04
            , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.4"
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib"
@@ -64,7 +64,6 @@ jobs:
     - name: Setup env
       shell: bash
       run: |
-        echo "name=ff7tk-${{ needs.precheck.outputs.version }}" >> $GITHUB_ENV
         echo "ff7tkVersion=${{ needs.precheck.outputs.version }}" >> $GITHUB_ENV
 
     - uses: actions/checkout@v3
@@ -142,36 +141,6 @@ jobs:
         cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DBUILD_DEMOS=ON -DCPACK_PACKAGE_VERSION=${{env.ff7tkVersion}} -DQT_DEFAULT_MAJOR_VERSION=6 -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BuildType}} --target package
 
-    - name: Deployment (Linux)
-      if: (runner.os == 'Linux')
-      run: |
-        sudo tar -xf build/ff7tk-*.tar.gz --one-top-level=/usr --exclude COPYING.TXT
-        mkdir -p ${{env.name}}-linux-amd64/usr ff7tk
-        tar -xf build/ff7tk-*.tar.gz -C ${{env.name}}-linux-amd64/usr
-        cp -r ${{env.name}}-linux-amd64/* ff7tk/
-        rm -rf ff7tk/usr/bin
-        wget -qc "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
-        wget -qc "https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage"
-        chmod a+x linuxdeploy*.AppImage
-        rm -rf ff7tk/usr/share/applications ff7tk/usr/share/pixmaps
-        export VERSION=${{env.ff7tkVersion}}
-        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${{env.name}}-linux-amd64/usr/lib
-        export PATH=$PATH:${{matrix.config.QT_INST_DIR}}/Qt/${{ env.QtVersion }}/gcc_64/libexec
-        ./linuxdeploy-x86_64.AppImage --appdir=widgetGallery --plugin=qt --output appimage \
-            -e ${{env.name}}-linux-amd64/usr/bin/ff7tkWidgetGallery \
-            -d ${{env.name}}-linux-amd64/usr/share/applications/ff7tkWidgetGallery.desktop \
-            -i ${{env.name}}-linux-amd64/usr/share/pixmaps/ff7tkWidgetGallery.png
-        export QML_SOURCES_PATHS=demos/ff7tkQmlGallery
-        ./linuxdeploy-x86_64.AppImage --appdir=qmlGallery --plugin=qt --output appimage \
-            -e ${{env.name}}-linux-amd64/usr/bin/ff7tkQmlGallery \
-            -d ${{env.name}}-linux-amd64/usr/share/applications/ff7tkQmlGallery.desktop \
-            -i ${{env.name}}-linux-amd64/usr/share/pixmaps/ff7tkQmlGallery.png
-        mv ff7tk*.AppImage ${{env.name}}-linux-amd64/
-        mv ff7tk/usr/COPYING.TXT ${{env.name}}-linux-amd64/
-        mv ff7tk/ ${{env.name}}-linux-amd64
-        rm -rf ${{env.name}}-linux-amd64/usr
-        tar -zcvf build/${{env.name}}-linux-amd64.tar.xz ${{env.name}}-linux-amd64
-
     - name: Deploy Pages
       if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@4.1.4
@@ -181,7 +150,9 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ github.workspace }}/build/ff7tk[-_]*.*
+        path: |
+          ${{ github.workspace }}/build/ff7tk[-_]*.*
+          ${{ github.workspace }}/build/libff7tk[-_]*.*
 
   container_build:
     # The host should always be linux
@@ -203,6 +174,10 @@ jobs:
           }
     steps:
 
+      - name: Setup env
+        shell: bash
+        run: |
+          echo "ff7tkVersion=${{ needs.precheck.outputs.version }}" >> $GITHUB_ENV
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -225,13 +200,13 @@ jobs:
             git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
             cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DBUILD_DEMOS=ON -DCPACK_PACKAGE_VERSION=${{env.ff7tkVersion}} -DQT_DEFAULT_MAJOR_VERSION=6 ${{matrix.config.cmakeExtraConfig}}
             cmake --build build --config ${{env.BuildType}} --target package
-            mv build/ff7tk* /artifacts/
-            rm /artifacts/ff7tk.pc
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
           name: ff7tk-container-artifact
-          path: artifacts/ff7tk[-_]*.*
+          path: |
+            build/ff7tk[-_]*.*
+            build/libff7tk[-_]*.*
 
   release_assets:
     name: Release
