@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
 #Version will be written by tag v1.2.2-4
-project(ff7tk VERSION 0.82.0.0 DESCRIPTION "Work with Final Fantasy 7 game data")
+project(ff7tk VERSION 0.83.0.0 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 #Prevent In-sourcebuild
 if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
@@ -93,15 +93,14 @@ if(UNIX)
     else()
         set(INSTALL_RPATH_STRING "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks")
     endif()
-
 endif()
 
 define_property(GLOBAL PROPERTY ff7tk_targets BRIEF_DOCS "Defined Non-Test Targets" FULL_DOCS "Dynamicly Generated list of Targets Tests")
 
 add_subdirectory(docs)
 
-option(BUILD_DEMOS "Build Demo Apps" OFF)
-if(BUILD_DEMOS)
+option(DEMOS "Build Demo Apps" OFF)
+if(DEMOS)
     add_subdirectory(demos)
 endif()
 
@@ -109,16 +108,16 @@ add_subdirectory(lang)
 add_subdirectory(packaging)
 add_subdirectory(src)
 
-option(ENABLE_TESTING "Build and run UnitTests" ON)
-if(ENABLE_TESTING)
+option(TESTS "Skip UnitTests" ON)
+if(TESTS)
     add_subdirectory(unittests)
 endif()
 
 #pkgconfig
 configure_file(ff7tk.pc.in ff7tk.pc @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/ff7tk.pc DESTINATION share/pkgconfig COMPONENT ff7tk_development)
+install(FILES ${CMAKE_BINARY_DIR}/ff7tk.pc DESTINATION share/pkgconfig COMPONENT ff7tk_headers)
 
-install (FILES ${CMAKE_SOURCE_DIR}/COPYING.TXT DESTINATION share/licenses/${CMAKE_PROJECT_NAME} RENAME LICENSE COMPONENT ff7tk_runtime)
+install (FILES ${CMAKE_SOURCE_DIR}/COPYING.TXT DESTINATION share/licenses/${CMAKE_PROJECT_NAME} RENAME LICENSE COMPONENT ff7tk_libraries)
 
 # uninstall target
 if(NOT TARGET uninstall)

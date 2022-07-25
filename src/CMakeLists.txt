@@ -75,16 +75,16 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
     install(TARGETS ${LIB_TARGET}
         EXPORT ff7tkTargets
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-            COMPONENT ff7tk_runtime
+            COMPONENT ff7tk_libraries
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            COMPONENT ff7tk_runtime
-            NAMELINK_COMPONENT ff7tk_development
+            COMPONENT ff7tk_libraries
+            NAMELINK_COMPONENT ff7tk_headers
         FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            COMPONENT ff7tk_runtime
+            COMPONENT ff7tk_libraries
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            COMPONENT ff7tk_development
+            COMPONENT ff7tk_headers
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${HEADER_INSTALL_DIR}
-            COMPONENT ff7tk_development
+            COMPONENT ff7tk_headers
     )
 
     if(UNIX)
@@ -101,12 +101,12 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
         endif()
         install(FILES $<TARGET_FILE:${LIB_TARGET}>.dbg
             DESTINATION ${CMAKE_INSTALL_LIBDIR}/debug
-            COMPONENT ff7tk_development
+            COMPONENT ff7tk_debug
         )
     elseif(WIN32)
         install(FILES ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_BASE_NAME:${LIB_TARGET}>.pdb
             DESTINATION ${CMAKE_INSTALL_BINDIR}
-            COMPONENT ff7tk_development
+            COMPONENT ff7tk_debug
         )
     endif()
 
@@ -114,7 +114,7 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
         EXPORT ff7tkTargets
         NAMESPACE ff7tk::
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-        COMPONENT ff7tk_development
+        COMPONENT ff7tk_headers
     )
 
     install(
@@ -122,7 +122,7 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
           ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}Config.cmake
           ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}ConfigVersion.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ff7tk
-        COMPONENT ff7tk_development
+        COMPONENT ff7tk_headers
     )
 
     export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}Targets.cmake)
@@ -152,5 +152,5 @@ install(
         ff7tkTargets.cmake
     NAMESPACE
         ff7tk::
-    COMPONENT ff7tk_development
+    COMPONENT ff7tk_headers
 )
