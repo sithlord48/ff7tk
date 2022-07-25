@@ -20,20 +20,24 @@ ff7tk Supports Several Build options
 Build Options:
          Option          |            Description                  |   Default Value    | Addtional Requirments |
 :-----------------------:|:---------------------------------------:|:------------------:|:---------------------:|
-QT_DEFAULT_MAJOR_VERSION | The Major Version of Qt to use          | 6                  | |
 CMAKE_BUILD_TYPE         | Type of Build that is produced          | ReleaseWithDebInfo | |
-DOCS                     | Build Documentation.                    | ON                 | [doxygen] |
-BUILD_TESTING            | Build and run unit tests                | ON                 | |
-BUILD_DEMOS              | Build The Demo Applications             | OFF                | |
-WIDGET_GALLERY           | Build the Widget based gallery.         | ON                 | Depends on BUILD_DEMOS|
-QML_GALLERY              | Build the QML based gallery.            | ON                 | Depends on BUILD_DEMOS|
-FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF                | Mac Os Only |
+DOCS                     | Build Documentation                     | ON                 | [doxygen] |
+DEMOS                    | Build The Demo Applications             | OFF                | |
 FORMATS                  | Build ff7tkFormats                      | ON                 | |
+FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF                | Mac Os Only |
+TESTS                    | Build and run unit tests                | ON                 | |
 UTILS                    | Build ff7tkUtils.                       | ON                 | [zlib] |
 WIDGETS                  | Build ff7tkWidgets.                     | ON                 | |
 
+
+Enabling Demos will allow you to set this additional options all are enabled by default
+       Demo              |            Description                  |
+:-----------------------:|:---------------------------------------:|
+WIDGET_GALLERY           | Build the Widget based gallery.         |
+QML_GALLERY              | Build the QML based gallery.            |
+
 Example cmake configuration.
-`cmake -S. -Bbuild -DWIDGET_GALLERY=ON -DCMAKE_INSTALL_PREFIX=<INSTALLPREFIX>`
+`cmake -S. -Bbuild -DDEMOS=ON -DCMAKE_INSTALL_PREFIX=<INSTALLPREFIX>`
 
 ## Build
 After Configuring you Should be able to run make to build all targets.
