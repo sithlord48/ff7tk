@@ -8,12 +8,18 @@ set(ff7tkQtWidgets_SRC
     ColorDisplay.cpp
     DialogPreview.cpp
     DoubleCheckBox.cpp
+    QTaskBarButton.cpp
 )
+
+if(APPLE)
+    list(APPEND ff7tkQtWidgets_SRC QTaskBarButton.mm)
+endif()
 
 set(ff7tkQtWidgets_HEADERS
     ColorDisplay.h
     DialogPreview.h
     DoubleCheckBox.h
+    QTaskBarButton.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkqtwidgets_export.h
 )
 
@@ -24,3 +30,4 @@ set(ff7tkQtWidgets_PublicLIBLINKS
 )
 
 MAKE_LIBRARY(ff7tkQtWidgets ff7tk/widgets/common)
+
