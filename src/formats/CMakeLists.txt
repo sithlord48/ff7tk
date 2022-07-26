@@ -1,5 +1,6 @@
 find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
     Core
+    Gui
 )
 
 set(UTILS ON CACHE BOOL "Build ff7tkUtils Lib" FORCE)
@@ -11,6 +12,7 @@ set ( ff7tkFormats_SRC
         IsoArchiveFF7.cpp
         Lgp_p.cpp
         Lgp.cpp
+        TextureFile.cpp
 )
 
 set ( ff7tkFormats_HEADERS
@@ -19,11 +21,13 @@ set ( ff7tkFormats_HEADERS
         IsoArchiveFF7.h
         Lgp_p.h
         Lgp.h
+        TextureFile.h
         ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h
 )
 
 set(ff7tkFormats_PublicLIBLINKS
       Qt::Core
+      Qt::Gui
       ff7tk::ff7tkUtils
 )
 MAKE_LIBRARY(ff7tkFormats ff7tk/formats)
