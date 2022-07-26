@@ -13,6 +13,7 @@ set ( ff7tkFormats_SRC
         Lgp_p.cpp
         Lgp.cpp
         TextureFile.cpp
+        TimFile.cpp
 )
 
 set ( ff7tkFormats_HEADERS
@@ -22,6 +23,7 @@ set ( ff7tkFormats_HEADERS
         Lgp_p.h
         Lgp.h
         TextureFile.h
+        TimFile.h
         ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h
 )
 
