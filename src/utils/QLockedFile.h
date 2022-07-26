@@ -36,9 +36,9 @@ public:
     explicit QLockedFile(const QString &name);
     explicit QLockedFile(QObject *parent);
     QLockedFile(const QString &name, QObject *parent);
-    virtual ~QLockedFile();
-    virtual void close();
-    virtual bool open(OpenMode mode);
+    ~QLockedFile();
+    void close();
+    bool open(OpenMode mode);
 signals:
 
 public slots:
