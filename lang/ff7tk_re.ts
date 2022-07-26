@@ -7577,6 +7577,13 @@ The km/h speeds are calculated while playing </translation>
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <source>Cannot update game binaries</source>
+        <translation type="unfinished">Cannot update game binaries</translation>
+    </message>
+</context>
+<context>
     <name>SlotPreview</name>
     <message>
         <source>Slot: %1</source>
