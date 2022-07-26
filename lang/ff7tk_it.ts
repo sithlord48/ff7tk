@@ -7586,6 +7586,13 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <source>Cannot update game binaries</source>
+        <translation type="unfinished">Non è possibile aggiornare i binari del gioco</translation>
+    </message>
+</context>
+<context>
     <name>SlotPreview</name>
     <message>
         <source>Slot: %1</source>

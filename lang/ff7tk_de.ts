@@ -7577,6 +7577,13 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <source>Cannot update game binaries</source>
+        <translation type="unfinished">Binärdateien des Spiels können nicht aktualisiert werden</translation>
+    </message>
+</context>
+<context>
     <name>SlotPreview</name>
     <message>
         <source>Level:%1</source>
