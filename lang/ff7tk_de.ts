@@ -688,6 +688,13 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
 </context>
 <context>
+    <name>ColorDisplay</name>
+    <message>
+        <source>Choose a new color</source>
+        <translation type="unfinished">Wählen Sie eine neue Farbe</translation>
+    </message>
+</context>
+<context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>

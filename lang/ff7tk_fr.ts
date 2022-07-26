@@ -688,6 +688,13 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
 </context>
 <context>
+    <name>ColorDisplay</name>
+    <message>
+        <source>Choose a new color</source>
+        <translation type="unfinished">Choisissez une nouvelle couleur</translation>
+    </message>
+</context>
+<context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>

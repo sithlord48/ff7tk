@@ -688,6 +688,13 @@ The km/h speeds are calculated while playing </translation>
     </message>
 </context>
 <context>
+    <name>ColorDisplay</name>
+    <message>
+        <source>Choose a new color</source>
+        <translation>Choose a new color</translation>
+    </message>
+</context>
+<context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>
@@ -6870,11 +6877,11 @@ The km/h speeds are calculated while playing </translation>
     <name>ItemList</name>
     <message>
         <source>-------EMPTY--------</source>
-        <translation type="unfinished">-------EMPTY--------</translation>
+        <translation>-------EMPTY--------</translation>
     </message>
     <message>
         <source>-------BAD ID-------</source>
-        <translation type="unfinished">-------BAD ID-------</translation>
+        <translation>-------BAD ID-------</translation>
     </message>
 </context>
 <context>
