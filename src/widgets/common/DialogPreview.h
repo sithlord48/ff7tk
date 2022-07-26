@@ -16,9 +16,9 @@
 #pragma once
 
 #include <QLabel>
-#include <ff7tkwidgets_export.h>
+#include <ff7tkqtwidgets_export.h>
 
-class FF7TKWIDGETS_EXPORT DialogPreview : public QLabel
+class FF7TKQTWIDGETS_EXPORT DialogPreview : public QLabel
 {
     Q_OBJECT
 

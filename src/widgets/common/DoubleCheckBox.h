@@ -16,7 +16,7 @@
 #pragma once
 
 #include <QWidget>
-#include <ff7tkwidgets_export.h>
+#include <ff7tkqtwidgets_export.h>
 
 class QCheckBox;
 class QLabel;
@@ -24,7 +24,7 @@ class QLabel;
 /** \class DoubleCheckBox
  *  \brief one text two checkable boxes
  */
-class FF7TKWIDGETS_EXPORT DoubleCheckBox : public QWidget
+class FF7TKQTWIDGETS_EXPORT DoubleCheckBox : public QWidget
 {
     Q_OBJECT
 public:
