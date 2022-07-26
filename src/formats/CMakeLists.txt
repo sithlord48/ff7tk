@@ -15,6 +15,7 @@ set ( ff7tkFormats_SRC
         TexFile.cpp
         TextureFile.cpp
         TimFile.cpp
+        WindowBinFile.cpp
 )
 
 set ( ff7tkFormats_HEADERS
@@ -26,6 +27,7 @@ set ( ff7tkFormats_HEADERS
         TexFile.h
         TextureFile.h
         TimFile.h
+        WindowBinFile.h
         ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h
 )
 
