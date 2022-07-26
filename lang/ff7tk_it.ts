@@ -690,6 +690,13 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
 </context>
 <context>
+    <name>ColorDisplay</name>
+    <message>
+        <source>Choose a new color</source>
+        <translation type="unfinished">Scegli un nuovo colore</translation>
+    </message>
+</context>
+<context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>
