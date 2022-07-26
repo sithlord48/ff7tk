@@ -65,6 +65,8 @@ Additional Modules include
 
 `ff7tkUtils` link with `ff7tk::ff7tkUtils`
 
+`ff7tkQtWidgets` link with `ff7tk::ff7tkQtWidgets`
+
 `ff7tkWidgets` link with `ff7tk::ff7tkWidgets`
 
 
@@ -89,13 +91,15 @@ For QMake you can use the pkgconfig provided by the system
  
 ### Item Depends
   - ff7tk
-    -- QtCore, QtXml, QtQml, QtQuick, QtSvg, Svg Image plugin, Core5Compat (for Qt6 builds) 
+    -- QtCore, QtXml, QtQml, QtQuick, QtSvg, Svg Image plugin, Core5Compat
+  - ff7tkQtWidgets
+    -- QtWidgets, QtGui
   - ff7tkWidgets
-    -- ff7tk, QtWidgets, QtGui
+    -- ff7tk, ff7tkQtWidgets, QtWidgets, QtGui
   - ff7tkFormats
-    -- QtCore
+    -- QtCore, QtGui, ff7tkUtils
   - ff7tkUtils
-    -- ff7tkFormats, QtGui, ZLib
+    -- QtGui, ZLib
 
 
 [Qt]:https://www.qt.io
