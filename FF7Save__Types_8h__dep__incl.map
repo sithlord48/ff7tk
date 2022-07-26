@@ -1,7 +1,7 @@
 <map id="src/data/FF7Save_Types.h" name="src/data/FF7Save_Types.h">
-<area shape="rect" id="node1" title=" " alt="" coords="213,5,404,32"/>
-<area shape="rect" id="node2" href="$FF7Save_8h.html" title=" " alt="" coords="235,80,382,107"/>
-<area shape="rect" id="node3" href="$FF7Save_8cpp.html" title=" " alt="" coords="5,155,167,181"/>
-<area shape="rect" id="node4" href="$MetadataCreator_8cpp.html" title=" " alt="" coords="191,155,427,181"/>
-<area shape="rect" id="node5" href="$SlotSelect_8cpp.html" title=" " alt="" coords="451,155,643,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="193,5,384,32"/>
+<area shape="rect" id="node2" href="$FF7Save_8h.html" title=" " alt="" coords="215,80,362,107"/>
+<area shape="rect" id="node3" href="$FF7Save_8cpp.html" title=" " alt="" coords="5,162,167,189"/>
+<area shape="rect" id="node4" href="$MetadataCreator_8cpp.html" title=" " alt="" coords="191,155,386,196"/>
+<area shape="rect" id="node5" href="$SlotSelect_8cpp.html" title=" " alt="" coords="411,162,636,189"/>
 </map>

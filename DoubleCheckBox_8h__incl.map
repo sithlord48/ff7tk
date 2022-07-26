@@ -1,5 +1,5 @@
-<map id="src/widgets/DoubleCheckBox.h" name="src/widgets/DoubleCheckBox.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,228,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,84,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,80,272,107"/>
+<map id="src/widgets/common/DoubleCheckBox.h" name="src/widgets/common/DoubleCheckBox.h">
+<area shape="rect" id="node1" title=" " alt="" coords="42,5,199,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,84,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="108,95,285,121"/>
 </map>

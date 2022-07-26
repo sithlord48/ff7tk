@@ -1,6 +1,6 @@
 <map id="src/data/FF7Achievements.h" name="src/data/FF7Achievements.h">
-<area shape="rect" id="node1" title=" " alt="" coords="139,5,345,32"/>
-<area shape="rect" id="node2" href="$FF7Achievements_8cpp.html" title=" " alt="" coords="5,80,228,107"/>
-<area shape="rect" id="node3" href="$AchievementEditor_8h.html" title=" " alt="" coords="251,80,486,107"/>
-<area shape="rect" id="node4" href="$AchievementEditor_8cpp.html" title=" " alt="" coords="243,155,494,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="136,5,343,32"/>
+<area shape="rect" id="node2" href="$FF7Achievements_8cpp.html" title=" " alt="" coords="5,87,228,114"/>
+<area shape="rect" id="node3" href="$AchievementEditor_8h.html" title=" " alt="" coords="253,80,471,121"/>
+<area shape="rect" id="node4" href="$AchievementEditor_8cpp.html" title=" " alt="" coords="253,169,471,211"/>
 </map>

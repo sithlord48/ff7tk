@@ -1,11 +1,11 @@
-<map id="src/widgets/ChocoboManager.h" name="src/widgets/ChocoboManager.h">
-<area shape="rect" id="node1" title=" " alt="" coords="47,5,271,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,155,84,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,155,272,181"/>
-<area shape="rect" id="node4" href="$ChocoboEditor_8h.html" title=" " alt="" coords="248,80,375,107"/>
-<area shape="rect" id="node9" href="$ChocoboLabel_8h.html" title=" " alt="" coords="47,80,173,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="297,155,366,181"/>
-<area shape="rect" id="node6" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="390,155,553,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="333,229,463,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="488,229,601,256"/>
+<map id="src/widgets/data/ChocoboManager.h" name="src/widgets/data/ChocoboManager.h">
+<area shape="rect" id="node1" title=" " alt="" coords="65,5,254,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,169,84,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="108,169,272,196"/>
+<area shape="rect" id="node4" href="$ChocoboEditor_8h.html" title=" " alt="" coords="248,95,375,121"/>
+<area shape="rect" id="node9" href="$ChocoboLabel_8h.html" title=" " alt="" coords="47,95,173,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="297,169,366,196"/>
+<area shape="rect" id="node6" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="390,169,553,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="333,244,463,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="488,244,601,271"/>
 </map>

@@ -1,8 +1,8 @@
-<map id="src/widgets/AchievementEditor.h" name="src/widgets/AchievementEditor.h">
-<area shape="rect" id="node1" title=" " alt="" coords="73,5,307,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,84,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,80,272,107"/>
-<area shape="rect" id="node4" href="$FF7Achievements_8h.html" title=" " alt="" coords="296,80,447,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="274,155,349,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="373,155,487,181"/>
+<map id="src/widgets/data/AchievementEditor.h" name="src/widgets/data/AchievementEditor.h">
+<area shape="rect" id="node1" title=" " alt="" coords="81,5,299,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,84,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="108,95,272,121"/>
+<area shape="rect" id="node4" href="$FF7Achievements_8h.html" title=" " alt="" coords="296,95,447,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="274,169,349,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="373,169,487,196"/>
 </map>
