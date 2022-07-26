@@ -12,6 +12,7 @@ set ( ff7tkFormats_SRC
         IsoArchiveFF7.cpp
         Lgp_p.cpp
         Lgp.cpp
+        TexFile.cpp
         TextureFile.cpp
         TimFile.cpp
 )
@@ -22,6 +23,7 @@ set ( ff7tkFormats_HEADERS
         IsoArchiveFF7.h
         Lgp_p.h
         Lgp.h
+        TexFile.h
         TextureFile.h
         TimFile.h
         ${CMAKE_CURRENT_BINARY_DIR}/ff7tkformats_export.h
