@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['qlockedfile_1919',['QLockedFile',['../classQLockedFile.html',1,'']]]
+  ['qlockedfile_2095',['QLockedFile',['../classQLockedFile.html',1,'']]],
+  ['qtaskbarbutton_2096',['QTaskBarButton',['../classQTaskBarButton.html',1,'']]]
 ];

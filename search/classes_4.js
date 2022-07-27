@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gzip_1888',['GZIP',['../classGZIP.html',1,'']]],
-  ['gzipps_1889',['GZIPPS',['../classGZIPPS.html',1,'']]]
+  ['gzip_2063',['GZIP',['../classGZIP.html',1,'']]],
+  ['gzipps_2064',['GZIPPS',['../classGZIPPS.html',1,'']]]
 ];
