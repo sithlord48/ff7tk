@@ -8,6 +8,7 @@ find_library(ff7tkUtils ${CMAKE_BINARY_DIR}/src/utils)
 
 set(ff7tkFormats_SRC
     Akao.cpp
+    AkaoIO.cpp
     Archive.cpp
     IsoArchive.cpp
     IsoArchiveFF7.cpp
@@ -21,6 +22,7 @@ set(ff7tkFormats_SRC
 
 set(ff7tkFormats_HEADERS
     Akao.h
+    AkaoIO.h
     Archive.h
     IsoArchive.h
     IsoArchiveFF7.h
