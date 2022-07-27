@@ -72,7 +72,7 @@ jobs:
     - run: git fetch --tags --force
     - name: Cache Qt
       id: cache-qt
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{matrix.config.QT_INST_DIR}}/Qt
         key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ env.QtKey }}
@@ -80,7 +80,7 @@ jobs:
     - name: Cache Zlib
       id: cache-zlib
       if: runner.os == 'Windows'
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           C:/zlib
@@ -90,13 +90,16 @@ jobs:
     - name: Cache Chocolatey
       id: cache-choco
       if: (runner.os == 'Windows')
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
-            C:\ProgramData\chocolatey\lib
-            C:\Program Files\doxygen
-            C:\Program Files\Graphviz
-        key: cache-chocolatey-${{ matrix.config.WIN_ARCH }}${{ hashFiles('**/dependencies.config') }}
+            C:/ProgramData/chocolatey/lib/ninja
+            C:/ProgramData/chocolatey/bin/ninja.exe
+            C:/ProgramData/chocolatey/lib/doxygen.install
+            C:/ProgramData/chocolatey/lib/Graphviz
+            C:/Program\ Files/doxygen
+            C:/Program\ Files/Graphviz
+        key: cache-chocolatey-${{ matrix.config.WIN_ARCH }}
 
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
@@ -109,7 +112,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
             sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts > /dev/null
         elif [ "$RUNNER_OS" == "Windows" ]; then
-            choco install ninja doxygen.install graphviz --ignore-checksums
+            choco install ninja doxygen.install graphviz
         else
             brew install doxygen graphviz
         fi
