@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     tags:
-      'v*'
+      - 'v*'
   pull_request:
     branches: [ master ]
 env:
@@ -24,7 +24,7 @@ jobs:
         id: checkbuild
         run: |
           RELEASE="false"
-          if [[ "$GITHUB_REF" == *"tags/v" || "$GITHUB_REF" == *"refs/heads/release" ]]; then
+          if [[ "$GITHUB_REF" == *"tags/v"* && "$GITHUB_REF" != *"refs/heads/master" ]]; then
               RELEASE="true"
               VER="$GITHUB_REF_NAME"
           else
@@ -141,7 +141,7 @@ jobs:
     - name: Build ff7tk
       id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION=${{env.ff7tkVersion}} -DQT_DEFAULT_MAJOR_VERSION=6 -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
+        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION="${{env.ff7tkVersion}}" -DQT_DEFAULT_MAJOR_VERSION=6 -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BuildType}} --target package
 
     - name: Deploy Pages
@@ -230,7 +230,7 @@ jobs:
          artifact/*
          ff7tk-container-artifact/*
     - name: Deploy Release
-      if: needs.precheck.outputs.isRelease == 'true'
+      if: ${{needs.precheck.outputs.isRelease}} == 'true'
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
        repo_token: "${{ secrets.DEPLOYTOKEN }}"
