@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['saveicon_2ecpp_2195',['SaveIcon.cpp',['../SaveIcon_8cpp.html',1,'']]],
-  ['saveicon_2eh_2196',['SaveIcon.h',['../SaveIcon_8h.html',1,'']]],
-  ['slotpreview_2ecpp_2197',['SlotPreview.cpp',['../SlotPreview_8cpp.html',1,'']]],
-  ['slotpreview_2eh_2198',['SlotPreview.h',['../SlotPreview_8h.html',1,'']]],
-  ['slotselect_2ecpp_2199',['SlotSelect.cpp',['../SlotSelect_8cpp.html',1,'']]],
-  ['slotselect_2eh_2200',['SlotSelect.h',['../SlotSelect_8h.html',1,'']]]
+  ['qlockedfile_2ecpp_2237',['QLockedFile.cpp',['../QLockedFile_8cpp.html',1,'']]],
+  ['qlockedfile_2eh_2238',['QLockedFile.h',['../QLockedFile_8h.html',1,'']]],
+  ['qtaskbarbutton_2ecpp_2239',['QTaskBarButton.cpp',['../QTaskBarButton_8cpp.html',1,'']]],
+  ['qtaskbarbutton_2eh_2240',['QTaskBarButton.h',['../QTaskBarButton_8h.html',1,'']]],
+  ['qtaskbarbutton_2emm_2241',['QTaskBarButton.mm',['../QTaskBarButton_8mm.html',1,'']]]
 ];
