@@ -18,20 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.checkbuild.outputs.version }}
-      isRelease: ${{ steps.checkbuild.outputs.isRelease }}
     steps:
       - name: Run Info
         id: checkbuild
         run: |
-          RELEASE="false"
-          if [[ "$GITHUB_REF" == *"tags/v"* && "$GITHUB_REF" != *"refs/heads/master" ]]; then
-              RELEASE="true"
+          if [[ "$GITHUB_REF" == *"tags/v"* ]]; then
               VER="$GITHUB_REF_NAME"
           else
               VER="continuous"
           fi
           echo "::set-output name=version::$VER"
-          echo "::set-output name=isRelease::$RELEASE"
 
   main_build:
     name: ${{ matrix.config.name }}
@@ -61,11 +57,6 @@ jobs:
           }
 
     steps:
-    - name: Setup env
-      shell: bash
-      run: |
-        echo "ff7tkVersion=${{ needs.precheck.outputs.version }}" >> $GITHUB_ENV
-
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
@@ -141,7 +132,7 @@ jobs:
     - name: Build ff7tk
       id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION="${{env.ff7tkVersion}}" -DQT_DEFAULT_MAJOR_VERSION=6 -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
+        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DQT_DEFAULT_MAJOR_VERSION=6 -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BuildType}} --target package
 
     - name: Deploy Pages
@@ -177,10 +168,6 @@ jobs:
           }
     steps:
 
-      - name: Setup env
-        shell: bash
-        run: |
-          echo "ff7tkVersion=${{ needs.precheck.outputs.version }}" >> $GITHUB_ENV
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -201,7 +188,7 @@ jobs:
             pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative qt6-svg clang graphviz --noconfirm
           run: |
             git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
-            cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION=${{env.ff7tkVersion}} -DQT_DEFAULT_MAJOR_VERSION=6 ${{matrix.config.cmakeExtraConfig}}
+            cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DQT_DEFAULT_MAJOR_VERSION=6 ${{matrix.config.cmakeExtraConfig}}
             cmake --build build --config ${{env.BuildType}} --target package
       - name: Upload
         uses: actions/upload-artifact@v3
@@ -230,7 +217,7 @@ jobs:
          artifact/*
          ff7tk-container-artifact/*
     - name: Deploy Release
-      if: ${{needs.precheck.outputs.isRelease}} == 'true'
+      if: contains(github.ref, '/tags/v')
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
        repo_token: "${{ secrets.DEPLOYTOKEN }}"
