@@ -8,7 +8,7 @@ To build ff7tk you will a minimum of:
 
 A Default Build of ff7tk will build: 
      - A Required Core Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)
-     - Additional Libraries ff7tkWidgets, ff7tkUtils and ff7tkFormats.
+     - All Additional Libraries ff7tkQtWidgets, ff7tkWidgets, ff7tkUtils and ff7tkFormats.
      - Headers for the libraries so you can link to them
      - Required CMake parts to find it post install.
      - Translation files "ff7tk_<lang>.qm" for supported languages
@@ -28,7 +28,7 @@ FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF        
 TESTS                    | Build and run unit tests                | ON                 | |
 UTILS                    | Build ff7tkUtils.                       | ON                 | [zlib] |
 WIDGETS                  | Build ff7tkWidgets.                     | ON                 | |
-
+SPLITPACKAGES            | Create Split Packages                   | OFF                | |
 
 Enabling Demos will allow you to set this additional options all are enabled by default
        Demo              |            Description                  |
@@ -77,9 +77,9 @@ For QMake you can use the pkgconfig provided by the system
 ## ff7tk version info
  ff7tk Versions are based on its git info. Failing this the project version is updated on every release.
  include the file ff7tkAbout.h and use the function(s)
-  - ff7tk_version() To get version info in to form of Major.minor.patch.tweak (Qt<QtMajorVersion>)
+  - ff7tk_version() To get version info in to form of Major.minor.patch.tweak
    -- If patch or rev are empty they are excluded from the version number
-   -- tweak is Number of commits since the last tag
+   -- tweak is Number of commits since the last tag release
 ### ff7tk version compatibility
  ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.
 
