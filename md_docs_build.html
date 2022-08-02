@@ -74,7 +74,7 @@ $(function() {
 </ul>
 <p>A Default Build of ff7tk will build:</p><ul>
 <li>A Required Core Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)</li>
-<li>Additional Libraries ff7tkWidgets, ff7tkUtils and ff7tkFormats.</li>
+<li>All Additional Libraries ff7tkQtWidgets, ff7tkWidgets, ff7tkUtils and ff7tkFormats.</li>
 <li>Headers for the libraries so you can link to them</li>
 <li>Required CMake parts to find it post install.</li>
 <li>Translation files "ff7tk_&lt;lang&gt;.qm" for supported languages</li>
@@ -102,6 +102,8 @@ Configuration</h1>
 <td class="markdownTableBodyCenter">UTILS </td><td class="markdownTableBodyCenter">Build ff7tkUtils. </td><td class="markdownTableBodyCenter">ON </td><td class="markdownTableBodyCenter"><a href="https://zlib.net/">zlib</a>  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter">WIDGETS </td><td class="markdownTableBodyCenter">Build ff7tkWidgets. </td><td class="markdownTableBodyCenter">ON </td><td class="markdownTableBodyCenter"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SPLITPACKAGES </td><td class="markdownTableBodyCenter">Create Split Packages </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter"></td></tr>
 </table>
 <p>Enabling Demos will allow you to set this additional options all are enabled by default </p><table class="markdownTable">
 <tr class="markdownTableHead">
@@ -135,7 +137,7 @@ Using ff7tk in your project</h1>
 <h2><a class="anchor" id="autotoc_md6"></a>
 ff7tk version info</h2>
 <p>ff7tk Versions are based on its git info. Failing this the project version is updated on every release. include the file ff7tkAbout.h and use the function(s)</p><ul>
-<li>ff7tk_version() To get version info in to form of Major.minor.patch.tweak (Qt&lt;QtMajorVersion&gt;) &ndash; If patch or rev are empty they are excluded from the version number &ndash; tweak is Number of commits since the last tag </li>
+<li>ff7tk_version() To get version info in to form of Major.minor.patch.tweak &ndash; If patch or rev are empty they are excluded from the version number &ndash; tweak is Number of commits since the last tag release </li>
 </ul>
 <h3><a class="anchor" id="autotoc_md7"></a>
 ff7tk version compatibility</h3>
