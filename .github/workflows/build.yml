@@ -185,7 +185,7 @@ jobs:
           shell: /bin/sh
           install: |
             pacman -Syu --noconfirm
-            pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative qt6-svg clang graphviz --noconfirm
+            pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative qt6-svg clang graphviz dpkg --noconfirm
           run: |
             git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
             cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DQT_DEFAULT_MAJOR_VERSION=6 ${{matrix.config.cmakeExtraConfig}}
