@@ -12,6 +12,8 @@ env:
     QtTools: 'desktop,tools_ifw,qt.tools.ifw.44'
     QtKey: "6.3.1-ifw_44"
     BuildType: RelWithDebInfo
+    cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo"
+    debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts"
 jobs:
   precheck:
     name: Job Info
@@ -28,7 +30,37 @@ jobs:
               VER="continuous"
           fi
           echo "::set-output name=version::$VER"
-
+  deb_builder:
+    name: debianBuilder-${{matrix.config.name}}
+    runs-on: ${{matrix.config.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - {
+             name: jammy
+             , os: ubuntu-22.04
+             , debArch: amd64
+          }
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - run: git fetch --tags --force
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update -y > /dev/null
+        sudo apt-get install -qqq ${{env.debianRequirments}} > /dev/null
+    - name: Build
+      run: |
+        ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}}
+        cmake --build build
+        cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: debian-artifacts
+        path: libff7tk*.deb
   main_build:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
@@ -55,7 +87,6 @@ jobs:
             , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.4"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
           }
-
     steps:
     - uses: actions/checkout@v3
       with:
@@ -67,7 +98,6 @@ jobs:
       with:
         path: ${{matrix.config.QT_INST_DIR}}/Qt
         key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ env.QtKey }}
-
     - name: Cache Zlib
       id: cache-zlib
       if: runner.os == 'Windows'
@@ -77,7 +107,6 @@ jobs:
           C:/zlib
           D:/a/ff7tk/ff7tk/build/src/utils/zlib.dll
         key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib2
-
     - name: Cache Chocolatey
       id: cache-choco
       if: (runner.os == 'Windows')
@@ -91,11 +120,9 @@ jobs:
             C:/Program\ Files/doxygen
             C:/Program\ Files/Graphviz
         key: cache-chocolatey-${{ matrix.config.WIN_ARCH }}
-
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
-
     - name: Install Dependencies
       if: ((runner.os == 'Windows') && (steps.cache-choco.outputs.cache-hit != 'true')) || (runner.os != 'Windows')
       shell: bash
@@ -107,7 +134,6 @@ jobs:
         else
             brew install doxygen graphviz
         fi
-
     - name: Install Qt
       uses: jurplel/install-qt-action@v2.14.0
       with:
@@ -118,7 +144,6 @@ jobs:
        modules: qt5compat
        cached: ${{ steps.cache-qt.outputs.cache-hit }}
        tools: ${{env.QtTools}}
-
     - name: Install Zlib (Windows)
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
       run: |
@@ -128,13 +153,10 @@ jobs:
         cmake --install ${{github.workspace}}\zlib-git\build --strip
         mkdir D:\a\ff7tk\ff7tk\build\src\utils
         copy "C:\zlib\bin\zlib.dll" D:\a\ff7tk\ff7tk\build\src\utils
-
     - name: Build ff7tk
-      id: main_build
       run: |
-        cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DQT_DEFAULT_MAJOR_VERSION=6 -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
+        ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BuildType}} --target package
-
     - name: Deploy Pages
       if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@4.1.4
@@ -151,31 +173,27 @@ jobs:
   container_build:
     # The host should always be linux
     runs-on: ubuntu-latest
-    name: ${{matrix.config.name}}
+    name: Linux-${{matrix.config.arch}}-${{matrix.config.name}}
     needs: precheck
     strategy:
       fail-fast: false
       matrix:
         config:
         - {
-           name: "Linux-aarch64"
-           , arch: aarch64, distro: archarm_latest
+           name: "jammy"
+           , arch: aarch64, distro: ubuntu22.04, debArch : arm64
           }
         - {
-           name: "Linux-armv7"
-           , arch: armv7, distro: archarm_latest
-           , cmakeExtraConfig: "-DDOCS=OFF"
+           name: "jammy"
+           , arch: armv7, distro: ubuntu22.04, debArch: armhf
           }
     steps:
-
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - run: git fetch --tags --force
-
-      - uses: uraimo/run-on-arch-action@v2.1.1
+      - uses: uraimo/run-on-arch-action@v2.2.0
         name: Build artifact
-        id: build
         with:
           arch: ${{ matrix.config.arch }}
           distro: ${{ matrix.config.distro }}
@@ -184,12 +202,13 @@ jobs:
           dockerRunArgs: --volume "${PWD}/artifacts:/artifacts"
           shell: /bin/sh
           install: |
-            pacman -Syu --noconfirm
-            pacman -S base-devel cmake git zlib wget doxygen qt6-tools qt6-base qt6-5compat qt6-declarative qt6-svg clang graphviz dpkg --noconfirm
+                apt update -y > /dev/null
+                apt install -y -qqq ${{env.debianRequirments}} > /dev/null
           run: |
             git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
-            cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.BuildType}} -DDEMOS=ON -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DQT_DEFAULT_MAJOR_VERSION=6 ${{matrix.config.cmakeExtraConfig}}
+            ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}}
             cmake --build build --config ${{env.BuildType}} --target package
+            cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -197,10 +216,11 @@ jobs:
           path: |
             build/ff7tk[-_]*.*
             build/libff7tk[-_]*.*
+            libff7tk*.deb
 
   release_assets:
     name: Release
-    needs: [main_build, container_build]
+    needs: [main_build, container_build, deb_builder]
     runs-on: ubuntu-latest
     steps:
     - name: Download Files
@@ -216,6 +236,7 @@ jobs:
        files: |
          artifact/*
          ff7tk-container-artifact/*
+         debian-artifacts/*
     - name: Deploy Release
       if: contains(github.ref, '/tags/v')
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -225,3 +246,4 @@ jobs:
        files: |
          artifact/*
          ff7tk-container-artifact/*
+         debian-artifacts/*
