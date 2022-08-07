@@ -35,7 +35,7 @@ ItemListView::ItemListView(QWidget *parent)
     verticalHeader()->setDefaultSectionSize(itemSelector.height());
     verticalHeader()->close();
 
-    setFixedWidth(itemSelector.width() + verticalScrollBar()->sizeHint().width() + 7);
+    setFixedWidth(itemSelector.width() + verticalScrollBar()->sizeHint().width() + 3 );
     itemSelector.close();
     itemSelector.deleteLater();
 
