@@ -15,17 +15,18 @@
 /****************************************************************************/
 /****************************************************************************/
 #include <HexLineEdit.h>
+#include <QRegularExpressionValidator>
 
 HexLineEdit::HexLineEdit(QWidget *parent)
     : QLineEdit(parent)
     , _noEmit(false)
 {
+    setValidator(new QRegularExpressionValidator(QRegularExpression(_hexRegEx), this));
     connect(this, &HexLineEdit::textEdited, this, &HexLineEdit::emitDataEdited);
 }
 
 HexLineEdit::HexLineEdit(const QByteArray &contents, QWidget *parent)
-    : QLineEdit(parent)
-    , _noEmit(false)
+    : HexLineEdit(parent)
 {
     setData(contents);
 }
@@ -39,7 +40,6 @@ void HexLineEdit::setData(const QByteArray &contents)
 {
     _noEmit = true;
     setMaxLength(contents.size() * 2);
-    setInputMask(QString(contents.size() * 2, 'H'));
     _noEmit = false;
     setText(QString::fromLatin1(contents.toHex()));
     Q_EMIT dataChanged(contents);
@@ -67,7 +67,3 @@ void HexLineEdit::setMaxLength(int maxLength)
     QLineEdit::setMaxLength(maxLength);
 }
 
-void HexLineEdit::setInputMask(const QString &inputMask)
-{
-    QLineEdit::setInputMask(inputMask);
-}

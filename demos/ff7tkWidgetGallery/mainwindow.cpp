@@ -83,6 +83,13 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     auto itemlistLayout = new QVBoxLayout ();
     itemlistLayout->addWidget(itemlistView);
     ui->itemListView_Box->setLayout(itemlistLayout);
+
+    hexLineEdit = new HexLineEdit(this);
+    auto hexLineEditLayout = new QVBoxLayout();
+    hexLineEditLayout->addWidget(hexLineEdit);
+    ui->hexLineEdit_Box->setLayout(hexLineEditLayout);
+    ui->sb_hexEditLine_maxlen->setValue(hexLineEdit->maxLength());
+
 }
 
 MainWindow::~MainWindow()
@@ -112,6 +119,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     case 10: ui->locListBox->setVisible(1); break;
     case 11: ui->ChocoboManagerBox->setVisible(1); break;
     case 12: ui->AchievementEditor_Box->setVisible(1); break;
+    case 13: ui->hexLineEdit_group->setVisible(1); break;
     }
     this->adjustSize();
 }
@@ -246,6 +254,7 @@ void MainWindow::hideAllBoxes(void)
     ui->locListBox->setVisible(0);
     ui->ChocoboManagerBox->setVisible(0);
     ui->AchievementEditor_Box->setVisible(0);
+    ui->hexLineEdit_group->setVisible(0);
 }
 
 void MainWindow::on_btn_loadAchievement_clicked()
@@ -286,3 +295,9 @@ void MainWindow::on_sb_itemListViewMaxQty_editingFinished()
 {
     itemlistView->setMaximumItemQty(ui->sb_itemListViewMaxQty->value());
 }
+
+void MainWindow::on_sb_hexEditLine_maxlen_valueChanged(double arg1)
+{
+    hexLineEdit->setMaxLength(arg1 * 2);
+}
+

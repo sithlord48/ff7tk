@@ -29,6 +29,7 @@
 #include <ChocoboManager.h>
 #include <AchievementEditor.h>
 #include <ItemListView.h>
+#include <HexLineEdit.h>
 #include <Lgp.h>
 
 namespace Ui
@@ -67,6 +68,8 @@ private slots:
     void on_cb_itemSelectionDeleageEditable_toggled(bool checked);
     void on_sb_itemListViewMaxQty_editingFinished();
 
+    void on_sb_hexEditLine_maxlen_valueChanged(double arg1);
+
 private:
 
     Ui::MainWindow *ui = nullptr;
@@ -81,4 +84,5 @@ private:
     ChocoboManager *chocoboManager = nullptr;
     AchievementEditor *achievementEditor = nullptr;
     ItemListView *itemlistView = nullptr;
+    HexLineEdit *hexLineEdit = nullptr;
 };
