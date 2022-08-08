@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>175</width>
-    <height>32</height>
+    <width>117</width>
+    <height>31</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -86,6 +86,11 @@
       <item>
        <property name="text">
         <string>AchievementEditor</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HexLineEdit</string>
        </property>
       </item>
      </widget>
@@ -574,6 +579,46 @@
         <widget class="QGroupBox" name="itemListView_Box">
          <property name="title">
           <string>ItemListView</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="hexLineEdit_group">
+      <property name="title">
+       <string>HexLineEdit</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>MaxLength</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="sb_hexEditLine_maxlen">
+           <property name="decimals">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <double>20000000000000000426408380189087937446025157425359298935486676992.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QFrame" name="hexLineEdit_Box">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
          </property>
         </widget>
        </item>

@@ -26,6 +26,7 @@ public:
     explicit HexLineEdit(QWidget *parent = nullptr);
     explicit HexLineEdit(const QByteArray &contents, QWidget *parent = nullptr);
     QByteArray data() const;
+    void setMaxLength(int maxLength);
 public slots:
     void setData(const QByteArray &contents);
 signals:
@@ -33,9 +34,9 @@ signals:
     void dataEdited(const QByteArray &data);
 private:
     QString text() const;
-    void setMaxLength(int maxLength);
     void setInputMask(const QString &inputMask);
     bool _noEmit;
+    QString _hexRegEx = QStringLiteral("([A-F]|[0-9]|[a-f])*");
 private slots:
     void emitDataEdited();
     void setText(const QString &);
