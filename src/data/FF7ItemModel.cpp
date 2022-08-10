@@ -122,6 +122,18 @@ bool FF7ItemModel::setItems(const QList<quint16> &newItems)
     return true;
 }
 
+void FF7ItemModel::resetItems(const QList<quint16> &newItems)
+{
+    if(newItems.count() != 320)
+        return;
+    if(items == newItems)
+        return;
+    beginResetModel();
+    items = newItems;
+    endResetModel();
+    return;
+}
+
 QList<quint16> FF7ItemModel::allItems()
 {
     return items;

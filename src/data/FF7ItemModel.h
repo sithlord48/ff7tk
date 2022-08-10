@@ -31,7 +31,15 @@ public:
     bool setData(const QModelIndex &index =  QModelIndex(), const QVariant &value = QVariant(), int role = Qt::EditRole) override;
     Qt::ItemFlags flags(const QModelIndex &index = QModelIndex()) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    /**
+     * Set Items
+     * Emits Items Changed
+     */
     bool setItems(const QList<quint16> &newItems = {});
+    /** Resets Initial Items
+     *  Does not Emit Items Changed
+    */
+    void resetItems(const QList<quint16> &newItems = {});
     QList<quint16> allItems();
 signals:
     void itemsChanged(QList<quint16>);
