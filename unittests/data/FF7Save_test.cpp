@@ -43,12 +43,30 @@ void FF7Save_Test::test_pspExport()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePSP, FF7SaveInfo::FORMAT::PSP, 0));
     ff7save->loadFile(_saveFileNamePSP);
+    //Check Sig
+    QString expectedKey = QStringLiteral("6AF7D7EACA66BBEE0F0DA7B16E85BF48EFA863F0");
+    QByteArray keySeed = ff7save->fileHeader().mid(FF7SaveInfo::fileSeedOffset(FF7SaveInfo::FORMAT::PSP), FF7SaveInfo::fileSignatureSize(FF7SaveInfo::FORMAT::PSP));
+    QByteArray data = ff7save->fileHeader();
+    for(int i=0; i < 15; i++) {
+        data.append(ff7save->slotHeader(i));
+        data.append(ff7save->slotFF7Data(i));
+        data.append(ff7save->slotFooter(i));
+    }
+    QCOMPARE(ff7save->generatePsSaveSignature(data, keySeed).toHex().toUpper(), expectedKey);
 }
 
 void FF7Save_Test::test_ps3Export()
 {
     QVERIFY(ff7save->exportFile(_saveFileNamePS3, FF7SaveInfo::FORMAT::PS3, 0));
     ff7save->loadFile(_saveFileNamePS3);
+    //Check Sig
+    QString expectedKey = QStringLiteral("7324B67D24BFC027A5CCB219A205B8D265DED5CF");
+    QByteArray keySeed = ff7save->fileHeader().mid(FF7SaveInfo::fileSeedOffset(FF7SaveInfo::FORMAT::PS3), FF7SaveInfo::fileSignatureSize(FF7SaveInfo::FORMAT::PS3));
+    QByteArray data = ff7save->fileHeader();
+    data.append(ff7save->slotHeader(0));
+    data.append(ff7save->slotFF7Data(0));
+    data.append(ff7save->slotFooter(0));
+    QCOMPARE(ff7save->generatePsSaveSignature(data, keySeed).toHex().toUpper(), expectedKey);
 }
 
 void FF7Save_Test::test_dexExport()
