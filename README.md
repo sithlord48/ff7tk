@@ -1,5 +1,5 @@
 ff7tk
-[![Linux Status](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml/badge.svg)](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml)
+[![Linux Status](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml/badge.svg)](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2f18d1606058447a9cc5fdc3753373de)](https://app.codacy.com/gh/sithlord48/ff7tk/dashboard)
 ===
 ff7tk is a Toolkit that makes programing Final Fantasy VII tools easier.
 
