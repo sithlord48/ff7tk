@@ -7532,48 +7532,12 @@ The km/h speeds are calculated while playing </translation>
         <translation>PHS Manager</translation>
     </message>
     <message>
-        <source>Cloud</source>
-        <translation>Cloud</translation>
-    </message>
-    <message>
         <source>Allowed</source>
         <translation>Allowed</translation>
     </message>
     <message>
         <source>Visible</source>
         <translation>Visible</translation>
-    </message>
-    <message>
-        <source>Barret</source>
-        <translation>Barrett</translation>
-    </message>
-    <message>
-        <source>Tifa</source>
-        <translation>Tifa</translation>
-    </message>
-    <message>
-        <source>Aerith</source>
-        <translation>Aerith</translation>
-    </message>
-    <message>
-        <source>Red XIII</source>
-        <translation>Red XIII</translation>
-    </message>
-    <message>
-        <source>Yuffie</source>
-        <translation>Yuffie</translation>
-    </message>
-    <message>
-        <source>Cait Sith</source>
-        <translation>Cait Sith</translation>
-    </message>
-    <message>
-        <source>Vincent</source>
-        <translation>Vincent</translation>
-    </message>
-    <message>
-        <source>Cid</source>
-        <translation>Cid</translation>
     </message>
 </context>
 <context>

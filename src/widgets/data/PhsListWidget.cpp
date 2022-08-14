@@ -17,6 +17,7 @@
 
 #include <QLabel>
 #include <QVBoxLayout>
+#include <FF7Char.h>
 
 PhsListWidget::PhsListWidget(QWidget *parent) :
     QWidget(parent)
@@ -67,39 +68,39 @@ void PhsListWidget::updateText()
     QString vString = tr("Visible");
     lbl_phs->setText(tr("PHS Manager"));
 
-    cb_cloud->setText(tr("Cloud"));
+    cb_cloud->setText(FF7Char::defaultName(FF7Char::Cloud));
     cb_cloud->setBoxToolTip(PHSALLOWED, aString);
     cb_cloud->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_barret->setText(tr("Barret"));
+    cb_barret->setText(FF7Char::defaultName(FF7Char::Barret));
     cb_barret->setBoxToolTip(PHSALLOWED, aString);
     cb_barret->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_tifa->setText(tr("Tifa"));
+    cb_tifa->setText(FF7Char::defaultName(FF7Char::Tifa));
     cb_tifa->setBoxToolTip(PHSALLOWED, aString);
     cb_tifa->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_aerith->setText(tr("Aerith"));
+    cb_aerith->setText(FF7Char::defaultName(FF7Char::Aerith));
     cb_aerith->setBoxToolTip(PHSALLOWED, aString);
     cb_aerith->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_red->setText(tr("Red XIII"));
+    cb_red->setText(FF7Char::defaultName(FF7Char::Red));
     cb_red->setBoxToolTip(PHSALLOWED, aString);
     cb_red->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_yuffie->setText(tr("Yuffie"));
+    cb_yuffie->setText(FF7Char::defaultName(FF7Char::Yuffie));
     cb_yuffie->setBoxToolTip(PHSALLOWED, aString);
     cb_yuffie->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_cait->setText(tr("Cait Sith"));
+    cb_cait->setText(FF7Char::defaultName(FF7Char::CaitSith));
     cb_cait->setBoxToolTip(PHSALLOWED, aString);
     cb_cait->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_vincent->setText(tr("Vincent"));
+    cb_vincent->setText(FF7Char::defaultName(FF7Char::Vincent));
     cb_vincent->setBoxToolTip(PHSALLOWED, aString);
     cb_vincent->setBoxToolTip(PHSVISIBLE, vString);
 
-    cb_cid->setText(tr("Cid"));
+    cb_cid->setText(FF7Char::defaultName(FF7Char::Cid));
     cb_cid->setBoxToolTip(PHSALLOWED, aString);
     cb_cid->setBoxToolTip(PHSVISIBLE, vString);
 }

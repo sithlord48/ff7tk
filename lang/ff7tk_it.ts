@@ -7548,42 +7548,6 @@ La velocità in km/h viene calcolata a runtime</translation>
         <source>PHS Manager</source>
         <translation>Gestione PHS</translation>
     </message>
-    <message>
-        <source>Cloud</source>
-        <translation>Cloud</translation>
-    </message>
-    <message>
-        <source>Barret</source>
-        <translation>Barret</translation>
-    </message>
-    <message>
-        <source>Tifa</source>
-        <translation>Tifa</translation>
-    </message>
-    <message>
-        <source>Aerith</source>
-        <translation>Aerith</translation>
-    </message>
-    <message>
-        <source>Red XIII</source>
-        <translation>Red XIII</translation>
-    </message>
-    <message>
-        <source>Yuffie</source>
-        <translation>Yuffie</translation>
-    </message>
-    <message>
-        <source>Cait Sith</source>
-        <translation>Cait Sith</translation>
-    </message>
-    <message>
-        <source>Vincent</source>
-        <translation>Vincent</translation>
-    </message>
-    <message>
-        <source>Cid</source>
-        <translation>Cid</translation>
-    </message>
 </context>
 <context>
     <name>QObject</name>

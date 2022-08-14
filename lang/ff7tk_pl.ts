@@ -7538,42 +7538,6 @@ The km/h speeds are calculated while playing </source>
         <source>PHS Manager</source>
         <translation>Menadżer PHS</translation>
     </message>
-    <message>
-        <source>Cloud</source>
-        <translation>Chmura</translation>
-    </message>
-    <message>
-        <source>Barret</source>
-        <translation>Barret</translation>
-    </message>
-    <message>
-        <source>Tifa</source>
-        <translation>Tifa</translation>
-    </message>
-    <message>
-        <source>Aerith</source>
-        <translation>Aerith</translation>
-    </message>
-    <message>
-        <source>Red XIII</source>
-        <translation>Red XIII</translation>
-    </message>
-    <message>
-        <source>Yuffie</source>
-        <translation>Yuffie</translation>
-    </message>
-    <message>
-        <source>Cait Sith</source>
-        <translation>Cait Sith</translation>
-    </message>
-    <message>
-        <source>Vincent</source>
-        <translation>Vincent</translation>
-    </message>
-    <message>
-        <source>Cid</source>
-        <translation>Cid</translation>
-    </message>
 </context>
 <context>
     <name>QObject</name>

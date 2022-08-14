@@ -7528,48 +7528,12 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
 <context>
     <name>PhsListWidget</name>
     <message>
-        <source>Cloud</source>
-        <translation>Cloud</translation>
-    </message>
-    <message>
         <source>Allowed</source>
         <translation type="unfinished">Dürfen</translation>
     </message>
     <message>
         <source>Visible</source>
         <translation type="unfinished">Sichtbar</translation>
-    </message>
-    <message>
-        <source>Barret</source>
-        <translation>Barret</translation>
-    </message>
-    <message>
-        <source>Tifa</source>
-        <translation>Tifa</translation>
-    </message>
-    <message>
-        <source>Aerith</source>
-        <translation>Aerith</translation>
-    </message>
-    <message>
-        <source>Red XIII</source>
-        <translation>Red XIII</translation>
-    </message>
-    <message>
-        <source>Yuffie</source>
-        <translation>Yuffie</translation>
-    </message>
-    <message>
-        <source>Cait Sith</source>
-        <translation>Cait Sith</translation>
-    </message>
-    <message>
-        <source>Vincent</source>
-        <translation>Vincent</translation>
-    </message>
-    <message>
-        <source>Cid</source>
-        <translation>Cid</translation>
     </message>
     <message>
         <source>PHS Manager</source>

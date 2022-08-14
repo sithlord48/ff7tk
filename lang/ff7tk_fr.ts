@@ -337,7 +337,7 @@
     </message>
     <message>
         <source>Young Cloud</source>
-        <translation>Jeune Cloud</translation>
+        <translation type="unfinished">Jeune Clad</translation>
     </message>
     <message>
         <source>Sephiroth</source>
@@ -845,7 +845,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <name>FF7Char</name>
     <message>
         <source>Cloud</source>
-        <translation>Cloud</translation>
+        <translation type="unfinished">Clad</translation>
     </message>
     <message>
         <source>Braver</source>
@@ -973,7 +973,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Red XIII</source>
-        <translation>Rouge XIII</translation>
+        <translation type="unfinished">Red XIII</translation>
     </message>
     <message>
         <source>Sled Fang</source>
@@ -1101,7 +1101,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Y.Cloud</source>
-        <translation>J.Cloud</translation>
+        <translation type="unfinished">J.Clad</translation>
     </message>
     <message>
         <source>Sephiroth</source>
@@ -4397,7 +4397,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Cloud&apos;s House</source>
-        <translation>maison de Cloud</translation>
+        <translation type="unfinished">maison de Clad</translation>
     </message>
     <message>
         <source>Nibelheim</source>
@@ -5057,11 +5057,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Cloud&apos;s Past</source>
-        <translation>Passé de Cloud</translation>
+        <translation type="unfinished">Passé de Clad</translation>
     </message>
     <message>
         <source>Cloud&apos;s Villa</source>
-        <translation>Villa de Cloud</translation>
+        <translation type="unfinished">Villa de Clad</translation>
     </message>
     <message>
         <source>Mideel Area</source>
@@ -7529,48 +7529,12 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
 <context>
     <name>PhsListWidget</name>
     <message>
-        <source>Cloud</source>
-        <translation>Cloud</translation>
-    </message>
-    <message>
         <source>Allowed</source>
         <translation>Autorisé</translation>
     </message>
     <message>
         <source>Visible</source>
         <translation>Visible</translation>
-    </message>
-    <message>
-        <source>Barret</source>
-        <translation>Barret</translation>
-    </message>
-    <message>
-        <source>Tifa</source>
-        <translation>Tifa</translation>
-    </message>
-    <message>
-        <source>Aerith</source>
-        <translation>Aeris</translation>
-    </message>
-    <message>
-        <source>Red XIII</source>
-        <translation>Rouge XIII</translation>
-    </message>
-    <message>
-        <source>Yuffie</source>
-        <translation>Youfie</translation>
-    </message>
-    <message>
-        <source>Cait Sith</source>
-        <translation>Cait Sith</translation>
-    </message>
-    <message>
-        <source>Vincent</source>
-        <translation>Vincent</translation>
-    </message>
-    <message>
-        <source>Cid</source>
-        <translation>Cid</translation>
     </message>
     <message>
         <source>PHS Manager</source>

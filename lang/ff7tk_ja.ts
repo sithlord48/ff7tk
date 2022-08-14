@@ -7528,48 +7528,12 @@ The km/h speeds are calculated while playing </source>
 <context>
     <name>PhsListWidget</name>
     <message>
-        <source>Cloud</source>
-        <translation>クラウド</translation>
-    </message>
-    <message>
         <source>Allowed</source>
         <translation type="unfinished">許可されました</translation>
     </message>
     <message>
         <source>Visible</source>
         <translation type="unfinished">目に見えます</translation>
-    </message>
-    <message>
-        <source>Barret</source>
-        <translation>バレット</translation>
-    </message>
-    <message>
-        <source>Tifa</source>
-        <translation>ティファ</translation>
-    </message>
-    <message>
-        <source>Aerith</source>
-        <translation>エアリス</translation>
-    </message>
-    <message>
-        <source>Red XIII</source>
-        <translation>レッドXIII</translation>
-    </message>
-    <message>
-        <source>Yuffie</source>
-        <translation>ユフィ</translation>
-    </message>
-    <message>
-        <source>Cait Sith</source>
-        <translation>ケット・シー</translation>
-    </message>
-    <message>
-        <source>Vincent</source>
-        <translation>ヴィンセント</translation>
-    </message>
-    <message>
-        <source>Cid</source>
-        <translation>シド</translation>
     </message>
     <message>
         <source>PHS Manager</source>
