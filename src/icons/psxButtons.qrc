@@ -1,19 +1,35 @@
 <RCC>
-   <qresource prefix="/psxButtons">
-        <file alias="left">psxButtons/left.svg</file>
-        <file alias="right">psxButtons/right.svg</file>
-	<file alias="up">psxButtons/up.svg</file>
-	<file alias="down">psxButtons/down.svg</file>
-	<file alias="circle">psxButtons/circle.svg</file>
-	<file alias="cross">psxButtons/cross.svg</file>
-	<file alias="square">psxButtons/square.svg</file>
-	<file alias="triangle">psxButtons/triangle.svg</file>
-	<file alias="select">psxButtons/select.svg</file>
-	<file alias="start">psxButtons/start.svg</file>
-	<file alias="l1">psxButtons/l1.svg</file>
-	<file alias="l2">psxButtons/l2.svg</file>
-	<file alias="r1">psxButtons/r1.svg</file>
-	<file alias="r2">psxButtons/r2.svg</file>
-      </qresource>
+	<qresource prefix="/psxButtons/dark">
+		<file alias="left">psxButtons/dark/left.svg</file>
+		<file alias="right">psxButtons/dark/right.svg</file>
+		<file alias="up">psxButtons/dark/up.svg</file>
+		<file alias="down">psxButtons/dark/down.svg</file>
+		<file alias="circle">psxButtons/dark/circle.svg</file>
+		<file alias="cross">psxButtons/dark/cross.svg</file>
+		<file alias="square">psxButtons/dark/square.svg</file>
+		<file alias="triangle">psxButtons/dark/triangle.svg</file>
+		<file alias="select">psxButtons/dark/select.svg</file>
+		<file alias="start">psxButtons/dark/start.svg</file>
+		<file alias="l1">psxButtons/dark/l1.svg</file>
+		<file alias="l2">psxButtons/dark/l2.svg</file>
+		<file alias="r1">psxButtons/dark/r1.svg</file>
+		<file alias="r2">psxButtons/dark/r2.svg</file>
+	</qresource>
+	<qresource prefix="/psxButtons/light">
+		<file alias="left">psxButtons/light/left.svg</file>
+		<file alias="right">psxButtons/light/right.svg</file>
+		<file alias="up">psxButtons/light/up.svg</file>
+		<file alias="down">psxButtons/light/down.svg</file>
+		<file alias="circle">psxButtons/light/circle.svg</file>
+		<file alias="cross">psxButtons/light/cross.svg</file>
+		<file alias="square">psxButtons/light/square.svg</file>
+		<file alias="triangle">psxButtons/light/triangle.svg</file>
+		<file alias="select">psxButtons/light/select.svg</file>
+		<file alias="start">psxButtons/light/start.svg</file>
+		<file alias="l1">psxButtons/light/l1.svg</file>
+		<file alias="l2">psxButtons/light/l2.svg</file>
+		<file alias="r1">psxButtons/light/r1.svg</file>
+		<file alias="r2">psxButtons/light/r2.svg</file>
+	</qresource>
 </RCC>
  

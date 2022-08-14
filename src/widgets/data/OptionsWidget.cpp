@@ -176,6 +176,7 @@ OptionsWidget::OptionsWidget(QWidget *parent) :
 
     controllerMappingBox->setLayout(makeControllerLayout());
     centerLayout->addWidget(controllerMappingBox);
+    updateIcons();
 
     centerWidget = new QWidget;
     centerWidget->setLayout(centerLayout);
@@ -200,9 +201,12 @@ void OptionsWidget::resizeEvent(QResizeEvent *event)
 }
 void OptionsWidget::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange)
+    if (e->type() == QEvent::LanguageChange)
+        updateText();
+    else if (e->type() == QEvent::ApplicationPaletteChange || e->type() == QEvent::PaletteChange)
+        updateIcons();
+    else
         QWidget::changeEvent(e);
-    updateText();
 }
 
 void OptionsWidget::updateText()
@@ -278,6 +282,28 @@ void OptionsWidget::updateText()
             lblInputs.append(new QLabel(tr(_inputNames.at(i).toLatin1())));
     }
 }
+
+void OptionsWidget::updateIcons()
+{
+    QString theme = palette().text().color().value() >= QColor(Qt::lightGray).value() ? QStringLiteral("dark") : QStringLiteral("light");
+    for(auto box : controllerMappingBox->findChildren<QComboBox*>()) {
+        box->setItemIcon(0, QIcon(QStringLiteral(":/psxButtons/%1/l2").arg(theme)));
+        box->setItemIcon(1, QIcon(QStringLiteral(":/psxButtons/%1/r2").arg(theme)));
+        box->setItemIcon(2, QIcon(QStringLiteral(":/psxButtons/%1/l1").arg(theme)));
+        box->setItemIcon(3, QIcon(QStringLiteral(":/psxButtons/%1/r1").arg(theme)));
+        box->setItemIcon(4, QIcon(QStringLiteral(":/psxButtons/%1/triangle").arg(theme)));
+        box->setItemIcon(5, QIcon(QStringLiteral(":/psxButtons/%1/circle").arg(theme)));
+        box->setItemIcon(6, QIcon(QStringLiteral(":/psxButtons/%1/cross").arg(theme)));
+        box->setItemIcon(7, QIcon(QStringLiteral(":/psxButtons/%1/square").arg(theme)));
+        box->setItemIcon(8, QIcon(QStringLiteral(":/psxButtons/%1/select").arg(theme)));
+        box->setItemIcon(11, QIcon(QStringLiteral(":/psxButtons/%1/start").arg(theme)));
+        box->setItemIcon(12, QIcon(QStringLiteral(":/psxButtons/%1/up").arg(theme)));
+        box->setItemIcon(13, QIcon(QStringLiteral(":/psxButtons/%1/right").arg(theme)));
+        box->setItemIcon(14, QIcon(QStringLiteral(":/psxButtons/%1/down").arg(theme)));
+        box->setItemIcon(15, QIcon(QStringLiteral(":/psxButtons/%1/left").arg(theme)));
+    }
+}
+
 void OptionsWidget::setDialogColors(QColor ul, QColor ur, QColor ll, QColor lr)
 {
     dialogPreview->blockSignals(true);
@@ -393,22 +419,22 @@ QGridLayout *OptionsWidget::makeControllerLayout()
         auto comboBox = new QComboBox;
         comboBox->setObjectName(_inputNames.at(i));
         comboBox->setIconSize(QSize(fontMetrics().height(), fontMetrics().height()));
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/l2")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/r2")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/l1")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/r1")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/triangle")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/circle")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/cross")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/square")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/select")), QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
         comboBox->addItem(QString(tr("9")));
         comboBox->addItem(QString(tr("10")));
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/start")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/up")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/right")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/down")), QString());
-        comboBox->addItem(QIcon(QPixmap(":/psxButtons/left")), QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
 
         connect(comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [comboBox, i, this] {
             Q_EMIT inputChanged(i, comboBox->currentIndex());

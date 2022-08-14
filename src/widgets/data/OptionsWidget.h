@@ -78,6 +78,7 @@ signals:
 
 private:
     void updateText();
+    void updateIcons();
     QGridLayout *makeControllerLayout();
     DialogPreview *dialogPreview = nullptr;
     QGroupBox *dialogBox = nullptr;
