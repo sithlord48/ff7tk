@@ -23,13 +23,13 @@ TextureFile::TextureFile() :
 TextureFile::TextureFile(const QImage &image) :
     _image(image), _currentColorTable(0)
 {
-    QVector<QRgb> colorTable = _image.colorTable();
+    QList<QRgb> colorTable = _image.colorTable();
     if (!colorTable.empty()) {
         _colorTables.append(colorTable);
     }
 }
 
-TextureFile::TextureFile(const QImage &image, const QList< QVector<QRgb> > &colorTables) :
+TextureFile::TextureFile(const QImage &image, const QList< QList<QRgb> > &colorTables) :
     _image(image), _colorTables(colorTables), _currentColorTable(0)
 {
 }
@@ -61,46 +61,47 @@ bool TextureFile::isPaletted() const
     return !_colorTables.isEmpty();
 }
 
-const QList< QVector<QRgb> > &TextureFile::colorTables() const
+const QList< QList<QRgb> > &TextureFile::colorTables() const
 {
     return _colorTables;
 }
 
-int TextureFile::currentColorTable() const
+qsizetype TextureFile::currentColorTable() const
 {
     return _currentColorTable;
 }
 
-QVector<QRgb> TextureFile::colorTable(int id) const
+QList<QRgb> TextureFile::colorTable(qsizetype id) const
 {
     return _colorTables.value(id);
 }
 
-void TextureFile::setCurrentColorTable(int id)
+void TextureFile::setCurrentColorTable(qsizetype id)
 {
     if (id < _colorTables.size() && _currentColorTable != id) {
-        _image.setColorTable(_colorTables.at(_currentColorTable = id));
+        _currentColorTable = id;
+        _image.setColorTable(_colorTables.at(_currentColorTable));
     }
 }
 
-void TextureFile::setColorTable(int id, const QVector<QRgb> &colorTable)
+void TextureFile::setColorTable(qsizetype id, const QList<QRgb> &colorTable)
 {
     if (id < _colorTables.size()) {
         _colorTables.replace(id, colorTable);
     }
 }
 
-int TextureFile::colorTableCount() const
+qsizetype TextureFile::colorTableCount() const
 {
     return _colorTables.size();
 }
 
 void TextureFile::debug() const
 {
-    QImage img(4 * 16, 4 * 16 * colorTableCount(), QImage::Format_RGB32);
+    QImage img(4 * 16, int(4 * 16 * colorTableCount()), QImage::Format_RGB32);
 
     int y = 0;
-    for (const QVector<QRgb> &colorTable : _colorTables) {
+    for (const QList<QRgb> &colorTable : _colorTables) {
         int x = 0;
         for (const QRgb &color : colorTable) {
             img.setPixel(x*4+0, y*4+0, color);

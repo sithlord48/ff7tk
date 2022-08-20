@@ -84,7 +84,7 @@ private:
     quint8 charInfo(quint8 table, quint8 id) const;
     void setCharInfo(quint8 table, quint8 id, quint8 info);
 
-    QVector<quint8> _charWidth;
+    QList<quint8> _charWidth;
     TimFile _icons;
     TimFile _font;
     TimFile _font2;
