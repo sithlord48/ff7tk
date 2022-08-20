@@ -23,21 +23,21 @@ class FF7TKFORMATS_EXPORT TextureFile
 public:
     TextureFile();
     explicit TextureFile(const QImage &image);
-    TextureFile(const QImage &image, const QList< QVector<QRgb> > &colorTables);
+    TextureFile(const QImage &image, const QList<QList<QRgb> > &colorTables);
     bool isValid() const;
     void clear();
     const QImage &image() const;
     QImage *imagePtr();
     bool isPaletted() const;
-    const QList< QVector<QRgb> > &colorTables() const;
-    int currentColorTable() const;
-    QVector<QRgb> colorTable(int id) const;
-    void setCurrentColorTable(int id);
-    void setColorTable(int id, const QVector<QRgb> &colorTable);
-    int colorTableCount() const;
+    const QList< QList<QRgb> > &colorTables() const;
+    qsizetype currentColorTable() const;
+    QList<QRgb> colorTable(qsizetype id) const;
+    void setCurrentColorTable(qsizetype id);
+    void setColorTable(qsizetype id, const QList<QRgb> &colorTable);
+    qsizetype colorTableCount() const;
     void debug() const;
 protected:
     QImage _image;
-    QList< QVector<QRgb> > _colorTables;
-    int _currentColorTable;
+    QList< QList<QRgb> > _colorTables;
+    qsizetype _currentColorTable;
 };

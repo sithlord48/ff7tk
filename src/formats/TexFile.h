@@ -95,7 +95,7 @@ public:
     TexFile() : TextureFile() {}
     explicit TexFile(const QByteArray &data);
     TexFile(const TextureFile &textureFile, const TexStruct &header,
-            const QVector<quint8> &colorKeyArray=QVector<quint8>());
+            const QList<quint8> &colorKeyArray = QList<quint8>());
     ~TexFile() {}
     bool open(const QByteArray &data);
     bool save(QByteArray &data);
@@ -105,5 +105,5 @@ public:
 private:
     void updateHeader();
     TexStruct header;
-    QVector<quint8> colorKeyArray;
+    QList<quint8> colorKeyArray;
 };

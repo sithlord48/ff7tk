@@ -32,13 +32,14 @@ void WindowBinFile::clear()
 bool WindowBinFile::open(const QString &path)
 {
     QFile windowFile(path);
-    if (!windowFile.open(QIODevice::ReadOnly))
+    if (!windowFile.open(QIODevice::ReadOnly)) {
         return false;
+    }
+
     QByteArray windowData = windowFile.readAll();
     windowFile.close();
-    if (!open(windowData))
-        return false;
-    return true;
+
+    return open(windowData);
 }
 
 bool WindowBinFile::open(const QByteArray &data)
@@ -46,7 +47,7 @@ bool WindowBinFile::open(const QByteArray &data)
     clear();
 
     const char *constData = data.constData();
-    int cur=0;
+    int cur = 0;
     quint16 size;
     QList<int> positions;
     QList<int> sizes;
@@ -58,18 +59,28 @@ bool WindowBinFile::open(const QByteArray &data)
         cur += 6 + size;
     }
 
-    if (positions.size() < 3 || positions.size() > 4)
+    if (positions.size() < 3 || positions.size() > 4) {
         return false;
+    }
+
     _icons = TimFile(GZIP::decompress(constData + positions.first() + 6, sizes.first(), 0));
-    if (!_icons.isValid())
+    if (!_icons.isValid()) {
         return false;
-    if (!openFont(GZIP::decompress(constData + positions.at(1) + 6, sizes.at(1), 0)))
+    }
+
+    if (!openFont(GZIP::decompress(constData + positions.at(1) + 6, sizes.at(1), 0))) {
         return false;
+    }
+
     // jp version
-    if (positions.size() == 4 && !openFont2(GZIP::decompress(constData + positions.at(2) + 6, sizes.at(2), 0)))
+    if (positions.size() == 4 && !openFont2(GZIP::decompress(constData + positions.at(2) + 6, sizes.at(2), 0))) {
         return false;
-    if (!openFontSize(GZIP::decompress(constData + positions.last() + 6, sizes.last(), 0)))
+    }
+
+    if (!openFontSize(GZIP::decompress(constData + positions.last() + 6, sizes.last(), 0))) {
         return false;
+    }
+
     return true;
 }
 

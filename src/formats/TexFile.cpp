@@ -22,7 +22,7 @@ TexFile::TexFile(const QByteArray &data)
     open(data);
 }
 
-TexFile::TexFile(const TextureFile &textureFile, const TexStruct &header, const QVector<quint8> &colorKeyArray)
+TexFile::TexFile(const TextureFile &textureFile, const TexStruct &header, const QList<quint8> &colorKeyArray)
     : TextureFile(textureFile)
     , header(header)
     , colorKeyArray(colorKeyArray)
@@ -69,7 +69,7 @@ bool TexFile::open(const QByteArray &data)
         for (quint32 palID=0; palID < header.nbPalettes; ++palID) {
             quint32 paletteStart = headerSize+header.nbColorsPerPalette1*4*palID;
             _image = QImage(w, h, QImage::Format_Indexed8);
-            QVector<QRgb> colors;
+            QList<QRgb> colors;
             for (i=0; i<header.nbColorsPerPalette1; ++i) {
                 quint32 index = paletteStart + i*4;
                 colors.append(qRgba(data.at(index+2), data.at(index+1), data.at(index), data.at(index+3)));
@@ -128,7 +128,7 @@ bool TexFile::save(QByteArray &data)
     if (isPaletted()) {
         quint32 palID;
         for (palID=0; palID < header.nbPalettes && palID < (quint32)_colorTables.size(); ++palID) {
-            const QVector<QRgb> &palette = _colorTables.at(palID);
+            const QList<QRgb> &palette = _colorTables.at(palID);
             quint32 colorID;
             for (colorID=0; colorID < header.nbColorsPerPalette1 && colorID < (quint32)palette.size(); ++colorID) {
                 const QRgb &color = palette.at(colorID);

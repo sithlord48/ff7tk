@@ -43,160 +43,164 @@ TimFile::TimFile(const TextureFile &texture, quint8 bpp, quint16 palX, quint16 p
 
 bool TimFile::open(const QByteArray &data)
 {
-    //	QTime t;t.start();
-
-    quint32 palSize=0;
-    quint32 color=0;
-    quint16 w;
-    quint16 h;
-    const char *constData = data.constData();
-    bool hasPal;
     qsizetype dataSize = data.size();
-    if (!data.startsWith(QByteArray("\x10\x00\x00\x00", 4)) || dataSize < 8)
+
+    if (!data.startsWith(QByteArrayView("\x10\x00\x00\x00", 4)) || dataSize < 8) {
         return false;
+    }
 
-    //	quint8 tag = (quint8)data.at(0);
-    //	quint8 version = (quint8)data.at(1);
-    bpp = quint8(data.at(4)) & 3;
-    hasPal = (quint8(data.at(4)) >> 3) & 1;
+    quint32 palSize = 0, color = 0;
+    const char *constData = data.constData();
 
-    //	qDebug() << QString("=== Apercu TIM ===");
-    //	qDebug() << QString("Tag = %1, version = %2, reste = %3").arg(tag).arg(version).arg(QString(data.mid(2,2).toHex()));
-    //	qDebug() << QString("bpp = %1, hasPal = %2, flag = %3, reste = %4").arg(bpp).arg(hasPal).arg((quint8)data.at(4),0,2).arg(QString(data.mid(5,3).toHex()));
+    // quint8 tag = quint8(data.at(0));
+    // quint8 version = quint8(data.at(1));
+    bpp = quint8(constData[4]) & 3;
+    bool hasPal = (quint8(constData[4]) >> 3) & 1;
 
-    if (hasPal && bpp > 1)
+    if (hasPal && bpp > 1) {
         return false;
+    }
 
     _colorTables.clear();
+    _alphaBits.clear();
+    _currentColorTable = 0;
 
     if (hasPal) {
-        if (dataSize < 20)
+        if (dataSize < 20) {
             return false;
-        memcpy(&palSize, &constData[8], 4);
-        memcpy(&palX, &constData[12], 2);
-        memcpy(&palY, &constData[14], 2);
-        memcpy(&palW, &constData[16], 2);
-        memcpy(&palH, &constData[18], 2);
-        if (quint32(dataSize) < 8+palSize/* || palSize != (quint32)palW*palH*2+12*/)
-            return false;
+        }
 
-        quint16 onePalSize = (bpp==0 ? 16 : 256);
-        int nbPal = (palSize-12)/(onePalSize*2);
-        if ((palSize-12)%(onePalSize*2) != 0)
+        memcpy(&palSize, constData + 8, 4);
+        memcpy(&palX, constData + 12, 2);
+        memcpy(&palY, constData + 14, 2);
+        memcpy(&palW, constData + 16, 2);
+        memcpy(&palH, constData + 18, 2);
+
+        if (quint32(dataSize) < 8 + palSize || palSize < 12) {
+            return false;
+        }
+
+        quint16 onePalSize = bpp == 0 ? 16 : 256;
+        quint32 nbPal = (palSize - 12) / (onePalSize * 2);
+
+        if ((palSize - 12) % (onePalSize * 2) != 0) {
             nbPal *= 2;
-        if (nbPal <= 0)
-            return false;
+        }
 
-        int pos=0;
-        for (int i=0; i<nbPal; ++i) {
-            QVector<QRgb> pal;
+        if (nbPal <= 0 || palSize != 12 + onePalSize * nbPal * 2) {
+            return false;
+        }
+
+        int pos = 0;
+
+        for (quint32 i = 0; i < nbPal; ++i) {
+            QList<QRgb> pal;
             QBitArray alphaBits(onePalSize);
-            for (quint16 j=0; j<onePalSize; ++j) {
-                memcpy(&color, &constData[20+pos*2+j*2], 2);
-                pal.append(PsColor::fromPsColor(color, true));
+
+            for (quint16 j = 0; j < onePalSize; ++j) {
+                memcpy(&color, constData + 20 + pos * 2 + j * 2, sizeof(quint16));
+                pal.append(PsColor::fromPsColor(quint16(color), true));
                 alphaBits.setBit(j, psColorAlphaBit(color));
             }
+
             _colorTables.append(pal);
             _alphaBits.append(alphaBits);
+
             pos += pos % palW == 0 ? onePalSize : palW - onePalSize;
         }
     }
 
-    _currentColorTable = 0;
-    //		quint16 palX, palY;
-    //		memcpy(&palX, &constData[12], 2);
-    //		memcpy(&palY, &constData[14], 2);
-    //		qDebug() << QString("-Palette-");
-    //		qDebug() << QString("Size = %1, w = %2, h = %3").arg(palSize).arg(palW).arg(palH);
-    //		qDebug() << QString("x = %1, y = %2").arg(palX).arg(palY);
-    //		qDebug() << QString("NbPal = %1 (valid : %2)").arg(nbPal).arg((palSize-12)%(onePalSize*2));
-
-    if (quint32(dataSize) < 20+palSize)
+    if (quint32(dataSize) < 20 + palSize) {
         return false;
+    }
 
-    memcpy(&sizeImgSection, &constData[8+palSize], 4);
-    memcpy(&imgX, &constData[12+palSize], 2);
-    memcpy(&imgY, &constData[14+palSize], 2);
-    memcpy(&w, &constData[16+palSize], 2);
-    memcpy(&h, &constData[18+palSize], 2);
-    if (bpp==0)
-        w*=4;
-    else if (bpp==1)
-        w*=2;
-    //	qDebug() << QString("-Image-");
-    //	qDebug() << QString("Size = %1, w = %2, h = %3").arg(sizeImgSection).arg(w).arg(h);
-    //	qDebug() << QString("TIM Size = %1").arg(8+palSize+sizeImgSection);
+    quint16 w, h;
+
+    memcpy(&sizeImgSection, constData + 8 + palSize, 4);
+    memcpy(&imgX, constData + 12 + palSize, 2);
+    memcpy(&imgY, constData + 14 + palSize, 2);
+    memcpy(&w, constData + 16 + palSize, 2);
+    memcpy(&h, constData + 18 + palSize, 2);
+
+    if (bpp == 0) {
+        w *= 4;
+    } else if (bpp == 1) {
+        w *= 2;
+    }
 
     _image = QImage(w, h, hasPal ? QImage::Format_Indexed8 : QImage::Format_ARGB32);
-    if (hasPal)
+    if (hasPal) {
         _image.setColorTable(_colorTables.first());
-    //_image.fill(QColor(0, 0, 0, 0));
-    QRgb *pixels = (QRgb *)_image.bits();
+    }
 
-    int size, i=0;
-    quint32 x=0, y=0;
+    QRgb *pixels = reinterpret_cast<QRgb *>(_image.bits());
+    quint32 size, i = 0;
 
-    if (bpp!=0)
-        size = std::min<int>(12 + w*h*bpp, int(dataSize - 8 - palSize));
-    else
-        size = std::min<int>(12 + w/2*h, int(dataSize - 8 - palSize));
+    if (bpp != 0) {
+        size = std::min<quint32>(12 + w * h * bpp, quint32(dataSize) - 8 - palSize);
+    } else {
+        size = std::min<quint32>(12 + w / 2 * h, quint32(dataSize) - 8 - palSize);
+    }
 
-    if (8 + palSize + size > quint32(dataSize))
+    if (8 + palSize + size > quint32(dataSize)) {
         return false;
+    }
 
-    if (bpp==0) { //mag176, icon
-        while (i<size && y<h) {
-            _image.setPixel(x, y, quint8(data.at(20+palSize+i)) & 0xF);
+    int x = 0, y = 0;
+
+    if (bpp == 0) {
+        while (i < size && y < h) {
+            _image.setPixel(x, y, quint8(constData[20 + palSize + i]) & 0xF);
             ++x;
-            if (x==w) {
+            if (x == w) {
                 x = 0;
                 ++y;
             }
-            _image.setPixel(x, y, quint8(data.at(20+palSize+i) >> 4));
+            _image.setPixel(x, y, quint8(constData[20 + palSize + i]) >> 4);
             ++x;
-            if (x==w) {
-                x = 0;
-                ++y;
-            }
-            ++i;
-        }
-    } else if (bpp==1) {
-        while (i<size && y<h) {
-            _image.setPixel(x, y, quint8(data.at(20+palSize+i)));
-            ++x;
-            if (x==w) {
+            if (x == w) {
                 x = 0;
                 ++y;
             }
             ++i;
         }
-    } else if (bpp==2) {
+    } else if (bpp == 1) {
+        while (i < size && y < h) {
+            _image.setPixel(x, y, quint8(constData[20 + palSize + i]));
+            ++x;
+            if (x == w) {
+                x = 0;
+                ++y;
+            }
+            ++i;
+        }
+    } else if (bpp == 2) {
         QBitArray alphaBits;
-        while (i<size && y<h) {
-            memcpy(&color, &constData[20+palSize+i], 2);
-            pixels[x + y*w] = PsColor::fromPsColor(color, true);
+        while (i < size && y < h) {
+            memcpy(&color, constData + 20 + palSize + i, sizeof(quint16));
+            pixels[x + y*w] = PsColor::fromPsColor(quint16(color), true);
             alphaBits.setBit(i / 2, psColorAlphaBit(color));
             ++x;
-            if (x==w) {
+            if (x == w) {
                 x = 0;
                 ++y;
             }
-            i+=2;
+            i += 2;
         }
         _alphaBits.append(alphaBits);
-    } else if (bpp==3) {
-        while (i<size && y<h) {
-            memcpy(&color, &constData[20+palSize+i], 3);
+    } else if (bpp == 3) {
+        while (i < size && y < h) {
+            memcpy(&color, constData + 20 + palSize + i, 3);
             pixels[x + y*w] = qRgb(color >> 16, (color >> 8) & 0xFF, color & 0xFF);
             ++x;
-            if (x==w) {
+            if (x == w) {
                 x = 0;
                 ++y;
             }
-            i+=3;
+            i += 3;
         }
     }
-    //	qDebug() << t.elapsed();
+
     return true;
 }
 
@@ -220,7 +224,7 @@ bool TimFile::save(QByteArray &data) const
         data.append((char *)&palW, 2);
         data.append((char *)&palH, 2);
         int colorTableId = 0;
-        for (const QVector<QRgb> &colorTable : _colorTables) {
+        for (const QList<QRgb> &colorTable : _colorTables) {
             const QBitArray &alphaBit = _alphaBits.at(colorTableId);
             int i;
             Q_ASSERT(colorTable.size() == colorPerPal);
