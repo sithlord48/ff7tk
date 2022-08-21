@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['_5fcolortables_3376',['_colorTables',['../classTextureFile.html#af802589c9e2ea4d34436d5c19a95dd2a',1,'TextureFile']]],
-  ['_5fcurrentcolortable_3377',['_currentColorTable',['../classTextureFile.html#a56ae6c6b11bd4642e9771bd86e591871',1,'TextureFile']]],
+  ['_5fcolortables_3376',['_colorTables',['../classTextureFile.html#a42c86297f00117e7cd4dd1354d024949',1,'TextureFile']]],
+  ['_5fcurrentcolortable_3377',['_currentColorTable',['../classTextureFile.html#a3f62461ffc1e2f271ac70888ec151f96',1,'TextureFile']]],
   ['_5fimage_3378',['_image',['../classTextureFile.html#a36b42b596e97084d6800ff69288ef65a',1,'TextureFile']]],
   ['_5flocation_3379',['_location',['../classIsoFileOrDirectory.html#a62496eb1cfd6cad9a3467eb9003a65f2',1,'IsoFileOrDirectory']]],
   ['_5fname_3380',['_name',['../classIsoFileOrDirectory.html#a817bab97b3aabe09585901f70ffcbe46',1,'IsoFileOrDirectory']]],

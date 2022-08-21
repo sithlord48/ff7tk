@@ -168,7 +168,7 @@ $(function() {
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classTexFile.html#a5e6335c591fe228f051978754a307eb0">   95</a></span>&#160;    <a class="code" href="classTexFile.html#a5e6335c591fe228f051978754a307eb0">TexFile</a>() : <a class="code" href="classTextureFile.html">TextureFile</a>() {}</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classTexFile.html">TexFile</a>(<span class="keyword">const</span> QByteArray &amp;data);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="classTexFile.html">TexFile</a>(<span class="keyword">const</span> <a class="code" href="classTextureFile.html">TextureFile</a> &amp;textureFile, <span class="keyword">const</span> <a class="code" href="structTexStruct.html">TexStruct</a> &amp;header,</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">const</span> QVector&lt;quint8&gt; &amp;colorKeyArray=QVector&lt;quint8&gt;());</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">const</span> QList&lt;quint8&gt; &amp;colorKeyArray = QList&lt;quint8&gt;());</div>
 <div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classTexFile.html#a62f757e6cdab4128aacbef559a3b3379">   99</a></span>&#160;    <a class="code" href="classTexFile.html#a62f757e6cdab4128aacbef559a3b3379">~TexFile</a>() {}</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> open(<span class="keyword">const</span> QByteArray &amp;data);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> save(QByteArray &amp;data);</div>
@@ -178,7 +178,7 @@ $(function() {
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> updateHeader();</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="structTexStruct.html">TexStruct</a> header;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    QVector&lt;quint8&gt; colorKeyArray;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    QList&lt;quint8&gt; colorKeyArray;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructTexStruct_html_a6ff6f77c926ff141b175bd3bce16a4c0"><div class="ttname"><a href="structTexStruct.html#a6ff6f77c926ff141b175bd3bce16a4c0">TexStruct::nbGreenBits2</a></div><div class="ttdeci">quint32 nbGreenBits2</div><div class="ttdef"><b>Definition:</b> TexFile.h:65</div></div>
@@ -248,7 +248,7 @@ $(function() {
 <div class="ttc" id="aclassTextureFile_html"><div class="ttname"><a href="classTextureFile.html">TextureFile</a></div><div class="ttdef"><b>Definition:</b> TextureFile.h:21</div></div>
 <div class="ttc" id="astructTexStruct_html_acded9c83941f5b3e29c12b4788e59a60"><div class="ttname"><a href="structTexStruct.html#acded9c83941f5b3e29c12b4788e59a60">TexStruct::nbColorsPerPalette2</a></div><div class="ttdeci">quint32 nbColorsPerPalette2</div><div class="ttdef"><b>Definition:</b> TexFile.h:47</div></div>
 <div class="ttc" id="astructTexStruct_html_ad2afd6b42988de4669f01696196b9a38"><div class="ttname"><a href="structTexStruct.html#ad2afd6b42988de4669f01696196b9a38">TexStruct::greenMax</a></div><div class="ttdeci">quint32 greenMax</div><div class="ttdef"><b>Definition:</b> TexFile.h:69</div></div>
-<div class="ttc" id="aclassTextureFile_html_afd04a91b78fd2159e4ef8ddf4c39b16f"><div class="ttname"><a href="classTextureFile.html#afd04a91b78fd2159e4ef8ddf4c39b16f">TextureFile::debug</a></div><div class="ttdeci">void debug() const</div><div class="ttdef"><b>Definition:</b> TextureFile.cpp:98</div></div>
+<div class="ttc" id="aclassTextureFile_html_afd04a91b78fd2159e4ef8ddf4c39b16f"><div class="ttname"><a href="classTextureFile.html#afd04a91b78fd2159e4ef8ddf4c39b16f">TextureFile::debug</a></div><div class="ttdeci">void debug() const</div><div class="ttdef"><b>Definition:</b> TextureFile.cpp:99</div></div>
 <div class="ttc" id="astructTexStruct_html_a736957642becfa32989f2536d20fb32e"><div class="ttname"><a href="structTexStruct.html#a736957642becfa32989f2536d20fb32e">TexStruct::blueMax</a></div><div class="ttdeci">quint32 blueMax</div><div class="ttdef"><b>Definition:</b> TexFile.h:70</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
