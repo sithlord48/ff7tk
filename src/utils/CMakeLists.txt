@@ -11,6 +11,7 @@ set(ff7tkUtils_SRC
     GZIPPS.cpp
     LZS.cpp
     PsColor.cpp
+    PsfFile.cpp
     QLockedFile.cpp
 )
 
@@ -20,6 +21,7 @@ set(ff7tkUtils_HEADERS
     GZIPPS.h
     LZS.h
     PsColor.h
+    PsfFile.h
     QLockedFile.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkutils_export.h
 )
