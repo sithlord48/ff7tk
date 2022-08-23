@@ -8,7 +8,7 @@ define_property(GLOBAL PROPERTY ff7tk_tests BRIEF_DOCS "Defined Tests" FULL_DOCS
 macro (MAKE_TEST NAME FILE)
     get_filename_component(curDir ${CMAKE_CURRENT_SOURCE_DIR} NAME)
     set(DEP_LIB ff7tk)
-    if( NOT ${curDir} MATCHES data)
+    if( NOT ${curDir} MATCHES core)
         string(SUBSTRING ${curDir} 0 1 FIRST_LETTER)
         string(TOUPPER ${FIRST_LETTER} FIRST_LETTER)
         string(REGEX REPLACE "^.(.*)" "${FIRST_LETTER}\\1" curDir_UPPER "${curDir}")

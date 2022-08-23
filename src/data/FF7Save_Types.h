@@ -28,13 +28,13 @@
 #endif
 
 #include <QVector>
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 #include <Type_FF7CHAR>
 #include <Type_FF7CHOCOBO>
 //Materia Type is included as part of FF7Char
 /*~~~~~~~~~~~~~~~~~~~~~~~~STRUCT TYPES AND SAVE STRUCT~~~~~~~~~~~~~~~~*/
 PACK(
-struct FF7TK_EXPORT LOVE {
+struct FF7TKDATA_EXPORT LOVE {
     qint8 aeris;
     qint8 tifa;
     qint8 yuffie;
@@ -47,7 +47,7 @@ struct FF7TK_EXPORT LOVE {
  *  68 Bytes total size All known
  */
 PACK(
-struct FF7TK_EXPORT FF7DESC {
+struct FF7TKDATA_EXPORT FF7DESC {
     quint8 level;       /**< [0x0000] Lead character's level*/
     qint8 party[3];     /**< [0x0001] Party*/
     quint8 name[16];    /**< [0x0004] Lead character's name (ff7 string)*/
@@ -60,7 +60,7 @@ struct FF7TK_EXPORT FF7DESC {
     quint8 location[32];/**< [0x0024] Save location (ff7 string)*/
 });
 PACK(
-struct FF7TK_EXPORT FF7XYT {// size of 7. used for coords
+struct FF7TKDATA_EXPORT FF7XYT {// size of 7. used for coords
     qint16 x;
     qint16 y;
     quint16 t;
@@ -75,7 +75,7 @@ struct FF7TK_EXPORT FF7XYT {// size of 7. used for coords
  * \todo Discover more bytes then before
  */
 PACK(
-struct FF7TK_EXPORT FF7SLOT {
+struct FF7TKDATA_EXPORT FF7SLOT {
     quint16 checksum;           /**< [0x0000] Checksum */
     quint8 z_1[2];              /**< [0x0002] UNKNOWN DATA*/
     FF7DESC desc;               /**< [0x0004] Length:0x44] Slot description*/
@@ -230,7 +230,7 @@ struct FF7TK_EXPORT FF7SLOT {
 
 PACK(
     /* FF7HEADFOOT FORMAT COMPATIBILITY (Vegeta_Ss4) v0.8.3*/
-struct FF7TK_EXPORT FF7HEADFOOT {
+struct FF7TKDATA_EXPORT FF7HEADFOOT {
     quint8 sl_header[0x0200];   // [0x0000] Slot Header
     quint8 sl_footer[0x0D0C];   // [0x0000] Slot Footer
 });

@@ -17,7 +17,7 @@
 
 #include <QObject>
 #include <QtGlobal>
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 
 class QQmlEngine;
 class QJSEngine;
@@ -32,7 +32,7 @@ struct FieldItem {
 /*! \class FF7FieldItemList
  *  \brief Data Class to allow the tracking and changing of items being picked up on the field
  */
-class FF7TK_EXPORT FF7FieldItemList : public QObject
+class FF7TKDATA_EXPORT FF7FieldItemList : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int size READ size CONSTANT)

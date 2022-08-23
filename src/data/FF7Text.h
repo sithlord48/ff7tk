@@ -16,7 +16,7 @@
 #pragma once
 
 #include <QObject>
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 
 class QQmlEngine;
 class QJSEngine;
@@ -24,7 +24,7 @@ class QJSEngine;
 /*! \class FF7Text
  * \brief Convert ff7text <-> pc string
  */
-class FF7TK_EXPORT FF7Text: public QObject
+class FF7TKDATA_EXPORT FF7Text: public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool japanese READ isJapanese WRITE setJapanese NOTIFY languageChanged)

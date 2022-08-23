@@ -18,12 +18,12 @@
 
 #include <QObject>
 #include <QPixmap>
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 
 /** \class SaveIcon
  *  \brief PSX icon data as a QPixmap
  */
-class FF7TK_EXPORT SaveIcon : public QObject
+class FF7TKDATA_EXPORT SaveIcon : public QObject
 {
     Q_OBJECT
 public:

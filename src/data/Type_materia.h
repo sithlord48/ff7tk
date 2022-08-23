@@ -27,14 +27,14 @@
 #else
 #define PACK(structure) structure Q_PACKED
 #endif
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 /*! \struct materia
  *  \brief materia format saved in materia list or on a character
  *
  * Total Size 4 Bytes 100% known!
  */
 PACK(
-struct FF7TK_EXPORT materia{// sizeof 4
+struct FF7TKDATA_EXPORT materia{// sizeof 4
     quint8 id;      /**< materias id */
     quint8 ap[3];   /** Ap Storage is done as a 24bit int. */
 });

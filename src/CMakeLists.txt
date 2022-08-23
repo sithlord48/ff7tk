@@ -1,3 +1,4 @@
+option(DATA "Build the data libary" ON)
 option(FORMATS "Build the formats libary" ON)
 option(UTILS "Build utility library (Requires zlib)" ON)
 option(WIDGETS "Build the widget libary" ON)
@@ -145,8 +146,10 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
     set_property(GLOBAL APPEND PROPERTY ff7tk_targets ${LIB_TARGET})
 endmacro()
 
-add_subdirectory(data)
-
+add_subdirectory(core)
+if(DATA)
+    add_subdirectory(data)
+endif()
 if(WIDGETS)
     add_subdirectory(widgets)
 endif()

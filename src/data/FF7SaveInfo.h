@@ -17,12 +17,12 @@
 
 #include <QObject>
 #include <QRegularExpression>
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 
 class QJSEngine;
 class QQmlEngine;
 
-class FF7TK_EXPORT FF7SaveInfo : public QObject
+class FF7TKDATA_EXPORT FF7SaveInfo : public QObject
 {
     Q_OBJECT
 public:
