@@ -20,7 +20,7 @@
 
 #include <FF7Text>
 #include <FF7Item>
-#include <ff7tkAbout>
+#include <ff7tkInfo>
 
 int main(int argc, char *argv[])
 {
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
         return FF7Item::qmlSingletonRegister(engine, jsEngine);
     });
 
-    QString versionString = QStringLiteral("%1").arg(ff7tk_version());
+    QString versionString = QStringLiteral("%1").arg(ff7tkInfo::version());
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("ff7tkVersion", versionString);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

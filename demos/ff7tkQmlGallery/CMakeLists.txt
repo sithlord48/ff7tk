@@ -12,6 +12,7 @@ set(${PROJECT_NAME}_SRC
 
 set(${PROJECT_NAME}_DEPENDS
     ff7tk::ff7tk
+    ff7tk::ff7tkData
 )
 
 set(${PROJECT_NAME}_LIBLINKS

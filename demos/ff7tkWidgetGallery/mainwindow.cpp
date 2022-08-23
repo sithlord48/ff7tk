@@ -24,13 +24,13 @@
 #include <QProgressDialog>
 
 #include <FF7Save>
-#include <ff7tkAbout>
+#include <ff7tkInfo>
 #include <FF7ItemModel>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tk_version()));
+    setWindowTitle(QStringLiteral("ff7tkWidgetGallery-%1").arg(ff7tkInfo::version()));
 
     hideAllBoxes();
 
@@ -89,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     hexLineEditLayout->addWidget(hexLineEdit);
     ui->hexLineEdit_Box->setLayout(hexLineEditLayout);
     ui->sb_hexEditLine_maxlen->setValue(hexLineEdit->maxLength());
+    std::ignore = ff7tkInfo::translations();
 
 }
 

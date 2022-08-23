@@ -19,13 +19,13 @@
 #include <QIcon>
 #include <QtEndian>
 
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 #include <Type_materia>
 
 class QQmlEngine;
 class QJSEngine;
 
-class FF7TK_EXPORT FF7Materia : public QObject
+class FF7TKDATA_EXPORT FF7Materia : public QObject
 {
     Q_OBJECT
 public:

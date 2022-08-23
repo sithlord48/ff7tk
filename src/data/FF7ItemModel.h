@@ -16,10 +16,10 @@
 #pragma once
 
 #include <QAbstractTableModel>
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 #include <FF7Item>
 
-class FF7TK_EXPORT FF7ItemModel : public QAbstractTableModel
+class FF7TKDATA_EXPORT FF7ItemModel : public QAbstractTableModel
 {
     Q_OBJECT
     Q_PROPERTY(QList<quint16> items READ allItems WRITE setItems NOTIFY itemsChanged)

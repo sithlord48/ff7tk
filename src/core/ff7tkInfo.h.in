@@ -1,0 +1,106 @@
+/****************************************************************************/
+//    copyright 2022 Chris Rizzitello <sithlord48@gmail.com>                //
+//                                                                          //
+//    This file is part of FF7tk                                            //
+//                                                                          //
+//    FF7tk is free software: you can redistribute it and/or modify         //
+//    it under the terms of the GNU General Public License as published by  //
+//    the Free Software Foundation, either version 3 of the License, or     //
+//    (at your option) any later version.                                   //
+//                                                                          //
+//    FF7tk is distributed in the hope that it will be useful,              //
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
+//    GNU General Public License for more details.                          //
+/****************************************************************************/
+#pragma once
+
+#include <ff7tk_export.h>
+#include <QDir>
+#include <QMap>
+#include <QTranslator>
+#include <QCoreApplication>
+
+
+class QQmlEngine;
+class QJSEngine;
+
+/*! \class ff7tk
+ * \brief Core class ff7tkInfo contains info about ff7tk
+ */
+class FF7TK_EXPORT ff7tkInfo: public QObject
+{
+    Q_OBJECT
+public:
+    /**
+     * @brief Register The ff7tkInfo Singleton for QML
+     */
+    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+
+    /**
+     * @brief Report version of ff7tk in use
+     */
+    static QString version() { return m_ff7tk_version; }
+
+    /**
+     * @brief Return a QMap<QString, QTranslator*> of ff7tk Translations
+     * key: A ISO-639-1 code for the language name. With "re" used reunion
+     * value: QTranslator* for the language.
+     */
+    static QMap<QString, QTranslator *> translations()
+    {
+        QMap<QString, QTranslator *> ff7tk_translations;
+        QDir dir;
+        static const QString appDir = QCoreApplication::applicationDirPath();
+        static const auto nameFilter = QStringList{QStringLiteral("ff7tk_*.qm")};
+        static const auto mainFolders = {
+            appDir
+            , QStringLiteral("%1/../..").arg(appDir)
+            , QStringLiteral("%1/..").arg(appDir)
+            , QStringLiteral("%1/../share/ff7tk").arg(appDir)
+#if defined (Q_OS_UNIX)
+            , QStringLiteral("%1/.local/share/ff7tk").arg(QDir::homePath())
+            , QStringLiteral("/opt/ff7tk-continious/share/ff7tk")
+            , QStringLiteral("/opt/ff7tk-%1/share/ff7tk").arg(m_ff7tk_version)
+            , QStringLiteral("/opt/ff7tk/share/ff7tk")
+            , QStringLiteral("/usr/share/ff7tk")
+            , QStringLiteral("/usr/local/share/ff7tk")
+# elif defined (Q_OS_WIN)
+            , QStringLiteral("%1Program Files/ff7tk-continious/share/ff7tk").arg(QDir::rootPath())
+            , QStringLiteral("%1Program Files/ff7tk-%2/share/ff7tk").arg(QDir::rootPath(), m_ff7tk_version)
+            , QStringLiteral("%1Program Files/ff7tk/share/ff7tk").arg(QDir::rootPath())
+#endif
+#if defined (Q_OS_DARWIN)
+            , QStringLiteral("%1/Applications/ff7tk-continious/share/ff7tk").arg(QDir::homePath())
+            , QStringLiteral("%1/Applications/ff7tk-%2/share/ff7tk").arg(QDir::homePath(), m_ff7tk_version)
+            , QStringLiteral("%1/Applications/ff7tk/share/ff7tk").arg(QDir::homePath())
+            , QStringLiteral("/Applications/ff7tk-continious/share/ff7tk")
+            , QStringLiteral("/Applications/ff7tk-%1/share/ff7tk").arg(m_ff7tk_version)
+            , QStringLiteral("/Applications/ff7tk/share/ff7tk")
+#endif
+        };
+        static const auto subFolders = {QStringLiteral("translations"), QStringLiteral("i18n"), QStringLiteral("lang")};
+        QStringList langList;
+        for(const auto &mainF : mainFolders) {
+            if(!langList.isEmpty())
+                break;
+            for(const auto &subF : subFolders) {
+                dir.setPath(QStringLiteral("%1/%2").arg(mainF, subF));
+                langList = dir.entryList(nameFilter, QDir::Files, QDir::Name);
+                if(!langList.isEmpty())
+                    break;
+            }
+        }
+
+        for (const QString &translation : qAsConst(langList)) {
+            QTranslator *translator = new QTranslator;
+            std::ignore = translator->load(translation, dir.absolutePath());
+            QString lang = translation.mid(6, 2);
+            ff7tk_translations.insert(lang, translator);
+        }
+        return ff7tk_translations;
+    }
+private:
+    static ff7tkInfo *instance();
+    inline static const auto m_ff7tk_version = QStringLiteral("@FF7TK_VERSION@");
+};

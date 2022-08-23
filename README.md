@@ -19,6 +19,24 @@ ff7tk is written by:
  - Action Icons from [Tango Desktop Project]
  - Item Icons from[Team Avalanche GUI]
  - Char Images from [Aavock UI Overhaul]
+## Installing
+ - Windows:
+   - C:\Program Files\ff7tk
+   - C:\Program Files\ff7tk-<VERSION>
+ - Mac OS
+   - ~/Applications/ff7tk
+   - ~/Applications/ff7tk-<VERSION>
+   - /Applications/ff7tk
+   - /Applications/ff7tk-<VERSION>
+ - Linux
+   - /opt/ff7tk
+   - /opt/ff7tk-<VERSION>
+   - ~/.local/opt/ff7tk
+   - ~/.local/opt/ff7tk-<VERSION>
+### adding ff7tk to the path
+ Depending on your os and how you install you may want to also add the install path explicitly to your "PATH"
+ If your developing you may also want to also `<ff7tk_install_path>/lib/cmake/ff7tk` to the path 
+  - [Windows_Add to_path]
 
 ## Building with ff7tk
  - [Building]
@@ -46,3 +64,5 @@ ff7tk is written by:
 [Documentation]:https://sithlord48.github.io/ff7tk/
 [Building]:http://sithlord48.github.io/ff7tk/md_docs_build.html
 [Contribute]:http://sithlord48.github.io/ff7tk/md_docs_CONTRIBUTING.html
+[Releases]:https://github.com/sithlord48/ff7tk/releases
+[Windows_Add to_path]:https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v=office.14)

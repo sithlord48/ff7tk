@@ -15,7 +15,7 @@
 /****************************************************************************/
 #pragma once
 #include <QtCore/qglobal.h>
-#include <ff7tk_export.h>
+#include <ff7tkdata_export.h>
 
 #ifdef _MSC_VER
 #   define PACK(structure)          \
@@ -36,7 +36,7 @@
  *  \todo Research the pcount byte
  */
 PACK(
-struct FF7TK_EXPORT FF7CHOCOBO {
+struct FF7TKDATA_EXPORT FF7CHOCOBO {
     quint16 sprintspd = 0;      /**< [0x0000] Speed */
     quint16 maxsprintspd = 0;   /**< [0x0002] Max Speed*/
     quint16 speed = 0;          /**< [0x0004] Sprint speed*/
