@@ -205,19 +205,19 @@
     </message>
     <message>
         <source>Absorb:</source>
-        <translation>Absorbe:</translation>
+        <translation>Absorbe :</translation>
     </message>
     <message>
         <source>Nullify:</source>
-        <translation>Annule:</translation>
+        <translation>Annule :</translation>
     </message>
     <message>
         <source>Halve:</source>
-        <translation>Moitié:</translation>
+        <translation>Moitié :</translation>
     </message>
     <message>
         <source>Attack:</source>
-        <translation>Attaque:</translation>
+        <translation>Attaque :</translation>
     </message>
     <message>
         <source>Death</source>
@@ -301,19 +301,19 @@
     </message>
     <message>
         <source>Protect:</source>
-        <translation>Protège:</translation>
+        <translation>Protège :</translation>
     </message>
     <message>
         <source>Remove:</source>
-        <translation>Enlève:</translation>
+        <translation>Enlève :</translation>
     </message>
     <message>
         <source>Inflict:</source>
-        <translation>Inflige:</translation>
+        <translation>Inflige :</translation>
     </message>
     <message>
         <source>OnBattle:</source>
-        <translation>EnCombat:</translation>
+        <translation>EnCombat :</translation>
     </message>
     <message>
         <source>-Empty-</source>
@@ -337,7 +337,7 @@
     </message>
     <message>
         <source>Young Cloud</source>
-        <translation type="unfinished">Jeune Clad</translation>
+        <translation>Jeune Cloud</translation>
     </message>
     <message>
         <source>Sephiroth</source>
@@ -349,7 +349,7 @@
     </message>
     <message>
         <source>Exp: </source>
-        <translation>EXP :</translation>
+        <translation>EXP : </translation>
     </message>
     <message>
         <source>Next: %1</source>
@@ -361,107 +361,107 @@
     </message>
     <message>
         <source>Current HP</source>
-        <translation type="unfinished">Courant HP</translation>
+        <translation>HP actuels</translation>
     </message>
     <message>
         <source>Current MP</source>
-        <translation type="unfinished">Courant MP</translation>
+        <translation>MP actuels</translation>
     </message>
     <message>
         <source>Maximum HP</source>
-        <translation type="unfinished">Maximum HP</translation>
+        <translation>HP maximum</translation>
     </message>
     <message>
         <source>Materia and Equipment Bonus</source>
-        <translation type="unfinished">Bonus matéria et équipement</translation>
+        <translation>Bonus matéria et équipement</translation>
     </message>
     <message>
         <source>Maximum MP</source>
-        <translation type="unfinished">Maximum MP</translation>
+        <translation>MP maximum</translation>
     </message>
     <message>
         <source>Base Strength</source>
-        <translation type="unfinished">Force de base</translation>
+        <translation>Force de base</translation>
     </message>
     <message>
         <source>Power Sources Used</source>
-        <translation type="unfinished">Sources d&apos;alimentation utilisées</translation>
+        <translation>Sources de pouvoir utilisées</translation>
     </message>
     <message>
         <source>Strength Stat Total</source>
-        <translation type="unfinished">Force Stat Total</translation>
+        <translation type="unfinished">Total Force Stat</translation>
     </message>
     <message>
         <source>Base Vitality</source>
-        <translation type="unfinished">Vitalité de base</translation>
+        <translation>Vitalité de base</translation>
     </message>
     <message>
         <source>Guard Sources Used</source>
-        <translation type="unfinished">Sources de garde utilisées</translation>
+        <translation>Sources de protection utilisées</translation>
     </message>
     <message>
         <source>Vitality Stat Total</source>
-        <translation type="unfinished">Vitalité Stat Total</translation>
+        <translation type="unfinished">Total Vitalité Stat</translation>
     </message>
     <message>
         <source>Base Magic</source>
-        <translation type="unfinished">Magie de base</translation>
+        <translation>Magie de base</translation>
     </message>
     <message>
         <source>Magic Sources Used</source>
-        <translation type="unfinished">Sources magiques utilisées</translation>
+        <translation>Sources de magie utilisées</translation>
     </message>
     <message>
         <source>Magic Stat Total</source>
-        <translation type="unfinished">Magie Stat Total</translation>
+        <translation type="unfinished">Total Magie Stat</translation>
     </message>
     <message>
         <source>Base Spirit</source>
-        <translation type="unfinished">Esprit de base</translation>
+        <translation>Esprit de base</translation>
     </message>
     <message>
         <source>Mind Sources Used</source>
-        <translation type="unfinished">Sources mentales utilisées</translation>
+        <translation>Sources spirituelles utilisées</translation>
     </message>
     <message>
         <source>Spirit Stat Total</source>
-        <translation type="unfinished">Esprit Stat Total</translation>
+        <translation type="unfinished">Total Esprit Stat</translation>
     </message>
     <message>
         <source>Base Dexterity</source>
-        <translation type="unfinished">Dextérité de base</translation>
+        <translation>Rapidité de base</translation>
     </message>
     <message>
         <source>Speed Sources Used</source>
-        <translation type="unfinished">Sources de vitesse utilisées</translation>
+        <translation>Sources de rapidité utilisées</translation>
     </message>
     <message>
         <source>Dexterity Stat Total</source>
-        <translation type="unfinished">Dextérité Stat Total</translation>
+        <translation type="unfinished">Total Rapidité Stat</translation>
     </message>
     <message>
         <source>Base Luck</source>
-        <translation type="unfinished">Chance de base</translation>
+        <translation>Chance de base</translation>
     </message>
     <message>
         <source>Luck Sources Used</source>
-        <translation type="unfinished">Sources de chance utilisées</translation>
+        <translation>Sources de chance utilisées</translation>
     </message>
     <message>
         <source>Luck Stat Total</source>
-        <translation type="unfinished">Chance Stat Total</translation>
+        <translation type="unfinished">Total Chance Stat</translation>
     </message>
     <message>
         <source>1-1</source>
-        <translation type="unfinished">1-1</translation>
+        <translation>1-1</translation>
     </message>
     <message>
         <source>2-1</source>
-        <translation type="unfinished">2-1</translation>
+        <translation>2-1</translation>
     </message>
     <message>
         <source>3-1</source>
-        <translation type="unfinished">3-1</translation>
+        <translation>3-1</translation>
     </message>
 </context>
 <context>
@@ -691,7 +691,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <name>ColorDisplay</name>
     <message>
         <source>Choose a new color</source>
-        <translation type="unfinished">Choisissez une nouvelle couleur</translation>
+        <translation>Choisissez une nouvelle couleur</translation>
     </message>
 </context>
 <context>
@@ -845,7 +845,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <name>FF7Char</name>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished">Clad</translation>
+        <translation>Cloud</translation>
     </message>
     <message>
         <source>Braver</source>
@@ -973,7 +973,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Red XIII</source>
-        <translation type="unfinished">Red XIII</translation>
+        <translation>Rouge XIII</translation>
     </message>
     <message>
         <source>Sled Fang</source>
@@ -1101,7 +1101,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Y.Cloud</source>
-        <translation type="unfinished">J.Clad</translation>
+        <translation>J.Cloud</translation>
     </message>
     <message>
         <source>Sephiroth</source>
@@ -1109,7 +1109,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Choco</source>
-        <translation type="unfinished">Choco</translation>
+        <translation>Choco</translation>
     </message>
 </context>
 <context>
@@ -1172,7 +1172,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Mythril</source>
-        <translation>Elément-clé: Mythril</translation>
+        <translation>Elément-clé : Mythril</translation>
     </message>
     <message>
         <source>Mime</source>
@@ -1256,11 +1256,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Midgar parts</source>
-        <translation>Elément-clé: Secteur de Midgar</translation>
+        <translation>Elément-clé : Secteur de Midgar</translation>
     </message>
     <message>
         <source>KeyItem: Keycard 66</source>
-        <translation>Elément-clé: Carte 66</translation>
+        <translation>Elément-clé : Carte 66</translation>
     </message>
     <message>
         <source>All</source>
@@ -1296,7 +1296,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Keycard 62</source>
-        <translation>Elément-clé: Carte 62</translation>
+        <translation>Elément-clé : Carte 62</translation>
     </message>
     <message>
         <source>Swift Bolt</source>
@@ -1320,19 +1320,19 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Member&apos;s Card</source>
-        <translation>Elément-clé: Carte membre</translation>
+        <translation>Elément-clé : Carte membre</translation>
     </message>
     <message>
         <source>KeyItem: Key to Ancients</source>
-        <translation>Elément-clé: Clef des Anciens</translation>
+        <translation>Elément-clé : Clef des Anciens</translation>
     </message>
     <message>
         <source>KeyItem: Keystone</source>
-        <translation>Elément-clé: Clé de pierre</translation>
+        <translation>Elément-clé : Clé de pierre</translation>
     </message>
     <message>
         <source>KeyItem: Black Materia</source>
-        <translation>Elément-clé: Matéria Noire</translation>
+        <translation>Elément-clé : Matéria Noire</translation>
     </message>
     <message>
         <source>Ultima</source>
@@ -1340,11 +1340,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Snowboard</source>
-        <translation>Elément-clé: Surf des neiges</translation>
+        <translation>Elément-clé : Surf des neiges</translation>
     </message>
     <message>
         <source>KeyItem: Glacier Map</source>
-        <translation>Elément-clé: Carte-glacier</translation>
+        <translation>Elément-clé : Carte-glacier</translation>
     </message>
     <message>
         <source>Shiva</source>
@@ -1352,67 +1352,67 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Cologne</source>
-        <translation>Elément-clé: Parfum</translation>
+        <translation>Elément-clé : Parfum</translation>
     </message>
     <message>
         <source>KeyItem: Flower Cologne</source>
-        <translation>Elément-clé: Parfum fleur</translation>
+        <translation>Elément-clé : Parfum fleur</translation>
     </message>
     <message>
         <source>KeyItem: Sexy Cologne</source>
-        <translation>Elément-clé: Parfum sexy</translation>
+        <translation>Elément-clé : Parfum sexy</translation>
     </message>
     <message>
         <source>KeyItem: Pharmacy Coupon</source>
-        <translation>Elément-clé: Coupon pharmacie</translation>
+        <translation>Elément-clé : Coupon pharmacie</translation>
     </message>
     <message>
         <source>KeyItem: Wig</source>
-        <translation>Elément-clé: Perruque</translation>
+        <translation>Elément-clé : Perruque</translation>
     </message>
     <message>
         <source>KeyItem: Dyed Wig</source>
-        <translation>Elément-clé: Perruque-brune</translation>
+        <translation>Elément-clé : Perruque-brune</translation>
     </message>
     <message>
         <source>KeyItem: Blonde Wig</source>
-        <translation>Elément-clé: Perruque-blonde</translation>
+        <translation>Elément-clé : Perruque-blonde</translation>
     </message>
     <message>
         <source>KeyItem: Cotton Dress</source>
-        <translation>Elément-clé: Robe coton</translation>
+        <translation>Elément-clé : Robe coton</translation>
     </message>
     <message>
         <source>KeyItem: Satin Dress</source>
-        <translation>Elément-clé: Robe satin</translation>
+        <translation>Elément-clé : Robe satin</translation>
     </message>
     <message>
         <source>KeyItem: Silk Dress</source>
-        <translation>Elément-clé: Robe soie</translation>
+        <translation>Elément-clé : Robe soie</translation>
     </message>
     <message>
         <source>KeyItem: Disinfectant</source>
-        <translation>Elément-clé: Désinfectant</translation>
+        <translation>Elément-clé : Désinfectant</translation>
     </message>
     <message>
         <source>KeyItem: Deodorant</source>
-        <translation>Elément-clé: Déodorant</translation>
+        <translation>Elément-clé : Déodorant</translation>
     </message>
     <message>
         <source>KeyItem: Digestive</source>
-        <translation>Elément-clé: Digestif</translation>
+        <translation>Elément-clé : Digestif</translation>
     </message>
     <message>
         <source>KeyItem: Glass Tiara</source>
-        <translation>Elément-clé: Diadème verre</translation>
+        <translation>Elément-clé : Diadème verre</translation>
     </message>
     <message>
         <source>KeyItem: Ruby Tiara</source>
-        <translation>Elément-clé: Diadème rubis</translation>
+        <translation>Elément-clé : Diadème rubis</translation>
     </message>
     <message>
         <source>KeyItem: Diamond Tiara</source>
-        <translation>Elément-clé: Diadème diamants</translation>
+        <translation>Elément-clé : Diadème diamants</translation>
     </message>
     <message>
         <source>Batteries</source>
@@ -1452,15 +1452,15 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: KeyCard 68</source>
-        <translation>Elément-clé: Carte 68</translation>
+        <translation>Elément-clé : Carte 68</translation>
     </message>
     <message>
         <source>KeyItem: Lunar Harp</source>
-        <translation>Elément-clé: Harpe lunaire</translation>
+        <translation>Elément-clé : Harpe lunaire</translation>
     </message>
     <message>
         <source>KeyItem: Key To Basement</source>
-        <translation>Elément-clé: Clé sous-sol</translation>
+        <translation>Elément-clé : Clé sous-sol</translation>
     </message>
     <message>
         <source>Mind Plus</source>
@@ -1472,7 +1472,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Gold Ticket</source>
-        <translation>Elément-clé: Ticket d&apos;or</translation>
+        <translation>Elément-clé : Ticket d&apos;or</translation>
     </message>
     <message>
         <source>Gil Plus</source>
@@ -1504,7 +1504,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Keycard 60</source>
-        <translation>Elément-clé: Carte 60</translation>
+        <translation>Elément-clé : Carte 60</translation>
     </message>
     <message>
         <source>Initialized the Machine</source>
@@ -1512,15 +1512,15 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: A Coupon</source>
-        <translation>Elément-clé: Coupon A</translation>
+        <translation>Elément-clé : Coupon A</translation>
     </message>
     <message>
         <source>KeyItem: B Coupon</source>
-        <translation>Elément-clé: Coupon B</translation>
+        <translation>Elément-clé : Coupon B</translation>
     </message>
     <message>
         <source>KeyItem: C Coupon</source>
-        <translation>Elément-clé: Coupon C</translation>
+        <translation>Elément-clé : Coupon C</translation>
     </message>
     <message>
         <source>Star Pendant</source>
@@ -1536,7 +1536,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Keycard 65</source>
-        <translation>Elément-clé: Carte 65</translation>
+        <translation>Elément-clé : Carte 65</translation>
     </message>
     <message>
         <source>Elemental</source>
@@ -1584,11 +1584,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Bikini briefs</source>
-        <translation>Elément-clé: Slips bikinis</translation>
+        <translation>Elément-clé : Slips bikinis</translation>
     </message>
     <message>
         <source>KeyItem: Lingerie</source>
-        <translation>Elément-clé: Lingerie</translation>
+        <translation>Elément-clé : Lingerie</translation>
     </message>
     <message>
         <source>Work Glove</source>
@@ -1628,11 +1628,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Final Heaven (+other stuff?)</source>
-        <translation type="unfinished">Dernier paradis (+?)</translation>
+        <translation>Dernier paradis (+autre chose?)</translation>
     </message>
     <message>
         <source>Elemental(+other stuff?)</source>
-        <translation type="unfinished">élémentaux (+?)</translation>
+        <translation>élémentaux (+autre chose?)</translation>
     </message>
     <message>
         <source>Enhance Sword</source>
@@ -1784,7 +1784,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Key To Sector 5</source>
-        <translation>Elément-clé: Clé du Secteur 5</translation>
+        <translation>Elément-clé : Clé du Secteur 5</translation>
     </message>
     <message>
         <source>Tent</source>
@@ -1956,7 +1956,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Leviathan Scales</source>
-        <translation>Elément-clé: Ecailles-Léviathan</translation>
+        <translation>Elément-clé : Ecailles-Léviathan</translation>
     </message>
     <message>
         <source>Steal-As-Well</source>
@@ -2020,27 +2020,27 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Fort Condor</source>
-        <translation type="unfinished">Elément-clé: Méga-Matéria : Fort Condor</translation>
+        <translation>Elément-clé : Méga-Matéria : Fort Condor</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: UnderWater</source>
-        <translation type="unfinished">Elément-clé: Méga-Matéria : Sous-marin</translation>
+        <translation>Elément-clé : Méga-Matéria : Sous-marin</translation>
     </message>
     <message>
         <source>KeyItem: PHS</source>
-        <translation type="unfinished">Elément-clé: PHS</translation>
+        <translation>Elément-clé : PHS</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Corel</source>
-        <translation>Elément-clé: Méga-Matéria : Corel</translation>
+        <translation>Elément-clé : Méga-Matéria : Corel</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Rocket</source>
-        <translation>Elément-clé: Méga-Matéria : Fusée</translation>
+        <translation>Elément-clé : Méga-Matéria : Fusée</translation>
     </message>
     <message>
         <source>Knights of the Round</source>
-        <translation type="unfinished">Chevaliers de la Table Ronde</translation>
+        <translation>Chevaliers de la Table Ronde</translation>
     </message>
 </context>
 <context>
@@ -3966,11 +3966,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <name>FF7ItemModel</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished">Type</translation>
+        <translation>Type</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Qty</source>
@@ -3978,7 +3978,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>-------EMPTY--------</source>
-        <translation type="unfinished">--------VIDE--------</translation>
+        <translation>--------VIDE--------</translation>
     </message>
 </context>
 <context>
@@ -4397,7 +4397,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Cloud&apos;s House</source>
-        <translation type="unfinished">maison de Clad</translation>
+        <translation>maison de Cloud</translation>
     </message>
     <message>
         <source>Nibelheim</source>
@@ -5057,11 +5057,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Cloud&apos;s Past</source>
-        <translation type="unfinished">Passé de Clad</translation>
+        <translation>Passé de Cloud</translation>
     </message>
     <message>
         <source>Cloud&apos;s Villa</source>
-        <translation type="unfinished">Villa de Clad</translation>
+        <translation>Villa de Cloud</translation>
     </message>
     <message>
         <source>Mideel Area</source>
@@ -5077,15 +5077,15 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Last Underwater Location</source>
-        <translation type="unfinished">Dernier emplacement sous-marin</translation>
+        <translation>Dernier emplacement sous l&apos;eau</translation>
     </message>
     <message>
         <source>Underwater (Gelnika)</source>
-        <translation type="unfinished">Sous l&apos;eau (Gelnika)</translation>
+        <translation>Sous l&apos;eau (Gelnika)</translation>
     </message>
     <message>
         <source>Last Worldmap Location</source>
-        <translation type="unfinished">Dernier emplacement de la carte du monde</translation>
+        <translation>Dernier emplacement sur la mappemonde</translation>
     </message>
     <message>
         <source>Start of Juion Ship Sequence</source>
@@ -5093,27 +5093,27 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Almost at Costa del Sol</source>
-        <translation type="unfinished">Presque sur la Costa del Sol</translation>
+        <translation>Presque à Costa del Sol</translation>
     </message>
     <message>
         <source>Junon -&gt; Costa Del Sol</source>
-        <translation type="unfinished">Junon -&gt; Costa Del Sol</translation>
+        <translation>Junon -&gt; Costa Del Sol</translation>
     </message>
     <message>
         <source>Costa del Sol -&gt; Junon</source>
-        <translation type="unfinished">Costa del Sol -&gt; Junon</translation>
+        <translation>Costa del Sol -&gt; Junon</translation>
     </message>
     <message>
         <source>Junon Area (Highwind)</source>
-        <translation type="unfinished">Région de Junon (Hauvent)</translation>
+        <translation>Région de Junon (Hauvent)</translation>
     </message>
     <message>
         <source>Junon Area (Underwater)</source>
-        <translation type="unfinished">Région de Junon (sous l&apos;eau)</translation>
+        <translation>Région de Junon (sous l&apos;eau)</translation>
     </message>
     <message>
         <source>Crater Area</source>
-        <translation type="unfinished">Région de cratère</translation>
+        <translation>Région du cratère</translation>
     </message>
     <message>
         <source>DEBUG MODE</source>
@@ -5133,7 +5133,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Dark city fourth street</source>
-        <translation type="unfinished">Quatrième rue de la ville sombre</translation>
+        <translation>Quatrième rue de la ville sombre</translation>
     </message>
     <message>
         <source>Last Train from Midgar</source>
@@ -5177,11 +5177,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Costa del Sol</source>
-        <translation type="unfinished">Costa del Sol</translation>
+        <translation>Costa del Sol</translation>
     </message>
     <message>
         <source>Pub &quot;Starlet&quot;</source>
-        <translation type="unfinished">Bar &quot;Starlet&quot;</translation>
+        <translation>Bar &quot;Starlet&quot;</translation>
     </message>
 </context>
 <context>
@@ -6744,71 +6744,71 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Skill: DeathBlow</source>
-        <translation type="unfinished">Coup mortel</translation>
+        <translation>Commande : Coup mortel</translation>
     </message>
     <message>
         <source>Skill: Manipulate</source>
-        <translation type="unfinished">Manipuler</translation>
+        <translation>Commande : Manipuler</translation>
     </message>
     <message>
         <source>Skill: Mime</source>
-        <translation type="unfinished">Mimer</translation>
+        <translation>Commande : Mimer</translation>
     </message>
     <message>
         <source>Skill: Throw</source>
-        <translation type="unfinished">Lancer</translation>
+        <translation>Commande : Lancer</translation>
     </message>
     <message>
         <source>Skill: Coin</source>
-        <translation type="unfinished">Argent</translation>
+        <translation>Commande : Argent</translation>
     </message>
     <message>
         <source>Skill: Steal</source>
-        <translation type="unfinished">Voler</translation>
+        <translation>Commande : Voler</translation>
     </message>
     <message>
         <source>Skill: Sense</source>
-        <translation type="unfinished">Sentir</translation>
+        <translation>Commande : Sentir</translation>
     </message>
     <message>
         <source>Skill: Morph</source>
-        <translation type="unfinished">Trans</translation>
+        <translation>Commande : Trans</translation>
     </message>
     <message>
         <source>Skill: Slash-All</source>
-        <translation type="unfinished">FurieMax</translation>
+        <translation>Commande : FurieMax</translation>
     </message>
     <message>
         <source>Skill: Flash</source>
-        <translation type="unfinished">Eclair</translation>
+        <translation>Commande : Eclair</translation>
     </message>
     <message>
         <source>Skill: 2x-Cut</source>
-        <translation type="unfinished">2x</translation>
+        <translation>Commande : Attaque x2</translation>
     </message>
     <message>
         <source>Skill: 4x-Cut</source>
-        <translation type="unfinished">4x</translation>
+        <translation>Commande : Attaque x4</translation>
     </message>
     <message>
         <source>Skill: W-Magic</source>
-        <translation type="unfinished">Magie-W</translation>
+        <translation>Commande : Magie-W</translation>
     </message>
     <message>
         <source>Skill: W-Summon</source>
-        <translation type="unfinished">Invocation-W</translation>
+        <translation>Commande : Invocation-W</translation>
     </message>
     <message>
         <source>Skill: W-Item</source>
-        <translation type="unfinished">Elément-W</translation>
+        <translation>Commande : Elément-W</translation>
     </message>
     <message>
         <source>Skill: Mug</source>
-        <translation type="unfinished">Assaut</translation>
+        <translation>Commande : Assaut</translation>
     </message>
     <message>
         <source>Skill: Enemy Skill</source>
-        <translation type="unfinished">Talent de l&apos;ennemi</translation>
+        <translation>Commande : Talent de l&apos;ennemi</translation>
     </message>
 </context>
 <context>
@@ -6819,50 +6819,50 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Unable to open PSV of Type %2: 0x%1</source>
-        <translation type="unfinished">Impossible d&apos;ouvrir le PSV de type %2: 0x%1</translation>
+        <translation>Impossible d&apos;ouvrir le PSV de type %2 : 0x%1</translation>
     </message>
 </context>
 <context>
     <name>FF7SaveInfo</name>
     <message>
         <source>PC Save File</source>
-        <translation type="unfinished">Sauvegarde PC</translation>
+        <translation>Sauvegarde PC</translation>
     </message>
     <message>
         <source>Switch Save File</source>
-        <translation type="unfinished">Enregistrer le fichier Switch</translation>
+        <translation>Sauvegarde Switch</translation>
     </message>
     <message>
         <source>PSX Save File</source>
-        <translation type="unfinished">Sauvegarde PSX brute</translation>
+        <translation>Sauvegarde PSX</translation>
     </message>
     <message>
         <source>PSV Save File</source>
-        <translation type="unfinished">Sauvegarde PSV</translation>
+        <translation>Sauvegarde PSV</translation>
     </message>
     <message>
         <source>Virtual Memory Card</source>
-        <translation type="unfinished">Sauvegarde MC</translation>
+        <translation>Carte mémoire virtuelle</translation>
     </message>
     <message>
         <source>Virtual Game Station Memory Card</source>
-        <translation type="unfinished">Virtual Game Station</translation>
+        <translation>Carte mémoire virtuelle Game Station</translation>
     </message>
     <message>
         <source>DEX Drive Virtual Memory Card</source>
-        <translation type="unfinished">Sauvegarde Dex-Drive</translation>
+        <translation>Carte mémoire virtuelle Dex-Drive</translation>
     </message>
     <message>
         <source>Known FF7 Save Types (%1)</source>
-        <translation type="unfinished">Types de Sauvegarde connus de FF7 (%1)</translation>
+        <translation>Types de Sauvegarde connus de FF7 (%1)</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished">Tous les fichiers (*)</translation>
+        <translation>Tous les fichiers (*)</translation>
     </message>
     <message>
         <source>PSP and PsVita Virtual Memory Card</source>
-        <translation type="unfinished">Carte mémoire virtuelle PSP et PsVita</translation>
+        <translation>Carte mémoire virtuelle PSP et PSVita</translation>
     </message>
     <message>
         <source>PSXGameEdit Memory Juggler</source>
@@ -6877,11 +6877,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <name>ItemList</name>
     <message>
         <source>-------EMPTY--------</source>
-        <translation type="unfinished">--------VIDE--------</translation>
+        <translation>--------VIDE--------</translation>
     </message>
     <message>
         <source>-------BAD ID-------</source>
-        <translation type="unfinished">-----MAUVAIS ID-----</translation>
+        <translation>-----MAUVAIS ID-----</translation>
     </message>
 </context>
 <context>
@@ -7087,7 +7087,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Item #%1</source>
-        <translation type="unfinished">Elément #%1</translation>
+        <translation>Elément #%1</translation>
     </message>
 </context>
 <context>
@@ -7150,7 +7150,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Set as current location</source>
-        <translation type="unfinished">Définir comme emplacement actuel</translation>
+        <translation>Définir comme emplacement actuel</translation>
     </message>
 </context>
 <context>
@@ -7264,7 +7264,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Locked</source>
-        <translation type="unfinished">Fermé</translation>
+        <translation>Verrouillé</translation>
     </message>
 </context>
 <context>
@@ -7315,19 +7315,19 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Pressing Ok Will Overwrite Any Metadata in the save path</source>
-        <translation type="unfinished">En appuyant sur Ok les méta-données dans le chemin de sauv. seront écrasées</translation>
+        <translation>En validant les métadonnées dans le chemin de sauv. seront écrasées</translation>
     </message>
     <message>
         <source>Save0%1</source>
-        <translation type="unfinished">Sauv.0%1</translation>
+        <translation>Sauv.0%1</translation>
     </message>
     <message>
         <source>Select A File To Use As Save0%1</source>
-        <translation type="unfinished">Sélectionnez un fichier pour l&apos;utiliser comme Sauv.0%1</translation>
+        <translation>Sélectionnez un fichier pour l&apos;utiliser comme Sauv.0%1</translation>
     </message>
     <message>
         <source>Places</source>
-        <translation type="unfinished">Lieu</translation>
+        <translation>Lieux</translation>
     </message>
 </context>
 <context>
@@ -7519,11 +7519,11 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <message>
         <source>Auto</source>
         <translatorcomment>Fixe</translatorcomment>
-        <translation type="unfinished">Auto</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Fixed</source>
-        <translation type="unfinished">Fixé</translation>
+        <translation>Fixé</translation>
     </message>
 </context>
 <context>
@@ -7545,22 +7545,22 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <name>QObject</name>
     <message>
         <source>Cannot update game binaries</source>
-        <translation type="unfinished">Impossible de mettre à jour les binaires du jeu</translation>
+        <translation>Impossible de mettre à jour les binaires du jeu</translation>
     </message>
 </context>
 <context>
     <name>SlotPreview</name>
     <message>
         <source>Level:%1</source>
-        <translation>Niveau:%1</translation>
+        <translation>Niveau :%1</translation>
     </message>
     <message>
         <source>Gil:%1</source>
-        <translation>Gils:%1</translation>
+        <translation>Gils :%1</translation>
     </message>
     <message>
         <source>Time:%1:%2</source>
-        <translation>Temps:%1:%2</translation>
+        <translation>Temps :%1:%2</translation>
     </message>
     <message>
         <source>Clear Slot</source>
