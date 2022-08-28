@@ -104,7 +104,7 @@ if(DEMOS)
     add_subdirectory(demos)
 endif()
 
-add_subdirectory(lang)
+add_subdirectory(translations)
 add_subdirectory(packaging)
 add_subdirectory(src)
 

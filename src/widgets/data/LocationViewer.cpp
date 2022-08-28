@@ -68,17 +68,17 @@ LocationViewer::LocationViewer(QWidget *parent)
     locationTable->setRowCount(FF7Location::size());
     locationTable->setColumnCount(3);
 
-    langDir = QStringLiteral("%1/%2").arg(QCoreApplication::applicationDirPath(), QStringLiteral("lang"));
+    langDir = QStringLiteral("%1/%2").arg(QCoreApplication::applicationDirPath(), QStringLiteral("translations"));
     QDir translationDir(langDir);
     QStringList nameFilter{QStringLiteral("ff7tk_*.qm")};
     if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-        translationDir.setPath(QStringLiteral("%1/../share/ff7tk/lang").arg(QCoreApplication::applicationDirPath()));
+        translationDir.setPath(QStringLiteral("%1/../share/ff7tk/translations").arg(QCoreApplication::applicationDirPath()));
         if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-            translationDir.setPath(QStringLiteral("%1/%2").arg(QDir::homePath(), QStringLiteral(".local/share/ff7tk/lang")));
+            translationDir.setPath(QStringLiteral("%1/%2").arg(QDir::homePath(), QStringLiteral(".local/share/ff7tk/translations")));
             if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-                translationDir.setPath(QStringLiteral("/usr/local/share/ff7tk/lang"));
+                translationDir.setPath(QStringLiteral("/usr/local/share/ff7tk/translations"));
                 if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-                    translationDir.setPath(QStringLiteral("/usr/share/ff7tk/lang"));
+                    translationDir.setPath(QStringLiteral("/usr/share/ff7tk/translations"));
                 }
             }
         }
