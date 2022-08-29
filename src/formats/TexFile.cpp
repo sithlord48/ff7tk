@@ -14,7 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include <TexFile.h>
-#include <PsColor.h>
+#include <PsColor>
 
 TexFile::TexFile(const QByteArray &data)
     : TextureFile()

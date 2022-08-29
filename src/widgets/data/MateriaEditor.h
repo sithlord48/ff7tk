@@ -18,7 +18,7 @@
 #include <QWidget>
 #include <QEvent>
 #include <ff7tkwidgets_export.h>
-#include <FF7Materia.h>
+#include <FF7Materia>
 
 class QComboBox;
 class QFrame;

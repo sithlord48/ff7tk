@@ -30,7 +30,7 @@
 #include <AchievementEditor.h>
 #include <ItemListView.h>
 #include <HexLineEdit.h>
-#include <Lgp.h>
+#include <Lgp>
 
 namespace Ui
 {

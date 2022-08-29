@@ -17,7 +17,7 @@
 
 #include <QWidget>
 #include <ff7tkwidgets_export.h>
-#include <Type_FF7CHAR.h>
+#include <Type_FF7CHAR>
 
 class QCheckBox;
 class QComboBox;

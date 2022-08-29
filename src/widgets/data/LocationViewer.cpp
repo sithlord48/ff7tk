@@ -35,8 +35,8 @@
 #include <QDir>
 #include <QCoreApplication>
 
-#include <FF7Location.h>
-#include <FF7FieldItemList.h>
+#include <FF7Location>
+#include <FF7FieldItemList>
 
 LocationViewer::LocationViewer(QWidget *parent)
     : QWidget(parent)

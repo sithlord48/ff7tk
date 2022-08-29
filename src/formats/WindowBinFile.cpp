@@ -14,7 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include <WindowBinFile.h>
-#include <GZIP.h>
+#include <GZIP>
 
 WindowBinFile::WindowBinFile()
     : modified(false)

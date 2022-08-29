@@ -14,14 +14,12 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include <SlotPreview.h>
-#include <SaveIcon.h>
+#include <SaveIcon>
 
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QToolButton>
 #include <QVBoxLayout>
-
-#include <SaveIcon.h>
 
 SlotPreview::SlotPreview(int index, QWidget *parent)
     : QLabel(parent)

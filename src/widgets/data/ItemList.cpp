@@ -18,9 +18,9 @@
 #include <QHeaderView>
 #include <QScrollBar>
 
-#include <FF7Item.h>
-#include <ItemPreview.h>
-#include <ItemSelector.h>
+#include <FF7Item>
+#include <ItemPreview>
+#include <ItemSelector>
 
 bool ItemList::eventFilter(QObject *obj, QEvent *ev)
 {

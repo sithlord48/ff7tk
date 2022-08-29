@@ -16,7 +16,7 @@
 #pragma once
 
 #include <QtCore/qglobal.h>
-#include <Type_materia.h>
+#include <Type_materia>
 #include <ff7tk_export.h>
 
 /*! \struct FF7CHAR

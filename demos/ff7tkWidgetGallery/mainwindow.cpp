@@ -23,9 +23,9 @@
 #include <QMessageBox>
 #include <QProgressDialog>
 
-#include <FF7Save.h>
-#include <ff7tkAbout.h>
-#include <FF7ItemModel.h>
+#include <FF7Save>
+#include <ff7tkAbout>
+#include <FF7ItemModel>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {

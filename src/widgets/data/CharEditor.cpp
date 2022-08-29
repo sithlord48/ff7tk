@@ -31,10 +31,10 @@
 #include <QToolBox>
 #include <QVBoxLayout>
 
-#include <FF7Char.h>
-#include <FF7Item.h>
-#include <FF7Materia.h>
-#include <MateriaEditor.h>
+#include <FF7Char>
+#include <FF7Item>
+#include <FF7Materia>
+#include <MateriaEditor>
 
 CharEditor::CharEditor(QWidget *parent)
     : QWidget(parent)

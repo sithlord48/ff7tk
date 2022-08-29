@@ -1,4 +1,4 @@
-#include "ItemSelectionDelegate.h"
+#include <ItemSelectionDelegate.h>
 #include <QAbstractItemView>
 #include <ItemSelector.h>
 #include <FF7Item.h>

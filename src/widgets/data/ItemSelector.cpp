@@ -21,7 +21,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-#include <FF7Item.h>
+#include <FF7Item>
 
 ItemSelector::ItemSelector(QWidget *parent)
     : QWidget(parent)

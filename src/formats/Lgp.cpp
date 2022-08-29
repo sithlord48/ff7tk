@@ -20,8 +20,8 @@
  * http://forums.qhimm.com/index.php?topic=8641.0
  */
 #include <Lgp.h>
-#include <Lgp_p.h>
-#include <QLockedFile.h>
+#include <Lgp_p>
+#include <QLockedFile>
 
 /*!
  * You must use Lgp::iterator() instead.

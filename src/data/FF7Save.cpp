@@ -26,10 +26,10 @@
 #include <QtXml/QDomDocument>
 #include <QVector>
 #include <QtEndian>
-#include <FF7Text.h>
-#include <FF7Item.h>
-#include <FF7Materia.h>
-#include <FF7Char.h>
+#include <FF7Text>
+#include <FF7Item>
+#include <FF7Materia>
+#include <FF7Char>
 
 // I'm not installing this header.
 #include "crypto/aes.h"

@@ -22,8 +22,8 @@ set (ff7tk_HEADERS
     FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
     FF7ItemModel.h
-    ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkAbout.h
+    ${CMAKE_CURRENT_BINARY_DIR}/ff7tk_export.h
 )
 
 set ( ff7tk_RESOURCES

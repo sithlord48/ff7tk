@@ -22,9 +22,9 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 
-#include <SlotPreview.h>
-#include <FF7Char.h>
-#include <FF7Save.h>
+#include <SlotPreview>
+#include <FF7Char>
+#include <FF7Save>
 
 
 SlotSelect::SlotSelect(FF7Save *data, bool loadVisible, QWidget *parent)

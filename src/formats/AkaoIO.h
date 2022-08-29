@@ -15,8 +15,8 @@
 /****************************************************************************/
 #pragma once
 
-#include <IO.h>
-#include <Akao.h>
+#include <IO>
+#include <Akao>
 
 class AkaoIO : public IO
 {

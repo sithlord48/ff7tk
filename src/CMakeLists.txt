@@ -20,13 +20,25 @@ endif()
 # LIB_TARGET_PrivateLIBLINKS
 macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
 
-    add_library (${LIB_TARGET}
-        SHARED
+    add_library (${LIB_TARGET} SHARED
             ${${LIB_TARGET}_SRC}
             ${${LIB_TARGET}_HEADERS}
             ${${LIB_TARGET}_RESOURCES}
     )
     add_library (ff7tk::${LIB_TARGET} ALIAS ${LIB_TARGET})
+
+    #Generate the non .h ending header let the user include "HEADER" or "HEADER.h"
+    foreach ( HEADER ${${LIB_TARGET}_HEADERS})
+        if(${HEADER} MATCHES "^/" OR ${HEADER} MATCHES "^[A-Za-z]:")
+            string(FIND ${HEADER} "/" lastSlash REVERSE)
+            string(SUBSTRING ${HEADER} 0 ${lastSlash} RMSTRING)
+            string(REPLACE "${RMSTRING}/" "" HEADER ${HEADER})
+        endif()
+        set(fileContent "#pragma once\n#include<${HEADER}>\n")
+        string(REPLACE ".h" "" HEADER ${HEADER})
+        file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/${HEADER} ${fileContent})
+        list(APPEND ALIASHEADERS ${CMAKE_CURRENT_BINARY_DIR}/${HEADER})
+    endforeach()
 
     if(APPLE)
         set_target_properties(${LIB_TARGET} PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
@@ -85,6 +97,10 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
             COMPONENT ff7tk_headers
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${HEADER_INSTALL_DIR}
             COMPONENT ff7tk_headers
+    )
+    install (FILES ${ALIASHEADERS}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${HEADER_INSTALL_DIR}
+        COMPONENT ff7tk_headers
     )
 
     if(UNIX)

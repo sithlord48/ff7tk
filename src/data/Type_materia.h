@@ -38,4 +38,4 @@ struct FF7TK_EXPORT materia{// sizeof 4
     quint8 id;      /**< materias id */
     quint8 ap[3];   /** Ap Storage is done as a 24bit int. */
 });
-Q_DECLARE_METATYPE(materia);
+Q_DECLARE_METATYPE(materia)

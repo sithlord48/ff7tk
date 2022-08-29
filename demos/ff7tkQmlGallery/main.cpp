@@ -18,9 +18,9 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-#include <FF7Text.h>
-#include <FF7Item.h>
-#include <ff7tkAbout.h>
+#include <FF7Text>
+#include <FF7Item>
+#include <ff7tkAbout>
 
 int main(int argc, char *argv[])
 {

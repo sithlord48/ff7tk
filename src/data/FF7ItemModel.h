@@ -17,12 +17,12 @@
 
 #include <QAbstractTableModel>
 #include <ff7tk_export.h>
-#include <FF7Item.h>
+#include <FF7Item>
 
 class FF7TK_EXPORT FF7ItemModel : public QAbstractTableModel
 {
     Q_OBJECT
-    Q_PROPERTY(QList<quint16> items READ allItems WRITE setItems NOTIFY itemsChanged);
+    Q_PROPERTY(QList<quint16> items READ allItems WRITE setItems NOTIFY itemsChanged)
 public:
     explicit FF7ItemModel(QObject *parent = nullptr, const QList<quint16> &initialItems = QList<quint16>(320, FF7Item::EmptyItemData));
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
