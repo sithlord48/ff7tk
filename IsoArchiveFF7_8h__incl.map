@@ -1,12 +1,5 @@
 <map id="src/formats/IsoArchiveFF7.h" name="src/formats/IsoArchiveFF7.h">
-<area shape="rect" id="node1" title=" " alt="" coords="300,5,504,32"/>
-<area shape="rect" id="node2" href="$IsoArchive_8h.html" title=" " alt="" coords="287,80,389,107"/>
-<area shape="rect" id="node10" title=" " alt="" coords="400,229,564,256"/>
-<area shape="rect" id="node3" title=" " alt="" coords="86,155,177,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="201,155,272,181"/>
-<area shape="rect" id="node5" href="$Archive_8h.html" title=" " alt="" coords="297,155,379,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,229,76,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="100,229,197,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="221,229,276,256"/>
-<area shape="rect" id="node9" title=" " alt="" coords="301,229,375,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="25,5,229,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="121,80,285,107"/>
 </map>

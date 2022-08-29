@@ -1,15 +1,8 @@
 <map id="src/data/FF7Save.h" name="src/data/FF7Save.h">
-<area shape="rect" id="node1" title=" " alt="" coords="86,5,232,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="27,155,102,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="512,80,577,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="300,304,413,331"/>
-<area shape="rect" id="node5" href="$FF7SaveInfo_8h.html" title=" " alt="" coords="102,80,216,107"/>
-<area shape="rect" id="node7" href="$FF7Save__Types_8h.html" title=" " alt="" coords="353,80,488,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="177,155,330,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="614,155,688,181"/>
-<area shape="rect" id="node9" href="$Type__FF7CHAR_8h.html" title=" " alt="" coords="406,155,538,181"/>
-<area shape="rect" id="node13" href="$Type__FF7CHOCOBO_8h.html" title=" " alt="" coords="631,229,794,256"/>
-<area shape="rect" id="node10" title=" " alt="" coords="562,304,692,331"/>
-<area shape="rect" id="node11" href="$Type__materia_8h.html" title=" " alt="" coords="434,229,556,256"/>
-<area shape="rect" id="node12" title=" " alt="" coords="442,304,537,331"/>
+<area shape="rect" id="node1" title=" " alt="" coords="177,5,324,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,80,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="105,80,170,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="194,80,307,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="331,80,434,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="459,80,581,107"/>
 </map>

@@ -1,8 +1,7 @@
 <map id="src/widgets/data/MenuListWidget.h" name="src/widgets/data/MenuListWidget.h">
-<area shape="rect" id="node1" title=" " alt="" coords="31,5,223,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="65,169,144,196"/>
-<area shape="rect" id="node3" title=" " alt="" coords="22,95,91,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="116,95,280,121"/>
-<area shape="rect" id="node5" href="$DoubleCheckBox_8h.html" title=" " alt="" coords="304,95,449,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="288,169,465,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="118,5,310,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,84,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="109,95,178,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="203,95,367,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="391,95,525,121"/>
 </map>
