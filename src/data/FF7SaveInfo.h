@@ -16,8 +16,8 @@
 #pragma once
 
 #include <QObject>
-#include <ff7tk_export.h>
 #include <QRegularExpression>
+#include <ff7tk_export.h>
 
 class QJSEngine;
 class QQmlEngine;

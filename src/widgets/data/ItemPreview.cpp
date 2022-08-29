@@ -22,7 +22,7 @@
 #include <QListWidget>
 #include <QtEndian>
 
-#include <FF7Item.h>
+#include <FF7Item>
 
 bool ItemPreview::eventFilter(QObject *obj, QEvent *ev)
 {

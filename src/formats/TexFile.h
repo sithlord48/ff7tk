@@ -16,7 +16,7 @@
 #pragma once
 
 #include <QImage>
-#include <TextureFile.h>
+#include <TextureFile>
 #include <ff7tkformats_export.h>
 
 struct FF7TKFORMATS_EXPORT TexStruct {

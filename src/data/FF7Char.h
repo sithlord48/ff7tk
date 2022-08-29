@@ -18,7 +18,7 @@
 #include <QObject>
 #include <QtGlobal>
 #include <ff7tk_export.h>
-#include <Type_FF7CHAR.h>
+#include <Type_FF7CHAR>
 
 class QIcon;
 class QQmlEngine;

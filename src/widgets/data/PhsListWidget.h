@@ -18,7 +18,7 @@
 #include <QEvent>
 #include <QLabel>
 #include <ff7tkwidgets_export.h>
-#include <DoubleCheckBox.h>
+#include <DoubleCheckBox>
 
 /** \class PhsListWidget
  *  \brief Easily manage the who can be in the phs

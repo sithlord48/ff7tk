@@ -14,7 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include <TimFile.h>
-#include <PsColor.h>
+#include <PsColor>
 
 TimFile::TimFile(const QByteArray &data)
     : TextureFile()

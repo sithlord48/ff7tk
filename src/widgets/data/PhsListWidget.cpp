@@ -17,7 +17,7 @@
 
 #include <QLabel>
 #include <QVBoxLayout>
-#include <FF7Char.h>
+#include <FF7Char>
 
 PhsListWidget::PhsListWidget(QWidget *parent) :
     QWidget(parent)

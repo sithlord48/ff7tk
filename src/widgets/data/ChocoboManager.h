@@ -17,8 +17,8 @@
 
 #include <QWidget>
 #include <ff7tkwidgets_export.h>
-#include <ChocoboEditor.h>
-#include <ChocoboLabel.h>
+#include <ChocoboEditor>
+#include <ChocoboLabel>
 
 class QComboBox;
 class QGroupBox;

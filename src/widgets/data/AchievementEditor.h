@@ -17,7 +17,7 @@
 
 #include <QWidget>
 #include <ff7tkwidgets_export.h>
-#include <FF7Achievements.h>
+#include <FF7Achievements>
 
 class QListWidget;
 

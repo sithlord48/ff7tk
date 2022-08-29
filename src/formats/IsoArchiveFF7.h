@@ -15,7 +15,7 @@
 /****************************************************************************/
 #pragma once
 
-#include <IsoArchive.h>
+#include <IsoArchive>
 #include <ff7tkformats_export.h>
 
 class FF7TKFORMATS_EXPORT IsoArchiveFF7 : public IsoArchive

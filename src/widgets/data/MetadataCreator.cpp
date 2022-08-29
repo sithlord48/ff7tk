@@ -27,8 +27,8 @@
 #include <QStyle>
 #include <QVBoxLayout>
 
-#include <FF7Save.h>
-#include <FF7SaveInfo.h>
+#include <FF7Save>
+#include <FF7SaveInfo>
 
 MetadataCreator::MetadataCreator(QWidget *parent, FF7Save *ff7save)
     : QDialog(parent)

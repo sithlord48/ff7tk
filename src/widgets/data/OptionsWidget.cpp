@@ -23,7 +23,7 @@
 #include <QScrollBar>
 #include <QSlider>
 
-#include <DialogPreview.h>
+#include <DialogPreview>
 
 OptionsWidget::OptionsWidget(QWidget *parent) :
     QScrollArea(parent)

@@ -15,7 +15,7 @@
 /****************************************************************************/
 #pragma once
 
-#include <GZIP.h>
+#include <GZIP>
 #include <ff7tkutils_export.h>
 
 #define GZIPPS_HEADER_SIZE      8

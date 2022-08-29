@@ -20,7 +20,7 @@
 #include <QtEndian>
 
 #include <ff7tk_export.h>
-#include <Type_materia.h>
+#include <Type_materia>
 
 class QQmlEngine;
 class QJSEngine;

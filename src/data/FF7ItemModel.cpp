@@ -1,5 +1,5 @@
-#include "FF7ItemModel.h"
-#include <FF7Item.h>
+#include <FF7ItemModel.h>
+#include <FF7Item>
 #include <QIcon>
 #include <QModelIndex>
 

@@ -14,8 +14,7 @@
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
 #include <PsfFile.h>
-
-#include <GZIP.h>
+#include <GZIP>
 
 PsfTags::PsfTags()
 {

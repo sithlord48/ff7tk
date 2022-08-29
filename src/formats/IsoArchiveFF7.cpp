@@ -13,9 +13,10 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 //    GNU General Public License for more details.                          //
 /****************************************************************************/
-#include <LZS.h>
-#include <GZIPPS.h>
 #include <IsoArchiveFF7.h>
+
+#include <LZS>
+#include <GZIPPS>
 
 IsoArchiveFF7::IsoArchiveFF7(const QString &name)
     : IsoArchive(name)

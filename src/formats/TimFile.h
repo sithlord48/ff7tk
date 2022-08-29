@@ -16,7 +16,7 @@
 #pragma once
 
 #include <QImage>
-#include <TextureFile.h>
+#include <TextureFile>
 #include <ff7tkformats_export.h>
 
 class FF7TKFORMATS_EXPORT TimFile : public TextureFile

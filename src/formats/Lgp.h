@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#include <Archive.h>
+#include <Archive>
 #include <ff7tkformats_export.h>
 
 class LgpHeaderEntry;

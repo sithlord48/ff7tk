@@ -18,8 +18,8 @@
 #include <QObject>
 #include <cstdlib>
 #include <ff7tk_export.h>
-#include <FF7SaveInfo.h>
-#include <FF7Save_Types.h>
+#include <FF7SaveInfo>
+#include <FF7Save_Types>
 
 class QColor;
 class QDateTime;

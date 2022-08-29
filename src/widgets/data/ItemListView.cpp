@@ -18,10 +18,10 @@
 #include <QEvent>
 #include <QHeaderView>
 #include <QScrollBar>
-#include <FF7Item.h>
-#include <ItemPreview.h>
-#include <ItemSelector.h>
-#include <ItemSelectionDelegate.h>
+#include <FF7Item>
+#include <ItemPreview>
+#include <ItemSelector>
+#include <ItemSelectionDelegate>
 
 ItemListView::ItemListView(QWidget *parent)
     : QTableView(parent)

@@ -16,7 +16,7 @@
 #pragma once
 
 #include <QtCore>
-#include <TimFile.h>
+#include <TimFile>
 #include <ff7tkformats_export.h>
 
 inline quint8 LEFT_PADD(quint8 w) {return (w >> 5);}
