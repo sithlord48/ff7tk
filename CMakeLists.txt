@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
 #Version will be written by tag v1.2.2-4
-project(ff7tk VERSION 0.82.1.0 DESCRIPTION "Work with Final Fantasy 7 game data")
+project(ff7tk VERSION 0.83.0.0 DESCRIPTION "Work with Final Fantasy 7 game data")
 
 #Prevent In-sourcebuild
 if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
