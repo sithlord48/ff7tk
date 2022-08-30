@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.82.1.0</span>
+   &#160;<span id="projectnumber">0.83.0.0</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -129,6 +129,7 @@ Making ff7tk packages</h1>
 Using ff7tk in your project</h1>
 <p>After installing you can use in your cmake project by simply adding <code>find_project(ff7tk)</code> link with <code>ff7tk::ff7tk</code></p>
 <p>Additional Modules include</p>
+<p><code>ff7tkData</code> link with <code>ff7tk::ff7tkData</code></p>
 <p><code>ff7tkFormats</code> link with <code>ff7tk::ff7tkFormats</code></p>
 <p><code>ff7tkUtils</code> link with <code>ff7tk::ff7tkUtils</code></p>
 <p><code>ff7tkQtWidgets</code> link with <code>ff7tk::ff7tkQtWidgets</code></p>
@@ -136,24 +137,26 @@ Using ff7tk in your project</h1>
 <p>For QMake you can use the pkgconfig provided by the system <code>config +=link_pkgconfig</code> <code>PKGCONFIG += ff7tk</code></p>
 <h2><a class="anchor" id="autotoc_md6"></a>
 ff7tk version info</h2>
-<p>ff7tk Versions are based on its git info. Failing this the project version is updated on every release. include the file ff7tkAbout.h and use the function(s)</p><ul>
-<li>ff7tk_version() To get version info in to form of Major.minor.patch.tweak &ndash; If patch or rev are empty they are excluded from the version number &ndash; tweak is Number of commits since the last tag release </li>
+<p>ff7tk Versions are based on its git info. Failing this the project version is updated on every release. include the file ff7tk.h and use the function(s)</p><ul>
+<li>FF7Tk::version() To get version info in to form of Major.minor.patch.tweak &ndash; If patch or rev are empty they are excluded from the version number &ndash; tweak is Number of commits since the last tag release </li>
 </ul>
 <h3><a class="anchor" id="autotoc_md7"></a>
 ff7tk version compatibility</h3>
 <p>ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.</p>
 <h2><a class="anchor" id="autotoc_md8"></a>
 Translations</h2>
-<p>In addition to ff7tk's language files your application should also ship the qt_base_&lt;lang&gt;.qm these are required to translate strings from inside Qt libraries.</p>
+<p>In addition to ff7tk's language files your application should also load and/or ship the qt_base_&lt;lang&gt;.qm these are required to translate strings from inside Qt libraries.</p>
+<p>You can use FF7Tk::translationList to get a QMap&lt;QString, QTranslation*&gt; of all the auto detected language files. This will look in several places in the application directory and around the system to attempt to find them.</p>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Deploying ff7tk with your app</h2>
 <p>When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommened to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.</p>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Item Depends</h3>
 <ul>
-<li>ff7tk &ndash; QtCore, QtXml, QtQml, QtQuick, QtSvg, Svg Image plugin, Core5Compat</li>
+<li>ff7tk &ndash; QtCore</li>
+<li>ff7tkData &ndash; QtCore, QtXml, QtQml, QtQuick, QtSvg, Svg Image plugin, Core5Compat</li>
 <li>ff7tkQtWidgets &ndash; QtWidgets, QtGui</li>
-<li>ff7tkWidgets &ndash; ff7tk, ff7tkQtWidgets, QtWidgets, QtGui</li>
+<li>ff7tkWidgets &ndash; ff7tkData, ff7tkQtWidgets, QtWidgets, QtGui</li>
 <li>ff7tkFormats &ndash; QtCore, QtGui, ff7tkUtils</li>
 <li>ff7tkUtils &ndash; QtGui, ZLib </li>
 </ul>
