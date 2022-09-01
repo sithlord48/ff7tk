@@ -34,12 +34,14 @@ public:
     /**
      * Set Items
      * Emits Items Changed
+     * Returns True (and Emits) if successful
      */
     bool setItems(const QList<quint16> &newItems = {});
     /** Resets Initial Items
      *  Does not Emit Items Changed
+     *  Returns True When successful
     */
-    void resetItems(const QList<quint16> &newItems = {});
+    bool resetItems(const QList<quint16> &newItems = {});
     QList<quint16> allItems();
 signals:
     void itemsChanged(QList<quint16>);
