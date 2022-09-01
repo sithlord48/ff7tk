@@ -111,27 +111,22 @@ QVariant FF7ItemModel::headerData(int section, Qt::Orientation orientation, int 
 
 bool FF7ItemModel::setItems(const QList<quint16> &newItems)
 {
-    if(newItems.count() != 320)
+    if(!resetItems(newItems))
         return false;
-    if(items == newItems)
-        return false;
-    beginResetModel();
-    items = newItems;
-    endResetModel();
     Q_EMIT itemsChanged(items);
     return true;
 }
 
-void FF7ItemModel::resetItems(const QList<quint16> &newItems)
+bool FF7ItemModel::resetItems(const QList<quint16> &newItems)
 {
     if(newItems.count() != 320)
-        return;
+        return false;
     if(items == newItems)
-        return;
+        return false;
     beginResetModel();
     items = newItems;
     endResetModel();
-    return;
+    return true;
 }
 
 QList<quint16> FF7ItemModel::allItems()
