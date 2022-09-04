@@ -5,6 +5,7 @@ find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
 )
 set(DATA ON CACHE BOOL "Build ff7tkData Lib" FORCE)
 
+find_library(ff7tk ${CMAKE_CURRENT_BINARY_DIR}/src/core)
 find_library(ff7tkData ${CMAKE_CURRENT_BINARY_DIR}/src/data)
 find_library(ff7tkQtWidgets ${CMAKE_CURRENT_BINARY_DIR}/src/widgets/common)
 
@@ -55,6 +56,7 @@ set( ff7tkWidgets_PublicLIBLINKS
        Qt::Core
        Qt::Widgets
        Qt::Gui
+       ff7tk::ff7tk
        ff7tk::ff7tkData
        ff7tk::ff7tkQtWidgets
 )

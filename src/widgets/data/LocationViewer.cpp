@@ -30,13 +30,13 @@
 #include <QSpinBox>
 #include <QTableWidget>
 #include <QToolButton>
-#include <QTranslator>
 #include <QVBoxLayout>
 #include <QDir>
 #include <QCoreApplication>
 
 #include <FF7Location>
 #include <FF7FieldItemList>
+#include <ff7tkInfo>
 
 LocationViewer::LocationViewer(QWidget *parent)
     : QWidget(parent)
@@ -62,28 +62,9 @@ LocationViewer::LocationViewer(QWidget *parent)
     , fieldItemList(new QListWidget)
     , groupFieldItems(new QGroupBox)
     , btnUpdateSaveLocation(new QPushButton)
-    , translator(new QTranslator(this))
-
 {
     locationTable->setRowCount(FF7Location::size());
     locationTable->setColumnCount(3);
-
-    langDir = QStringLiteral("%1/%2").arg(QCoreApplication::applicationDirPath(), QStringLiteral("translations"));
-    QDir translationDir(langDir);
-    QStringList nameFilter{QStringLiteral("ff7tk_*.qm")};
-    if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-        translationDir.setPath(QStringLiteral("%1/../share/ff7tk/translations").arg(QCoreApplication::applicationDirPath()));
-        if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-            translationDir.setPath(QStringLiteral("%1/%2").arg(QDir::homePath(), QStringLiteral(".local/share/ff7tk/translations")));
-            if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-                translationDir.setPath(QStringLiteral("/usr/local/share/ff7tk/translations"));
-                if (translationDir.entryList(nameFilter, QDir::Files, QDir::Name).isEmpty()) {
-                    translationDir.setPath(QStringLiteral("/usr/share/ff7tk/translations"));
-                }
-            }
-        }
-    }
-    langDir = translationDir.absolutePath();
     updateText();
     init_display();
     init_connections();
@@ -499,24 +480,20 @@ void LocationViewer::setRegion(const QString &newRegion)
 QString LocationViewer::translate(QString text)
 {
     QString lang;
-
     if (region.contains(QStringLiteral("BASCUS-94163")) || region.contains(QStringLiteral("BESCES-00867")))
-        lang = QStringLiteral("ff7tk_en.qm");
+        lang = QStringLiteral("en");
     else if (region.contains(QStringLiteral("BESCES-00868")))
-        lang = QStringLiteral("ff7tk_fr.qm");
+        lang = QStringLiteral("fr");
     else if (region.contains(QStringLiteral("BESCES-00869")))
-        lang = QStringLiteral("ff7tk_de.qm");
+        lang = QStringLiteral("de");
     else if (region.contains(QStringLiteral("BESCES-00900")))
-        lang = QStringLiteral("ff7tk_es.qm");
+        lang = QStringLiteral("es");
     else if (region.contains(QStringLiteral("BISLPS-00700")) || region.contains(QStringLiteral("BISLPS-01057")))
-        lang = QStringLiteral("ff7tk_ja.qm");
-
+        lang = QStringLiteral("ja");
     if(lang.isNull())
         return text;
 
-    if(!translator->filePath().contains(lang))
-        std::ignore = translator->load(lang, langDir);
-    QString newText = translator->translate("FF7Location", text.toLatin1());
+    QString newText = ff7tkInfo::translations().value(lang)->translate("FF7Location", text.toLatin1());
     if (newText.isEmpty())
         return text;
     return newText;
