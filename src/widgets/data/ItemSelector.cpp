@@ -44,7 +44,7 @@ void ItemSelector::init_display()
     sb_qty->setMinimum(1);
     sb_qty->setMaximum(127);
     sb_qty->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWWW")) + 3);
-    sb_qty->setToolTip("");
+    sb_qty->setToolTip(QString());
     sb_qty->setWrapping(true);
 
     btn_remove->setIconSize(iconSize);
@@ -104,9 +104,10 @@ void ItemSelector::init_data()
     //Fill Combo_Item (all items type is 0 or no filter defalut)
     for (int i = 0; i < 320; i++) {
         if(FF7Item::name(i).isEmpty()) {
-            combo_item->addItem(FF7Item::icon(i), tr("Item #%1").arg(i));
+            combo_item->addItem(tr("Item #%1").arg(i));
             continue;
         }
+
         combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
     }
 
