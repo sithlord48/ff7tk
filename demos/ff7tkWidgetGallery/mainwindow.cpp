@@ -89,8 +89,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     hexLineEditLayout->addWidget(hexLineEdit);
     ui->hexLineEdit_Box->setLayout(hexLineEditLayout);
     ui->sb_hexEditLine_maxlen->setValue(hexLineEdit->maxLength());
-    std::ignore = ff7tkInfo::translations();
-
 }
 
 MainWindow::~MainWindow()
@@ -99,7 +97,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_comboRegion_currentIndexChanged(const QString &arg1)
+void MainWindow::on_comboRegion_currentTextChanged(const QString &arg1)
 {
     locViewer->setRegion(arg1);
 }
