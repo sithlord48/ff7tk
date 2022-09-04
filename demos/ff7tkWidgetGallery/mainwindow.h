@@ -63,7 +63,7 @@ private slots:
     void on_checkBox_3_clicked(bool checked);
     void on_cbEditableMateriaCombos_clicked(bool checked);
 
-    void on_comboRegion_currentIndexChanged(const QString &arg1);
+    void on_comboRegion_currentTextChanged(const QString &arg1);
 
     void on_cb_itemSelectionDeleageEditable_toggled(bool checked);
     void on_sb_itemListViewMaxQty_editingFinished();
