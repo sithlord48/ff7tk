@@ -13,7 +13,7 @@ var searchData=
   ['renamefile_2858',['renameFile',['../classArchive.html#aeec3e8a747ac89f1b6106aec7817cbd0',1,'Archive::renameFile()'],['../classLgp.html#a1177ff17fe41bc50fb8f8f4281f55602',1,'Lgp::renameFile()']]],
   ['reorganizemodifiedfilesafter_2859',['reorganizeModifiedFilesAfter',['../classIsoArchive.html#ae7b47e7abadc4114f55a3f62e4d418dd',1,'IsoArchive']]],
   ['reset_2860',['reset',['../classQTaskBarButton.html#ae00680eb2a74f30c5306fc01e65cafbd',1,'QTaskBarButton']]],
-  ['resetitems_2861',['resetItems',['../classFF7ItemModel.html#a579f0673b74f176d911c2ca36b74baab',1,'FF7ItemModel']]],
+  ['resetitems_2861',['resetItems',['../classFF7ItemModel.html#ae4c17dddaa011de071686fa756f718b3',1,'FF7ItemModel']]],
   ['resizeevent_2862',['resizeEvent',['../classChocoboEditor.html#a5009636660fd6e0fbfbae1207de9f793',1,'ChocoboEditor::resizeEvent()'],['../classLocationViewer.html#a93094532d33440a7e6828c7ca9769638',1,'LocationViewer::resizeEvent()'],['../classOptionsWidget.html#ac346b76a82ec2c8bbc8b6c0aa10e46de',1,'OptionsWidget::resizeEvent()']]],
   ['rootdirectory_2863',['rootDirectory',['../classIsoArchive.html#a1578c403acb8549fcc9f048bb64d072d',1,'IsoArchive']]],
   ['row_2864',['row',['../classCharEditor.html#a60c696f3b7c54c249f36e3a386460f8c',1,'CharEditor']]],

@@ -13,7 +13,7 @@ var searchData=
   ['magic_5fria_973',['MAGIC_RIA',['../classFF7Save.html#aac75c0e2ee7544df1f0d848de2a0fa9eaafef422c26f20cc4737e4581b386e204',1,'FF7Save']]],
   ['magiccomb_974',['MagicComb',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a91caa4badd383954cfbaeeddc4e84919',1,'FF7Item']]],
   ['magiccounter_975',['MagicCounter',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a8fe32a03a2c65169c9250779028afce2',1,'FF7Materia']]],
-  ['magicorder_976',['MAGICORDER',['../classFF7Save.html#aac75c0e2ee7544df1f0d848de2a0fa9e',1,'FF7Save::MAGICORDER()'],['../classFF7Save.html#a3e2bd489238e2adc4ef5fdd2f632b6a5',1,'FF7Save::magicOrder(int s)']]],
+  ['magicorder_976',['magicOrder',['../classFF7Save.html#a3e2bd489238e2adc4ef5fdd2f632b6a5',1,'FF7Save::magicOrder(int s)'],['../classFF7Save.html#aac75c0e2ee7544df1f0d848de2a0fa9e',1,'FF7Save::MAGICORDER()']]],
   ['magicorderchanged_977',['magicOrderChanged',['../classOptionsWidget.html#aff2290bfc915cd26a1143e58aa1971d0',1,'OptionsWidget']]],
   ['magicplus_978',['MagicPlus',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8af50adb5b95b4a97fd38de73a51a8b3c8',1,'FF7Materia']]],
   ['magicshuriken_979',['MagicShuriken',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7abff4c72c1d39c16a118592bbd19e184a',1,'FF7Item']]],

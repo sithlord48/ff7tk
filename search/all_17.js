@@ -41,7 +41,7 @@ var searchData=
   ['wmachinegun_2001',['WMachineGun',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a3e3e46c0a860a5951b3a35a9e39c55de',1,'FF7Item']]],
   ['wmagic_2002',['WMagic',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8ab842f75e84d9bac1fd050e0dc7e16181',1,'FF7Materia']]],
   ['workglove_2003',['WorkGlove',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac70ae45e1cb33ed820add9989ce6b171',1,'FF7Item']]],
-  ['worldchocobo_2004',['worldChocobo',['../classFF7Save.html#a7dfacb265ffc2b6491bd7757d07434a4',1,'FF7Save::worldChocobo(int s, int bit)'],['../classFF7Save.html#a984749011714aadff92c784388d1411e',1,'FF7Save::WORLDCHOCOBO()']]],
+  ['worldchocobo_2004',['WORLDCHOCOBO',['../classFF7Save.html#a984749011714aadff92c784388d1411e',1,'FF7Save::WORLDCHOCOBO()'],['../classFF7Save.html#a7dfacb265ffc2b6491bd7757d07434a4',1,'FF7Save::worldChocobo(int s, int bit)']]],
   ['worldcoordsbh_2005',['worldCoordsBh',['../classFF7Save.html#a3dac70ed9d94a70a1d3e43d6d0b05e21',1,'FF7Save']]],
   ['worldcoordsbhangle_2006',['worldCoordsBhAngle',['../classFF7Save.html#a31823f31e5e89d7a9c07cc3fb86612ad',1,'FF7Save']]],
   ['worldcoordsbhid_2007',['worldCoordsBhID',['../classFF7Save.html#adc6ee33c14367f9ee0997285c7820810',1,'FF7Save']]],

@@ -116,8 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac42ef0e16d26268b1b6bb727244c49e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeacd3887216c0edbfcedf6f0055772c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7ItemModel.html#aaeacd3887216c0edbfcedf6f0055772c">setItems</a> (const QList&lt; quint16 &gt; &amp;newItems={})</td></tr>
 <tr class="separator:aaeacd3887216c0edbfcedf6f0055772c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579f0673b74f176d911c2ca36b74baab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7ItemModel.html#a579f0673b74f176d911c2ca36b74baab">resetItems</a> (const QList&lt; quint16 &gt; &amp;newItems={})</td></tr>
-<tr class="separator:a579f0673b74f176d911c2ca36b74baab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c17dddaa011de071686fa756f718b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7ItemModel.html#ae4c17dddaa011de071686fa756f718b3">resetItems</a> (const QList&lt; quint16 &gt; &amp;newItems={})</td></tr>
+<tr class="separator:ae4c17dddaa011de071686fa756f718b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43cdc677baaff4c377d242e6ab78de63"><td class="memItemLeft" align="right" valign="top">QList&lt; quint16 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7ItemModel.html#a43cdc677baaff4c377d242e6ab78de63">allItems</a> ()</td></tr>
 <tr class="separator:a43cdc677baaff4c377d242e6ab78de63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -337,14 +337,14 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a579f0673b74f176d911c2ca36b74baab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a579f0673b74f176d911c2ca36b74baab">&#9670;&nbsp;</a></span>resetItems()</h2>
+<a id="ae4c17dddaa011de071686fa756f718b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c17dddaa011de071686fa756f718b3">&#9670;&nbsp;</a></span>resetItems()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FF7ItemModel::resetItems </td>
+          <td class="memname">bool FF7ItemModel::resetItems </td>
           <td>(</td>
           <td class="paramtype">const QList&lt; quint16 &gt; &amp;&#160;</td>
           <td class="paramname"><em>newItems</em> = <code>{}</code></td><td>)</td>
@@ -352,7 +352,7 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Resets Initial Items Does not Emit Items Changed </p>
+<p>Resets Initial Items Does not Emit Items Changed Returns True When successful </p>
 
 </div>
 </div>
@@ -439,7 +439,7 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set Items Emits Items Changed </p>
+<p>Set Items Emits Items Changed Returns True (and Emits) if successful </p>
 
 </div>
 </div>

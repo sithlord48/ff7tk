@@ -409,7 +409,7 @@ var searchData=
   ['sound_5fmono_1726',['SOUND_MONO',['../classFF7Save.html#a07f8137d5aaef7905818a0d663abf089a6777a60f4af463aa0a511d533a88067b',1,'FF7Save']]],
   ['sound_5fstereo_1727',['SOUND_STEREO',['../classFF7Save.html#a07f8137d5aaef7905818a0d663abf089af3f293db55ca11c7fa5035f8a57663e7',1,'FF7Save']]],
   ['soundchanged_1728',['soundChanged',['../classOptionsWidget.html#a21a21215164d009e16ec3a62e7d05bf0',1,'OptionsWidget']]],
-  ['soundmode_1729',['soundMode',['../classFF7Save.html#a7a685a126e273ce07fd6bf1eec420743',1,'FF7Save::soundMode(int s)'],['../classFF7Save.html#a07f8137d5aaef7905818a0d663abf089',1,'FF7Save::SOUNDMODE()']]],
+  ['soundmode_1729',['SOUNDMODE',['../classFF7Save.html#a07f8137d5aaef7905818a0d663abf089',1,'FF7Save::SOUNDMODE()'],['../classFF7Save.html#a7a685a126e273ce07fd6bf1eec420743',1,'FF7Save::soundMode(int s)']]],
   ['spear_1730',['Spear',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aa8f045788ea44ca782f2c65492acf424',1,'FF7Item']]],
   ['special_1731',['special',['../classPsfFile.html#a38383f99f854fe7d497926a01b32430b',1,'PsfFile']]],
   ['speedchanged_1732',['speedChanged',['../classChocoboEditor.html#a900b1f4a1f056dc53a19d8812871a0e3',1,'ChocoboEditor::speedChanged()'],['../classChocoboManager.html#a20737fb9ebc42e81265b7c10692e24d2',1,'ChocoboManager::speedChanged()']]],
