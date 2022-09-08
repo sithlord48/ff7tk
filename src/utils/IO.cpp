@@ -38,6 +38,6 @@ bool IO::canWrite() const
     if (!_device)
         return false;
     if (!_device->isOpen())
-        return _device->open(QIODevice::ReadOnly);
+        return _device->open(QIODevice::WriteOnly);
     return _device->isWritable();
 }
