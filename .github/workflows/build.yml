@@ -8,9 +8,9 @@ on:
   pull_request:
     branches: [ master ]
 env:
-    QtVersion: 6.3.1
-    QtTools: 'desktop,tools_ifw,qt.tools.ifw.44'
-    QtKey: "6.3.1-ifw_44"
+    QtVersion: 6.3.2
+    QtTools: 'tools_ifw'
+    QtKey: "6.3.2-ifw"
     BuildType: RelWithDebInfo
     cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo"
     debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts"
@@ -92,12 +92,6 @@ jobs:
       with:
         fetch-depth: 0
     - run: git fetch --tags --force
-    - name: Cache Qt
-      id: cache-qt
-      uses: actions/cache@v3
-      with:
-        path: ${{matrix.config.QT_INST_DIR}}/Qt
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-qt-${{ env.QtKey }}
     - name: Cache Zlib
       id: cache-zlib
       if: runner.os == 'Windows'
@@ -135,14 +129,13 @@ jobs:
             brew install doxygen graphviz
         fi
     - name: Install Qt
-      uses: jurplel/install-qt-action@v2.14.0
+      uses: jurplel/install-qt-action@v3
       with:
-       aqtversion: ==2.0.0
-       py7zrversion: ==0.16.2
        dir: ${{matrix.config.QT_INST_DIR}}
        version: ${{ env.QtVersion }}
        modules: qt5compat
-       cached: ${{ steps.cache-qt.outputs.cache-hit }}
+       cache: true
+       cache-key-prefix: ${{runner.os}}-${{env.WIN_ARCH}}-${{env.QtKey}}
        tools: ${{env.QtTools}}
     - name: Install Zlib (Windows)
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
