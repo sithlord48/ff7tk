@@ -9,7 +9,7 @@ var searchData=
   ['achievementeditor_17',['AchievementEditor',['../classAchievementEditor.html',1,'AchievementEditor'],['../classAchievementEditor.html#ab52e87c57a1d8936272f5479da53a97f',1,'AchievementEditor::AchievementEditor()']]],
   ['achievementeditor_2ecpp_18',['AchievementEditor.cpp',['../AchievementEditor_8cpp.html',1,'']]],
   ['achievementeditor_2eh_19',['AchievementEditor.h',['../AchievementEditor_8h.html',1,'']]],
-  ['achievmentunlocked_20',['achievmentUnlocked',['../classFF7Achievements.html#a9d8d6a8320130735838899ab2e38b7eb',1,'FF7Achievements']]],
+  ['achievementunlocked_20',['achievementUnlocked',['../classFF7Achievements.html#a4c8db30052a68af49d7a8f2c802907af',1,'FF7Achievements']]],
   ['action_5fcamera_21',['ACTION_CAMERA',['../classFF7Save.html#a4b0cb5cd9bc8fc86db9d232cc9d8dbe5a1b79aeda0f5af99395c2c773a818cd4b',1,'FF7Save']]],
   ['action_5fcancel_22',['ACTION_CANCEL',['../classFF7Save.html#a4b0cb5cd9bc8fc86db9d232cc9d8dbe5a225197a552105d23b350581547a680ec',1,'FF7Save']]],
   ['action_5fdown_23',['ACTION_DOWN',['../classFF7Save.html#a4b0cb5cd9bc8fc86db9d232cc9d8dbe5ada20d194ee7990c4222f8bf6f81930a6',1,'FF7Save']]],

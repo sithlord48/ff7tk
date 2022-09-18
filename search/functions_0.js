@@ -4,7 +4,7 @@ var searchData=
   ['accessory_2288',['accessory',['../classCharEditor.html#a413cba2a4d8b421e9f714e5eb30fe940',1,'CharEditor']]],
   ['accessory_5fchanged_2289',['accessory_changed',['../classCharEditor.html#a74892e1a4618dc3c452265243f2ed5dc',1,'CharEditor']]],
   ['achievementeditor_2290',['AchievementEditor',['../classAchievementEditor.html#ab52e87c57a1d8936272f5479da53a97f',1,'AchievementEditor']]],
-  ['achievmentunlocked_2291',['achievmentUnlocked',['../classFF7Achievements.html#a9d8d6a8320130735838899ab2e38b7eb',1,'FF7Achievements']]],
+  ['achievementunlocked_2291',['achievementUnlocked',['../classFF7Achievements.html#a4c8db30052a68af49d7a8f2c802907af',1,'FF7Achievements']]],
   ['add_2292',['add',['../classIsoDirectory.html#a9b655fd26dffdd0e3efc9d22fec2f438',1,'IsoDirectory']]],
   ['addentry_2293',['addEntry',['../classLgpToc.html#a437c3352cb8a549f66eaf35a8d93e3f9',1,'LgpToc']]],
   ['addfile_2294',['addFile',['../classArchive.html#a3224de22d17ff26eea183a8e4c2686f6',1,'Archive::addFile()'],['../classLgp.html#aeefaddfea09ba4a0bc17630da93cd948',1,'Lgp::addFile()']]],
