@@ -46,7 +46,7 @@ bool FF7Achievements::saveFile(const QString &fileName)
     return true;
 }
 
-bool FF7Achievements::achievmentUnlocked(int bit)
+bool FF7Achievements::achievementUnlocked(int bit)
 {
     bit = std::clamp(bit, 28, 63);
     return (_achievements.at(bit / 8) & (1 << (7 - (bit % 8))));

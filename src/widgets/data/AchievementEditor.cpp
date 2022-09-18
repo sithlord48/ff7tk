@@ -44,7 +44,7 @@ bool AchievementEditor::openFile(const QString &fileName)
 {
     bool open = achievements.openFile(fileName);
     for (int i = 0; i < 36; ++i) {
-        if (achievements.achievmentUnlocked(63 - i))
+        if (achievements.achievementUnlocked(63 - i))
             achievementList->item(i)->setCheckState(Qt::Checked);
         else
             achievementList->item(i)->setCheckState(Qt::Unchecked);

@@ -52,7 +52,7 @@ public:
      *   \return TRUE for Achievement unlocked
      *  \sa setAchievementUnlocked()
     */
-    Q_INVOKABLE bool achievmentUnlocked(int bit);
+    Q_INVOKABLE bool achievementUnlocked(int bit);
 
     /*! \brief set Achievement @ bit to unlocked
         \param bit (28-63 are valid)
