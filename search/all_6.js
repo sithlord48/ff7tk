@@ -105,5 +105,6 @@ var searchData=
   ['fullmetalstaff_650',['FullMetalStaff',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ae387361a26b6b1591fc7b5f790980388',1,'FF7Item']]],
   ['fullstarresource_651',['fullStarResource',['../classFF7Materia.html#a846e04add12662266b69f98fd52e37d8',1,'FF7Materia']]],
   ['fury_652',['Fury',['../classFF7Char.html#a1384ff313f8e1f8ed83347d331706378a0a9d0715a95313b02ed813a5ebd5b148',1,'FF7Char']]],
-  ['furyring_653',['FuryRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aab28fd7e81d8df563d08ed9bab31fc79',1,'FF7Item']]]
+  ['furyring_653',['FuryRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aab28fd7e81d8df563d08ed9bab31fc79',1,'FF7Item']]],
+  ['ff7tk_654',['ff7tk',['../index.html',1,'']]]
 ];
