@@ -4,6 +4,14 @@ find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
 )
 
 find_package( ZLIB REQUIRED)
+if(ZLIB_FOUND)
+    define_property(GLOBAL PROPERTY zlib_target BRIEF_DOCS "zlib dll path" FULL_DOCS "zlib.dll path")
+    if(EXISTS ${ZLIB_ROOT}/bin/zlib.dll)
+        set_property(GLOBAL APPEND PROPERTY zlib_target "${ZLIB_ROOT}/bin/zlib.dll")
+    elseif(EXISTS ${ZLIB_ROOT}/bin/libzlib.dll)
+        set_property(GLOBAL APPEND PROPERTY zlib_target "${ZLIB_ROOT}/bin/libzlib.dll")
+    endif()
+endif()
 
 set(ff7tkUtils_SRC
     IO.cpp

@@ -12,14 +12,7 @@ foreach (_target ${TARGETS})
     file(GENERATE OUTPUT ${CMAKE_BINARY_DIR}/target-temp/${_target}.cmake CONTENT $<TARGET_FILE:${_target}>)
 endforeach()
 
-if(TARGET ff7tkUtils)
-    if(EXISTS ${ZLIB_ROOT}/bin/zlib.dll)
-        set(ZLIB_TARGET "${ZLIB_ROOT}/bin/zlib.dll")
-    elseif(EXISTS ${ZLIB_ROOT}/bin/libzlib.dll)
-        set(ZLIB_TARGET "${ZLIB_ROOT}/bin/libzlib.dll")
-    endif()
-endif()
-
+get_property( ZLIB_TARGET GLOBAL PROPERTY zlib_target)
 
 #Generic Info
 set(CPACK_PACKAGE_CONTACT "sithlord48@gmail.com")
@@ -217,7 +210,6 @@ if(WIN32)
         DIRECTORY ${RUNTIME_DEPENDS_PATH}/
         DESTINATION ${CMAKE_INSTALL_BINDIR}
         COMPONENT ff7tk_depends
-        FILES_MATCHING PATTERN "*.*"
     )
 
     set(CPACK_COMPONENT_FF7TK_DEPENDS_HIDDEN TRUE)

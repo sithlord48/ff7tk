@@ -105,13 +105,15 @@ if(DEMOS)
 endif()
 
 add_subdirectory(translations)
-add_subdirectory(packaging)
 add_subdirectory(src)
 
 option(TESTS "Skip UnitTests" ON)
 if(TESTS)
     add_subdirectory(unittests)
 endif()
+
+#Always add packaging last
+add_subdirectory(packaging)
 
 #pkgconfig
 configure_file(ff7tk.pc.in ff7tk.pc @ONLY)

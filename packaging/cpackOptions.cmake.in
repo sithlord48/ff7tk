@@ -1,4 +1,4 @@
-#This File is generated to CONFIGURE time
+#This File is generated at CONFIGURE time
 #This file is run at CPACK Time
 
 #Do not set CPACK used CMAKE_* Vars here
@@ -18,16 +18,16 @@ endforeach()
 #Function run_windeploy_qt
 #Run windepoy_qt for a target output into the RUNTIME_DEPENDS_PATH
 #target - Full path of a build target to use.
-#    For all targets a qml dir will be guessed based on the name of the target
+# For all targets a qml dir will be guessed based on the name of the target
 function(run_windeploy_qt target)
     cmake_path(GET target STEM targetName)
     if(EXISTS ${BASE_SOURCE_DIR}/demos/${targetName})
         set(qml_import_dir ${BASE_SOURCE_DIR}/demos/${targetName})
     else()
         if(targetName MATCHES "^?(lib)ff7tk$")
-            set(qml_import_dir ${BASE_SOURCE_DIR}/src/data)
+            set(qml_import_dir ${BASE_SOURCE_DIR}/src/core)
         else()
-            string(REGEX REPLACE "^?(lib)ff7tk" "" Path ${targetName})
+            string(REPLACE "^?(lib)ff7tk" "" Path ${targetName})
             string(SUBSTRING ${Path} 0 1 FIRST_LETTER)
             string(TOLOWER ${FIRST_LETTER} FIRST_LETTER)
             string(REGEX REPLACE "^.(.*)" "${FIRST_LETTER}\\1" path "${Path}")
@@ -39,6 +39,7 @@ function(run_windeploy_qt target)
         --no-system-d3d-compiler
         -qmldir="${qml_import_dir}"
         --dir "${RUNTIME_DEPENDS_PATH}"
+        --plugindir "${RUNTIME_DEPENDS_PATH}/plugins"
         ${target}
         OUTPUT_QUIET
     )
@@ -51,13 +52,26 @@ if(WIN32 AND NOT DEPENDENCY_CHECKED)
     set(CMAKE_INSTALL_SYSTEM_RUNTIME_COMPONENT ${RUNTIME_DEPENDS_PATH})
     set(CMAKE_INSTALL_UCRT_LIBRARIES TRUE)
     include(InstallRequiredSystemLibraries)
-    message(STATUS "GONNA CHECK ${ZLIB_LIB}")
     if(ZLIB_LIB)
         message(STATUS "CP ZLIBS: ${ZLIB_LIB}")
         file( COPY ${ZLIB_LIB} DESTINATION ${RUNTIME_DEPENDS_PATH})
     endif()
     foreach(target ${TARGETS})
         run_windeploy_qt(${target})
+    endforeach()
+    #Move the QML Dependencies into a qml Folder
+    set(IGNORELIST "lib;plugins;bin;translations;scripts;qml")
+    file(GLOB children RELATIVE ${RUNTIME_DEPENDS_PATH} ${RUNTIME_DEPENDS_PATH}/*)
+    foreach(child ${children})
+        list(FIND IGNORELIST ${child} skipDir)
+        if(IS_DIRECTORY ${RUNTIME_DEPENDS_PATH}/${child})
+            if("${skipDir}" MATCHES "-1")
+                if(NOT EXISTS ${RUNTIME_DEPENDS_PATH}/qml)
+                    file( MAKE_DIRECTORY  ${RUNTIME_DEPENDS_PATH}/qml)
+                endif()
+                file(RENAME ${RUNTIME_DEPENDS_PATH}/${child} ${RUNTIME_DEPENDS_PATH}/qml/${child})
+            endif()
+        endif()
     endforeach()
     set(DEPENDENCY_CHECKED TRUE PARENT_SCOPE)
 endif()
