@@ -29,7 +29,7 @@ function(run_windeploy_qt target)
         --no-system-d3d-compiler
         --dir "${RUNTIME_DEPENDS_PATH}"
         --plugindir "${RUNTIME_DEPENDS_PATH}/plugins"
-        ${qml_import_dir}
+        ${qmldir_option}
         ${target}
         OUTPUT_QUIET
     )
