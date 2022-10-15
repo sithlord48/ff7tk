@@ -9,7 +9,8 @@ if(FRAMEWORKS AND APPLE)
 else()
     set(BUILD_FRAMEWORKS FALSE)
 endif()
-
+#Refer to this directory 
+set(THIS_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 #This makes a Library and sets up all the install rules
 # LIB_TARGET NAME of Library to Make
 # HEADER_INSTALL_DIR: Path to install headers
@@ -27,6 +28,13 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
             ${${LIB_TARGET}_RESOURCES}
     )
     add_library (ff7tk::${LIB_TARGET} ALIAS ${LIB_TARGET})
+
+    #Embed rc file with Version info
+    if(WIN32)
+        set(LIB_NAME ${LIB_TARGET})
+        configure_file(${THIS_DIR}/libTemplate.rc.in ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}.rc @ONLY)
+        target_sources(${LIB_TARGET} PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}.rc)
+    endif()
 
     #Generate the non .h ending header let the user include "HEADER" or "HEADER.h"
     foreach ( HEADER ${${LIB_TARGET}_HEADERS})
@@ -54,10 +62,10 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
 
     set_target_properties(${LIB_TARGET} PROPERTIES
         FRAMEWORK ${BUILD_FRAMEWORKS}
-        FRAMEWORK_VERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+        FRAMEWORK_VERSION ${PROJECT_VERSION_MAJOR}
         MACOSX_FRAMEWORK_IDENTIFIER com.sithlord48.${LIB_TARGET}
-        VERSION "${CMAKE_PROJECT_VERSION}"
-        SOVERSION "${CMAKE_PROJECT_VERSION_MAJOR}"
+        VERSION "${PROJECT_VERSION}"
+        SOVERSION "${PROJECT_VERSION_MAJOR}"
         PUBLIC_HEADER "${${LIB_TARGET}_HEADERS}"
     )
 

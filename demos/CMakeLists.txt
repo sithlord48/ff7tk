@@ -5,6 +5,7 @@ set(CMAKE_AUTOUIC ON)
 option(WIDGET_GALLERY "Build the widget based gallery" ON)
 option(QML_GALLERY "Build the qml based gallery" ON)
 
+set(THIS_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 #This Macro Creates a ff7tk demo from a project
 #Then Sets all install and pacakge info
 ##REQUIREMENTS
@@ -24,7 +25,8 @@ macro(MAKE_DEMO)
         set(PLATFORM_EX_SRC ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.icns)
         set_source_files_properties(${PLATFORM_EX_SRC} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
     elseif(WIN32)
-        set(PLATFORM_EX_SRC ${PROJECT_NAME}.rc)
+        configure_file(${THIS_DIR}/demoTemplate.rc.in ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.rc @ONLY)
+        set(PLATFORM_EX_SRC ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.rc)
     endif()
 
     add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${${PROJECT_NAME}_SRC} ${PLATFORM_EX_SRC})
