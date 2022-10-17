@@ -29,7 +29,7 @@ jobs:
           else
               VER="continuous"
           fi
-          echo "::set-output name=version::$VER"
+          echo "version=$VER" >> $GITHUB_OUTPUT
   deb_builder:
     name: debianBuilder-${{matrix.config.name}}
     runs-on: ${{matrix.config.os}}
@@ -111,9 +111,9 @@ jobs:
             C:/ProgramData/chocolatey/bin/ninja.exe
             C:/ProgramData/chocolatey/lib/doxygen.install
             C:/ProgramData/chocolatey/lib/Graphviz
-            C:/Program\ Files/doxygen
-            C:/Program\ Files/Graphviz
-        key: cache-chocolatey2-${{ matrix.config.WIN_ARCH }}
+            "C:/Program Files/doxygen"
+            "C:/Program Files/Graphviz"
+        key: cache-chocolatey-${{ matrix.config.WIN_ARCH }}
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
