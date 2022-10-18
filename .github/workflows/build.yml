@@ -95,28 +95,29 @@ jobs:
     - name: Cache Zlib
       id: cache-zlib
       if: runner.os == 'Windows'
-      uses: actions/cache@v3
+      uses: actions/cache@v3.0.11
       with:
-        path: |
-          C:/zlib
-          D:/a/ff7tk/ff7tk/build/src/utils/zlib.dll
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib3
+        path: C:/zlib
+        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib-1.2.13
+
     - name: Cache Chocolatey
       id: cache-choco
       if: (runner.os == 'Windows')
-      uses: actions/cache@v3
+      uses: actions/cache@v3.0.11
       with:
         path: |
             C:/ProgramData/chocolatey/bin/
             C:/ProgramData/chocolatey/lib/ninja
             C:/ProgramData/chocolatey/lib/doxygen.install
             C:/ProgramData/chocolatey/lib/Graphviz
-            "C:/Program Files/doxygen"
-            "C:/Program Files/Graphviz"
-        key: cache-chocolatey-2${{ matrix.config.WIN_ARCH }}
-    - name: Env Script (Windows)
-      uses: ilammy/msvc-dev-cmd@v1
+            C:/Program*/doxygen/
+            C:/Program*/Graphviz/
+        key: cache-chocolatey${{ matrix.config.WIN_ARCH }}
+
+    - name: Setup MSVC Shell For Windows
       if: runner.os == 'Windows'
+      uses: ilammy/msvc-dev-cmd@v1
+
     - name: Install Dependencies
       if: ((runner.os == 'Windows') && (steps.cache-choco.outputs.cache-hit != 'true')) || (runner.os != 'Windows')
       shell: bash
@@ -137,21 +138,24 @@ jobs:
        cache: true
        cache-key-prefix: ${{runner.os}}-${{env.WIN_ARCH}}-${{env.QtKey}}
        tools: ${{env.QtTools}}
-    - name: Install Zlib (Windows)
+    - name: Build Zlib For Windows
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
       run: |
-        git clone -q --branch=v1.2.11 https://github.com/madler/zlib ${{github.workspace}}\zlib-git
+        git clone -q --branch=v1.2.13 https://github.com/madler/zlib ${{github.workspace}}\zlib-git
         cmake -S${{github.workspace}}\zlib-git -B${{github.workspace}}\zlib-git\build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=C:/zlib
         cmake --build ${{github.workspace}}\zlib-git\build --config Release
         cmake --install ${{github.workspace}}\zlib-git\build --strip
-        mkdir D:\a\ff7tk\ff7tk\build\src\utils
-        copy "C:\zlib\bin\zlib.dll" D:\a\ff7tk\ff7tk\build\src\utils
-
+    - name: Update Windows Paths
+      if: (runner.os == 'Windows')
+      run: |
+        echo "C:\zlib\bin\" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        echo "C:\Program Files\doxygen\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        echo "C:\Program Files\Graphviz\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
     - name: Build ff7tk
       run: |
         ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BuildType}} --target package
-    - name: Deploy Pages
+    - name: Update Documentation
       if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
@@ -186,7 +190,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: git fetch --tags --force
-      - uses: uraimo/run-on-arch-action@v2.2.0
+      - uses: uraimo/run-on-arch-action@v2.3.0
         name: Build artifact
         with:
           arch: ${{ matrix.config.arch }}
