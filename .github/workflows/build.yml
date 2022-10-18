@@ -107,13 +107,13 @@ jobs:
       uses: actions/cache@v3
       with:
         path: |
+            C:/ProgramData/chocolatey/bin/
             C:/ProgramData/chocolatey/lib/ninja
-            C:/ProgramData/chocolatey/bin/ninja.exe
             C:/ProgramData/chocolatey/lib/doxygen.install
             C:/ProgramData/chocolatey/lib/Graphviz
             "C:/Program Files/doxygen"
             "C:/Program Files/Graphviz"
-        key: cache-chocolatey-${{ matrix.config.WIN_ARCH }}
+        key: cache-chocolatey-2${{ matrix.config.WIN_ARCH }}
     - name: Env Script (Windows)
       uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
@@ -146,6 +146,7 @@ jobs:
         cmake --install ${{github.workspace}}\zlib-git\build --strip
         mkdir D:\a\ff7tk\ff7tk\build\src\utils
         copy "C:\zlib\bin\zlib.dll" D:\a\ff7tk\ff7tk\build\src\utils
+
     - name: Build ff7tk
       run: |
         ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
