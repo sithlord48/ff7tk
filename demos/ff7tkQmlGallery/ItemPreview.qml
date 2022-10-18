@@ -1,4 +1,4 @@
-import QtQuick 2.15
+import QtQuick
 import org.ff7tk 1.0 as FF7tk
 
 Item {
@@ -7,7 +7,6 @@ Item {
     visible: itemId != -1
     Rectangle {
         anchors.fill: parent
-        color: Qt.rgba(0.5,0.5,0.5,0.25)
         FontMetrics {
             id: fm
         }
@@ -173,9 +172,7 @@ Item {
             visible: elementalList.count > 0
             Rectangle {
                 anchors.fill: parent
-                border.color: "black"
                 border.width: 2
-                color: palette.base
                 Text{
                     id: elementTitle
                     anchors.top: parent.top
@@ -218,7 +215,6 @@ Item {
             visible: statusList.count > 0
             Rectangle {
                 anchors.fill: parent
-                border.color: "black"
                 border.width: 2
                 clip: true
                 Text{
@@ -251,148 +247,3 @@ Item {
         }
     }
 }
-
-//            GroupBox {
-//                id: group_MSlots
-//                visible: false
-//                RowLayout {
-//                    RowLayout {
-//                        id: mGroup1
-//                        Image{
-//                            id: lblMSlot1
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                            visible: FF7tk.FF7Item.materiaSlots(item)
-//                        }
-//                        Image{
-//                            id: lblLink1
-//                            source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
-//                        }
-//                        Image{
-//                            id: lblMSlot2
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                        }
-//                    }
-//                    Row {
-//                        id: mGroup2
-//                        Image{
-//                            id: lblMSlot3
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                        }
-//                        Image{
-//                            id: lblLink2
-//                            source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
-//                        }
-//                        Image{
-//                            id: lblMSlot4
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                        }
-//                    }
-//                    Row {
-//                        id: mGroup3
-//                        Image{
-//                            id: lblMSlot5
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                        }
-//                        Image{
-//                            id: lblLink3
-//                            source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
-//                        }
-//                        Image{
-//                            id: lblMSlot6
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                        }
-//                    }
-//                    Row {
-//                        id: mGroup4
-//                        Image{
-//                            id: lblMSlot7
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                        }
-//                        Image{
-//                            id: lblLink4
-//                            source: "qrc" + FF7tk.FF7Item.materiaLinkResource()
-//                        }
-//                        Image{
-//                            id: lblMSlot8
-//                            source: "qrc" + FF7tk.FF7Item.materiaSlotResource()
-//                        }
-//                    }
-//                }
-//            }
-
-//        function setItem (itemID) {
-//            var type = FF7tk.FF7Item.type(itemID)
-//            //if(type == FF7tk.FF7Item.Unknown) { return }
-//            itemName.text = FF7tk.FF7Item.name(itemID)
-//            itemDesc.text = FF7tk.FF7Item.desc(itemID)
-//            itemTypeIcon.source = FF7tk.FF7Item.iconResource(itemID)
-
-//            if (type !== FF7tk.FF7Item.Item && type !== FF7tk.FF7Item.Accessory) {
-//                group_MSlots.visible = true
-//                group_MSlots.title = "APx" + Number(FF7tk.FF7Item.materiaGrowthRate(itemID)).toString()
-//                setSlots(itemID)
-//            } else {
-//                group_MSlots.visible = false
-//            }
-//            setElementalInfo(itemID)
-//            setStatusInfo(itemID)
-//        }
-
-//        function setSlots(itemID) {
-//            var MslotString = ""
-//            if (FF7tk.FF7Item.materiaGrowthRate(itemID) >0) {
-//                MslotString = FF7tk.FF7Item.materiaSlotResource()
-//            } else {
-//                MslotString = FF7tk.FF7Item.materiaSlotNoGrowthResource()
-//            }
-//            lblMSlot1.visible = false
-//            lblMSlot2.visible = false
-//            lblMSlot3.visible = false
-//            lblMSlot4.visible = false
-//            lblMSlot5.visible = false
-//            lblMSlot6.visible = false
-//            lblMSlot7.visible = false
-//            lblMSlot8.visible = false
-//            lblLink1.visible = false
-//            lblLink2.visible = false
-//            lblLink3.visible = false
-//            lblLink4.visible = false
-//            mGroup1.spacing = 14
-//            mGroup2.spacing = 14
-//            mGroup3.spacing = 14
-//            mGroup4.spacing = 14
-
-
-//            switch(FF7tk.FF7Item.materiaSlots(itemID)) {
-//            case 8:
-//                lblMSlot8.visible = true
-//            case 7:
-//                lblMSlot7.visible = true
-//            case 6:
-//                lblMSlot6.visible = true
-//            case 5:
-//                lblMSlot5.visible = true
-//            case 4:
-//                lblMSlot4.visible = true
-//            case 3:
-//                lblMSlot3.visible = true
-//            case 2:
-//                lblMSlot2.visible = true
-//            case 1:
-//                lblMSlot1.visible = true
-//            }
-//            switch(FF7tk.FF7Item.linkedSlots(itemID)) {
-//            case 4:
-//                lblLink4.visible = true
-//                mGroup4.spacing = 0
-//            case 3:
-//                lblLink3.visible = true
-//                mGroup3.spacing = 0
-//            case 2:
-//                lblLink2.visible = true
-//                mGroup2.spacing = 0
-//            case 1:
-//                lblLink1.visible = true
-//                mGroup1.spacing = 0
-//            }
-//        }
