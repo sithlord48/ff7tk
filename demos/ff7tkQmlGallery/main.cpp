@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-        qmlRegisterSingletonType<FF7Text>("org.ff7tk", 1, 0, "FF7Text", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
+    qmlRegisterSingletonType<FF7Text>("org.ff7tk", 1, 0, "FF7Text", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
         return FF7Text::qmlSingletonRegister(engine, jsEngine);
     });
 
@@ -34,9 +34,11 @@ int main(int argc, char *argv[])
         return FF7Item::qmlSingletonRegister(engine, jsEngine);
     });
 
-    QString versionString = QStringLiteral("%1").arg(ff7tkInfo::version());
+    qmlRegisterSingletonType<ff7tkInfo>("org.ff7tk", 1, 0, "FF7Info", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
+        return ff7tkInfo::qmlSingletonRegister(engine, jsEngine);
+    });
+
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("ff7tkVersion", versionString);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     if (engine.rootObjects().isEmpty()) {
