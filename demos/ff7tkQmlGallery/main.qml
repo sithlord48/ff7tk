@@ -1,12 +1,12 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Controls
 import org.ff7tk 1.0 as FF7tk
 
 ApplicationWindow {
     id: root
     width: 800
     height: 600
-    title: "ff7tkQmlGallery-" + ff7tkVersion
+    title: "ff7tkQmlGallery-" + FF7tk.FF7Info.version
     visible: true
     header: Item {
         id: headerItem
@@ -70,6 +70,7 @@ ApplicationWindow {
                 anchors.top: itemPreviewOptions.bottom
                 anchors.left: parent.left
                 anchors.margins: 6
+                editable: true
                 value: -1
                 from: -1
                 to: 319
