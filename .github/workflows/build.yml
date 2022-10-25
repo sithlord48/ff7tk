@@ -51,11 +51,17 @@ jobs:
       run: |
         sudo apt-get update -y > /dev/null
         sudo apt-get install -qqq ${{env.debianRequirments}} > /dev/null
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: cpp
     - name: Build
       run: |
         ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}}
         cmake --build build
         cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
