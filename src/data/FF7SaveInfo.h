@@ -32,16 +32,16 @@ public:
      */
     enum class FORMAT {
         UNKNOWN = -1, //!< UNKNOWN FORMAT
-        PSX = 0,  //!< PSX Save Data
-        PC,       //!< PC Save Format
-        VMC,      //!< Virtual Memory Card
-        PSP,      //!< PSP Save Format
-        PS3,      //!< PS3 Save Format
-        DEX,      //!< Dex Format
-        VGS,      //!< VGS Format
-        SWITCH,   //!< Switch Format
-        PGE,      //!< Psx Game Edit Style Single Save
-        PDA,      //!< GS , Dantel Style Save
+        PSX     = 0,  //!< PSX Save Data
+        PC      = 1,  //!< PC Save Format
+        VMC     = 2,  //!< Virtual Memory Card
+        PSP     = 3,  //!< PSP Save Format
+        PS3     = 4,  //!< PS3 Save Format
+        DEX     = 5,  //!< Dex Format
+        VGS     = 6,  //!< VGS Format
+        SWITCH  = 7,  //!< Switch Format
+        PGE     = 8,  //!< Psx Game Edit Style Single Save
+        PDA     = 9,  //!< GS , Dantel Style Save
     };
     Q_ENUM(FORMAT)
 

@@ -67,7 +67,7 @@ class FF7TKDATA_EXPORT FF7Save: public QObject
 public:
     //Enums
     enum WORLDVEHICLE {WVEHCILE_BUGGY = 0/**< 0*/, WVEHCILE_TBRONCO/**< 2*/ = 2, WVEHCILE_HIGHWIND = 4/**< 4*/};
-    enum WORLDCHOCOBO {WCHOCO_WILD/**< 0*/, WCHOCO_YELLOW = 2/**< 2*/, WCHOCO_GREEN = 3/**< 3*/, WCHOCO_BLUE = 4/**< 4*/, WCHOCO_BLACK = 5/**< 5*/, WCHOCO_GOLD = 6/**< 6*/};
+    enum WORLDCHOCOBO {WCHOCO_WILD = 0/**< 0*/, WCHOCO_YELLOW = 2/**< 2*/, WCHOCO_GREEN = 3/**< 3*/, WCHOCO_BLUE = 4/**< 4*/, WCHOCO_BLACK = 5/**< 5*/, WCHOCO_GOLD = 6/**< 6*/};
     enum LOVER {LOVE_BARRET/**< 0*/, LOVE_TIFA/**< 1*/, LOVE_AERIS/**< 2*/, LOVE_YUFFIE/**< 3*/};
     enum MATERIACAVE {CAVE_MIME/**< 0*/, CAVE_HPMP/**< 1*/, CAVE_QUADMAGIC/**< 2*/, CAVE_KOTR/**< 3*/};
     enum SOUNDMODE {SOUND_MONO/**< 0*/, SOUND_STEREO/**< 1*/};
@@ -541,10 +541,6 @@ public:
     //item info
     quint16 item(int s, int item_num); //return raw ff7item
     QList<quint16> items(int s);// return all items
-//    quint16 itemId(int s, int item_num);
-//    quint16 itemId(quint16 rawitem);
-//    quint8 itemQty(int s, int item_num);
-//    quint8 itemQty(quint16 rawitem);
     void setItems(int s, QList<quint16> items);
     void setItem(int s, int item_num, quint16 rawitem);
     void setItem(int s, int item_num, quint16 new_id, quint8 new_qty);
@@ -1047,7 +1043,7 @@ private:
     bool fileHasChanged;
     QString buffer_region; // hold the buffers region data.
     QString SG_Region_String[15];
-    QString filename;//opened file;
+    QString filename;//opened file
     QVector< SubContainer > parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID);
     QVector< SubContainer > createMetadata(const QString &fileName, const QString &UserID);
 
