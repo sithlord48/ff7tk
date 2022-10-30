@@ -135,7 +135,7 @@ public:
     LgpToc &operator=(const LgpToc &other);
 private:
     LgpHeaderEntry *entry(const QString &filePath, quint16 id) const;
-    static qint32 lookupValue(const QString &filePath);
-    static quint8 lookupValue(const QChar &qc);
+    static qint16 lookupValue(const QString &filePath);
+    static qint8 lookupValue(const QChar &qc);
     QMultiHash<quint16, LgpHeaderEntry *> _header;
 };

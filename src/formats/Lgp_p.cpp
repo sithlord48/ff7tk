@@ -235,7 +235,7 @@ LgpToc::~LgpToc()
 
 bool LgpToc::addEntry(LgpHeaderEntry *entry)
 {
-    qint32 v = lookupValue(entry->fileName());
+    qint16 v = lookupValue(entry->fileName());
     if (v < 0) {
         return false;
     }
@@ -244,20 +244,20 @@ bool LgpToc::addEntry(LgpHeaderEntry *entry)
         return false;
     }
 
-    _header.insert(v, entry);
+    _header.insert(quint16(v), entry);
 
     return true;
 }
 
 LgpHeaderEntry *LgpToc::entry(const QString &filePath) const
 {
-    qint32 v = lookupValue(filePath);
+    qint16 v = lookupValue(filePath);
     if (v < 0) {
         qDebug() << "LgpToc::entry invalid lookup" << filePath;
         return nullptr; // invalid file name
     }
-
-    return entry(filePath, v);
+    
+    return entry(filePath, quint16(v));
 }
 
 QList<LgpHeaderEntry *> LgpToc::entries(quint16 id) const
@@ -288,7 +288,7 @@ LgpHeaderEntry *LgpToc::entry(const QString &filePath, quint16 id) const
 
 bool LgpToc::removeEntry(const QString &filePath)
 {
-    qint32 v = lookupValue(filePath);
+    qint16 v = lookupValue(filePath);
     if (v < 0) {
         return false; // invalid file name
     }
@@ -297,8 +297,8 @@ bool LgpToc::removeEntry(const QString &filePath)
     if (e == nullptr) {
         return false; // file not found
     }
-
-    bool ok = _header.remove(v, e) > 0;
+    
+    bool ok = _header.remove(quint16(v), e) > 0;
 
     delete e;
 
@@ -314,13 +314,13 @@ bool LgpToc::renameEntry(const QString &filePath, const QString &newFilePath)
 {
     // Get file
 
-    qint32 v = lookupValue(filePath);
+    qint16 v = lookupValue(filePath);
     if (v < 0) {
         qWarning() << "LgpToc::renameEntry invalid filename" << filePath;
         return false; // invalid file name
     }
-
-    LgpHeaderEntry *e = entry(filePath, v);
+    
+    LgpHeaderEntry *e = entry(filePath, quint16(v));
     if (e == nullptr) {
         qWarning() << "LgpToc::renameEntry file not found" << filePath;
         return false; // file not found
@@ -328,13 +328,13 @@ bool LgpToc::renameEntry(const QString &filePath, const QString &newFilePath)
 
     // Get new file
 
-    qint32 newV = lookupValue(newFilePath);
+    qint16 newV = lookupValue(newFilePath);
     if (newV < 0) {
         qWarning() << "LgpToc::renameEntry invalid new filename" << newFilePath;
         return false; // invalid file name
     }
 
-    if (entry(newFilePath, newV) != nullptr) {
+    if (entry(newFilePath, quint16(newV)) != nullptr) {
         qWarning() << "LgpToc::renameEntry new file exists" << newFilePath;
         return false; // file found
     }
@@ -397,7 +397,7 @@ LgpToc &LgpToc::operator=(const LgpToc &other)
     return *this;
 }
 
-qint32 LgpToc::lookupValue(const QString &filePath)
+qint16 LgpToc::lookupValue(const QString &filePath)
 {
     int index = filePath.lastIndexOf('/');
 
@@ -411,39 +411,31 @@ qint32 LgpToc::lookupValue(const QString &filePath)
         return -1;
     }
 
-    char c1 = lookupValue(filePath.at(index));
+    qint16 ret = lookupValue(filePath.at(index)) * LOOKUP_VALUE_MAX;
 
-    if (c1 > LOOKUP_VALUE_MAX) {
-        return -1;
+    QChar secondChar = filePath.at(index + 1);
+
+    if (secondChar != '.') {
+        ret += lookupValue(secondChar) + 1;
     }
 
-    char c2 = lookupValue(filePath.at(index + 1));
-
-    if (c2 > LOOKUP_VALUE_MAX) {
-        return -1;
-    }
-
-    return c1 * LOOKUP_VALUE_MAX + c2 + 1;
+    return ret >= LOOKUP_TABLE_ENTRIES ? -1 : ret;
 }
 
-quint8 LgpToc::lookupValue(const QChar &qc)
+qint8 LgpToc::lookupValue(const QChar &qc)
 {
     char c = qc.toLower().toLatin1();
 
-    if (c == '.') {
-        return 255;
-    }
-
     if (c >= '0' && c <= '9') {
-        c += 'a' - '0';
+        return qint8(c - '0'); // Returns 0 to 9
     }
-
     if (c == '_') {
-        c = 'k';
+        return 10;
     }
     if (c == '-') {
-        c = 'l';
+        return 11;
     }
 
-    return c - 'a';
+    // Returns -97 to 158, only 0 ('a') to 25 ('z') and 26 ('{'), 27 ('|'), 28 ('}') and 29 ('~') are valid
+    return qint8(c - 'a');
 }
