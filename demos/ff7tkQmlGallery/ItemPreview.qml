@@ -7,6 +7,7 @@ Item {
     visible: itemId != -1
     Rectangle {
         anchors.fill: parent
+        color: palette.base
         FontMetrics {
             id: fm
         }
@@ -28,6 +29,7 @@ Item {
             text: FF7tk.FF7Item.name(itemId)
             font.bold: true
             font.pixelSize: fm.height * 0.8
+            color: palette.text
         }
         Text {
             id: desc
@@ -37,6 +39,7 @@ Item {
             anchors.right: parent.right
             text: FF7tk.FF7Item.desc(itemId)
             font.pixelSize: fm.height * 0.7
+            color: palette.text
         }
         Rectangle {
             id: materiaSlots
@@ -47,6 +50,7 @@ Item {
             anchors.topMargin: 6
             border.width: 2
             border.color: palette.dark
+            color: palette.alternateBase
             height: 100
             visible: (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Item) && (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Accessory) && (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Unknown)
             Text{
@@ -58,6 +62,7 @@ Item {
                 font.underline: true
                 font.pixelSize: fm.height * 0.75
                 horizontalAlignment: Text.AlignHCenter
+                color: palette.text
             }
             Image{
                 id: materiaSlot1
@@ -173,6 +178,8 @@ Item {
             Rectangle {
                 anchors.fill: parent
                 border.width: 2
+                clip: true
+                color: palette.alternateBase
                 Text{
                     id: elementTitle
                     anchors.top: parent.top
@@ -182,6 +189,7 @@ Item {
                     font.underline: true
                     font.pixelSize: fm.height * 0.75
                     horizontalAlignment: Text.AlignHCenter
+                    color: palette.text
                 }
                 ListView {
                     id: elementalList
@@ -200,6 +208,7 @@ Item {
                         anchors.leftMargin: 6
                         anchors.right: parent.right
                         font.pixelSize: fm.height * 0.7
+                        color: palette.text
                     }
                 }
             }
@@ -217,6 +226,7 @@ Item {
                 anchors.fill: parent
                 border.width: 2
                 clip: true
+                color: palette.alternateBase
                 Text{
                     id: statusTitle
                     anchors.top: parent.top
@@ -226,6 +236,7 @@ Item {
                     font.underline: true
                     font.pixelSize: fm.height * 0.75
                     horizontalAlignment: Text.AlignHCenter
+                    color: palette.text
                 }
                 ListView {
                     id: statusList
@@ -241,6 +252,7 @@ Item {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         font.pixelSize: fm.height * 0.7
+                        color: palette.text
                     }
                 }
             }
