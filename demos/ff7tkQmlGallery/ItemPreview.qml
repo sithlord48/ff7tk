@@ -1,10 +1,12 @@
 import QtQuick
+import QtQuick.Layouts
 import org.ff7tk 1.0 as FF7tk
 
 Item {
     id: root
     property int itemId: -1
     visible: itemId != -1
+
     Rectangle {
         anchors.fill: parent
         color: palette.base
@@ -43,6 +45,7 @@ Item {
         }
         Rectangle {
             id: materiaSlots
+            property int leftMargin: materiaLink1.width
             property string imagePath: FF7tk.FF7Item.materiaGrowthRate(itemId) > 0  ? FF7tk.FF7Item.materiaSlotResource() : FF7tk.FF7Item.materiaSlotNoGrowthResource()
             anchors.left: parent.left
             anchors.right: parent.right
@@ -51,7 +54,7 @@ Item {
             border.width: 2
             border.color: palette.dark
             color: palette.alternateBase
-            height: 100
+            height: 64
             visible: (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Item) && (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Accessory) && (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Unknown)
             Text{
                 id: materiaBoxTitle
@@ -64,105 +67,148 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 color: palette.text
             }
-            Image{
-                id: materiaSlot1
-                anchors.left: parent.left
-                anchors.leftMargin: 32
-                anchors.top: materiaBoxTitle.bottom
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 0
-            }
-            Image{
-                id: materiaLink1
-                anchors.left: materiaSlot1.right
-                anchors.verticalCenter: materiaSlot1.verticalCenter
-                width: 32; height: 48
-                source: FF7tk.FF7Item.materiaLinkResource()
-                visible: FF7tk.FF7Item.linkedSlots(itemId) > 0
-            }
-            Image{
-                id: materiaSlot2
-                anchors.top: materiaBoxTitle.bottom
-                anchors.left: materiaLink1.right
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 1
-            }
-            Image{
-                id: materiaSlot3
-                anchors.left: materiaSlot2.right
-                anchors.leftMargin: 32
-                anchors.top: materiaBoxTitle.bottom
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 2
-            }
-            Image{
-                id: materiaLink2
-                anchors.left: materiaSlot3.right
-                anchors.verticalCenter: materiaSlot3.verticalCenter
-                width: 32; height: 48
-                source: FF7tk.FF7Item.materiaLinkResource()
-                visible: FF7tk.FF7Item.linkedSlots(itemId) > 1
-            }
-            Image{
-                id: materiaSlot4
-                anchors.top: materiaBoxTitle.bottom
-                anchors.left: materiaLink2.right
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 3
-            }
-            Image{
-                id: materiaSlot5
-                anchors.left: materiaSlot4.right
-                anchors.leftMargin: 32
-                anchors.top: materiaBoxTitle.bottom
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 4
-            }
-            Image{
-                id: materiaLink3
-                anchors.left: materiaSlot5.right
-                anchors.verticalCenter: materiaSlot5.verticalCenter
-                width: 32; height: 48
-                source: FF7tk.FF7Item.materiaLinkResource()
-                visible: FF7tk.FF7Item.linkedSlots(itemId) > 3
-            }
-            Image{
-                id: materiaSlot6
-                anchors.top: materiaBoxTitle.bottom
-                anchors.left: materiaLink3.right
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 5
-            }
-            Image{
-                id: materiaSlot7
-                anchors.left: materiaSlot6.right
-                anchors.leftMargin: 32
-                anchors.top: materiaBoxTitle.bottom
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 6
-            }
-            Image{
-                id: materiaLink4
-                anchors.left: materiaSlot7.right
-                anchors.verticalCenter: materiaSlot7.verticalCenter
-                width: 32; height: 48
-                source: FF7tk.FF7Item.materiaLinkResource()
-                visible: FF7tk.FF7Item.linkedSlots(itemId) > 3
-            }
-            Image{
-                id: materiaSlot8
-                anchors.top: materiaBoxTitle.bottom
-                anchors.left: materiaLink4.right
-                width: 64; height: width
-                source: parent.imagePath
-                visible: FF7tk.FF7Item.materiaSlots(itemId) > 7
+            RowLayout {
+                spacing: 0
+                anchors {
+                    top: materiaBoxTitle.bottom
+                    topMargin: parent.height / 16
+                    bottom: parent.bottom
+                    bottomMargin: parent.height / 16
+                    left: parent.left
+                    leftMargin:materiaSlots.border.width
+                    right: parent.right
+                    rightMargin:materiaSlots.border.width
+                }
+
+                Image{
+                    id: materiaSlot1
+                    Layout.fillHeight: true
+                    Layout.leftMargin: width / 4
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    sourceSize: Qt.size(width,height)
+                    source: materiaSlots.imagePath
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 0
+                }
+                Image{
+                    id: materiaLink1
+                    Layout.fillHeight: true
+                    Layout.maximumWidth: height / 4
+                    fillMode: Qt.KeepAspectRatio
+                    source: FF7tk.FF7Item.materiaLinkResource()
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 0
+                }
+                Image{
+                    id: materiaSlot2
+                    Layout.fillHeight: true
+                    Layout.leftMargin: materiaLink1.visible ? -1 : materiaSlots.leftMargin
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    source: materiaSlots.imagePath
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 1
+                }
+                Image{
+                    id: materiaSlot3
+                    Layout.fillHeight: true
+                    Layout.leftMargin: width / 4
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    sourceSize: Qt.size(width,height)
+                    source: materiaSlots.imagePath
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 2
+                }
+                Image{
+                    id: materiaLink2
+                    Layout.fillHeight: true
+                    Layout.maximumWidth: height / 4
+                    fillMode: Qt.KeepAspectRatio
+                    source: FF7tk.FF7Item.materiaLinkResource()
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 1
+                }
+                Image{
+                    id: materiaSlot4
+                    Layout.fillHeight: true
+                    Layout.leftMargin: materiaLink2.visible ? -1 : materiaSlots.leftMargin
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    source: materiaSlots.imagePath
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 3
+                }
+                Image{
+                    id: materiaSlot5
+                    Layout.fillHeight: true
+                    Layout.leftMargin: width / 4
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    source: materiaSlots.imagePath
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 4
+                }
+                Image{
+                    id: materiaLink3
+                    Layout.fillHeight: true
+                    Layout.maximumWidth: height / 4
+                    fillMode: Qt.KeepAspectRatio
+                    source: FF7tk.FF7Item.materiaLinkResource()
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 3
+                }
+                Image{
+                    id: materiaSlot6
+                    Layout.fillHeight: true
+                    Layout.leftMargin: materiaLink3.visible ? -1 : materiaSlots.leftMargin
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    source: materiaSlots.imagePath
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 5
+                }
+                Image{
+                    id: materiaSlot7
+                    Layout.fillHeight: true
+                    Layout.leftMargin: width / 4
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    source: materiaSlots.imagePath
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 6
+                }
+                Image{
+                    id: materiaLink4
+                    Layout.fillHeight: true
+                    Layout.maximumWidth: height / 4
+                    fillMode: Qt.KeepAspectRatio
+                    source: FF7tk.FF7Item.materiaLinkResource()
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 3
+                }
+                Image{
+                    id: materiaSlot8
+                    Layout.fillHeight: true
+                    Layout.leftMargin: materiaLink4.visible ? -1 : materiaSlots.leftMargin
+                    Layout.preferredHeight: 32
+                    Layout.preferredWidth: 32
+                    fillMode: Qt.KeepAspectRatio
+                    source: materiaSlots.imagePath
+                    sourceSize: Qt.size(width,height)
+                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 7
+                }
+                Rectangle {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    color: materiaSlots.color
+                }
             }
         }
         Item {
@@ -171,8 +217,8 @@ Item {
             anchors.top: materiaSlots.visible ? materiaSlots.bottom : desc.bottom
             anchors.topMargin: 6
             anchors.left: parent.left
-            anchors.leftMargin: 12
-            width: 250
+            anchors.leftMargin: 6
+            width: (parent.width / 2) - 12
             height: elementTitle.paintedHeight + 10 + (elementalList.count * (fm.height + 3))
             visible: elementalList.count > 0
             Rectangle {
@@ -216,10 +262,10 @@ Item {
         Item {
             id: groupStatus
             anchors.left: elementalList.count > 0 ? groupElemental.right : parent.left
-            anchors.leftMargin: 12
+            anchors.leftMargin: 6
             anchors.top: materiaSlots.visible ? materiaSlots.bottom : desc.bottom
             anchors.topMargin: 6
-            width: 250
+            width: groupElemental.visible ? (parent.width / 2) - 6 : (parent.width / 2) - 12
             height: statusTitle.paintedHeight + 10 + (statusList.count * (fm.height + 3))
             visible: statusList.count > 0
             Rectangle {

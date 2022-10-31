@@ -7,9 +7,9 @@
 	<file alias="gun">items/gun.png</file>
 	<file alias="gunarm">items/gunarm.png</file>
     <file alias="item">items/item.png</file>
-	<file alias="m_grow_slot">items/m_grow_slot.png</file>	
-	<file alias="m_no_grow_slot">items/m_no_grow_slot.png</file>		
-	<file alias="mlink">items/mlink.png</file>		
+	<file alias="m_grow_slot">items/m_grow_slot.svg</file>	
+	<file alias="m_no_grow_slot">items/m_no_grow_slot.svg</file>		
+	<file alias="mlink">items/mlink.svg</file>		
 	<file alias="mphone">items/mphone.png</file>		
 	<file alias="spear">items/spear.png</file>		
 	<file alias="staff">items/staff.png</file>		

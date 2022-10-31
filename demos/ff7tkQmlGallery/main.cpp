@@ -20,6 +20,7 @@
 
 #include <FF7Text>
 #include <FF7Item>
+#include <FF7Materia>
 #include <ff7tkInfo>
 
 int main(int argc, char *argv[])
@@ -36,6 +37,10 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonType<ff7tkInfo>("org.ff7tk", 1, 0, "FF7Info", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
         return ff7tkInfo::qmlSingletonRegister(engine, jsEngine);
+    });
+
+    qmlRegisterSingletonType<FF7Materia>("org.ff7tk", 1, 0, "FF7Materia", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
+        return FF7Materia::qmlSingletonRegister(engine, jsEngine);
     });
 
     QQmlApplicationEngine engine;
