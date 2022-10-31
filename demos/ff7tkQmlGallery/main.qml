@@ -16,21 +16,18 @@ ApplicationWindow {
         }
         ComboBox {
             id: comboSelector
-            model: ["", "Text Demo", "ItemPreview", "MateriaButton"]
+            model: ["", "Text Demo", "ItemPreview", "MateriaButton", "MateriaEditor"]
             anchors.right: parent.right
             anchors.left: previewLabel.right
             anchors.leftMargin: 6
             onCurrentIndexChanged: {
                 itemLoader.sourceComponent = Qt.binding(function() {
-                    if(comboSelector.currentIndex === 1)
-                        return textDemoComponent
-                    else if(comboSelector.currentIndex === 2)
-                        return itemPreviewComponent
-                    else if(comboSelector.currentIndex === 3)
-                        return materiaButtonComponent
-                    else{
-                        console.log("TEST")
-                        return testComponent
+                    switch(comboSelector.currentIndex) {
+                        case 1: return textDemoComponent;
+                        case 2: return itemPreviewComponent;
+                        case 3: return materiaButtonComponent;
+                        case 4: return materiaEditorComponent;
+                        default: return testComponent;
                     }
                 })
             }
@@ -104,6 +101,11 @@ ApplicationWindow {
     Component {
         id: textDemoComponent
         TextDemo { }
+    }
+
+    Component {
+        id: materiaEditorComponent
+        MateriaEditor {}
     }
 
     Component {

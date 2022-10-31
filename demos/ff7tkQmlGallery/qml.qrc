@@ -4,5 +4,7 @@
         <file>TextDemo.qml</file>
         <file alias="ItemPreview.qml">ItemPreview.qml</file>
         <file>MateriaSlotButton.qml</file>
+        <file>MateriaEditor.qml</file>
+        <file>ComboBox.qml</file>
     </qresource>
 </RCC>
