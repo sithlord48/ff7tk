@@ -59,7 +59,7 @@ QQC.ComboBox {
 
         contentItem: ListView {
             clip: true
-            implicitHeight: contentHeight
+            implicitHeight: Math.min(300, contentHeight)
             model: root.popup.visible ? root.delegateModel : null
             currentIndex: root.highlightedIndex
             QQC.ScrollIndicator.vertical: QQC.ScrollIndicator { visible: true }
