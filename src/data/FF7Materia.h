@@ -63,7 +63,7 @@ public:
 
     /**
      * @brief totalMateria Total number of materia
-     * @return Return 90 the total number of materias in the game
+     * @return Return 90 the total number of materia in the game
      */
     static Q_INVOKABLE int totalMateria() { return 90; } const
 
@@ -146,7 +146,7 @@ public:
     static Q_INVOKABLE qint8 statHP(int id) { return Materias(id).hp; }
     static Q_INVOKABLE qint8 statMP(int id) { return Materias(id).mp; }
     static Q_INVOKABLE qint8 levels(int id) { return Materias(id).levels; }
-    static Q_INVOKABLE qint8 type(int id) { return Materias(id).type; }
+    static Q_INVOKABLE int type(int id) { return Materias(id).type; }
     static Q_INVOKABLE materia encodeMateria(int id, qint32 ap);
     static Q_INVOKABLE int materiaID(materia mat);
     /**
@@ -162,22 +162,21 @@ public:
 
     //Image Functions
     static Q_INVOKABLE QIcon icon(int id) { return QIcon(QPixmap(Materias(id).imageString)); }
-
     static Q_INVOKABLE QPixmap pixmap(int id) { return QPixmap(Materias(id).imageString); }
     static Q_INVOKABLE QImage image(int id) { return QImage(Materias(id).imageString); }
-    static Q_INVOKABLE QString iconResource(int id) { return Materias(id).imageString.mid(0).remove(QStringLiteral(":/")); }
+    static Q_INVOKABLE const QString iconResource(int id) { return Materias(id).imageString.mid(0).remove(QStringLiteral(":")); }
 
     static Q_INVOKABLE QPixmap pixmapEmptyStar(int id) { return QPixmap(Materias(id).emptyStarString); }
     static Q_INVOKABLE QImage imageEmptyStar(int id) { return QImage(Materias(id).emptyStarString); }
-    static Q_INVOKABLE QString emptyStartResource(int id) { return Materias(idClamp(id)).emptyStarString.mid(0).remove(QStringLiteral(":/")); }
+    static Q_INVOKABLE const QString emptyStarResource(int id) { return Materias(idClamp(id)).emptyStarString.mid(0).remove(QStringLiteral(":")); }
 
     static Q_INVOKABLE QPixmap pixmapFullStar(int id) { return QPixmap(Materias(id).fullStarString); }
     static Q_INVOKABLE QImage imageFullStar(int id) { return QImage(Materias(id).fullStarString); }
-    static Q_INVOKABLE QString fullStarResource(int id) { return Materias(id).fullStarString.mid(0).remove(QStringLiteral(":/")); }
+    static Q_INVOKABLE const QString fullStarResource(int id) { return Materias(id).fullStarString.mid(0).remove(QStringLiteral(":")); }
 
-    static Q_INVOKABLE QIcon iconAllMateria() { return QIcon(QPixmap(QStringLiteral(":/materia/all"))); }
-    static Q_INVOKABLE QImage imageAllMateria() { return QImage(QStringLiteral(":/materia/all")); }
-    static Q_INVOKABLE const QString &imageAllResource() { return get()->d->_resourceAllMateria; }
+    static Q_INVOKABLE QIcon iconAllMateria() { return QIcon(QPixmap(allMateriaResource)); }
+    static Q_INVOKABLE QImage imageAllMateria() { return QImage(allMateriaResource); }
+    static Q_INVOKABLE const QString imageAllResource() { return allMateriaResource.mid(0).remove(QStringLiteral(":")); }
 
     static Q_INVOKABLE const QString &placeHolderNameFilter() {return get()->d->_placeHolderFilter;}
     static Q_INVOKABLE const QList<int> placeHolderIdList();
@@ -229,10 +228,10 @@ private:
     * \brief Materia Wrapper function to get Materia data
     * \param id Materia ID (0x00 - 0x5A && 0xFF)
     * \return Materia data for given id
-    * \sa Materias(int)
+    * \sa Materia(int)
     */
+    inline static const QString allMateriaResource = QStringLiteral(":/materia/all");
     static const FF7Materia::MATERIA &Materias(int id);
-
     struct FF7MateriaPrivate;
     FF7MateriaPrivate *d;
     struct FF7MateriaPrivate {
