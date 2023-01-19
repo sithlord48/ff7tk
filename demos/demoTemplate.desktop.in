@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Development;
-Exec=ff7tkWidgetGallery
-Name=ff7tkWidgetGallery
-Icon=ff7tkWidgetGallery
+Exec=@PROJECT_NAME@
+Name=@PROJECT_NAME@
+Icon=@PROJECT_NAME@
 StartupNotify=true
 Terminal=false
 Type=Application

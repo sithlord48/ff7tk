@@ -14,17 +14,24 @@ set(THIS_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 # DEMO_NAME_SRC - Source for the demo
 # DEMO_NAME_DEPENDS - ff7tk items the demo depends on
 # DEMO_NAME_LIBLINKS - Libraries to link
-## Files that should be in the demo src dir
-# DEMO_NAME.desktop - desktop shortcut for linux
+## Having these in the demo dir will override the generic versions
 # DEMO_NAME.png  - Icon used on Linux
 # DEMO_NAME.rc  - AppInfo for windows
 # DEMO_NAME.ico  - Icon used on Windows
 # DEMO_NAME.icns - Icon used on Mac Os
 macro(MAKE_DEMO)
     if(APPLE)
-        set(PLATFORM_EX_SRC ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.icns)
+        if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.icns)
+            set(PLATFORM_EX_SRC ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.icns)
+        else()
+            configure_file(${THIS_DIR}/demoTemplate.icns ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.icns COPYONLY)
+            set(PLATFORM_EX_SRC ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.icns)
+        endif()
         set_source_files_properties(${PLATFORM_EX_SRC} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
     elseif(WIN32)
+        if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.ico)
+            configure_file(${THIS_DIR}/demoTemplate.ico ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.ico COPYONLY)
+        endif()
         configure_file(${THIS_DIR}/demoTemplate.rc.in ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.rc @ONLY)
         set(PLATFORM_EX_SRC ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.rc)
     endif()
@@ -51,8 +58,17 @@ macro(MAKE_DEMO)
         set_target_properties(${PROJECT_NAME} PROPERTIES
             INSTALL_RPATH ${INSTALL_RPATH_STRING}
         )
-        install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.desktop" DESTINATION share/applications/ COMPONENT ${PROJECT_NAME})
-        install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.png" DESTINATION share/pixmaps COMPONENT ${PROJECT_NAME})
+        if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.desktop)
+            install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.desktop" DESTINATION share/applications/ COMPONENT ${PROJECT_NAME})
+        else()
+            configure_file(${THIS_DIR}/demoTemplate.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.desktop @ONLY)
+            install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.desktop" DESTINATION share/applications/ COMPONENT ${PROJECT_NAME})
+        endif()
+        if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.png)
+            install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.png" DESTINATION share/pixmaps COMPONENT ${PROJECT_NAME})
+        else()
+            install(FILES "${THIS_DIR}/demoTemplate.png" DESTINATION share/pixmaps RENAME "${PROJECT_NAME}.png" COMPONENT ${PROJECT_NAME})
+        endif()
     endif()
 
     install(TARGETS ${PROJECT_NAME}

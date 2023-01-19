@@ -1,4 +1,4 @@
-IDI_ICON1               ICON    "@PROJECT_NAME@.ico"
+IDI_ICON1               ICON    "./@PROJECT_NAME@.ico"
 
 #include <windows.h>
 
@@ -32,7 +32,7 @@ BEGIN
             VALUE "FileDescription",  "@PROJECT_DESCRIPTION@"
             VALUE "FileVersion",      VER_FILEVERSION_STR
             VALUE "InternalName",     "@PROJECT_NAME@"
-            VALUE "LegalCopyright",   "(C) 2010-2022 Chris Rizzitello"
+            VALUE "LegalCopyright",   "(C) 2010-2023 Chris Rizzitello"
             VALUE "OriginalFilename", "@PROJECT_NAME@"
             VALUE "ProductName",      "ff7tk-@PROJECT_NAME@"
             VALUE "ProductVersion",   VER_PRODUCTVERSION_STR
