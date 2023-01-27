@@ -29,7 +29,7 @@ BEGIN
             VALUE "CompanyName",      "ff7tk Dev Team"
             VALUE "FileVersion",      VER_FILEVERSION_STR
             VALUE "InternalName",     "@LIB_NAME@"
-            VALUE "LegalCopyright",   "(C) 2010-2022 Chris Rizzitello"
+            VALUE "LegalCopyright",   "(C) 2010-2023 Chris Rizzitello"
             VALUE "OriginalFilename", "@LIB_NAME@"
             VALUE "ProductName",      "@LIB_NAME@"
             VALUE "ProductVersion",   VER_PRODUCTVERSION_STR
