@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
+include(${CMAKE_SOURCE_DIR}/cmake/ff7tkMacros.cmake)
+
 #Set The Current Version Number to use as fallback if GIT Fails.
 set(FF7TK_VERSION_MAJOR 0)
 set(FF7TK_VERSION_MINOR 83)
@@ -34,6 +36,7 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
       endif()
   endif()
 endif()
+
 set(FF7TK_VERSION "${FF7TK_VERSION_MAJOR}.${FF7TK_VERSION_MINOR}.${FF7TK_VERSION_PATCH}.${FF7TK_VERSION_TWEAK}")
 message(STATUS "Building FF7TK: ${FF7TK_VERSION}")
 
@@ -92,7 +95,9 @@ if(UNIX)
     endif()
 endif()
 
+
 define_property(GLOBAL PROPERTY ff7tk_targets BRIEF_DOCS "Defined Non-Test Targets" FULL_DOCS "Dynamicly Generated list of Targets Tests")
+define_property(GLOBAL PROPERTY ff7tk_tests BRIEF_DOCS "Defined Tests" FULL_DOCS "Dynamicly Generated list of Defined Tests")
 
 add_subdirectory(docs)
 
