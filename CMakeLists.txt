@@ -4,7 +4,7 @@ cmake_policy(SET CMP0074 NEW)
 #Set The Current Version Number to use as fallback if GIT Fails.
 set(FF7TK_VERSION_MAJOR 0)
 set(FF7TK_VERSION_MINOR 83)
-set(FF7TK_VERSION_PATCH 0)
+set(FF7TK_VERSION_PATCH 1)
 set(FF7TK_VERSION_TWEAK 0)
 # Get the version from git if it's a git repository
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
@@ -32,9 +32,9 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
       elseif(NOT ${GITREV} STREQUAL "")
         set(FF7TK_VERSION_TWEAK ${GITREV})
       endif()
-        set(FF7TK_VERSION "${FF7TK_VERSION_MAJOR}.${FF7TK_VERSION_MINOR}.${FF7TK_VERSION_PATCH}.${FF7TK_VERSION_TWEAK}")
   endif()
 endif()
+set(FF7TK_VERSION "${FF7TK_VERSION_MAJOR}.${FF7TK_VERSION_MINOR}.${FF7TK_VERSION_PATCH}.${FF7TK_VERSION_TWEAK}")
 message(STATUS "Building FF7TK: ${FF7TK_VERSION}")
 
 #SET UP THE PROJECT
