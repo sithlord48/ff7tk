@@ -114,9 +114,9 @@ add_subdirectory(packaging)
 
 #pkgconfig
 configure_file(ff7tk.pc.in ff7tk.pc @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/ff7tk.pc" DESTINATION share/pkgconfig COMPONENT ff7tk_headers)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/ff7tk.pc" DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig COMPONENT ff7tk_headers)
 
-install (FILES "${CMAKE_CURRENT_SOURCE_DIR}/COPYING.TXT" DESTINATION share/licenses/${PROJECT_NAME} RENAME LICENSE COMPONENT ff7tk_libraries)
+install (FILES "${CMAKE_CURRENT_SOURCE_DIR}/COPYING.TXT" DESTINATION ${CMAKE_INSTALL_DATADIR}/licenses/${PROJECT_NAME} RENAME LICENSE COMPONENT ff7tk_libraries)
 
 # uninstall target
 if(NOT TARGET uninstall)
