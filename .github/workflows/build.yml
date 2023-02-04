@@ -123,7 +123,7 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts > /dev/null
+            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 > /dev/null
         elif [ "$RUNNER_OS" == "Windows" ]; then
             choco install ninja doxygen.install graphviz
         else
@@ -157,7 +157,7 @@ jobs:
         cmake --build build --config ${{env.BuildType}} --target package
     - name: Update Documentation
       if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
-      uses: JamesIves/github-pages-deploy-action@4.1.4
+      uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
        branch: gh-pages
        folder: build/docs/html
