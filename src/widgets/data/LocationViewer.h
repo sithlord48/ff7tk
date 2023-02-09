@@ -92,6 +92,9 @@ protected:
     void resizeEvent(QResizeEvent *ev);
     void changeEvent(QEvent *e);
 private:
+    const int COL_ID = 0;
+    const int COL_FNAME = 1;
+    const int COL_NAME = 2;
     void init_display(void);
     void init_connections(void);
     void init_disconnect(void);

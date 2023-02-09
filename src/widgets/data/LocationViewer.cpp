@@ -92,7 +92,7 @@ void LocationViewer::changeEvent(QEvent *e)
 
 void LocationViewer::updateText()
 {
-    QStringList hozHeaderLabels = {tr("Filename"), tr("Location Name"), tr("LocID")};
+    QStringList hozHeaderLabels = {tr("LocID"), tr("Filename"), tr("Location Name")};
     locationTable->setHorizontalHeaderLabels(hozHeaderLabels);
     for (int i = 0; i < locationTable->rowCount(); i++) {
         QTableWidgetItem *newItem = new QTableWidgetItem(FF7Location::locationString(i), 0);
@@ -103,7 +103,7 @@ void LocationViewer::updateText()
                                 FF7Location::locationID(i),
                                 QString::number(fontMetrics().height() * 12),
                                 QString::number(fontMetrics().height() * 15)));
-        locationTable->setItem(i, 1, newItem);
+        locationTable->setItem(i, COL_NAME, newItem);
     }
     actionNameSearch->setText(tr("Filter Mode: Name / Location String"));
     actionItemSearch->setText(tr("Filter Mode: Items Found at Location"));
@@ -120,7 +120,7 @@ void LocationViewer::updateText()
     groupFieldItems->setTitle(tr("Field Items"));
 
     if (locationTable->currentRow() > -1)
-        lineLocationName->setText(translate(FF7Location::rawLocationString(locationTable->item(locationTable->currentRow(), 0)->text())));
+        lineLocationName->setText(translate(FF7Location::rawLocationString(locationTable->item(locationTable->currentRow(), COL_FNAME)->text())));
 
     if (actionNameSearch->isChecked())
         lineTableFilter->setPlaceholderText(actionNameSearch->text());
@@ -141,9 +141,9 @@ void LocationViewer::init_display(void)
     locationTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     locationTable->setSelectionMode(QAbstractItemView::SingleSelection);
     locationTable->setSortingEnabled(true);
-    locationTable->setColumnWidth(0, fontMetrics().horizontalAdvance(QChar('W')) * 6);
-    locationTable->setColumnWidth(1, fontMetrics().horizontalAdvance(QChar('W')) * 15);
-    locationTable->setColumnWidth(2, fontMetrics().horizontalAdvance(QChar('W')) * 4);
+    locationTable->setColumnWidth(COL_FNAME, fontMetrics().horizontalAdvance(QChar('W')) * 7);
+    locationTable->setColumnWidth(COL_NAME, fontMetrics().horizontalAdvance(QChar('W')) * 15);
+    locationTable->setColumnWidth(COL_ID, fontMetrics().horizontalAdvance(QChar('W')) * 5);
     for (int i = 0; i < locationTable->rowCount(); i++) {
         QTableWidgetItem *newItem = new QTableWidgetItem(FF7Location::fileName(i), 0);
         newItem->setFlags(newItem->flags() &= ~Qt::ItemIsEditable);
@@ -153,13 +153,13 @@ void LocationViewer::init_display(void)
                                 QString::number(fontMetrics().height() * 12),
                                 QString::number(fontMetrics().height() * 15)));
         newItem->setTextAlignment(Qt::AlignLeft);
-        locationTable->setItem(i, 0, newItem);
+        locationTable->setItem(i, COL_FNAME, newItem);
 
         //To assure proper numerical sorting of location IDs they should all contain the same number of characters.
         newItem = new QTableWidgetItem(QStringLiteral("%1").arg(FF7Location::locationID(i).toInt(), 3, 10, QChar('0')).toUpper());
         newItem->setFlags(newItem->flags() &= ~Qt::ItemIsEditable);
         newItem->setTextAlignment(Qt::AlignHCenter);
-        locationTable->setItem(i, 2, newItem);
+        locationTable->setItem(i, COL_ID, newItem);
         locationTable->setRowHeight(i, (fontMetrics().height() + 2));
     }
     locationTable->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -168,6 +168,7 @@ void LocationViewer::init_display(void)
     locationTable->setFixedWidth(locationTable->columnWidth(0) + locationTable->columnWidth(1) + locationTable->columnWidth(2) + locationTable->verticalScrollBar()->widthMM() + fontMetrics().horizontalAdvance(QChar('W')));
     locationTable->setCurrentCell(-1, -1);
     locationTable->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    locationTable->horizontalHeader()->setStretchLastSection(true);
 
     actionNameSearch->setCheckable(true);
     actionItemSearch->setCheckable(true);
@@ -311,8 +312,8 @@ void LocationViewer::itemChanged(int currentRow, int currentColumn, int prevRow,
     Q_UNUSED(prevColumn)
 
     if (currentRow != prevRow) {
-        int mapID = FF7Location::mapID(locationTable->item(currentRow, 0)->text()).toInt();
-        int locID = FF7Location::locationID(locationTable->item(currentRow, 0)->text()).toInt();
+        int mapID = FF7Location::mapID(locationTable->item(currentRow, COL_FNAME)->text()).toInt();
+        int locID = FF7Location::locationID(locationTable->item(currentRow, COL_FNAME)->text()).toInt();
         setLocation(mapID, locID);
     }
 }
@@ -321,8 +322,8 @@ void LocationViewer::setSelected(const QString &locFilename)
 {
     locationTable->setCurrentItem(locationTable->item(-1, -1));
     for (int i = 0; i < FF7Location::size(); i++) {
-        if (locationTable->item(i, 0)->text() == locFilename) {
-            locationTable->setCurrentItem(locationTable->item(i, 0));
+        if (locationTable->item(i, COL_FNAME)->text() == locFilename) {
+            locationTable->setCurrentItem(locationTable->item(i, COL_FNAME));
             break;
         }
     }
@@ -462,9 +463,9 @@ void LocationViewer::updateItemText(int locID, bool currentLoc)
     font.setItalic(currentLoc);
     QString locString = QStringLiteral("%1").arg(locID, 3, 10, QChar('0'));
     int row = locationTable->findItems(locString, Qt::MatchExactly).at(0)->row();
-    locationTable->item(row, 0)->setFont(font);
-    locationTable->item(row, 1)->setFont(font);
-    locationTable->item(row, 2)->setFont(font);
+    locationTable->item(row, COL_FNAME)->setFont(font);
+    locationTable->item(row, COL_ID)->setFont(font);
+    locationTable->item(row, COL_NAME)->setFont(font);
 }
 
 void LocationViewer::setHorizontalHeaderStyle(QString styleSheet)
@@ -655,7 +656,7 @@ void LocationViewer::searchItem(QRegularExpression exp)
     for (int i = 0; i < locationTable->rowCount(); i++) {
         bool hidden = true;
         for (int j = 0; j < locationNames.count(); j++) {
-            if (locationTable->item(i, 0)->text() == locationNames.at(j)) {
+            if (locationTable->item(i, COL_FNAME)->text() == locationNames.at(j)) {
                 hidden = false;
                 break;
             }
