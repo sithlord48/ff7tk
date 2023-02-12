@@ -110,7 +110,10 @@ if(TESTS)
 endif()
 
 #Always add packaging last
-add_subdirectory(packaging)
+option(PACKAGE "Allow Packaging" ON)
+if(PACKAGE)
+    add_subdirectory(packaging)
+endif()
 
 #pkgconfig
 configure_file(ff7tk.pc.in ff7tk.pc @ONLY)

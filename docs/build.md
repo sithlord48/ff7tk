@@ -24,6 +24,7 @@ CMAKE_BUILD_TYPE         | Type of Build that is produced          | ReleaseWith
 DOCS                     | Build Documentation                     | ON                 | [doxygen] |
 DEMOS                    | Build The Demo Applications             | OFF                | |
 FORMATS                  | Build ff7tkFormats                      | ON                 | |
+PACKAGE                  | Enable Package target                   | ON                 | |
 FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF                | Mac Os Only |
 TESTS                    | Build and run unit tests                | ON                 | |
 UTILS                    | Build ff7tkUtils.                       | ON                 | [zlib] |
