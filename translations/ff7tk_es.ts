@@ -7526,6 +7526,25 @@ Los km/h son calculados mientras se juega </translation>
     </message>
 </context>
 <context>
+    <name>OrientationWidget</name>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Derecha</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Arriba</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Izquierda</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Abajo</translation>
+    </message>
+</context>
+<context>
     <name>PhsListWidget</name>
     <message>
         <source>Allowed</source>

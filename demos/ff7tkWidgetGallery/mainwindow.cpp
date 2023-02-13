@@ -89,6 +89,22 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     hexLineEditLayout->addWidget(hexLineEdit);
     ui->hexLineEdit_Box->setLayout(hexLineEditLayout);
     ui->sb_hexEditLine_maxlen->setValue(hexLineEdit->maxLength());
+
+    orientationWidget = new OrientationWidget(this);
+    auto orientationWidgetLayout = new QVBoxLayout();
+    orientationWidgetLayout->addWidget(orientationWidget);
+    ui->orientationFrame->setLayout(orientationWidgetLayout);
+    connect(orientationWidget, &OrientationWidget::valueChanged, ui->sb_orientationWidget_value, &QSpinBox::setValue);
+    connect(ui->cb_orientationWidget_readOnly, &QCheckBox::toggled, orientationWidget, &OrientationWidget::setReadOnly);
+    connect(ui->combo_orientationWidget_style, &QComboBox::currentIndexChanged, this, [this] (int index){
+        orientationWidget->setStyle(OrientationWidget::Style(index));
+    });
+    connect(ui->combo_orientationWidget_rotationDirection, &QComboBox::currentIndexChanged, this, [this] (int index){
+        orientationWidget->setRotationDirection(OrientationWidget::RotationDirection(index));
+    });
+    connect(ui->combo_orientationWidget_zeroDirection, &QComboBox::currentIndexChanged, this, [this] (int index){
+        orientationWidget->setZeroDirection(OrientationWidget::Direction(index));
+    });
 }
 
 MainWindow::~MainWindow()
@@ -119,6 +135,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     case 11: ui->ChocoboManagerBox->setVisible(1); break;
     case 12: ui->AchievementEditor_Box->setVisible(1); break;
     case 13: ui->hexLineEdit_group->setVisible(1); break;
+    case 14: ui->orientationGroup->setVisible(1); break;
     }
     this->adjustSize();
 }
@@ -254,6 +271,7 @@ void MainWindow::hideAllBoxes(void)
     ui->ChocoboManagerBox->setVisible(0);
     ui->AchievementEditor_Box->setVisible(0);
     ui->hexLineEdit_group->setVisible(0);
+    ui->orientationGroup->setVisible(0);
 }
 
 void MainWindow::on_btn_loadAchievement_clicked()
@@ -298,5 +316,11 @@ void MainWindow::on_sb_itemListViewMaxQty_editingFinished()
 void MainWindow::on_sb_hexEditLine_maxlen_valueChanged(double arg1)
 {
     hexLineEdit->setMaxLength(arg1 * 2);
+}
+
+
+void MainWindow::on_sb_orientationWidget_value_valueChanged(int arg1)
+{
+    orientationWidget->setValue(arg1);
 }
 

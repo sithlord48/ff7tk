@@ -30,6 +30,8 @@
 #include <AchievementEditor.h>
 #include <ItemListView.h>
 #include <HexLineEdit.h>
+
+#include <OrientationWidget>
 #include <Lgp>
 
 namespace Ui
@@ -70,6 +72,8 @@ private slots:
 
     void on_sb_hexEditLine_maxlen_valueChanged(double arg1);
 
+    void on_sb_orientationWidget_value_valueChanged(int arg1);
+
 private:
 
     Ui::MainWindow *ui = nullptr;
@@ -85,4 +89,5 @@ private:
     AchievementEditor *achievementEditor = nullptr;
     ItemListView *itemlistView = nullptr;
     HexLineEdit *hexLineEdit = nullptr;
+    OrientationWidget *orientationWidget = nullptr;
 };

@@ -7525,6 +7525,25 @@ The km/h speeds are calculated while playing </source>
     </message>
 </context>
 <context>
+    <name>OrientationWidget</name>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Prawo</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Góra</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Lewo</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Dół</translation>
+    </message>
+</context>
+<context>
     <name>PhsListWidget</name>
     <message>
         <source>Allowed</source>

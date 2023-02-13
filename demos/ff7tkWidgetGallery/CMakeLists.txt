@@ -13,7 +13,8 @@ find_library(ff7tk ${CMAKE_BINARY_DIR}/src/core)
 find_library(ff7tkData ${CMAKE_BINARY_DIR}/src/data)
 find_library(ff7tkFormats ${CMAKE_BINARY_DIR}/src/formats)
 find_library(ff7tkUtils ${CMAKE_BINARY_DIR}/src/utils)
-find_library(ff7tkWidgets ${CMAKE_BINARY_DIR}/src/widgets)
+find_library(ff7tkWidgets ${CMAKE_BINARY_DIR}/src/widgets/data)
+find_library(ff7tkQtWidgets ${CMAKE_BINARY_DIR}/src/widgets/common)
 
 set(${PROJECT_NAME}_SRC
         main.cpp
@@ -28,6 +29,7 @@ set(${PROJECT_NAME}_DEPENDS
     ff7tk::ff7tkFormats
     ff7tk::ff7tkUtils
     ff7tk::ff7tkWidgets
+    ff7tk::ff7tkQtWidgets
 )
 
 set(${PROJECT_NAME}_LIBLINKS
