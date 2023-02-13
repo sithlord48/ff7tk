@@ -7407,19 +7407,19 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Su</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Destra</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Giù</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sinistra</translation>
     </message>
     <message>
         <source>Menu</source>
@@ -7532,6 +7532,25 @@ La velocità in km/h viene calcolata a runtime</translation>
     <message>
         <source>Fixed</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OrientationWidget</name>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">Destra</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Su</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">Sinistra</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Giù</translation>
     </message>
 </context>
 <context>

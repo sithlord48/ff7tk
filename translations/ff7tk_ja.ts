@@ -7526,6 +7526,25 @@ The km/h speeds are calculated while playing </source>
     </message>
 </context>
 <context>
+    <name>OrientationWidget</name>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished">右</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">上</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished">左</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">下</translation>
+    </message>
+</context>
+<context>
     <name>PhsListWidget</name>
     <message>
         <source>Allowed</source>

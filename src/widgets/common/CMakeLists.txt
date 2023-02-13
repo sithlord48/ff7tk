@@ -9,6 +9,7 @@ set(ff7tkQtWidgets_SRC
     DialogPreview.cpp
     DoubleCheckBox.cpp
     HexLineEdit.cpp
+    OrientationWidget.cpp
     QTaskBarButton.cpp
 )
 
@@ -21,6 +22,7 @@ set(ff7tkQtWidgets_HEADERS
     DialogPreview.h
     DoubleCheckBox.h
     HexLineEdit.h
+    OrientationWidget.h
     QTaskBarButton.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkqtwidgets_export.h
 )
