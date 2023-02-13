@@ -77,9 +77,9 @@ jobs:
           }
         - {
             name: "MacOS"
-            , os: macos-11
+            , os: macos-latest
             , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.4"
-            , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
+            , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\" -DCMAKE_OSX_DEPLOYMENT_TARGET=\"10.14\""
           }
         - {
             name: "Windows-x64"
