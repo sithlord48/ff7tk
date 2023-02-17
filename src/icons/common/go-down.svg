@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <radialGradient id="radialGradient1444" cx="24.837" cy="36.421" r="15.645" gradientTransform="matrix(1 0 0 .53672 1.6147e-15 16.873)" gradientUnits="userSpaceOnUse">
+   <stop offset="0"/>
+   <stop stop-opacity="0" offset="1"/>
+  </radialGradient>
+  <radialGradient id="radialGradient1469" cx="35.293" cy="20.494" r="16.956" gradientTransform="matrix(0 -.84302 1.0202 0 .60644 42.586)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#73d216" offset="0"/>
+   <stop stop-color="#4e9a06" offset="1"/>
+  </radialGradient>
+  <radialGradient id="radialGradient1471" cx="15.987" cy="1.535" r="17.171" gradientTransform="matrix(0 -2.0467 -1.5576 0 44.116 66.933)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g>
+  <path transform="matrix(1.2145 0 0 .59546 -6.1638 16.313)" d="m40.482 36.421a15.645 8.3969 0 1 1-31.289 0 15.645 8.3969 0 1 1 31.289 0z" color="#000000" fill="url(#radialGradient1444)" fill-rule="evenodd" opacity=".20455"/>
+  <g transform="matrix(-1 0 0 -1 47.029 43.999)">
+   <path d="m14.519 38.5c6.0017-0.0013 12.003-0.0026 18.005-0.0039v-12.992l7.9954-0.0078c-5.7149-6.6658-11.43-13.332-17.145-19.997-5.6154 6.666-11.231 13.332-16.846 19.998 2.6653 0.0013 5.3306 0.0025 7.9959 0.0038-0.0018 4.333-0.0035 8.6659-0.0053 12.999z" color="#000000" fill="url(#radialGradient1469)" fill-rule="evenodd" stroke="#3a7304" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/>
+   <path d="m39.43 24.993c-2.4688 0.0039-4.9376 0.0078-7.4064 0.01172 9e-4 4.3309 0.0018 8.6619 0.0027 12.993-5.1262-0.0031-10.252-0.0061-15.379-0.0092 0.23693-4.3388 0.7626-9.2866 4.2429-12.338 2.9982-2.4753 7.2763-3.2097 9.5705-6.574 0.85141-0.46122 1.1539-3.3786 1.9874-2.2447 2.3271 2.7205 4.6543 5.4409 6.9814 8.1614z" color="#000000" fill="url(#radialGradient1471)" fill-rule="evenodd" opacity=".50802"/>
+   <path d="m15.521 37.496c5.3338 0.0013 10.668 0.0026 16.001 0.0039v-12.993c2.2723-0.0052 4.5445-0.01042 6.8168-0.01563-4.9848-5.8175-9.9695-11.635-14.954-17.453-4.9022 5.819-9.8044 11.638-14.707 17.457 2.28 0.0017 4.5599 0.0035 6.8399 0.0052 8.95e-4 4.3317 0.0018 8.6634 0.0027 12.995z" color="#000000" fill="none" opacity=".48128" stroke="#fff" stroke-miterlimit="10"/>
+  </g>
+ </g>
+</svg>
