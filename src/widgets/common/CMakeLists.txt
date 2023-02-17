@@ -8,6 +8,7 @@ set(ff7tkQtWidgets_SRC
     ColorDisplay.cpp
     DialogPreview.cpp
     DoubleCheckBox.cpp
+    ImageGridWidget.cpp
     HexLineEdit.cpp
     ListWidget.cpp
     OrientationWidget.cpp
@@ -23,6 +24,7 @@ set(ff7tkQtWidgets_HEADERS
     DialogPreview.h
     DoubleCheckBox.h
     HexLineEdit.h
+    ImageGridWidget.h
     ListWidget.h
     OrientationWidget.h
     QTaskBarButton.h
