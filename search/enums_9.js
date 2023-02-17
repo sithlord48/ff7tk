@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['soundmode_3602',['SOUNDMODE',['../classFF7Save.html#a07f8137d5aaef7905818a0d663abf089',1,'FF7Save']]],
-  ['state_3603',['State',['../classQTaskBarButton.html#a072ef2961b0b7b7d6ef9cb4bfa9377e4',1,'QTaskBarButton']]],
-  ['strategy_3604',['Strategy',['../classGZIP.html#aed98839d3d1d4439813a1e87d23bb806',1,'GZIP']]]
+  ['psvinfo_3710',['PSVINFO',['../classFF7SaveInfo.html#aafa364c45bcd512fe7b87b585608f446',1,'FF7SaveInfo']]],
+  ['psxblocktype_3711',['PSXBLOCKTYPE',['../classFF7SaveInfo.html#a3adde802dea8cfe6cc4039c5c4a15827',1,'FF7SaveInfo']]],
+  ['psxbutton_3712',['PSXBUTTON',['../classFF7Save.html#a539fb7fa3d51b9cebc4a01baa04ec93c',1,'FF7Save']]]
 ];

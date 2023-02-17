@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['version_3605',['Version',['../classTexFile.html#ac3d76bc8ff901f72d84b7675d519ae38',1,'TexFile']]]
+  ['rotationdirection_3713',['RotationDirection',['../classOrientationWidget.html#a02ed8dc77021e399352d281c3a9bfd7b',1,'OrientationWidget']]]
 ];

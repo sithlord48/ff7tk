@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lgperror_3591',['LgpError',['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4',1,'Lgp']]],
-  ['lover_3592',['LOVER',['../classFF7Save.html#a7fb12a9a82e261b683cd37ac52b5b142',1,'FF7Save']]]
+  ['keyitems_3701',['KEYITEMS',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95',1,'FF7Save']]]
 ];
