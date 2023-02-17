@@ -1,8 +1,13 @@
 <RCC>
    <qresource prefix="/common">
+        <file alias="edit-cut">common/edit-cut.svg</file>
         <file alias="edit-copy">common/edit-copy.svg</file>
         <file alias="edit-paste">common/edit-paste.svg</file>
         <file alias="edit-clear">common/edit-clear.svg</file>
+        <file alias="list-add">common/list-add.svg</file>
+        <file alias="list-remove">common/list-remove.svg</file>
+        <file alias="go-up">common/go-up.svg</file>
+        <file alias="go-down">common/go-down.svg</file>
       </qresource>
 </RCC>
 

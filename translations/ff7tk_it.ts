@@ -7100,6 +7100,37 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
 </context>
 <context>
+    <name>ListWidget</name>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Aggiungere</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Rimuovi</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Su</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Giù</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">Taglia</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copia</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">Incolla</translation>
+    </message>
+</context>
+<context>
     <name>LocationViewer</name>
     <message>
         <source>Filename</source>

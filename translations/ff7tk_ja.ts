@@ -7091,6 +7091,37 @@ The km/h speeds are calculated while playing </source>
     </message>
 </context>
 <context>
+    <name>ListWidget</name>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">追加</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">削除</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">上に</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">下に</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished">切り取り</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">コピー</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished">貼り付け</translation>
+    </message>
+</context>
+<context>
     <name>LocationViewer</name>
     <message>
         <source>Location Name</source>
