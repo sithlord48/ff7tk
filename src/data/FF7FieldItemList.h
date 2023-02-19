@@ -81,7 +81,6 @@ public:
 
     /*!
      * \brief Reference to a fieldItem
-     * \param index of item
      * \return info for one field item
      */
     static const QList<FieldItem> &fieldItemList();
