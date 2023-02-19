@@ -324,3 +324,9 @@ void MainWindow::on_sb_orientationWidget_value_valueChanged(int arg1)
     orientationWidget->setValue(arg1);
 }
 
+
+void MainWindow::on_cb_materiaEditor_showPlaceHolderMateria_toggled(bool checked)
+{
+    materia_editor->setShowPlaceHolderMateria(checked);
+}
+

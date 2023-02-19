@@ -60,6 +60,16 @@ int FF7Materia::materiaID(materia mat)
     return idClamp(mat.id);
 }
 
+const QList<int> FF7Materia::placeHolderIdList()
+{
+    QList<int> phList;
+    for (const MATERIA &m : get()->d->_materiaList) {
+        if(m.name.startsWith(get()->d->_placeHolderFilter))
+            phList.append(m.id);
+    }
+    return phList;
+}
+
 QString FF7Materia::enemySkill(int skill)
 {
     skill = std::clamp(skill, 0, int(get()->d->_enemySkills.size()) -1);

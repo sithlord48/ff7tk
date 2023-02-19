@@ -32,6 +32,7 @@ MateriaEditor::MateriaEditor(QWidget *parent, quint8 materia_id, qint32 materia_
     , _current_ap(0)
     , _highlightColor(QStringLiteral("%1,%2,%3,128").arg(QString::number(palette().highlight().color().red()), QString::number(palette().highlight().color().green()), QString::number(palette().highlight().color().blue())))
     , _iconSize (QSize(fontMetrics().height(), fontMetrics().height()))
+    , _showPlaceHolders(false)
     , _editable(true)
 {
     init_display();
@@ -175,7 +176,7 @@ void MateriaEditor::setLevel()
 
 void MateriaEditor::setStars()
 {
-    //Hide if its eskill Materia
+    //show if its eskill Materia
     if (FF7Materia::levels(_id) == 1
      || (_id == FF7Materia::EmptyId)) {
         box_stars->setHidden(true);
@@ -225,8 +226,9 @@ void MateriaEditor::typeChanged(int new_type)
     combo_materia->blockSignals(true);
     if (new_type == 0) {
         for (int i = 0; i < 91; i++) {
-            if (!FF7Materia::name(i).isEmpty())
-                combo_materia->addItem(FF7Materia::icon(i), FF7Materia::name(i));
+            if (!_showPlaceHolders && FF7Materia::placeHolderIdList().contains(i))
+                continue;
+            combo_materia->addItem(FF7Materia::icon(i), FF7Materia::name(i));
         }
     } else {
         for (int i = 0; i < 91; i++) {
@@ -244,6 +246,8 @@ void MateriaEditor::typeChanged(int new_type)
 void MateriaEditor::materia_changed(const QString &new_name)
 {
     for (quint8 i = 0; i < 91; i++) {
+        if (!_showPlaceHolders && FF7Materia::placeHolderIdList().contains(i))
+            continue;
         if (FF7Materia::name(i) == new_name) {
             if (_id != i)
                 setMateria(i, _current_ap);
@@ -306,6 +310,14 @@ void MateriaEditor::setEditable(bool edit)
 {
     _editable = edit;
     editMode();
+}
+
+void MateriaEditor::setShowPlaceHolderMateria(bool showPlaceHolders)
+{
+    if(_showPlaceHolders == showPlaceHolders)
+        return;
+    _showPlaceHolders = showPlaceHolders;
+    typeChanged(0);
 }
 
 void MateriaEditor::editMode()
@@ -382,8 +394,9 @@ QHBoxLayout *MateriaEditor::makeNameLayout()
     combo_materia->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
     combo_materia->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     for (int i = 0; i < 91; i++) {
-        if (!FF7Materia::name(i).isEmpty())
+        if (!FF7Materia::placeHolderIdList().contains(i)) {
             combo_materia->addItem(FF7Materia::pixmap(i), FF7Materia::name(i));
+        }
     }
     connect(combo_materia, &QComboBox::currentTextChanged, this, &MateriaEditor::materia_changed);
 

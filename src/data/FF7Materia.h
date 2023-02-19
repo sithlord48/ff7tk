@@ -180,6 +180,9 @@ public:
     static Q_INVOKABLE QImage imageAllMateria() { return QImage(QStringLiteral(":/materia/all")); }
     static Q_INVOKABLE const QString &imageAllResource() { return get()->d->_resourceAllMateria; }
 
+    static Q_INVOKABLE const QString &placeHolderNameFilter() {return get()->d->_placeHolderFilter;}
+    static Q_INVOKABLE const QList<int> placeHolderIdList();
+
     // Deprecated Methods
     [[ deprecated ("Replace with FF7Materia::materiaAP") ]]
     static qint32 ap2num(quint8 ap[3]) { return materiaAP(ap); }
@@ -234,6 +237,7 @@ private:
     struct FF7MateriaPrivate;
     FF7MateriaPrivate *d;
     struct FF7MateriaPrivate {
+        inline static const auto _placeHolderFilter = QStringLiteral("ID:");
         inline static const auto _resourceAllMateria = QStringLiteral("/materia/all");
         inline static const QStringList _masterCommandList{
             QT_TR_NOOP("Skill: DeathBlow")
@@ -320,6 +324,33 @@ private:
             , QT_TR_NOOP("Full Cure (99mp)")
             , QT_TR_NOOP("Shield (180mp)")
             , QT_TR_NOOP("Ultima (130mp)")
+        };
+
+        inline static const QStringList _enemySkills{
+            QT_TR_NOOP("Frog Song")
+            , QT_TR_NOOP("L4 Suicide")
+            , QT_TR_NOOP("Magic Hammer")
+            , QT_TR_NOOP("White Wind")
+            , QT_TR_NOOP("Big Guard")
+            , QT_TR_NOOP("Angel Whisper")
+            , QT_TR_NOOP("Dragon Force")
+            , QT_TR_NOOP("Death Force")
+            , QT_TR_NOOP("Flame Thrower")
+            , QT_TR_NOOP("Laser")
+            , QT_TR_NOOP("Matra Magic")
+            , QT_TR_NOOP("Bad Breath")
+            , QT_TR_NOOP("Beta")
+            , QT_TR_NOOP("Aqualung")
+            , QT_TR_NOOP("Trine")
+            , QT_TR_NOOP("Magic Breath")
+            , QT_TR_NOOP("????")
+            , QT_TR_NOOP("Goblin Punch")
+            , QT_TR_NOOP("Chocobuckle")
+            , QT_TR_NOOP("L5 Death")
+            , QT_TR_NOOP("Death Sentence")
+            , QT_TR_NOOP("Roulette")
+            , QT_TR_NOOP("Shadow Flare")
+            , QT_TR_NOOP("Pandora's Box")
         };
 
         inline static const MATERIA _emptyMateria{
@@ -461,10 +492,10 @@ private:
                 , 0x15, 0, 0, 0, 0, 0, 0, 0, 0, {0, 250000, 0, 0, 0}, 5, 2, QString(), {QString()}
             },
             {
-                QString()
+                QStringLiteral("ID:0x16")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x16"), QString(), QString(), QString()
-                , 0X16, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+                , QStringLiteral("ID:0x16"), QStringLiteral(":/materia/all"), QString(), QString()
+             , 0X16, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
                 QT_TR_NOOP("All")
@@ -557,10 +588,10 @@ private:
                 , 0x25, 0, 0, 0, 0, 0, 0, 0, 0, {0, 40000, 0, 0, 0}, 5, 2, QString(), {QString()}
             },
             {
-                QString()
+                QStringLiteral("ID:0x26")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x26"), QString(), QString(), QString()
-                , 0X26, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+             , QStringLiteral("ID:0x26"), QStringLiteral(":/materia/all"), QString(), QString()
+                , 0X26, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
                 QT_TR_NOOP("Throw")
@@ -599,28 +630,28 @@ private:
                 , 0x2C, 0, 0, 0, 0, 0, 0, 0, 0, {16777215, 0, 0, 0, 0}, 5, 1, QString(), {QString()}
             },
             {
-                QString()
+                QStringLiteral("ID:0x2D")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x2D"), QString(), QString(), QString()
-                , 0X2D, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+                , QStringLiteral("ID:0x2D"), QStringLiteral(":/materia/all"), QString(), QString()
+                , 0X2D, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
-                QString()
+                QStringLiteral("ID:0x2E")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x2E"), QString(), QString(), QString()
-                , 0X2E, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+                , QStringLiteral("ID:0x2E"), QStringLiteral(":/materia/all"), QString(), QString()
+                , 0X2E, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
-                QString()
+                QStringLiteral("ID:0x2F")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x2F"), QString(), QString(), QString()
-                , 0X2F, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+                , QStringLiteral("ID:0x2F"), QStringLiteral(":/materia/all"), QString(), QString()
+                , 0X2F, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
                 QT_TR_NOOP("Master Command")
                 , _masterCommandList
                 , QString(), QStringLiteral(":/materia/command"), QStringLiteral(":/materia/command_star_empty"), QStringLiteral(":/materia/command_star_full")
-                , 0x30, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 5, 1, QString(), {QString()}
+                , 0x30, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 5, 1, QString(), {QString()}
             },
             {
                 QT_TR_NOOP("Fire")
@@ -707,10 +738,10 @@ private:
                 , 0x3E, -5, +5, -2, -1, 0, 0, +2, +1, {0, 5000, 15000, 30000, 45000}, 1, 5, QString(), {QString()}
             },
             {
-                QString()
+                QStringLiteral("ID:0x3F")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x3F"), QString(), QString(), QString()
-                , 0X3F, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+                , QStringLiteral("ID:0x3F"), QStringLiteral(":/materia/all"), QString(), QString()
+                , 0X3F, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
                 QT_TR_NOOP("Comet")
@@ -725,16 +756,16 @@ private:
                 , 0x41, -5, +5, -2, -1, 0, 0, +2, +1, {0, 10000, 20000, 42000, 0}, 1, 4, QString(), {QT_TR_NOOP("[Slow]"), QT_TR_NOOP("[Stop]")}
             },
             {
-                QString()
+                QStringLiteral("ID:0x42")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x42"), QString(), QString(), QString()
-                , 0X42, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+                , QStringLiteral("ID:0x42"), QStringLiteral(":/materia/all"), QString(), QString()
+                , 0X42, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
-                QString()
+                QStringLiteral("ID:0x43")
                 , {QString(), QString(), QString(), QString(), QString()}
-                , QStringLiteral("ID:0x43"), QString(), QString(), QString()
-                , 0X43, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
+                , QStringLiteral("ID:0x43"), QStringLiteral(":/materia/all"), QString(), QString()
+                , 0X43, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 0, 0, QString(), {QString()}
             },
             {
                 QT_TR_NOOP("Destruct")
@@ -770,7 +801,7 @@ private:
                 QT_TR_NOOP("Master Magic")
                 , _masterMagicList
                 , QString(), QStringLiteral(":/materia/magic"), QStringLiteral(":/materia/magic_star_empty"), QStringLiteral(":/materia/magic_star_full")
-                , 0x49, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 1, 1, QString(), {QString()}
+                , 0x49, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 1, 1, QString(), {QString()}
             },
             {
                 QT_TR_NOOP("Choco/Mog")
@@ -872,34 +903,8 @@ private:
                 QT_TR_NOOP("Master Summon")
                 , _masterSummonList
                 , QString(), QStringLiteral(":/materia/summon"), QStringLiteral(":/materia/summon_star_empty"), QStringLiteral(":/materia/summon_star_full")
-                , 0x5A, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0, 0}, 2, 1, QString(), {QString()}
+                , 0x5A, 0, 0, 0, 0, 0, 0, 0, 0, {0xFFFFFF, 0, 0, 0, 0}, 2, 1, QString(), {QString()}
             }
-        };
-        inline static const QStringList _enemySkills{
-            QT_TR_NOOP("Frog Song")
-            , QT_TR_NOOP("L4 Suicide")
-            , QT_TR_NOOP("Magic Hammer")
-            , QT_TR_NOOP("White Wind")
-            , QT_TR_NOOP("Big Guard")
-            , QT_TR_NOOP("Angel Whisper")
-            , QT_TR_NOOP("Dragon Force")
-            , QT_TR_NOOP("Death Force")
-            , QT_TR_NOOP("Flame Thrower")
-            , QT_TR_NOOP("Laser")
-            , QT_TR_NOOP("Matra Magic")
-            , QT_TR_NOOP("Bad Breath")
-            , QT_TR_NOOP("Beta")
-            , QT_TR_NOOP("Aqualung")
-            , QT_TR_NOOP("Trine")
-            , QT_TR_NOOP("Magic Breath")
-            , QT_TR_NOOP("????")
-            , QT_TR_NOOP("Goblin Punch")
-            , QT_TR_NOOP("Chocobuckle")
-            , QT_TR_NOOP("L5 Death")
-            , QT_TR_NOOP("Death Sentence")
-            , QT_TR_NOOP("Roulette")
-            , QT_TR_NOOP("Shadow Flare")
-            , QT_TR_NOOP("Pandora's Box")
         };
     };
 };

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>73</width>
-    <height>38</height>
+    <width>213</width>
+    <height>42</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -144,6 +144,16 @@
               <widget class="QCheckBox" name="cbEditableMateriaCombos">
                <property name="text">
                 <string>Editable Combo</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="cb_materiaEditor_showPlaceHolderMateria">
+               <property name="text">
+                <string>Show PlaceHolder Materia</string>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
                </property>
               </widget>
              </item>
