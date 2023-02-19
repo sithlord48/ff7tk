@@ -74,6 +74,8 @@ private slots:
 
     void on_sb_orientationWidget_value_valueChanged(int arg1);
 
+    void on_cb_materiaEditor_showPlaceHolderMateria_toggled(bool checked);
+
 private:
 
     Ui::MainWindow *ui = nullptr;

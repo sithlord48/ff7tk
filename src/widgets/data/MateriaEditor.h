@@ -29,7 +29,10 @@ class QListWidget;
 class QPushButton;
 class QSpacerItem;
 class QSpinBox;
-
+/**
+ * @brief The MateriaEditor class \n
+ * \p MateriaEditor is a Widget that can be used to edit materia in the player's inventory or on a character.
+  */
 class FF7TKWIDGETS_EXPORT MateriaEditor : public QWidget
 {
     Q_OBJECT
@@ -43,7 +46,12 @@ public:
     qint8 id();
     bool isEditable(void);
     void setEditable(bool);
-//    qint32 raw_data(void);
+
+    /**
+     * @brief setShowPlaceHolderMateria Sets if the list of possible materia contains the placeholder materia
+     * @param showPlaceHolders: True if you want to show the placeholders.
+     */
+    void setShowPlaceHolderMateria(bool showPlaceHolders);
 protected:
     void changeEvent(QEvent *e);
 public slots:
@@ -97,6 +105,7 @@ private:
     qint32 _current_ap;// current ap amount
     QString _highlightColor;
     QSize _iconSize;
+    bool _showPlaceHolders; // Show Materia Named "ID:0x\\d+"
     bool _editable;
     inline static const auto _buttonStyle = QStringLiteral("QPushButton:enabled{background-color: rgba(0,0,0,0);border:0px solid;} QPushButton:hover{background-color:rgba(%1);}");
     inline static const auto _itemStyle = QStringLiteral("::item { padding-left: 0px; padding-top: 1px; padding-bottom: 1px;}"
