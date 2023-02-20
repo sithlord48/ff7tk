@@ -30,7 +30,7 @@ TESTS                    | Build and run unit tests                | ON         
 UTILS                    | Build ff7tkUtils.                       | ON                 | [zlib] |
 WIDGETS                  | Build ff7tkWidgets.                     | ON                 | |
 SPLITPACKAGES            | Create Split Packages                   | OFF                | |
-
+CLEAN_TRS                | Remove Obsolete Translation Entries     | OFF                | |
 Enabling Demos will allow you to set this additional options all are enabled by default
        Demo              |            Description                  |
 :-----------------------:|:---------------------------------------:|
@@ -84,7 +84,7 @@ For QMake you can use the pkgconfig provided by the system
    -- If patch or rev are empty they are excluded from the version number
    -- tweak is Number of commits since the last tag release
 ### ff7tk version compatibility
- ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.
+ ff7tk versions with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.
 
 ## Translations
   In addition to ff7tk's language files your application should also load and/or ship the qt_base_<lang>.qm these are required to translate strings from inside Qt libraries.
@@ -92,7 +92,7 @@ For QMake you can use the pkgconfig provided by the system
 You can use FF7Tk::translationList to get a QMap<QString, QTranslation*> of all the auto detected language files. This will look in several places in the application directory and around the system to attempt to find them.
 
 ## Deploying ff7tk with your app
- When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommened to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.
+ When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommended to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.
  
 ### Item Depends
   - ff7tk
