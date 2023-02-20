@@ -1,5 +1,5 @@
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
-
+option(CLEAN_TRS "Clean Obsolete translations from tr files" FALSE)
 find_package(Qt6LinguistTools)
 
 set(ff7tk_TRS
@@ -13,7 +13,13 @@ set(ff7tk_TRS
     ff7tk_pl.ts
 )
 
-qt_create_translation(TRS ${CMAKE_SOURCE_DIR}/src ${ff7tk_TRS} OPTIONS -no-ui-lines -locations none)
+if(CLEAN_TRS)
+    set(CLEAN_OPTION "-no-obsolete")
+else()
+    set(CLEAN_OPTION "")
+endif()
+
+qt_create_translation(TRS ${CMAKE_SOURCE_DIR}/src ${ff7tk_TRS} OPTIONS -no-ui-lines -locations none ${CLEAN_OPTION})
 add_custom_target(ff7tk_translations ALL DEPENDS ${TRS})
 
-install(FILES ${TRS} DESTINATION ${CMAKE_INSTALL_DATADIR}/ff7tk/translations COMPONENT ff7tk_libraries)
+install(FILES ${TRS} DESTINATION ${CMAKE_INSTALL_DATADIR}/ff7tk/translations COMPONENT ff7tk_i18n)
