@@ -504,8 +504,10 @@ QSpinBox *ChocoboEditor::makeSpinBox(int maxValue)
 
 void ChocoboEditor::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange) {
-        QWidget::changeEvent(e);
+    if (e->type() == QEvent::LanguageChange) {
+        updateText();
+    } else if (e->type() == QEvent::PaletteChange) {
+        cb_cantMate->setStyleSheet(QStringLiteral("QCheckBox::indicator {width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
     }
-    updateText();
+    QWidget::changeEvent(e);
 }

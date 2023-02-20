@@ -59,9 +59,11 @@ public slots:
     void clearLabel(void); /**< \brief Clear the labels data */
     void setHoverColorStyle(QString backgroundColor); /**< \brief Set the style for when you hover \param backgroundColor A valid color for a style sheet either a predefined color or rgb(r,g,b) style string */
     bool isOccupied(void); /**< \brief occupied state \return true if occupied*/
+protected:
+    bool event(QEvent *ev);
+    void changeEvent(QEvent *e);
 private:
     void enable(bool enabled); /**< \brief enable/disable inner part of the form when needed \param enabled enable the lower frame?*/
-    bool event(QEvent *ev);
     QPushButton *btnCopy = nullptr; /**< \brief copy button */
     QPushButton *btnPaste = nullptr; /**< \brief paste button */
     QPushButton *btnRemove = nullptr; /**< \brief remove button */
@@ -74,5 +76,7 @@ private:
     QFrame *outerFrame = nullptr;/**< \brief outer frame of widget contains the label checkbox, copy,paste,remove buttons*/
     QString SelectedBkStyle;/**< \brief style for background when selected */
     int m_wins = -1;
+    int m_fontSize = 14;
+    bool isSelected;
     bool isEnabled; /**< \brief isEnabled hold if enabled */
 };

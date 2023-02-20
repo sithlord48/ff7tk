@@ -16,8 +16,15 @@
 #include <AchievementEditor.h>
 
 #include <QGridLayout>
+#include <QEvent>
 #include <QListWidget>
 
+void AchievementEditor::changeEvent(QEvent *e)
+{
+    if(e->type() == QEvent::PaletteChange)
+        achievementList->setStyleSheet(QStringLiteral("QListView::indicator{width: %1px; height:%1px} QListView::item{padding: 0px;}").arg(QString::number(fontMetrics().height())));
+    QWidget::changeEvent(e);
+}
 AchievementEditor::AchievementEditor(QWidget *parent) :
     QWidget(parent)
 {

@@ -24,17 +24,19 @@
 
 void ChocoboManager::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange) {
-        QWidget::changeEvent(e);
+    if (e->type() == QEvent::LanguageChange) {
+        lblStablesOwned ->setText(tr("Stables Owned"));
+        lblStablesOccupied->setText(tr("Stables Occupied"));
+        penBox->setTitle(tr("Fenced Chocobos"));
+        updateCombos();
+        for (int i = 0; i < 6; i++)
+            chocoboLabel[i]->setTitle(tr("Stable:%1").arg(QString::number(i + 1)));
+    } else if(e->type() == QEvent::PaletteChange) {
+        QString color = QStringLiteral("%1,%2,%3").arg(palette().highlight().color().red(), palette().highlight().color().green(), palette().highlight().color().blue());
+        for (int i = 0; i < 6; i++)
+            chocoboLabel[i]->setHoverColorStyle(color);
     }
-
-    lblStablesOwned ->setText(tr("Stables Owned"));
-    lblStablesOccupied->setText(tr("Stables Occupied"));
-    penBox->setTitle(tr("Fenced Chocobos"));
-    updateCombos();
-    for (int i = 0; i < 6; i++) {
-        chocoboLabel[i]->setTitle(tr("Stable:%1").arg(QString::number(i + 1)));
-    }
+    QWidget::changeEvent(e);
 }
 
 ChocoboManager::ChocoboManager(QWidget *parent) :
@@ -97,25 +99,25 @@ ChocoboManager::ChocoboManager(QWidget *parent) :
 
 void ChocoboManager::setStablesOwned(int value)
 {
-    if (value == stablesOwned) {
+    if (value == stablesOwned)
         return;
-    } else if (value < 0 || value > 6) {
+
+    if ((value < 0) || (value > 6))
         return;
-    } else {
-        disableChocoLabels();
-        enableChocoboLabels(value);
-        stablesOwned = qint8(value);
-        Q_EMIT ownedChanged(qint8(value));
-        for (int i = value; i < 6 ; i++) {
-            if (chocoboLabel[i]->isOccupied()) {
-                chocoboLabel[i]->setOccupied(false);
-                setOccupied(stablesOccupied - 1, stableMask &= ~(1 << i));
-                Q_EMIT occupiedChanged(stablesOccupied);
-                Q_EMIT stableMaskChanged(stableMask);
-                if (i == selectedStable) {
-                    selectedStable = -1;
-                    chocoboEditor->setHidden(true);
-                }
+
+    disableChocoLabels();
+    enableChocoboLabels(value);
+    stablesOwned = qint8(value);
+    Q_EMIT ownedChanged(qint8(value));
+    for (int i = value; i < 6 ; i++) {
+        if (chocoboLabel[i]->isOccupied()) {
+            chocoboLabel[i]->setOccupied(false);
+            setOccupied(stablesOccupied - 1, stableMask &= ~(1 << i));
+            Q_EMIT occupiedChanged(stablesOccupied);
+            Q_EMIT stableMaskChanged(stableMask);
+            if (i == selectedStable) {
+                selectedStable = -1;
+                chocoboEditor->setHidden(true);
             }
         }
     }

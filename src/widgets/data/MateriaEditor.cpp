@@ -503,27 +503,45 @@ QWidget *MateriaEditor::makeStarWidget()
 }
 void MateriaEditor::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange)
-        QWidget::changeEvent(e);
-
-    updateESkillList();
-    box_skills->setTitle(tr("Skills"));
-    box_status_effects->setTitle(tr("Added Effect"));
-    box_stats->setTitle(tr("Stat Changes"));
-    btn_rm_materia->setToolTip(tr("Delete"));
-    btn_paste_materia->setToolTip(tr("Paste"));
-    btn_copy_materia->setToolTip(tr("Copy"));
-    btn_eskill_master->setText(tr("Master"));
-    btn_eskill_clear->setText(tr("Clear"));
-    combo_type->setItemText(0, tr("All Materia"));
-    combo_type->setItemText(1, tr("Magic"));
-    combo_type->setItemText(2, tr("Summon"));
-    combo_type->setItemText(3, tr("Independent"));
-    combo_type->setItemText(4, tr("Support"));
-    combo_type->setItemText(5, tr("Command"));
-    typeChanged(combo_type->currentIndex());
-    setStats();
-    setSkills();
+    qDebug() << "materia_event" << e->type();
+    if (e->type() == QEvent::LanguageChange) {
+        updateESkillList();
+        box_skills->setTitle(tr("Skills"));
+        box_status_effects->setTitle(tr("Added Effect"));
+        box_stats->setTitle(tr("Stat Changes"));
+        btn_rm_materia->setToolTip(tr("Delete"));
+        btn_paste_materia->setToolTip(tr("Paste"));
+        btn_copy_materia->setToolTip(tr("Copy"));
+        btn_eskill_master->setText(tr("Master"));
+        btn_eskill_clear->setText(tr("Clear"));
+        combo_type->setItemText(0, tr("All Materia"));
+        combo_type->setItemText(1, tr("Magic"));
+        combo_type->setItemText(2, tr("Summon"));
+        combo_type->setItemText(3, tr("Independent"));
+        combo_type->setItemText(4, tr("Support"));
+        combo_type->setItemText(5, tr("Command"));
+        typeChanged(combo_type->currentIndex());
+        setStats();
+        setSkills();
+    } else if (e->type() == QEvent::PaletteChange) {
+        combo_materia->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+        QString emptyColor = QStringLiteral("0,0,0,0");
+        _highlightColor = QStringLiteral("%1,%2,%3,128").arg(QString::number(palette().highlight().color().red()), QString::number(palette().highlight().color().green()), QString::number(palette().highlight().color().blue()));
+        btn_rm_materia->setStyleSheet(_buttonStyle.arg(_highlightColor));
+        btn_copy_materia->setStyleSheet(_buttonStyle.arg(_highlightColor));
+        btn_paste_materia->setStyleSheet(_buttonStyle.arg(_highlightColor));
+        if(_editable) {
+            eskill_list->setStyleSheet(_itemStyle.arg(_highlightColor, QString::number(fontMetrics().height())));
+            for (QPushButton *button : qAsConst(btn_stars))
+                button->setStyleSheet(_buttonStyle.arg(_highlightColor));
+        }
+        else {
+            eskill_list->setStyleSheet(_itemStyle.arg(emptyColor, QString::number(fontMetrics().height())));
+            for (QPushButton *button : qAsConst(btn_stars))
+                button->setStyleSheet(_buttonStyle.arg(emptyColor));
+        }
+    }
+    QWidget::changeEvent(e);
 }
 void MateriaEditor::updateESkillList()
 {

@@ -54,6 +54,7 @@ void ListWidget::changeEvent(QEvent *e)
             a->setStatusTip(text);
         }
     }
+    QWidget::changeEvent(e);
 }
 
 void ListWidget::addSeparator(bool invisible)
