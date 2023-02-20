@@ -90,9 +90,9 @@ void ItemList::destroySelector()
 }
 void ItemList::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange)
-        QTableWidget::changeEvent(e);
-    itemupdate();
+    if (e->type() == QEvent::LanguageChange)
+        itemupdate();
+    QTableWidget::changeEvent(e);
 }
 
 ItemList::ItemList(QWidget *parent)

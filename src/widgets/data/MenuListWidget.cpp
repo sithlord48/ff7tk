@@ -38,9 +38,9 @@ MenuListWidget::MenuListWidget(QWidget *parent) :
 }
 void MenuListWidget::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange)
-        QWidget::changeEvent(e);
-    updateText();
+    if (e->type() == QEvent::LanguageChange)
+        updateText();
+    QWidget::changeEvent(e);
 }
 
 void MenuListWidget::init_display()

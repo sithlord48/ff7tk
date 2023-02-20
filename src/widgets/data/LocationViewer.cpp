@@ -84,10 +84,10 @@ void LocationViewer::resizeEvent(QResizeEvent *ev)
 
 void LocationViewer::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange) {
-        QWidget::changeEvent(e);
+    if (e->type() == QEvent::LanguageChange) {
+        updateText();
     }
-    updateText();
+    QWidget::changeEvent(e);
 }
 
 void LocationViewer::updateText()

@@ -151,33 +151,21 @@ void OrientationWidget::paintGrid(QPainter *p, double radius)
     int height = p->fontMetrics().height();
     double X = -radius * 0.94;
 
-    if(_zeroDirection == North) {
-        p->translate(X, -height);
-        if (value <= 180) {
-            p->translate(-X, height);
-            p->rotate(180);
-        }
-    } else if (_zeroDirection == East) {
-        p->translate(0, 0);
-        p->rotate(180);
-        if (value >= 90 && value < 270) {
-            p->translate(-X, height);
-            p->rotate(180);
-        }
-    } else if (_zeroDirection == South) {
-        p->rotate(180);
-        if (value <= 180) {
-            p->translate(-X, height);
-            p->rotate(180);
-        }
-    } else if(_zeroDirection == West) {
-        p->translate(X, -height);
-        if (value >= 90 && value < 270) {
-            p->translate(-X, height);
-            p->rotate(180);
-        }
-    }
+    bool condition = ((_zeroDirection == North) || (_zeroDirection == South)) ? value <= 180 : (value >= 90) && (value < 270);
 
+    if( (_zeroDirection == North) || (_zeroDirection == West))
+        p->translate(X, -height);
+
+    if (_zeroDirection == East)
+        p->translate(0,0);
+
+    if (_zeroDirection == South || _zeroDirection == East)
+        p->rotate(180);
+
+    if(condition) {
+        p->translate(-X, height);
+        p->rotate(180);
+    }
     p->drawText(QRectF(0, 0, radius * 0.9, height), _lblString, QTextOption(Qt::AlignCenter));
 }
 

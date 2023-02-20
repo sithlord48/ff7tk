@@ -69,6 +69,7 @@ private:
     void setSkills();
     void setLevel();
     void updateESkillList();
+    void updatePalette();
     //Private Gui Parts.
     QLabel *lbl_max_ap = nullptr;
     QHBoxLayout *Final = nullptr;

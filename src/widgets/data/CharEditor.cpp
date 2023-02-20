@@ -52,10 +52,17 @@ CharEditor::CharEditor(QWidget *parent)
 
 void CharEditor::changeEvent(QEvent *e)
 {
-    if (e->type() != QEvent::LanguageChange) {
-        QWidget::changeEvent(e);
+    if (e->type() == QEvent::LanguageChange) {
+        updateText();
+    } else if(e->type() == QEvent::PaletteChange) {
+        weapon_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0}"));
+        armor_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0}"));
+        accessory_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0}"));
+        for(auto m : materiaSlotFrames) {
+            m->setStyleSheet(QStringLiteral("QFrame{background-color:rgba(0,0,0,0);}"));
+        }
     }
-    updateText();
+    QWidget::changeEvent(e);
 }
 
 void CharEditor::updateText()
@@ -656,7 +663,7 @@ void CharEditor::init_display()
     weapon_materia_box->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     weapon_selection->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    weapon_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+    weapon_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0}"));
 
     auto weapon_layout = new QVBoxLayout;
     weapon_layout->setContentsMargins(0, 0, 0, 0);
@@ -686,7 +693,7 @@ void CharEditor::init_display()
     armor_materia_box->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     armor_selection->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    armor_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+    armor_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0}"));
 
     auto armor_layout = new QVBoxLayout;
     armor_layout->setContentsMargins(0, 0, 0, 0);
@@ -697,7 +704,7 @@ void CharEditor::init_display()
     armor_box->setLayout(armor_layout);
 
     accessory_selection->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    accessory_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+    accessory_selection->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0}"));
 
     auto accessory_layout = new QVBoxLayout;
     accessory_layout->setContentsMargins(0, 0, 0, 0);

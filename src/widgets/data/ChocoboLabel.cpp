@@ -24,24 +24,30 @@
 
 bool ChocoboLabel::event(QEvent *ev)
 {
-    if(ev->type() == QEvent::PaletteChange) {
-        setHoverColorStyle(QStringLiteral("rgba(%1,%2,%3,128);")
-                .arg(QString::number(palette().highlight().color().red())
-                    , QString::number(palette().highlight().color().green())
-                    , QString::number(palette().highlight().color().blue())));
-        return true;
-    } else if (ev->type() == QEvent::MouseButtonPress && isEnabled) {
+    if (ev->type() == QEvent::MouseButtonPress && isEnabled) {
         Q_EMIT clicked();
         return true;
-    } else if (ev->type() == QEvent::LanguageChange) {
+    }
+    return QWidget::event(ev);
+}
+
+void ChocoboLabel::changeEvent(QEvent *e)
+{
+    if(e->type() == QEvent::PaletteChange) {
+        setHoverColorStyle(QStringLiteral("rgba(%1,%2,%3,128);")
+                               .arg(QString::number(palette().highlight().color().red())
+                                    , QString::number(palette().highlight().color().green())
+                                    , QString::number(palette().highlight().color().blue())));
+        chkOccupied->setProperty("HoverStyled", QVariant(true));
+        chkOccupied->setStyleSheet(QStringLiteral("QCheckBox{ padding: 1px;} QCheckBox::indicator{width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
+        setSelected(isSelected);
+    } else if (e->type() == QEvent::LanguageChange) {
         btnCopy->setToolTip(QString(tr("Copy")));
         btnPaste->setToolTip(QString(tr("Paste")));
         btnRemove->setToolTip(QString(tr("Remove")));
         setRank(m_wins);
-        return true;
-    } else {
-        return false;
     }
+    QWidget::changeEvent(e);
 }
 
 ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *parent) :
@@ -232,11 +238,14 @@ void ChocoboLabel::clearLabel()
 
 void ChocoboLabel::setFontSize(int fontSize)
 {
-    QString fontStyle = QString("font-size:%1pt;background-color:rgba(0,0,0,0);").arg(fontSize);
-    lblName->setStyleSheet(fontStyle);
-    lblSex->setStyleSheet(fontStyle);
-    lblRank->setStyleSheet(fontStyle);
-    lblType->setStyleSheet(fontStyle);
+    if(m_fontSize != fontSize)
+        m_fontSize = fontSize;
+    auto fnt = lblName->font();
+    fnt.setPointSize(fontSize);
+    lblName->setFont(fnt);
+    lblSex->setFont(fnt);
+    lblRank->setFont(fnt);
+    lblType->setFont(fnt);
 }
 
 void ChocoboLabel::enable(bool enabled)
@@ -250,6 +259,7 @@ void ChocoboLabel::enable(bool enabled)
 
 void ChocoboLabel::setSelected(bool selected)
 {
+    isSelected = selected;
     if (selected) {
         outerFrame->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken); innerFrame->setStyleSheet(SelectedBkStyle);
     } else {
