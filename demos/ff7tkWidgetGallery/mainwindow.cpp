@@ -330,3 +330,8 @@ void MainWindow::on_cb_materiaEditor_showPlaceHolderMateria_toggled(bool checked
     materia_editor->setShowPlaceHolderMateria(checked);
 }
 
+
+void MainWindow::on_cb_itemSelection_showPlaceHolders_toggled(bool checked)
+{
+    itemlistView->setShowPlaceholderItems(checked);
+}

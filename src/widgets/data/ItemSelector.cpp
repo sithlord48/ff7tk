@@ -21,6 +21,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 
+#include <QDebug>
 #include <FF7Item>
 
 ItemSelector::ItemSelector(QWidget *parent)
@@ -29,6 +30,7 @@ ItemSelector::ItemSelector(QWidget *parent)
     , combo_item(new QComboBox(this))
     , sb_qty(new QSpinBox(this))
     , btn_remove(new QPushButton(this))
+    , _showPlaceholderItems(false)
 {
     init_display();
     init_connections();
@@ -103,11 +105,8 @@ void ItemSelector::init_data()
     sb_qty->setEnabled(false);
     //Fill Combo_Item (all items type is 0 or no filter defalut)
     for (int i = 0; i < 320; i++) {
-        if(FF7Item::name(i).isEmpty()) {
-            combo_item->addItem(tr("Item #%1").arg(i));
+        if(!_showPlaceholderItems && FF7Item::placeHolderIds().contains(i))
             continue;
-        }
-
         combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
     }
 
@@ -138,6 +137,8 @@ void ItemSelector::setFilter(int type)
             if (FF7Item::type(i) == type)
                 combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
         } else {
+            if(!_showPlaceholderItems && FF7Item::placeHolderIds().contains(i))
+                continue;
             combo_item->addItem(FF7Item::icon(i), FF7Item::name(i));
         }
     }
@@ -289,4 +290,9 @@ quint16 ItemSelector::currentItem()
 void ItemSelector::setEditableItemCombo(bool editable)
 {
     combo_item->setEditable(editable);
+}
+
+void ItemSelector::setShowPlaceholderItems(bool showPlaceholderItems)
+{
+    _showPlaceholderItems = showPlaceholderItems;
 }

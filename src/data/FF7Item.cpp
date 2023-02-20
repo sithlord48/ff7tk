@@ -494,3 +494,8 @@ const QString &FF7Item::styleMateriaLink()
 {
     return FF7Item::instance()->d->_styleLink;
 }
+
+const QList<int> FF7Item::placeHolderIds()
+{
+    return FF7Item::instance()->d->_placeholderIds;
+}

@@ -3961,6 +3961,10 @@ The km/h speeds are calculated while playing </source>
         <source>Initial equipment</source>
         <translation>最初から持っている剣</translation>
     </message>
+    <message>
+        <source>Unsed Item</source>
+        <translation type="unfinished">未使用品</translation>
+    </message>
 </context>
 <context>
     <name>FF7ItemModel</name>
@@ -7084,10 +7088,6 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Empty Item</source>
         <translation type="unfinished">アイテムなし</translation>
-    </message>
-    <message>
-        <source>Item #%1</source>
-        <translation type="unfinished">アイテム #%1</translation>
     </message>
 </context>
 <context>

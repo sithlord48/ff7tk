@@ -41,6 +41,7 @@ public slots:
     void setCurrentItem(int id, int qty);
     void setMaximumQty(int maxQty);
     void setEditableItemCombo(bool editable);
+    void setShowPlaceholderItems(bool showPlaceholderItems);
 private slots:
     void setFilter(int type);
     void comboItem_changed(int index);
@@ -56,4 +57,5 @@ private:
     QSpinBox  *sb_qty = nullptr;
     QPushButton *btn_remove = nullptr;
     quint16 current_item = 0;
+    bool _showPlaceholderItems;
 };

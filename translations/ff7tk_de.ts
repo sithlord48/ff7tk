@@ -3961,6 +3961,10 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Initial equipment</source>
         <translation>Anfangsausrüstung</translation>
     </message>
+    <message>
+        <source>Unsed Item</source>
+        <translation type="unfinished">Unbenutzter Artikel</translation>
+    </message>
 </context>
 <context>
     <name>FF7ItemModel</name>
@@ -7084,10 +7088,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     <message>
         <source>Empty Item</source>
         <translation>leere Artikel</translation>
-    </message>
-    <message>
-        <source>Item #%1</source>
-        <translation type="unfinished">Item #%1</translation>
     </message>
 </context>
 <context>
