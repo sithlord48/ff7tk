@@ -16,6 +16,7 @@ QWidget* ItemSelectionDelegate::createEditor(QWidget *parent, const QStyleOption
     Q_UNUSED(index);
     const auto &selector = new ItemSelector(parent);
     selector->setEditableItemCombo(m_editableItemCombo);
+    selector->setShowPlaceholderItems(m_showPlaceholderItems);
     selector->setMaximumQty(m_maxQty);
     connect(selector, &ItemSelector::itemChanged, this, [this, selector]{
         Q_EMIT commitData(static_cast<QWidget*>(selector));
@@ -52,6 +53,11 @@ void ItemSelectionDelegate::setMaximumQty(int maxQty)
 void ItemSelectionDelegate::setEditableItemCombo(bool editable)
 {
     m_editableItemCombo = editable;
+}
+
+void ItemSelectionDelegate::setShowPlaceholderItems(bool showPlaceholderItems)
+{
+    m_showPlaceholderItems = showPlaceholderItems;
 }
 
 QSize ItemSelectionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

@@ -109,3 +109,16 @@ void ItemListView::setEditableItemCombo(bool editable)
     }
     setCurrentIndex(QModelIndex());
 }
+
+void ItemListView::setShowPlaceholderItems(bool showPlaceholderItems)
+{
+    if(m_showPlaceholderItems == showPlaceholderItems)
+        return;
+
+    auto itemSelector = static_cast<ItemSelectionDelegate*>(itemDelegate());
+    if(itemSelector) {
+        m_showPlaceholderItems = showPlaceholderItems;
+        itemSelector->setShowPlaceholderItems(m_showPlaceholderItems);
+    }
+    setCurrentIndex(QModelIndex());
+}

@@ -76,6 +76,8 @@ private slots:
 
     void on_cb_materiaEditor_showPlaceHolderMateria_toggled(bool checked);
 
+    void on_cb_itemSelection_showPlaceHolders_toggled(bool checked);
+
 private:
 
     Ui::MainWindow *ui = nullptr;

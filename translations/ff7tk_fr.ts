@@ -3961,6 +3961,10 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <source>Initial equipment</source>
         <translation>Equipement de départ</translation>
     </message>
+    <message>
+        <source>Unsed Item</source>
+        <translation type="unfinished">Objet inutilisé</translation>
+    </message>
 </context>
 <context>
     <name>FF7ItemModel</name>
@@ -7084,10 +7088,6 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <message>
         <source>Empty Item</source>
         <translation>Object vide</translation>
-    </message>
-    <message>
-        <source>Item #%1</source>
-        <translation>Elément #%1</translation>
     </message>
 </context>
 <context>

@@ -3963,6 +3963,10 @@ La velocità in km/h viene calcolata a runtime</translation>
         <source>Initial equipment</source>
         <translation>Equipaggiamento iniziale</translation>
     </message>
+    <message>
+        <source>Unsed Item</source>
+        <translation type="unfinished">Articolo non utilizzato</translation>
+    </message>
 </context>
 <context>
     <name>FF7ItemModel</name>
@@ -7093,10 +7097,6 @@ La velocità in km/h viene calcolata a runtime</translation>
     <message>
         <source>Empty Item</source>
         <translation>Vuoto</translation>
-    </message>
-    <message>
-        <source>Item #%1</source>
-        <translation type="unfinished">Item #%1</translation>
     </message>
 </context>
 <context>

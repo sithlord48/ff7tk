@@ -29,6 +29,7 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     void setMaximumQty(int maxQty);
     void setEditableItemCombo(bool editable);
+    void setShowPlaceholderItems(bool showPlaceholderItems);
 protected:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 signals:
@@ -36,5 +37,6 @@ signals:
 private:
     int m_maxQty = 127;
     bool m_editableItemCombo = false;
+    bool m_showPlaceholderItems = false;
 };
 
