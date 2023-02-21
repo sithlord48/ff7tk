@@ -87,7 +87,7 @@ var searchData=
   ['istypesss_837',['isTypeSSS',['../classFF7SaveInfo.html#a61fc5b20a6f567513d2fd7cbb7bd1d0b',1,'FF7SaveInfo']]],
   ['istypevmc_838',['isTypeVMC',['../classFF7SaveInfo.html#a767c092bf2e3125df0611f47669bc78d',1,'FF7SaveInfo']]],
   ['isvalid_839',['isValid',['../classTextureFile.html#a5323e925ac7a535d52cfa657389249f8',1,'TextureFile::isValid()'],['../classWindowBinFile.html#ae0a963dc6815b88915ff67e0fd2132f8',1,'WindowBinFile::isValid()']]],
-  ['item_840',['Item',['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1da2ab3457d86d2163ae5023ce417a9a883',1,'FF7Item::Item()'],['../classLocationViewer.html#ab866e6698e61200ae7c10be4f054eec7aa5d236d28f8eb22dfa92c1788d364fbc',1,'LocationViewer::ITEM()'],['../classFF7Save.html#a18dd969e0c82a028dbe57e0888b7cf17',1,'FF7Save::item()']]],
+  ['item_840',['ITEM',['../classLocationViewer.html#ab866e6698e61200ae7c10be4f054eec7aa5d236d28f8eb22dfa92c1788d364fbc',1,'LocationViewer::ITEM()'],['../classFF7Save.html#a18dd969e0c82a028dbe57e0888b7cf17',1,'FF7Save::item()'],['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1da2ab3457d86d2163ae5023ce417a9a883',1,'FF7Item::Item()']]],
   ['itemchanged_841',['itemChanged',['../classItemSelector.html#a723d0b79ca63c256d1da5e1a18668100',1,'ItemSelector']]],
   ['itemdecode_842',['itemDecode',['../classFF7Item.html#a54138fe51869db854d5e26bdefd5abf5',1,'FF7Item']]],
   ['itemeffect_843',['ItemEffect',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455',1,'FF7Item']]],

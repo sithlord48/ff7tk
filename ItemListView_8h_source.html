@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.1.8</span>
+   &#160;<span id="projectnumber">0.83.1.15</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -101,16 +101,20 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classItemListView.html#a359f80af9a6c4af9bf3642cc0e0b6021">   28</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classItemListView.html#a359f80af9a6c4af9bf3642cc0e0b6021">maximumItemQty</a>() {<span class="keywordflow">return</span> m_itemQtyLimit;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> setEditableItemCombo(<span class="keywordtype">bool</span> editable);</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classItemListView.html#af6a93133b2c4c04dd7ca72286da63e1c">   30</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classItemListView.html#af6a93133b2c4c04dd7ca72286da63e1c">editableItemCombo</a>() {<span class="keywordflow">return</span> m_editableItemCombo;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> setModel(QAbstractItemModel* model);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> viewportEvent(QEvent *event);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> destroyTooltip();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> m_itemQtyLimit = 127;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> m_editableItemCombo = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> m_createdTooltip = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classItemPreview.html">ItemPreview</a> *itemPreview = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> setShowPlaceholderItems(<span class="keywordtype">bool</span> showPlaceholderItems);</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classItemListView.html#a64ea159d01ae76ed43706f5c6f9e8a75">   32</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classItemListView.html#a64ea159d01ae76ed43706f5c6f9e8a75">showPlaceholderItems</a>() {<span class="keywordflow">return</span> m_showPlaceholderItems;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> setModel(QAbstractItemModel* model);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> viewportEvent(QEvent *event);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> destroyTooltip();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> m_itemQtyLimit = 127;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> m_editableItemCombo = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> m_createdTooltip = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> m_showPlaceholderItems = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classItemPreview.html">ItemPreview</a> *itemPreview = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassItemListView_html_a64ea159d01ae76ed43706f5c6f9e8a75"><div class="ttname"><a href="classItemListView.html#a64ea159d01ae76ed43706f5c6f9e8a75">ItemListView::showPlaceholderItems</a></div><div class="ttdeci">bool showPlaceholderItems()</div><div class="ttdef"><b>Definition:</b> ItemListView.h:32</div></div>
 <div class="ttc" id="aclassItemListView_html"><div class="ttname"><a href="classItemListView.html">ItemListView</a></div><div class="ttdef"><b>Definition:</b> ItemListView.h:23</div></div>
 <div class="ttc" id="aclassItemListView_html_a359f80af9a6c4af9bf3642cc0e0b6021"><div class="ttname"><a href="classItemListView.html#a359f80af9a6c4af9bf3642cc0e0b6021">ItemListView::maximumItemQty</a></div><div class="ttdeci">int maximumItemQty()</div><div class="ttdef"><b>Definition:</b> ItemListView.h:28</div></div>
 <div class="ttc" id="aclassItemPreview_html"><div class="ttname"><a href="classItemPreview.html">ItemPreview</a></div><div class="ttdef"><b>Definition:</b> ItemPreview.h:26</div></div>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.1.8</span>
+   &#160;<span id="projectnumber">0.83.1.15</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -106,6 +106,8 @@ Configuration</h1>
 <td class="markdownTableBodyCenter">WIDGETS </td><td class="markdownTableBodyCenter">Build ff7tkWidgets. </td><td class="markdownTableBodyCenter">ON </td><td class="markdownTableBodyCenter"></td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter">SPLITPACKAGES </td><td class="markdownTableBodyCenter">Create Split Packages </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CLEAN_TRS </td><td class="markdownTableBodyCenter">Remove Obsolete Translation Entries </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter"></td></tr>
 </table>
 <p>Enabling Demos will allow you to set this additional options all are enabled by default </p><table class="markdownTable">
 <tr class="markdownTableHead">
@@ -144,14 +146,14 @@ ff7tk version info</h2>
 </ul>
 <h3><a class="anchor" id="autotoc_md7"></a>
 ff7tk version compatibility</h3>
-<p>ff7tk verisons with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.</p>
+<p>ff7tk versions with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.</p>
 <h2><a class="anchor" id="autotoc_md8"></a>
 Translations</h2>
 <p>In addition to ff7tk's language files your application should also load and/or ship the qt_base_&lt;lang&gt;.qm these are required to translate strings from inside Qt libraries.</p>
 <p>You can use FF7Tk::translationList to get a QMap&lt;QString, QTranslation*&gt; of all the auto detected language files. This will look in several places in the application directory and around the system to attempt to find them.</p>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Deploying ff7tk with your app</h2>
-<p>When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommened to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.</p>
+<p>When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommended to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.</p>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Item Depends</h3>
 <ul>
