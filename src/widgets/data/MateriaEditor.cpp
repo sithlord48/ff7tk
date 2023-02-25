@@ -503,7 +503,6 @@ QWidget *MateriaEditor::makeStarWidget()
 }
 void MateriaEditor::changeEvent(QEvent *e)
 {
-    qDebug() << "materia_event" << e->type();
     if (e->type() == QEvent::LanguageChange) {
         updateESkillList();
         box_skills->setTitle(tr("Skills"));

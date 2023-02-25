@@ -120,7 +120,7 @@ void LocationViewer::updateText()
     groupFieldItems->setTitle(tr("Field Items"));
 
     if (locationTable->currentRow() > -1)
-        lineLocationName->setText(translate(FF7Location::rawLocationString(locationTable->item(locationTable->currentRow(), COL_FNAME)->text())));
+        lineLocationName->setText(translate(FF7Location::rawLocationString(locationTable->item(locationTable->currentRow(), COL_NAME)->text())));
 
     if (actionNameSearch->isChecked())
         lineTableFilter->setPlaceholderText(actionNameSearch->text());
