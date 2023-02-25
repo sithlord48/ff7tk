@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['optionswidget_2220',['OptionsWidget',['../classOptionsWidget.html',1,'']]],
-  ['orientationwidget_2221',['OrientationWidget',['../classOrientationWidget.html',1,'']]]
+  ['optionswidget_2221',['OptionsWidget',['../classOptionsWidget.html',1,'']]],
+  ['orientationwidget_2222',['OrientationWidget',['../classOrientationWidget.html',1,'']]]
 ];
