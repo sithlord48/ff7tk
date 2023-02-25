@@ -51,6 +51,7 @@ public:
     bool AutoLevel();
     bool AutoStatCalc();
     bool Editable();
+    bool showPlaceholderMateria();
     bool AdvancedMode();
     void MaxStats();
     void MaxEquip();
@@ -139,6 +140,7 @@ public slots:
     void setAutoLevel(bool);
     void setAutoStatCalc(bool);
     void setEditable(bool);
+    void setShowPlaceholderMateria(bool);
     void setAdvancedMode(bool);
     void setToolBoxStyle(const QString &styleSheet);
     void setSliderStyle(const QString &style);
@@ -246,6 +248,7 @@ private:
     bool autolevel{true};
     bool autostatcalc{true};
     bool editable{true};
+    bool showplaceholderMateria{false};
     bool advancedMode{false};
     int mslotsel{-1};
     qint32 ap{0};

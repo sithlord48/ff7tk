@@ -1564,9 +1564,20 @@ void CharEditor::setEditable(bool edit)
     }
 }
 
+void CharEditor::setShowPlaceholderMateria(bool shown)
+{
+    showplaceholderMateria = shown;
+    materia_edit->setShowPlaceHolderMateria(shown);
+}
+
 bool CharEditor::Editable()
 {
     return editable;
+}
+
+bool CharEditor::showPlaceholderMateria()
+{
+    return showplaceholderMateria;
 }
 
 void CharEditor::calc_stats()
