@@ -5,9 +5,9 @@ find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
 )
 set(DATA ON CACHE BOOL "Build ff7tkData Lib" FORCE)
 
-find_library(ff7tk ${CMAKE_CURRENT_BINARY_DIR}/src/core)
-find_library(ff7tkData ${CMAKE_CURRENT_BINARY_DIR}/src/data)
-find_library(ff7tkQtWidgets ${CMAKE_CURRENT_BINARY_DIR}/src/widgets/common)
+find_library(ff7tk ${CMAKE_BINARY_DIR}/src/core)
+find_library(ff7tkData ${CMAKE_BINARY_DIR}/src/data)
+find_library(ff7tkQtWidgets ${CMAKE_BINARY_DIR}/src/widgets/common)
 
 set ( ff7tkWidgets_SRC
     AchievementEditor.cpp
