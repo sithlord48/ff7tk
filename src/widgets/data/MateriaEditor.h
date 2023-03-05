@@ -104,19 +104,16 @@ private:
     qint32 buffer_ap;
     qint8 _level;//current level
     qint32 _current_ap;// current ap amount
-    QString _highlightColor;
     QSize _iconSize;
     bool _showPlaceHolders; // Show Materia Named "ID:0x\\d+"
     bool _editable;
-    inline static const auto _buttonStyle = QStringLiteral("QPushButton:enabled{background-color: rgba(0,0,0,0);border:0px solid;} QPushButton:hover{background-color:rgba(%1);}");
+    inline static const auto _comboStyle = QStringLiteral("QComboBox { combobox-popup: 0;}");
+    inline static const auto _buttonStyle = QStringLiteral("QPushButton:enabled{background-color: rgba(0,0,0,0);border:0px solid;} QPushButton:hover{background-color: palette(highlight);}");
+    inline static const auto _buttonHighlightStyle_addition = QStringLiteral(" QPushButton:hover{background-color: palette(highlight);}");
     inline static const auto _itemStyle = QStringLiteral("::item { padding-left: 0px; padding-top: 1px; padding-bottom: 1px;}"
-                                                         "::indicator { width: %2px; height: %2px; }"
                                                          "::indicator:unchecked {image: url(:/materia/command_star_empty);}"
                                                          "::indicator:checked{image: url(:/materia/command_star_full);}"
-                                                         "::item:hover { background-color: rgba(%1); }"
-                                                         //Give unfocused items a transparent border to work around Qt6 bug where indicator is set only for listed states.
-                                                         "::item:!focus { border: 1px solid transparent;}"
-                                                         "::item:focus { background-color: rgba(%1); }");
+                                                         );
 
 private slots:
     void typeChanged(int new_type);
