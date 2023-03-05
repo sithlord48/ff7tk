@@ -7625,20 +7625,20 @@ La velocità in km/h viene calcolata a runtime</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>-Empty Slot-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Level:%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Gil:%1</source>
         <translation>Guil:%1</translation>
     </message>
     <message>
         <source>Time:%1:%2</source>
         <translation>Tempo:%1:%2</translation>
+    </message>
+    <message>
+        <source>-Empty Slot-</source>
+        <translation type="unfinished">- Vuoto -</translation>
+    </message>
+    <message>
+        <source>Level:%1</source>
+        <translation type="unfinished">Livello: %1</translation>
     </message>
 </context>
 <context>

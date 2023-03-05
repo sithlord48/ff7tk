@@ -33,12 +33,15 @@ class FF7TKWIDGETS_EXPORT SlotPreview : public QLabel
     Q_OBJECT
 public:
     /** \enum MODE */
-    enum MODE
-    {MODE_EMPTY,/**< \brief Empty Slot*/ MODE_PSXGAME, /**< \brief PSX Game or linked block */ MODE_FF7SAVE /**< \brief FF7 Save in slot*/ };
+    enum MODE {
+        EMPTY,/**< \brief Empty Slot*/
+        PSXGAME, /**< \brief PSX Game or linked block */
+        FF7SAVE /**< \brief FF7 Save in slot*/
+    };
+    Q_ENUM(MODE)
     SlotPreview(int index = 0, QWidget *parent = nullptr);
     int index(void);
     void setParty(QPixmap p1, QPixmap p2, QPixmap p3);
-    void setParty(QString p1_style, QString p2_style, QString p3_style);
     void setName(QString);
     void setLevel(int);
     void setLocation(QString);
@@ -46,7 +49,9 @@ public:
     void setTime(int hour, int min);
     void setPsxIcon(const QByteArray &icon_data, quint8 frames = 1);
     void setPsxIcon(const QList<QByteArray> &icon_data);
-    void setMode(int mode);
+    void setMode(SlotPreview::MODE mode);
+    void setBackground(const QImage &image);
+    void setPSXText(const QString &text);
 
 signals:
     void clicked(int); /**< \brief Signal: User Clicked on preview, returns index of click */
@@ -56,32 +61,26 @@ signals:
 
 protected:
     void mousePressEvent(QMouseEvent *ev);
+    void paintEvent(QPaintEvent *);
 
 private:
-    void init_display(void);
-    void set_ff7_save(void);
-    void set_empty(void);
-    void set_psx_game(void);
-    QLabel *party1 = nullptr;
-    QLabel *party2 = nullptr;
-    QLabel *party3 = nullptr;
-    QLabel *name = nullptr;
-    QLabel *lbl_Slot = nullptr;
-    QLabel *lbl_time = nullptr;
-    QLabel *lbl_level = nullptr;
-    QLabel *location = nullptr;
-    QLabel *lbl_gil = nullptr;
     QToolButton *btn_copy = nullptr;
     QToolButton *btn_paste = nullptr;
     QToolButton *btn_remove = nullptr;
-    SaveIcon *icon = nullptr;
-    QHBoxLayout *btnLayout = nullptr;
-    QVBoxLayout *Final = nullptr;
-    QVBoxLayout *top_layout = nullptr;
+    SaveIcon *m_psxIcon = nullptr;
+
     int m_index;
     int m_lineHeight;
-    static inline QString _previewStyle = QStringLiteral(R"(SlotPreview{border: .5ex solid;}\nQToolButton{border: 1px solid})");
-    static inline QString _genericStyle = QStringLiteral(R"(font: 75 16pt "Verdana"; color: white)");
-    static inline QString _ff7SlotStyle = QStringLiteral(R"(background-color:rgba(0,0,0,0);font: 75 16pt "Verdana";color:white)");
-    static inline QString _emptyTextStyle = QStringLiteral(R"(font: 75 20pt "Verdana"; color:yellow;)");
+
+    MODE m_mode = EMPTY;
+    QString m_psxText = QString();
+    QImage m_background = QImage();
+    QPixmap m_p1 = QPixmap();
+    QPixmap m_p2 = QPixmap();
+    QPixmap m_p3 = QPixmap();
+    QString m_name = QString();
+    QString m_time = QString();
+    QString m_level = QString();
+    QString m_gil = QString();
+    QString m_location = QString();
 };

@@ -52,7 +52,7 @@ SlotSelect::SlotSelect(FF7Save *data, bool loadVisible, QWidget *parent)
     list_preview->setContentsMargins(0, 0, 0, 0);
     QVBoxLayout *dialog_layout = new QVBoxLayout;
     dialog_layout->setContentsMargins(0, 0, 0, 0);
-    dialog_layout->setSpacing(2);
+    dialog_layout->setSpacing(5);
     dialog_layout->addWidget(list_preview);
     dialog_layout->addWidget(btnNew);
     showLoad(loadVisible);
@@ -132,7 +132,7 @@ void SlotSelect::ReIntSlot(int s)
 void SlotSelect::setSlotPreview(int s)
 {
     if (ff7->isFF7(s)) {
-        preview[s]->setMode(SlotPreview::MODE_FF7SAVE);
+        preview[s]->setMode(SlotPreview::FF7SAVE);
         //show real Dialog background.
         QImage image(2, 2, QImage::Format_ARGB32);
         image.setPixel(0, 0, ff7->dialogColorUL(s).rgb());
@@ -140,7 +140,7 @@ void SlotSelect::setSlotPreview(int s)
         image.setPixel(0, 1, ff7->dialogColorLL(s).rgb());
         image.setPixel(1, 1, ff7->dialogColorLR(s).rgb());
         QImage gradient = image.scaled(preview[s]->width(), preview[s]->height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        preview[s]->setPixmap(QPixmap::fromImage(gradient));
+        preview[s]->setBackground(gradient);
         preview[s]->setParty(FF7Char::pixmap(ff7->descParty(s, 0)), FF7Char::pixmap(ff7->descParty(s, 1)), FF7Char::pixmap(ff7->descParty(s, 2)));
         preview[s]->setLocation(ff7->descLocation(s));
         preview[s]->setName(ff7->descName(s));
@@ -148,12 +148,12 @@ void SlotSelect::setSlotPreview(int s)
         preview[s]->setGil(int(ff7->descGil(s)));
         preview[s]->setTime((ff7->descTime(s) / 3600), (ff7->descTime(s) / 60 % 60));
     } else if (ff7->isSlotEmpty(s)) {
-        preview[s]->setMode(SlotPreview::MODE_EMPTY);
+        preview[s]->setMode(SlotPreview::EMPTY);
     } else {
         // all other psx saves.
-        preview[s]->setMode(SlotPreview::MODE_PSXGAME);
+        preview[s]->setMode(SlotPreview::PSXGAME);
         preview[s]->setPsxIcon(ff7->slotIcon(s));
-        QString Slottext("      ");
+        QString Slottext;
 
         if (ff7->psx_block_type(s) == char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_MIDLINK)
                 || ff7->psx_block_type(s) == char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_MIDLINK)
@@ -179,7 +179,7 @@ void SlotSelect::setSlotPreview(int s)
         if (ff7->psx_block_next(s) != 0xFF)
             Slottext.append(tr("\n\t   Next Data Chunk @ Slot:%1").arg(QString::number(ff7->psx_block_next(s) + 1)));
 
-        preview[s]->setLocation(Slottext);
+        preview[s]->setPSXText(Slottext);
     }
 
     connect(preview[s], &SlotPreview::clicked, this, &SlotSelect::button_clicked);
