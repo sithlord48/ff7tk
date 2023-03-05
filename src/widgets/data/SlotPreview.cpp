@@ -18,6 +18,7 @@
 
 #include <QHBoxLayout>
 #include <QMouseEvent>
+#include <QPainter>
 #include <QToolButton>
 #include <QVBoxLayout>
 
@@ -27,19 +28,8 @@ SlotPreview::SlotPreview(int index, QWidget *parent)
 {
     QFontMetrics formFont(QFont(QStringLiteral("Verdana"), 18, 75, false));
     m_lineHeight = formFont.height();
-
-    Final = new QVBoxLayout();
-    Final->setContentsMargins(2, 2, 2, 2);
-    setLayout(Final);
     setFixedSize(QSize( int((m_lineHeight *5.2) * 4.311), int(m_lineHeight * 5.2)));
-    setStyleSheet(_previewStyle);
     setCursor(Qt::PointingHandCursor);
-}
-
-void SlotPreview::init_display(void)
-{
-    lbl_Slot = new QLabel;
-    lbl_Slot->setText(QString(tr("Slot: %1")).arg(QString::number(index() + 1)));
 
     btn_remove = new QToolButton(this);
     btn_remove->setIcon(QIcon::fromTheme(QString("edit-clear"), QPixmap(":/common/edit-clear")));
@@ -65,152 +55,53 @@ void SlotPreview::init_display(void)
         btn->setFixedSize(btnSize);
         btn->setIconSize(iconSize);
         btn->setCursor(Qt::BitmapCursor);
-        btn->setHidden(true);
     }
+    btn_copy->setHidden(true);
+    btn_remove->setHidden(true);
 
-    btnLayout = new QHBoxLayout;
+    auto btnLayout = new QHBoxLayout;
+    btnLayout->setAlignment(Qt::AlignRight);
     btnLayout->setContentsMargins(3, 0, 3, 0);
-    btnLayout->addWidget(lbl_Slot);
-    btnLayout->addWidget(btn_copy);
-    btnLayout->addWidget(btn_paste);
-    btnLayout->addWidget(btn_remove);
+    btnLayout->addWidget(btn_copy, Qt::AlignRight);
+    btnLayout->addWidget(btn_paste, Qt::AlignRight);
+    btnLayout->addWidget(btn_remove, Qt::AlignRight);
+    btnLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+
+    auto layout = new QVBoxLayout(this);
+    layout->addLayout(btnLayout);
+    layout->addStretch();
+    setLayout(layout);
 }
 
-void SlotPreview::setMode(int mode)
+void SlotPreview::setMode(MODE mode)
 {
-    init_display();
+    if(mode == m_mode)
+        return;
+
     switch (mode) {
-        case 0: set_empty(); break;
-        case 1: set_psx_game(); break;
-        case 2: set_ff7_save(); break;
+        case FF7SAVE: btn_copy->setHidden(false);
+        case PSXGAME: btn_remove->setHidden(false);
+        case EMPTY: btn_paste->setHidden(false);
     }
-}
-void SlotPreview::set_empty(void)
-{
-    btn_paste->setHidden(false);
-    lbl_Slot->setStyleSheet(_genericStyle);
-    location = new QLabel(tr("-Empty Slot-"));
-    location->setAlignment(Qt::AlignCenter);
-    location->setStyleSheet(_emptyTextStyle);
-    QVBoxLayout *empty_layout = new QVBoxLayout;
-    empty_layout->setContentsMargins(12, 12, 12, 12);
-    empty_layout->addWidget(location);
-    top_layout = new QVBoxLayout;
-    top_layout->setContentsMargins(6, 0, 0, 0);
-    top_layout->addLayout(btnLayout);
-    top_layout->addItem(empty_layout);
-    Final->addLayout(top_layout);
+    m_mode = mode;
+    repaint();
 }
 
-void SlotPreview::set_psx_game(void)
+void SlotPreview::setBackground(const QImage &image)
 {
-    lbl_Slot->setStyleSheet(_genericStyle);
-    btn_remove->setHidden(false);
-    btn_paste->setHidden(false);
-    icon = new SaveIcon;
-    party1 = new QLabel;
-    party1->setScaledContents(true);
-    party1->setFixedSize( int(m_lineHeight * 3.5) , int(m_lineHeight * 3.5));
-    connect (icon, &SaveIcon::nextIcon, party1, &QLabel::setPixmap);
-    location = new QLabel;
-    location->setStyleSheet(_genericStyle);
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->addWidget(party1);
-    layout->addWidget(location);
-    top_layout = new QVBoxLayout;
-    top_layout->setContentsMargins(6, 0, 0, 0);
-    top_layout->setSpacing(3);
-    top_layout->addLayout(btnLayout);
-    top_layout->addItem(layout);
-    Final->addLayout(top_layout);
+    m_background = image;
 }
 
-void SlotPreview::set_ff7_save(void)
+void SlotPreview::setPSXText(const QString &text)
 {
-    QSize avatarSize (m_lineHeight * 3 , m_lineHeight * 3.75);
-    party1 = new QLabel;
-    party1->setFixedSize(avatarSize);
-    party1->setScaledContents(true);
-
-    party2 = new QLabel;
-    party2->setFixedSize(avatarSize);
-    party2->setScaledContents(true);
-
-    party3 = new QLabel;
-    party3->setFixedSize(avatarSize);
-    party3->setScaledContents(true);
-
-    lbl_gil = new QLabel;
-    lbl_gil->setAlignment(Qt::AlignCenter);
-
-    name = new QLabel;
-    name->setAlignment(Qt::AlignCenter);
-
-    lbl_time = new QLabel;
-    lbl_time->setAlignment(Qt::AlignCenter);
-
-    lbl_level = new QLabel;
-    lbl_level->setAlignment(Qt::AlignCenter);
-
-    location = new QLabel;
-    location->setAlignment(Qt::AlignCenter);
-
-    QHBoxLayout *partybox = new QHBoxLayout;
-    partybox->addWidget(party1);
-    partybox->addWidget(party2);
-    partybox->addWidget(party3);
-
-    QHBoxLayout *levelgilbox = new QHBoxLayout;
-    levelgilbox->setContentsMargins(0, 0, 0, 0);
-    levelgilbox->setSpacing(0);
-    levelgilbox->addWidget(lbl_level);
-    levelgilbox->addWidget(lbl_gil);
-
-    QHBoxLayout *nametimebox = new QHBoxLayout;
-    nametimebox->setContentsMargins(0, 0, 0, 0);
-    nametimebox->setSpacing(0);
-    nametimebox->addWidget(name);
-    nametimebox->addWidget(lbl_time);
-
-    QVBoxLayout *upperhalf = new QVBoxLayout;
-    upperhalf->addLayout(nametimebox);
-    upperhalf->addLayout(levelgilbox);
-    upperhalf->addWidget(location);
-
-    QHBoxLayout *midbox = new QHBoxLayout;
-    midbox->addLayout(partybox);
-    midbox->addLayout(upperhalf);
-
-    btn_remove->setHidden(false);
-    btn_paste->setHidden(false);
-    btn_copy->setHidden(false);
-
-    top_layout = new QVBoxLayout;
-    top_layout->addLayout(btnLayout);
-    top_layout->addLayout(midbox);
-    top_layout->addWidget(lbl_Slot);
-    top_layout->setContentsMargins(6, 0, 0, 0);
-    top_layout->setSpacing(3);
-    Final->addLayout(top_layout);
-
-    const QList<QLabel*> labels = findChildren<QLabel *>();
-    for (auto lbl : labels)
-        lbl->setStyleSheet(_ff7SlotStyle);
+    m_psxText = text;
 }
 
 void SlotPreview::setParty(QPixmap p1, QPixmap p2, QPixmap p3)
 {
-    party1->setPixmap(p1);
-    party2->setPixmap(p2);
-    party3->setPixmap(p3);
-}
-
-void SlotPreview::setParty(QString p1_style, QString p2_style, QString p3_style)
-{
-    party1->setStyleSheet(p1_style);
-    party2->setStyleSheet(p2_style);
-    party3->setStyleSheet(p3_style);
+    m_p1 = p1;
+    m_p2 = p2;
+    m_p3 = p3;
 }
 
 int SlotPreview::index(void)
@@ -218,45 +109,116 @@ int SlotPreview::index(void)
     return m_index;
 }
 
-void SlotPreview::setName(QString Name)
+void SlotPreview::setName(QString name)
 {
-    name->setText(Name);
+    if(m_name == name)
+        return;
+    m_name = name;
 }
 
 void SlotPreview::setLevel(int lvl)
 {
-    lbl_level->setText(QString(tr("Level:%1")).arg(QString::number(lvl)));
+    m_level = QString(tr("Level:%1")).arg(QString::number(lvl));
 }
 
 void SlotPreview::setLocation(QString loc)
 {
-    location->setText(loc);
+    m_location = loc;
 }
 
 void SlotPreview::setGil(int gil)
 {
-    lbl_gil->setText(QString(tr("Gil:%1")).arg(QString::number(gil)));
+    m_gil = QString(tr("Gil:%1")).arg(QString::number(gil));
 }
 
 void SlotPreview::setTime(int hr, int min)
 {
-    lbl_time->setText(QString(tr("Time:%1:%2")).arg(QString::number(hr), QString("%1").arg(QString::number(min), 2, QChar('0'))));
+    m_time = QString(tr("Time:%1:%2")).arg(QString::number(hr), QString("%1").arg(QString::number(min), 2, QChar('0')));
 }
 
 void SlotPreview::setPsxIcon(const QByteArray &icon_data, quint8 frames)
 {
-    icon->setAll(icon_data, frames);
-    party1->setPixmap(icon->icon());
+    if(!m_psxIcon) {
+        m_psxIcon = new SaveIcon();
+        connect(m_psxIcon, &SaveIcon::nextIcon, this, [this]{ update(); });
+    }
+    m_psxIcon->setAll(icon_data, frames);
 }
 
 void SlotPreview::setPsxIcon(const QList<QByteArray> &icon_data)
 {
-    icon->setAll(icon_data);
-    party1->setPixmap(icon->icon());
+    if(!m_psxIcon) {
+        m_psxIcon = new SaveIcon();
+        connect(m_psxIcon, &SaveIcon::nextIcon, this, [this]{ update(); });
+    }
+    m_psxIcon->setAll(icon_data);
 }
 
 void SlotPreview::mousePressEvent(QMouseEvent *ev)
 {
     if (ev->button() == Qt::LeftButton)
-        Q_EMIT clicked(index());
+        Q_EMIT clicked(m_index);
+}
+
+void SlotPreview::paintEvent(QPaintEvent *e)
+{
+    QPainter p(this);
+    p.translate(3,3);
+    p.setPen(QPen(QBrush(Qt::black), 3));
+    if (m_mode == FF7SAVE)
+        p.setBrush(m_background);
+    p.drawRect(QRect(0, 0, width() - 6, height() - 6));
+
+    auto f = font();
+    f.setFamily(QStringLiteral("Verdana"));
+    f.setWeight(QFont::Thin);
+    //Slot Text
+    f.setPointSize(16);
+    p.setFont(f);
+    p.setPen( m_mode == FF7SAVE ? Qt::white : palette().text().color());
+
+    int padding = 6;
+    p.drawText(contentsMargins().left() + padding, contentsMargins().top() + fontMetrics().height() + padding, tr("Slot: %1").arg(QString::number(m_index + 1)));
+
+    if (m_mode == PSXGAME) {
+        int w = int(m_lineHeight * 3.5);
+        p.translate(12, (height() * 0.25) - (contentsMargins().top() * 2) - 6 );
+        p.drawPixmap(0, 0, w, w, m_psxIcon->icon().scaled(w,w,Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+        auto nl = QStringLiteral("\n");
+        QString str = m_psxText;
+        QString desc;
+        if(str.contains(nl))
+            desc = str.split(nl).first();
+        str.remove(desc);
+        str.append(nl);
+        f.setPointSize(12);
+        p.setFont(f);
+        p.setPen(palette().text().color());
+        p.drawText(w + 2 , 4 , width() - (w + 20), m_lineHeight , Qt::AlignLeft, desc.simplified());
+        p.drawText(w + 2, m_lineHeight + 6, width() - (w + 24), m_lineHeight * 2 , Qt::AlignJustify, str);
+    } else if (m_mode == FF7SAVE) {
+        int w = m_lineHeight * 3;
+        int h = m_lineHeight * 3.75;
+        p.translate(12, (height() * 0.25) - (contentsMargins().top() * 2) - 6 );
+        p.drawPixmap(0, 0, w, h, m_p1);
+        p.drawPixmap(w+6, 0, w, h, m_p2);
+        p.drawPixmap(w+w+12, 0, w, h, m_p3);
+        f.setPointSize(16);
+        p.setFont(f);
+        p.setPen(Qt::white);
+        p.drawText(270, 0, 175, m_lineHeight, Qt::AlignCenter, m_name);
+        p.drawText(450, 0, 155, m_lineHeight, Qt::AlignCenter,m_time);
+        p.drawText(270, 40, 125, m_lineHeight, Qt::AlignCenter,m_level);
+        p.drawText(400, 40, 205, m_lineHeight, Qt::AlignCenter,m_gil);
+        p.drawText(270, 75, 335, m_lineHeight, Qt::AlignCenter, m_location);
+    } else {
+        QColor pColor = palette().text().color().value() > QColor(Qt::lightGray).value() ? Qt::yellow : QColor("orange");
+        QString str = tr("-Empty Slot-");
+        f.setPointSize(20);
+        p.setFont(f);
+        p.setPen(pColor);
+        p.drawText(0,0, width(), height(), Qt::AlignCenter, str);
+    }
+    QWidget::paintEvent(e);
 }
