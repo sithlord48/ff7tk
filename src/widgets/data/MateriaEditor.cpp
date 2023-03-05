@@ -30,7 +30,6 @@ MateriaEditor::MateriaEditor(QWidget *parent, quint8 materia_id, qint32 materia_
     , buffer_id(0)
     , buffer_ap(0)
     , _current_ap(0)
-    , _highlightColor(QStringLiteral("%1,%2,%3,128").arg(QString::number(palette().highlight().color().red()), QString::number(palette().highlight().color().green()), QString::number(palette().highlight().color().blue())))
     , _iconSize (QSize(fontMetrics().height(), fontMetrics().height()))
     , _showPlaceHolders(false)
     , _editable(true)
@@ -337,21 +336,18 @@ void MateriaEditor::editMode()
     lbl_materiaName->setHidden(_editable);
     eskillButtons->setHidden(!_editable);
 
+    auto buttonStyle = _buttonStyle;
     if (_editable) {
         for (int i = 0; i < eskill_list->count(); i++)
             eskill_list->item(i)->setFlags(eskill_list->item(i)->flags() |= Qt::ItemIsUserCheckable);
-
-        eskill_list->setStyleSheet(_itemStyle.arg(_highlightColor, QString::number(fontMetrics().height())));
-        for (QPushButton *button : qAsConst(btn_stars))
-            button->setStyleSheet(_buttonStyle.arg(_highlightColor));
     } else {
+        buttonStyle = buttonStyle.remove(_buttonHighlightStyle_addition);
         for (int i = 0; i < eskill_list->count(); i++)
             eskill_list->item(i)->setFlags(eskill_list->item(i)->flags() &= ~Qt::ItemIsUserCheckable);
-        QString emptyColor = QStringLiteral("0,0,0,0");
-        eskill_list->setStyleSheet(_itemStyle.arg(emptyColor, QString::number(fontMetrics().height())));
-        for (QPushButton *button : qAsConst(btn_stars))
-            button->setStyleSheet(_buttonStyle.arg(emptyColor));
     }
+    eskill_list->setStyleSheet(_itemStyle);
+    for (QPushButton *button : qAsConst(btn_stars))
+        button->setStyleSheet(buttonStyle);
 }
 
 void MateriaEditor::setEditableMateriaCombo(bool enabled)
@@ -363,7 +359,7 @@ QPushButton *MateriaEditor::newStyledButton(const QIcon &icon, QKeySequence shor
 {
     auto newButton = new QPushButton(parent);
     newButton->setIcon(icon);
-    newButton->setStyleSheet(_buttonStyle.arg(_highlightColor));
+    newButton->setStyleSheet(_buttonStyle);
     newButton->setShortcut(shortcut);
     newButton->setToolTip(tooltip);
     newButton->setIconSize(_iconSize);
@@ -391,7 +387,7 @@ QHBoxLayout *MateriaEditor::makeNameLayout()
     combo_materia->setMinimumHeight(fontMetrics().height());
     combo_materia->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     combo_materia->setInsertPolicy(QComboBox::NoInsert);
-    combo_materia->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
+    combo_materia->setStyleSheet(_comboStyle);
     combo_materia->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     for (int i = 0; i < 91; i++) {
         if (!FF7Materia::placeHolderIdList().contains(i)) {
@@ -523,22 +519,19 @@ void MateriaEditor::changeEvent(QEvent *e)
         setStats();
         setSkills();
     } else if (e->type() == QEvent::PaletteChange) {
-        combo_materia->setStyleSheet(QStringLiteral("QComboBox { combobox-popup: 0;}"));
-        QString emptyColor = QStringLiteral("0,0,0,0");
-        _highlightColor = QStringLiteral("%1,%2,%3,128").arg(QString::number(palette().highlight().color().red()), QString::number(palette().highlight().color().green()), QString::number(palette().highlight().color().blue()));
-        btn_rm_materia->setStyleSheet(_buttonStyle.arg(_highlightColor));
-        btn_copy_materia->setStyleSheet(_buttonStyle.arg(_highlightColor));
-        btn_paste_materia->setStyleSheet(_buttonStyle.arg(_highlightColor));
-        if(_editable) {
-            eskill_list->setStyleSheet(_itemStyle.arg(_highlightColor, QString::number(fontMetrics().height())));
-            for (QPushButton *button : qAsConst(btn_stars))
-                button->setStyleSheet(_buttonStyle.arg(_highlightColor));
-        }
-        else {
-            eskill_list->setStyleSheet(_itemStyle.arg(emptyColor, QString::number(fontMetrics().height())));
-            for (QPushButton *button : qAsConst(btn_stars))
-                button->setStyleSheet(_buttonStyle.arg(emptyColor));
-        }
+        combo_materia->setStyleSheet(_comboStyle);
+        btn_rm_materia->setStyleSheet(_buttonStyle);
+        btn_copy_materia->setStyleSheet(_buttonStyle);
+        btn_paste_materia->setStyleSheet(_buttonStyle);
+
+        eskill_list->setStyleSheet(_itemStyle);
+
+        auto buttonStyle = _buttonStyle;
+        if(!_editable)
+            buttonStyle = buttonStyle.remove(_buttonHighlightStyle_addition);
+
+        for (QPushButton *button : qAsConst(btn_stars))
+            button->setStyleSheet(buttonStyle);
     }
     QWidget::changeEvent(e);
 }
@@ -562,7 +555,7 @@ void MateriaEditor::updateESkillList()
 QWidget *MateriaEditor::makeSkillWidget()
 {
     updateESkillList();
-    eskill_list->setStyleSheet(_itemStyle.arg(_highlightColor, QString::number(fontMetrics().height())));
+    eskill_list->setStyleSheet(_itemStyle);
     eskill_list->setMinimumHeight(eskill_list->sizeHintForRow(0) * 5 + eskill_list->contentsMargins().top() + eskill_list->contentsMargins().bottom());
     eskill_list->setMaximumHeight(eskill_list->sizeHintForRow(0) * 48 + eskill_list->contentsMargins().top() + eskill_list->contentsMargins().bottom());
     eskill_list->setSelectionMode(QAbstractItemView::NoSelection);
