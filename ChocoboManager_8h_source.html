@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.1.17</span>
+   &#160;<span id="projectnumber">0.83.1.22</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -135,43 +135,45 @@ $(function() {
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> setChocoboPen(<span class="keywordtype">int</span> pen, <span class="keywordtype">int</span> value);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> setOwned(<span class="keywordtype">int</span> owned);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> setOccupied(<span class="keywordtype">int</span> occupied, <span class="keywordtype">int</span> mask);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> setHoverStyle(QString Color);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> changeEvent(QEvent *);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> ChocoboChanged(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> setStablesOwned(<span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> updateCombos();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> isEmpty(<a class="code" href="structFF7CHOCOBO.html">FF7CHOCOBO</a> choco);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> clearSelection();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> disableChocoLabels();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> enableChocoboLabels(<span class="keywordtype">int</span> count);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> rmChocobo(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> labelUpdate(<span class="keywordtype">int</span> label);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> connectEditor();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    QGridLayout *createChocoboPenGrid();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    QGridLayout *createChocoboLabelGrid();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    QSpinBox *sbStablesOwned = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    QLCDNumber *lcdStablesOccupied = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classChocoboLabel.html">ChocoboLabel</a> *chocoboLabel[6] = {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classChocoboEditor.html">ChocoboEditor</a> *chocoboEditor = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    QGroupBox *penBox = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    qint8 stablesOwned = 0;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    qint8 stablesOccupied = 0;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    qint8 stableMask;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    QLabel *lblStablesOwned = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QLabel *lblStablesOccupied = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">int</span> selectedStable = -1;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">//one extra of each for a buffer.</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="structFF7CHOCOBO.html">FF7CHOCOBO</a> chocoboData[7];</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    QString chocoboName[7];</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">bool</span> cantMate[7];</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    quint16 chocoboStamina[7];</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    quint8 chocoboRatings[7];</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    QComboBox *comboChocoPen[4];</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    [[ deprecated (<span class="stringliteral">&quot;Now Respects the System palette&quot;</span>) ]]</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classChocoboManager.html#a2fbcfbe1abbfec540a8799da3afbab89">   66</a></span>&#160;    FF7TKWIDGETS_DEPRECATED <span class="keywordtype">void</span> <a class="code" href="classChocoboManager.html#a2fbcfbe1abbfec540a8799da3afbab89">setHoverStyle</a>(QString Color) {<span class="comment">/*NOTHING*/</span>}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> changeEvent(QEvent *);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> ChocoboChanged(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> setStablesOwned(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> updateCombos();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> isEmpty(<a class="code" href="structFF7CHOCOBO.html">FF7CHOCOBO</a> choco);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> clearSelection();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> disableChocoLabels();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> enableChocoboLabels(<span class="keywordtype">int</span> count);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> rmChocobo(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> labelUpdate(<span class="keywordtype">int</span> label);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> connectEditor();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    QGridLayout *createChocoboPenGrid();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    QGridLayout *createChocoboLabelGrid();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    QSpinBox *sbStablesOwned = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QLCDNumber *lcdStablesOccupied = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classChocoboLabel.html">ChocoboLabel</a> *chocoboLabel[6] = {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classChocoboEditor.html">ChocoboEditor</a> *chocoboEditor = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    QGroupBox *penBox = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    qint8 stablesOwned = 0;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    qint8 stablesOccupied = 0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    qint8 stableMask;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QLabel *lblStablesOwned = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    QLabel *lblStablesOccupied = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">int</span> selectedStable = -1;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">//one extra of each for a buffer.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="structFF7CHOCOBO.html">FF7CHOCOBO</a> chocoboData[7];</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    QString chocoboName[7];</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">bool</span> cantMate[7];</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    quint16 chocoboStamina[7];</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    quint8 chocoboRatings[7];</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    QComboBox *comboChocoPen[4];</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassChocoboManager_html_a2fbcfbe1abbfec540a8799da3afbab89"><div class="ttname"><a href="classChocoboManager.html#a2fbcfbe1abbfec540a8799da3afbab89">ChocoboManager::setHoverStyle</a></div><div class="ttdeci">FF7TKWIDGETS_DEPRECATED void setHoverStyle(QString Color)</div><div class="ttdef"><b>Definition:</b> ChocoboManager.h:66</div></div>
 <div class="ttc" id="aclassChocoboManager_html"><div class="ttname"><a href="classChocoboManager.html">ChocoboManager</a></div><div class="ttdef"><b>Definition:</b> ChocoboManager.h:27</div></div>
 <div class="ttc" id="aclassChocoboLabel_html"><div class="ttname"><a href="classChocoboLabel.html">ChocoboLabel</a></div><div class="ttdoc">A Label to display a single chocobo's brief data.</div><div class="ttdef"><b>Definition:</b> ChocoboLabel.h:30</div></div>
 <div class="ttc" id="aclassChocoboEditor_html"><div class="ttname"><a href="classChocoboEditor.html">ChocoboEditor</a></div><div class="ttdef"><b>Definition:</b> ChocoboEditor.h:31</div></div>

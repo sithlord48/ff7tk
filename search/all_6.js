@@ -27,7 +27,7 @@ var searchData=
   ['ff7materia_590',['FF7Materia',['../classFF7Materia.html',1,'']]],
   ['ff7materia_2ecpp_591',['FF7Materia.cpp',['../FF7Materia_8cpp.html',1,'']]],
   ['ff7materia_2eh_592',['FF7Materia.h',['../FF7Materia_8h.html',1,'']]],
-  ['ff7save_593',['FF7Save',['../classFF7Save.html',1,'FF7Save'],['../classFF7Save.html#a7be8e04b9dd01c44b8653b1d12aa1382',1,'FF7Save::FF7Save()']]],
+  ['ff7save_593',['FF7Save',['../classFF7Save.html',1,'FF7Save'],['../classSlotPreview.html#a308b73573ecff499188e194b141b8493ae3744d2ef10a68b2a130b5186835d4fe',1,'SlotPreview::FF7SAVE()'],['../classFF7Save.html#a7be8e04b9dd01c44b8653b1d12aa1382',1,'FF7Save::FF7Save()']]],
   ['ff7save_2ecpp_594',['FF7Save.cpp',['../FF7Save_8cpp.html',1,'']]],
   ['ff7save_2eh_595',['FF7Save.h',['../FF7Save_8h.html',1,'']]],
   ['ff7save_5ftypes_2eh_596',['FF7Save_Types.h',['../FF7Save__Types_8h.html',1,'']]],

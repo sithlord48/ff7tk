@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.1.17</span>
+   &#160;<span id="projectnumber">0.83.1.22</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -407,15 +407,17 @@ $(function() {
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    QLCDNumber *lcd_0x36 = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    QLCDNumber *lcd_0x37 = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    QCheckBox *cb_idChanger = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="comment">//Static Limits</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> quint8Max = 255;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> qint16Max = 32767;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> quint16Max = 65535;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> expMax = 2147483647;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> charWidth;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> lineHeight;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keyword">const</span> QSizePolicy sbSizePolicy;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;};</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> charWidth;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> lineHeight;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keyword">const</span> QSizePolicy sbSizePolicy;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="comment">//Static Limits</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> quint8Max = 255;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> qint16Max = 32767;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> quint16Max = 65535;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> expMax = 2147483647;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> QString comboStyle = QStringLiteral(<span class="stringliteral">&quot;QComboBox { combobox-popup: 0}&quot;</span>);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> QString transparentBackgroundStyle = QStringLiteral(<span class="stringliteral">&quot;QFrame{background-color:rgba(0,0,0,0);}&quot;</span>);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassMateriaEditor_html"><div class="ttname"><a href="classMateriaEditor.html">MateriaEditor</a></div><div class="ttdoc">The MateriaEditor class  MateriaEditor is a Widget that can be used to edit materia in the player's i...</div><div class="ttdef"><b>Definition:</b> MateriaEditor.h:36</div></div>
 <div class="ttc" id="astructmateria_html"><div class="ttname"><a href="structmateria.html">materia</a></div><div class="ttdoc">materia format saved in materia list or on a character</div></div>

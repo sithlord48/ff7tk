@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.1.17</span>
+   &#160;<span id="projectnumber">0.83.1.22</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -129,9 +129,6 @@ Public Slots</h2></td></tr>
 <tr class="memitem:a2fa85892ab1f7a9eedb22415a9dd0084"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChocoboLabel.html#a2fa85892ab1f7a9eedb22415a9dd0084">clearLabel</a> (void)</td></tr>
 <tr class="memdesc:a2fa85892ab1f7a9eedb22415a9dd0084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the labels data.  <a href="classChocoboLabel.html#a2fa85892ab1f7a9eedb22415a9dd0084">More...</a><br /></td></tr>
 <tr class="separator:a2fa85892ab1f7a9eedb22415a9dd0084"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a286a6380706caeb26a7b1496f7cd9d40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChocoboLabel.html#a286a6380706caeb26a7b1496f7cd9d40">setHoverColorStyle</a> (QString backgroundColor)</td></tr>
-<tr class="memdesc:a286a6380706caeb26a7b1496f7cd9d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the style for when you hover.  <a href="classChocoboLabel.html#a286a6380706caeb26a7b1496f7cd9d40">More...</a><br /></td></tr>
-<tr class="separator:a286a6380706caeb26a7b1496f7cd9d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e4c0de7cdd2d9e32ffd076e6219420"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChocoboLabel.html#a44e4c0de7cdd2d9e32ffd076e6219420">isOccupied</a> (void)</td></tr>
 <tr class="memdesc:a44e4c0de7cdd2d9e32ffd076e6219420"><td class="mdescLeft">&#160;</td><td class="mdescRight">occupied state  <a href="classChocoboLabel.html#a44e4c0de7cdd2d9e32ffd076e6219420">More...</a><br /></td></tr>
 <tr class="separator:a44e4c0de7cdd2d9e32ffd076e6219420"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,6 +165,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ad32243666437ed5e51451d328b03a8aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c34f3bb5b8d02903aaf546c6643ef49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChocoboLabel.html#a8c34f3bb5b8d02903aaf546c6643ef49">changeEvent</a> (QEvent *e)</td></tr>
 <tr class="separator:a8c34f3bb5b8d02903aaf546c6643ef49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a624650d9d3ffcf1930d20b055be77ad7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChocoboLabel.html#a624650d9d3ffcf1930d20b055be77ad7">paintEvent</a> (QPaintEvent *)</td></tr>
+<tr class="separator:a624650d9d3ffcf1930d20b055be77ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A Label to display a single chocobo's brief data. </p>
@@ -447,6 +446,32 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a624650d9d3ffcf1930d20b055be77ad7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a624650d9d3ffcf1930d20b055be77ad7">&#9670;&nbsp;</a></span>paintEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChocoboLabel::paintEvent </td>
+          <td>(</td>
+          <td class="paramtype">QPaintEvent *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a47c7cccffa88b1cd665c1c34ebef3714"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47c7cccffa88b1cd665c1c34ebef3714">&#9670;&nbsp;</a></span>paste</h2>
 
@@ -529,40 +554,6 @@ Protected Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fontSize</td><td>pointSize of the font for this label </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a286a6380706caeb26a7b1496f7cd9d40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a286a6380706caeb26a7b1496f7cd9d40">&#9670;&nbsp;</a></span>setHoverColorStyle</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ChocoboLabel::setHoverColorStyle </td>
-          <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>backgroundColor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the style for when you hover. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">backgroundColor</td><td>A valid color for a style sheet either a predefined color or rgb(r,g,b) style string </td></tr>
   </table>
   </dd>
 </dl>
