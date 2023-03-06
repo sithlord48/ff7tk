@@ -57,11 +57,14 @@ public slots:
     void setTitle(QString title); /**< \brief The occupied checkbox has been toggled \param title: String that will be shown as labels title*/
     void setFontSize(int fontSize); /**< \brief Set the size of the labels font \param fontSize: pointSize of the font for this label*/
     void clearLabel(void); /**< \brief Clear the labels data */
-    void setHoverColorStyle(QString backgroundColor); /**< \brief Set the style for when you hover \param backgroundColor A valid color for a style sheet either a predefined color or rgb(r,g,b) style string */
     bool isOccupied(void); /**< \brief occupied state \return true if occupied*/
+    //Deprecated Methods
+    [[ deprecated ("Now Respects the System palette") ]]
+    FF7TKWIDGETS_DEPRECATED void setHoverColorStyle(QString backgroundColor) {/*NOTHING*/} /**< \brief [DEPRECATED: set by system] Set the style for when you hover \param backgroundColor A valid color for a style sheet either a predefined color or rgb(r,g,b) style string */
 protected:
     bool event(QEvent *ev);
     void changeEvent(QEvent *e);
+    void paintEvent(QPaintEvent *);
 private:
     void enable(bool enabled); /**< \brief enable/disable inner part of the form when needed \param enabled enable the lower frame?*/
     QPushButton *btnCopy = nullptr; /**< \brief copy button */
@@ -74,9 +77,9 @@ private:
     QLabel *lblSex = nullptr;/**< \brief label to show sex*/
     QFrame *innerFrame = nullptr;/**< \brief inner frame of widget contains all the chocobo into */
     QFrame *outerFrame = nullptr;/**< \brief outer frame of widget contains the label checkbox, copy,paste,remove buttons*/
-    QString SelectedBkStyle;/**< \brief style for background when selected */
     int m_wins = -1;
     int m_fontSize = 14;
     bool isSelected;
     bool isEnabled; /**< \brief isEnabled hold if enabled */
+    inline static const auto _style = QStringLiteral("QPushButton:enabled{background-color:rgba(0,0,0,0);border:0px solid;} QWidget[HoverStyled=\"true\"]:enabled:hover{background-color: palette(highlight)}");
 };

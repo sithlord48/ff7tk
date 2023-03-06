@@ -105,7 +105,6 @@ ChocoboEditor::ChocoboEditor(QWidget *parent) :
     , cb_cantMate(new QCheckBox(this))
     , line_name(new QLineEdit(this))
 {
-    cb_cantMate->setStyleSheet(QStringLiteral("QCheckBox::indicator {width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
     //create Gui Widgets.
     sb_speed = makeSpinBox(9999);
     sb_mSpeed = makeSpinBox(9999);
@@ -504,10 +503,7 @@ QSpinBox *ChocoboEditor::makeSpinBox(int maxValue)
 
 void ChocoboEditor::changeEvent(QEvent *e)
 {
-    if (e->type() == QEvent::LanguageChange) {
+    if (e->type() == QEvent::LanguageChange)
         updateText();
-    } else if (e->type() == QEvent::PaletteChange) {
-        cb_cantMate->setStyleSheet(QStringLiteral("QCheckBox::indicator {width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
-    }
     QWidget::changeEvent(e);
 }

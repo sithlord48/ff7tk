@@ -19,6 +19,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMouseEvent>
+#include <QPainter>
 #include <QPushButton>
 #include <QVBoxLayout>
 
@@ -34,13 +35,9 @@ bool ChocoboLabel::event(QEvent *ev)
 void ChocoboLabel::changeEvent(QEvent *e)
 {
     if(e->type() == QEvent::PaletteChange) {
-        setHoverColorStyle(QStringLiteral("rgba(%1,%2,%3,128);")
-                               .arg(QString::number(palette().highlight().color().red())
-                                    , QString::number(palette().highlight().color().green())
-                                    , QString::number(palette().highlight().color().blue())));
         chkOccupied->setProperty("HoverStyled", QVariant(true));
-        chkOccupied->setStyleSheet(QStringLiteral("QCheckBox{ padding: 1px;} QCheckBox::indicator{width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
-        setSelected(isSelected);
+        chkOccupied->setStyleSheet(QStringLiteral("QCheckBox{ padding: 1px;}"));
+        setStyleSheet(_style);
     } else if (e->type() == QEvent::LanguageChange) {
         btnCopy->setToolTip(QString(tr("Copy")));
         btnPaste->setToolTip(QString(tr("Paste")));
@@ -48,6 +45,17 @@ void ChocoboLabel::changeEvent(QEvent *e)
         setRank(m_wins);
     }
     QWidget::changeEvent(e);
+}
+
+void ChocoboLabel::paintEvent(QPaintEvent *e)
+{
+    if(isSelected) {
+        QPainter p (this);
+        p.setPen(QPen(palette().highlight().color()));
+        p.setBrush(QBrush(palette().highlight().color()));
+        p.drawRect(innerFrame->geometry());
+    }
+    QWidget::paintEvent(e);
 }
 
 ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *parent) :
@@ -65,7 +73,7 @@ ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *par
     chkOccupied->setText(titleText);
     chkOccupied->setProperty("HoverStyled", QVariant(true));
 
-    chkOccupied->setStyleSheet(QStringLiteral("QCheckBox{ padding: 1px;} QCheckBox::indicator{width: %1px; height: %1px;}").arg(QString::number(fontMetrics().height())));
+    chkOccupied->setStyleSheet(QStringLiteral("QCheckBox{ padding: 1px;}"));
     chkOccupied->setChecked(occupied);
     connect(chkOccupied, &QCheckBox::toggled, this, [this](bool checked) {
         Q_EMIT occupiedToggled(checked);
@@ -151,14 +159,10 @@ ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *par
     finalLayout->setContentsMargins(0, 0, 0, 0);
     finalLayout->addWidget(outerFrame);
 
-    this->setLayout(finalLayout);
-    this->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    setLayout(finalLayout);
+    setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
-    setHoverColorStyle(QStringLiteral("rgba(%1,%2,%3,128);")
-            .arg(QString::number(palette().highlight().color().red())
-                , QString::number(palette().highlight().color().green())
-                , QString::number(palette().highlight().color().blue())));
-
+    setStyleSheet(_style);
     enable(occupied);
 }
 
@@ -252,37 +256,19 @@ void ChocoboLabel::enable(bool enabled)
 {
     isEnabled = enabled;
     innerFrame->setEnabled(enabled);
-    if (!enabled) {
+    if (!enabled)
         setSelected(false);
-    }
 }
 
 void ChocoboLabel::setSelected(bool selected)
 {
+    if(selected == isSelected)
+        return;
     isSelected = selected;
-    if (selected) {
-        outerFrame->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken); innerFrame->setStyleSheet(SelectedBkStyle);
-    } else {
-        outerFrame->setFrameStyle(QFrame::NoFrame);
-        QString Style = SelectedBkStyle;
-        Style.append(Style.insert(Style.lastIndexOf("]") + 1, ":enabled:hover"));
-        Style.prepend("QWidget[HoverStyled=\"true\"]{background-color:rgba(0,0,0,0);}");
-        innerFrame->setStyleSheet(Style);
-    }
+    update();
 }
 
 bool ChocoboLabel::isOccupied(void)
 {
     return chkOccupied->isChecked();
-}
-
-void ChocoboLabel::setHoverColorStyle(QString backgroundColor)
-{
-    SelectedBkStyle = backgroundColor;
-    SelectedBkStyle.prepend("QWidget[HoverStyled=\"true\"]{background-color:");
-    SelectedBkStyle.append("}");
-
-    backgroundColor.prepend("QPushButton:enabled{background-color:rgba(0,0,0,0);border:0px solid;} QWidget[HoverStyled=\"true\"]:enabled:hover{background-color:");
-    backgroundColor.append("}");
-    setStyleSheet(backgroundColor);
 }
