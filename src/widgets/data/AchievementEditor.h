@@ -51,8 +51,6 @@ private slots:
      *  \param index QModeIndex from where the change occurred
      */
     void itemToggled(const QModelIndex &index);
-protected:
-    void changeEvent(QEvent *e);
 private:
     void initDisplay(); /**< \brief create this items widgets*/
     FF7Achievements achievements; /**< \brief data class for widget*/
