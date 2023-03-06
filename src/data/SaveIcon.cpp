@@ -25,15 +25,18 @@ QTimer SaveIcon::m_timer;
 SaveIcon::SaveIcon()
     : m_nbFrames(0)
 {
+    connect(&m_timer, &QTimer::timeout, this, &SaveIcon::nextFrame);
 }
 
 SaveIcon::SaveIcon(const QByteArray &data, quint8 nbFrames)
 {
+    connect(&m_timer, &QTimer::timeout, this, &SaveIcon::nextFrame);
     setAll(data, nbFrames);
 }
 
 SaveIcon::SaveIcon(const QList<QByteArray> &data)
 {
+    connect(&m_timer, &QTimer::timeout, this, &SaveIcon::nextFrame);
     setAll(data);
 }
 
@@ -42,7 +45,6 @@ void SaveIcon::setAll(const QByteArray &data, quint8 nbFrames)
     m_data = data;
     m_nbFrames = nbFrames;
     if(nbFrames > 1) {
-        connect(&m_timer, &QTimer::timeout, this, &SaveIcon::nextFrame);
         m_timer.start(160);
     } else {
         Q_EMIT nextIcon(icon());
@@ -58,7 +60,6 @@ void SaveIcon::setAll(const QList<QByteArray> &data)
         m_data.append(data.at(i));
 
     if(m_nbFrames>1) {
-        connect(&m_timer, &QTimer::timeout, this, &SaveIcon::nextFrame);
         m_timer.start(160);
     } else {
         Q_EMIT nextIcon(icon());
