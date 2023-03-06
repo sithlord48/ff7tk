@@ -19,12 +19,6 @@
 #include <QEvent>
 #include <QListWidget>
 
-void AchievementEditor::changeEvent(QEvent *e)
-{
-    if(e->type() == QEvent::PaletteChange)
-        achievementList->setStyleSheet(QStringLiteral("QListView::indicator{width: %1px; height:%1px} QListView::item{padding: 0px;}").arg(QString::number(fontMetrics().height())));
-    QWidget::changeEvent(e);
-}
 AchievementEditor::AchievementEditor(QWidget *parent) :
     QWidget(parent)
 {
@@ -36,7 +30,6 @@ void AchievementEditor::initDisplay()
 {
     achievementList = new QListWidget;
     achievementList->setIconSize(QSize(fontMetrics().height(), fontMetrics().height()));
-    achievementList->setStyleSheet(QStringLiteral("QListView::indicator{width: %1px; height:%1px} QListView::item{padding: 0px;}").arg(QString::number(fontMetrics().height())));
     auto layout = new QGridLayout;
     for (int i = 63; i > 27; --i) {
         QPixmap pix(QStringLiteral(":/achievements/%1").arg(QString::number(i)));

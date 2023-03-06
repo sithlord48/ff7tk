@@ -367,12 +367,14 @@ private:
     QLCDNumber *lcd_0x36 = nullptr;
     QLCDNumber *lcd_0x37 = nullptr;
     QCheckBox *cb_idChanger = nullptr;
+    const int charWidth;
+    const int lineHeight;
+    const QSizePolicy sbSizePolicy;
     //Static Limits
     inline static const int quint8Max = 255;
     inline static const int qint16Max = 32767;
     inline static const int quint16Max = 65535;
     inline static const int expMax = 2147483647;
-    const int charWidth;
-    const int lineHeight;
-    const QSizePolicy sbSizePolicy;
+    inline static const QString comboStyle = QStringLiteral("QComboBox { combobox-popup: 0}");
+    inline static const QString transparentBackgroundStyle = QStringLiteral("QFrame{background-color:rgba(0,0,0,0);}");
 };
