@@ -31,10 +31,10 @@ void ChocoboManager::changeEvent(QEvent *e)
         updateCombos();
         for (int i = 0; i < 6; i++)
             chocoboLabel[i]->setTitle(tr("Stable:%1").arg(QString::number(i + 1)));
-    } else if(e->type() == QEvent::PaletteChange) {
-        QString color = QStringLiteral("%1,%2,%3").arg(palette().highlight().color().red(), palette().highlight().color().green(), palette().highlight().color().blue());
-        for (int i = 0; i < 6; i++)
-            chocoboLabel[i]->setHoverColorStyle(color);
+    } else if (e->type() == QEvent::PaletteChange) {
+        const auto list  = findChildren<QWidget*>();
+            for( auto i: list)
+            i->setPalette(palette());
     }
     QWidget::changeEvent(e);
 }
@@ -321,7 +321,7 @@ void ChocoboManager::setChocobo(int s, const FF7CHOCOBO &chocoData, const QStrin
 }
 void ChocoboManager::setChocoboPen(int pen, int value)
 {
-    if (pen < 0 || pen > 3 || value < 0 || value > 8) {
+    if ((pen < 0) || (pen > 3) || (value < 0) || (value > 8)) {
         return;
     } else {
         comboChocoPen[pen]->setCurrentIndex(value);
@@ -329,7 +329,7 @@ void ChocoboManager::setChocoboPen(int pen, int value)
 }
 void ChocoboManager::setOwned(int owned)
 {
-    if (owned < 0 || owned > 6) {
+    if ((owned < 0) || (owned > 6)) {
         return;
     } else {
         stablesOwned = qint8(owned);
@@ -342,7 +342,7 @@ void ChocoboManager::setOwned(int owned)
 }
 void ChocoboManager::setOccupied(int occupied, int mask)
 {
-    if (occupied < 0 || occupied > 6) {
+    if ((occupied < 0) || (occupied > 6)) {
         return;
     } else {
         stablesOccupied = qint8(occupied);
@@ -429,12 +429,6 @@ bool ChocoboManager::isEmpty(FF7CHOCOBO choco)
     }
 }
 
-void ChocoboManager::setHoverStyle(QString color)
-{
-    for (int i = 0; i < 6; i++) {
-        chocoboLabel[i]->setHoverColorStyle(color);
-    }
-}
 void ChocoboManager::clearSelection()
 {
     for (int i = 0; i < 6; i++) {

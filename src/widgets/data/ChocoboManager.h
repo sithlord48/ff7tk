@@ -62,7 +62,8 @@ public slots:
     void setChocoboPen(int pen, int value);
     void setOwned(int owned);
     void setOccupied(int occupied, int mask);
-    void setHoverStyle(QString Color);
+    [[ deprecated ("Now Respects the System palette") ]]
+    FF7TKWIDGETS_DEPRECATED void setHoverStyle(QString Color) {/*NOTHING*/}
 protected:
     void changeEvent(QEvent *);
 private slots:
