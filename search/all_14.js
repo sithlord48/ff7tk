@@ -25,7 +25,7 @@ var searchData=
   ['throw_1911',['Throw',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a74b1dfb781a13d2a179e915df8596050',1,'FF7Materia']]],
   ['tifa_1912',['Tifa',['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a8484d4680a69a473a844de40d1757867',1,'FF7Char']]],
   ['tigerfang_1913',['TigerFang',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac6634039da4c708c3fa803000773565e',1,'FF7Item']]],
-  ['time_1914',['time',['../classFF7Save.html#abe6c63ae8a8a051565641502bd66285c',1,'FF7Save::time()'],['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a087a83a405d9e6e97606cb8acf1174d6',1,'FF7Materia::Time()']]],
+  ['time_1914',['Time',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a087a83a405d9e6e97606cb8acf1174d6',1,'FF7Materia::Time()'],['../classFF7Save.html#abe6c63ae8a8a051565641502bd66285c',1,'FF7Save::time()']]],
   ['timesused1_1915',['timesused1',['../classCharEditor.html#ab0589fe53c4f2d4f982957dd7aa8e167',1,'CharEditor']]],
   ['timesused1_5fchanged_1916',['timesused1_changed',['../classCharEditor.html#a46a33b5cc588914f58f76f21504ad5f4',1,'CharEditor']]],
   ['timesused2_1917',['timesused2',['../classCharEditor.html#a0eddb273d201efcacd70f4ccf6d5228c',1,'CharEditor']]],
