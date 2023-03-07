@@ -13,6 +13,7 @@ set(ff7tkQtWidgets_SRC
     ListWidget.cpp
     OrientationWidget.cpp
     QTaskBarButton.cpp
+    Splitter.cpp
 )
 
 if(APPLE)
@@ -28,6 +29,7 @@ set(ff7tkQtWidgets_HEADERS
     ListWidget.h
     OrientationWidget.h
     QTaskBarButton.h
+    Splitter.h
     ${CMAKE_CURRENT_BINARY_DIR}/ff7tkqtwidgets_export.h
 )
 
