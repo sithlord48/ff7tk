@@ -128,7 +128,8 @@ bool FF7Save::loadFile(const QString &fileName)
         mc_header = file.read(FF7SaveInfo::fileHeaderSize(fileFormat));
         for (int i = 0; i < 15; i++) {
             int index = (128 * i) + 138;
-            SG_Region_String[i] = QString(mc_header.mid(index, 20));
+            QString temp = QString(mc_header.mid(index, 20));
+            SG_Region_String[i] = (temp != invalidRegion) ? QString(mc_header.mid(index, 20)) : QString();
         }
     } else if (FF7SaveInfo::isTypeSSS(fileFormat)) {
         if (fileFormat == FF7SaveInfo::FORMAT::PSX) {
@@ -141,7 +142,8 @@ bool FF7Save::loadFile(const QString &fileName)
             clearSlot(i);
     } else if (fileFormat == FF7SaveInfo::FORMAT::PDA) {
         file.seek(0);
-        SG_Region_String[0] = file.read(20);
+        QString temp = file.read(20);
+        SG_Region_String[0] = (temp != invalidRegion) ? file.read(20) : QString();
     } else {
         return false;
     }

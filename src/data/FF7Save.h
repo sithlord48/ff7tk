@@ -1047,6 +1047,7 @@ private:
     QVector< SubContainer > parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID);
     QVector< SubContainer > createMetadata(const QString &fileName, const QString &UserID);
 
+    inline static const QString invalidRegion = QStringLiteral("\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000");
     inline static const quint8 defaultSave[0x10F4] = {
         0xCD, 0x2A, 0x00, 0x00, 0x01, 0x00, 0xFF, 0xFF, 0x25, 0x58, 0x0D, 0x33, 0x2F, 0x2C, 0x24, 0x29,
         0x25, 0x32, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFD, 0x00, 0x40, 0x01, 0x36, 0x00, 0x39, 0x00,
