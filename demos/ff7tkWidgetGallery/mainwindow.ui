@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>199</width>
-    <height>37</height>
+    <width>157</width>
+    <height>48</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -98,6 +98,30 @@
         <string>Orientation Widget</string>
        </property>
       </item>
+      <item>
+       <property name="text">
+        <string>Encounter Table Widget</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="encounterTableGroup">
+      <property name="title">
+       <string>Encounter Table Widget</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_18">
+       <item>
+        <widget class="QFrame" name="encounterTableFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>

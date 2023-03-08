@@ -8,6 +8,7 @@ set(ff7tkQtWidgets_SRC
     ColorDisplay.cpp
     DialogPreview.cpp
     DoubleCheckBox.cpp
+    EncounterTableWidget.cpp
     ImageGridWidget.cpp
     HexLineEdit.cpp
     ListWidget.cpp
@@ -24,6 +25,7 @@ set(ff7tkQtWidgets_HEADERS
     ColorDisplay.h
     DialogPreview.h
     DoubleCheckBox.h
+    EncounterTableWidget.h
     HexLineEdit.h
     ImageGridWidget.h
     ListWidget.h

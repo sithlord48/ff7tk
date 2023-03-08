@@ -31,6 +31,7 @@
 #include <ItemListView.h>
 #include <HexLineEdit.h>
 
+#include <EncounterTableWidget>
 #include <OrientationWidget>
 #include <Lgp>
 
@@ -94,4 +95,5 @@ private:
     ItemListView *itemlistView = nullptr;
     HexLineEdit *hexLineEdit = nullptr;
     OrientationWidget *orientationWidget = nullptr;
+    EncounterTableWidget *encounterTableWidget = nullptr;
 };

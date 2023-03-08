@@ -695,6 +695,45 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
 </context>
 <context>
+    <name>EncounterTableWidget</name>
+    <message>
+        <source>Battle ID</source>
+        <translation type="unfinished">Kampf-ID</translation>
+    </message>
+    <message>
+        <source>Probability</source>
+        <translation type="unfinished">Wahrscheinlichkeit</translation>
+    </message>
+    <message>
+        <source>Battle %1</source>
+        <translation type="unfinished">Kampf %1</translation>
+    </message>
+    <message>
+        <source>Battle rate: %1/255</source>
+        <translation type="unfinished">Kampfrate: %1/255</translation>
+    </message>
+    <message>
+        <source>Remaining probability points: %1</source>
+        <translation type="unfinished">Verbleibende Wahrscheinlichkeitspunkte: %1</translation>
+    </message>
+    <message>
+        <source>Back Attack 1</source>
+        <translation type="unfinished">Rückenangriff 1</translation>
+    </message>
+    <message>
+        <source>Back Attack 2</source>
+        <translation type="unfinished">Rückenangriff 2</translation>
+    </message>
+    <message>
+        <source>Side Attack</source>
+        <translation type="unfinished">Seitenangriff</translation>
+    </message>
+    <message>
+        <source>Attack From Both Sides</source>
+        <translation type="unfinished">Angriff von beiden Seiten</translation>
+    </message>
+</context>
+<context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>

@@ -105,6 +105,11 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(ui->combo_orientationWidget_zeroDirection, &QComboBox::currentIndexChanged, this, [this] (int index){
         orientationWidget->setZeroDirection(OrientationWidget::Direction(index));
     });
+
+    encounterTableWidget = new EncounterTableWidget(QStringLiteral("Encounter Table Widget"), this);
+    auto encounterTableLayout = new QVBoxLayout();
+    encounterTableLayout->addWidget(encounterTableWidget);
+    ui->encounterTableFrame->setLayout(encounterTableLayout);
 }
 
 MainWindow::~MainWindow()
@@ -136,6 +141,7 @@ void MainWindow::on_combo_widget_currentIndexChanged(int index)
     case 12: ui->AchievementEditor_Box->setVisible(1); break;
     case 13: ui->hexLineEdit_group->setVisible(1); break;
     case 14: ui->orientationGroup->setVisible(1); break;
+    case 15: ui->encounterTableGroup->setVisible(1); break;
     }
     this->adjustSize();
 }
@@ -272,6 +278,8 @@ void MainWindow::hideAllBoxes(void)
     ui->AchievementEditor_Box->setVisible(0);
     ui->hexLineEdit_group->setVisible(0);
     ui->orientationGroup->setVisible(0);
+    ui->encounterTableGroup->setVisible(0);
+
 }
 
 void MainWindow::on_btn_loadAchievement_clicked()
