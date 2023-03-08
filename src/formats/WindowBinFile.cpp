@@ -113,7 +113,7 @@ bool WindowBinFile::save(QByteArray &data) const
             return false;
         saveSection(sectionData, data, 0);
     }
-    saveSection(QByteArray((char *)_charWidth.data(), _charWidth.size()), data, 1);
+    saveSection(QByteArray(reinterpret_cast<const char*>(_charWidth.data()), _charWidth.size()), data, 1);
     data.append(QByteArray("\0\0", 2));
     return true;
 }
