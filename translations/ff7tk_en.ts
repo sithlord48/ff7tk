@@ -695,6 +695,45 @@ The km/h speeds are calculated while playing </translation>
     </message>
 </context>
 <context>
+    <name>EncounterTableWidget</name>
+    <message>
+        <source>Battle ID</source>
+        <translation>Battle ID</translation>
+    </message>
+    <message>
+        <source>Probability</source>
+        <translation>Probability</translation>
+    </message>
+    <message>
+        <source>Battle %1</source>
+        <translation>Battle %1</translation>
+    </message>
+    <message>
+        <source>Battle rate: %1/255</source>
+        <translation>Battle rate: %1/255</translation>
+    </message>
+    <message>
+        <source>Remaining probability points: %1</source>
+        <translation>Remaining probability points: %1</translation>
+    </message>
+    <message>
+        <source>Back Attack 1</source>
+        <translation>Back Attack 1</translation>
+    </message>
+    <message>
+        <source>Back Attack 2</source>
+        <translation>Back Attack 2</translation>
+    </message>
+    <message>
+        <source>Side Attack</source>
+        <translation>Side Attack</translation>
+    </message>
+    <message>
+        <source>Attack From Both Sides</source>
+        <translation>Attack From Both Sides</translation>
+    </message>
+</context>
+<context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>

@@ -697,6 +697,47 @@ La velocità in km/h viene calcolata a runtime</translation>
     </message>
 </context>
 <context>
+    <name>EncounterTableWidget</name>
+    <message>
+        <source>Battle ID</source>
+        <translation type="unfinished">ID Battaglia</translation>
+    </message>
+    <message>
+        <source>Probability</source>
+        <translation type="unfinished">Probabilità</translation>
+    </message>
+    <message>
+        <source>Battle %1</source>
+        <translation type="unfinished">9 / 5,000
+Translation results
+Battaglia %1</translation>
+    </message>
+    <message>
+        <source>Battle rate: %1/255</source>
+        <translation type="unfinished">Tasso di battaglia: %1/255</translation>
+    </message>
+    <message>
+        <source>Remaining probability points: %1</source>
+        <translation type="unfinished">Punti probabilità rimanenti: %1</translation>
+    </message>
+    <message>
+        <source>Back Attack 1</source>
+        <translation type="unfinished">Attacco alla schiena 1</translation>
+    </message>
+    <message>
+        <source>Back Attack 2</source>
+        <translation type="unfinished">Attacco alla schiena 2</translation>
+    </message>
+    <message>
+        <source>Side Attack</source>
+        <translation type="unfinished">Attacco laterale</translation>
+    </message>
+    <message>
+        <source>Attack From Both Sides</source>
+        <translation type="unfinished">Attacco da entrambi i lati</translation>
+    </message>
+</context>
+<context>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>
