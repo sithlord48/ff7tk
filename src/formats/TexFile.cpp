@@ -88,7 +88,7 @@ bool TexFile::open(const QByteArray &data)
     } else {
         quint16 color;
         _image = QImage(w, h, QImage::Format_ARGB32);
-        QRgb *pixels = (QRgb *)_image.bits();
+        QRgb *pixels = reinterpret_cast<QRgb *>(_image.bits());
         if (header.bytesPerPixel < 2 || header.bytesPerPixel > 4) {
             qWarning() << "tex invalid bytesPerPixel!" << header.bytesPerPixel;
             return false;
@@ -146,9 +146,9 @@ bool TexFile::save(QByteArray &data)
             for (int x=0; x<_image.width(); ++x)
                 data.append((char)_image.pixelIndex(x, y));
         }
-        data.append((char *)colorKeyArray.data(), colorKeyArray.size());
+        data.append(reinterpret_cast<char *>(colorKeyArray.data()), colorKeyArray.size());
     } else {
-        QRgb *pixels = (QRgb *)_image.bits();
+        QRgb *pixels = reinterpret_cast<QRgb *>(_image.bits());
         for (int i=0; i<_image.width()*_image.height(); ++i) {
             quint16 color = PsColor::toPsColor(pixels[i]);
             data.append((char *)&color, 2);
