@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['hexlineedit_2ecpp_2294',['HexLineEdit.cpp',['../HexLineEdit_8cpp.html',1,'']]],
-  ['hexlineedit_2eh_2295',['HexLineEdit.h',['../HexLineEdit_8h.html',1,'']]]
+  ['gzip_2ecpp_2311',['GZIP.cpp',['../GZIP_8cpp.html',1,'']]],
+  ['gzip_2eh_2312',['GZIP.h',['../GZIP_8h.html',1,'']]],
+  ['gzipps_2ecpp_2313',['GZIPPS.cpp',['../GZIPPS_8cpp.html',1,'']]],
+  ['gzipps_2eh_2314',['GZIPPS.h',['../GZIPPS_8h.html',1,'']]]
 ];

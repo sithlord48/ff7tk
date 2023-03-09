@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hexlineedit_2190',['HexLineEdit',['../classHexLineEdit.html',1,'']]]
+  ['gzip_2206',['GZIP',['../classGZIP.html',1,'']]],
+  ['gzipps_2207',['GZIPPS',['../classGZIPPS.html',1,'']]]
 ];
