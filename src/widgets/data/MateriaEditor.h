@@ -110,9 +110,9 @@ private:
     inline static const auto _comboStyle = QStringLiteral("QComboBox { combobox-popup: 0;}");
     inline static const auto _buttonStyle = QStringLiteral("QPushButton:enabled{background-color: rgba(0,0,0,0);border:0px solid;} QPushButton:hover{background-color: palette(highlight);}");
     inline static const auto _buttonHighlightStyle_addition = QStringLiteral(" QPushButton:hover{background-color: palette(highlight);}");
-    inline static const auto _itemStyle = QStringLiteral("::item { padding-left: 0px; padding-top: 1px; padding-bottom: 1px;}"
-                                                         "::indicator:unchecked {image: url(:/materia/command_star_empty);}"
+    inline static const auto _itemStyle = QStringLiteral("::indicator:unchecked {image: url(:/materia/command_star_empty);}"
                                                          "::indicator:checked{image: url(:/materia/command_star_full);}"
+                                                         "::item{border: 1px solid transparent;}"
                                                          );
 
 private slots:
