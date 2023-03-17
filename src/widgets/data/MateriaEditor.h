@@ -94,7 +94,6 @@ private:
     QGroupBox *box_status_effects = nullptr;
     QLabel *lbl_stats = nullptr;
     QListWidget *list_status = nullptr;
-    QSpacerItem *v_spacer = nullptr;
     QFrame *frm_ap_stars = nullptr;
     QLabel *lbl_materiaIcon = nullptr;
     QLabel *lbl_materiaName = nullptr;
