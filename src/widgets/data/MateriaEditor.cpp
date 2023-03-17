@@ -25,7 +25,6 @@
 
 MateriaEditor::MateriaEditor(QWidget *parent, quint8 materia_id, qint32 materia_ap)
     : QWidget(parent)
-    , v_spacer(new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding))
     , _id(0)
     , buffer_id(0)
     , buffer_ap(0)
@@ -52,9 +51,14 @@ void MateriaEditor::init_display()
     auto Final = new QVBoxLayout(this);
     Final->setSpacing(0);
     Final->addLayout(main_layout);
-    Final->addSpacerItem(v_spacer);
     Final->setContentsMargins(6, 6, 6, 0);
+    Final->setAlignment(Qt::AlignTop);
     setLayout(Final);
+
+    eskill_list->setMinimumHeight(eskill_list->sizeHintForRow(0) * 5 + eskill_list->contentsMargins().top() + eskill_list->contentsMargins().bottom());
+    eskill_list->setMaximumHeight((eskill_list->sizeHintForRow(0) + eskill_list->spacing() + 2) * 24 + (eskill_list->contentsMargins().top() + eskill_list->contentsMargins().bottom()));
+    box_skills->setMaximumHeight(eskill_list->maximumHeight() + eskillButtons->height()/10);
+    frm_skill_status->setMaximumHeight(box_skills->maximumHeight());
 }
 
 void MateriaEditor::setMateria(quint8 materia_id, qint32 materia_ap)
@@ -201,14 +205,15 @@ void MateriaEditor::setSkills()
     box_skills->setHidden(false);
     eskill_group->setHidden(true);
     list_skills->setHidden(false);
-    v_spacer->changeSize(0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding);
-
+    frm_skill_status->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     if (_id == FF7Materia::EmptyId) {
         box_skills->setHidden(true);
         list_skills->setHidden(true);
+
     } else if (_id == FF7Materia::EnemySkill) {
         list_skills->setHidden(true);
         eskill_group->setHidden(false);
+        frm_skill_status->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     } else if(_id == FF7Materia::MasterCommand || _id == FF7Materia::MasterSummon || _id == FF7Materia::MasterMagic) {
         list_skills->addItems(FF7Materia::skills(_id));
     } else {
@@ -468,8 +473,10 @@ QWidget *MateriaEditor::makeStarWidget()
     }
     auto lbl_slash = new QLabel(QStringLiteral("/"));
     lbl_slash->setFixedWidth(this->font().pointSize());
+    lbl_slash->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
 
     lbl_max_ap = new QLabel;
+    lbl_max_ap->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
     frm_ap = new QFrame;
 
     auto ap_layout = new QHBoxLayout;
@@ -556,8 +563,6 @@ QWidget *MateriaEditor::makeSkillWidget()
 {
     updateESkillList();
     eskill_list->setStyleSheet(_itemStyle);
-    eskill_list->setMinimumHeight(eskill_list->sizeHintForRow(0) * 5 + eskill_list->contentsMargins().top() + eskill_list->contentsMargins().bottom());
-    eskill_list->setMaximumHeight(eskill_list->sizeHintForRow(0) * 48 + eskill_list->contentsMargins().top() + eskill_list->contentsMargins().bottom());
     eskill_list->setSelectionMode(QAbstractItemView::NoSelection);
     eskill_list->setUniformItemSizes(true);
 
@@ -593,6 +598,7 @@ QWidget *MateriaEditor::makeSkillWidget()
 
     eskillButtons = new QWidget;
     eskillButtons->setLayout(eSkillButtonLayout);
+    eskillButtons->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 
     auto eskill_layout = new QVBoxLayout;
     eskill_layout->setContentsMargins(0, 0, 0, 0);
@@ -622,6 +628,7 @@ QWidget *MateriaEditor::makeSkillWidget()
     list_status = new QListWidget;
     list_status->setFixedHeight(list_skills->height());
     list_status->setSelectionMode(QAbstractItemView::NoSelection);
+    list_status->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
 
     auto status_effect_layout = new QHBoxLayout;
     status_effect_layout->addWidget(list_status);
@@ -640,6 +647,7 @@ QWidget *MateriaEditor::makeSkillWidget()
     frm_skill_status->setContentsMargins(0, 0, 0, 0);
     frm_skill_status->setLayout(skill_status_layout);
     frm_skill_status->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+
     return frm_skill_status;
 }
 
