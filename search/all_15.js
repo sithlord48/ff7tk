@@ -5,7 +5,7 @@ var searchData=
   ['ultimaweapon_1985',['UltimaWeapon',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a8b3600a3679b02788d2b52fe51354eba',1,'FF7Item']]],
   ['umbrella_1986',['Umbrella',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac1f57c84efdec8a937fe0d458f4683ca',1,'FF7Item']]],
   ['underwater_1987',['Underwater',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a5679ca480ef071e9f3fd577fce31daf2',1,'FF7Materia']]],
-  ['unknown_1988',['unknown',['../classFF7Save.html#a47467efb18aa78f5aa8c652f55147e5e',1,'FF7Save::unknown()'],['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1dada60cc884c10a66dc67fbbf870ad9ca4',1,'FF7Item::Unknown()'],['../classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958a696b031073e74bf2cb98e5ef201d4aa3',1,'FF7SaveInfo::UNKNOWN()']]],
+  ['unknown_1988',['unknown',['../classFF7Save.html#a47467efb18aa78f5aa8c652f55147e5e',1,'FF7Save::unknown()'],['../classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958a696b031073e74bf2cb98e5ef201d4aa3',1,'FF7SaveInfo::UNKNOWN()'],['../classFF7Item.html#a1322c576d9ed2917ad49167c8b493d1dada60cc884c10a66dc67fbbf870ad9ca4',1,'FF7Item::Unknown()']]],
   ['unknown1_1989',['unknown1',['../structTexStruct.html#a9467ca6d82b59b4777da726771fb9f6a',1,'TexStruct']]],
   ['unknown10_1990',['unknown10',['../structTexStruct.html#a112a7c7ef2d127774b2a5fb573d5d54e',1,'TexStruct']]],
   ['unknown11_1991',['unknown11',['../structTexStruct.html#a6c3aae11b8ae01d6bb957494a686cedb',1,'TexStruct']]],
