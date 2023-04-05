@@ -2622,7 +2622,7 @@ QVector< SubContainer > FF7Save::parseXML(const QString &fileName, const QString
     QFile *file2 = new QFile(metadataPath);                         //Open metadata.xml
     if (!file2->open(QIODevice::ReadOnly)) {/*return 0;*/}          //If open fail, show an error message.
     QDomDocument doc("metadata");
-    bool setdoc = doc.setContent(file2);
+    bool setdoc = bool(doc.setContent(file2));
     file2->close();
     if (!setdoc) {/*return 0;*/}
     QDomElement docElem = doc.documentElement();                    //Get the root element
