@@ -2571,26 +2571,18 @@ void FF7Save::setBattlePoints(int s, quint16 bp)
 }
 
 QString FF7Save::md5sum(QString fileName, QString UserID)
-{
-    QByteArray ff7file;
-    QFile  file(fileName);
-    if (file.exists()) {
-        if (file.open(QIODevice::ReadOnly)) {
-            ff7file = file.readAll();
-        }
-    }
-    if (UserID != "") {
-        int digitcount = 0;
-        for (int i = 0; i < UserID.length(); i++) {
-            if (UserID.at(i).isDigit()) {
-                digitcount ++;
-            }
-        }
-        if (digitcount == UserID.length()) {
-            //make sure the id is all digits.
-            ff7file.append(UserID.toLatin1());//append the user's ID
-        }
-    }
+{   
+    if(!QFile::exists(fileName))
+        return QString();
+
+    QFile file(fileName);
+    if(!file.open(QIODevice::ReadOnly))
+        return QString();
+
+    QByteArray ff7file = file.readAll();
+
+    if (!UserID.isEmpty() && UserID.contains(allDigetRegEx))
+        ff7file.append(UserID.toLatin1());
 
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(ff7file);
