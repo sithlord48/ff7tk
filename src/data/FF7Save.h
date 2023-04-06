@@ -1020,7 +1020,14 @@ private:
     */
     bool exportSlot(const QString &fileName, FF7SaveInfo::FORMAT exportFormat, int s);
 
+    /**
+     * @brief md5sum Generate an md5sum for a save file used for metadata generation
+     * @param fileName file to sum
+     * @param UserID the users ID,
+     * @return A QString that contains the md5sum or an empty string if its failed
+     */
     QString md5sum(QString fileName, QString UserID);
+
     QString fileblock(const QString &fileName);
     QString filetimestamp(QString fileName);
     void checksumSlots();
@@ -1047,6 +1054,7 @@ private:
     QVector< SubContainer > parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID);
     QVector< SubContainer > createMetadata(const QString &fileName, const QString &UserID);
 
+    inline static const auto allDigetRegEx = QRegularExpression(QStringLiteral("^\\d+$"));
     inline static const QString invalidRegion = QStringLiteral("\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000");
     inline static const quint8 defaultSave[0x10F4] = {
         0xCD, 0x2A, 0x00, 0x00, 0x01, 0x00, 0xFF, 0xFF, 0x25, 0x58, 0x0D, 0x33, 0x2F, 0x2C, 0x24, 0x29,
