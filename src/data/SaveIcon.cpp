@@ -1,6 +1,6 @@
 /****************************************************************************/
 //    copyright 2010 Arzel Jérôme <myst6re@gmail.com>                       //
-//              2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>         //
+//              2012 - 2023 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //

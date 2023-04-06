@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 -2022  Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2023 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
