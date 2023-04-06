@@ -1169,7 +1169,7 @@ int FF7Save::numberOfSlots(void)
 void FF7Save::newGame(int s, const QString &region, const QString &fileName)
 {
     if (fileName.isEmpty() || fileName.isNull()) {
-        memcpy(&slot[s], defaultSave, size_t(FF7SaveInfo::slotSize()));
+        memcpy(&slot[s], FF7SaveInfo::defaultSaveData(), size_t(FF7SaveInfo::slotSize()));
     } else {
         QFile file(fileName);
         if (!file.open(QFile::ReadOnly))
@@ -1210,7 +1210,7 @@ void FF7Save::newGame(int s, const QString &region, const QString &fileName)
 void FF7Save::newGamePlus(int s, QString CharFileName, QString fileName)
 {
     if (fileName.isEmpty() || fileName.isNull()) {
-        memcpy(&buffer_slot, defaultSave, size_t(FF7SaveInfo::slotSize()));
+        memcpy(&buffer_slot, FF7SaveInfo::defaultSaveData(), size_t(FF7SaveInfo::slotSize()));
     } else {
         QFile file(fileName);
         if (!file.open(QFile::ReadOnly)) {
