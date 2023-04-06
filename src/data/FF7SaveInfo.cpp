@@ -382,6 +382,11 @@ int FF7SaveInfo::psxSaveNameOffset(FF7SaveInfo::FORMAT format)
         case FORMAT::PDA: return instance()->d->PDA_FILE_NAME_OFFSET;
         case FORMAT::PS3: return instance()->d->PS3_FILE_NAME_OFFSET;
         default: return -1;
-    }
+        }
+}
+
+QByteArray FF7SaveInfo::defaultSaveData()
+{
+    return instance()->d->DEFAULT_SAVE;
 }
 
