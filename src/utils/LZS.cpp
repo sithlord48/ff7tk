@@ -40,7 +40,7 @@ const QByteArray &LZS::decompress(const char *data, int fileSize, int max)
 {
     int sizeAlloc = max + 10;
     quint16 curBuff = 4078, address, firstByte = 0, i, length;
-    const quint8 *fileData = (const quint8 *)data;
+    const quint8 *fileData = reinterpret_cast<const quint8 *>(data);
     const quint8 *endFileData = fileData + fileSize;
 
     // Impossible case
@@ -355,7 +355,7 @@ const QByteArray &LZS::compress(const char *data, int sizeData)
         }
 
         if ((mask <<= 1) == 0) { // Shift mask left one bit.
-            result.replace(curResult, code_buf_ptr, (char *)code_buf, code_buf_ptr);
+            result.replace(curResult, code_buf_ptr, reinterpret_cast<char *>(code_buf), code_buf_ptr);
             curResult += code_buf_ptr;
             code_buf[0] = 0;
             code_buf_ptr = mask = 1;
