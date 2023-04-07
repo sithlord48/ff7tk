@@ -57,8 +57,7 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-#Needed For Qt5/ Qt6 Mixed Environments
-set(QT_DEFAULT_MAJOR_VERSION 6)
+#Set Our Required Qt Version
 set(REQUIRED_QT_VERSION 6.2.0)
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -74,7 +73,7 @@ include(GNUInstallDirs)
 
 
 #Qt Info to get deploy app
-find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core)
 get_target_property(qmake_executable Qt6::qmake IMPORTED_LOCATION)
 get_filename_component(_qt_bin_dir "${qmake_executable}" DIRECTORY)
 if(WIN32 OR APPLE)

@@ -1,4 +1,4 @@
-find_package(Qt6 REQUIRED NO_MODULE COMPONENTS
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
     Core
     Quick
 )
