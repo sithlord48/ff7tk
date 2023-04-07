@@ -60,7 +60,7 @@ void QTaskBarButton::setOverlayIcon(const QImage &image, const QString &text)
         pITask->SetOverlayIcon(HWND(_winId), nullptr, nullptr);
     } else {
         const HICON icon = image.toHICON();
-        pITask->SetOverlayIcon(HWND(_winId), icon, (wchar_t *)text.utf16());
+        pITask->SetOverlayIcon(HWND(_winId), icon, reinterpret_cast<wchar_t *>(const_cast<ushort *>(text.utf16())));
         DestroyIcon(icon);
     }
 }

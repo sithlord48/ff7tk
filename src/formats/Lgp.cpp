@@ -703,7 +703,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
     }
 
     // Write Lookup Table
-    if (temp.write((char *)lookupTable, sizeof(lookupTable)) != sizeof(lookupTable)) {
+    if (temp.write(reinterpret_cast<char *>(lookupTable), sizeof(lookupTable)) != sizeof(lookupTable)) {
         temp.remove();
         setError(WriteError, temp.errorString());
         return false;
