@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2023 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -18,12 +18,16 @@
 #include <QObject>
 #include <QtGlobal>
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#include <QtQml/qqmlapplicationengine.h>
+#else
+#include <QtQmlIntegration/QtQmlIntegration>
+#endif
+
 #include <ff7tkdata_export.h>
 #include <Type_FF7CHAR>
 
 class QIcon;
-class QQmlEngine;
-class QJSEngine;
 
 /*! \class FF7Char
 *   \brief Data and Enums for Characters in Final Fantasy 7
@@ -32,6 +36,8 @@ class QJSEngine;
 class FF7TKDATA_EXPORT FF7Char : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 public:
     enum CharacterId {
         Cloud/**<0*/
@@ -71,14 +77,14 @@ public:
 
     /**
      * @brief Get the FF7Char Instance.
-     * @sa qmlSingletonRegister()
      */
-    static FF7Char *instance();
+    static FF7Char *get();
 
     /**
-     * @brief Register The FF7Char Singleton for QML
+     * @brief instance Get FF7Char Instance.
+     * DEPRECATED replace with get()
      */
-    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    FF7TKDATA_DEPRECATED static FF7Char *instance() {return get();}
 
     /*! \brief get id value for Character
      * \param who persons id  (they are almost always the same in stock game)

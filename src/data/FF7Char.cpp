@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 2023 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -19,9 +19,8 @@
 #include <QIcon>
 #include <QRandomGenerator>
 #include <QStringList>
-#include <QQmlEngine>
 
-FF7Char *FF7Char::instance()
+FF7Char *FF7Char::get()
 {
     static FF7Char m;
     return &m;
@@ -38,17 +37,11 @@ FF7Char::~FF7Char()
     delete d;
 }
 
-QObject *FF7Char::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(scriptEngine)
-    engine->setObjectOwnership(instance(), QQmlEngine::CppOwnership);
-    return instance();
-}
 const FF7Char::Character &FF7Char::character(int who)
 {
     if (!validID(who))
-        return FF7Char::instance()->d->_emptyChar;
-    return FF7Char::instance()->d->_charData.at(who);
+        return FF7Char::get()->d->_emptyChar;
+    return FF7Char::get()->d->_charData.at(who);
 }
 
 quint32 FF7Char::totalExpForLevel(int who, int level)
@@ -104,7 +97,7 @@ QString FF7Char::defaultName(int who)
 {
     if (!validID(who))
         return QString();
-    return tr(FF7Char::instance()->d->_charData.at(who)._def_name.toLocal8Bit());
+    return tr(FF7Char::get()->d->_charData.at(who)._def_name.toLocal8Bit());
 }
 
 QImage FF7Char::image(int who)
@@ -131,9 +124,9 @@ QPixmap FF7Char::pixmap(int who)
 QStringList FF7Char::limits(int who)
 {
     if (!validID(who))
-        return FF7Char::instance()->d->_emptyChar._limits;
+        return FF7Char::get()->d->_emptyChar._limits;
     QStringList translated_list;
-    for (const QString &limit : qAsConst(FF7Char::instance()->d->_charData.at(who)._limits)) {
+    for (const QString &limit : qAsConst(FF7Char::get()->d->_charData.at(who)._limits)) {
         translated_list.append(tr(limit.toLocal8Bit()));
     }
     return translated_list;
@@ -141,7 +134,7 @@ QStringList FF7Char::limits(int who)
 int FF7Char::limitBitConvert(int bit)
 {
     bit = std::clamp(bit, 0, 7);
-    return FF7Char::instance()->d->_limitbitarray.at(bit);
+    return FF7Char::get()->d->_limitbitarray.at(bit);
 }
 
 QByteArray FF7Char::toByteArray(FF7CHAR ff7char)
@@ -212,12 +205,12 @@ int FF7Char::luck_gradent(int who, int lvl_bracket)
 
 int FF7Char::stat_base(int rank, int lvl_bracket)
 {
-    return FF7Char::instance()->d->_stat_base.at(rank).at(lvl_bracket);
+    return FF7Char::get()->d->_stat_base.at(rank).at(lvl_bracket);
 }
 
 int FF7Char::stat_gradent(int rank, int lvl_bracket)
 {
-    return FF7Char::instance()->d->_stat_gradent.at(rank).at(lvl_bracket);
+    return FF7Char::get()->d->_stat_gradent.at(rank).at(lvl_bracket);
 }
 
 int FF7Char::statGain(int who, int stat, int stat_amount, int current_lvl, int next_lvl)
@@ -288,7 +281,7 @@ int FF7Char::statGain(int who, int stat, int stat_amount, int current_lvl, int n
             diff = randomNumber + (100 * stat_amount / baseline_stat) - 100;   //lv down
         }
         diff = std::clamp(diff, 0 , 11);
-        gain = int(hp_gradent(who, lvl_bracket) * FF7Char::instance()->d->_hp_diff_modifier.at(diff));
+        gain = int(hp_gradent(who, lvl_bracket) * FF7Char::get()->d->_hp_diff_modifier.at(diff));
     } else if (stat == 7) {
         // Base MP Gain
         //Vegeta_Ss4 lv down mod
@@ -298,7 +291,7 @@ int FF7Char::statGain(int who, int stat, int stat_amount, int current_lvl, int n
             diff = randomNumber + (100 * stat_amount / baseline_stat) - 100;   //lv down
         }
         diff = std::clamp(diff, 0 , 11);
-        gain = int(((next_lvl * mp_gradent(who, lvl_bracket) / 10) - ((next_lvl - 1) * mp_gradent(who, lvl_bracket) / 10)) * FF7Char::instance()->d->_mp_diff_modifier.at(diff));
+        gain = int(((next_lvl * mp_gradent(who, lvl_bracket) / 10) - ((next_lvl - 1) * mp_gradent(who, lvl_bracket) / 10)) * FF7Char::get()->d->_mp_diff_modifier.at(diff));
     }
     return gain;
 }

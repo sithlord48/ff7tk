@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2023  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -15,11 +15,9 @@
 /****************************************************************************/
 #include <FF7Text.h>
 
-#include <QQmlEngine>
-
 /*~~~~~~~~TEXT CLASS~~~~~~~~~*/
 // the PC function is modified from Makou Reactor (thanks Myst6re)
-FF7Text *FF7Text::instance()
+FF7Text *FF7Text::get()
 {
     static FF7Text m;
     return &m;
@@ -36,24 +34,17 @@ FF7Text::~FF7Text()
     delete d;
 }
 
-QObject *FF7Text::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(scriptEngine)
-    engine->setObjectOwnership(instance(), QQmlEngine::CppOwnership);
-    return instance();
-}
-
 void FF7Text::setJapanese(bool japanese)
 {
-    if(japanese == instance()->d->in_ja)
+    if(japanese == get()->d->in_ja)
         return;
-    instance()->d->in_ja = japanese;
-    Q_EMIT instance()->languageChanged();
+    get()->d->in_ja = japanese;
+    Q_EMIT get()->languageChanged();
 }
 
 bool FF7Text::isJapanese()
 {
-    return instance()->d->in_ja;
+    return get()->d->in_ja;
 }
 QString FF7Text::toPC(QByteArray text)
 {
@@ -69,33 +60,33 @@ QString FF7Text::toPC(QByteArray text)
         if (index == 0xFF) {
             break;
         }
-        if (instance()->d->in_ja) {
+        if (get()->d->in_ja) {
             switch (index) {
             case 0xFA:
                 ++i;
-                String += instance()->d->jap_fa[quint8(text.at(i))];
+                String += get()->d->jap_fa[quint8(text.at(i))];
                 break;
             case 0xFB:
                 ++i;
-                String += instance()->d->jap_fb[quint8(text.at(i))];
+                String += get()->d->jap_fb[quint8(text.at(i))];
                 break;
             case 0xFC:
                 ++i;
-                String += instance()->d->jap_fc[quint8(text.at(i))];
+                String += get()->d->jap_fc[quint8(text.at(i))];
                 break;
             case 0xFD:
                 ++i;
-                String += instance()->d->jap_fd[quint8(text.at(i))];
+                String += get()->d->jap_fd[quint8(text.at(i))];
                 break;
             case 0xFE:
                 ++i;
                 if (quint8(text.at(i)) == 0xE2) {
                     i += 4;
                 }
-                String += instance()->d->jap_fe[quint8(text.at(i))];
+                String += get()->d->jap_fe[quint8(text.at(i))];
                 break;
             default:
-                String.append(instance()->d->jap.at(index));
+                String.append(get()->d->jap.at(index));
                 break;
             }
         } else {
@@ -112,7 +103,7 @@ QString FF7Text::toPC(QByteArray text)
                 String += "¶";
                 break;
             default:
-                String.append(instance()->d->eng.at(index));
+                String.append(get()->d->eng.at(index));
                 break;
             }
         }
@@ -134,7 +125,7 @@ QByteArray FF7Text::toFF7(const QString &string)
                 break;
             }
         }
-        if (instance()->d->in_ja) {
+        if (get()->d->in_ja) {
             for (table = 1 ; table < 7 ; ++table) {
                 for (i = 0 ; i <= 0xff ; ++i) {
                     if (!QString::compare(comp, character(quint8(i), quint8(table)))) {
@@ -160,18 +151,18 @@ QString FF7Text::character(quint8 ord, quint8 table)
 {
     switch (table) {
     case 1:
-        return instance()->d->jap.at(ord);
+        return get()->d->jap.at(ord);
     case 2:
-        return instance()->d->jap_fa.at(ord);
+        return get()->d->jap_fa.at(ord);
     case 3:
-        return instance()->d->jap_fb.at(ord);
+        return get()->d->jap_fb.at(ord);
     case 4:
-        return instance()->d->jap_fc.at(ord);
+        return get()->d->jap_fc.at(ord);
     case 5:
-        return instance()->d->jap_fd.at(ord);
+        return get()->d->jap_fd.at(ord);
     case 6:
-        return instance()->d->jap_fe.at(ord);
+        return get()->d->jap_fe.at(ord);
     default:
-        return instance()->d->eng.at(ord);
+        return get()->d->eng.at(ord);
     }
 }

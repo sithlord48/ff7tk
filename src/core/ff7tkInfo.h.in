@@ -20,27 +20,23 @@
 #include <QMap>
 #include <QTranslator>
 #include <QCoreApplication>
-#include <QQmlEngine>
-
-class QJSEngine;
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#include <QtQml/qqmlapplicationengine.h>
+#else
+#include <QtQmlIntegration/QtQmlIntegration>
+#endif
 /*! \class ff7tk
  * \brief Core class ff7tkInfo contains info about ff7tk
+ * If exposing to QML be sure to set the object to be owned by c++
+ * engine->setObjectOwnership(ff7tkInfo::get(), QQmlEngine::CppOwnership);
  */
 class FF7TK_EXPORT ff7tkInfo: public QObject
 {
+    QML_ELEMENT
+    QML_SINGLETON
     Q_OBJECT
     Q_PROPERTY(QString ff7tkVersion READ version CONSTANT)
 public:
-    /**
-     * @brief Register The ff7tkInfo Singleton for QML
-     */
-    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
-    {
-        Q_UNUSED(scriptEngine)
-        engine->setObjectOwnership(instance(), QQmlEngine::CppOwnership);
-        return instance();
-    }
 
     /**
      * @brief Report version of ff7tk in use
@@ -105,11 +101,15 @@ public:
         }
         return ff7tk_translations;
     }
-private:
-    static ff7tkInfo *instance()
+
+    static ff7tkInfo *get()
     {
         static ff7tkInfo m;
         return &m;
     }
+private:
+
+    FF7TK_DEPRECATED static ff7tkInfo *instance() { return get(); }
+
     inline static const auto m_ff7tk_version = QStringLiteral("@FF7TK_VERSION@");
 };

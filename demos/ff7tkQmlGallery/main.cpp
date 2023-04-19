@@ -28,19 +28,23 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterSingletonType<FF7Text>("org.ff7tk", 1, 0, "FF7Text", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
-        return FF7Text::qmlSingletonRegister(engine, jsEngine);
+        engine->setObjectOwnership(FF7Text::get(), QQmlEngine::CppOwnership);
+        return FF7Text::get();
     });
 
     qmlRegisterSingletonType<FF7Item>("org.ff7tk", 1, 0, "FF7Item", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
-        return FF7Item::qmlSingletonRegister(engine, jsEngine);
+        engine->setObjectOwnership(FF7Item::get(), QQmlEngine::CppOwnership);
+        return FF7Item::get();
     });
 
     qmlRegisterSingletonType<ff7tkInfo>("org.ff7tk", 1, 0, "FF7Info", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
-        return ff7tkInfo::qmlSingletonRegister(engine, jsEngine);
+        engine->setObjectOwnership(ff7tkInfo::get(), QQmlEngine::CppOwnership);
+        return ff7tkInfo::get();
     });
 
     qmlRegisterSingletonType<FF7Materia>("org.ff7tk", 1, 0, "FF7Materia", [](QQmlEngine *engine, QJSEngine *jsEngine) -> QObject * {
-        return FF7Materia::qmlSingletonRegister(engine, jsEngine);
+        engine->setObjectOwnership(FF7Materia::get(), QQmlEngine::CppOwnership);
+        return FF7Materia::get();
     });
 
     QQmlApplicationEngine engine;

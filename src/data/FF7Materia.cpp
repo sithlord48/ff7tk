@@ -15,19 +15,10 @@
 /****************************************************************************/
 #include <FF7Materia.h>
 
-#include <QQmlEngine>
-
 FF7Materia *FF7Materia::get()
 {
     static FF7Materia m;
     return &m;
-}
-
-QObject *FF7Materia::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(scriptEngine)
-    engine->setObjectOwnership(get(), QQmlEngine::CppOwnership);
-    return get();
 }
 
 const FF7Materia::MATERIA &FF7Materia::Materias(int id)

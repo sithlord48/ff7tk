@@ -16,11 +16,15 @@
 #pragma once
 
 #include <QObject>
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#include <QtQml/qqmlapplicationengine.h>
+#else
+#include <QtQmlIntegration/QtQmlIntegration>
+#endif
+
 #include <ff7tkdata_export.h>
 
 class QIcon;
-class QQmlEngine;
-class QJSEngine;
 
 /*! \class FF7Item
  * \brief Information about items in FF7
@@ -28,6 +32,8 @@ class QJSEngine;
 class FF7TKDATA_EXPORT FF7Item: public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 public:
     /** \enum ItemType
      *  \brief Item types in Final Fantasy 7
@@ -106,14 +112,14 @@ public:
 
     /**
      * @brief Get the FF7Item Instance.
-     * @sa qmlSingletonRegister()
      */
-    static FF7Item *instance();
+    static FF7Item *get();
 
     /**
-     * @brief Register The FF7Item Singleton for QML
+     * @brief Get the FF7Item Instance.
+     * DEPRECATED use get();
      */
-    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    FF7TKDATA_DEPRECATED static FF7Item *instance() { return get(); }
 
     /*! \brief Decode rawitem to quint16
     *   \param itemraw raw 2byte item from ff7 Save

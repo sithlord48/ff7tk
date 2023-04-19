@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2020  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2013 - 2023  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -17,10 +17,13 @@
 
 #include <QObject>
 #include <QtGlobal>
-#include <ff7tkdata_export.h>
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#include <QtQml/qqmlapplicationengine.h>
+#else
+#include <QtQmlIntegration/QtQmlIntegration>
+#endif
 
-class QQmlEngine;
-class QJSEngine;
+#include <ff7tkdata_export.h>
 
 struct FieldItem {
     QList<quint16> Offset; /**< list of offsets to change */
@@ -35,21 +38,20 @@ struct FieldItem {
 class FF7TKDATA_EXPORT FF7FieldItemList : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
     Q_PROPERTY(int size READ size CONSTANT)
 public:
-    /*! \brief data structure to hold field item  changes
-    */
-
     /**
      * @brief Get the FF7FieldItemList Instance.
-     * @sa qmlSingletonRegister()
      */
     static FF7FieldItemList *get();
 
     /**
-     * @brief Register The FF7FieldItemList Singleton for QML
+     * @brief Get the FF7FieldItemList Instance.
+     * DEPRECATED use get();
      */
-    static QObject * qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    FF7TKDATA_DEPRECATED static FF7FieldItemList *instance() { return get(); }
 
     /*! \brief offset list for an entry (offset[x] bit[x] are pairs needed to read/write correctly
      *  \param index index in list

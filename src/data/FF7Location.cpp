@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2023  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -15,9 +15,7 @@
 /****************************************************************************/
 #include <FF7Location.h>
 
-#include <QQmlEngine>
-
-FF7Location *FF7Location::instance()
+FF7Location *FF7Location::get()
 {
     static FF7Location m;
     return &m;
@@ -34,49 +32,42 @@ FF7Location::~FF7Location()
     delete dPtr;
 }
 
-QObject *FF7Location::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(scriptEngine)
-    engine->setObjectOwnership(instance(), QQmlEngine::CppOwnership);
-    return instance();
-}
-
 const QString &FF7Location::fileName(int index)
 {
-    return instance()->dPtr->_locations.at(index).filename;
+    return get()->dPtr->_locations.at(index).filename;
 }
 
 const FF7Location::LOCATION &FF7Location::location(int index)
 {
     if (index >= 0 && index < size()) {
-        return instance()->dPtr->_locations.at(index);
+        return get()->dPtr->_locations.at(index);
     }
-    return instance()->dPtr->_emptyLocation;
+    return get()->dPtr->_emptyLocation;
 }
 
 const FF7Location::LOCATION &FF7Location::location(const QString &fileName)
 {
-    auto it  = std::find_if(instance()->dPtr->_locations.begin(), instance()->dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
-    if( it != instance()->dPtr->_locations.end())
+    auto it  = std::find_if(get()->dPtr->_locations.begin(), get()->dPtr->_locations.end(), [fileName](const LOCATION &loc){return fileName == loc.filename;});
+    if( it != get()->dPtr->_locations.end())
         return *it;
-    return instance()->dPtr->_emptyLocation;
+    return get()->dPtr->_emptyLocation;
 }
 
 int FF7Location::size()
 {
-    return instance()->dPtr->_locations.size();
+    return get()->dPtr->_locations.size();
 }
 
 const QString &FF7Location::fileName(int MapID, int LocID)
 {
-    auto it = std::find_if(instance()->dPtr->_locations.begin(), instance()->dPtr->_locations.end(), [MapID, LocID](const LOCATION &loc){return ((MapID == loc.map_id.toInt()) && (LocID == loc.loc_id.toInt()));});
-    if(it != instance()->dPtr->_locations.end())
+    auto it = std::find_if(get()->dPtr->_locations.begin(), get()->dPtr->_locations.end(), [MapID, LocID](const LOCATION &loc){return ((MapID == loc.map_id.toInt()) && (LocID == loc.loc_id.toInt()));});
+    if(it != get()->dPtr->_locations.end())
         return it->filename;
-    return instance()->dPtr->_emptyLocation.filename;
+    return get()->dPtr->_emptyLocation.filename;
 }
 QString FF7Location::rawLocationString(int index)
 {
-    return instance()->dPtr->_locations.at(index).location;
+    return get()->dPtr->_locations.at(index).location;
 }
 QString FF7Location::rawLocationString(const QString &fileName)
 {
@@ -84,7 +75,7 @@ QString FF7Location::rawLocationString(const QString &fileName)
 }
 QString FF7Location::locationString(int index)
 {
-    return tr(instance()->dPtr->_locations.at(index).location.toLocal8Bit());
+    return tr(get()->dPtr->_locations.at(index).location.toLocal8Bit());
 }
 
 QString FF7Location::locationString(const QString &fileName)
@@ -94,7 +85,7 @@ QString FF7Location::locationString(const QString &fileName)
 
 const QString &FF7Location::mapID(int index)
 {
-    return instance()->dPtr->_locations.at(index).map_id;
+    return get()->dPtr->_locations.at(index).map_id;
 }
 
 const QString &FF7Location::mapID(const QString &fileName)
@@ -104,7 +95,7 @@ const QString &FF7Location::mapID(const QString &fileName)
 
 const QString &FF7Location::locationID(int index)
 {
-    return instance()->dPtr->_locations.at(index).loc_id;
+    return get()->dPtr->_locations.at(index).loc_id;
 }
 
 const QString &FF7Location::locationID(const QString &fileName)
@@ -114,7 +105,7 @@ const QString &FF7Location::locationID(const QString &fileName)
 
 const QString &FF7Location::x(int index)
 {
-    return instance()->dPtr->_locations.at(index).x;
+    return get()->dPtr->_locations.at(index).x;
 }
 
 const QString &FF7Location::x(const QString &fileName)
@@ -125,7 +116,7 @@ const QString &FF7Location::x(const QString &fileName)
 
 const QString &FF7Location::y(int index)
 {
-    return instance()->dPtr->_locations.at(index).y;
+    return get()->dPtr->_locations.at(index).y;
 }
 
 const QString &FF7Location::y(const QString &fileName)
@@ -135,7 +126,7 @@ const QString &FF7Location::y(const QString &fileName)
 
 const QString &FF7Location::t(int index)
 {
-    return instance()->dPtr->_locations.at(index).t;
+    return get()->dPtr->_locations.at(index).t;
 }
 
 const QString &FF7Location::t(const QString &fileName)
@@ -145,7 +136,7 @@ const QString &FF7Location::t(const QString &fileName)
 
 const QString &FF7Location::d(int index)
 {
-    return instance()->dPtr->_locations.at(index).d;
+    return get()->dPtr->_locations.at(index).d;
 }
 
 const QString &FF7Location::d(const QString &fileName)

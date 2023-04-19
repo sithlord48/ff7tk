@@ -17,14 +17,20 @@
 
 #include <QObject>
 #include <QRegularExpression>
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#include <QtQml/qqmlapplicationengine.h>
+#else
+#include <QtQmlIntegration/QtQmlIntegration>
+#endif
+
 #include <ff7tkdata_export.h>
 
-class QJSEngine;
-class QQmlEngine;
 
 class FF7TKDATA_EXPORT FF7SaveInfo : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 public:
     /**
      * \enum FORMAT
@@ -71,14 +77,14 @@ public:
 
     /**
      * @brief Get the FF7SaveInfo Instance.
-     * @sa qmlSingletonRegister()
      */
-    static FF7SaveInfo *instance();
+    static FF7SaveInfo *get();
 
     /**
-     * @brief Register The FF7SaveInfo Singleton for QML
+     * @brief Get the FF7SaveInfo Instance.
+     * DEPRECATED use get();
      */
-    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    FF7TKDATA_DEPRECATED static FF7SaveInfo *instance() { return get(); }
 
     /**
      * @brief The Size of a Final Fantasy VII Save file

@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2013 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2013 - 2023 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -16,19 +16,12 @@
 #include <FF7FieldItemList.h>
 
 #include<QStringList>
-#include <QQmlEngine>
+
 
 FF7FieldItemList *FF7FieldItemList::get()
 {
     static FF7FieldItemList m;
     return &m;
-}
-
-QObject *FF7FieldItemList::qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine)
-{
-    Q_UNUSED(scriptEngine)
-    engine->setObjectOwnership(get(), QQmlEngine::CppOwnership);
-    return get();
 }
 
 FF7FieldItemList::FF7FieldItemList(QObject *parent)

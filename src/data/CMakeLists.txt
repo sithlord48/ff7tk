@@ -2,7 +2,6 @@ find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
     Core
     Core5Compat
     Svg
-    Quick
     Xml
 )
 
@@ -36,7 +35,6 @@ set ( ff7tkData_RESOURCES
 
 set (ff7tkData_PublicLIBLINKS
       Qt::Core
-      Qt::Quick
       Qt::Xml
       Qt::Svg
       Qt::Core5Compat

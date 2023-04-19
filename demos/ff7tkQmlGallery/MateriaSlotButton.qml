@@ -3,6 +3,7 @@ import QtQuick.Controls
 import org.ff7tk 1.0 as FF7tk
 
 Item {
+    id: root
     property bool growthSlot: true
     property bool clickable: true
     property int currentID: FF7tk.FF7Materia.EmptyId

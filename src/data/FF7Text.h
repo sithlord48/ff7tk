@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022 Chris Rizzitello <sithlord48@gmail.com>         //
+//    copyright 2012 - 202 Chris Rizzitello <sithlord48@gmail.com>         //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -17,9 +17,11 @@
 
 #include <QObject>
 #include <ff7tkdata_export.h>
-
-class QQmlEngine;
-class QJSEngine;
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#include <QtQml/qqmlapplicationengine.h>
+#else
+#include <QtQmlIntegration/QtQmlIntegration>
+#endif
 
 /*! \class FF7Text
  * \brief Convert ff7text <-> pc string
@@ -27,18 +29,20 @@ class QJSEngine;
 class FF7TKDATA_EXPORT FF7Text: public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
     Q_PROPERTY(bool japanese READ isJapanese WRITE setJapanese NOTIFY languageChanged)
 public:
     /**
      * @brief Get the FF7Text Instance.
-     * @sa qmlSingletonRegister()
      */
-    static FF7Text *instance();
+    static FF7Text *get();
 
     /**
-     * @brief Register The FF7Text Singleton for QML
+     * @brief instance Get FF7Text Instance.
+     * DEPRECATED replace with get()
      */
-    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    FF7TKDATA_DEPRECATED static FF7Text *instance() {return get();}
     
     /*! \brief sets the text mode, if TRUE will return Japanese text */
     static void setJapanese(bool japanese);
