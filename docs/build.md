@@ -98,7 +98,7 @@ You can use FF7Tk::translationList to get a QMap<QString, QTranslation*> of all 
   - ff7tk
     -- QtCore
   - ff7tkData
-    -- QtCore, QtXml, QtQml, QtQuick, QtSvg, Svg Image plugin, Core5Compat
+    -- QtCore, QtXml, QtSvg, Svg Image plugin, Core5Compat
   - ff7tkQtWidgets
     -- QtWidgets, QtGui
   - ff7tkWidgets

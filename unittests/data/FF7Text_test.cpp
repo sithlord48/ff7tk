@@ -71,7 +71,7 @@ void FF7Text_Test::test_toFF7ENG()
 }
 void FF7Text_Test::test_setJapanese()
 {
-    QSignalSpy(FF7Text::instance(), &FF7Text::languageChanged);
+    QSignalSpy(FF7Text::get(), &FF7Text::languageChanged);
     FF7Text::setJapanese(true);
 }
 

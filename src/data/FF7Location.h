@@ -1,5 +1,5 @@
 /****************************************************************************/
-//    copyright 2012 - 2022  Chris Rizzitello <sithlord48@gmail.com>        //
+//    copyright 2012 - 2023  Chris Rizzitello <sithlord48@gmail.com>        //
 //                                                                          //
 //    This file is part of FF7tk                                            //
 //                                                                          //
@@ -18,9 +18,6 @@
 #include <QObject>
 #include <ff7tkdata_export.h>
 
-class QQmlEngine;
-class QJSEngine;
-
 /*! \class FF7Location
  *  \brief Info about field locations.
  */
@@ -30,14 +27,14 @@ class FF7TKDATA_EXPORT FF7Location : public QObject
 public:
     /**
      * @brief Get the FF7Location Instance.
-     * @sa qmlSingletonRegister()
      */
-    static FF7Location *instance();
+    static FF7Location *get();
 
     /**
-     * @brief Register The FF7Location Singleton for QML
+     * @brief Get the FF7Location Instance.
+     * DEPRECATED use get();
      */
-    static QObject *qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
+    FF7TKDATA_DEPRECATED static FF7Location *instance() { return get(); }
 
     /*!
     * \brief get filename for location (flevel file)

@@ -18,16 +18,21 @@
 #include <QObject>
 #include <QIcon>
 #include <QtEndian>
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#include <QtQml/qqmlapplicationengine.h>
+#else
+#include <QtQmlIntegration/QtQmlIntegration>
+#endif
 
 #include <ff7tkdata_export.h>
 #include <Type_materia>
 
-class QQmlEngine;
-class QJSEngine;
 
 class FF7TKDATA_EXPORT FF7Materia : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 public:
     enum MateriaType {
         AllMaterias/**< 0*/
@@ -53,14 +58,8 @@ public:
 
     /**
      * @brief Get the FF7Materia Instance.
-     * @sa qmlSingletonRegister()
      */
     static FF7Materia *get();
-
-    /**
-     * @brief Register The FF7Materia Singleton for QML
-     */
-    static QObject * qmlSingletonRegister(QQmlEngine *engine, QJSEngine *scriptEngine);
 
     /**
      * @brief totalMateria Total number of materia

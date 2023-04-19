@@ -4,7 +4,6 @@ include(CMakeFindDependencyMacro)
 find_dependency(Qt6 "@REQUIRED_QT_VERSION@" COMPONENTS
     Core
     Svg
-    Quick
     Xml
     Core5Compat
 )
