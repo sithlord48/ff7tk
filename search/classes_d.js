@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['saveicon_2248',['SaveIcon',['../classSaveIcon.html',1,'']]],
-  ['slotpreview_2249',['SlotPreview',['../classSlotPreview.html',1,'']]],
-  ['slotselect_2250',['SlotSelect',['../classSlotSelect.html',1,'']]],
-  ['splitter_2251',['Splitter',['../classSplitter.html',1,'']]]
+  ['saveicon_2247',['SaveIcon',['../classSaveIcon.html',1,'']]],
+  ['slotpreview_2248',['SlotPreview',['../classSlotPreview.html',1,'']]],
+  ['slotselect_2249',['SlotSelect',['../classSlotSelect.html',1,'']]],
+  ['splitter_2250',['Splitter',['../classSplitter.html',1,'']]]
 ];

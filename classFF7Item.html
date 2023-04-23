@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.2.12</span>
+   &#160;<span id="projectnumber">0.83.2.13</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -523,12 +523,12 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6fc3a7429efc39cb3de18294f3a52f38"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFF7Item.html">FF7Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Item.html#a6fc3a7429efc39cb3de18294f3a52f38">instance</a> ()</td></tr>
-<tr class="memdesc:a6fc3a7429efc39cb3de18294f3a52f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Instance.  <a href="classFF7Item.html#a6fc3a7429efc39cb3de18294f3a52f38">More...</a><br /></td></tr>
-<tr class="separator:a6fc3a7429efc39cb3de18294f3a52f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae03ff6a8fa66132e339be227ad49f441"><td class="memItemLeft" align="right" valign="top">static QObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Item.html#ae03ff6a8fa66132e339be227ad49f441">qmlSingletonRegister</a> (QQmlEngine *engine, QJSEngine *scriptEngine)</td></tr>
-<tr class="memdesc:ae03ff6a8fa66132e339be227ad49f441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register The <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Singleton for QML.  <a href="classFF7Item.html#ae03ff6a8fa66132e339be227ad49f441">More...</a><br /></td></tr>
-<tr class="separator:ae03ff6a8fa66132e339be227ad49f441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6db2bae6e16f65a24698409b194ceb5a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFF7Item.html">FF7Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Item.html#a6db2bae6e16f65a24698409b194ceb5a">get</a> ()</td></tr>
+<tr class="memdesc:a6db2bae6e16f65a24698409b194ceb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Instance.  <a href="classFF7Item.html#a6db2bae6e16f65a24698409b194ceb5a">More...</a><br /></td></tr>
+<tr class="separator:a6db2bae6e16f65a24698409b194ceb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55951c1b27405d651764975046794691"><td class="memItemLeft" align="right" valign="top">static FF7TKDATA_DEPRECATED <a class="el" href="classFF7Item.html">FF7Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Item.html#a55951c1b27405d651764975046794691">instance</a> ()</td></tr>
+<tr class="memdesc:a55951c1b27405d651764975046794691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Instance. DEPRECATED use <a class="el" href="classFF7Item.html#a6db2bae6e16f65a24698409b194ceb5a" title="Get the FF7Item Instance.">get()</a>;.  <a href="classFF7Item.html#a55951c1b27405d651764975046794691">More...</a><br /></td></tr>
+<tr class="separator:a55951c1b27405d651764975046794691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54138fe51869db854d5e26bdefd5abf5"><td class="memItemLeft" align="right" valign="top">static Q_INVOKABLE quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Item.html#a54138fe51869db854d5e26bdefd5abf5">itemDecode</a> (quint16 itemraw)</td></tr>
 <tr class="memdesc:a54138fe51869db854d5e26bdefd5abf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode rawitem to quint16.  <a href="classFF7Item.html#a54138fe51869db854d5e26bdefd5abf5">More...</a><br /></td></tr>
 <tr class="separator:a54138fe51869db854d5e26bdefd5abf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2042,6 +2042,33 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6db2bae6e16f65a24698409b194ceb5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6db2bae6e16f65a24698409b194ceb5a">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFF7Item.html">FF7Item</a> * FF7Item::get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Instance. </p>
+
+</div>
+</div>
 <a id="a6564adbcbde98fc2775ba30daa739bfb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6564adbcbde98fc2775ba30daa739bfb">&#9670;&nbsp;</a></span>icon()</h2>
 
@@ -2237,8 +2264,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6fc3a7429efc39cb3de18294f3a52f38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fc3a7429efc39cb3de18294f3a52f38">&#9670;&nbsp;</a></span>instance()</h2>
+<a id="a55951c1b27405d651764975046794691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55951c1b27405d651764975046794691">&#9670;&nbsp;</a></span>instance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2247,7 +2274,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classFF7Item.html">FF7Item</a> * FF7Item::instance </td>
+          <td class="memname">static FF7TKDATA_DEPRECATED <a class="el" href="classFF7Item.html">FF7Item</a>* FF7Item::instance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2255,13 +2282,12 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Instance. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFF7Item.html#ae03ff6a8fa66132e339be227ad49f441" title="Register The FF7Item Singleton for QML.">qmlSingletonRegister()</a> </dd></dl>
+<p>Get the <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Instance. DEPRECATED use <a class="el" href="classFF7Item.html#a6db2bae6e16f65a24698409b194ceb5a" title="Get the FF7Item Instance.">get()</a>;. </p>
 
 </div>
 </div>
@@ -2672,44 +2698,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>placeHolderIds </p>
 <dl class="section return"><dt>Returns</dt><dd>List of placeholderIds </dd></dl>
-
-</div>
-</div>
-<a id="ae03ff6a8fa66132e339be227ad49f441"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae03ff6a8fa66132e339be227ad49f441">&#9670;&nbsp;</a></span>qmlSingletonRegister()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QObject * FF7Item::qmlSingletonRegister </td>
-          <td>(</td>
-          <td class="paramtype">QQmlEngine *&#160;</td>
-          <td class="paramname"><em>engine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QJSEngine *&#160;</td>
-          <td class="paramname"><em>scriptEngine</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Register The <a class="el" href="classFF7Item.html" title="Information about items in FF7.">FF7Item</a> Singleton for QML. </p>
 
 </div>
 </div>
