@@ -133,7 +133,7 @@ void SlotPreview::setGil(int gil)
 
 void SlotPreview::setTime(int hr, int min)
 {
-    m_time = QString(tr("Time:%1:%2")).arg(QString::number(hr), QString("%1").arg(QString::number(min), 2, QChar('0')));
+    m_time = QString(tr("Time:%1:%2")).arg(QString("%1").arg(QString::number(hr), 2, QChar('0')), QString("%1").arg(QString::number(min), 2, QChar('0')));
 }
 
 void SlotPreview::setPsxIcon(const QByteArray &icon_data, quint8 frames)
@@ -173,13 +173,13 @@ void SlotPreview::paintEvent(QPaintEvent *e)
     f.setFamily(QStringLiteral("Verdana"));
     f.setWeight(QFont::Thin);
     //Slot Text
-    f.setPointSize(16);
+    f.setPixelSize(m_lineHeight * 0.75);
     p.setFont(f);
     p.setPen( m_mode == FF7SAVE ? Qt::white : palette().text().color());
 
     int padding = 6;
-    p.drawText(contentsMargins().left() + padding, contentsMargins().top() + fontMetrics().height() + padding, tr("Slot: %1").arg(QString::number(m_index + 1)));
-
+    p.drawText(contentsMargins().left() + padding, contentsMargins().top() + (f.pixelSize() /2) + padding + 6, tr("Slot: %1").arg(QString::number(m_index + 1)));
+    f.setWeight(QFont::Light);
     if (m_mode == PSXGAME) {
         int w = int(m_lineHeight * 3.5);
         p.translate(12, (height() * 0.25) - (contentsMargins().top() * 2) - 6 );
@@ -204,18 +204,20 @@ void SlotPreview::paintEvent(QPaintEvent *e)
         p.drawPixmap(0, 0, w, h, m_p1);
         p.drawPixmap(w+6, 0, w, h, m_p2);
         p.drawPixmap(w+w+12, 0, w, h, m_p3);
-        f.setPointSize(16);
+        f.setPixelSize(m_lineHeight * 0.8);
         p.setFont(f);
         p.setPen(Qt::white);
-        p.drawText(270, 0, 175, m_lineHeight, Qt::AlignCenter, m_name);
-        p.drawText(450, 0, 155, m_lineHeight, Qt::AlignCenter,m_time);
-        p.drawText(270, 40, 125, m_lineHeight, Qt::AlignCenter,m_level);
-        p.drawText(400, 40, 205, m_lineHeight, Qt::AlignCenter,m_gil);
-        p.drawText(270, 75, 335, m_lineHeight, Qt::AlignCenter, m_location);
+        int bLeft = (w*3) + 18;
+        int half = ((width() - 24) - bLeft) / 3;
+        p.drawText(bLeft, 0, half, m_lineHeight, Qt::AlignLeft, m_name);
+        p.drawText(bLeft + half, 0, half * 2, m_lineHeight, Qt::AlignLeft,m_time);
+        p.drawText(bLeft, m_lineHeight + 5 , half, m_lineHeight, Qt::AlignLeft,m_level);
+        p.drawText(bLeft + half, m_lineHeight + 5 , half * 2, m_lineHeight, Qt::AlignLeft,m_gil);
+        p.drawText(bLeft, (m_lineHeight + 5)*2, (width() - 24) - bLeft, m_lineHeight, Qt::AlignCenter, m_location);
     } else {
         QColor pColor = palette().text().color().value() > QColor(Qt::lightGray).value() ? Qt::yellow : QColor("orange");
         QString str = tr("-Empty Slot-");
-        f.setPointSize(20);
+        f.setPixelSize(m_lineHeight * 0.9);
         p.setFont(f);
         p.setPen(pColor);
         p.drawText(0,0, width(), height(), Qt::AlignCenter, str);
