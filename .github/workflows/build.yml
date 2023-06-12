@@ -10,7 +10,7 @@ on:
 env:
     QtVersion: 6.5.1
     QtTools: 'tools_ifw'
-    QtKey: "6.5.1-ifw"
+    QtKey: "6.5.1-ifw46"
     BuildType: RelWithDebInfo
     cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo"
     debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts"
@@ -72,19 +72,19 @@ jobs:
         - {
            name: "Linux-x86_64"
            , os: ubuntu-20.04
-           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.4"
+           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.6"
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib"
           }
         - {
             name: "MacOS"
             , os: macos-latest
-            , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.4"
+            , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.6"
             , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
           }
         - {
             name: "Windows-x64"
             , os: windows-2019
-            , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.4"
+            , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.6"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
           }
     steps:
