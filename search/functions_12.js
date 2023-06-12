@@ -35,7 +35,7 @@ var searchData=
   ['turtleparadiseflyersseen_3472',['turtleParadiseFlyersSeen',['../classFF7Save.html#ac9525a1cd0ce09bf4b40b16d58bd4cce',1,'FF7Save']]],
   ['tutsave_3473',['tutSave',['../classFF7Save.html#af0117d9bda87caecc2e75d40ff3861e9',1,'FF7Save']]],
   ['tutsub_3474',['tutSub',['../classFF7Save.html#a29ba17f967369c2f8ba99609348033e4',1,'FF7Save::tutSub(int s)'],['../classFF7Save.html#af0591da1401d72fb405a03d0a7060b0e',1,'FF7Save::tutSub(int s, int bit)']]],
-  ['type_3475',['type',['../classFF7Item.html#a5a65c0344d2e31b5ce2c7855d08cef68',1,'FF7Item::type()'],['../classFF7Materia.html#a08a49f578981d8bbbd452175f86530d3',1,'FF7Materia::type()']]],
+  ['type_3475',['type',['../classFF7Item.html#a5a65c0344d2e31b5ce2c7855d08cef68',1,'FF7Item::type()'],['../classFF7Materia.html#a6facf790650f05e7bfe704f83d05c9ab',1,'FF7Materia::type()']]],
   ['typechanged_3476',['typeChanged',['../classChocoboEditor.html#ac52e66225c2fca12c9852a827b32b21c',1,'ChocoboEditor::typeChanged()'],['../classChocoboManager.html#a90dd5dff3b23cbeb5b5987f1e5bba478',1,'ChocoboManager::typeChanged()']]],
   ['typedescription_3477',['typeDescription',['../classFF7SaveInfo.html#a3ab9a2af1b4984e7923679ac2ecb920b',1,'FF7SaveInfo']]],
   ['typeextension_3478',['typeExtension',['../classFF7SaveInfo.html#a785703a3c16374c1c5abcb4e481dc2d3',1,'FF7SaveInfo']]],

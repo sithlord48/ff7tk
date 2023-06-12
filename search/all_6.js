@@ -103,7 +103,7 @@ var searchData=
   ['frontrow_674',['FrontRow',['../classFF7Char.html#a67e9a7b3822421fa496a2602130aa00ba39d3017e5ea58993f0d012c6797442b7',1,'FF7Char']]],
   ['fullcure_675',['FullCure',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8aad2253e05000cd16522184be322d677e',1,'FF7Materia']]],
   ['fullmetalstaff_676',['FullMetalStaff',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ae387361a26b6b1591fc7b5f790980388',1,'FF7Item']]],
-  ['fullstarresource_677',['fullStarResource',['../classFF7Materia.html#a846e04add12662266b69f98fd52e37d8',1,'FF7Materia']]],
+  ['fullstarresource_677',['fullStarResource',['../classFF7Materia.html#a0870365e2470aadbe089448ce707dce9',1,'FF7Materia']]],
   ['fury_678',['Fury',['../classFF7Char.html#a1384ff313f8e1f8ed83347d331706378a0a9d0715a95313b02ed813a5ebd5b148',1,'FF7Char']]],
   ['furyring_679',['FuryRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7aab28fd7e81d8df563d08ed9bab31fc79',1,'FF7Item']]],
   ['ff7tk_680',['ff7tk',['../index.html',1,'']]]
