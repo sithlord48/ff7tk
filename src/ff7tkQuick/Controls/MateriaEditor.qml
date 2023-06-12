@@ -16,24 +16,23 @@
 
 import QtQuick
 import QtQuick.Layouts
-import org.ff7tk as FF7tk
+import QtQuick.Controls
+import ff7tkQuick.DataTypes
+import "Components" as FFComps
 
 Item {
     id: root
-    property int currentId: FF7tk.FF7Materia.EmptyId
-    property int currentAp: FF7tk.FF7Materia.MaxMateriaAp
-    property bool isEmpty: ((currentId === FF7tk.FF7Materia.EmptyId) && (currentAp === FF7tk.FF7Materia.MaxMateriaAp))
-    FontMetrics {
-        id: fm
-    }
+    property int currentId: FF7Materia.EmptyId
+    property int currentAp: FF7Materia.MaxMateriaAp
+    property bool isEmpty: ((currentId === FF7Materia.EmptyId) && (currentAp === FF7Materia.MaxMateriaAp))
     ListModel {
         id: typeModel
-        ListElement { text: qsTr("All Materia"); icon: "/materia/all" }
-        ListElement { text: qsTr("Magic");       icon: "/materia/magic" }
-        ListElement { text: qsTr("Summon");      icon: "/materia/summon" }
-        ListElement { text: qsTr("Independent"); icon: "/materia/independent" }
-        ListElement { text: qsTr("Support");     icon: "/materia/support" }
-        ListElement { text: qsTr("Command");     icon: "/materia/command" }
+        ListElement { text: qsTr("All Materia"); icon: "qrc:/materia/all" }
+        ListElement { text: qsTr("Magic");       icon: "qrc:/materia/magic" }
+        ListElement { text: qsTr("Summon");      icon: "qrc:/materia/summon" }
+        ListElement { text: qsTr("Independent"); icon: "qrc:/materia/independent" }
+        ListElement { text: qsTr("Support");     icon: "qrc:/materia/support" }
+        ListElement { text: qsTr("Command");     icon: "qrc:/materia/command" }
     }
     ListModel {
         id: materiaModel
@@ -47,8 +46,9 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
+            height: 24
             anchors.margins: 6
-            ComboBox {
+            FFComps.ComboBox {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.preferredWidth: parent.width * .33
@@ -58,7 +58,7 @@ Item {
                     setupMateriaModel(currentIndex)
                 }
             }
-            ComboBox {
+            FFComps.ComboBox {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.preferredWidth: parent.width * 0.66
@@ -70,8 +70,8 @@ Item {
     function setupMateriaModel(type) {
         materiaModel.clear()
         for (let i = 0 ; i < 90; i++) {
-            if( (type === 0 || FF7tk.FF7Materia.type(i) === type) && FF7tk.FF7Materia.name(i) !== "") {
-                materiaModel.append({ text: FF7tk.FF7Materia.name(i), icon: FF7tk.FF7Materia.iconResource(i), data: i})
+            if( (type === 0 || FF7Materia.type(i) === type) && FF7Materia.name(i) !== "") {
+                materiaModel.append({ text: FF7Materia.name(i), icon: FF7Materia.iconResource(i), data: i})
             }
         }
     }

@@ -16,7 +16,7 @@
 
 import QtQuick
 import QtQuick.Controls
-import org.ff7tk 1.0 as FF7tk
+import ff7tkQuick.DataTypes
 
 Item {
     id:root
@@ -36,19 +36,19 @@ Column {
         CheckBox {
             anchors.top: parent.top
             text: "Use Japanese Pc output"
-            onCheckedChanged: FF7tk.FF7Text.japanese = checkState
+            onCheckedChanged: FF7Text.japanese = checkState
         }
         Button {
             anchors.top:parent.top
             text:"Convert to PC"
             enabled: txtInput.text !== ""
-            onClicked: txtOutput.text = FF7tk.FF7Text.toPC(txtInput.text)
+            onClicked: txtOutput.text = FF7Text.toPC(txtInput.text)
         }
         Button {
             anchors.top: parent.top
             text: "Convert to FF7Text"
             enabled: txtInput.text !== ""
-            onClicked: txtOutput.text = FF7tk.FF7Text.toFF7(txtInput.text)
+            onClicked: txtOutput.text = FF7Text.toFF7(txtInput.text)
         }
     }
     TextField{

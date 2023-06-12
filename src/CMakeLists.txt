@@ -1,6 +1,7 @@
 option(DATA "Build the data libary" ON)
 option(FORMATS "Build the formats libary" ON)
 option(UTILS "Build utility library (Requires zlib)" ON)
+option(QUICK "Build ff7tkQuick libraries" ON)
 option(WIDGETS "Build the widget libary" ON)
 option(FRAMEWORKS "Build Frameworks on MacOS (EXPERMANTAL)" OFF)
 
@@ -24,6 +25,10 @@ endif()
 
 if(FORMATS)
     add_subdirectory(formats)
+endif()
+
+if(QUICK)
+    add_subdirectory(ff7tkQuick)
 endif()
 
 install(

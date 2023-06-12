@@ -1,6 +1,7 @@
 #Contains Various Macros to be included
 #####~~~~~~~~~~~~~~~~~~~~~MAKE_LIBRARY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #This makes a Library and sets up all the install rules
+# Calls add_library or qt_add_qml_module based on the provided options
 # LIB_TARGET NAME of Library to Make
 # HEADER_INSTALL_DIR: Path to install headers
 ## The Follow should be by defined the caller before calling the macro
@@ -9,13 +10,36 @@
 # LIB_TARGET_RESOURCES
 # LIB_TARGET_PublicLIBLINKS
 # LIB_TARGET_PrivateLIBLINKS
-macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
+## QML PLUGINS##
+# By Default a libary will be made if you would instead like a QML MODULE
+# LIB_TARGET_MAKEQMLMODULE - If True A QML Module will be made by calling qt_add_qml_module instead of add_library
+# LIB_TARGET_URI - The URI of the new module
+# LIB_TARGET_RESOURCE_PREFIX - Set to /qt/qml unless otherwise specified
+# LIB_TARGET_DEPENDS - The list of Qml Modules this module will depend upon. Depends are added to LIB_TARGET_PublicLIBLINKS
+# LIB_TARGET_QML_FILES - QML Files that are part of the module
 
-    add_library (${LIB_TARGET} SHARED
-            ${${LIB_TARGET}_SRC}
-            ${${LIB_TARGET}_HEADERS}
-            ${${LIB_TARGET}_RESOURCES}
+macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
+    if(DEFINED ${LIB_TARGET}_MAKEQMLMODULE)
+        if(NOT DEFINED ${LIB_TARGET}_RESOURCE_PREFIX)
+            set(RESOURCE_PREFIX "/qt/qml")
+        endif()
+
+        qt_add_qml_module(${LIB_TARGET}
+            VERSION 1.0
+            URI ${${LIB_TARGET}_URI}
+            RESOURCE_PREFIX ${RESOURCE_PREFIX}
+            DEPENDENCIES ${${LIB_TARGET}_DEPENDS}
+            QML_FILES ${${LIB_TARGET}_QMLFILES}
+            SOURCES ${${LIB_TARGET}_SRC} ${${LIB_TARGET}_HEADERS}
+            NO_PLUGIN
+        )
+    else()
+        add_library (${LIB_TARGET} SHARED
+                ${${LIB_TARGET}_SRC}
+                ${${LIB_TARGET}_HEADERS}
+                ${${LIB_TARGET}_RESOURCES}
     )
+    endif()
     add_library (ff7tk::${LIB_TARGET} ALIAS ${LIB_TARGET})
 
     #Embed rc file with Version info
@@ -146,7 +170,7 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
     export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}Targets.cmake)
     set_property(GLOBAL APPEND PROPERTY ff7tk_targets ${LIB_TARGET})
 endmacro()
- 
+
 #####~~~~~~~~~~~~~~~~~~~~~MAKE_DEMO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #This Macro Creates a ff7tk demo from a project
 #Then Sets all install and pacakge info

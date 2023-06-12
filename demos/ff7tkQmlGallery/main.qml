@@ -16,19 +16,23 @@
 
 import QtQuick
 import QtQuick.Controls
-import org.ff7tk 1.0 as FF7tk
+import ff7tkQuick.DataTypes
+import ff7tkQuick.Controls as FF7tkControls
+
 
 ApplicationWindow {
     id: root
     width: 800
     height: 600
-    title: "ff7tkQmlGallery-" + FF7tk.FF7Info.version
+    title: "ff7tkQmlGallery-" + FF7tkInfo.ff7tkVersion
     visible: true
     header: Item {
         id: headerItem
         Text{
             id: previewLabel
             text: "Current Preview:"
+            color: palette.text
+            anchors.verticalCenter: comboSelector.verticalCenter
         }
         ComboBox {
             id: comboSelector
@@ -52,7 +56,7 @@ ApplicationWindow {
     Loader {
         id: itemLoader
         anchors.fill: parent
-        anchors.topMargin: previewLabel.paintedHeight + 6
+        anchors.topMargin: comboSelector.height + 6
     }
 
     Component {
@@ -81,15 +85,15 @@ ApplicationWindow {
                 anchors.top: parent.top
                 anchors.left: lbl_materiaId.right
                 anchors.leftMargin: 6
-                model: ["None", "Magic", "Support", "Summon","Independent", "Command"]
+                model: [ "None", "Magic", "Support", "Summon","Independent", "Command"]
                 onCurrentIndexChanged: {
                     switch (currentIndex) {
-                        case 0: materiaSlotButton.currentID = FF7tk.FF7Materia.EmptyId; break;
-                        case 1: materiaSlotButton.currentID = FF7tk.FF7Materia.Fire; break;
-                        case 2: materiaSlotButton.currentID = FF7tk.FF7Materia.All; break;
-                        case 3: materiaSlotButton.currentID = FF7tk.FF7Materia.ChocoMog; break;
-                        case 4: materiaSlotButton.currentID = FF7tk.FF7Materia.MpPlus; break;
-                        case 5: materiaSlotButton.currentID = FF7tk.FF7Materia.Steal; break;
+                        case 0: materiaSlotButton.currentID = FF7Materia.EmptyId; break;
+                        case 1: materiaSlotButton.currentID = FF7Materia.Fire; break;
+                        case 2: materiaSlotButton.currentID = FF7Materia.All; break;
+                        case 3: materiaSlotButton.currentID = FF7Materia.ChocoMog; break;
+                        case 4: materiaSlotButton.currentID = FF7Materia.MpPlus; break;
+                        case 5: materiaSlotButton.currentID = FF7Materia.Steal; break;
                     }
                 }
             }
@@ -101,14 +105,14 @@ ApplicationWindow {
                 anchors.right: parent.right
                 text: "Slot Growth"
             }
-            MateriaSlotButton {
+            FF7tkControls.MateriaSlotButton {
                 id: materiaSlotButton
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.left: combo_materiaID.right
                 anchors.right: parent.right
                 anchors.margins: 10
-                currentID: FF7tk.FF7Materia.EmptyId
+                currentID: FF7Materia.EmptyId
                 growthSlot: cb_materiaSlotGrowth.checked
             }
         }
@@ -121,7 +125,7 @@ ApplicationWindow {
 
     Component {
         id: materiaEditorComponent
-        MateriaEditor {}
+        FF7tkControls.MateriaEditor { }
     }
 
     Component {
@@ -144,7 +148,7 @@ ApplicationWindow {
                 from: -1
                 to: 319
             }
-            ItemPreview {
+            FF7tkControls.ItemPreview {
                 anchors.top: sb_itemNumber.bottom
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
