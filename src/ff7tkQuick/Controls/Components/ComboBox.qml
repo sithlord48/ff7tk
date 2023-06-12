@@ -16,9 +16,12 @@
 
 import QtQuick
 import QtQuick.Controls as QQC
+import QtQuick.Templates as T
 
-QQC.ComboBox {
+T.ComboBox {
+    FontMetrics {id: fm}
     id: root
+    anchors.topMargin: 4
     background: Rectangle {
         implicitWidth: root.width
         implicitHeight: fm.height * 1.5
@@ -43,7 +46,8 @@ QQC.ComboBox {
     }
     contentItem: Item {
         width: root.width
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.fill: parent
+
         Image {
             id: icon
             anchors.verticalCenter: parent.verticalCenter
@@ -66,7 +70,7 @@ QQC.ComboBox {
             elide: Text.ElideRight
         }
     }
-    popup: QQC.Popup {
+    popup: T.Popup {
         y: root.height - 1
         width: root.width
         implicitHeight: contentItem.implicitHeight
@@ -75,6 +79,7 @@ QQC.ComboBox {
 
         contentItem: ListView {
             clip: true
+            boundsBehavior: ListView.StopAtBounds
             implicitHeight: Math.min(300, contentHeight)
             model: root.popup.visible ? root.delegateModel : null
             currentIndex: root.highlightedIndex
@@ -89,7 +94,7 @@ QQC.ComboBox {
     }
     indicator: Canvas {
         id: canvas
-        x: root.width - width - root.rightPadding
+        x: root.width - width - root.rightPadding - 6
         y: root.topPadding + (root.availableHeight - height) / 2
         width: 12
         height: 8

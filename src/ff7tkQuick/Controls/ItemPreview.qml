@@ -16,7 +16,7 @@
 
 import QtQuick
 import QtQuick.Layouts
-import org.ff7tk 1.0 as FF7tk
+import ff7tkQuick.DataTypes
 
 Item {
     id: root
@@ -36,7 +36,7 @@ Item {
             anchors.margins: 6
             width: fm.height * 2.0; height: width
             fillMode: Image.PreserveAspectFit
-            source: FF7tk.FF7Item.iconResource(itemId)
+            source: FF7Item.iconResource(itemId)
             antialiasing: true
         }
         Text {
@@ -44,7 +44,7 @@ Item {
             anchors.top: parent.top
             anchors.left: itemIcon.right
             anchors.right: parent.right
-            text: FF7tk.FF7Item.name(itemId)
+            text: FF7Item.name(itemId)
             font.bold: true
             font.pixelSize: fm.height * 0.8
             color: palette.text
@@ -55,14 +55,14 @@ Item {
             anchors.left: itemIcon.right
             anchors.leftMargin: 6
             anchors.right: parent.right
-            text: FF7tk.FF7Item.desc(itemId)
+            text: FF7Item.desc(itemId)
             font.pixelSize: fm.height * 0.7
             color: palette.text
         }
         Rectangle {
             id: materiaSlots
             property int leftMargin: materiaLink1.width
-            property string imagePath: FF7tk.FF7Item.materiaGrowthRate(itemId) > 0  ? FF7tk.FF7Item.materiaSlotResource() : FF7tk.FF7Item.materiaSlotNoGrowthResource()
+            property string imagePath: FF7Item.materiaGrowthRate(itemId) > 0  ? FF7Item.materiaSlotResource() : FF7Item.materiaSlotNoGrowthResource()
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: desc.bottom
@@ -71,13 +71,13 @@ Item {
             border.color: palette.dark
             color: palette.alternateBase
             height: 64
-            visible: (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Item) && (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Accessory) && (FF7tk.FF7Item.type(itemId) !== FF7tk.FF7Item.Unknown)
+            visible: (FF7Item.type(itemId) !== FF7Item.Item) && (FF7Item.type(itemId) !== FF7Item.Accessory) && (FF7Item.type(itemId) !== FF7Item.Unknown)
             Text{
                 id: materiaBoxTitle
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.right: parent.right
-                text: "APx" + FF7tk.FF7Item.materiaGrowthRate(itemId)
+                text: "APx" + FF7Item.materiaGrowthRate(itemId)
                 font.underline: true
                 font.pixelSize: fm.height * 0.75
                 horizontalAlignment: Text.AlignHCenter
@@ -105,16 +105,16 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     sourceSize: Qt.size(width,height)
                     source: materiaSlots.imagePath
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 0
+                    visible: FF7Item.materiaSlots(itemId) > 0
                 }
                 Image{
                     id: materiaLink1
                     Layout.fillHeight: true
                     Layout.maximumWidth: height / 4
                     fillMode: Qt.KeepAspectRatio
-                    source: FF7tk.FF7Item.materiaLinkResource()
+                    source: FF7Item.materiaLinkResource()
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 0
+                    visible: FF7Item.linkedSlots(itemId) > 0
                 }
                 Image{
                     id: materiaSlot2
@@ -125,7 +125,7 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     source: materiaSlots.imagePath
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 1
+                    visible: FF7Item.materiaSlots(itemId) > 1
                 }
                 Image{
                     id: materiaSlot3
@@ -136,16 +136,16 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     sourceSize: Qt.size(width,height)
                     source: materiaSlots.imagePath
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 2
+                    visible: FF7Item.materiaSlots(itemId) > 2
                 }
                 Image{
                     id: materiaLink2
                     Layout.fillHeight: true
                     Layout.maximumWidth: height / 4
                     fillMode: Qt.KeepAspectRatio
-                    source: FF7tk.FF7Item.materiaLinkResource()
+                    source: FF7Item.materiaLinkResource()
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 1
+                    visible: FF7Item.linkedSlots(itemId) > 1
                 }
                 Image{
                     id: materiaSlot4
@@ -156,7 +156,7 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     source: materiaSlots.imagePath
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 3
+                    visible: FF7Item.materiaSlots(itemId) > 3
                 }
                 Image{
                     id: materiaSlot5
@@ -167,16 +167,16 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     source: materiaSlots.imagePath
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 4
+                    visible: FF7Item.materiaSlots(itemId) > 4
                 }
                 Image{
                     id: materiaLink3
                     Layout.fillHeight: true
                     Layout.maximumWidth: height / 4
                     fillMode: Qt.KeepAspectRatio
-                    source: FF7tk.FF7Item.materiaLinkResource()
+                    source: FF7Item.materiaLinkResource()
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 3
+                    visible: FF7Item.linkedSlots(itemId) > 3
                 }
                 Image{
                     id: materiaSlot6
@@ -187,7 +187,7 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     source: materiaSlots.imagePath
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 5
+                    visible: FF7Item.materiaSlots(itemId) > 5
                 }
                 Image{
                     id: materiaSlot7
@@ -198,16 +198,16 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     source: materiaSlots.imagePath
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 6
+                    visible: FF7Item.materiaSlots(itemId) > 6
                 }
                 Image{
                     id: materiaLink4
                     Layout.fillHeight: true
                     Layout.maximumWidth: height / 4
                     fillMode: Qt.KeepAspectRatio
-                    source: FF7tk.FF7Item.materiaLinkResource()
+                    source: FF7Item.materiaLinkResource()
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.linkedSlots(itemId) > 3
+                    visible: FF7Item.linkedSlots(itemId) > 3
                 }
                 Image{
                     id: materiaSlot8
@@ -218,7 +218,7 @@ Item {
                     fillMode: Qt.KeepAspectRatio
                     source: materiaSlots.imagePath
                     sourceSize: Qt.size(width,height)
-                    visible: FF7tk.FF7Item.materiaSlots(itemId) > 7
+                    visible: FF7Item.materiaSlots(itemId) > 7
                 }
                 Rectangle {
                     Layout.fillHeight: true
@@ -260,7 +260,7 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    model: FF7tk.FF7Item.elementalEffects(itemId)
+                    model: FF7Item.elementalEffects(itemId)
                     boundsBehavior: Flickable.StopAtBounds
                     spacing: 2
                     delegate: Text {
@@ -307,7 +307,7 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    model: FF7tk.FF7Item.statusEffects(itemId)
+                    model: FF7Item.statusEffects(itemId)
                     spacing: 3
                     delegate: Text {
                         text: modelData

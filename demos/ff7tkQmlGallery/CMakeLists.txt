@@ -4,6 +4,7 @@ find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
         Quick
         QuickControls2
 )
+set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src ${CMAKE_BINARY_DIR}/src ${CMAKE_BINARY_DIR}/imports CACHE STRING "" FORCE)
 
 set(${PROJECT_NAME}_SRC
         main.cpp
@@ -11,14 +12,15 @@ set(${PROJECT_NAME}_SRC
 )
 
 set(${PROJECT_NAME}_DEPENDS
-    ff7tk::ff7tk
-    ff7tk::ff7tkData
+    ff7tk::ff7tkQuickDataTypes
+    ff7tk::ff7tkQuickControls
 )
 
 set(${PROJECT_NAME}_LIBLINKS
     ${${PROJECT_NAME}_DEPENDS}
     Qt::Quick
     Qt::QuickControls2
+    ff7tk::ff7tk
 )
 
 MAKE_DEMO()

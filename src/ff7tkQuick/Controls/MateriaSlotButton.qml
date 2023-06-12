@@ -16,13 +16,13 @@
 
 import QtQuick
 import QtQuick.Controls
-import org.ff7tk as FF7tk
+import ff7tkQuick.DataTypes
 
 Item {
     id: root
     property bool growthSlot: true
     property bool clickable: true
-    property int currentID: FF7tk.FF7Materia.EmptyId
+    property int currentID: FF7Materia.EmptyId
     signal clicked()
     implicitHeight: 32
     implicitWidth: 32
@@ -31,7 +31,7 @@ Item {
         anchors.fill: parent
         fillMode: Image.PreserveAspectFit
         sourceSize: Qt.size(width,height)
-        source: growthSlot ? FF7tk.FF7Item.materiaSlotNoGrowthResource() : FF7tk.FF7Item.materiaSlotResource()
+        source: growthSlot ? FF7Item.materiaSlotNoGrowthResource() : FF7Item.materiaSlotResource()
         Image {
             anchors {
                 fill: parent
@@ -41,7 +41,7 @@ Item {
                 leftMargin: slot.paintedWidth /11; rightMargin: slot.paintedWidth /11
             }
             fillMode: Image.PreserveAspectFit
-            source: FF7tk.FF7Materia.iconResource(currentID)
+            source: FF7Materia.iconResource(currentID)
             MouseArea {
                 anchors.fill: parent
                 visible: root.clickable
