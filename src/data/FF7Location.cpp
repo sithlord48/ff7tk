@@ -75,12 +75,12 @@ QString FF7Location::rawLocationString(const QString &fileName)
 }
 QString FF7Location::locationString(int index)
 {
-    return tr(get()->dPtr->_locations.at(index).location.toLocal8Bit());
+    return tr(get()->dPtr->_locations.at(index).location.toUtf8());
 }
 
 QString FF7Location::locationString(const QString &fileName)
 {
-    return rawLocationString(fileName).toLocal8Bit();
+    return rawLocationString(fileName).toUtf8();
 }
 
 const QString &FF7Location::mapID(int index)

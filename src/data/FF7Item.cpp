@@ -45,12 +45,12 @@ const FF7Item::ITEM &FF7Item::item(int id)
 
 QString FF7Item::name(int id)
 {
-    return tr(item(id).name.toLocal8Bit());
+    return tr(item(id).name.toUtf8());
 }
 
 QString FF7Item::desc(int id)
 {
-    return tr(item(id).desc.toLocal8Bit());
+    return tr(item(id).desc.toUtf8());
 }
 
 QString FF7Item::iconResource(int id)

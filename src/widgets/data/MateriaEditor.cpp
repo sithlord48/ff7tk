@@ -152,7 +152,7 @@ void MateriaEditor::setStats()
         } else {
             box_stats->setHidden(true);
         }
-        if (!FF7Materia::status(_id).at(0).toLocal8Bit().isEmpty()) {
+        if (!FF7Materia::status(_id).at(0).toUtf8().isEmpty()) {
             list_status->addItems(FF7Materia::status(_id));
             box_status_effects->setFixedWidth(this->width() / 3);
             box_status_effects->setHidden(false);
