@@ -64,32 +64,32 @@ const QList<int> FF7Materia::placeHolderIdList()
 QString FF7Materia::enemySkill(int skill)
 {
     skill = std::clamp(skill, 0, int(get()->d->_enemySkills.size()) -1);
-    return tr(get()->d->_enemySkills.at(skill).toLocal8Bit());
+    return tr(get()->d->_enemySkills.at(skill).toUtf8());
 }
 
 QString FF7Materia::masterCommandSkill(int skill)
 {
     skill = std::clamp(skill, 0, int(get()->d->_masterCommandList.size()) -1);
-    return tr(get()->d->_masterCommandList.at(skill).toLocal8Bit());
+    return tr(get()->d->_masterCommandList.at(skill).toUtf8());
 }
 
 QString FF7Materia::masterSummonSkill(int skill)
 {
     skill = std::clamp(skill, 0, int(get()->d->_masterSummonList.size()) -1);
-    return tr(get()->d->_masterSummonList.at(skill).toLocal8Bit());
+    return tr(get()->d->_masterSummonList.at(skill).toUtf8());
 }
 
 QString FF7Materia::masterMagicSkill(int skill)
 {
     skill = std::clamp(skill, 0, int(get()->d->_masterMagicList.size()) -1);
-    return tr(get()->d->_masterMagicList.at(skill).toLocal8Bit());
+    return tr(get()->d->_masterMagicList.at(skill).toUtf8());
 }
 
 QStringList FF7Materia::skills(int id)
 {
     QStringList translated_list;
     for(const QString &skill : Materias(idClamp(id)).skills)
-        translated_list.append(tr(skill.toLocal8Bit()));
+        translated_list.append(tr(skill.toUtf8()));
     return translated_list;
 }
 
@@ -97,6 +97,6 @@ QStringList FF7Materia::status(int id)
 {
     QStringList translated_list;
     for(const QString& stat : Materias(idClamp(id)).status)
-        translated_list.append(tr(stat.toLocal8Bit()));
+        translated_list.append(tr(stat.toUtf8()));
     return translated_list;
 }

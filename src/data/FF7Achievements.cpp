@@ -67,7 +67,7 @@ QString FF7Achievements::name(int bit)
 {
     QString temp;
     if (bit >=28 && bit <=63)
-        temp = tr(_names.at(bit - 28).toLocal8Bit());
+        temp = tr(_names.at(bit - 28).toUtf8());
     return temp;
 }
 

@@ -97,7 +97,7 @@ QString FF7Char::defaultName(int who)
 {
     if (!validID(who))
         return QString();
-    return tr(FF7Char::get()->d->_charData.at(who)._def_name.toLocal8Bit());
+    return tr(FF7Char::get()->d->_charData.at(who)._def_name.toUtf8());
 }
 
 QImage FF7Char::image(int who)
@@ -127,7 +127,7 @@ QStringList FF7Char::limits(int who)
         return FF7Char::get()->d->_emptyChar._limits;
     QStringList translated_list;
     for (const QString &limit : qAsConst(FF7Char::get()->d->_charData.at(who)._limits)) {
-        translated_list.append(tr(limit.toLocal8Bit()));
+        translated_list.append(tr(limit.toUtf8()));
     }
     return translated_list;
 }

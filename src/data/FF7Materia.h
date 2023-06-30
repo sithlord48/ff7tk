@@ -73,14 +73,14 @@ public:
      * @return Materia Name
      * @sa FF7Materia::name(materia mat);
      */
-    static Q_INVOKABLE QString name(int id) { return tr(Materias(idClamp(id)).name.toLocal8Bit()); }
+    static Q_INVOKABLE QString name(int id) { return tr(Materias(idClamp(id)).name.toUtf8()); }
 
     /**
      * @brief statString - Get the status String for a materia
      * @param id - Materia ID
      * @return String contining stat changes when materia is equiped.
      */
-    static Q_INVOKABLE QString statString(int id) { return tr(Materias(idClamp(id)).stats.toLocal8Bit()); }
+    static Q_INVOKABLE QString statString(int id) { return tr(Materias(idClamp(id)).stats.toUtf8()); }
 
     /**
      * @brief enemySkill - Get translated string of an enemy skill
@@ -115,7 +115,7 @@ public:
      * @param id - Id of materia to get the type of
      * @return An Elemental String Or QString()
      */
-    static Q_INVOKABLE QString element(int id) { return tr(Materias(idClamp(id)).elemental.toLocal8Bit()); }
+    static Q_INVOKABLE QString element(int id) { return tr(Materias(idClamp(id)).elemental.toUtf8()); }
     /**
      * @brief skills - Get Skill for a materia
      * @param id - Id of Materia

@@ -55,7 +55,7 @@ const QStringList &FF7FieldItemList::maps(int index)
 QString FF7FieldItemList::text(int index)
 {
     index = std::clamp(index, 0, size() -1);
-    return tr(get()->d->_fieldItemList.at(index).Text.toLocal8Bit());
+    return tr(get()->d->_fieldItemList.at(index).Text.toUtf8());
 }
 
 const QList<FieldItem> &FF7FieldItemList::fieldItemList()
