@@ -7633,7 +7633,7 @@ The km/h speeds are calculated while playing </translation>
     <name>QObject</name>
     <message>
         <source>Cannot update game binaries</source>
-        <translation type="unfinished">Cannot update game binaries</translation>
+        <translation>Cannot update game binaries</translation>
     </message>
 </context>
 <context>

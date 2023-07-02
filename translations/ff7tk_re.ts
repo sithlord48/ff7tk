@@ -691,7 +691,7 @@ The km/h speeds are calculated while playing </translation>
     <name>ColorDisplay</name>
     <message>
         <source>Choose a new color</source>
-        <translation type="unfinished">Choose a new color</translation>
+        <translation>Choose a new color</translation>
     </message>
 </context>
 <context>
@@ -4009,19 +4009,19 @@ The km/h speeds are calculated while playing </translation>
     <name>FF7ItemModel</name>
     <message>
         <source>Type</source>
-        <translation type="unfinished">Type</translation>
+        <translation>Type</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <source>Qty</source>
-        <translation type="unfinished">Qty</translation>
+        <translation>Qty</translation>
     </message>
     <message>
         <source>-------EMPTY--------</source>
-        <translation type="unfinished">-------EMPTY--------</translation>
+        <translation>-------EMPTY--------</translation>
     </message>
 </context>
 <context>
@@ -5132,7 +5132,7 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Great Cave</source>
-        <translation type="unfinished">Great Cave</translation>
+        <translation>Great Cave</translation>
     </message>
     <message>
         <source>Mideel</source>
@@ -5224,7 +5224,7 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Pub &quot;Starlet&quot;</source>
-        <translation type="unfinished">Pub: Starlet</translation>
+        <translation>Pub: Starlet</translation>
     </message>
 </context>
 <context>
@@ -6920,11 +6920,11 @@ The km/h speeds are calculated while playing </translation>
     <name>ItemList</name>
     <message>
         <source>-------EMPTY--------</source>
-        <translation type="unfinished">-------EMPTY--------</translation>
+        <translation>-------EMPTY--------</translation>
     </message>
     <message>
         <source>-------BAD ID-------</source>
-        <translation type="unfinished">-------BAD ID-------</translation>
+        <translation>-------BAD ID-------</translation>
     </message>
 </context>
 <context>
@@ -6935,11 +6935,11 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Status Effects</source>
-        <translation type="unfinished">Status Effects</translation>
+        <translation>Status Effects</translation>
     </message>
     <message>
         <source>APx%1</source>
-        <translation type="unfinished">APx%1</translation>
+        <translation>APx%1</translation>
     </message>
     <message>
         <source>Restoration</source>
@@ -6999,19 +6999,19 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Absorb:</source>
-        <translation type="unfinished">Absorb:</translation>
+        <translation>Absorb:</translation>
     </message>
     <message>
         <source>Nullify:</source>
-        <translation type="unfinished">Nullify:</translation>
+        <translation>Nullify:</translation>
     </message>
     <message>
         <source>Halve:</source>
-        <translation type="unfinished">Halve:</translation>
+        <translation>Halve:</translation>
     </message>
     <message>
         <source>Attack:</source>
-        <translation type="unfinished">Attack:</translation>
+        <translation>Attack:</translation>
     </message>
     <message>
         <source>Death</source>
@@ -7107,26 +7107,26 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Protect:</source>
-        <translation type="unfinished">Protect:</translation>
+        <translation>Protect:</translation>
     </message>
     <message>
         <source>Remove:</source>
-        <translation type="unfinished">Remove:</translation>
+        <translation>Remove:</translation>
     </message>
     <message>
         <source>Inflict:</source>
-        <translation type="unfinished">Inflict:</translation>
+        <translation>Inflict:</translation>
     </message>
     <message>
         <source>OnBattle:</source>
-        <translation type="unfinished">OnBattle:</translation>
+        <translation>OnBattle:</translation>
     </message>
 </context>
 <context>
     <name>ItemSelector</name>
     <message>
         <source>Empty Item</source>
-        <translation type="unfinished">Empty Item</translation>
+        <translation>Empty Item</translation>
     </message>
 </context>
 <context>
@@ -7286,15 +7286,15 @@ The km/h speeds are calculated while playing </translation>
     <name>MenuListWidget</name>
     <message>
         <source>Visible</source>
-        <translation type="unfinished">Visible</translation>
+        <translation>Visible</translation>
     </message>
     <message>
         <source>Locked</source>
-        <translation type="unfinished">Locked</translation>
+        <translation>Locked</translation>
     </message>
     <message>
         <source>Menu Manager</source>
-        <translation type="unfinished">Menu Manager</translation>
+        <translation>Menu Manager</translation>
     </message>
     <message>
         <source>Item</source>
@@ -7334,7 +7334,7 @@ The km/h speeds are calculated while playing </translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Save</translation>
+        <translation>Save</translation>
     </message>
 </context>
 <context>
@@ -7633,7 +7633,7 @@ The km/h speeds are calculated while playing </translation>
     <name>QObject</name>
     <message>
         <source>Cannot update game binaries</source>
-        <translation type="unfinished">Cannot update game binaries</translation>
+        <translation>Cannot update game binaries</translation>
     </message>
 </context>
 <context>
