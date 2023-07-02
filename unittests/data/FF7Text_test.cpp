@@ -36,6 +36,12 @@ void FF7Text_Test::test_toPCENG()
     QCOMPARE(FF7Text::toPC(rangeDx), rangeDxE);
     QCOMPARE(FF7Text::toPC(rangeEx), rangeExE);
     QCOMPARE(FF7Text::toPC(rangeFx), rangeFxE);
+    QCOMPARE(FF7Text::toPC(rangeFEDx), rangeFEDxE);
+    QCOMPARE(FF7Text::toPC(rangeFEEx), rangeFEExE);
+    QCOMPARE(FF7Text::toPC(pauseWaitBytes), pauseWaitString);
+    QCOMPARE(FF7Text::toPC(memoryTestBytes), memoryTestString);
+    QCOMPARE(FF7Text::toPC(memoryErrorBytes), memoryErrorString);
+    QCOMPARE(FF7Text::toPC(TESTBYTES), TESTSTRING);
 }
 
 void FF7Text_Test::test_toFF7ENG()
@@ -47,7 +53,7 @@ void FF7Text_Test::test_toFF7ENG()
     QCOMPARE(FF7Text::toFF7(range4xE), range4x);
     //All Space Characters will evaluate to 00
     QByteArray temp = range5x;
-    temp.replace('\x5F', '\x00');
+    temp.remove(0x0F,1);// 0x5F is invalid char
     QCOMPARE(FF7Text::toFF7(range5xE), temp);
     QCOMPARE(FF7Text::toFF7(range6xE), range6x);
     QCOMPARE(FF7Text::toFF7(range7xE), range7x);
@@ -55,19 +61,25 @@ void FF7Text_Test::test_toFF7ENG()
     QCOMPARE(FF7Text::toFF7(range9xE), range9x);
     //All Space Characters will evaluate to 00
     temp = rangeAx;
-    temp.replace('\xAA', '\x00');
+    temp.remove(0x0A, 1); // 0xAA is invalid Char
     QCOMPARE(FF7Text::toFF7(rangeAxE), temp);
     QCOMPARE(FF7Text::toFF7(rangeBxE), rangeBx);
-    QEXPECT_FAIL("", "Expected Failure", Continue);
     QCOMPARE(FF7Text::toFF7(rangeCxE),rangeCx);
-    //All Space Characters will evaluate to 00
+    //Many Invalid chars
     //0xD2 and 0xD3 are duplicates of 0x84 and 0x85
-    temp = QByteArray::fromRawData("\x00\xD1\x84\x85\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 16);
+    temp = QByteArray::fromRawData("\xD1\x84\x85", 3);
     QCOMPARE(FF7Text::toFF7(rangeDxE), temp);
-    temp = QByteArray::fromRawData("\x00\xE1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 16);
+    temp = QByteArray::fromRawData("\xE0\xE1\xE2\xE3\xE4\xE7\xE8\xE9\xEA\xEB\xEC\xED\xEE\xEF", 14);
     QCOMPARE(FF7Text::toFF7(rangeExE), temp);
-    temp = QByteArray::fromRawData("\x00\x00\x00\x00\x00\x00\x00\x00\x00", 9);
-    QCOMPARE(FF7Text::toFF7(rangeFxE), temp);
+    QCOMPARE(FF7Text::toFF7(rangeFxE), rangeFx);
+    temp = rangeFEDx;
+    temp.remove(0, 4); //First two wide chars are invalid english characters
+    QCOMPARE(FF7Text::toFF7(rangeFEDxE), temp);
+    QCOMPARE(FF7Text::toFF7(rangeFEExE), rangeFEEx);
+    QCOMPARE(FF7Text::toFF7(pauseWaitString), pauseWaitBytes);
+    QCOMPARE(FF7Text::toFF7(memoryTestString), memoryTestBytes);
+    QCOMPARE(FF7Text::toFF7(memoryErrorString), memoryErrorBytes_Corrected);
+    QCOMPARE(FF7Text::toFF7(TESTSTRING), TESTBYTES);
 }
 void FF7Text_Test::test_setJapanese()
 {
@@ -164,6 +176,10 @@ void FF7Text_Test::test_toPCJPN()
     QCOMPARE(FF7Text::toPC(rangeFEBx), rangeFEBxJ);
     QCOMPARE(FF7Text::toPC(rangeFECx), rangeFECxJ);
     QCOMPARE(FF7Text::toPC(rangeFEDx), rangeFEDxJ);
+    QCOMPARE(FF7Text::toPC(rangeFEEx), rangeFEExJ);
+    QCOMPARE(FF7Text::toPC(pauseWaitBytes), pauseWaitString);
+    QCOMPARE(FF7Text::toPC(memoryTestBytes), memoryTestString);
+    QCOMPARE(FF7Text::toPC(memoryErrorBytes), memoryErrorString);
 }
 
 void FF7Text_Test::test_toFF7JPN()
@@ -182,10 +198,9 @@ void FF7Text_Test::test_toFF7JPN()
     QCOMPARE(FF7Text::toFF7(rangeBxJ), rangeBx);
     QCOMPARE(FF7Text::toFF7(rangeCxJ), rangeCx);
     QCOMPARE(FF7Text::toFF7(rangeDxJ), rangeDx);
-    QEXPECT_FAIL("", "Chars Defined elsewhere", Continue);
-    QCOMPARE(FF7Text::toFF7(rangeExJ), rangeEx);
-    QByteArray temp = QByteArray::fromRawData("\x00\xEA\x00\xEA\x00\xEA\x00\xEA\x00\xEA\x00\xEA\x00\xEA\x00\xEA\x00\xEA", 18);
-    QCOMPARE(FF7Text::toFF7(rangeFxJ), temp);
+    QByteArray temp = QByteArray::fromRawData("\xE0\xE1\xE2\xE6\xE7\xE8\xE9\xEA\xEB\xEC\xED\xEE\xEF", 13);
+    QCOMPARE(FF7Text::toFF7(rangeExJ), temp);
+    QCOMPARE(FF7Text::toFF7(rangeFxJ), rangeFx);
     QCOMPARE(FF7Text::toFF7(rangeFA0xJ), rangeFA0x);
     QCOMPARE(FF7Text::toFF7(rangeFA1xJ), rangeFA1x);
     QCOMPARE(FF7Text::toFF7(rangeFA2xJ), rangeFA2x);
@@ -257,6 +272,10 @@ void FF7Text_Test::test_toFF7JPN()
     QCOMPARE(FF7Text::toFF7(rangeFEBxJ), rangeFEBx);
     QCOMPARE(FF7Text::toFF7(rangeFECxJ), rangeFECx);
     QCOMPARE(FF7Text::toFF7(rangeFEDxJ), rangeFEDx);
+    QCOMPARE(FF7Text::toFF7(rangeFEExJ), rangeFEEx);
+    QCOMPARE(FF7Text::toFF7(pauseWaitString), pauseWaitBytes);
+    QCOMPARE(FF7Text::toFF7(memoryTestString), memoryTestBytes);
+    QCOMPARE(FF7Text::toFF7(memoryErrorString), memoryErrorBytes_Corrected);
 }
 
 QTEST_MAIN(FF7Text_Test)
