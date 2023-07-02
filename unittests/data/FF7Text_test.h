@@ -29,7 +29,6 @@ private slots:
     void test_toFF7JPN();
 
 private:
-    const QString qt5Warning = QStringLiteral("Skipping remaining tests: Known to fail on Qt5 Windows");
     const QByteArray range0x = QByteArray::fromRawData("\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F", 16);
     const QByteArray range1x = QByteArray::fromRawData("\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F", 16);
     const QByteArray range2x = QByteArray::fromRawData("\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2A\x2B\x2C\x2D\x2E\x2F", 16);
@@ -45,24 +44,26 @@ private:
     const QByteArray rangeCx = QByteArray::fromRawData("\xC0\xC1\xC2\xC3\xC4\xC5\xC6\xC7\xC8\xC9\xCA\xCB\xCC\xCD\xCE\xCF", 16);
     const QByteArray rangeDx = QByteArray::fromRawData("\xD0\xD1\xD2\xD3\xD4\xD5\xD6\xD7\xD8\xD9\xDA\xDB\xDC\xDD\xDE\xDF", 16);
     const QByteArray rangeEx = QByteArray::fromRawData("\xE0\xE1\xE2\xE3\xE4\xE5\xE6\xE7\xE8\xE9\xEA\xEB\xEC\xED\xEE\xEF", 16);
-    const QByteArray rangeFx = QByteArray::fromRawData("\xF0\xF1\xF2\xF3\xF4\xF5\xF6\xF7\xF8\xF9", 9);
+    const QByteArray rangeFx = QByteArray::fromRawData("\xF0\xF1\xF2\xF3\xF4\xF5\xF6\xF7\xF8\xF9", 10);
 
     const QString range0xE = QStringLiteral(" !\"#$%&\'()*+,-./");
     const QString range1xE = QStringLiteral("0123456789:;<=>?");
     const QString range2xE = QStringLiteral("@ABCDEFGHIJKLMNO");
     const QString range3xE = QStringLiteral("PQRSTUVWXYZ[\\]^_");
     const QString range4xE = QStringLiteral("`abcdefghijklmno");
-    const QString range5xE = QStringLiteral("pqrstuvwxyz{|}~ ");
-    const QString range6xE = QStringLiteral("ÄÁÇÉÑÖÜáàâäãåçéè");
+    const QString range5xE = QStringLiteral("pqrstuvwxyz{|}~");
+    const QString range6xE = QStringLiteral("ÄÅÇÉÑÖÜáàâäãåçéè");
     const QString range7xE = QStringLiteral("êëíìîïñóòôöõúùûü");
     const QString range8xE = QStringLiteral("⌘°¢£ÙÛ¶ß®©™´¨≠ÆØ");
     const QString range9xE = QStringLiteral("∞±≤≥¥µ∂ΣΠπ⌡ªºΩæø");
-    const QString rangeAxE = QStringLiteral("¿¡¬√ƒ≈∆«»… ÀÃÕŒœ");
+    const QString rangeAxE = QStringLiteral("¿¡¬√ƒ≈∆«»…ÀÃÕŒœ");
     const QString rangeBxE = QStringLiteral("–—“”‘’÷◊ÿŸ⁄¤‹›ﬁﬂ");
-    const QString rangeCxE = QStringLiteral("■▪‚„‰ÂÊËÁÈíîïìÓÔ");
-    const QString rangeDxE = QStringLiteral(" ÒÙÛ            ");
-    const QString rangeExE = QStringLiteral(" \t              ");
-    const QString rangeFxE = QStringLiteral("         ");
+    const QString rangeCxE = QStringLiteral("■▪‚„‰ÂÊÁËÈÍÎÏÌÓÔ");
+    const QString rangeDxE = QStringLiteral("ÒÙÛ");
+    const QString rangeExE = QStringLiteral("{CHOICE}\t, .\"…\"\n\n{NEW PAGE}\n\n{NEW PAGE 2}\n{CLOUD}{BARRET}{TIFA}{AERITH}{RED XIII}{YUFFIE}");
+    const QString rangeFxE = QStringLiteral("{CAIT SITH}{VINCENT}{CID}{MEMBER 1}{MEMBER 2}{MEMBER 3}{CIRCLE}{TRIANGLE}{SQUARE}{CROSS}");
+    const QString rangeFEDxE = QStringLiteral("{GREY}{BLUE}{RED}{PURPLE}{GREEN}{CYAN}{YELLOW}{WHITE}{BLINK}{MULTICOLOUR}{PAUSE}{PAUSE066}{VARDEC}{VARHEX}");
+    const QString rangeFEExE = QStringLiteral("{SCROLLING}{VARDECR}{MEMORY:var[11][1];size=3}{SPACED CHARACTERS}");
 
     const QString range0xJ = QStringLiteral("バばビびブぶベべボぼガがギぎグぐ");
     const QString range1xJ = QStringLiteral("ゲげゴごザざジじズずゼぜゾぞダだ");
@@ -77,9 +78,9 @@ private:
     const QString rangeAxJ = QStringLiteral("ュゅョょァぁィぃゥぅェぇォぉ！？");
     const QString rangeBxJ = QStringLiteral("『』．＋ＡＢＣＤＥＦＧＨＩＪＫＬ");
     const QString rangeCxJ = QStringLiteral("ＭＮＯＰＱＲＳＴＵＶＷＸＹＺ・＊");
-    const QString rangeDxJ = QStringLiteral("ー～⋯％／：＆【】♥→αβ「」（");
-    const QString rangeExJ = QStringLiteral("）－＝¶¶¶⑬\n\n¶      ");
-    const QString rangeFxJ = QStringLiteral("         ");
+    const QString rangeDxJ = QStringLiteral("ー～…％／：＆【】♥→αβ「」（");
+    const QString rangeExJ = QStringLiteral("）－＝⑬\n\n{NEW PAGE}\n\n{NEW PAGE 2}\n{CLOUD}{BARRET}{TIFA}{AERITH}{RED XIII}{YUFFIE}");
+    const QString rangeFxJ = QStringLiteral("{CAIT SITH}{VINCENT}{CID}{MEMBER 1}{MEMBER 2}{MEMBER 3}{CIRCLE}{TRIANGLE}{SQUARE}{CROSS}");
 
     const QByteArray rangeFA0x = QByteArray::fromRawData("\xFA\x00\xFA\x01\xFA\x02\xFA\x03\xFA\x04\xFA\x05\xFA\x06\xFA\x07\xFA\x08\xFA\x09\xFA\x0A\xFA\x0B\xFA\x0C\xFA\x0D\xFA\x0E\xFA\x0F", 32);
     const QByteArray rangeFA1x = QByteArray::fromRawData("\xFA\x10\xFA\x11\xFA\x12\xFA\x13\xFA\x14\xFA\x15\xFA\x16\xFA\x17\xFA\x18\xFA\x19\xFA\x1A\xFA\x1B\xFA\x1C\xFA\x1D\xFA\x1E\xFA\x1F", 32);
@@ -95,8 +96,6 @@ private:
     const QByteArray rangeFABx = QByteArray::fromRawData("\xFA\xB0\xFA\xB1\xFA\xB2\xFA\xB3\xFA\xB4\xFA\xB5\xFA\xB6\xFA\xB7\xFA\xB8\xFA\xB9\xFA\xBA\xFA\xBB\xFA\xBC\xFA\xBD\xFA\xBE\xFA\xBF", 32);
     const QByteArray rangeFACx = QByteArray::fromRawData("\xFA\xC0\xFA\xC1\xFA\xC2\xFA\xC3\xFA\xC4\xFA\xC5\xFA\xC6\xFA\xC7\xFA\xC8\xFA\xC9\xFA\xCA\xFA\xCB\xFA\xCC\xFA\xCD\xFA\xCE\xFA\xCF", 32);
     const QByteArray rangeFADx = QByteArray::fromRawData("\xFA\xD0\xFA\xD1", 4);
-    const QByteArray rangeFAEx = QByteArray::fromRawData("\xFA\xE0\xFA\xE1\xFA\xE2\xFA\xE3\xFA\xE4\xFA\xE5\xFA\xE6\xFA\xE7\xFA\xE8\xFA\xE9\xFA\xEA\xFA\xEB\xFA\xEC\xFA\xED\xFA\xEE\xFA\xEF", 32);
-    const QByteArray rangeFAFx = QByteArray::fromRawData("\xFA\xF0\xFA\xF1\xFA\xF2\xFA\xF3\xFA\xF4\xFA\xF5\xFA\xF6\xFA\xF7\xFA\xF8\xFA\xF9\xFA\xFA\xFA\xFB\xFA\xFC\xFA\xFD\xFA\xFE", 30);
 
     const QString rangeFA0xJ = QStringLiteral("必殺技地獄火炎裁雷大怒斬鉄剣槍海");
     const QString rangeFA1xJ = QStringLiteral("衝聖審判転生改暗黒釜天崩壊零式自");
@@ -218,7 +217,8 @@ private:
     const QByteArray rangeFEAx = QByteArray::fromRawData("\xFE\xA0\xFE\xA1\xFE\xA2\xFE\xA3\xFE\xA4\xFE\xA5\xFE\xA6\xFE\xA7\xFE\xA8\xFE\xA9\xFE\xAA\xFE\xAB\xFE\xAC\xFE\xAD\xFE\xAE\xFE\xAF", 32);
     const QByteArray rangeFEBx = QByteArray::fromRawData("\xFE\xB0\xFE\xB1\xFE\xB2\xFE\xB3\xFE\xB4\xFE\xB5\xFE\xB6\xFE\xB7\xFE\xB8\xFE\xB9\xFE\xBA\xFE\xBB\xFE\xBC\xFE\xBD\xFE\xBE\xFE\xBF", 32);
     const QByteArray rangeFECx = QByteArray::fromRawData("\xFE\xC0\xFE\xC1\xFE\xC2\xFE\xC3\xFE\xC4\xFE\xC5\xFE\xC6\xFE\xC7\xFE\xC8\xFE\xC9\xFE\xCA\xFE\xCB\xFE\xCC\xFE\xCD\xFE\xCE\xFE\xCF", 32);
-    const QByteArray rangeFEDx = QByteArray::fromRawData("\xFE\xD0\xFE\xD1", 4);
+    const QByteArray rangeFEDx = QByteArray::fromRawData("\xFE\xD0\xFE\xD1\xFE\xD2\xFE\xD3\xFE\xD4\xFE\xD5\xFE\xD6\xFE\xD7\xFE\xD8\xFE\xD9\xFE\xDA\xFE\xDB\xFE\xDC\xFE\xDD\x42\xFE\xDE\xFE\xDF", 33);  // FEDD is Pause%1, May need a more complete test
+    const QByteArray rangeFEEx = QByteArray::fromRawData("\xFE\xE0\xFE\xE1\xFE\xE2\x01\x02\x03\x00\xFE\xE9", 12); // FEE2 Memory needs its own Complete Test? FEE3 - FEE8 And FFEA - FFEF are invalid
 
     const QString rangeFE0xJ = QStringLiteral("孫継団給抗違提断島栄油就僕存企比");
     const QString rangeFE1xJ = QStringLiteral("浸非応細承編排努締談趣埋営文夏個");
@@ -233,5 +233,20 @@ private:
     const QString rangeFEAxJ = QStringLiteral("祖惰偶怠罰熟牲燃犠快劇拠厄抵適程");
     const QString rangeFEBxJ = QStringLiteral("繰腹橋白処匹杯暑坊週秀看軽幕和平");
     const QString rangeFECxJ = QStringLiteral("王姫庭観航横帳丘亭財律布規謀積刻");
-    const QString rangeFEDxJ = QStringLiteral("陥類");
+    const QString rangeFEDxJ = QStringLiteral("陥類{GREY}{BLUE}{RED}{PURPLE}{GREEN}{CYAN}{YELLOW}{WHITE}{BLINK}{MULTICOLOUR}{PAUSE}{PAUSE066}{VARDEC}{VARHEX}");
+    const QString rangeFEExJ = QStringLiteral("{SCROLLING}{VARDECR}{MEMORY:var[11][1];size=3}{SPACED CHARACTERS}");
+
+    const QByteArray pauseWaitBytes = QByteArray::fromRawData("\xFE\xDD\x42\xFE\xDD\xFF\xFE\xDD\xFE\xFE\xDD\x00\xFE\xDD\x05\xFE\xDD\xDD\xFE\xDD\xED", 21);
+    const QString pauseWaitString = QStringLiteral("{PAUSE066}{PAUSE255}{PAUSE254}{PAUSE000}{PAUSE005}{PAUSE221}{PAUSE237}");
+
+    const QByteArray memoryTestBytes = QByteArray::fromRawData("\xFE\xE2\x01\x02\x03\x00\xFE\xE2\x05\x01\x02\x00\xFE\xE2\x05\x03\x02\x00\xFE\xE2\x05\x04\x02\x00\xFE\xE2\x05\x00\x02\x00", 30);
+    const QString memoryTestString = QStringLiteral("{MEMORY:var[11][1];size=3}{MEMORY:var[3][5];size=2}{MEMORY:var[13][5];size=2}{MEMORY:var[15][5];size=2}{MEMORY:var[1][5];size=2}");
+
+    const QByteArray memoryErrorBytes = QByteArray::fromRawData("\xFE\xE2\xFF\xFF\xFF\x00\xFE\xE2", 8);
+    const QString memoryErrorString = QStringLiteral("{MEMORY:var[0][255];size=255}");
+    const QByteArray memoryErrorBytes_Corrected = QByteArray::fromRawData("\xFE\xE2\xFF\x00\xFF\x00", 6);
+
+    const QByteArray TESTBYTES = QByteArray::fromRawData("\xB2\x33\x41\x59\xE2\x41\x52\x45\x4E\x07\x54\x00\x59\x4F\x55\x00\x42\x4F\x52\x45\x44\x1F\xB3\xE7\xE0\x2E\x4F\x54\x00\x54\x48\x41\x54\x00\x4D\x55\x43\x48\xE7\xE0\x39\x45\x41\x48\xE2\x57\x45\x00\x46\x49\x47\x48\x54\x00\x41\x00\x4C\x4F\x54", 59);
+    const QString TESTSTRING = QStringLiteral("“Say, aren't you bored?”\n{CHOICE}Not that much\n{CHOICE}Yeah, we fight a lot");
+
 };
