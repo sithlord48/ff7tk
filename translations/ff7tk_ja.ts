@@ -1012,7 +1012,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Red XIII</source>
-        <translation type="unfinished">レッドＸＩＩＩ</translation>
+        <translation>レッド⑬</translation>
     </message>
     <message>
         <source>Sled Fang</source>
