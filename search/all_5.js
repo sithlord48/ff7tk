@@ -30,7 +30,7 @@ var searchData=
   ['elementwater_529',['elementWater',['../classFF7Item.html#acd7e643e24878e9cf755cdd074229fbb',1,'FF7Item']]],
   ['elementwind_530',['elementWind',['../classFF7Item.html#ab85292a546484ab220a554c13656347a',1,'FF7Item']]],
   ['elixir_531',['Elixir',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7af6b8e1ea4e50b9a5f0a385d946bd17ab',1,'FF7Item']]],
-  ['empty_532',['EMPTY',['../classSlotPreview.html#a308b73573ecff499188e194b141b8493af71fbe19d892014ddcaa0b5b2ac17d18',1,'SlotPreview::EMPTY()'],['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a1d84c10201824e6235b4f6f97256102b',1,'FF7Char::Empty()']]],
+  ['empty_532',['Empty',['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a1d84c10201824e6235b4f6f97256102b',1,'FF7Char::Empty()'],['../classSlotPreview.html#a308b73573ecff499188e194b141b8493af71fbe19d892014ddcaa0b5b2ac17d18',1,'SlotPreview::EMPTY()']]],
   ['emptyaccessory_533',['EmptyAccessory',['../classFF7Char.html#a210be31d5b875465808699577558cdd7a1bc866ae1badec65f9bdb47454edf743',1,'FF7Char']]],
   ['emptyarmor_534',['EmptyArmor',['../classFF7Char.html#a210be31d5b875465808699577558cdd7ade94114e482337454909b88c8abba2ed',1,'FF7Char']]],
   ['emptyid_535',['EmptyId',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a4c6ad5f1217c0a6f02489ac10874a3f5',1,'FF7Materia']]],

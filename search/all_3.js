@@ -161,7 +161,7 @@ var searchData=
   ['conflict_355',['conflict',['../structLgpTocEntry.html#a7b8589ebaad8c3cd6ff5baddf24173fa',1,'LgpTocEntry']]],
   ['conformer_356',['Conformer',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ac55fb348f8a18b25b980d2f2e72ebf89',1,'FF7Item']]],
   ['contain_357',['Contain',['../classFF7Materia.html#a992eb8c9016a9bdd29b2d92c350e5fd8a423b736f1b9150e13f0df0cd90caee57',1,'FF7Materia']]],
-  ['contains_358',['contains',['../classLgpToc.html#a97a50a78e69cccecf4bcfce1e3e25bae',1,'LgpToc']]],
+  ['contains_358',['contains',['../classFF7String.html#ab64cc9f04f8c531d40fbbaadcf214f21',1,'FF7String::contains()'],['../classLgpToc.html#a97a50a78e69cccecf4bcfce1e3e25bae',1,'LgpToc::contains()']]],
   ['contributing_2emd_359',['CONTRIBUTING.md',['../CONTRIBUTING_8md.html',1,'']]],
   ['control_5fcustom_360',['CONTROL_CUSTOM',['../classFF7Save.html#ac5801e5d642e67435599e600060571ebafc2ecfcc3667ad5e29104447964b8db4',1,'FF7Save']]],
   ['control_5fnormal_361',['CONTROL_NORMAL',['../classFF7Save.html#ac5801e5d642e67435599e600060571eba4f7de5f37986d367c0d03c003af3436b',1,'FF7Save']]],
