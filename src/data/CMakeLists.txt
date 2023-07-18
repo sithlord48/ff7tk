@@ -11,11 +11,11 @@ set ( ff7tkData_SRC
         FF7Achievements.cpp  FF7Char.cpp     FF7FieldItemList.cpp
         FF7Item.cpp          FF7Location.cpp FF7Materia.cpp
         FF7Save.cpp          FF7SaveInfo.cpp FF7Text.cpp
-        SaveIcon.cpp         FF7ItemModel.cpp
+        SaveIcon.cpp         FF7ItemModel.cpp FF7String.cpp
 )
 
 set (ff7tkData_HEADERS
-    FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h
+    FF7FieldItemList.h  FF7Materia.h   FF7Save_Types.h  Type_FF7CHAR.h FF7String.h
     FF7Achievements.h  FF7Item.h           FF7Save.h      FF7Text.h        Type_FF7CHOCOBO.h
     FF7Char.h          FF7Location.h       FF7SaveInfo.h  SaveIcon.h       Type_materia.h
     FF7ItemModel.h
