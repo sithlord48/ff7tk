@@ -164,19 +164,34 @@ public:
     static Q_INVOKABLE QIcon icon(int id) { return QIcon(QPixmap(Materias(id).imageString)); }
     static Q_INVOKABLE QPixmap pixmap(int id) { return QPixmap(Materias(id).imageString); }
     static Q_INVOKABLE QImage image(int id) { return QImage(Materias(id).imageString); }
-    static Q_INVOKABLE const QString iconResource(int id) { return Materias(id).imageString.mid(0).remove(QStringLiteral(":")); }
+    static Q_INVOKABLE const QString iconResource(int id) {
+        auto tmp = Materias(id).imageString;
+        if (tmp.isEmpty())
+            return QString();
+        return tmp.prepend(QStringLiteral("qrc"));
+    }
 
     static Q_INVOKABLE QPixmap pixmapEmptyStar(int id) { return QPixmap(Materias(id).emptyStarString); }
     static Q_INVOKABLE QImage imageEmptyStar(int id) { return QImage(Materias(id).emptyStarString); }
-    static Q_INVOKABLE const QString emptyStarResource(int id) { return Materias(idClamp(id)).emptyStarString.mid(0).remove(QStringLiteral(":")); }
+    static Q_INVOKABLE const QString emptyStarResource(int id) {
+        auto tmp = Materias(id).emptyStarString;
+        if (tmp.isEmpty())
+            return QString();
+        return tmp.prepend(QStringLiteral("qrc"));
+    }
 
     static Q_INVOKABLE QPixmap pixmapFullStar(int id) { return QPixmap(Materias(id).fullStarString); }
     static Q_INVOKABLE QImage imageFullStar(int id) { return QImage(Materias(id).fullStarString); }
-    static Q_INVOKABLE const QString fullStarResource(int id) { return Materias(id).fullStarString.mid(0).remove(QStringLiteral(":")); }
+    static Q_INVOKABLE const QString fullStarResource(int id) {
+        auto tmp = Materias(id).fullStarString;
+        if (tmp.isEmpty())
+            return QString();
+        return tmp.prepend(QStringLiteral("qrc"));
+    }
 
     static Q_INVOKABLE QIcon iconAllMateria() { return QIcon(QPixmap(allMateriaResource)); }
     static Q_INVOKABLE QImage imageAllMateria() { return QImage(allMateriaResource); }
-    static Q_INVOKABLE const QString imageAllResource() { return allMateriaResource.mid(0).remove(QStringLiteral(":")); }
+    static Q_INVOKABLE const QString imageAllResource() { return allMateriaResource.mid(0).prepend(QStringLiteral("qrc")); }
 
     static Q_INVOKABLE const QString &placeHolderNameFilter() {return get()->d->_placeHolderFilter;}
     static Q_INVOKABLE const QList<int> placeHolderIdList();
