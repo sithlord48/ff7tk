@@ -292,5 +292,5 @@ void WindowBinFile::setCharWidth(quint8 table, quint8 id, quint8 width)
 
 void WindowBinFile::setCharLeftPadding(quint8 table, quint8 id, quint8 padding)
 {
-    setCharInfo(table, id, (padding & 0xE0) | (charInfo(table, id) & 0x1F));
+    setCharInfo(table, id, ((padding << 5) & 0xE0) | (charInfo(table, id) & 0x1F));
 }
