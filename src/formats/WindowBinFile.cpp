@@ -186,8 +186,9 @@ QPoint WindowBinFile::letterPos(quint8 tableId, quint8 charId) const
 {
     int id = charId;
     if (tableId >= 4) {
-        if (!isJp())
-            return QPoint();
+        if (!isJp()) {
+            return QPoint(-1, -1);
+        }
     } else {
         id = (tableId % 2) * 231 + charId;
     }
@@ -198,16 +199,18 @@ QPoint WindowBinFile::letterPos(quint8 tableId, quint8 charId) const
 QRect WindowBinFile::letterRect(quint8 tableId, quint8 charId) const
 {
     QPoint pos = letterPos(tableId, charId);
-    if (pos.isNull())
+    if (pos.x() == -1) {
         return QRect();
+    }
     return QRect(pos, letterSize());
 }
 
 QImage WindowBinFile::letter(quint8 tableId, quint8 charId, FontColor color)
 {
     QRect rect = letterRect(tableId, charId);
-    if (rect.isNull())
+    if (rect.isNull()) {
         return QImage();
+    }
     TimFile &f = font(tableId);
     f.setCurrentColorTable(palette(color, tableId));
     return f.image().copy(letterRect(tableId, charId));
@@ -235,13 +238,23 @@ bool WindowBinFile::setLetter(quint8 tableId, quint8 charId, const QImage &image
 
 uint WindowBinFile::letterPixelIndex(quint8 tableId, quint8 charId, const QPoint &pos) const
 {
-    return constFont(tableId).image().pixel(letterPos(tableId, charId) + pos);
+    QPoint lPos = letterPos(tableId, charId);
+    if (lPos.x() == -1) {
+        return 0;
+    }
+
+    return constFont(tableId).image().pixel(lPos + pos);
 }
 
 bool WindowBinFile::setLetterPixelIndex(quint8 tableId, quint8 charId, const QPoint &pos, uint pixelIndex)
 {
+    QPoint lPos = letterPos(tableId, charId);
+    if (lPos.x() == -1) {
+        return false;
+    }
+
     // pixelIndex must be a number between 0 and 15
-    font(tableId).imagePtr()->setPixel(letterPos(tableId, charId) + pos, pixelIndex % 16);
+    font(tableId).imagePtr()->setPixel(lPos + pos, pixelIndex % 16);
     modified = true;
     return true;
 }
