@@ -247,6 +247,4 @@ list(FIND CPACK_COMPONENTS_ALL "ff7tk_debug" hasDbg)
 if (${hasDbg} EQUAL -1)
     list(PREPEND CPACK_COMPONENTS_ALL "ff7tk_debug")
 endif()
-message(STATUS ${CPACK_COMPONENTS_ALL})
-
 include(CPack)
