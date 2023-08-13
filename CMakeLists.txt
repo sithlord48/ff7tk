@@ -6,7 +6,7 @@ include(${CMAKE_SOURCE_DIR}/cmake/ff7tkMacros.cmake)
 #Set The Current Version Number to use as fallback if GIT Fails.
 set(FF7TK_VERSION_MAJOR 0)
 set(FF7TK_VERSION_MINOR 83)
-set(FF7TK_VERSION_PATCH 2)
+set(FF7TK_VERSION_PATCH 3)
 set(FF7TK_VERSION_TWEAK 0)
 # Get the version from git if it's a git repository
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
@@ -69,9 +69,6 @@ include(CMakePackageConfigHelpers)
 include(GenerateExportHeader)
 include(GNUInstallDirs)
 
-
-
-
 #Qt Info to get deploy app
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core)
 get_target_property(qmake_executable Qt6::qmake IMPORTED_LOCATION)
@@ -93,7 +90,6 @@ if(UNIX)
         set(INSTALL_RPATH_STRING "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks")
     endif()
 endif()
-
 
 define_property(GLOBAL PROPERTY ff7tk_targets BRIEF_DOCS "Defined Non-Test Targets" FULL_DOCS "Dynamicly Generated list of Targets Tests")
 define_property(GLOBAL PROPERTY ff7tk_tests BRIEF_DOCS "Defined Tests" FULL_DOCS "Dynamicly Generated list of Defined Tests")
