@@ -125,7 +125,63 @@ ApplicationWindow {
 
     Component {
         id: materiaEditorComponent
-        FF7tkControls.MateriaEditor { }
+        Item {
+            anchors.fill: parent
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                color: palette.alternateBase
+                height: 50
+                id: materiaEditorControls
+                SpinBox {
+                    id: spStarHeight
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    from: 0; to: 256
+                    value: materiaEditor.starHeight
+                    onValueChanged: materiaEditor.starHeight = value
+                }
+                Text {
+                    anchors.top:parent.top
+                    anchors.left: spStarHeight.right
+                    text: "Id: " + materiaEditor.currentId
+                }
+                Text {
+                    anchors.top:parent.top
+                    anchors.right: parent.right
+                    text: "Ap: " + materiaEditor.currentAp
+                }
+                CheckBox {
+                    anchors.left: parent.left
+                    anchors.top: spStarHeight.bottom
+                    anchors.bottom: parent.bottom
+                    text: "Editable"
+                    checked: materiaEditor.editable
+                    onCheckedChanged: materiaEditor.editable = checked
+                }
+                CheckBox {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: spStarHeight.bottom
+                    anchors.bottom: parent.bottom
+                    text: "Show PlaceHolder Materia"
+                    checked: materiaEditor.showPlaceHolderMateria
+                    onCheckedChanged: materiaEditor.showPlaceHolderMateria = checked
+                }
+                CheckBox {
+                    anchors.right: parent.right
+                    anchors.top: spStarHeight.bottom
+                    anchors.bottom: parent.bottom
+                    text: "ShortLayout"
+                    checked: materiaEditor.fixedHeightSkills
+                    onCheckedChanged: materiaEditor.fixedHeightSkills = checked
+                }
+            }
+            FF7tkControls.MateriaEditor {
+                id: materiaEditor
+                anchors { fill: parent; topMargin: materiaEditorControls.height + 3 }
+            }
+        }
     }
 
     Component {
