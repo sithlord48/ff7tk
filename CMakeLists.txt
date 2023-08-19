@@ -37,8 +37,13 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
   endif()
 endif()
 
+option(USE_ALL_CPU "Detect and use all cores to build" ON)
+if(USE_ALL_CPU)
+    cmake_host_system_information(RESULT N QUERY NUMBER_OF_LOGICAL_CORES)
+    set(CMAKE_BUILD_PARALLEL_LEVEL ${N})
+endif()
 set(FF7TK_VERSION "${FF7TK_VERSION_MAJOR}.${FF7TK_VERSION_MINOR}.${FF7TK_VERSION_PATCH}.${FF7TK_VERSION_TWEAK}")
-message(STATUS "Building FF7TK: ${FF7TK_VERSION}")
+message(STATUS "Building FF7TK: ${FF7TK_VERSION} Using: ${CMAKE_BUILD_PARALLEL_LEVEL} Threads")
 
 #SET UP THE PROJECT
 project(ff7tk VERSION ${FF7TK_VERSION} DESCRIPTION "Work with Final Fantasy 7 game data" LANGUAGES CXX C)
