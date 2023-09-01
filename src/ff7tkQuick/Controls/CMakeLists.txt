@@ -16,6 +16,8 @@ set(${libName}_QMLFILES
     MateriaSlotButton.qml
     Components/ComboBox.qml
     Components/Label.qml
+    Components/CheckBox.qml
+    Components/ToolTip.qml
 )
 
 set(${libName}_DEPENDS
