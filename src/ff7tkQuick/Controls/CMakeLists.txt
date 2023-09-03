@@ -14,6 +14,7 @@ set(${libName}_QMLFILES
     ItemPreview.qml
     MateriaEditor.qml
     MateriaSlotButton.qml
+    Components/Button.qml
     Components/ComboBox.qml
     Components/Label.qml
     Components/CheckBox.qml
