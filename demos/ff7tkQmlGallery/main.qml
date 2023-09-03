@@ -15,31 +15,41 @@
 /****************************************************************************/
 
 import QtQuick
-import QtQuick.Controls
+import QtQuick.Controls as QQC
 import ff7tkQuick.DataTypes
-import ff7tkQuick.Controls as FF7tkControls
+import ff7tkQuick.Controls
 
 
 ApplicationWindow {
     id: root
     width: 800
     height: 600
-    title: "ff7tkQmlGallery-" + FF7tkInfo.ff7tkVersion
-    visible: true
-    header: Item {
+    title: "ff7tkQmlGallery - " + FF7tkInfo.ff7tkVersion
+    header: Rectangle {
         id: headerItem
-        Text{
+        color: palette.alternateBase
+        border.color: palette.dark
+        border.width: 2
+        height: comboSelector.height + 12
+        Label {
             id: previewLabel
             text: "Current Preview:"
-            color: palette.text
             anchors.verticalCenter: comboSelector.verticalCenter
         }
         ComboBox {
             id: comboSelector
-            model: ["", "Text Demo", "ItemPreview", "MateriaButton", "MateriaEditor"]
-            anchors.right: parent.right
-            anchors.left: previewLabel.right
-            anchors.leftMargin: 6
+            anchors {
+                margins: 6
+                top: parent.top
+                left: previewLabel.right; right: parent.right
+            }
+            model: ListModel {
+                ListElement{text: ""}
+                ListElement{text: "Text Demo"}
+                ListElement{text: "ItemPreview"}
+                ListElement{text: "Materia Button"}
+                ListElement{text: "Materia Editor"}
+            }
             onCurrentIndexChanged: {
                 itemLoader.sourceComponent = Qt.binding(function() {
                     switch(comboSelector.currentIndex) {
@@ -56,14 +66,15 @@ ApplicationWindow {
     Loader {
         id: itemLoader
         anchors.fill: parent
-        anchors.topMargin: comboSelector.height + 6
+        anchors.topMargin: 6
     }
 
     Component {
         id: testComponent
         Rectangle {
-            color: "lightblue"
-            Text {
+            color: palette.base
+            Label {
+                anchors.centerIn:parent
                 text: "Please Select an Item to Preview"
             }
         }
@@ -73,44 +84,43 @@ ApplicationWindow {
         id: materiaButtonComponent
         Item {
             anchors.fill: parent
-            Label {
-                id: lbl_materiaId
-                anchors.top: parent.top
-                anchors.left: parent.left
-                palette: palette
-                text: "Materia Type"
-            }
-            ComboBox {
-                id: combo_materiaID
-                anchors.top: parent.top
-                anchors.left: lbl_materiaId.right
-                anchors.leftMargin: 6
-                model: [ "None", "Magic", "Support", "Summon","Independent", "Command"]
-                onCurrentIndexChanged: {
-                    switch (currentIndex) {
-                        case 0: materiaSlotButton.currentID = FF7Materia.EmptyId; break;
-                        case 1: materiaSlotButton.currentID = FF7Materia.Fire; break;
-                        case 2: materiaSlotButton.currentID = FF7Materia.All; break;
-                        case 3: materiaSlotButton.currentID = FF7Materia.ChocoMog; break;
-                        case 4: materiaSlotButton.currentID = FF7Materia.MpPlus; break;
-                        case 5: materiaSlotButton.currentID = FF7Materia.Steal; break;
+            Item {
+                anchors.fill: parent
+                height: 50
+                Label {
+                    id: lbl_materiaId
+                    anchors.verticalCenter: combo_materiaID.verticalCenter
+                    anchors.left: parent.left
+                    text: "Materia Type"
+                }
+                ComboBox {
+                    id: combo_materiaID
+                    anchors.top: parent.top
+                    anchors.left: lbl_materiaId.right
+                    anchors.leftMargin: 6
+                    model: ListModel {
+                        ListElement{text: "None"; value: 0xFF}
+                        ListElement{text: "Magic"; value: FF7Materia.Fire}
+                        ListElement{text: "Support"; value: FF7Materia.All}
+                        ListElement{text: "Summon";value: FF7Materia.ChocoMog}
+                        ListElement{text: "Independent"; value: FF7Materia.MpPlus}
+                        ListElement{text: "Command"; value: FF7Materia.Steal}
                     }
+                    onCurrentIndexChanged: materiaSlotButton.currentID = combo_materiaID.model.get(currentIndex).value
+                }
+                CheckBox {
+                    id: cb_materiaSlotGrowth
+                    anchors.top: combo_materiaID.bottom
+                    anchors.left: parent.left
+                    anchors.margins: 4
+                    text: "Slot Growth"
                 }
             }
-            CheckBox {
-                id: cb_materiaSlotGrowth
-                anchors.top: lbl_materiaId.bottom
-                height: 30
-                anchors.left: parent.left
-                anchors.right: parent.right
-                text: "Slot Growth"
-            }
-            FF7tkControls.MateriaSlotButton {
+
+            MateriaSlotButton {
                 id: materiaSlotButton
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: combo_materiaID.right
-                anchors.right: parent.right
+                anchors.fill: parent
+                anchors.topMargin: 60
                 anchors.margins: 10
                 currentID: FF7Materia.EmptyId
                 growthSlot: cb_materiaSlotGrowth.checked
@@ -134,7 +144,7 @@ ApplicationWindow {
                 color: palette.alternateBase
                 height: 50
                 id: materiaEditorControls
-                SpinBox {
+                QQC.SpinBox {
                     id: spStarHeight
                     anchors.top: parent.top
                     anchors.left: parent.left
@@ -142,12 +152,12 @@ ApplicationWindow {
                     value: materiaEditor.starHeight
                     onValueChanged: materiaEditor.starHeight = value
                 }
-                Text {
+                Label {
                     anchors.top:parent.top
                     anchors.left: spStarHeight.right
                     text: "Id: " + materiaEditor.currentId
                 }
-                Text {
+                Label {
                     anchors.top:parent.top
                     anchors.right: parent.right
                     text: "Ap: " + materiaEditor.currentAp
@@ -177,7 +187,7 @@ ApplicationWindow {
                     onCheckedChanged: materiaEditor.fixedHeightSkills = checked
                 }
             }
-            FF7tkControls.MateriaEditor {
+            MateriaEditor {
                 id: materiaEditor
                 anchors { fill: parent; topMargin: materiaEditorControls.height + 3 }
             }
@@ -187,24 +197,24 @@ ApplicationWindow {
     Component {
         id: itemPreviewComponent
         Item{
-            Text {
+            Label {
                 id: itemPreviewOptions
                 anchors.left: parent.left
-                anchors.top:parent.top
+                anchors.verticalCenter: sb_itemNumber.verticalCenter
                 anchors.margins: 6
-                text: "FF7ItemPreview - Options"
+                text: "Item Id to Preview"
             }
-            SpinBox {
+            QQC.SpinBox {
                 id:sb_itemNumber
-                anchors.top: itemPreviewOptions.bottom
-                anchors.left: parent.left
-                anchors.margins: 6
+                anchors.top: parent.top
+                anchors.left: itemPreviewOptions.right
+                anchors.rightMargin: 6
                 editable: true
                 value: -1
                 from: -1
                 to: 319
             }
-            FF7tkControls.ItemPreview {
+            ItemPreview {
                 anchors.top: sb_itemNumber.bottom
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
