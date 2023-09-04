@@ -15,6 +15,7 @@ set(${libName}_QMLFILES
     MateriaEditor.qml
     MateriaSlotButton.qml
     Components/ComboBox.qml
+    Components/Label.qml
 )
 
 set(${libName}_DEPENDS
