@@ -12,8 +12,8 @@ env:
     QtTools: 'tools_ifw'
     QtKey: "6.5.1-ifw46"
     BuildType: RelWithDebInfo
-    cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo"
-    debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts"
+    cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja"
+    debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts ninja-build"
 jobs:
   precheck:
     name: Job Info
@@ -85,7 +85,7 @@ jobs:
             name: "Windows-x64"
             , os: windows-2019
             , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.6"
-            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib -G Ninja"
+            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
     steps:
     - uses: actions/checkout@v3
@@ -123,11 +123,11 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 > /dev/null
+            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 ninja-build > /dev/null
         elif [ "$RUNNER_OS" == "Windows" ]; then
             choco install ninja doxygen.install graphviz
         else
-            brew install doxygen graphviz
+            brew install doxygen graphviz ninja
         fi
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
