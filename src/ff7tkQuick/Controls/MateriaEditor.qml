@@ -23,8 +23,8 @@ import "Components" as FFComps
 Item {
     id: root
     property int currentId: FF7Materia.EmptyId
-    property int currentAp: FF7Materia.MaxMateriaAp
-    property bool isEmpty: ((currentId === FF7Materia.EmptyId) && (currentAp === FF7Materia.MaxMateriaAp))
+    property int currentAp: FF7Materia.maxMateriaAp
+    property bool isEmpty: ((currentId === FF7Materia.EmptyId) && (currentAp === FF7Materia.maxMateriaAp))
     ListModel {
         id: typeModel
         ListElement { text: qsTr("All Materia"); icon: "qrc:/materia/all" }

@@ -1735,40 +1735,40 @@ void CharEditor::calc_stats()
 
                 if (!materiaSlots.at(i)->isHidden()) {
                     // no special materia that affects these stats.
-                    str_bonus += FF7Materia::statSTR(data.materias[i].id);
-                    vit_bonus += FF7Materia::statVIT(data.materias[i].id);
-                    spi_bonus += FF7Materia::statSPI(data.materias[i].id);
+                    str_bonus += FF7Materia::strengthChange(data.materias[i].id);
+                    vit_bonus += FF7Materia::vitalityChange(data.materias[i].id);
+                    spi_bonus += FF7Materia::spiritChange(data.materias[i].id);
 
                     //Show in Percentage.
                     if (data.materias[i].id == FF7Materia::MpPlus) {
                         mp_bonus += (10 * level);
                     } else {
-                        mp_bonus += FF7Materia::statMP(data.materias[i].id);
+                        mp_bonus += FF7Materia::mpChange(data.materias[i].id);
                     }
 
                     if (data.materias[i].id == FF7Materia::HpPlus) {
                         hp_bonus += (10 * level);
                     } else {
-                        hp_bonus += FF7Materia::statHP(data.materias[i].id);
+                        hp_bonus += FF7Materia::hpChange(data.materias[i].id);
                     }
 
                     //show exact numbers
                     if (data.materias[i].id == FF7Materia::SpeedPlus) {
                         dex_bonus += data.dexterity * int(0.01 * (level * 10));
                     } else {
-                        dex_bonus += FF7Materia::statDEX(data.materias[i].id);
+                        dex_bonus += FF7Materia::dexterityChange(data.materias[i].id);
                     }
 
                     if (data.materias[i].id == FF7Materia::MagicPlus) {
                         mag_bonus += data.magic * int(0.01 * (level * 10));
                     } else {
-                        mag_bonus += FF7Materia::statMAG(data.materias[i].id);
+                        mag_bonus += FF7Materia::magicChange(data.materias[i].id);
                     }
 
                     if (data.materias[i].id == FF7Materia::LuckPlus) {
                         lck_bonus += data.luck * int(0.01 * (level * 10));
                     } else {
-                        lck_bonus += FF7Materia::statLCK(data.materias[i].id);
+                        lck_bonus += FF7Materia::luckChange(data.materias[i].id);
                     }
                 }// end of add case.
             }

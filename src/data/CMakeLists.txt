@@ -9,7 +9,7 @@ add_subdirectory(crypto)
 
 set ( ff7tkData_SRC
         FF7Achievements.cpp  FF7Char.cpp     FF7FieldItemList.cpp
-        FF7Item.cpp          FF7Location.cpp FF7Materia.cpp
+        FF7Item.cpp          FF7Location.cpp
         FF7Save.cpp          FF7SaveInfo.cpp FF7Text.cpp
         SaveIcon.cpp         FF7ItemModel.cpp FF7String.cpp
 )
