@@ -164,15 +164,7 @@ void MateriaEditor::setStats()
 }
 void MateriaEditor::setLevel()
 {
-    _level = 0;
-    if (FF7Materia::levels(_id) == 1){
-        _level = 1;
-    } else if (_id != FF7Materia::EmptyId) {
-        for (int i = 0; i < FF7Materia::levels(_id); i++) {
-            if (_current_ap >= FF7Materia::apForLevel(_id, i))
-                _level++;
-        }
-    }
+    _level = FF7Materia::materiaLevel(_id, _current_ap);
     setStars();
     setSkills();
 }
@@ -206,21 +198,16 @@ void MateriaEditor::setSkills()
     eskill_group->setHidden(true);
     list_skills->setHidden(false);
     frm_skill_status->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+
     if (_id == FF7Materia::EmptyId) {
         box_skills->setHidden(true);
         list_skills->setHidden(true);
-
     } else if (_id == FF7Materia::EnemySkill) {
         list_skills->setHidden(true);
         eskill_group->setHidden(false);
         frm_skill_status->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    } else if(_id == FF7Materia::MasterCommand || _id == FF7Materia::MasterSummon || _id == FF7Materia::MasterMagic) {
-        list_skills->addItems(FF7Materia::skills(_id));
     } else {
-        for (int i = 0; i < _level; i++) {
-            if (FF7Materia::skills(_id).count() > i)
-                list_skills->addItem(FF7Materia::skills(_id).at(i));
-        }
+        list_skills->addItems(FF7Materia::skillsForLevel(_id, _level));
     }
 }
 
@@ -271,10 +258,7 @@ qint8 MateriaEditor::id(void)
 
 qint32 MateriaEditor::MaxAP(void)
 {
-    if (FF7Materia::levels(_id) == 1)
-        return FF7Materia::MaxMateriaAp;
-    else
-        return FF7Materia::apForLevel(_id, FF7Materia::levels(_id) - 1);
+    return FF7Materia::apForLevel(_id, FF7Materia::levels(_id) - 1);
 }
 
 void MateriaEditor::setStarsSize(int size)
