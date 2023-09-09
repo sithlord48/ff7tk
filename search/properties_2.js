@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size_4456',['size',['../classFF7FieldItemList.html#af6dbf19807549d19df28e50a334ffe4f',1,'FF7FieldItemList']]]
+  ['maxmateriaap_4477',['maxMateriaAp',['../classFF7Materia.html#a49140bfd8d2e52d41f392e039e2daace',1,'FF7Materia']]]
 ];
