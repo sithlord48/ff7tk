@@ -7283,6 +7283,33 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
 </context>
 <context>
+    <name>MateriaSelector</name>
+    <message>
+        <source>All Materia</source>
+        <translation type="unfinished">Toutes les matérias</translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="unfinished">Magie</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="unfinished">Invocation</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="unfinished">Indépendante</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="unfinished">Soutien</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished">Commande</translation>
+    </message>
+</context>
+<context>
     <name>MenuListWidget</name>
     <message>
         <source>Menu Manager</source>

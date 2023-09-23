@@ -7294,6 +7294,33 @@ Battaglia %1</translation>
     </message>
 </context>
 <context>
+    <name>MateriaSelector</name>
+    <message>
+        <source>All Materia</source>
+        <translation type="unfinished">Tutte le materie</translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="unfinished">Di invocazione</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="unfinished">Indipendenti</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="unfinished">Supporto</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished">Comando</translation>
+    </message>
+</context>
+<context>
     <name>MenuListWidget</name>
     <message>
         <source>Visible</source>
