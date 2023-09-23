@@ -12,6 +12,7 @@ set(${libName}_URI "ff7tkQuick.Controls")
 
 set(${libName}_QMLFILES
     ItemPreview.qml
+    MateriaSelector.qml
     MateriaEditor.qml
     MateriaSlotButton.qml
     Components/ApplicationWindow.qml

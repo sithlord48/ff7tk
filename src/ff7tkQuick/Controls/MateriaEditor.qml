@@ -22,31 +22,18 @@ import "Components" as FFComps
 
 Item {
     id: root
-    implicitWidth: childrenRect.width + 12
-    property bool showPlaceHolderMateria: true
+    implicitWidth: mSelector.implicitWidth + (24 * 4)
+    property alias showPlaceHolderMateria: mSelector.showPlaceHolderMateria
     property bool editable: true
     property bool fixedHeightSkills: true
     property int starHeight: 24
-    property int currentId: FF7Materia.EmptyId
+    property alias currentId: mSelector.currentId
     property int currentAp: FF7Materia.maxMateriaAp
     readonly property bool isEmpty: ((currentId === FF7Materia.EmptyId))
     readonly property int level: FF7Materia.materiaLevel(currentId, currentAp)
     signal copyActionTriggered(int currentId, int currentAp)
     signal cutActionTriggered(int currentId, int currentAp)
     signal pasteActionTriggered()
-
-    ListModel {
-        id: typeModel
-        ListElement { text: qsTr("All Materia"); icon: "qrc:/materia/all" }
-        ListElement { text: qsTr("Magic");       icon: "qrc:/materia/magic" }
-        ListElement { text: qsTr("Summon");      icon: "qrc:/materia/summon" }
-        ListElement { text: qsTr("Independent"); icon: "qrc:/materia/independent" }
-        ListElement { text: qsTr("Support");     icon: "qrc:/materia/support" }
-        ListElement { text: qsTr("Command");     icon: "qrc:/materia/command" }
-    }
-
-    ListModel { id: materiaModel }
-    Component.onCompleted: { setupMateriaModel(0); materiaCombo.modelChanged() }
 
     Rectangle {
         anchors.fill: parent
@@ -57,27 +44,19 @@ Item {
             anchors.right: parent.right
             anchors.top: parent.top
             height: 24
-            anchors.margins: 6
+            anchors.leftMargin: 6
+            anchors.rightMargin: 6
             spacing: 6
-            FFComps.ComboBox {
-                id: typeCombo
-                visible: root.editable
-                Layout.fillHeight: true
-                Layout.preferredWidth: implicitWidth
-                model: typeModel
-                onCurrentIndexChanged: setupMateriaModel(currentIndex)
-            }
-            FFComps.ComboBox {
-                id: materiaCombo
+            MateriaSelector {
+                id: mSelector
                 visible: root.editable
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.minimumWidth: implicitWidth
-                model: materiaModel
-                onCurrentIndexChanged: currentId = currentIndex !== -1 ? model.get(currentIndex).data : currentId
+                Layout.preferredWidth: mSelector.implicitWidth + 12
             }
             Image {
                 visible: !root.editable && currentId !== FF7Materia.EmptyId
+                Layout.margins: 4
                 Layout.fillHeight: true
                 Layout.preferredWidth: height
                 source: FF7Materia.iconResource(currentId)
@@ -358,23 +337,6 @@ Item {
                 currentAp = FF7Materia.maxMateriaAp
                 typeCombo.currentIndex = 0
                 materiaCombo.currentIndex = -1
-            }
-        }
-    }
-
-    onShowPlaceHolderMateriaChanged: {
-        var cI = materiaCombo.currentIndex
-        typeCombo.currentIndex === 0 ? setupMateriaModel(typeCombo.currentIndex) : null
-        materiaCombo.currentIndex = cI
-    }
-
-    function setupMateriaModel(type) {
-        materiaModel.clear()
-        for (let i = 0 ; i <= 90; i++) {
-            if( (type === 0 || FF7Materia.type(i) === type) && FF7Materia.name(i) !== "") {
-                if(String(FF7Materia.name(i)).includes(":")  && !root.showPlaceHolderMateria)
-                    continue;
-                materiaModel.append({ text: FF7Materia.name(i), icon: FF7Materia.iconResource(i), data: i})
             }
         }
     }

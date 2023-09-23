@@ -7283,6 +7283,33 @@ The km/h speeds are calculated while playing </source>
     </message>
 </context>
 <context>
+    <name>MateriaSelector</name>
+    <message>
+        <source>All Materia</source>
+        <translation type="unfinished">すべてのマテリア</translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="unfinished">まほう</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="unfinished">しょうかん</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="unfinished">どくりつ</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="unfinished">しえん</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished">コマンド</translation>
+    </message>
+</context>
+<context>
     <name>MenuListWidget</name>
     <message>
         <source>Menu Manager</source>
