@@ -59,8 +59,31 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+#Pick a faster linker based on compiler for linux
+if (UNIX AND NOT APPLE)
+    if(${CMAKE_CXX_COMPILER_ID} MATCHES Clang)
+        string(REPLACE "." ";" VERSION_LIST ${CMAKE_CXX_COMPILER_VERSION})
+        list(GET VERSION_LIST 0 CLANG_VERSION_MAJOR)
+        find_program(LLD_PROGRAM_MATCH_VER lld-${CLANG_VERSION_MAJOR})
+        find_program(LLD_PROGRAM lld)
+        if (LLD_PROGRAM_MATCH_VER)
+            message(STATUS "Set linker to LLD: ${LLD_PROGRAM_MATCH_VER}")
+            add_link_options("-fuse-ld=lld-${CLANG_VERSION_MAJOR}")
+        elseif(LLD_PROGRAM)
+            message(STATUS "Set linker to LLD: ${LLD_PROGRAM}")
+            add_link_options("-fuse-ld=lld")
+        endif()
+    elseif(${CMAKE_CXX_COMPILER_ID} MATCHES GNU)
+        find_program(GNU_GOLD_PROGRAM gold)
+        if (GNU_GOLD_PROGRAM)
+            message(STATUS "Set linker to GNU gold")
+            add_link_options("-fuse-ld=gold;LINKER:--threads,--thread-count=${CMAKE_BUILD_PARALLEL_LEVEL}")
+        endif(GNU_GOLD_PROGRAM)
+    endif()
+endif()
+
 
 #Set Our Required Qt Version
 set(REQUIRED_QT_VERSION 6.2.0)
