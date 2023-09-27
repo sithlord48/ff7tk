@@ -5,6 +5,7 @@ if(DOCS)
     set(DOXYGEN_EXTRACT_ALL YES)
     set(DOXYGEN_STRIP_FROM_PATH ${CMAKE_SOURCE_DIR})
     set(DOXYGEN_USE_MDFILE_AS_MAINPAGE mainpage.md)
+    set(DOXYGEN_QUIET YES)
 
     doxygen_add_docs(
         docs
@@ -21,6 +22,7 @@ if(DOCS)
         CONTRIBUTING.md
         mainpage.md
     )
+
     install (DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/html" DESTINATION ${CMAKE_INSTALL_DOCDIR} COMPONENT ff7tk_docs)
 elseif(NOT DOXYGEN_FOUND)
     message(STATUS:"Doxygen Not Found; Documentation will not be built")
