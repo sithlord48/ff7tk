@@ -13,7 +13,7 @@ env:
     QtKey: "6.5.1-ifw46"
     BuildType: RelWithDebInfo
     cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja"
-    debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts ninja-build"
+    debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts ninja-build clang"
 jobs:
   precheck:
     name: Job Info
@@ -53,7 +53,7 @@ jobs:
         sudo apt-get install -qqq ${{env.debianRequirments}} > /dev/null
     - name: Build
       run: |
-        ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}}
+        ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
         cmake --build build
         cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
     - name: Upload
@@ -73,7 +73,7 @@ jobs:
            name: "Linux-x86_64"
            , os: ubuntu-20.04
            , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.6"
-           , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib"
+           , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
           }
         - {
             name: "MacOS"
@@ -123,7 +123,7 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 ninja-build > /dev/null
+            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 ninja-build clang > /dev/null
         elif [ "$RUNNER_OS" == "Windows" ]; then
             choco install ninja doxygen.install graphviz
         else
@@ -204,7 +204,7 @@ jobs:
                 apt install -y -qqq ${{env.debianRequirments}} > /dev/null
           run: |
             git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
-            ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}}
+            ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
             cmake --build build --config ${{env.BuildType}} --target package
             cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
       - name: Upload
