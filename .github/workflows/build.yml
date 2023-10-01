@@ -225,7 +225,7 @@ jobs:
       uses: actions/download-artifact@v3
     - name: Deploy Continuous
       if: github.ref == 'refs/heads/master'
-      uses: "marvinpinto/action-automatic-releases@latest"
+      uses: marvinpinto/action-automatic-releases@6273874b61ebc8c71f1a61b2d98e234cf389b303
       with:
        repo_token: "${{ secrets.DEPLOYTOKEN }}"
        automatic_release_tag: "continuous"
@@ -237,7 +237,7 @@ jobs:
          debian-artifacts/*
     - name: Deploy Release
       if: contains(github.ref, '/tags/v')
-      uses: "marvinpinto/action-automatic-releases@latest"
+      uses: marvinpinto/action-automatic-releases@6273874b61ebc8c71f1a61b2d98e234cf389b303
       with:
        repo_token: "${{ secrets.DEPLOYTOKEN }}"
        prerelease: false
