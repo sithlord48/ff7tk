@@ -7128,6 +7128,78 @@ Los km/h son calculados mientras se juega </translation>
         <source>Empty Item</source>
         <translation>Objeto vacío</translation>
     </message>
+    <message>
+        <source>All items</source>
+        <translation type="unfinished">Toda la Objeto</translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="obsolete">Magia</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="obsolete">Invocación</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="obsolete">Independiente</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="obsolete">Soporte</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="obsolete">Comando</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">Elemento</translation>
+    </message>
+    <message>
+        <source>Armor</source>
+        <translation type="unfinished">Armadura</translation>
+    </message>
+    <message>
+        <source>Accessory</source>
+        <translation type="unfinished">Accesorio</translation>
+    </message>
+    <message>
+        <source>Cloud&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Cloud</translation>
+    </message>
+    <message>
+        <source>Barret&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Barret</translation>
+    </message>
+    <message>
+        <source>Tifa&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Tifa</translation>
+    </message>
+    <message>
+        <source>Red&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Red XIII</translation>
+    </message>
+    <message>
+        <source>Aerith&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Aerith</translation>
+    </message>
+    <message>
+        <source>Cid&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Cid</translation>
+    </message>
+    <message>
+        <source>Yuffie&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Yuffie</translation>
+    </message>
+    <message>
+        <source>Cait&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Cait Sith</translation>
+    </message>
+    <message>
+        <source>Vincent&apos;s Weapons</source>
+        <translation type="unfinished">Armas de Vincent</translation>
+    </message>
 </context>
 <context>
     <name>ListWidget</name>

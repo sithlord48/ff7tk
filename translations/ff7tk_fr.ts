@@ -980,7 +980,7 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Aerith</source>
-        <translation>Aeris</translation>
+        <translation type="unfinished">Aeris</translation>
     </message>
     <message>
         <source>Healing Wind</source>
@@ -7127,6 +7127,78 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     <message>
         <source>Empty Item</source>
         <translation>Object vide</translation>
+    </message>
+    <message>
+        <source>All items</source>
+        <translation type="unfinished">Toutes les Objects</translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="obsolete">Magie</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="obsolete">Invocation</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="obsolete">Indépendante</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="obsolete">Soutien</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="obsolete">Commande</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">Elément</translation>
+    </message>
+    <message>
+        <source>Armor</source>
+        <translation type="unfinished">Armure</translation>
+    </message>
+    <message>
+        <source>Accessory</source>
+        <translation type="unfinished">Accessoire</translation>
+    </message>
+    <message>
+        <source>Cloud&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Cloud</translation>
+    </message>
+    <message>
+        <source>Barret&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Barret</translation>
+    </message>
+    <message>
+        <source>Tifa&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Tifa</translation>
+    </message>
+    <message>
+        <source>Red&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Rogue XIII</translation>
+    </message>
+    <message>
+        <source>Aerith&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Aeris</translation>
+    </message>
+    <message>
+        <source>Cid&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Cid</translation>
+    </message>
+    <message>
+        <source>Yuffie&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Youfie</translation>
+    </message>
+    <message>
+        <source>Cait&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Cait</translation>
+    </message>
+    <message>
+        <source>Vincent&apos;s Weapons</source>
+        <translation type="unfinished">Arme de Vincent</translation>
     </message>
 </context>
 <context>

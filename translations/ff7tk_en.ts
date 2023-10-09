@@ -7128,6 +7128,78 @@ The km/h speeds are calculated while playing </translation>
         <source>Empty Item</source>
         <translation>Empty Item</translation>
     </message>
+    <message>
+        <source>All items</source>
+        <translation>All items</translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="obsolete">Magic</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="obsolete">Summon</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="obsolete">Independent</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="obsolete">Support</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="obsolete">Command</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation>Item</translation>
+    </message>
+    <message>
+        <source>Armor</source>
+        <translation>Armor</translation>
+    </message>
+    <message>
+        <source>Accessory</source>
+        <translation>Accessory</translation>
+    </message>
+    <message>
+        <source>Cloud&apos;s Weapons</source>
+        <translation>Cloud&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Barret&apos;s Weapons</source>
+        <translation>Barret&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Tifa&apos;s Weapons</source>
+        <translation>Tifa&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Red&apos;s Weapons</source>
+        <translation>Red&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Aerith&apos;s Weapons</source>
+        <translation>Aerith&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Cid&apos;s Weapons</source>
+        <translation>Cid&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Yuffie&apos;s Weapons</source>
+        <translation>Yuffie&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Cait&apos;s Weapons</source>
+        <translation>Cait&apos;s Weapons</translation>
+    </message>
+    <message>
+        <source>Vincent&apos;s Weapons</source>
+        <translation>Vincent&apos;s Weapons</translation>
+    </message>
 </context>
 <context>
     <name>ListWidget</name>
@@ -7286,27 +7358,27 @@ The km/h speeds are calculated while playing </translation>
     <name>MateriaSelector</name>
     <message>
         <source>All Materia</source>
-        <translation type="unfinished">All Materia</translation>
+        <translation>All Materia</translation>
     </message>
     <message>
         <source>Magic</source>
-        <translation type="unfinished">Magic</translation>
+        <translation>Magic</translation>
     </message>
     <message>
         <source>Summon</source>
-        <translation type="unfinished">Summon</translation>
+        <translation>Summon</translation>
     </message>
     <message>
         <source>Independent</source>
-        <translation type="unfinished">Independent</translation>
+        <translation>Independent</translation>
     </message>
     <message>
         <source>Support</source>
-        <translation type="unfinished">Support</translation>
+        <translation>Support</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished">Command</translation>
+        <translation>Command</translation>
     </message>
 </context>
 <context>
