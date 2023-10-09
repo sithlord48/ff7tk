@@ -7127,6 +7127,78 @@ The km/h speeds are calculated while playing </source>
         <source>Empty Item</source>
         <translation>Pusty element</translation>
     </message>
+    <message>
+        <source>All items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="obsolete">Magia</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="obsolete">Wezwanie</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="obsolete">Niezależny</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="obsolete">Wsparcie</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="obsolete">Komenda</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">Element</translation>
+    </message>
+    <message>
+        <source>Armor</source>
+        <translation type="unfinished">Zbroja</translation>
+    </message>
+    <message>
+        <source>Accessory</source>
+        <translation type="unfinished">Akcesoria</translation>
+    </message>
+    <message>
+        <source>Cloud&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Cloud</translation>
+    </message>
+    <message>
+        <source>Barret&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Barret</translation>
+    </message>
+    <message>
+        <source>Tifa&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Tifa</translation>
+    </message>
+    <message>
+        <source>Red&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Red XIII</translation>
+    </message>
+    <message>
+        <source>Aerith&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Aerith</translation>
+    </message>
+    <message>
+        <source>Cid&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Cid</translation>
+    </message>
+    <message>
+        <source>Yuffie&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Yuffie</translation>
+    </message>
+    <message>
+        <source>Cait&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Cait Sith</translation>
+    </message>
+    <message>
+        <source>Vincent&apos;s Weapons</source>
+        <translation type="unfinished">Bronią Vincent</translation>
+    </message>
 </context>
 <context>
     <name>ListWidget</name>

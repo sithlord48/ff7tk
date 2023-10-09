@@ -7128,6 +7128,78 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Empty Item</source>
         <translation>leere Artikel</translation>
     </message>
+    <message>
+        <source>All items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magic</source>
+        <translation type="obsolete">Magie</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="obsolete">Beschwörung</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="obsolete">Unabhängig</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="obsolete">Unterstützung</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="obsolete">Befehl</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation>Item</translation>
+    </message>
+    <message>
+        <source>Armor</source>
+        <translation>Rüstung</translation>
+    </message>
+    <message>
+        <source>Accessory</source>
+        <translation>Zubehör</translation>
+    </message>
+    <message>
+        <source>Cloud&apos;s Weapons</source>
+        <translation type="unfinished">Clouds Waffen</translation>
+    </message>
+    <message>
+        <source>Barret&apos;s Weapons</source>
+        <translation type="unfinished">Barrets Waffen</translation>
+    </message>
+    <message>
+        <source>Tifa&apos;s Weapons</source>
+        <translation type="unfinished">Tifas Waffen</translation>
+    </message>
+    <message>
+        <source>Red&apos;s Weapons</source>
+        <translation type="unfinished">Red XIIIs Waffen</translation>
+    </message>
+    <message>
+        <source>Aerith&apos;s Weapons</source>
+        <translation type="unfinished">Aeriths Waffen</translation>
+    </message>
+    <message>
+        <source>Cid&apos;s Weapons</source>
+        <translation type="unfinished">Cids Waffen</translation>
+    </message>
+    <message>
+        <source>Yuffie&apos;s Weapons</source>
+        <translation type="unfinished">Yuffies Waffen</translation>
+    </message>
+    <message>
+        <source>Cait&apos;s Weapons</source>
+        <translation type="unfinished">Caits Waffen</translation>
+    </message>
+    <message>
+        <source>Vincent&apos;s Weapons</source>
+        <translation type="unfinished">Vincents Waffen</translation>
+    </message>
 </context>
 <context>
     <name>ListWidget</name>

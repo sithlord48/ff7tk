@@ -7139,6 +7139,74 @@ Battaglia %1</translation>
         <source>Empty Item</source>
         <translation>Vuoto</translation>
     </message>
+    <message>
+        <source>All items</source>
+        <translation type="unfinished">Tutte le Objecto</translation>
+    </message>
+    <message>
+        <source>Summon</source>
+        <translation type="obsolete">Di invocazione</translation>
+    </message>
+    <message>
+        <source>Independent</source>
+        <translation type="obsolete">Indipendenti</translation>
+    </message>
+    <message>
+        <source>Support</source>
+        <translation type="obsolete">Supporto</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="obsolete">Comando</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">Objecto</translation>
+    </message>
+    <message>
+        <source>Armor</source>
+        <translation type="unfinished">Protezione</translation>
+    </message>
+    <message>
+        <source>Accessory</source>
+        <translation type="unfinished">Accessorio</translation>
+    </message>
+    <message>
+        <source>Cloud&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Cloud</translation>
+    </message>
+    <message>
+        <source>Barret&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Barret</translation>
+    </message>
+    <message>
+        <source>Tifa&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Tifa</translation>
+    </message>
+    <message>
+        <source>Red&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Red XIII</translation>
+    </message>
+    <message>
+        <source>Aerith&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Aerith</translation>
+    </message>
+    <message>
+        <source>Cid&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Cid</translation>
+    </message>
+    <message>
+        <source>Yuffie&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Yuffie</translation>
+    </message>
+    <message>
+        <source>Cait&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Cait Sith</translation>
+    </message>
+    <message>
+        <source>Vincent&apos;s Weapons</source>
+        <translation type="unfinished">Arme di Vincent</translation>
+    </message>
 </context>
 <context>
     <name>ListWidget</name>

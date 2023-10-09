@@ -36,7 +36,6 @@ ApplicationWindow {
                 ListElement{text: "ItemPreview"}
                 ListElement{text: "Materia Button"}
                 ListElement{text: "Materia Editor"}
-                ListElement{text: "Materia Selector"}
             }
             onCurrentIndexChanged: {
                 itemLoader.sourceComponent = Qt.binding(function() {
@@ -45,7 +44,6 @@ ApplicationWindow {
                         case 2: return itemPreviewComponent
                         case 3: return materiaButtonComponent
                         case 4: return materiaEditorComponent
-                        case 5: return materiaSelectorComponent
                         default: return testComponent;
                     }
                 })
@@ -121,16 +119,6 @@ ApplicationWindow {
         id: textDemoComponent
         TextDemo { }
     }
-    Component {
-        id: materiaSelectorComponent
-        Item{
-            anchors.fill: parent
-            MateriaSelector {
-                anchors.left: parent.left;
-                anchors.leftMargin: 6
-            }
-        }
-    }
 
     Component {
         id: materiaEditorComponent
@@ -199,27 +187,24 @@ ApplicationWindow {
             Label {
                 id: itemPreviewOptions
                 anchors.left: parent.left
-                anchors.verticalCenter: sb_itemNumber.verticalCenter
+                anchors.verticalCenter: itemSelector.verticalCenter
                 anchors.margins: 6
                 text: "Item Id to Preview"
             }
-            QQC.SpinBox {
-                id:sb_itemNumber
+            ItemSelector {
+                id: itemSelector
                 anchors.top: parent.top
                 anchors.left: itemPreviewOptions.right
                 anchors.rightMargin: 6
-                editable: true
-                value: -1
-                from: -1
-                to: 319
+                currentId: FF7Item.EmptyItem
             }
             ItemPreview {
-                anchors.top: sb_itemNumber.bottom
+                anchors.top: itemSelector.bottom
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.margins: 6
-                itemId: sb_itemNumber.value
+                itemId: itemSelector.currentId
             }
         }
     }
