@@ -30,16 +30,25 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            height: 24
             anchors.leftMargin: 6
             anchors.rightMargin: 6
             spacing: 6
             MateriaSelector {
+                property int lastId: 0xFF
                 id: mSelector
                 visible: root.editable
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.preferredWidth: mSelector.implicitWidth + 12
+                onCurrentIdChanged: {
+                    var preMax = lastId === FF7Materia.EmptyId ? FF7Materia.maxMateriaAp : FF7Materia.apToMax(lastId)
+                    var currentMax = FF7Materia.apToMax(currentId)
+                    if(preMax <= currentMax && (currentAp >= currentMax))
+                        root.currentAp = preMax
+                    if(preMax >= currentMax && (currentAp >= currentMax))
+                        root.currentAp = FF7Materia.maxMateriaAp
+                    lastId = currentId
+                }
             }
             Image {
                 visible: !root.editable && currentId !== FF7Materia.EmptyId
@@ -164,8 +173,8 @@ Item {
 
         Item {
             id: apRow
-            anchors.topMargin: 12
             anchors.top: starGroup.width > (root.width * .45) ? starGroup.bottom : selectorRow.bottom
+            anchors.topMargin: 12
             anchors.left: starGroup.width > (root.width * .45) ? parent.left : starGroup.right
             anchors.right: parent.right
             visible: FF7Materia.levels(currentId) > 1
@@ -180,7 +189,6 @@ Item {
             }
             SpinBox {
                 id: sbAP
-                property int displayValue: (currentAp > FF7Materia.apToMax(currentId)) ? FF7Materia.apToMax(currentId) : displayValue
                 anchors.top: parent.top; anchors.bottom: parent.bottom
                 anchors.left: txtAp.right; anchors.leftMargin: 6
                 visible: root.editable
@@ -188,7 +196,7 @@ Item {
                 wrap: true
                 from: 0
                 to: isEmpty ? FF7Materia.maxMateriaAp : FF7Materia.apToMax(currentId)
-                value: displayValue
+                value: currentAp
                 onValueChanged: currentAp = (value >= FF7Materia.apToMax(currentId)) ? FF7Materia.maxMateriaAp : value
             }
             Text {
@@ -202,7 +210,7 @@ Item {
             id: statChangesBox
             visible: FF7Materia.statString(currentId) !== "" && currentId !== FF7Materia.EmptyId
             height: visible ? implicitHeight : 0
-            anchors.top: apRow.bottom
+            anchors.top: starGroup.width < (root.width * .45) ? starGroup.bottom : apRow.bottom
             anchors.margins: 8
             anchors.left: parent.left
             anchors.right: parent.right
@@ -257,7 +265,6 @@ Item {
                     }
                 }
             }
-
         }
 
         GroupBox {
