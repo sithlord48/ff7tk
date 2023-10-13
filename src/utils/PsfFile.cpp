@@ -34,7 +34,7 @@ bool PsfTags::open(const QString &config)
     }
 
     QStringList entries = config.mid(5).split('\n', Qt::SkipEmptyParts);
-    for (const QString &entry : qAsConst(entries)) {
+    for (const QString &entry : std::as_const(entries)) {
         qsizetype index = entry.indexOf('=');
         if (index >= 0) {
             QString name = entry.left(index);
@@ -61,7 +61,7 @@ QString PsfTags::save() const
     while (it.hasNext()) {
         it.next();
         QStringList values = it.value().split('\n');
-        for (const QString &value : qAsConst(values)) {
+        for (const QString &value : std::as_const(values)) {
             config.append(QStringLiteral("%1=%2\n").arg(it.key(), value));
         }
     }

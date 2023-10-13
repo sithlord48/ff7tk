@@ -178,10 +178,10 @@ void MateriaEditor::setStars()
         return;
     } else {
         box_stars->setHidden(false);
-        for (QPushButton *button : qAsConst(btn_stars))
+        for (QPushButton *button : std::as_const(btn_stars))
             button->setHidden(true);
         if (FF7Materia::type(_id) != 0) {
-            for (QPushButton *button : qAsConst(btn_stars))
+            for (QPushButton *button : std::as_const(btn_stars))
                 button->setIcon(FF7Materia::pixmapEmptyStar(_id));
         }
         for (int i = 0 ; i < _level ; i ++)
@@ -264,7 +264,7 @@ qint32 MateriaEditor::MaxAP(void)
 void MateriaEditor::setStarsSize(int size)
 {
     QSize iconSize(size, size);
-    for (QPushButton *button : qAsConst(btn_stars)) {
+    for (QPushButton *button : std::as_const(btn_stars)) {
         button->setFixedSize(iconSize);
         button->setIconSize(iconSize);
     }
@@ -310,7 +310,7 @@ void MateriaEditor::setShowPlaceHolderMateria(bool showPlaceHolders)
 
 void MateriaEditor::editMode()
 {
-    for (QPushButton *button : qAsConst(btn_stars))
+    for (QPushButton *button : std::as_const(btn_stars))
         button->blockSignals(!_editable);
 
     if (_id != FF7Materia::EmptyId)
@@ -335,7 +335,7 @@ void MateriaEditor::editMode()
             eskill_list->item(i)->setFlags(eskill_list->item(i)->flags() &= ~Qt::ItemIsUserCheckable);
     }
     eskill_list->setStyleSheet(_itemStyle);
-    for (QPushButton *button : qAsConst(btn_stars))
+    for (QPushButton *button : std::as_const(btn_stars))
         button->setStyleSheet(buttonStyle);
 }
 
@@ -472,7 +472,7 @@ QWidget *MateriaEditor::makeStarWidget()
 
     auto stars = new QHBoxLayout;
     stars->setContentsMargins(3, 0, 0, 0);
-    for (QPushButton *button : qAsConst(btn_stars)) {
+    for (QPushButton *button : std::as_const(btn_stars)) {
         stars->addWidget(button);
     }
     auto spacer = new QSpacerItem(30, 0, QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -521,7 +521,7 @@ void MateriaEditor::changeEvent(QEvent *e)
         if(!_editable)
             buttonStyle = buttonStyle.remove(_buttonHighlightStyle_addition);
 
-        for (QPushButton *button : qAsConst(btn_stars))
+        for (QPushButton *button : std::as_const(btn_stars))
             button->setStyleSheet(buttonStyle);
     }
     QWidget::changeEvent(e);

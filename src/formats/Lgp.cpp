@@ -174,7 +174,7 @@ QStringList Lgp::fileList() const
     }
 
     QList<const LgpHeaderEntry *> entries = _files->filesSortedByPosition();
-    for (const LgpHeaderEntry *entry : qAsConst(entries)) {
+    for (const LgpHeaderEntry *entry : std::as_const(entries)) {
         ret.append(entry->filePath());
     }
 
@@ -653,7 +653,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
     for (quint16 i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
         // toc index initialization
         QList<LgpHeaderEntry *> entries = _files->entries(i);
-        for (const LgpHeaderEntry *headerEntry : qAsConst(entries)) {
+        for (const LgpHeaderEntry *headerEntry : std::as_const(entries)) {
             tocEntries.insert(headerEntry, LgpTocEntry(tocIndex++));
         }
     }
@@ -664,13 +664,13 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
         QList<LgpHeaderEntry *> headerEntries = _files->entries(i);
 
         // Build list conflicts
-        for (const LgpHeaderEntry *headerEntry : qAsConst(headerEntries)) {
+        for (const LgpHeaderEntry *headerEntry : std::as_const(headerEntries)) {
             LgpTocEntry &tocEntry = tocEntries[headerEntry];
 
             if (tocEntry.conflict == 0) {
                 QList<LgpConflictEntry> conflictEntries;
 
-                for (const LgpHeaderEntry *headerEntry2 : qAsConst(headerEntries)) {
+                for (const LgpHeaderEntry *headerEntry2 : std::as_const(headerEntries)) {
                     if (headerEntry != headerEntry2 &&
                             headerEntry->fileName().compare(headerEntry2->fileName(),
                                                             Qt::CaseInsensitive) == 0) {
@@ -734,7 +734,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
 
     // Write files
     QList<const LgpHeaderEntry *> filesSortedByPosition = _files->filesSortedByPosition();
-    for (const LgpHeaderEntry *lgpEntry : qAsConst(filesSortedByPosition)) {
+    for (const LgpHeaderEntry *lgpEntry : std::as_const(filesSortedByPosition)) {
         // Cancels if requested
         if (observer && observer->observerWasCanceled()) {
             temp.remove();
@@ -820,7 +820,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
     QByteArray tocData;
     for (quint16 i = 0; i < LOOKUP_TABLE_ENTRIES; ++i) {
         QList<LgpHeaderEntry *> entries = newToc.entries(i);
-        for (const LgpHeaderEntry *headerEntry : qAsConst(entries)) {
+        for (const LgpHeaderEntry *headerEntry : std::as_const(entries)) {
             tocData.append(headerEntry->fileName().toLower().toLatin1().leftJustified(20, '\0', true));
             quint32 filePos = headerEntry->filePosition();
             tocData.append((char *)&filePos, 4);
