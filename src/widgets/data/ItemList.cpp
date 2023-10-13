@@ -84,7 +84,7 @@ void ItemList::destroyTooltip()
 
 void ItemList::destroySelector()
 {
-    disconnect(itemSelector, &ItemSelector::itemChanged, this, &ItemList::itemSelector_changed);
+    disconnect(itemSelector);
     itemSelector->deleteLater();
     itemSelector = nullptr;
 }
@@ -185,13 +185,11 @@ void ItemList::listSelectionChanged(int row, int colum, int prevRow, int prevCol
 {
     Q_UNUSED(prevColum)
 
-    if (itemSelector) {
+    if (itemSelector)
         destroySelector();
-    }
 
-    if (createdTooltip) {
+    if (createdTooltip)
         destroyTooltip();
-    }
 
     if (colum < 0 || row < 0)
         return;   //Ingore if selecting -1 (clearContents)
@@ -205,7 +203,7 @@ void ItemList::listSelectionChanged(int row, int colum, int prevRow, int prevCol
         itemSelector = new ItemSelector(this);
         itemSelector->setEditableItemCombo(editableItemCombo);
         itemSelector->setFixedWidth(width() - verticalScrollBar()->sizeHint().width() - 7);
-        connect(itemSelector, &ItemSelector::itemChanged, this, &ItemList::itemSelector_changed,Qt::UniqueConnection);
+        connect(itemSelector, &ItemSelector::itemChanged, this, &ItemList::itemSelector_changed);
     }
     itemSelector->setMaximumQty(itemQtyLimit);
     itemSelector->setObjectName(QString::number(row));
