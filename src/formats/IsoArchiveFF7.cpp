@@ -471,7 +471,7 @@ IsoFile *IsoArchiveFF7::updateYamadaBin()
     }
 
     int i = 1;
-    for (const QString &filename : qAsConst(filenames)) {
+    for (const QString &filename : std::as_const(filenames)) {
         IsoFile *isoFile = rootDirectory()->file(filename);
         if (!isoFile) {
             qWarning() << "IsoArchiveFF7::updateYamadaBin" << filename << "file not found";

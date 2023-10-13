@@ -683,8 +683,8 @@ bool IsoArchive::pack(IsoArchive *destination, ArchiveObserver *control, IsoDire
             return false;
         }
     }
-
-    for (IsoFile *isoFile : getModifiedFiles(directory)) {
+    const auto modifiedFiles = getModifiedFiles(directory);
+    for (IsoFile *isoFile : modifiedFiles) {
         // Est-ce que les nouvelles données sont plus grandes que les anciennes ? Est-ce qu'on est pas à la fin de l'archive ?
         if (isoFile->newSectorCount() > isoFile->sectorCount() + isoFile->paddingAfter()
                 && isoFile->location() + isoFile->sectorCount() < _io.sectorCount()) {
@@ -733,7 +733,7 @@ bool IsoArchive::pack(IsoArchive *destination, ArchiveObserver *control, IsoDire
     destinationIO->reset();
     _io.reset();
 
-    for (const IsoFile *isoFile : qAsConst(writeToTheMain)) {
+    for (const IsoFile *isoFile : std::as_const(writeToTheMain)) {
         if (control && control->observerWasCanceled()) {
             setError(Archive::AbortError);
             return false;
@@ -800,7 +800,7 @@ bool IsoArchive::pack(IsoArchive *destination, ArchiveObserver *control, IsoDire
 #endif
 
     // Fichiers trop gros mis à la fin de l'ISO
-    for (const IsoFile *isoFile : qAsConst(writeToTheEnd)) {
+    for (const IsoFile *isoFile : std::as_const(writeToTheEnd)) {
         if (control && control->observerWasCanceled()) {
             setError(Archive::AbortError);
             return false;

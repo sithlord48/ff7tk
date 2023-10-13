@@ -160,10 +160,10 @@ void ItemPreview::setItem(quint16 itemraw)
 
 void ItemPreview::setItem(int id)
 {
-    for(auto slot : qAsConst(slotLabels))
+    for(auto slot : std::as_const(slotLabels))
         slot->setHidden(true);
 
-    for(auto link : qAsConst(slotLinks))
+    for(auto link : std::as_const(slotLinks))
         link->clear();
 
     materia_slot_box->setHidden(true);
@@ -196,7 +196,7 @@ void ItemPreview::setItem(int id)
         elemental_info(id);
 
         if (FF7Item::type(id) > FF7Item::Item && FF7Item::type(id) != FF7Item::Accessory) {
-            for (auto slot : qAsConst(slotLabels))
+            for (auto slot : std::as_const(slotLabels))
                slot->setPixmap(QPixmap::fromImage(FF7Item::materiaGrowthRate(id) == 0 ? FF7Item::imageMateriaSlotNoGrowth() : FF7Item::imageMateriaSlot()));
 
             QString ap_rate = tr("APx%1").arg(FF7Item::materiaGrowthRate(id));

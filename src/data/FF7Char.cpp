@@ -126,7 +126,7 @@ QStringList FF7Char::limits(int who)
     if (!validID(who))
         return FF7Char::get()->d->_emptyChar._limits;
     QStringList translated_list;
-    for (const QString &limit : qAsConst(FF7Char::get()->d->_charData.at(who)._limits)) {
+    for (const QString &limit : std::as_const(FF7Char::get()->d->_charData.at(who)._limits)) {
         translated_list.append(tr(limit.toUtf8()));
     }
     return translated_list;

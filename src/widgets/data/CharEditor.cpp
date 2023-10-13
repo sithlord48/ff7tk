@@ -451,7 +451,7 @@ void CharEditor::updateText()
 void CharEditor::updateMateriaToolTips()
 {
     int i =0;
-    for(auto button : qAsConst(materiaSlots)) {
+    for(auto button : std::as_const(materiaSlots)) {
         if (data.materias[i].id != FF7Materia::EmptyId) {
             button->setToolTip(FF7Materia::name(data.materias[i].id));
         } else {
@@ -1989,7 +1989,7 @@ void CharEditor::update_materia_slots()
 {
     QList<QPushButton *> buttons = weapon_box->findChildren<QPushButton *>();
     int i = 0;
-    for(auto button : qAsConst(buttons)) {
+    for(auto button : std::as_const(buttons)) {
         button->setVisible((i+1) <= FF7Item::materiaSlots(data.weapon + 128));
         if (data.materias[i].id != FF7Materia::EmptyId) {
             button->setIcon(FF7Materia::icon(data.materias[i].id));
@@ -1999,7 +1999,7 @@ void CharEditor::update_materia_slots()
         i++;
     }
     buttons = armor_box->findChildren<QPushButton *>();
-    for(auto button : qAsConst(buttons)) {
+    for(auto button : std::as_const(buttons)) {
         button->setVisible((i-7) <= FF7Item::materiaSlots(data.armor + 256));
         if (data.materias[i].id != FF7Materia::EmptyId) {
             button->setIcon(FF7Materia::icon(data.materias[i].id));
@@ -2016,7 +2016,7 @@ void CharEditor::update_materia_slots()
 
     QList<QLabel *> labels = weapon_box->findChildren<QLabel *>();
     labels.append(armor_box->findChildren<QLabel *>());
-    for(auto label : qAsConst(labels))
+    for(auto label : std::as_const(labels))
         label->setStyleSheet(QString());
 
     switch (FF7Item::linkedSlots((data.weapon + 128))) {
@@ -2082,7 +2082,7 @@ void CharEditor::materiaSlotClicked(int slotClicked)
 
     mslotsel = slotClicked;
 
-    for(auto frame : qAsConst(materiaSlotFrames)) {
+    for(auto frame : std::as_const(materiaSlotFrames)) {
         frame->setFrameShape(QFrame::NoFrame);
     }
 
