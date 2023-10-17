@@ -88,28 +88,19 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     auto hexLineEditLayout = new QVBoxLayout();
     hexLineEditLayout->addWidget(hexLineEdit);
     ui->hexLineEdit_Box->setLayout(hexLineEditLayout);
-    ui->sb_hexEditLine_maxlen->setValue(hexLineEdit->maxLength());
+    ui->hexEditLine_sb_maxlen->setValue(hexLineEdit->maxLength());
 
     orientationWidget = new OrientationWidget(this);
     auto orientationWidgetLayout = new QVBoxLayout();
     orientationWidgetLayout->addWidget(orientationWidget);
     ui->orientationFrame->setLayout(orientationWidgetLayout);
-    connect(orientationWidget, &OrientationWidget::valueChanged, ui->sb_orientationWidget_value, &QSpinBox::setValue);
-    connect(ui->cb_orientationWidget_readOnly, &QCheckBox::toggled, orientationWidget, &OrientationWidget::setReadOnly);
-    connect(ui->combo_orientationWidget_style, &QComboBox::currentIndexChanged, this, [this] (int index){
-        orientationWidget->setStyle(OrientationWidget::Style(index));
-    });
-    connect(ui->combo_orientationWidget_rotationDirection, &QComboBox::currentIndexChanged, this, [this] (int index){
-        orientationWidget->setRotationDirection(OrientationWidget::RotationDirection(index));
-    });
-    connect(ui->combo_orientationWidget_zeroDirection, &QComboBox::currentIndexChanged, this, [this] (int index){
-        orientationWidget->setZeroDirection(OrientationWidget::Direction(index));
-    });
 
     encounterTableWidget = new EncounterTableWidget(QStringLiteral("Encounter Table Widget"), this);
     auto encounterTableLayout = new QVBoxLayout();
     encounterTableLayout->addWidget(encounterTableWidget);
     ui->encounterTableFrame->setLayout(encounterTableLayout);
+
+    initUiConnections();
 }
 
 MainWindow::~MainWindow()
@@ -117,70 +108,104 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_comboRegion_currentTextChanged(const QString &arg1)
+void MainWindow::initUiConnections()
 {
-    locViewer->setRegion(arg1);
+    connect(ui->combo_widget, &QComboBox::currentIndexChanged, this, &MainWindow::combo_currentWidget_currentIndexChanged);
+
+    connect(ui->achievementEditor_btn_load, &QPushButton::clicked, this, [this] {
+        QString fileFilter("*.dat (*.dat);");
+        QString filename = QFileDialog::getOpenFileName(this, "Select An Achievement File To Preview", QDir::homePath(), fileFilter);
+        achievementEditor->openFile(filename);
+    });
+
+    connect(ui->achievementEditor_btn_save, &QPushButton::clicked, this, [this] {
+        QString fileName = QFileDialog::getSaveFileName(this, "Select File to Save", QDir::home().absolutePath(), "*.dat (*.dat);");
+        if (fileName.isEmpty())
+            return;
+        achievementEditor->saveFile(fileName);
+    });
+
+    connect(ui->hexEditLine_sb_maxlen, &QDoubleSpinBox::valueChanged, this, [this] (int value){
+        hexLineEdit->setMaxLength(value *2);
+    });
+
+    connect(orientationWidget, &OrientationWidget::valueChanged, ui->orientationWidget_sb_value, &QSpinBox::setValue);
+    connect(ui->orientationWidget_sb_value, &QSpinBox::valueChanged, orientationWidget, &OrientationWidget::setValue);
+    connect(ui->orientationWidget_cb_readOnly, &QCheckBox::toggled, orientationWidget, &OrientationWidget::setReadOnly);
+    connect(ui->orientationWidget_combo_style, &QComboBox::currentIndexChanged, this, [this] (int index) {
+        orientationWidget->setStyle(OrientationWidget::Style(index));
+    });
+    connect(ui->orientationWidget_combo_rotationDirection, &QComboBox::currentIndexChanged, this, [this] (int index) {
+        orientationWidget->setRotationDirection(OrientationWidget::RotationDirection(index));
+    });
+    connect(ui->orientationWidget_combo_zeroDirection, &QComboBox::currentIndexChanged, this, [this] (int index) {
+        orientationWidget->setZeroDirection(OrientationWidget::Direction(index));
+    });
+
+    connect(ui->checkBox_2, &QCheckBox::toggled, locViewer, &LocationViewer::setAdvancedMode);
+    connect(ui->comboRegion, &QComboBox::currentTextChanged, locViewer, &LocationViewer::setRegion);
+
+    connect(ui->sb_materia_editor_setStarSize, &QSpinBox::valueChanged, materia_editor, &MateriaEditor::setStarsSize);
+    connect(ui->cb_materia_editor_setEditable, &QCheckBox::toggled, materia_editor, &MateriaEditor::setEditable);
+    connect(ui->cbEditableMateriaCombos, &QCheckBox::toggled, materia_editor, &MateriaEditor::setEditableMateriaCombo);
+    connect(ui->cb_materiaEditor_showPlaceHolderMateria, &QCheckBox::toggled, materia_editor, &MateriaEditor::setShowPlaceHolderMateria);
+
+    connect(ui->checkBox, &QCheckBox::toggled, char_editor, &CharEditor::setAdvancedMode);
+    connect(ui->cb_charEditor, &QCheckBox::toggled, char_editor, &CharEditor::setEditable);
+    connect(ui->checkBox_3, &QCheckBox::toggled, char_editor, &CharEditor::setEditableComboBoxes);
+    connect(ui->pushButton, &QPushButton::clicked, this, [this] {
+        QByteArray temp;
+        temp.fill(0x00, 132);
+        FF7CHAR c_data;
+        memcpy(&c_data, temp, 132);
+        char_editor->setChar(c_data, QString("Cloud"));
+    });
+
+    connect(ui->cb_itemSelectionDeleageEditable, &QCheckBox::toggled, itemlistView, &ItemListView::setEditableItemCombo);
+    connect(ui->cb_itemSelection_showPlaceHolders, &QCheckBox::toggled, itemlistView, &ItemListView::setShowPlaceholderItems);
+    connect(ui->sb_itemListViewMaxQty, &QSpinBox::editingFinished, this, [this] {
+        itemlistView->setMaximumItemQty(ui->sb_itemListViewMaxQty->value());
+    });
+
+    connect(ui->btn_showmetaData, &QPushButton::clicked, this, [this] {
+        auto ff7save = std::make_unique<FF7Save>();
+        metadataCreator = new MetadataCreator(this, ff7save.get());
+        metadataCreator->exec();
+    });
+
+    connect(ui->btn_lgpSelect, &QPushButton::clicked, this, &MainWindow::selectLgpFile);
+    connect(ui->btnExtractLgp, &QPushButton::clicked, this, &MainWindow::extractLgp);
+
+    connect(ui->btn_slotSelect, &QPushButton::clicked, this, &MainWindow::slotSelect_show);
 }
 
-void MainWindow::on_combo_widget_currentIndexChanged(int index)
+void MainWindow::combo_currentWidget_currentIndexChanged(int index)
 {
     hideAllBoxes();
-    switch (index) {
-    case 1: ui->dialog_preview_box->setVisible(1); break;
-    case 2: ui->materia_editor_box->setVisible(1); break;
-    case 3: ui->itemListView_Group->setVisible(1); break;
-    case 4: ui->char_editor_box->setVisible(1); break;
-    case 5: ui->metadata_box->setVisible(1); break;
-    case 6: ui->slotSelect_Box->setVisible(1); break;
-    case 7: ui->phsListBox->setVisible(1); break;
-    case 8: ui->menuListBox->setVisible(1); break;
-    case 9: ui->lgp_Box->setVisible(1); break;
-    case 10: ui->locListBox->setVisible(1); break;
-    case 11: ui->ChocoboManagerBox->setVisible(1); break;
-    case 12: ui->AchievementEditor_Box->setVisible(1); break;
-    case 13: ui->hexLineEdit_group->setVisible(1); break;
-    case 14: ui->orientationGroup->setVisible(1); break;
-    case 15: ui->encounterTableGroup->setVisible(1); break;
+    switch (index)
+    {
+        case 1: ui->dialog_preview_box->setVisible(1); break;
+        case 2: ui->materia_editor_box->setVisible(1); break;
+        case 3: ui->itemListView_Group->setVisible(1); break;
+        case 4: ui->char_editor_box->setVisible(1); break;
+        case 5: ui->metadata_box->setVisible(1); break;
+        case 6: ui->slotSelect_Box->setVisible(1); break;
+        case 7: ui->phsListBox->setVisible(1); break;
+        case 8: ui->menuListBox->setVisible(1); break;
+        case 9: ui->lgp_Box->setVisible(1); break;
+        case 10: ui->locListBox->setVisible(1); break;
+        case 11: ui->ChocoboManagerBox->setVisible(1); break;
+        case 12: ui->AchievementEditor_Box->setVisible(1); break;
+        case 13: ui->hexLineEdit_group->setVisible(1); break;
+        case 14: ui->orientationGroup->setVisible(1); break;
+        case 15: ui->encounterTableGroup->setVisible(1); break;
     }
-    this->adjustSize();
+    adjustSize();
 }
 
-void MainWindow::on_sb_materia_editor_setStarSize_valueChanged(int size)
+void MainWindow::slotSelect_show()
 {
-    materia_editor->setStarsSize(size);
-}
-void MainWindow::on_cb_materia_editor_setEditable_toggled(bool checked)
-{
-    materia_editor->setEditable(checked);
-}
-void MainWindow::on_cb_charEditor_clicked(bool checked)
-{
-    char_editor->setEditable(checked);
-}
-void MainWindow::on_checkBox_toggled(bool checked)
-{
-    char_editor->setAdvancedMode(checked);
-}
 
-void MainWindow::on_pushButton_clicked()
-{
-    QByteArray temp;
-    temp.fill(0x00, 132);
-    FF7CHAR c_data;
-    memcpy(&c_data, temp, 132);
-    char_editor->setChar(c_data, QString("Cloud"));
-}
-
-void MainWindow::on_btn_showmetaData_clicked()
-{
-    auto ff7save = std::make_unique<FF7Save>();
-    metadataCreator = new MetadataCreator(this, ff7save.get());
-    metadataCreator->exec();
-}
-
-void MainWindow::on_btn_slotSelect_clicked()
-{
     auto ff7save = std::make_unique<FF7Save>();
     QString fileFilter = FF7SaveInfo::knownTypesFilter();
     QString filename = QFileDialog::getOpenFileName(this, "Select A Save To Preview", QDir::homePath(), fileFilter);
@@ -188,7 +213,7 @@ void MainWindow::on_btn_slotSelect_clicked()
         if (ff7save.get()->loadFile(filename)) {
             SlotSelect *slotSelect = new SlotSelect(ff7save.get(), ui->cbShowLoad->isChecked());
             if (slotSelect->exec() == -1) {
-                on_btn_slotSelect_clicked();
+                slotSelect_show();
             } else {
                 return;
             }
@@ -198,7 +223,7 @@ void MainWindow::on_btn_slotSelect_clicked()
     }
 }
 
-void MainWindow::on_btn_lgpSelect_clicked()
+void MainWindow::selectLgpFile()
 {
     ui->listLgpFile->clear();
     QString fileName = QFileDialog::getOpenFileName(this, "Select Lgp Archive", QDir::homePath(), "Lgp Archive(*.lgp)");
@@ -219,8 +244,9 @@ void MainWindow::on_btn_lgpSelect_clicked()
         }
     }
 }
-void MainWindow::on_btnExtractLgp_clicked()
+void MainWindow::extractLgp()
 {
+
     QString extPath = QFileDialog::getExistingDirectory(this, "Select Path To Extract Files", QDir::homePath());
     if (extPath.isEmpty()) {
         return;
@@ -279,67 +305,4 @@ void MainWindow::hideAllBoxes(void)
     ui->hexLineEdit_group->setVisible(0);
     ui->orientationGroup->setVisible(0);
     ui->encounterTableGroup->setVisible(0);
-
-}
-
-void MainWindow::on_btn_loadAchievement_clicked()
-{
-    QString fileFilter("*.dat (*.dat);");
-    QString filename = QFileDialog::getOpenFileName(this, "Select An Achievement File To Preview", QDir::homePath(), fileFilter);
-    achievementEditor->openFile(filename);
-}
-
-void MainWindow::on_btn_saveAchievement_clicked()
-{
-    QString fileName = QFileDialog::getSaveFileName(this, "Select File to Save", QDir::home().absolutePath(), "*.dat (*.dat);");
-    if (!fileName.isEmpty()) {
-        achievementEditor->saveFile(fileName);
-    }
-}
-
-void MainWindow::on_checkBox_2_toggled(bool checked)
-{
-    locViewer->setAdvancedMode(checked);
-}
-
-void MainWindow::on_checkBox_3_clicked(bool checked)
-{
-    char_editor->setEditableComboBoxes(checked);
-}
-void MainWindow::on_cbEditableMateriaCombos_clicked(bool checked)
-{
-    materia_editor->setEditableMateriaCombo(checked);
-}
-
-void MainWindow::on_cb_itemSelectionDeleageEditable_toggled(bool checked)
-{
-    itemlistView->setEditableItemCombo(checked);
-}
-
-void MainWindow::on_sb_itemListViewMaxQty_editingFinished()
-{
-    itemlistView->setMaximumItemQty(ui->sb_itemListViewMaxQty->value());
-}
-
-void MainWindow::on_sb_hexEditLine_maxlen_valueChanged(double arg1)
-{
-    hexLineEdit->setMaxLength(arg1 * 2);
-}
-
-
-void MainWindow::on_sb_orientationWidget_value_valueChanged(int arg1)
-{
-    orientationWidget->setValue(arg1);
-}
-
-
-void MainWindow::on_cb_materiaEditor_showPlaceHolderMateria_toggled(bool checked)
-{
-    materia_editor->setShowPlaceHolderMateria(checked);
-}
-
-
-void MainWindow::on_cb_itemSelection_showPlaceHolders_toggled(bool checked)
-{
-    itemlistView->setShowPlaceholderItems(checked);
 }

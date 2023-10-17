@@ -50,34 +50,10 @@ public:
 
 private slots:
     void hideAllBoxes(void);
-    void on_combo_widget_currentIndexChanged(int index);
-    void on_sb_materia_editor_setStarSize_valueChanged(int arg1);
-    void on_cb_materia_editor_setEditable_toggled(bool checked);
-    void on_cb_charEditor_clicked(bool checked);
-    void on_pushButton_clicked();
-    void on_checkBox_toggled(bool checked);
-    void on_btn_showmetaData_clicked();
-    void on_btn_slotSelect_clicked();
-    void on_btn_lgpSelect_clicked();
-    void on_btnExtractLgp_clicked();
-    void on_btn_loadAchievement_clicked();
-    void on_btn_saveAchievement_clicked();
-    void on_checkBox_2_toggled(bool checked);
-    void on_checkBox_3_clicked(bool checked);
-    void on_cbEditableMateriaCombos_clicked(bool checked);
-
-    void on_comboRegion_currentTextChanged(const QString &arg1);
-
-    void on_cb_itemSelectionDeleageEditable_toggled(bool checked);
-    void on_sb_itemListViewMaxQty_editingFinished();
-
-    void on_sb_hexEditLine_maxlen_valueChanged(double arg1);
-
-    void on_sb_orientationWidget_value_valueChanged(int arg1);
-
-    void on_cb_materiaEditor_showPlaceHolderMateria_toggled(bool checked);
-
-    void on_cb_itemSelection_showPlaceHolders_toggled(bool checked);
+    void combo_currentWidget_currentIndexChanged(int index);
+    void slotSelect_show();
+    void selectLgpFile();
+    void extractLgp();
 
 private:
 
@@ -96,4 +72,5 @@ private:
     HexLineEdit *hexLineEdit = nullptr;
     OrientationWidget *orientationWidget = nullptr;
     EncounterTableWidget *encounterTableWidget = nullptr;
+    void initUiConnections();
 };
