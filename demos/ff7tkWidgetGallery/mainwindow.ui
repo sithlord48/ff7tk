@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>FF7tk Widget Demo</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../src/icons/materia.qrc">
+    <normaloff>:/materia/all</normaloff>:/materia/all</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_14">
     <item>
@@ -576,7 +580,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_13">
        <item>
-        <widget class="QPushButton" name="btn_loadAchievement">
+        <widget class="QPushButton" name="achievementEditor_btn_load">
          <property name="text">
           <string>Select Achievement to Preview</string>
          </property>
@@ -593,7 +597,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btn_saveAchievement">
+        <widget class="QPushButton" name="achievementEditor_btn_save">
          <property name="text">
           <string>Save File</string>
          </property>
@@ -718,7 +722,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="sb_hexEditLine_maxlen">
+          <widget class="QDoubleSpinBox" name="hexEditLine_sb_maxlen">
            <property name="decimals">
             <number>0</number>
            </property>
@@ -764,7 +768,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="combo_orientationWidget_style">
+          <widget class="QComboBox" name="orientationWidget_combo_style">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -804,7 +808,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="combo_orientationWidget_zeroDirection">
+          <widget class="QComboBox" name="orientationWidget_combo_zeroDirection">
            <property name="currentIndex">
             <number>3</number>
            </property>
@@ -848,7 +852,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="combo_orientationWidget_rotationDirection">
+          <widget class="QComboBox" name="orientationWidget_combo_rotationDirection">
            <property name="currentIndex">
             <number>1</number>
            </property>
@@ -867,14 +871,14 @@
         </layout>
        </item>
        <item>
-        <widget class="QCheckBox" name="cb_orientationWidget_readOnly">
+        <widget class="QCheckBox" name="orientationWidget_cb_readOnly">
          <property name="text">
           <string>Read Only</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="sb_orientationWidget_value">
+        <widget class="QSpinBox" name="orientationWidget_sb_value">
          <property name="wrapping">
           <bool>true</bool>
          </property>
@@ -906,6 +910,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="../../src/icons/materia.qrc"/>
+ </resources>
  <connections/>
 </ui>
