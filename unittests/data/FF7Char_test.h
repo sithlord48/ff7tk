@@ -3,7 +3,6 @@
 
 #include <QObject>
 
-#include "../../src/data/Type_FF7CHAR.h"
 #include "../../src/data/FF7Char.h"
 
 class FF7Char_Test : public QObject
