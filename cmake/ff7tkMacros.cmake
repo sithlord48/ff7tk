@@ -66,13 +66,14 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
     endforeach()
 
     if(APPLE)
-        set_target_properties(${LIB_TARGET} PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
         if(${BUILD_FRAMEWORKS})
             target_include_directories(${LIB_TARGET} PUBLIC  $<BUILD_INTERFACE:$<TARGET_BUNDLE_CONTENT_DIR:${LIB_TARGET}>/Headers>)
+        else()
+            set_target_properties(${LIB_TARGET} PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
         endif()
     endif()
 
-    if(UNIX)
+    if(UNIX AND NOT ${BUILD_FRAMEWORKS})
         set_target_properties(${LIB_TARGET} PROPERTIES INSTALL_RPATH ${INSTALL_RPATH_STRING})
     endif()
 
