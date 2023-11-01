@@ -121,11 +121,12 @@ if(WIN32 OR APPLE)
 endif()
 sbom_add(PACKAGE Qt VERSION ${Qt6Core_VERSION})
 
+option(FRAMEWORKS "Build Frameworks on MacOS (EXPERMENTAL)" OFF)
 #Set the Rpath for our libs.
 if(UNIX)
     if(NOT APPLE)
         set(INSTALL_RPATH_STRING "\${ORIGIN}:\$ORIGIN/../lib:/lib:/usr/lib:/usr/local/lib:\$HOME/.local/lib:\$HOME/.local/usr/lib")
-    else()
+    elseif(APPLE AND NOT FRAMEWORKS)
         set(INSTALL_RPATH_STRING "@loader_path/../Frameworks @loader_path @executable_path @executable_path/../Frameworks")
     endif()
 endif()
