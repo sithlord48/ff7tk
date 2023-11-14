@@ -172,6 +172,9 @@ macro(MAKE_LIBRARY LIB_TARGET HEADER_INSTALL_DIR)
 
     export(EXPORT ff7tkTargets FILE ${CMAKE_CURRENT_BINARY_DIR}/${LIB_TARGET}Targets.cmake)
     set_property(GLOBAL APPEND PROPERTY ff7tk_targets ${LIB_TARGET})
+
+    sbom_add(TARGET ${LIB_TARGET})
+
 endmacro()
 
 #####~~~~~~~~~~~~~~~~~~~~~MAKE_DEMO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

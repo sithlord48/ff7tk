@@ -4,8 +4,6 @@
 cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
-include(${CMAKE_SOURCE_DIR}/cmake/ff7tkMacros.cmake)
-
 #Set The Current Version Number to use as fallback if GIT Fails.
 set(FF7TK_VERSION_MAJOR 0)
 set(FF7TK_VERSION_MINOR 83)
@@ -99,7 +97,16 @@ endif()
 include(CMakePackageConfigHelpers)
 include(GenerateExportHeader)
 include(GNUInstallDirs)
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/ff7tkMacros.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/sbom.cmake)
 
+# Setup the SBOM to be generated during install.
+sbom_generate(
+        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/sbom-${PROJECT_NAME}-${PROJECT_VERSION}.spdx
+        LICENSE CC0-1.0
+        SUPPLIER sithlord48
+        SUPPLIER_URL "http://github.com/sithlord48/ff7tk"
+)
 #Qt Info to get deploy app
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core)
 get_target_property(qmake_executable Qt6::qmake IMPORTED_LOCATION)
@@ -112,6 +119,7 @@ if(WIN32 OR APPLE)
     endif()
     find_program(PLATFORMDEPLOYQT ${deployqtapp} HINTS "${_qt_bin_dir}")
 endif()
+sbom_add(PACKAGE Qt VERSION ${Qt6Core_VERSION})
 
 #Set the Rpath for our libs.
 if(UNIX)
@@ -163,3 +171,5 @@ if(NOT TARGET uninstall)
     COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake")
 endif()
 
+sbom_finalize(NO_VERIFY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/sbom-${CMAKE_PROJECT_NAME}-${CMAKE_PROJECT_VERSION}.spdx DESTINATION share/ff7tk COMPONENT ff7tk_libraries)

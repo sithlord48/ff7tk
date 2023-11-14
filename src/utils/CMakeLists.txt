@@ -7,6 +7,8 @@ find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
 )
 
 find_package( ZLIB REQUIRED)
+sbom_add(PACKAGE ZLIB VERSION ${ZLIB_VERSION})
+
 if(ZLIB_FOUND)
     define_property(GLOBAL PROPERTY zlib_target BRIEF_DOCS "zlib dll path" FULL_DOCS "zlib.dll path")
     if(EXISTS ${ZLIB_ROOT}/bin/zlib.dll)
