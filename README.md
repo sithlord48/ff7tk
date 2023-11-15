@@ -1,5 +1,10 @@
+<!--
+    SPDX-FileCopyrightText: 2019 - 2023 Chris Rizzitello <sithlord48@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+-->
+
 ff7tk
-[![Linux Status](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml/badge.svg)](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2f18d1606058447a9cc5fdc3753373de)](https://app.codacy.com/gh/sithlord48/ff7tk/dashboard)
+[![Linux Status](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml/badge.svg)](https://github.com/sithlord48/ff7tk/actions/workflows/build.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2f18d1606058447a9cc5fdc3753373de)](https://app.codacy.com/gh/sithlord48/ff7tk/dashboard) [![REUSE status](https://api.reuse.software/badge/github.com/sithlord48/ff7tk)](https://api.reuse.software/info/github.com/sithlord48/ff7tk)
 ===
 ff7tk is a Toolkit that makes programing Final Fantasy VII tools easier.
 

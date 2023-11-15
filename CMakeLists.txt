@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2019 - 2023 Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-License-Identifier: CC0-1.0
+
 cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 

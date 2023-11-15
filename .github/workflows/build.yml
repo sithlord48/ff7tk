@@ -30,6 +30,11 @@ jobs:
               VER="continuous"
           fi
           echo "version=$VER" >> $GITHUB_OUTPUT
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@v2
+        with:
+          args: spdx
+
   deb_builder:
     name: debianBuilder-${{matrix.config.name}}
     runs-on: ${{matrix.config.os}}

@@ -1,10 +1,14 @@
+<!--
+    SPDX-FileCopyrightText: Chris Rizzitello <sithlord48@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+-->
 <RCC>
    <qresource prefix="/chocobo">
-        <file alias="gold">chocobo/gold_chocobo.svg</file>
-        <file alias="yellow">chocobo/yellow_chocobo.svg</file>
-	<file alias="blue">chocobo/blue_chocobo.svg</file>
-	<file alias="green">chocobo/green_chocobo.svg</file>
-	<file alias="black">chocobo/black_chocobo.svg</file>
-      </qresource>
+     <file alias="gold">chocobo/gold_chocobo.svg</file>
+     <file alias="yellow">chocobo/yellow_chocobo.svg</file>
+     <file alias="blue">chocobo/blue_chocobo.svg</file>
+     <file alias="green">chocobo/green_chocobo.svg</file>
+     <file alias="black">chocobo/black_chocobo.svg</file>
+   </qresource>
 </RCC>
  

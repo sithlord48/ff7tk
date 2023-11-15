@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-License-Identifier: CC0-1.0
+
 #Contains Various Macros to be included
 #####~~~~~~~~~~~~~~~~~~~~~MAKE_LIBRARY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #This makes a Library and sets up all the install rules

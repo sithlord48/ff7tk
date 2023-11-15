@@ -1,4 +1,5 @@
-
+# SPDX-FileCopyrightText: Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-License-Identifier: CC0-1.0
 #Call Macro for Tests
 MAKE_TEST(FF7Text_Test FF7Text_test.cpp)
 MAKE_TEST(FF7Char_Test FF7Char_test.cpp)

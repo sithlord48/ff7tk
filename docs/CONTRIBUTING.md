@@ -1,4 +1,7 @@
-
+<!--
+    SPDX-FileCopyrightText: 2022 Chris Rizzitello <sithlord48@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+-->
 
 # Contributing To ff7tk
 
