@@ -1,3 +1,7 @@
+<!--
+    SPDX-FileCopyrightText: 2019, 2021 - 2022 Chris Rizzitello <sithlord48@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+-->
 ff7tk
 ===
 ff7tk is a Toolkit that makes programing Final Fantasy VII tools easier.

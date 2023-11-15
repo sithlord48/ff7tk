@@ -1,3 +1,8 @@
+<!--
+    SPDX-FileCopyrightText: 2019 - 2023 Chris Rizzitello <sithlord48@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+-->
+
 # Building ff7tk
 
 To build ff7tk you will a minimum of: 

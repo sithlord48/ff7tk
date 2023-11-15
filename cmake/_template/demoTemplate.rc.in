@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Chris Rizzitello <sithlord48@gmail.com>
+// SPDX-License-Identifier: LGPL-3.0-or-later
+
 IDI_ICON1               ICON    "./@PROJECT_NAME@.ico"
 
 #include <windows.h>

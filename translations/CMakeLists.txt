@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-License-Identifier: CC0-1.0
+
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 option(CLEAN_TRS "Clean Obsolete translations from tr files" FALSE)
 find_package(Qt6LinguistTools)

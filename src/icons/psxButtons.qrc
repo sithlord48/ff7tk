@@ -1,3 +1,7 @@
+<!--
+    SPDX-FileCopyrightText: Chris Rizzitello <sithlord48@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+-->
 <RCC>
 	<qresource prefix="/psxButtons/dark">
 		<file alias="left">psxButtons/dark/left.svg</file>
@@ -32,4 +36,3 @@
 		<file alias="r2">psxButtons/light/r2.svg</file>
 	</qresource>
 </RCC>
- 

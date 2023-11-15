@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-License-Identifier: CC0-1.0
+
 option(DATA "Build the data libary" ON)
 option(FORMATS "Build the formats libary" ON)
 option(UTILS "Build utility library (Requires zlib)" ON)
