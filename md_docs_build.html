@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ff7tk: Building ff7tk</title>
+<title>ff7tk: build</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.3.23</span>
+   &#160;<span id="projectnumber">0.83.3.24</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -64,10 +64,12 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Building ff7tk </div>  </div>
+<div class="title">build </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>To build ff7tk you will a minimum of:</p><ul>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md0"></a>
+Building ff7tk</h1>
+<p>To build ff7tk you will a minimum of:</p><ul>
 <li><a href="https://cmake.org/">cmake</a> 3.21+</li>
 <li><a href="https://www.qt.io">Qt</a> 6.2.0+</li>
 <li><a href="https://zlib.net/">zlib</a></li>
@@ -81,8 +83,8 @@ $(function() {
 <li>Documentation if <a href="http://www.stack.nl/~dimitri/doxygen/">doxygen</a> was found on your system</li>
 <li>Unit Test that will be run as part of the build process.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Configuration</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Configuration</h2>
 <p>ff7tk Supports Several Build options Build Options: </p><table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">Option </th><th class="markdownTableHeadCenter">Description </th><th class="markdownTableHeadCenter">Default Value </th><th class="markdownTableHeadCenter">Addtional Requirments  </th></tr>
@@ -118,16 +120,16 @@ Configuration</h1>
 <td class="markdownTableBodyCenter">QML_GALLERY </td><td class="markdownTableBodyCenter">Build the QML based gallery.  </td></tr>
 </table>
 <p>Example cmake configuration. <code>cmake -S. -Bbuild -DDEMOS=ON -DCMAKE_INSTALL_PREFIX=&lt;INSTALLPREFIX&gt;</code></p>
-<h1><a class="anchor" id="autotoc_md2"></a>
-Build</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Build</h2>
 <p>After Configuring you Should be able to run make to build all targets.</p>
 <p><code>cmake --build build</code></p>
-<h1><a class="anchor" id="autotoc_md3"></a>
-Install</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Install</h2>
 <p>To test installation run <code>DESTDIR=&lt;installDIR&gt; cmake --install build</code> to install into <code>&lt;installDir&gt;/&lt;CMAKE_INSTALL_PREFIX&gt;</code> <br  />
  Running <code>cmake --install build</code> will install to the <code>CMAKE_INSTALL_PREFIX</code></p>
-<h1><a class="anchor" id="autotoc_md4"></a>
-Making ff7tk packages</h1>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Making ff7tk packages</h2>
 <p>ff7tk can generate several packages using cpack To generate packages build the <code>package</code> or <code>package_source</code> target example <code>cmake --build build --target package package_source</code> would generate both package and package source packages. Installing the Qt Installer Framework will allow ff7tk to create a QtIFW installer.</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Using ff7tk in your project</h1>

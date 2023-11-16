@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.3.23</span>
+   &#160;<span id="projectnumber">0.83.3.24</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -71,69 +71,56 @@ $(function() {
 <div class="title">ColorDisplay.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ColorDisplay_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************/</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//    Copyright (C) 2009-2022 Arzel Jérôme &lt;myst6re@gmail.com&gt;              //</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//    This file is part of FF7tk                                            //</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//    FF7tk is free software: you can redistribute it and/or modify         //</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//    it under the terms of the GNU General Public License as published by  //</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//    the Free Software Foundation, either version 3 of the License, or     //</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//    (at your option) any later version.                                   //</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//    FF7tk is distributed in the hope that it will be useful,              //</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//    GNU General Public License for more details.                          //</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/****************************************************************************/</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/****************************************************************************/</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;ff7tkqtwidgets_export.h&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="ColorDisplay_8h.html#adf18eb5fcd604369643e74d0ab100992">   23</a></span>&#160;<span class="preprocessor">#define COLOR_DISPLAY_MIN_CELL_SIZE   9</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="ColorDisplay_8h.html#a0777687ab9472aff3e5e0407562cebc0">   24</a></span>&#160;<span class="preprocessor">#define COLOR_DISPLAY_BORDER_WIDTH    1</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classColorDisplay.html">   26</a></span>&#160;<span class="keyword">class </span>FF7TKQTWIDGETS_EXPORT <a class="code" href="classColorDisplay.html">ColorDisplay</a> : <span class="keyword">public</span> QWidget</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classColorDisplay.html">ColorDisplay</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> setColors(<span class="keyword">const</span> QList&lt;QRgb&gt; &amp;colors);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> QList&lt;QRgb&gt; &amp;colors() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> isReadOnly() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> setReadOnly(<span class="keywordtype">bool</span> ro);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QSize sizeHint() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QSize minimumSizeHint() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classColorDisplay.html#a96619c80fd8a84a5cb32233da03d82d2">   37</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="classColorDisplay.html#a96619c80fd8a84a5cb32233da03d82d2">cellWidth</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> cellWidth(width());</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classColorDisplay.html#aef6cf1c2f2a305004732d5a69144b049">   40</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="classColorDisplay.html#aef6cf1c2f2a305004732d5a69144b049">cellHeight</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> cellHeight(height());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;signals:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> colorEdited(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, QRgb value);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> colorHovered(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> colorId(<span class="keyword">const</span> QPoint &amp;pos) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> cellWidth(<span class="keywordtype">int</span> w) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> cellHeight(<span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QSize cellSize() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QList&lt;QRgb&gt; _colors;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> _ro, _hover;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> enterEvent(QEnterEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> mouseMoveEvent(QMouseEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> mouseReleaseEvent(QMouseEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<a href="ColorDisplay_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//    SPDX-FileCopyrightText: 2009 - 2022 Arzel Jérôme &lt;myst6re@gmail.com&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//    SPDX-License-Identifier: LGPL-3.0-or-later</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;ff7tkqtwidgets_export.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="ColorDisplay_8h.html#adf18eb5fcd604369643e74d0ab100992">   10</a></span>&#160;<span class="preprocessor">#define COLOR_DISPLAY_MIN_CELL_SIZE   9</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="ColorDisplay_8h.html#a0777687ab9472aff3e5e0407562cebc0">   11</a></span>&#160;<span class="preprocessor">#define COLOR_DISPLAY_BORDER_WIDTH    1</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classColorDisplay.html">   13</a></span>&#160;<span class="keyword">class </span>FF7TKQTWIDGETS_EXPORT <a class="code" href="classColorDisplay.html">ColorDisplay</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classColorDisplay.html">ColorDisplay</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> setColors(<span class="keyword">const</span> QList&lt;QRgb&gt; &amp;colors);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">const</span> QList&lt;QRgb&gt; &amp;colors() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> isReadOnly() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> setReadOnly(<span class="keywordtype">bool</span> ro);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    QSize sizeHint() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    QSize minimumSizeHint() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classColorDisplay.html#a96619c80fd8a84a5cb32233da03d82d2">   24</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="classColorDisplay.html#a96619c80fd8a84a5cb32233da03d82d2">cellWidth</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> cellWidth(width());</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classColorDisplay.html#aef6cf1c2f2a305004732d5a69144b049">   27</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="classColorDisplay.html#aef6cf1c2f2a305004732d5a69144b049">cellHeight</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> cellHeight(height());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;signals:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> colorEdited(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, QRgb value);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> colorHovered(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> colorId(<span class="keyword">const</span> QPoint &amp;pos) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> cellWidth(<span class="keywordtype">int</span> w) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> cellHeight(<span class="keywordtype">int</span> h) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QSize cellSize() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QList&lt;QRgb&gt; _colors;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> _ro, _hover;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> enterEvent(QEnterEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> mouseMoveEvent(QMouseEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> mouseReleaseEvent(QMouseEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassColorDisplay_html_a96619c80fd8a84a5cb32233da03d82d2"><div class="ttname"><a href="classColorDisplay.html#a96619c80fd8a84a5cb32233da03d82d2">ColorDisplay::cellWidth</a></div><div class="ttdeci">int cellWidth() const</div><div class="ttdef"><b>Definition:</b> ColorDisplay.h:37</div></div>
-<div class="ttc" id="aclassColorDisplay_html"><div class="ttname"><a href="classColorDisplay.html">ColorDisplay</a></div><div class="ttdef"><b>Definition:</b> ColorDisplay.h:26</div></div>
-<div class="ttc" id="aclassColorDisplay_html_aef6cf1c2f2a305004732d5a69144b049"><div class="ttname"><a href="classColorDisplay.html#aef6cf1c2f2a305004732d5a69144b049">ColorDisplay::cellHeight</a></div><div class="ttdeci">int cellHeight() const</div><div class="ttdef"><b>Definition:</b> ColorDisplay.h:40</div></div>
+<div class="ttc" id="aclassColorDisplay_html_a96619c80fd8a84a5cb32233da03d82d2"><div class="ttname"><a href="classColorDisplay.html#a96619c80fd8a84a5cb32233da03d82d2">ColorDisplay::cellWidth</a></div><div class="ttdeci">int cellWidth() const</div><div class="ttdef"><b>Definition:</b> ColorDisplay.h:24</div></div>
+<div class="ttc" id="aclassColorDisplay_html"><div class="ttname"><a href="classColorDisplay.html">ColorDisplay</a></div><div class="ttdef"><b>Definition:</b> ColorDisplay.h:13</div></div>
+<div class="ttc" id="aclassColorDisplay_html_aef6cf1c2f2a305004732d5a69144b049"><div class="ttname"><a href="classColorDisplay.html#aef6cf1c2f2a305004732d5a69144b049">ColorDisplay::cellHeight</a></div><div class="ttdeci">int cellHeight() const</div><div class="ttdef"><b>Definition:</b> ColorDisplay.h:27</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.3.23</span>
+   &#160;<span id="projectnumber">0.83.3.24</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -71,77 +71,65 @@ $(function() {
 <div class="title">IsoArchiveFF7.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="IsoArchiveFF7_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************/</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//    copyright 2009 - 2022  Arzel Jérôme &lt;myst6re@gmail.com&gt;               //</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//    This file is part of FF7tk                                            //</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//    FF7tk is free software: you can redistribute it and/or modify         //</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//    it under the terms of the GNU General Public License as published by  //</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//    the Free Software Foundation, either version 3 of the License, or     //</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//    (at your option) any later version.                                   //</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//    FF7tk is distributed in the hope that it will be useful,              //</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//    GNU General Public License for more details.                          //</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/****************************************************************************/</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;IsoArchive&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;ff7tkformats_export.h&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html">   21</a></span>&#160;<span class="keyword">class </span>FF7TKFORMATS_EXPORT <a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a> : <span class="keyword">public</span> <a class="code" href="classIsoArchive.html">IsoArchive</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6">   24</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6">Compression</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d">   25</a></span>&#160;        <a class="code" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d">None</a>, <a class="code" href="classLZS.html">LZS</a>, <a class="code" href="classGZIP.html">GZIP</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85">   28</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85">Country</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4">   29</a></span>&#160;        NoCountry, Jp, <a class="code" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4">Us</a>, Uk, Fr, De, Es</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a>(<span class="keyword">const</span> QString &amp;name);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classIsoArchive.html#ad085e2c40b307345bb16e5ce9c14cb38">open</a>(QIODevice::OpenMode mode) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">const</span> QByteArray &amp;fileLzs(<span class="keyword">const</span> QString &amp;path, quint32 maxSize=0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">const</span> QByteArray &amp;modifiedFileLzs(<span class="keyword">const</span> QString &amp;path, quint32 maxSize=0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    Country country() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *exe() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> isDisc(<span class="keywordtype">int</span> num) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    QByteArray windowBinData() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classIsoDirectory.html">IsoDirectory</a> *fieldDirectory() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classIsoDirectory.html">IsoDirectory</a> *initDirectory() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> isDemo() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QMap&lt;int, QString&gt; maplist();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    Q_DISABLE_COPY(<a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> updateBin(<a class="code" href="classIsoFile.html">IsoFile</a> *isoBin, <span class="keyword">const</span> QList&lt;IsoFile *&gt; &amp;filesRefByBin, <span class="keywordtype">int</span> startOffset = 0);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *updateFieldBin();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *updateWorldBin();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *updateYamadaBin();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classIsoArchive.html#ae7b47e7abadc4114f55a3f62e4d418dd">reorganizeModifiedFilesAfter</a>(QMap&lt;quint32, const IsoFile *&gt; &amp;writeToTheMain, QList&lt;const IsoFile *&gt; &amp;writeToTheEnd) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *searchExe() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Country searchCountry() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    QList&lt;QIODevice *&gt; _devicesToDelete;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *_exe;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Country _country;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<a href="IsoArchiveFF7_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//    SPDX-FileCopyrightText: 2009 - 2022 Arzel Jérôme &lt;myst6re@gmail.com&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//    SPDX-License-Identifier: LGPL-3.0-or-later</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;IsoArchive&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;ff7tkformats_export.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html">    9</a></span>&#160;<span class="keyword">class </span>FF7TKFORMATS_EXPORT <a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a> : <span class="keyword">public</span> <a class="code" href="classIsoArchive.html">IsoArchive</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6">   12</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6">Compression</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d">   13</a></span>&#160;        <a class="code" href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d">None</a>, <a class="code" href="classLZS.html">LZS</a>, <a class="code" href="classGZIP.html">GZIP</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    };</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85">   16</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85">Country</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4">   17</a></span>&#160;        NoCountry, Jp, <a class="code" href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4">Us</a>, Uk, Fr, De, Es</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    };</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a>(<span class="keyword">const</span> QString &amp;name);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classIsoArchive.html#ad085e2c40b307345bb16e5ce9c14cb38">open</a>(QIODevice::OpenMode mode) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> QByteArray &amp;fileLzs(<span class="keyword">const</span> QString &amp;path, quint32 maxSize=0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> QByteArray &amp;modifiedFileLzs(<span class="keyword">const</span> QString &amp;path, quint32 maxSize=0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Country country() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *exe() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> isDisc(<span class="keywordtype">int</span> num) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QByteArray windowBinData() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classIsoDirectory.html">IsoDirectory</a> *fieldDirectory() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classIsoDirectory.html">IsoDirectory</a> *initDirectory() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> isDemo() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QMap&lt;int, QString&gt; maplist();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    Q_DISABLE_COPY(<a class="code" href="classIsoArchiveFF7.html">IsoArchiveFF7</a>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> updateBin(<a class="code" href="classIsoFile.html">IsoFile</a> *isoBin, <span class="keyword">const</span> QList&lt;IsoFile *&gt; &amp;filesRefByBin, <span class="keywordtype">int</span> startOffset = 0);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *updateFieldBin();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *updateWorldBin();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *updateYamadaBin();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classIsoArchive.html#ae7b47e7abadc4114f55a3f62e4d418dd">reorganizeModifiedFilesAfter</a>(QMap&lt;quint32, const IsoFile *&gt; &amp;writeToTheMain, QList&lt;const IsoFile *&gt; &amp;writeToTheEnd) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *searchExe() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Country searchCountry() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QList&lt;QIODevice *&gt; _devicesToDelete;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classIsoFile.html">IsoFile</a> *_exe;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    Country _country;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassIsoArchiveFF7_html"><div class="ttname"><a href="classIsoArchiveFF7.html">IsoArchiveFF7</a></div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:21</div></div>
-<div class="ttc" id="aclassIsoDirectory_html"><div class="ttname"><a href="classIsoDirectory.html">IsoDirectory</a></div><div class="ttdef"><b>Definition:</b> IsoArchive.h:193</div></div>
-<div class="ttc" id="aclassIsoArchiveFF7_html_abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d"><div class="ttname"><a href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d">IsoArchiveFF7::None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:25</div></div>
-<div class="ttc" id="aclassIsoArchive_html_ad085e2c40b307345bb16e5ce9c14cb38"><div class="ttname"><a href="classIsoArchive.html#ad085e2c40b307345bb16e5ce9c14cb38">IsoArchive::open</a></div><div class="ttdeci">virtual bool open(QIODevice::OpenMode mode)</div><div class="ttdef"><b>Definition:</b> IsoArchive.cpp:588</div></div>
-<div class="ttc" id="aclassIsoArchive_html"><div class="ttname"><a href="classIsoArchive.html">IsoArchive</a></div><div class="ttdef"><b>Definition:</b> IsoArchive.h:309</div></div>
-<div class="ttc" id="aclassIsoArchiveFF7_html_abaaaab634408a3e7c9d4ddab522beac6"><div class="ttname"><a href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6">IsoArchiveFF7::Compression</a></div><div class="ttdeci">Compression</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:24</div></div>
-<div class="ttc" id="aclassGZIP_html"><div class="ttname"><a href="classGZIP.html">GZIP</a></div><div class="ttdef"><b>Definition:</b> GZIP.h:21</div></div>
-<div class="ttc" id="aclassIsoArchive_html_ae7b47e7abadc4114f55a3f62e4d418dd"><div class="ttname"><a href="classIsoArchive.html#ae7b47e7abadc4114f55a3f62e4d418dd">IsoArchive::reorganizeModifiedFilesAfter</a></div><div class="ttdeci">virtual bool reorganizeModifiedFilesAfter(QMap&lt; quint32, const IsoFile * &gt; &amp;writeToTheMain, QList&lt; const IsoFile * &gt; &amp;writeToTheEnd)</div><div class="ttdoc">Used to extend IsoArchive. Called in pack() after file reorganization.</div><div class="ttdef"><b>Definition:</b> IsoArchive.cpp:652</div></div>
-<div class="ttc" id="aclassIsoFile_html"><div class="ttname"><a href="classIsoFile.html">IsoFile</a></div><div class="ttdef"><b>Definition:</b> IsoArchive.h:170</div></div>
-<div class="ttc" id="aclassLZS_html"><div class="ttname"><a href="classLZS.html">LZS</a></div><div class="ttdef"><b>Definition:</b> LZS.h:29</div></div>
-<div class="ttc" id="aclassIsoArchiveFF7_html_a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4"><div class="ttname"><a href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4">IsoArchiveFF7::Us</a></div><div class="ttdeci">@ Us</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:29</div></div>
-<div class="ttc" id="aclassIsoArchiveFF7_html_a43e181209454d3ea73dbeaabc5923d85"><div class="ttname"><a href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85">IsoArchiveFF7::Country</a></div><div class="ttdeci">Country</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:28</div></div>
+<div class="ttc" id="aclassIsoArchiveFF7_html"><div class="ttname"><a href="classIsoArchiveFF7.html">IsoArchiveFF7</a></div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:9</div></div>
+<div class="ttc" id="aclassIsoDirectory_html"><div class="ttname"><a href="classIsoDirectory.html">IsoDirectory</a></div><div class="ttdef"><b>Definition:</b> IsoArchive.h:181</div></div>
+<div class="ttc" id="aclassIsoArchiveFF7_html_abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d"><div class="ttname"><a href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6acfb789e56a27a472cb6c67f32ae9f34d">IsoArchiveFF7::None</a></div><div class="ttdeci">@ None</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:13</div></div>
+<div class="ttc" id="aclassIsoArchive_html_ad085e2c40b307345bb16e5ce9c14cb38"><div class="ttname"><a href="classIsoArchive.html#ad085e2c40b307345bb16e5ce9c14cb38">IsoArchive::open</a></div><div class="ttdeci">virtual bool open(QIODevice::OpenMode mode)</div><div class="ttdef"><b>Definition:</b> IsoArchive.cpp:576</div></div>
+<div class="ttc" id="aclassIsoArchive_html"><div class="ttname"><a href="classIsoArchive.html">IsoArchive</a></div><div class="ttdef"><b>Definition:</b> IsoArchive.h:297</div></div>
+<div class="ttc" id="aclassIsoArchiveFF7_html_abaaaab634408a3e7c9d4ddab522beac6"><div class="ttname"><a href="classIsoArchiveFF7.html#abaaaab634408a3e7c9d4ddab522beac6">IsoArchiveFF7::Compression</a></div><div class="ttdeci">Compression</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:12</div></div>
+<div class="ttc" id="aclassGZIP_html"><div class="ttname"><a href="classGZIP.html">GZIP</a></div><div class="ttdef"><b>Definition:</b> GZIP.h:9</div></div>
+<div class="ttc" id="aclassIsoArchive_html_ae7b47e7abadc4114f55a3f62e4d418dd"><div class="ttname"><a href="classIsoArchive.html#ae7b47e7abadc4114f55a3f62e4d418dd">IsoArchive::reorganizeModifiedFilesAfter</a></div><div class="ttdeci">virtual bool reorganizeModifiedFilesAfter(QMap&lt; quint32, const IsoFile * &gt; &amp;writeToTheMain, QList&lt; const IsoFile * &gt; &amp;writeToTheEnd)</div><div class="ttdoc">Used to extend IsoArchive. Called in pack() after file reorganization.</div><div class="ttdef"><b>Definition:</b> IsoArchive.cpp:640</div></div>
+<div class="ttc" id="aclassIsoFile_html"><div class="ttname"><a href="classIsoFile.html">IsoFile</a></div><div class="ttdef"><b>Definition:</b> IsoArchive.h:158</div></div>
+<div class="ttc" id="aclassLZS_html"><div class="ttname"><a href="classLZS.html">LZS</a></div><div class="ttdef"><b>Definition:</b> LZS.h:16</div></div>
+<div class="ttc" id="aclassIsoArchiveFF7_html_a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4"><div class="ttname"><a href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85afdb3803f22fe4d72f5672782a26513c4">IsoArchiveFF7::Us</a></div><div class="ttdeci">@ Us</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:17</div></div>
+<div class="ttc" id="aclassIsoArchiveFF7_html_a43e181209454d3ea73dbeaabc5923d85"><div class="ttname"><a href="classIsoArchiveFF7.html#a43e181209454d3ea73dbeaabc5923d85">IsoArchiveFF7::Country</a></div><div class="ttdeci">Country</div><div class="ttdef"><b>Definition:</b> IsoArchiveFF7.h:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

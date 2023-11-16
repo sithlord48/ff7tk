@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['selectionmode_3815',['SelectionMode',['../classImageGridWidget.html#a0edef01b02113485e25047bfb153b06e',1,'ImageGridWidget']]],
-  ['soundmode_3816',['SOUNDMODE',['../classFF7Save.html#a07f8137d5aaef7905818a0d663abf089',1,'FF7Save']]],
-  ['state_3817',['State',['../classQTaskBarButton.html#a072ef2961b0b7b7d6ef9cb4bfa9377e4',1,'QTaskBarButton']]],
-  ['strategy_3818',['Strategy',['../classGZIP.html#aed98839d3d1d4439813a1e87d23bb806',1,'GZIP']]],
-  ['style_3819',['Style',['../classOrientationWidget.html#a0c6a762a9cc1500c5127b838dcb71ea2',1,'OrientationWidget']]]
+  ['selectionmode_3814',['SelectionMode',['../classImageGridWidget.html#a0edef01b02113485e25047bfb153b06e',1,'ImageGridWidget']]],
+  ['soundmode_3815',['SOUNDMODE',['../classFF7Save.html#a07f8137d5aaef7905818a0d663abf089',1,'FF7Save']]],
+  ['state_3816',['State',['../classQTaskBarButton.html#a072ef2961b0b7b7d6ef9cb4bfa9377e4',1,'QTaskBarButton']]],
+  ['strategy_3817',['Strategy',['../classGZIP.html#aed98839d3d1d4439813a1e87d23bb806',1,'GZIP']]],
+  ['style_3818',['Style',['../classOrientationWidget.html#a0c6a762a9cc1500c5127b838dcb71ea2',1,'OrientationWidget']]]
 ];

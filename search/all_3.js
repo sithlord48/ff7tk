@@ -219,5 +219,5 @@ var searchData=
   ['cut_414',['Cut',['../classListWidget.html#a7579b9435d692da1675073ead444310ba360ac8da7fb0471fd73dc8a5f79b1ff0',1,'ListWidget']]],
   ['cuttriggered_415',['cutTriggered',['../classListWidget.html#af99674e0cb111538d1d7567f3831ad86',1,'ListWidget']]],
   ['cyan_416',['Cyan',['../classWindowBinFile.html#a7de23406ab676dffafbd3c690d5d514fafaab144a0efc3b562a781749579664fe',1,'WindowBinFile']]],
-  ['contributing_20to_20ff7tk_417',['Contributing To ff7tk',['../md_docs_CONTRIBUTING.html',1,'']]]
+  ['contributing_417',['CONTRIBUTING',['../md_docs_CONTRIBUTING.html',1,'']]]
 ];

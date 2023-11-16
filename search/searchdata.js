@@ -11,7 +11,7 @@ var indexSectionsWithContent =
   8: "ijmst",
   9: "fil",
   10: "acglmnps",
-  11: "bcft"
+  11: "bct"
 };
 
 var indexSectionNames =

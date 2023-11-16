@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.3.23</span>
+   &#160;<span id="projectnumber">0.83.3.24</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -71,64 +71,53 @@ $(function() {
 <div class="title">FF7String.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="FF7String_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************/</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//    copyright 2009 - 2022  Arzel Jérôme &lt;myst6re@gmail.com&gt;               //</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//              2023 Chris Rizzitello &lt;sithlord48@gmail.com&gt;                //</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//    This file is part of FF7tk                                            //</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//    FF7tk is free software: you can redistribute it and/or modify         //</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//    it under the terms of the GNU General Public License as published by  //</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//    the Free Software Foundation, either version 3 of the License, or     //</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//    (at your option) any later version.                                   //</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//                                                                          //</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//    FF7tk is distributed in the hope that it will be useful,              //</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//    but WITHOUT ANY WARRANTY; without even the implied warranty of        //</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//    GNU General Public License for more details.                          //</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/****************************************************************************/</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;ff7tkdata_export&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classFF7String.html">   24</a></span>&#160;<span class="keyword">class </span>FF7TKDATA_EXPORT <a class="code" href="classFF7String.html">FF7String</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classFF7String.html">FF7String</a>(QByteArrayView data = QByteArrayView());</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classFF7String.html">FF7String</a>(<span class="keyword">const</span> QString &amp;text, <span class="keywordtype">bool</span> jp = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> QByteArray &amp;data() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QString text() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text, <span class="keywordtype">bool</span> jp = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> contains(<span class="keyword">const</span> QRegularExpression &amp;regExp) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    qsizetype indexOf(<span class="keyword">const</span> QRegularExpression &amp;regExp, qsizetype from, qsizetype &amp;size) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    qsizetype lastIndexOf(<span class="keyword">const</span> QRegularExpression &amp;regExp, qsizetype &amp;from, qsizetype &amp;size) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classFF7String.html#aba01e34a49d079a65dcd1b58d119d720">   85</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code" href="classFF7String.html">FF7String</a> &amp;t2)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> data() == t2.<a class="code" href="classFF7String.html#ad81d1a66c779eaf2a2df0dd893703e7e">data</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classFF7String.html#aca3b648da81ce7be7dea3ca8722c6a72">   88</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator !=(<span class="keyword">const</span> <a class="code" href="classFF7String.html">FF7String</a> &amp;t2)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> data() != t2.<a class="code" href="classFF7String.html#ad81d1a66c779eaf2a2df0dd893703e7e">data</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classFF7String.html#a13633d552faea6a4177b5be2ab7ccb6c">   96</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classFF7String.html#a13633d552faea6a4177b5be2ab7ccb6c">isJapanese</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _jp;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> setJapanese(<span class="keywordtype">bool</span> inJapanese);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    QByteArray _data;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> _jp = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<a href="FF7String_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//    SPDX-FileCopyrightText: 2009 - 2022 Arzel Jérôme &lt;myst6re@gmail.com&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//    SPDX-FileCopyrightText: 2023 Chris Rizzitello &lt;sithlord48@gmail.com&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//    SPDX-License-Identifier: LGPL-3.0-or-later</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;ff7tkdata_export&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classFF7String.html">   13</a></span>&#160;<span class="keyword">class </span>FF7TKDATA_EXPORT <a class="code" href="classFF7String.html">FF7String</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classFF7String.html">FF7String</a>(QByteArrayView data = QByteArrayView());</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classFF7String.html">FF7String</a>(<span class="keyword">const</span> QString &amp;text, <span class="keywordtype">bool</span> jp = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> QByteArray &amp;data() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QString text() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text, <span class="keywordtype">bool</span> jp = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> contains(<span class="keyword">const</span> QRegularExpression &amp;regExp) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    qsizetype indexOf(<span class="keyword">const</span> QRegularExpression &amp;regExp, qsizetype from, qsizetype &amp;size) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    qsizetype lastIndexOf(<span class="keyword">const</span> QRegularExpression &amp;regExp, qsizetype &amp;from, qsizetype &amp;size) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classFF7String.html#aba01e34a49d079a65dcd1b58d119d720">   74</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code" href="classFF7String.html">FF7String</a> &amp;t2)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> data() == t2.<a class="code" href="classFF7String.html#ad81d1a66c779eaf2a2df0dd893703e7e">data</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classFF7String.html#aca3b648da81ce7be7dea3ca8722c6a72">   77</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator !=(<span class="keyword">const</span> <a class="code" href="classFF7String.html">FF7String</a> &amp;t2)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> data() != t2.<a class="code" href="classFF7String.html#ad81d1a66c779eaf2a2df0dd893703e7e">data</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classFF7String.html#a13633d552faea6a4177b5be2ab7ccb6c">   85</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classFF7String.html#a13633d552faea6a4177b5be2ab7ccb6c">isJapanese</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _jp;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> setJapanese(<span class="keywordtype">bool</span> inJapanese);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    QByteArray _data;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> _jp = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassFF7String_html_ad81d1a66c779eaf2a2df0dd893703e7e"><div class="ttname"><a href="classFF7String.html#ad81d1a66c779eaf2a2df0dd893703e7e">FF7String::data</a></div><div class="ttdeci">const QByteArray &amp; data() const</div><div class="ttdoc">data Access the data stored in the FF7String</div><div class="ttdef"><b>Definition:</b> FF7String.cpp:33</div></div>
-<div class="ttc" id="aclassFF7String_html_a13633d552faea6a4177b5be2ab7ccb6c"><div class="ttname"><a href="classFF7String.html#a13633d552faea6a4177b5be2ab7ccb6c">FF7String::isJapanese</a></div><div class="ttdeci">bool isJapanese() const</div><div class="ttdoc">isJapanese check internal encoding of the text</div><div class="ttdef"><b>Definition:</b> FF7String.h:96</div></div>
-<div class="ttc" id="aclassFF7String_html"><div class="ttname"><a href="classFF7String.html">FF7String</a></div><div class="ttdoc">The FF7String is a container class for FF7Text. Internally it stores the raw data and if the text is ...</div><div class="ttdef"><b>Definition:</b> FF7String.h:24</div></div>
+<div class="ttc" id="aclassFF7String_html_ad81d1a66c779eaf2a2df0dd893703e7e"><div class="ttname"><a href="classFF7String.html#ad81d1a66c779eaf2a2df0dd893703e7e">FF7String::data</a></div><div class="ttdeci">const QByteArray &amp; data() const</div><div class="ttdoc">data Access the data stored in the FF7String</div><div class="ttdef"><b>Definition:</b> FF7String.cpp:21</div></div>
+<div class="ttc" id="aclassFF7String_html_a13633d552faea6a4177b5be2ab7ccb6c"><div class="ttname"><a href="classFF7String.html#a13633d552faea6a4177b5be2ab7ccb6c">FF7String::isJapanese</a></div><div class="ttdeci">bool isJapanese() const</div><div class="ttdoc">isJapanese check internal encoding of the text</div><div class="ttdef"><b>Definition:</b> FF7String.h:85</div></div>
+<div class="ttc" id="aclassFF7String_html"><div class="ttname"><a href="classFF7String.html">FF7String</a></div><div class="ttdoc">The FF7String is a container class for FF7Text. Internally it stores the raw data and if the text is ...</div><div class="ttdef"><b>Definition:</b> FF7String.h:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
