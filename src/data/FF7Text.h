@@ -227,8 +227,8 @@ private:
             , QStringLiteral("{VARDECR}")
             , QStringLiteral("{SPACED CHARACTERS}")
         };
-        QRegularExpression pauseEXP = QRegularExpression(QStringLiteral("{PAUSE\\d{3}}"));
-        QRegularExpression memoryEXP = QRegularExpression(QStringLiteral("^{MEMORY:var\\[(\\d+)\\]\\[(\\d+)\\];size=(\\d+)}"));
+        QRegularExpression pauseEXP = QRegularExpression(QStringLiteral("{PAUSE\\d{3}}"), QRegularExpression::CaseInsensitiveOption);
+        QRegularExpression memoryEXP = QRegularExpression(QStringLiteral("^{MEMORY:var\\[(\\d+)\\]\\[(\\d+)\\];size=(\\d+)}"), QRegularExpression::CaseInsensitiveOption);
     };
     FF7TextPrivate *d;
 };

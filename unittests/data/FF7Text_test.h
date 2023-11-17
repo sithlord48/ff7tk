@@ -49,6 +49,7 @@ private:
     const QString rangeDxE = QStringLiteral("ÒÙÛ");
     const QString rangeExE = QStringLiteral("{CHOICE}\t, .\"…\"\n\n{NEW PAGE}\n\n{NEW PAGE 2}\n{CLOUD}{BARRET}{TIFA}{AERITH}{RED XIII}{YUFFIE}");
     const QString rangeFxE = QStringLiteral("{CAIT SITH}{VINCENT}{CID}{MEMBER 1}{MEMBER 2}{MEMBER 3}{CIRCLE}{TRIANGLE}{SQUARE}{CROSS}");
+    const QString rangeFxELower = QStringLiteral("{Cait Sith}{Vincent}{Cid}{Member 1}{Member 2}{Member 3}{Circle}{Triangle}{Square}{Cross}");
     const QString rangeFEDxE = QStringLiteral("{GREY}{BLUE}{RED}{PURPLE}{GREEN}{CYAN}{YELLOW}{WHITE}{BLINK}{MULTICOLOUR}{PAUSE}{PAUSE066}{VARDEC}{VARHEX}");
     const QString rangeFEExE = QStringLiteral("{SCROLLING}{VARDECR}{MEMORY:var[11][1];size=3}{SPACED CHARACTERS}");
 
