@@ -59,6 +59,7 @@ void FF7Text_Test::test_toFF7ENG()
     temp = QByteArray::fromRawData("\xE0\xE1\xE2\xE3\xE4\xE7\xE8\xE9\xEA\xEB\xEC\xED\xEE\xEF", 14);
     QCOMPARE(FF7Text::toFF7(rangeExE), temp);
     QCOMPARE(FF7Text::toFF7(rangeFxE), rangeFx);
+    QCOMPARE(FF7Text::toFF7(rangeFxELower), rangeFx);
     temp = rangeFEDx;
     temp.remove(0, 4); //First two wide chars are invalid english characters
     QCOMPARE(FF7Text::toFF7(rangeFEDxE), temp);

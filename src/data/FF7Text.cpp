@@ -119,15 +119,6 @@ QByteArray FF7Text::toFF7(const QString &string)
     QByteArray ff7str;
     int c = 0;
     while (c < string.length()) {
-        int j = 1;
-        QString comp = string.mid(c);
-        for(auto & sChar : get()->d->specialChars) {
-            if(comp.startsWith(sChar)) {
-                j = sChar.length();
-                break;
-            }
-        }
-
         //Match Pause
         QRegularExpressionMatch match = get()->d->pauseEXP.match(string.mid(c, 10));
         if (match.hasMatch()) {
@@ -138,7 +129,7 @@ QByteArray FF7Text::toFF7(const QString &string)
         }
 
         //Match Mem Command
-        if (string.mid(c, 12 ).startsWith(QStringLiteral("{MEMORY:var["))) {
+        if (string.mid(c, 12).startsWith(QStringLiteral("{MEMORY:var["), Qt::CaseInsensitive)) {
             match = get()->d->memoryEXP.match(string.mid(c));
             if(match.hasMatch()) {
                 quint8 bank;
@@ -159,7 +150,22 @@ QByteArray FF7Text::toFF7(const QString &string)
             }
         }
 
+        //Normal Characters
+        int j = 1;
+        bool isSpecial = false;
+        QString comp = string.mid(c);
+        for(auto & sChar : get()->d->specialChars) {
+            if(comp.startsWith(sChar, Qt::CaseInsensitive)) {
+                j = sChar.length();
+                isSpecial = true;
+                break;
+            }
+        }
+
         comp = string.mid(c, j);
+        if (isSpecial)
+            comp = comp.toUpper();
+
         if (!get()->d->in_ja) {
             for (int i = 0 ; i <= 0xFF ; ++i) {
                 if (!comp.compare(character(quint8(i), 0))) {
