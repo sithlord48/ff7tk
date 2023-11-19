@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.3.24</span>
+   &#160;<span id="projectnumber">0.83.3.25</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -277,8 +277,8 @@ $(function() {
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            , QStringLiteral(<span class="stringliteral">&quot;{VARDECR}&quot;</span>)</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            , QStringLiteral(<span class="stringliteral">&quot;{SPACED CHARACTERS}&quot;</span>)</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        };</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        QRegularExpression pauseEXP = QRegularExpression(QStringLiteral(<span class="stringliteral">&quot;{PAUSE\\d{3}}&quot;</span>));</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        QRegularExpression memoryEXP = QRegularExpression(QStringLiteral(<span class="stringliteral">&quot;^{MEMORY:var\\[(\\d+)\\]\\[(\\d+)\\];size=(\\d+)}&quot;</span>));</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        QRegularExpression pauseEXP = QRegularExpression(QStringLiteral(<span class="stringliteral">&quot;{PAUSE\\d{3}}&quot;</span>), QRegularExpression::CaseInsensitiveOption);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        QRegularExpression memoryEXP = QRegularExpression(QStringLiteral(<span class="stringliteral">&quot;^{MEMORY:var\\[(\\d+)\\]\\[(\\d+)\\];size=(\\d+)}&quot;</span>), QRegularExpression::CaseInsensitiveOption);</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    };</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    FF7TextPrivate *d;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;};</div>
