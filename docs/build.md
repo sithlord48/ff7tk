@@ -36,6 +36,10 @@ UTILS                    | Build ff7tkUtils.                       | ON         
 WIDGETS                  | Build ff7tkWidgets.                     | ON                 | |
 SPLITPACKAGES            | Create Split Packages                   | OFF                | |
 CLEAN_TRS                | Remove Obsolete Translation Entries     | OFF                | |
+SBOM_LINT                | Check the generated SBom for NTIA compliance | OFF           | [ntia-conformance-checker] |
+SBOM_GRAPH               | Generate Sbom graph                     | OFF                | [spsx-tools] |
+REUSE_LINT               | Check the project for reuse compliance  | OFF                | [reuse] |
+
 Enabling Demos will allow you to set this additional options all are enabled by default
        Demo              |            Description                  |
 :-----------------------:|:---------------------------------------:|
@@ -113,8 +117,15 @@ You can use FF7Tk::translationList to get a QMap<QString, QTranslation*> of all 
   - ff7tkUtils
     -- QtGui, ZLib
 
+### Sbom Generation
+ A Software Bill Of Materials will be generated and installed into share/ff7tk
+ The SBOM is generated at install time and does not require any additional software on the build system
+ Generating a graph or verifing the sbom is ntia compliant requires additonal software see the option table above.
 
 [Qt]:https://www.qt.io
 [doxygen]:http://www.stack.nl/~dimitri/doxygen/
 [cmake]:https://cmake.org/
 [zlib]:https://zlib.net/
+[ntia-conformance-checker]:https://github.com/spdx/ntia-conformance-checker
+[spdx-tools]:https://github.com/spdx/sbom-tools
+[reuse]:https://github.com/fsfe/reuse-tool
