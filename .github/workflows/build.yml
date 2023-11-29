@@ -12,7 +12,7 @@ env:
     QtTools: 'tools_ifw'
     QtKey: "6.6.0-ifw46"
     BuildType: RelWithDebInfo
-    cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja"
+    cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja -DSBOM_LINT=ON"
     debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts ninja-build clang"
 jobs:
   precheck:
@@ -56,6 +56,8 @@ jobs:
       run: |
         sudo apt-get update -y > /dev/null
         sudo apt-get install -qqq ${{env.debianRequirments}} > /dev/null
+        pip install --user ntia-conformance-checker
+        pip install --user spdx-tools
     - name: Build
       run: |
         ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
@@ -117,7 +119,8 @@ jobs:
             C:/ProgramData/chocolatey/lib/Graphviz
             C:/Program*/doxygen/
             C:/Program*/Graphviz/
-        key: cache-chocolatey${{ matrix.config.WIN_ARCH }}
+            C:/Python*/
+        key: cache-chocolatey${{ matrix.config.WIN_ARCH }}-zlib-1-3-python312
 
     - name: Setup MSVC Shell For Windows
       if: runner.os == 'Windows'
@@ -130,7 +133,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
             sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 ninja-build clang > /dev/null
         elif [ "$RUNNER_OS" == "Windows" ]; then
-            choco install ninja doxygen.install graphviz
+            choco install ninja doxygen.install graphviz python312
         else
             brew install doxygen graphviz ninja
         fi
@@ -156,6 +159,14 @@ jobs:
         echo "C:\zlib\bin\" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
         echo "C:\Program Files\doxygen\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
         echo "C:\Program Files\Graphviz\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        echo "C:\Python312" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+    - name: Install SPDX Tooling
+      shell: bash
+      run: |
+        pip install --user ntia-conformance-checker
+        pip install --user spdx-tools
+        pip install --user reuse
     - name: Build ff7tk
       run: |
         ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
@@ -206,7 +217,9 @@ jobs:
           shell: /bin/sh
           install: |
                 apt update -y > /dev/null
-                apt install -y -qqq ${{env.debianRequirments}} > /dev/null
+                apt install -y -qqq ${{env.debianRequirments}} python3-pip > /dev/null
+                pip install --user ntia-conformance-checker
+                pip install --user spdx-tools
           run: |
             git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
             ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++

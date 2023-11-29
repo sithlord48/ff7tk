@@ -171,5 +171,27 @@ if(NOT TARGET uninstall)
     COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake")
 endif()
 
-sbom_finalize(NO_VERIFY)
+option(SBOM_LINT "Verify Generated SBOM is NTIA Compliant" OFF)
+if (NOT SBOM_LINT)
+    set(NO_VERIFY "NO_VERIFY")
+endif()
+
+option(SBOM_GRAPH "Create a Graph of the SBOM" OFF)
+if(SBOM_GRAPH)
+    set(GRAPH "GRAPH ${CMAKE_CURRENT_BINARY_DIR}/sbom-${CMAKE_PROJECT_NAME}-${CMAKE_PROJECT_VERSION}-spdx.png")
+endif()
+
+sbom_finalize(
+    ${NO_VERIFY}
+    ${GRPAH}
+)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/sbom-${CMAKE_PROJECT_NAME}-${CMAKE_PROJECT_VERSION}.spdx DESTINATION share/ff7tk COMPONENT ff7tk_libraries)
+
+if(SBOM_GRAPH)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/sbom-${CMAKE_PROJECT_NAME}-${CMAKE_PROJECT_VERSION}-spdx.png DESTINATION share/ff7tk COMPONENT ff7tk_libraries)
+endif()
+
+option(REUSE_LINT "Verify project for reuse complance" OFF)
+if(REUSE_LINT)
+    reuse_lint()
+endif()
