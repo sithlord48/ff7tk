@@ -1,5 +1,6 @@
 
 # SPDX-FileCopyrightText: 2023 Jochem Rutgers
+# SPDX-FileCopyrightText: 2023 Chris Rizzitello (sithlord48@gmail.com)
 #
 # SPDX-License-Identifier: MIT
 
@@ -163,7 +164,7 @@ if("${SBOM_GENERATE_NAMESPACE}" STREQUAL "")
     )
 endif()
 
-string(REGEX REPLACE "[^-A-Za-z.]+" "-" SBOM_GENERATE_PROJECT "${SBOM_GENERATE_PROJECT}")
+string(REGEX REPLACE "[^-A-Za-z0-9.]+" "-" SBOM_GENERATE_PROJECT "${SBOM_GENERATE_PROJECT}")
 
 install(
     CODE "
@@ -872,7 +873,6 @@ function(sbom_add type)
 endfunction()
 
 # Adds a target that performs `python3 -m reuse lint'.  Python is required with the proper packages
-# installed (see dist/common/requirements.txt).
 function(reuse_lint)
     if(NOT TARGET ${PROJECT_NAME}-reuse-lint)
         sbom_find_python(REQUIRED)
@@ -887,19 +887,23 @@ endif()
 endfunction()
 
 # Adds a target that generates a SPDX file of the source code.  Python is required with the proper
-# packages installed (see dist/common/requirements.txt).
 function(reuse_spdx)
+    set(options)
+    set(oneValueArgs OUTFILE)
+    set(multiValueArgs)
+    cmake_parse_arguments(
+            REUSE "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN}
+    )
+    if(NOT REUSE_OUTFILE)
+        set(REUSE_OUTFILE "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src.spdx")
+    endif()
     if(NOT TARGET ${PROJECT_NAME}-reuse-spdx)
         sbom_find_python(REQUIRED)
-
-        set(outfile "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-src.spdx")
-
         add_custom_target(
             ${PROJECT_NAME}-reuse-spdx ALL
-            COMMAND ${Python3_EXECUTABLE} -m reuse --root "${PROJECT_SOURCE_DIR}" spdx
-            -o "${outfile}"
+            COMMAND ${Python3_EXECUTABLE} -m reuse --root "${PROJECT_SOURCE_DIR}" spdx -o "${REUSE_OUTFILE}"
             WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
             VERBATIM
-        )
-endif()
+    )
+    endif()
 endfunction()
