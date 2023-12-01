@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">0.83.3.25</span>
+   &#160;<span id="projectnumber">0.83.3.31</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -110,6 +110,12 @@ Configuration</h2>
 <td class="markdownTableBodyCenter">SPLITPACKAGES </td><td class="markdownTableBodyCenter">Create Split Packages </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter"></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyCenter">CLEAN_TRS </td><td class="markdownTableBodyCenter">Remove Obsolete Translation Entries </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SBOM_LINT </td><td class="markdownTableBodyCenter">Check the generated SBom for NTIA compliance </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter"><a href="https://github.com/spdx/ntia-conformance-checker">ntia-conformance-checker</a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SBOM_GRAPH </td><td class="markdownTableBodyCenter">Generate Sbom graph </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter">[spsx-tools]  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">REUSE_LINT </td><td class="markdownTableBodyCenter">Check the project for reuse compliance </td><td class="markdownTableBodyCenter">OFF </td><td class="markdownTableBodyCenter"><a href="https://github.com/fsfe/reuse-tool">reuse</a>  </td></tr>
 </table>
 <p>Enabling Demos will allow you to set this additional options all are enabled by default </p><table class="markdownTable">
 <tr class="markdownTableHead">
@@ -164,8 +170,11 @@ Item Depends</h3>
 <li>ff7tkQtWidgets &ndash; QtWidgets, QtGui</li>
 <li>ff7tkWidgets &ndash; ff7tkData, ff7tkQtWidgets, QtWidgets, QtGui</li>
 <li>ff7tkFormats &ndash; QtCore, QtGui, ff7tkUtils</li>
-<li>ff7tkUtils &ndash; QtGui, ZLib </li>
+<li>ff7tkUtils &ndash; QtGui, ZLib</li>
 </ul>
+<h3><a class="anchor" id="autotoc_md11"></a>
+Sbom Generation</h3>
+<p>A Software Bill Of Materials will be generated and installed into share/ff7tk The SBOM is generated at install time and does not require any additional software on the build system Generating a graph or verifing the sbom is ntia compliant requires additonal software see the option table above. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
