@@ -3,10 +3,6 @@ Upstream-Name: ff7tk
 Upstream-Contact: Chris Rizzitello <sithlord48@gmail.com>
 Source: https://github.com/sithlord48/ff7tk
 
-Files: ff7tk.pc.in
-Copyright: Chris Rizzitello <sithlord48@gmail.com>
-License: MIT
-
 Files: .github/*
 Copyright: ff7tk Authors
 License: MIT
