@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Chris Rizzitello <sithlord48@gmail.com>
-// SPDX-License-Identifier: LGPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 
 IDI_ICON1               ICON    "./@PROJECT_NAME@.ico"
 

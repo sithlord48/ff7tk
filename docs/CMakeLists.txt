@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2019 - 2023 Chris Rizzitello <sithlord48@gmail.com>
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-License-Identifier: MIT
 
 find_package(Doxygen)
 option(DOCS "Build and Install Documents" ${DOXYGEN_FOUND})
