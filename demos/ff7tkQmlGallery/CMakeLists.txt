@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: Chris Rizzitello <sithlord48@gmail.com>
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-License-Identifier: MIT
 
 project(ff7tkQmlGallery VERSION 0.1.1 LANGUAGES CXX DESCRIPTION "Demo App for ff7tk using QML")
 

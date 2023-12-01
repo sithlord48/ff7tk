@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: Chris Rizzitello <sithlord48@gmail.com>
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-License-Identifier: MIT
 
 option(DATA "Build the data libary" ON)
 option(FORMATS "Build the formats libary" ON)
