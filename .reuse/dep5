@@ -63,6 +63,10 @@ Files: cmake/_template/demoTemplate.png
 Copyright: Chris Rizzitello <sithlord48@gmail.com>
 License: CC-BY-4.0
 
+Files: cmake/_template/sbom-document.in
+Copyright: Chris Rizzitello <sithlord48@gmail.com>
+License: MIT
+
 # Sample paragraph, commented out:
 #
 # Files: src/*
