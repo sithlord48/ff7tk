@@ -103,7 +103,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/cmake/sbom.cmake)
 # Setup the SBOM to be generated during install.
 sbom_generate(
         OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/sbom-${PROJECT_NAME}-${PROJECT_VERSION}.spdx
-        LICENSE CC0-1.0
+        LICENSE  LGPL-3.0-or-later
         SUPPLIER sithlord48
         SUPPLIER_URL "http://github.com/sithlord48/ff7tk"
 )
