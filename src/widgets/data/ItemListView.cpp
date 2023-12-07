@@ -18,7 +18,11 @@ ItemListView::ItemListView(QWidget *parent)
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setEditTriggers(QAbstractItemView::AllEditTriggers);
     setItemDelegate(new ItemSelectionDelegate(this));
+
     ItemSelector itemSelector;
+    m_columnWidth[0] = itemSelector.combo_type_width();
+    m_columnWidth[1] = itemSelector.combo_item_width();
+    m_columnWidth[2] = itemSelector.qty_width();
 
     verticalHeader()->setDefaultSectionSize(itemSelector.height());
     verticalHeader()->close();
@@ -32,11 +36,8 @@ ItemListView::ItemListView(QWidget *parent)
 void ItemListView::setModel(QAbstractItemModel *model)
 {
     QTableView::setModel(model);
-
-    ItemSelector itemSelector;
-    setColumnWidth(0, itemSelector.combo_type_width());
-    setColumnWidth(1, itemSelector.combo_item_width());
-    setColumnWidth(2, itemSelector.qty_width());
+    for(int i=0; i<3; i++)
+        setColumnWidth(i, sizeHintForColumn(i));
 }
 
 bool ItemListView::viewportEvent(QEvent *event)
@@ -70,6 +71,13 @@ void ItemListView::destroyTooltip()
 {
     itemPreview->close();
     m_createdTooltip = false;
+}
+
+int ItemListView::sizeHintForColumn(int column)
+{
+    if(column < 0 || column > 2)
+        return -1;
+    return m_columnWidth[column];
 }
 
 void ItemListView::setMaximumItemQty(int itemQtyLimit)
