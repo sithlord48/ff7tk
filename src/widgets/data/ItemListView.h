@@ -21,10 +21,12 @@ public:
     void setModel(QAbstractItemModel* model);
     bool viewportEvent(QEvent *event);
     void destroyTooltip();
+    int sizeHintForColumn(int column);
 private:
     int m_itemQtyLimit = 127;
     bool m_editableItemCombo = false;
     bool m_createdTooltip = false;
     bool m_showPlaceholderItems = false;
     ItemPreview *itemPreview = nullptr;
+    int m_columnWidth[3];
 };
