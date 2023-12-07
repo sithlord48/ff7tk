@@ -20,7 +20,7 @@ var searchData=
   ['reflectring_1352',['ReflectRing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a144b234588335e234328b16ade06645d',1,'FF7Item']]],
   ['region_1353',['region',['../classFF7Save.html#a313c106a2f50dcd95077aa3925938851',1,'FF7Save']]],
   ['remedy_1354',['Remedy',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a71887033aceb7272693791d6b6d74ea7',1,'FF7Item']]],
-  ['remove_1355',['Remove',['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455a67a684b151ea5fcdf6e17e0f1a334107',1,'FF7Item::Remove()'],['../classListWidget.html#a7579b9435d692da1675073ead444310bada072aea41e53e559078d27fe5e573b4',1,'ListWidget::Remove()'],['../classChocoboLabel.html#a0188fa6d31c58573400b5a60afdd0edc',1,'ChocoboLabel::remove()']]],
+  ['remove_1355',['remove',['../classChocoboLabel.html#a0188fa6d31c58573400b5a60afdd0edc',1,'ChocoboLabel::remove()'],['../classFF7Item.html#ad874f36876c4442dff3fe795f00f7455a67a684b151ea5fcdf6e17e0f1a334107',1,'FF7Item::Remove()'],['../classListWidget.html#a7579b9435d692da1675073ead444310bada072aea41e53e559078d27fe5e573b4',1,'ListWidget::Remove()']]],
   ['removeentry_1356',['removeEntry',['../classLgpToc.html#ac35d8f79c45c268595c551c794221050',1,'LgpToc']]],
   ['removeerror_1357',['RemoveError',['../classArchive.html#a2752025d615c69dee4169592342ac5cba7bb9e4b84457f60f7e9417096efc885e',1,'Archive::RemoveError()'],['../classLgp.html#a4661ed6ee155237edcaf4aeeb6957fe4ad53e5696f2a58a170c2022dcef44d131',1,'Lgp::RemoveError()']]],
   ['removefile_1358',['removeFile',['../classArchive.html#add7ac1bb6998b0001c39a8dd8151fe33',1,'Archive::removeFile()'],['../classLgp.html#a304fdd7388121f693e1fad864c4971ff',1,'Lgp::removeFile()']]],
