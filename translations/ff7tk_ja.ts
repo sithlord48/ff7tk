@@ -6917,17 +6917,6 @@ The km/h speeds are calculated while playing </source>
     </message>
 </context>
 <context>
-    <name>ItemList</name>
-    <message>
-        <source>-------EMPTY--------</source>
-        <translation type="unfinished">-------空き--------</translation>
-    </message>
-    <message>
-        <source>-------BAD ID-------</source>
-        <translation type="unfinished">------無効な ID------</translation>
-    </message>
-</context>
-<context>
     <name>ItemPreview</name>
     <message>
         <source>Elemental Effects</source>
@@ -7131,26 +7120,6 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>All items</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Magic</source>
-        <translation type="obsolete">まほう</translation>
-    </message>
-    <message>
-        <source>Summon</source>
-        <translation type="obsolete">しょうかん</translation>
-    </message>
-    <message>
-        <source>Independent</source>
-        <translation type="obsolete">どくりつ</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation type="obsolete">しえん</translation>
-    </message>
-    <message>
-        <source>Command</source>
-        <translation type="obsolete">コマンド</translation>
     </message>
     <message>
         <source>Item</source>

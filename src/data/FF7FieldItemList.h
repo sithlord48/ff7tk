@@ -35,12 +35,6 @@ public:
      */
     static FF7FieldItemList *get();
 
-    /**
-     * @brief Get the FF7FieldItemList Instance.
-     * DEPRECATED use get();
-     */
-    FF7TKDATA_DEPRECATED static FF7FieldItemList *instance() { return get(); }
-
     /*! \brief offset list for an entry (offset[x] bit[x] are pairs needed to read/write correctly
      *  \param index index in list
      *   \return List of Offsets where that control the item being shown

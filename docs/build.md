@@ -82,15 +82,10 @@ Additional Modules include
 `ff7tkWidgets` link with `ff7tk::ff7tkWidgets`
 
 
-For QMake you can use the pkgconfig provided by the system
-`config +=link_pkgconfig`
-`PKGCONFIG += ff7tk`
-
 ## ff7tk version info
  ff7tk Versions are based on its git info. Failing this the project version is updated on every release.
- include the file ff7tk.h and use the function(s)
-  - FF7Tk::version() To get version info in to form of Major.minor.patch.tweak
-   -- If patch or rev are empty they are excluded from the version number
+ include the file ff7tkInfo.h and use the function.
+  - ff7tkInfo::version() To get version info in to form of Major.minor.patch.tweak
    -- tweak is Number of commits since the last tag release
 ### ff7tk version compatibility
  ff7tk versions with the same major and minor version are compatible. Building your project with an incompatible version can lead to API issues for this reason its HIGHLY recommend any CI jobs use a Release or specific COMMIT HASH when pulling ff7tk.
@@ -98,7 +93,7 @@ For QMake you can use the pkgconfig provided by the system
 ## Translations
   In addition to ff7tk's language files your application should also load and/or ship the qt_base_<lang>.qm these are required to translate strings from inside Qt libraries.
   
-You can use FF7Tk::translationList to get a QMap<QString, QTranslation*> of all the auto detected language files. This will look in several places in the application directory and around the system to attempt to find them.
+You can use ff7tkInfo::translationList to get a QMap<QString, QTranslation*> of all the auto detected language files. This will look in several places in the application directory and around the system to attempt to find them.
 
 ## Deploying ff7tk with your app
  When using ff7tk your project needs to ship the libraries ff7tk needs to run its recommended to run windepoyqt / macdeployqt on the ff7tk libs being used when you pack your application to be sure to get all the libs needed are deployed.

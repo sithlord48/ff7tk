@@ -46,9 +46,6 @@ public slots:
     void setFontSize(int fontSize); /**< \brief Set the size of the labels font \param fontSize: pointSize of the font for this label*/
     void clearLabel(void); /**< \brief Clear the labels data */
     bool isOccupied(void); /**< \brief occupied state \return true if occupied*/
-    //Deprecated Methods
-    [[ deprecated ("Now Respects the System palette") ]]
-    FF7TKWIDGETS_DEPRECATED void setHoverColorStyle(QString backgroundColor) {/*NOTHING*/} /**< \brief [DEPRECATED: set by system] Set the style for when you hover \param backgroundColor A valid color for a style sheet either a predefined color or rgb(r,g,b) style string */
 protected:
     bool event(QEvent *ev);
     void changeEvent(QEvent *e);

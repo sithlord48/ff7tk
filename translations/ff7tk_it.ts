@@ -6928,17 +6928,6 @@ Battaglia %1</translation>
     </message>
 </context>
 <context>
-    <name>ItemList</name>
-    <message>
-        <source>-------EMPTY--------</source>
-        <translation type="unfinished">-------VUOTO--------</translation>
-    </message>
-    <message>
-        <source>-------BAD ID-------</source>
-        <translation type="unfinished">-------BAD ID-------</translation>
-    </message>
-</context>
-<context>
     <name>ItemPreview</name>
     <message>
         <source>Elemental Effects</source>
@@ -7142,22 +7131,6 @@ Battaglia %1</translation>
     <message>
         <source>All items</source>
         <translation type="unfinished">Tutte le Objecto</translation>
-    </message>
-    <message>
-        <source>Summon</source>
-        <translation type="obsolete">Di invocazione</translation>
-    </message>
-    <message>
-        <source>Independent</source>
-        <translation type="obsolete">Indipendenti</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation type="obsolete">Supporto</translation>
-    </message>
-    <message>
-        <source>Command</source>
-        <translation type="obsolete">Comando</translation>
     </message>
     <message>
         <source>Item</source>

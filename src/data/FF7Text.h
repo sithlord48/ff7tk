@@ -27,12 +27,6 @@ public:
      */
     static FF7Text *get();
 
-    /**
-     * @brief instance Get FF7Text Instance.
-     * DEPRECATED replace with get()
-     */
-    FF7TKDATA_DEPRECATED static FF7Text *instance() {return get();}
-    
     /*! \brief sets the text mode, if TRUE will return Japanese text */
     static void setJapanese(bool japanese);
 
