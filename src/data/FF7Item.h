@@ -103,12 +103,6 @@ public:
      */
     static FF7Item *get();
 
-    /**
-     * @brief Get the FF7Item Instance.
-     * DEPRECATED use get();
-     */
-    FF7TKDATA_DEPRECATED static FF7Item *instance() { return get(); }
-
     /*! \brief Decode rawitem to quint16
     *   \param itemraw raw 2byte item from ff7 Save
     *   \return quint16 holding an item

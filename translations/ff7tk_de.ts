@@ -6917,17 +6917,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
 </context>
 <context>
-    <name>ItemList</name>
-    <message>
-        <source>-------EMPTY--------</source>
-        <translation type="unfinished">-------LEER--------</translation>
-    </message>
-    <message>
-        <source>-------BAD ID-------</source>
-        <translation type="unfinished">-------Fehlerhafte ID-------</translation>
-    </message>
-</context>
-<context>
     <name>ItemPreview</name>
     <message>
         <source>Elemental Effects</source>
@@ -7131,26 +7120,6 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     <message>
         <source>All items</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Magic</source>
-        <translation type="obsolete">Magie</translation>
-    </message>
-    <message>
-        <source>Summon</source>
-        <translation type="obsolete">Beschwörung</translation>
-    </message>
-    <message>
-        <source>Independent</source>
-        <translation type="obsolete">Unabhängig</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation type="obsolete">Unterstützung</translation>
-    </message>
-    <message>
-        <source>Command</source>
-        <translation type="obsolete">Befehl</translation>
     </message>
     <message>
         <source>Item</source>

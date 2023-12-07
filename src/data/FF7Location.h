@@ -18,12 +18,6 @@ public:
      */
     static FF7Location *get();
 
-    /**
-     * @brief Get the FF7Location Instance.
-     * DEPRECATED use get();
-     */
-    FF7TKDATA_DEPRECATED static FF7Location *instance() { return get(); }
-
     /*!
     * \brief get filename for location (flevel file)
     * \param index Number on the location list

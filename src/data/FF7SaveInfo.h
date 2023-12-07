@@ -69,12 +69,6 @@ public:
     static FF7SaveInfo *get();
 
     /**
-     * @brief Get the FF7SaveInfo Instance.
-     * DEPRECATED use get();
-     */
-    FF7TKDATA_DEPRECATED static FF7SaveInfo *instance() { return get(); }
-
-    /**
      * @brief The Size of a Final Fantasy VII Save file
      * @param format : The Save Format you wish to know about
      * @return size of Filetype

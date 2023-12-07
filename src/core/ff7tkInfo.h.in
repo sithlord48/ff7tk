@@ -96,8 +96,5 @@ public:
         return &m;
     }
 private:
-
-    FF7TK_DEPRECATED static ff7tkInfo *instance() { return get(); }
-
     inline static const auto m_ff7tk_version = QStringLiteral("@FF7TK_VERSION@");
 };

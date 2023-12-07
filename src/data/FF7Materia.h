@@ -369,32 +369,6 @@ public:
         return phList;
     }
 
-    // Deprecated Methods
-    [[ deprecated ("Replace with FF7Materia::materiaAP") ]]
-    static qint32 ap2num(quint8 ap[3]) { return materiaAP(ap); }
-    [[ deprecated ("Replace with FF7Materia::apForLevel") ]]
-    static Q_INVOKABLE qint32 ap(int id, int lvl) { return apForLevel(id, lvl); }
-    [[ deprecated("Use the Property totalMateria in QML or the const TotalMateria for C++") ]]
-    static const int totalMateria() {return TotalMateria;}
-    [[ deprecated ("Replace with FF7Materia::addedEffects") ]]
-    static Q_INVOKABLE const QStringList status (const int id) { return addedEffects(id); }
-    [[deprecated ("Use FF7Materia::strengthChange")]]
-    static Q_INVOKABLE const qint8 statSTR(const int id) { return strengthChange(id); }
-    [[deprecated ("Use FF7Materia::vitalityChange")]]
-    static Q_INVOKABLE const qint8 statVIT(const int id) { return vitalityChange(id); }
-    [[deprecated ("Use FF7Materia::magicChange")]]
-    static Q_INVOKABLE const qint8 statMAG(const int id) { return magicChange(id); }
-    [[deprecated ("Use FF7Materia::spiritChange")]]
-    static Q_INVOKABLE const qint8 statSPI(const int id) { return spiritChange(id); }
-    [[deprecated ("Use FF7Materia::dexterityChange")]]
-    static Q_INVOKABLE const qint8 statDEX(const int id) { return dexterityChange(id); }
-    [[deprecated ("Use FF7Materia::luckChange")]]
-    static Q_INVOKABLE const qint8 statLCK(const int id) { return luckChange(id); }
-    [[deprecated ("Use FF7Materia::hpChange")]]
-    static Q_INVOKABLE const qint8 statHP(const int id) { return hpChange(id); }
-    [[deprecated ("Use FF7Materia::mpChange")]]
-    static Q_INVOKABLE const qint8 statMP(const int id) { return mpChange(id); }
-
 protected:
     /**
      * @brief Get the FF7Materia Instance

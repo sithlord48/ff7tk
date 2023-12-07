@@ -18,7 +18,6 @@ set ( ff7tkWidgets_SRC
     ChocoboEditor.cpp
     ChocoboLabel.cpp
     ChocoboManager.cpp
-    ItemList.cpp
     ItemListView.cpp
     ItemPreview.cpp
     ItemSelector.cpp
@@ -42,7 +41,6 @@ set (ff7tkWidgets_HEADERS
     PhsListWidget.h
     CharEditor.h
     ChocoboManager.h
-    ItemList.h
     ItemListView.h
     LocationViewer.h
     MetadataCreator.h

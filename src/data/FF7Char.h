@@ -68,12 +68,6 @@ public:
      */
     static FF7Char *get();
 
-    /**
-     * @brief instance Get FF7Char Instance.
-     * DEPRECATED replace with get()
-     */
-    FF7TKDATA_DEPRECATED static FF7Char *instance() {return get();}
-
     /*! \brief get id value for Character
      * \param who persons id  (they are almost always the same in stock game)
      * \return Chars[who].id
