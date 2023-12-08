@@ -160,7 +160,7 @@ install (FILES "${CMAKE_CURRENT_SOURCE_DIR}/COPYING.TXT" DESTINATION ${CMAKE_INS
 # uninstall target
 if(NOT TARGET uninstall)
   configure_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/uninstall.cmake.in"
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/_template/uninstall.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake"
     IMMEDIATE @ONLY)
 
