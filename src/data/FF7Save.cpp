@@ -75,12 +75,12 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
             if(ps4binfile.size() == FF7SaveInfo::get()->fileSize(FF7SaveInfo::FORMAT::PS4BIN) && (ps4binfile.peek(FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PS4BIN)) == FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PS4BIN))) {
                 auto ps4bin = ps4binfile.readAll();
                 m_ps4_iv = ps4bin.mid(0x10, 0x10);
-                m_ps4_key = ps4bin.mid(0x20, 0x10);
+                m_ps4_key = ps4bin.mid(0x20, 0x20);
                 QTextStream(stdout)
                     << "[FF7Save::loadFile] PS4 BIN File Size: " << FF7SaveInfo::get()->fileSize(FF7SaveInfo::FORMAT::PS4BIN) << "\n"
                     << "[FF7Save::loadFile] PS4 BIN pfsSKKey IV: " << m_ps4_iv.toHex() << "\n"
                     << "[FF7Save::loadFile] PS4 BIN pfsSKKey KEY: " << m_ps4_key.toHex() << "\n";
-                setFormat(FF7SaveInfo::FORMAT::PS4);
+                return FF7SaveInfo::FORMAT::PS4;
             }
         }
     }
@@ -114,13 +114,28 @@ bool FF7Save::loadFile(const QString &fileName)
         return false;
 
     setFormat(fileFormat);
-    /*~~~~~~~~~~Start Load~~~~~~~~~~*/
-    setFileHeader(file.read(FF7SaveInfo::fileHeaderSize(fileFormat)));
-    for (int i = 0; i < FF7SaveInfo::slotCount(fileFormat); i++) {
-        setSlotHeader(i, file.read(FF7SaveInfo::slotHeaderSize(fileFormat)));
-        setSlotFF7Data(i, file.read(FF7SaveInfo::slotSize()));
-        setSlotFooter(i, file.read(FF7SaveInfo::slotFooterSize(fileFormat)));
+
+
+    if(fileFormat == FF7SaveInfo::FORMAT::PS4) {
+        qDebug() << "Trying to Decrypt";
+        QFile ofile("outdata.dat");
+        ofile.open(QFile::WriteOnly);
+        ofile.write(decryptPS4Save(file.readAll()));
+        for (int i = 0; i < FF7SaveInfo::slotCount(fileFormat); i++) {
+            setSlotHeader(i, QByteArray());
+            setSlotFF7Data(i, decryptPS4Save(file.readAll()));
+            setSlotFooter(i, QByteArray());
+        }
+    } else {
+        /*~~~~~~~~~~Start Load~~~~~~~~~~*/
+        setFileHeader(file.read(FF7SaveInfo::fileHeaderSize(fileFormat)));
+        for (int i = 0; i < FF7SaveInfo::slotCount(fileFormat); i++) {
+            setSlotHeader(i, file.read(FF7SaveInfo::slotHeaderSize(fileFormat)));
+            setSlotFF7Data(i, file.read(FF7SaveInfo::slotSize()));
+            setSlotFooter(i, file.read(FF7SaveInfo::slotFooterSize(fileFormat)));
+        }
     }
+
     /*~~~~~~~End Load~~~~~~~~~~~~~~*/
     if (FF7SaveInfo::isTypePC(fileFormat)) {
         for (int i = 0; i < 15; i++) {
@@ -2776,6 +2791,16 @@ bool FF7Save::fixMetaData(QString fileName, QString UserID)
     return 1;
 }
 
+QByteArray FF7Save::decryptPS4Save(QByteArray in)
+{
+    QByteArray buffer = in;
+    struct AES_ctx ctx;
+    AES_init_ctx_iv(&ctx, reinterpret_cast<uint8_t*>(m_ps4_key.data()), reinterpret_cast<uint8_t*>(m_ps4_iv.data()));
+    AES_CBC_decrypt_buffer(&ctx, reinterpret_cast<uint8_t*>(buffer.data()), 256);
+    qDebug() << "Decrypted Size" << buffer.size();
+    return buffer;
+
+}
 QByteArray FF7Save::generatePsSaveSignature(QByteArray data, QByteArray keySeed)
 {
     FF7SaveInfo::FORMAT saveFormat = format();
