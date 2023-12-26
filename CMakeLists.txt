@@ -5,9 +5,9 @@ cmake_minimum_required(VERSION 3.21)
 cmake_policy(SET CMP0074 NEW)
 
 #Set The Current Version Number to use as fallback if GIT Fails.
-set(FF7TK_VERSION_MAJOR 0)
-set(FF7TK_VERSION_MINOR 83)
-set(FF7TK_VERSION_PATCH 3)
+set(FF7TK_VERSION_MAJOR 1)
+set(FF7TK_VERSION_MINOR 0)
+set(FF7TK_VERSION_PATCH 0)
 set(FF7TK_VERSION_TWEAK 0)
 # Get the version from git if it's a git repository
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git)
