@@ -119,8 +119,7 @@ jobs:
             C:/ProgramData/chocolatey/lib/Graphviz
             C:/Program*/doxygen/
             C:/Program*/Graphviz/
-            C:/Python*/
-        key: cache-chocolatey${{ matrix.config.WIN_ARCH }}-zlib-1-3-python312
+        key: cache-chocolatey${{ matrix.config.WIN_ARCH }}-zlib-1-3
 
     - name: Setup MSVC Shell For Windows
       if: runner.os == 'Windows'
@@ -133,7 +132,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
             sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 ninja-build clang > /dev/null
         elif [ "$RUNNER_OS" == "Windows" ]; then
-            choco install ninja doxygen.install graphviz python312
+            choco install ninja doxygen.install graphviz
         else
             brew install doxygen graphviz ninja
         fi
