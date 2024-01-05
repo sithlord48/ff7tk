@@ -230,9 +230,9 @@ Item {
             anchors.margins: 8
             anchors.left: parent.left
             anchors.right: addedEffectBox.left
-            height: /*root.fixedHeightSkills || */currentId !== FF7Materia.EnemySkill ? ( (txtAp.paintedHeight + 2) * 5) + txtAp.paintedHeight + 24 + 8 : root.height - (y + 8)
+            height: (!root.fixedHeightSkills || currentId === FF7Materia.EnemySkill) ? root.height - (y + 8) : ( (txtAp.paintedHeight + 2) * 5) + txtAp.paintedHeight + 24 + 8
             title: "Skills" + element
-            visible: currentId !== FF7Materia.EmptyId
+            visible: (currentId !== FF7Materia.EmptyId)
             ListView {
                 id: skillView
                 anchors.fill: parent
@@ -274,8 +274,8 @@ Item {
             anchors.margins: 8
             width: visible ? root.width * .4 : 0
             anchors.right: parent.right
-            visible: FF7Materia.status(currentId)[0] !== ""
-            height: root.fixedHeightSkills ? ( (txtAp.paintedHeight + 2) * 5) + txtAp.paintedHeight + 24 + 8 : root.height - (y + 8)
+            visible: FF7Materia.addedEffects(currentId)[0] !== ""
+            height: skillBox.height
             title: qsTr("Added Effect")
             ListView {
                 id: effectView
@@ -283,7 +283,7 @@ Item {
                 anchors.margins: 3
                 boundsBehavior: ListView.StopAtBounds
                 spacing: 3
-                model: FF7Materia.status(currentId)
+                model: FF7Materia.addedEffects(currentId)
                 delegate: Row {
                     spacing: 3
                     width: parent.width
@@ -304,7 +304,7 @@ Item {
             icon.height: parent.height
             icon.width: parent.height
             icon.name: "edit-copy"
-            icon.source: ":/common/edit-copy"
+            icon.source: "qrc:/common/edit-copy"
             shortcut: StandardKey.Copy
             onTriggered: root.copyActionTriggered(currentId, currentAp)
         }
@@ -314,7 +314,7 @@ Item {
             icon.height: parent.height
             icon.width: parent.height
             icon.name: "edit-paste"
-            icon.source: ":/common/edit-paste"
+            icon.source: "qrc:/common/edit-paste"
             shortcut: StandardKey.Paste
             onTriggered: root.pasteActionTriggered()
         }
@@ -324,7 +324,7 @@ Item {
             icon.height: parent.height
             icon.width: parent.height
             icon.name: "edit-clear"
-            icon.source: ":/common/edit-clear"
+            icon.source: "qrc:/common/edit-clear"
             shortcut: StandardKey.Delete
             onTriggered: {
                 currentId = FF7Materia.EmptyId
