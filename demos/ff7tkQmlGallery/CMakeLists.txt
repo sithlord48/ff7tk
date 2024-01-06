@@ -9,6 +9,12 @@ find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
 )
 set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src ${CMAKE_BINARY_DIR}/src ${CMAKE_BINARY_DIR}/imports CACHE STRING "" FORCE)
 
+find_library(ff7tk ${CMAKE_BINARY_DIR}/src/core)
+find_library(ff7tkData ${CMAKE_BINARY_DIR}/src/data)
+find_library(ff7tkFormats ${CMAKE_BINARY_DIR}/src/formats)
+find_library(ff7tkQuickControls ${CMAKE_BINARY_DIR}/src/quick/data)
+find_library(ff7tkQuickDataTypes ${CMAKE_BINARY_DIR}/src/widgets/common)
+
 set(${PROJECT_NAME}_SRC
         main.cpp
         qml.qrc
