@@ -232,6 +232,7 @@ Item {
                 Text{
                     id: elementTitle
                     anchors.top: parent.top
+                    anchors.topMargin: 4
                     anchors.left: parent.left
                     anchors.right: parent.right
                     text: "Elemental Effects"
@@ -279,6 +280,7 @@ Item {
                 Text{
                     id: statusTitle
                     anchors.top: parent.top
+                    anchors.topMargin: 4
                     anchors.left: parent.left
                     anchors.right: parent.right
                     text: "Status Effects"
