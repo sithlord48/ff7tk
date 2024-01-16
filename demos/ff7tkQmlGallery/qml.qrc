@@ -6,5 +6,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>TextDemo.qml</file>
+        <file>PaletteView.qml</file>
     </qresource>
 </RCC>
