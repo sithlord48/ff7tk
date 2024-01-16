@@ -10,6 +10,6 @@ T.ApplicationWindow {
     property alias backgroundColor: bk.color
     background: Rectangle {
         id: bk
-        color: palette.alternateBase
+        color: palette.window
     }
 }

@@ -14,10 +14,8 @@ ApplicationWindow {
     title: "ff7tkQmlGallery - " + FF7tkInfo.ff7tkVersion
     header: Rectangle {
         id: headerItem
-        color: palette.alternateBase
-        border.color: palette.dark
-        border.width: 2
-        height: comboSelector.height + 12
+        color: palette.window
+        height: comboSelector.height + 18
         Label {
             id: previewLabel
             text: "Current Preview:"
@@ -26,9 +24,9 @@ ApplicationWindow {
         ComboBox {
             id: comboSelector
             anchors {
-                margins: 6
-                top: parent.top
-                left: previewLabel.right; right: parent.right
+                verticalCenter: parent.verticalCenter
+                left: previewLabel.right; leftMargin: 6
+                right: parent.right; rightMargin: 6
             }
             model: ListModel {
                 ListElement{text: ""}
@@ -36,6 +34,7 @@ ApplicationWindow {
                 ListElement{text: "ItemPreview"}
                 ListElement{text: "Materia Button"}
                 ListElement{text: "Materia Editor"}
+                ListElement{text: "Palette Preview"}
             }
             onCurrentIndexChanged: {
                 itemLoader.sourceComponent = Qt.binding(function() {
@@ -44,12 +43,14 @@ ApplicationWindow {
                         case 2: return itemPreviewComponent
                         case 3: return materiaButtonComponent
                         case 4: return materiaEditorComponent
+                        case 5: return paletteComponent;
                         default: return testComponent;
                     }
                 })
             }
         }
     }
+
     Loader {
         id: itemLoader
         anchors.fill: parent
@@ -61,9 +62,17 @@ ApplicationWindow {
         Rectangle {
             color: palette.base
             Label {
-                anchors.centerIn:parent
+                anchors.centerIn: parent
                 text: "Please Select an Item to Preview"
             }
+        }
+    }
+
+    Component {
+        id: paletteComponent
+        PaletteView {
+            anchors.fill: parent
+            anchors.topMargin: 6
         }
     }
 
