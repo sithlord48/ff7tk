@@ -2081,6 +2081,22 @@ The km/h speeds are calculated while playing </translation>
         <source>KeyItem: Huge Materia: Rocket</source>
         <translation>KeyItem: Huge Materia: Rocket</translation>
     </message>
+    <message>
+        <source>Hp Shout</source>
+        <translation>Hp Shout</translation>
+    </message>
+    <message>
+        <source>Shinra Gym Special Drink</source>
+        <translation>Shinra Gym Special Drink</translation>
+    </message>
+    <message>
+        <source>Mind Source + Speed Source</source>
+        <translation>Mind Source + Speed Source</translation>
+    </message>
+    <message>
+        <source>Wizard Staff</source>
+        <translation>Wizard Staff</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

@@ -247,6 +247,10 @@ private:
 
             , {{quint16(0x0D4C), quint16(0x0BE7)}, {quint8(1), quint8(6)}, {QStringLiteral("blin59")}, QT_TR_NOOP("KeyItem: Keycard 60")}
 
+            , {{quint16(0x0D50)}, {quint8(0)}, {QStringLiteral("blin64")}, QT_TR_NOOP("Phoenix Down")}
+            , {{quint16(0x0D50)}, {quint8(1)}, {QStringLiteral("blin64")}, QT_TR_NOOP("Ether")}
+            , {{quint16(0x0D50)}, {quint8(2)}, {QStringLiteral("blin64")}, QT_TR_NOOP("Hp Shout")} // Main Progress >=1008
+
             , {{quint16(0x0D55)}, {quint8(4)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("Initialized the Machine")}
             , {{quint16(0x0D55), quint16(0x0BE9)}, {quint8(1), quint8(5)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("KeyItem: A Coupon")}
             , {{quint16(0x0D55), quint16(0x0BE9)}, {quint8(3), quint8(6)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("KeyItem: B Coupon")}
@@ -254,15 +258,16 @@ private:
             //Can't Seam to varify these found in script never on field
             //, {{quint16(0x0D55)}, {quint8(5)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("Hourglass")}
             //, {{quint16(0x0D55)}, {quint8(6)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("All")}
+            , {{quint16(0x0D55)}, {quint8(7)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("Grow Lance")} //MainProgress >=1008 for the two below
+
+            , {{quint16(0x0D57)}, {quint8(0)}, {QStringLiteral("blin64")}, QT_TR_NOOP("Shinra Gym Special Drink")}
+            , {{quint16(0x0D57)}, {quint8(1)}, {QStringLiteral("blin64")}, QT_TR_NOOP("Mind Source + Speed Source")} // MainProgress >=1008
+            , {{quint16(0x0D57), quint16(0x0BE8)}, {quint8(4), quint8(0)}, {QStringLiteral("blin62_1")}, QT_TR_NOOP("KeyItem: Keycard 65")}
+
             //Reward For Trading in the A B or C Coupon(s)
             , {{quint16(0x0D5D)}, {quint8(5)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("Star Pendant")}
             , {{quint16(0x0D5D)}, {quint8(6)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("All")}
             , {{quint16(0x0D5D)}, {quint8(7)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("Four Slots")}
-
-            //MainProgress >=1008 for the one below
-            , {{quint16(0x0D55)}, {quint8(7)}, {QStringLiteral("blin63_1")}, QT_TR_NOOP("Grow Lance")}
-
-            , {{quint16(0x0D57), quint16(0x0BE8)}, {quint8(4), quint8(0)}, {QStringLiteral("blin62_1")}, QT_TR_NOOP("KeyItem: Keycard 65")}
 
             , {{quint16(0x0D60)}, {quint8(1)}, {QStringLiteral("blin62_1")}, QT_TR_NOOP("Elemental")}
 
@@ -468,6 +473,9 @@ private:
             , {{quint16(0x1016)}, {quint8(1)}, {QStringLiteral("delmin12")}, QT_TR_NOOP("Fire Ring")}
             , {{quint16(0x1016)}, {quint8(2)}, {QStringLiteral("delmin12")}, QT_TR_NOOP("Power Source")}
             , {{quint16(0x1016)}, {quint8(3)}, {QStringLiteral("delmin1")}, QT_TR_NOOP("Purchased The House")}
+
+            , {{quint16(0x1017)}, {quint8(2)}, {QStringLiteral("mtcrl_5")}, QT_TR_NOOP("Star Pendant")}
+            , {{quint16(0x1017)}, {quint8(3)}, {QStringLiteral("mtcrl_5")}, QT_TR_NOOP("Wizard Staff")}
 
             , {{quint16(0x1018)}, {quint8(1)}, {QStringLiteral("mtcrl_4")}, QT_TR_NOOP("W Machine Gun")}
             , {{quint16(0x1018)}, {quint8(2)}, {QStringLiteral("mtcrl_4")}, QT_TR_NOOP("Transform")}

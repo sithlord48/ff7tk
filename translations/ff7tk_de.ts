@@ -2081,6 +2081,22 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Slash-All</source>
         <translation type="unfinished">Alle streichen</translation>
     </message>
+    <message>
+        <source>Hp Shout</source>
+        <translation type="unfinished">HP-Schrei</translation>
+    </message>
+    <message>
+        <source>Shinra Gym Special Drink</source>
+        <translation type="unfinished">Shinra Fitnessgetränk</translation>
+    </message>
+    <message>
+        <source>Mind Source + Speed Source</source>
+        <translation type="unfinished">Geist &amp; Geschwindigkeit</translation>
+    </message>
+    <message>
+        <source>Wizard Staff</source>
+        <translation type="unfinished">Zauberstab</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

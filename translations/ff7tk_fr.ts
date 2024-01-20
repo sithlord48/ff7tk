@@ -2081,6 +2081,22 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <source>Knights of the Round</source>
         <translation>Chevaliers de la Table Ronde</translation>
     </message>
+    <message>
+        <source>Hp Shout</source>
+        <translation type="unfinished">Cri HP</translation>
+    </message>
+    <message>
+        <source>Shinra Gym Special Drink</source>
+        <translation type="unfinished">Shinra Boisson de gym</translation>
+    </message>
+    <message>
+        <source>Mind Source + Speed Source</source>
+        <translation type="unfinished">Source spirituelle &amp; Source de rapidité</translation>
+    </message>
+    <message>
+        <source>Wizard Staff</source>
+        <translation type="unfinished">Bâton magicien</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

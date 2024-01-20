@@ -2085,6 +2085,22 @@ Battaglia %1</translation>
         <source>Contain</source>
         <translation>Apocrifa</translation>
     </message>
+    <message>
+        <source>Hp Shout</source>
+        <translation type="unfinished">Grido di guerra</translation>
+    </message>
+    <message>
+        <source>Shinra Gym Special Drink</source>
+        <translation type="unfinished">Shinra Bevanda da palestra</translation>
+    </message>
+    <message>
+        <source>Mind Source + Speed Source</source>
+        <translation type="unfinished">Spirito up &amp; Velocità up</translation>
+    </message>
+    <message>
+        <source>Wizard Staff</source>
+        <translation type="unfinished">Asta del mago</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

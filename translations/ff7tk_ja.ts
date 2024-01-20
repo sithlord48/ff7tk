@@ -2079,7 +2079,23 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Elemental(+other stuff?)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ぞくせい ++ ?</translation>
+    </message>
+    <message>
+        <source>Hp Shout</source>
+        <translation type="unfinished">マーベラスチアー</translation>
+    </message>
+    <message>
+        <source>Shinra Gym Special Drink</source>
+        <translation type="unfinished">スペシャルジムドリンク</translation>
+    </message>
+    <message>
+        <source>Mind Source + Speed Source</source>
+        <translation type="unfinished">マインドアップ &amp; スピードアップ</translation>
+    </message>
+    <message>
+        <source>Wizard Staff</source>
+        <translation type="unfinished">ウィザードロッド</translation>
     </message>
 </context>
 <context>

@@ -2081,6 +2081,22 @@ Los km/h son calculados mientras se juega </translation>
         <source>Mind Plus</source>
         <translation type="unfinished">Espíritu Más</translation>
     </message>
+    <message>
+        <source>Hp Shout</source>
+        <translation type="unfinished">Grito de PG</translation>
+    </message>
+    <message>
+        <source>Shinra Gym Special Drink</source>
+        <translation type="unfinished">Shinra bebida de gimnasio</translation>
+    </message>
+    <message>
+        <source>Mind Source + Speed Source</source>
+        <translation type="unfinished">Fuente espíritu &amp; Fuente veloc.</translation>
+    </message>
+    <message>
+        <source>Wizard Staff</source>
+        <translation type="unfinished">Vara Mágica</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

@@ -2080,6 +2080,22 @@ The km/h speeds are calculated while playing </source>
         <source>Contain</source>
         <translation>Zawiera</translation>
     </message>
+    <message>
+        <source>Hp Shout</source>
+        <translation type="unfinished">Krzyk PŻ</translation>
+    </message>
+    <message>
+        <source>Shinra Gym Special Drink</source>
+        <translation type="unfinished">Shinra Napój na siłownię</translation>
+    </message>
+    <message>
+        <source>Mind Source + Speed Source</source>
+        <translation type="unfinished">Żródło Umysłu &amp; Źródło Prędkości</translation>
+    </message>
+    <message>
+        <source>Wizard Staff</source>
+        <translation>Czarodziejski Personel</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>
