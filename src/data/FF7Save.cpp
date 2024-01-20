@@ -3822,6 +3822,20 @@ void FF7Save::setBattleTargets(int s, bool shown)
     }
 }
 
+quint8 FF7Save::specialBattleWins(int s)
+{
+    if (s < 0 || s > 14)
+        return 0;
+    return slot[s].battleArenaSpecialWins;
+}
+
+void FF7Save::setSpecialBattleWins(int s, int wins)
+{
+    if (s < 0 || s > 14)
+        return;
+    slot[s].battleArenaSpecialWins = wins;
+}
+
 quint16 FF7Save::options(int s)
 {
     return  qFromLittleEndian(slot[s].options);
