@@ -156,6 +156,7 @@ private slots:
     void test_worldCoordsSub();
     void test_worldCoordsTc();
     void test_worldCoordsWChoco();
+    void text_battleSpecialWins();
 
 private:
     FF7Save *ff7save = nullptr;

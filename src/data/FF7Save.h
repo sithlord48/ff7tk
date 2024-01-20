@@ -509,6 +509,9 @@ public:
     bool battleTargets(int s);
     void setBattleTargets(int s, bool shown);
 
+    quint8 specialBattleWins(int s);
+    void setSpecialBattleWins(int s, int wins);
+
     //Phs/Menu
     bool phsVisible(int s, int who);
     void setPhsVisible(int s, int who, bool checked);
@@ -966,7 +969,7 @@ public:
      */
     inline int unknown_zmax()
     {
-        return 47; //Number of "z" vars.
+        return 48; //Number of "z" vars.
     }
 
     /**

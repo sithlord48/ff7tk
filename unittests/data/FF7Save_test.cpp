@@ -1652,4 +1652,13 @@ void FF7Save_Test::test_worldCoordsWChoco()
     QCOMPARE(ff7save->worldCoordsWchocoAngle(0), 12);
 }
 
+void FF7Save_Test::text_battleSpecialWins()
+{
+    QCOMPARE(ff7save->specialBattleWins(0), 16);
+    ff7save->setSpecialBattleWins(0, 0xFF);
+    QCOMPARE(ff7save->specialBattleWins(0), 0xFF);
+    ff7save->setSpecialBattleWins(0, 0);
+    QCOMPARE(ff7save->specialBattleWins(0), 0);
+}
+
 QTEST_MAIN(FF7Save_Test)

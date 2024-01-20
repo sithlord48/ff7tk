@@ -39,7 +39,6 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~Set File Type Vars ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     //decide the file type
     if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PC)) && (file.peek(25).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PC)))) {
-        qDebug() << file.fileName();
         if(file.fileName().endsWith(QStringLiteral("ff7")))
             return FF7SaveInfo::FORMAT::PC;
         else if(file.fileName().contains(QStringLiteral("ff7slot")))
@@ -3131,6 +3130,7 @@ QByteArray FF7Save::unknown(int s, int z)
     case 45: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_45), sizeof(slot[s].z_45)); break;
     case 46: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_46), sizeof(slot[s].z_46)); break;
     case 47: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_47), sizeof(slot[s].z_47)); break;
+    case 48: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_48), sizeof(slot[s].z_48)); break;
     default: temp.setRawData(0x00, 1); break;
     }
     return temp;
@@ -3566,6 +3566,15 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = true;
             break;
         }
+    case 48:
+        if (data.size() != sizeof(slot[s].z_48)) {
+            result = false;
+            break;
+        } else {
+            memcpy(&slot[s].z_48, data, sizeof(slot[s].z_48));
+            result = true;
+            break;
+        }
     default: result = false; break;
     }
     setFileModified(true, s);
@@ -3820,6 +3829,20 @@ void FF7Save::setBattleTargets(int s, bool shown)
         }
         setFileModified(true, s);
     }
+}
+
+quint8 FF7Save::specialBattleWins(int s)
+{
+    if (s < 0 || s > 14)
+        return 0;
+    return slot[s].battleArenaSpecialWins;
+}
+
+void FF7Save::setSpecialBattleWins(int s, int wins)
+{
+    if (s < 0 || s > 14)
+        return;
+    slot[s].battleArenaSpecialWins = wins;
 }
 
 quint16 FF7Save::options(int s)
