@@ -1,4 +1,4 @@
-//    SPDX-FileCopyrightText: 2012 - 2020 Chris Rizzitello <sithlord48@gmail.com>
+//    SPDX-FileCopyrightText: 2012 - 2024 Chris Rizzitello <sithlord48@gmail.com>
 //    SPDX-License-Identifier: LGPL-3.0-or-later
 
 #pragma once
@@ -46,6 +46,7 @@ struct FF7TKDATA_EXPORT FF7DESC {
     quint32 time;       /**< [0x0020] Total number of seconds played*/
     quint8 location[32];/**< [0x0024] Save location (ff7 string)*/
 });
+
 PACK(
 struct FF7TKDATA_EXPORT FF7XYT {// size of 7. used for coords
     qint16 x;
@@ -63,6 +64,54 @@ struct FF7TKDATA_EXPORT FF7XYT {// size of 7. used for coords
  */
 PACK(
 struct FF7TKDATA_EXPORT FF7SLOT {
+    FF7SLOT() { clear(); }
+    static constexpr int emptyChecksum = 0x4D1D;
+    static constexpr int slotSize = 0x10F4;
+    inline bool operator==(FF7SLOT &other) { return other.toByteArray() == toByteArray(); }
+    inline bool operator!=(FF7SLOT &other) { return other.toByteArray() != toByteArray(); }
+    bool isEmpty() { return (checksum == emptyChecksum || toByteArray() == QByteArray(slotSize, 0x00)); }
+    void clear() { setData(QByteArray(slotSize, 0x00)); }
+    QByteArray toByteArray() { return QByteArray(reinterpret_cast<const char*>(&checksum), slotSize); }
+
+    void setData(const QByteArray &data) {
+        if (data.size() == slotSize)
+            memcpy(&checksum, data, slotSize);
+    }
+
+    static FF7SLOT fromByteArray(const QByteArray &data) {
+        FF7SLOT s;
+        s.setData(data);
+        return s;
+    }
+
+    static quint16 generateChecksum(FF7SLOT ff7Slot) {
+        return generateChecksum(ff7Slot.toByteArray());
+    }
+
+    static quint16 generateChecksum(QByteArray slotData) {
+        QByteArray data = slotData.mid(4);
+        int i = 0;
+        quint16 r = 0xFFFF;
+        quint16 len = data.size();
+        quint16 pbit = 0x8000;
+        while (len--) {
+            int t = data.at(i++);
+            r ^= t << 8;
+            for (int d = 0; d < 8; d++) {
+                if (r & pbit)
+                    r = quint16(r << 1) ^ 0x1021;
+                else
+                    r <<= 1;
+            }
+            r &= (1 << 16) - 1;
+        }
+        return ((r ^ 0xFFFF) & 0xFFFF);
+    }
+
+    void updateChecksum() {
+        checksum = generateChecksum(toByteArray());
+    }
+
     quint16 checksum;               /**< [0x0000] Checksum */
     quint8 z_1[2];                  /**< [0x0002] UNKNOWN DATA*/
     FF7DESC desc;                   /**< [0x0004] Length:0x44] Slot description*/

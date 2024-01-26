@@ -1022,7 +1022,7 @@ private:
     QString fileblock(const QString &fileName);
     QString filetimestamp(QString fileName);
     void checksumSlots();
-    quint16 ff7Checksum(int s);
+    [[ deprecated ("FF7Save::ff7Checksum Removed, Use FF7SLOT.updateChecksum() and / or FF7SLOT.isEmpty()") ]]quint16 ff7Checksum(int s);
     void fix_psv_header(int s, int blocks = 1);
     void fix_pge_header(int s);
     void fix_pda_header(int s);

@@ -29,7 +29,7 @@ FF7Save::FF7Save()
         slotChanged[i] = false;
         SG_Region_String.append(QString());
     }
-    buffer_slot.checksum = 0x4D1D;
+    buffer_slot.clear();
 }
 
 FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
@@ -105,7 +105,7 @@ bool FF7Save::loadFile(const QString &fileName)
     /*~~~~~~~End Load~~~~~~~~~~~~~~*/
     if (FF7SaveInfo::isTypePC(fileFormat)) {
         for (int i = 0; i < 15; i++) {
-            if (slot[i].checksum != 0x0000 && slot[i].checksum != 0x4D1D)
+            if (!slot[i].isEmpty())
                 SG_Region_String.replace(i, QString("BASCUS-94163FF7-S%1").arg(QString::number(i + 1), 2, QChar('0')));
             else
                 SG_Region_String.replace(i, QString());
@@ -241,7 +241,6 @@ bool FF7Save::saveFile(const QString &fileName, int slot)
 {
     if (fileName.isEmpty())
         return false;
-
     checksumSlots();
     //fix our headers before saving
     if (FF7SaveInfo::isTypePC(fileFormat))
@@ -520,7 +519,7 @@ void FF7Save::importSlot(int s, QString fileName, int fileSlot)
     /*~~~~~Set Region Data~~~~~~~~~*/
     if (FF7SaveInfo::isTypePC(inType)) {
         QString newRegion;
-        if (slot[s].checksum != 0x0000 && slot[s].checksum != 0x4D1D)
+        if (!slot[s].isEmpty())
             newRegion = QString("BASCUS-94163FF7-S%1").arg(QString::number(s).toInt(), 2, 10, QChar('0').toUpper());
         setRegion(s, newRegion);
     } else if (FF7SaveInfo::isTypeVMC(inType)) {
@@ -591,21 +590,16 @@ void FF7Save::importCharacter(int s, int char_num, QByteArray new_char)
 void FF7Save::checksumSlots()
 {
     for (int i = 0; i < FF7SaveInfo::slotCount(fileFormat); i++) {
-        if (isFF7(i)) {
-            quint16 checksum = ff7Checksum(i);
-            if (checksum == 0x4D1D)
-                slot[i].checksum = 0x0000;
-            else
-                slot[i].checksum = checksum;
-        }
+        if (isFF7(i) && !slot[i].isEmpty())
+            slot[i].updateChecksum();
     }
 }
 
 quint16 FF7Save::ff7Checksum(int s)
 {
-    QByteArray data = slotFF7Data(s).mid(4, 4336);
+    QByteArray data = slotFF7Data(s).mid(4, 0x10F0);
     int i = 0;
-    quint16 r = 0xFFFF, len = 4336, pbit = 0x8000;
+    quint16 r = 0xFFFF, len = 0x10F0, pbit = 0x8000;
     while (len--) {
         int t = data.at(i++);
         r ^= t << 8;
@@ -1086,7 +1080,7 @@ bool FF7Save::isSlotEmpty(int s)
                     || psx_block_type(s) == static_cast<char>(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED)
                     || psx_block_type(s) == static_cast<char>(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_ENDLINK)
                    );
-    return ff7Checksum(s) == 0x4D1D;
+    return slot[s].isEmpty();
 }
 bool FF7Save::isFF7(int s)
 {
@@ -1161,17 +1155,14 @@ int FF7Save::numberOfSlots(void)
 void FF7Save::newGame(int s, const QString &region, const QString &fileName)
 {
     if (fileName.isEmpty() || fileName.isNull()) {
-        memcpy(&slot[s], FF7SaveInfo::defaultSaveData(), size_t(FF7SaveInfo::slotSize()));
+        slot[s].setData(FF7SaveInfo::defaultSaveData());
     } else {
         QFile file(fileName);
         if (!file.open(QFile::ReadOnly))
             return;
         QByteArray ff7file;
-        ff7file = file.readAll(); //put all data in temp raw file
-        QByteArray temp; // create a temp to be used when needed
-        int index = 0x200;
-        temp = ff7file.mid(index, FF7SaveInfo::slotSize());
-        memcpy(&slot[s], temp, size_t(FF7SaveInfo::slotSize()));
+        ff7file = file.readAll(); //put all data in temp raw file)
+        slot[s].setData(ff7file.mid(index, FF7SaveInfo::slotSize()));
     }
     setRegion(s, region);
     if (isJPN(s)) {
@@ -1202,7 +1193,7 @@ void FF7Save::newGame(int s, const QString &region, const QString &fileName)
 void FF7Save::newGamePlus(int s, QString CharFileName, QString fileName)
 {
     if (fileName.isEmpty() || fileName.isNull()) {
-        memcpy(&buffer_slot, FF7SaveInfo::defaultSaveData(), size_t(FF7SaveInfo::slotSize()));
+        buffer_slot.setData(FF7SaveInfo::defaultSaveData());
     } else {
         QFile file(fileName);
         if (!file.open(QFile::ReadOnly)) {
@@ -1210,10 +1201,7 @@ void FF7Save::newGamePlus(int s, QString CharFileName, QString fileName)
         }
         QByteArray ff7file;
         ff7file = file.readAll(); //put all data in temp raw file
-        QByteArray temp; // create a temp to be used when needed
-        int index = 0x200;
-        temp = ff7file.mid(index, FF7SaveInfo::slotSize());
-        memcpy(&buffer_slot, temp, size_t(FF7SaveInfo::slotSize()));
+        buffer_slot.setData(ff7file.mid(0x200, FF7SaveInfo::slotSize()));
     }
     buffer_region = region(s);
     memcpy(&buffer_slot.desc, &slot[s].desc, 0x44); // keep a old preview
@@ -2789,24 +2777,19 @@ QString FF7Save::filetimestamp(QString fileName)
         return "";
     }
 }
+
 QByteArray FF7Save::slotFF7Data(int s)
 {
-    if (s < 0 || s > 14) {
+    if (s < 0 || s > 14)
         return QByteArray(0x00);
-    }
-    QByteArray temp;
-    temp.setRawData(reinterpret_cast<char *>(&slot[s]), FF7SaveInfo::slotSize());
-    return temp;
+    return slot[s].toByteArray();
 }
+
 bool FF7Save::setSlotFF7Data(int s, QByteArray data)
 {
-    if (s < 0 || s > 14) {
+    if (s < 0 || s > 14)
         return false;
-    }
-    if (data.size() != FF7SaveInfo::slotSize()) {
-        return false;
-    }
-    memcpy(&slot[s], data, FF7SaveInfo::slotSize());
+    slot[s] = FF7SLOT::fromByteArray(data);
     setFileModified(true, s);
     return true;
 }
@@ -5775,7 +5758,7 @@ FF7SaveInfo::FORMAT FF7Save::format()
 
 bool FF7Save::isBufferSlotPopulated()
 {
-    return buffer_slot.checksum != 0x4D1D;
+    return !buffer_slot.isEmpty();
 }
 
 void FF7Save::setFormat(FF7SaveInfo::FORMAT newFormat)
