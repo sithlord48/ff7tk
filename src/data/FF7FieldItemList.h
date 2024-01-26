@@ -372,7 +372,7 @@ private:
             , {{quint16(0x0FC8)}, {quint8(5)}, {QStringLiteral("nvdun1")}, QT_TR_NOOP("All")}
             , {{quint16(0x0FC8)}, {quint8(6)}, {QStringLiteral("nvdun3")}, QT_TR_NOOP("Elemental")}
 
-            , {{quint16(0x0FC9)}, {quint8(0)}, {QStringLiteral("sundun_2")}, QT_TR_NOOP("Power Source")}
+            , {{quint16(0x0FC9)}, {quint8(0)}, {QStringLiteral("sandun_2")}, QT_TR_NOOP("Power Source")}
             , {{quint16(0x0FC9)}, {quint8(1)}, {QStringLiteral("sango1")}, QT_TR_NOOP("Water Ring")}
             , {{quint16(0x0FC9)}, {quint8(2)}, {QStringLiteral("anfrst_2")}, QT_TR_NOOP("Typhon")}
             , {{quint16(0x0FC9)}, {quint8(3)}, {QStringLiteral("anfrst_3")}, QT_TR_NOOP("Supershot ST")}
