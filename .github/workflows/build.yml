@@ -207,7 +207,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: git fetch --tags --force
-      - uses: uraimo/run-on-arch-action@v2.6.0
+      - uses: uraimo/run-on-arch-action@v2.7.1
         name: Build artifact
         with:
           arch: ${{ matrix.config.arch }}
