@@ -400,7 +400,7 @@ bool Lgp::openHeader()
 
     qint32 fileCount;
 
-    if (archiveIO()->read((char *)&fileCount, 4) != 4) {
+    if (archiveIO()->read(reinterpret_cast<char *>(&fileCount), 4) != 4) {
         setError(ReadError);
         return false;
     }
@@ -456,7 +456,7 @@ bool Lgp::openHeader()
         // Open conflicts
         quint16 conflictCount;
 
-        if (archiveIO()->read((char *)&conflictCount, 2) != 2) {
+        if (archiveIO()->read(reinterpret_cast<char *>(&conflictCount), 2) != 2) {
             setError(ReadError);
             return false;
         }
@@ -465,7 +465,7 @@ bool Lgp::openHeader()
             quint16 conflictEntryCount;
 
             // Open conflict entries
-            if (archiveIO()->read((char *)&conflictEntryCount, 2) != 2) {
+            if (archiveIO()->read(reinterpret_cast<char *>(&conflictEntryCount), 2) != 2) {
                 setError(ReadError);
                 return false;
             }
@@ -612,7 +612,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
     }
 
     // Writes the file count
-    if (temp.write((char *)&nbFiles, 4) != 4) {
+    if (temp.write(reinterpret_cast<const char *>(&nbFiles), 4) != 4) {
         temp.remove();
         setError(WriteError, temp.errorString());
         return false;
@@ -699,15 +699,15 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
     // Write conflicts
     QByteArray conflictsData;
     const quint16 conflictCount = quint16(conflicts.size());
-    conflictsData.append((char *)&conflictCount, 2);
+    conflictsData.append(reinterpret_cast<const char *>(&conflictCount), 2);
 
     for (const QList<LgpConflictEntry> &conflict : conflicts) {
         const quint16 conflictEntryCount = quint16(conflict.size());
-        conflictsData.append((char *)&conflictEntryCount, 2);
+        conflictsData.append(reinterpret_cast<const char *>(&conflictEntryCount), 2);
 
         for (const LgpConflictEntry &conflictEntry : conflict) {
             conflictsData.append(conflictEntry.fileDir.toLatin1().leftJustified(128, '\0', true));
-            conflictsData.append((char *)&conflictEntry.tocIndex, 2);
+            conflictsData.append(reinterpret_cast<const char *>(&conflictEntry.tocIndex), 2);
         }
     }
 
@@ -772,7 +772,7 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
         }
         io->close();
         const qint64 size = data.size();
-        if (temp.write((char *)&size, 4) != 4) {
+        if (temp.write(reinterpret_cast<const char *>(&size), 4) != 4) {
             temp.remove();
             setError(WriteError, temp.errorString());
             return false;
@@ -810,10 +810,10 @@ bool Lgp::pack(const QString &destination, ArchiveObserver *observer)
         for (const LgpHeaderEntry *headerEntry : std::as_const(entries)) {
             tocData.append(headerEntry->fileName().toLower().toLatin1().leftJustified(20, '\0', true));
             quint32 filePos = headerEntry->filePosition();
-            tocData.append((char *)&filePos, 4);
+            tocData.append(reinterpret_cast<const char *>(&filePos), 4);
             tocData.append('\x0e');
             quint16 conflict = tocEntries.value(headerEntry).conflict;
-            tocData.append((char *)&conflict, 2);
+            tocData.append(reinterpret_cast<const char *>(&conflict), 2);
         }
     }
 

@@ -130,11 +130,11 @@ QByteArray PsfFile::save() const
     QByteArray compressedData = GZIP::compressNoHeader(_data.constData(), int(_data.size()));
 
     quint32 specialSize = quint32(_special.size());
-    data.append((char *)&specialSize, 4);
+    data.append(reinterpret_cast<const char *>(&specialSize), 4);
     quint32 dataSize = quint32(compressedData.size());
-    data.append((char *)&dataSize, 4);
+    data.append(reinterpret_cast<const char *>(&dataSize), 4);
     quint32 crc = GZIP::crc(compressedData.constData(), int(compressedData.size()));
-    data.append((char *)&crc, 4);
+    data.append(reinterpret_cast<const char *>(crc), 4);
 
     data.append(_special);
     data.append(compressedData);

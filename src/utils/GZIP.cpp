@@ -81,7 +81,7 @@ QByteArray GZIP::decompressNoHeader(const char *data, int size)
 #if (ZLIB_VERNUM < 0x1280)
         err = z_uncompress(buffer, &destLen, reinterpret_cast<const Bytef *>(data), size);
 #else
-        err = uncompress(buffer, &destLen, (const Bytef *)data, size);
+        err = uncompress(buffer, &destLen, reinterpret_cast<const Bytef *>(data), size);
 #endif
         if (Z_MEM_ERROR != err && Z_BUF_ERROR != err) {
             break;
@@ -103,7 +103,7 @@ QByteArray GZIP::compressNoHeader(const char *data, int size, int level)
 {
     QByteArray ret;
     ret.resize(size * 2);
-    Bytef *buffer = (Bytef *)ret.data();
+    Bytef *buffer = reinterpret_cast<Bytef *>(ret.data());
     uLongf destLen = ret.size();
 #if (ZLIB_VERNUM < 0x1280)
     if (Z_OK != z_compress2(buffer, &destLen, reinterpret_cast<const Bytef *>(data), size, level)) {
@@ -112,7 +112,7 @@ QByteArray GZIP::compressNoHeader(const char *data, int size, int level)
         ret.resize(destLen);
     }
 #else
-    if (Z_OK != compress2(buffer, &destLen, (const Bytef *)data, size, level)) {
+    if (Z_OK != compress2(buffer, &destLen, reinterpret_cast<const Bytef *>(data), size, level)) {
         ret.clear();
     } else {
         ret.resize(destLen);
@@ -126,7 +126,7 @@ ulong GZIP::crc(const char *data, int size)
 #if (ZLIB_VERNUM < 0x1280)
     return z_crc32(z_crc32(0L, nullptr, 0), reinterpret_cast<const Bytef *>(data), size);
 #else
-    return crc32(crc32(0L, nullptr, 0), (const Bytef *)data, size);
+    return crc32(crc32(0L, nullptr, 0), reinterpret_cast<const Bytef *>(data), size);
 #endif
 }
 

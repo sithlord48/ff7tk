@@ -112,7 +112,7 @@ void TexFile::updateHeader()
 bool TexFile::save(QByteArray &data)
 {
     updateHeader();
-    data.append((char *)&header, header.version==2 ? sizeof(TexStruct) : sizeof(TexStruct) - 4);
+    data.append(reinterpret_cast<const char *>(&header), header.version==2 ? sizeof(TexStruct) : sizeof(TexStruct) - 4);
     if (isPaletted()) {
         quint32 palID;
         for (palID=0; palID < header.nbPalettes && palID < (quint32)_colorTables.size(); ++palID) {
@@ -127,7 +127,7 @@ bool TexFile::save(QByteArray &data)
             }
             for ( ; colorID < header.nbColorsPerPalette1; ++colorID) {
                 const QRgb color = qRgba(0, 0, 0, 0);
-                data.append((char *)&color, 4);
+                data.append(reinterpret_cast<const char *>(&color), 4);
             }
         }
         for (int y=0; y<_image.height(); ++y) {
@@ -139,7 +139,7 @@ bool TexFile::save(QByteArray &data)
         QRgb *pixels = reinterpret_cast<QRgb *>(_image.bits());
         for (int i=0; i<_image.width()*_image.height(); ++i) {
             quint16 color = PsColor::toPsColor(pixels[i]);
-            data.append((char *)&color, 2);
+            data.append(reinterpret_cast<const char *>(&color), 2);
         }
     }
     return true;
