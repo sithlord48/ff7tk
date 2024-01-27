@@ -142,7 +142,7 @@ QIODevice *LgpHeaderEntry::createFile(QIODevice *lgp)
     }
 
     quint32 size;
-    if (lgp->read((char *)&size, 4) != 4) {
+    if (lgp->read(reinterpret_cast<char *>(&size), 4) != 4) {
         return nullptr;
     }
 

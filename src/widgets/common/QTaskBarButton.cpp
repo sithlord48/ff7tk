@@ -21,7 +21,7 @@ QTaskBarButton::QTaskBarButton(QObject *parent)
     CoInitialize(nullptr);
     HRESULT hRes = CoCreateInstance(CLSID_TaskbarList,
                                     nullptr, CLSCTX_INPROC_SERVER,
-                                    IID_ITaskbarList3, (LPVOID*)&pITask);
+                                    IID_ITaskbarList3, reinterpret_cast<LPVOID*>(&pITask));
     if (FAILED(hRes)) {
         pITask = 0;
         CoUninitialize();

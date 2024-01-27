@@ -78,10 +78,10 @@ void WindowBinFile::saveSection(const QByteArray &section, QByteArray &data, qui
     QByteArray compressedData = GZIP::compress(section, 8);
     compressedData[9] = '\x03'; // Force OS = Unix
     quint16 size = compressedData.size();
-    data.append((char *)&size, 2);
+    data.append(reinterpret_cast<const char *>(&size), 2);
     size = section.size();
-    data.append((char *)&size, 2);
-    data.append((char *)&type, 2);
+    data.append(reinterpret_cast<const char *>(&size), 2);
+    data.append(reinterpret_cast<const char *>(&type), 2);
     data.append(compressedData);
 }
 

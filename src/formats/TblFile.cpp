@@ -30,10 +30,10 @@ QByteArray TblFile::save() const
     for (const TblFileEntry &entry : _entries) {
         for (int i = 0; i < 2; ++i) {
             const WorldToField &wm2Field = entry.wm2Field[i];
-            data.append((const char *)&wm2Field.x, 2);
-            data.append((const char *)&wm2Field.y, 2);
-            data.append((const char *)&wm2Field.z, 2);
-            data.append((const char *)&wm2Field.fieldId, 2);
+            data.append(reinterpret_cast<const char *>(&wm2Field.x), 2);
+            data.append(reinterpret_cast<const char *>(&wm2Field.y), 2);
+            data.append(reinterpret_cast<const char *>(&wm2Field.z), 2);
+            data.append(reinterpret_cast<const char *>(&wm2Field.fieldId), 2);
             data.append(char(wm2Field.dir));
             data.append(char(wm2Field.dir)); // padding
             data.append(char(wm2Field.dir)); // padding

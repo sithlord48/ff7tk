@@ -88,7 +88,7 @@ const QByteArray &LZS::decompressAll(const char *data, int fileSize)
 {
     int sizeAlloc = fileSize * 5;
     quint16 curBuff = 4078, offset, firstByte = 0, i, length;
-    const quint8 *fileData = (const quint8 *)data;
+    const quint8 *fileData = reinterpret_cast<const quint8 *>(data);
     const quint8 *endFileData = fileData + fileSize;
 
     // Internal buffer is still allocated using this method instead of clear
@@ -269,7 +269,7 @@ const QByteArray &LZS::compressWithHeader(const char *data, int sizeData)
 {
     compress(data, sizeData);
     qint32 lzsSize = result.size();
-    result.prepend((char *)&lzsSize, 4);
+    result.prepend(reinterpret_cast<const char *>(&lzsSize), 4);
 
     return result;
 }
@@ -376,7 +376,7 @@ const QByteArray &LZS::compress(const char *data, int sizeData)
     } while (len > 0); // until length of string to be processed is zero
 
     if (code_buf_ptr > 1) { // Send remaining code.
-        result.replace(curResult, code_buf_ptr, (char *)code_buf, code_buf_ptr);
+        result.replace(curResult, code_buf_ptr, reinterpret_cast<char *>(code_buf), code_buf_ptr);
         curResult += code_buf_ptr;
     }
     result.truncate(curResult);

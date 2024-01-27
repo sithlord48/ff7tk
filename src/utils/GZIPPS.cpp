@@ -19,7 +19,7 @@ QByteArray GZIPPS::compress(const char *ungzip, int size, const QByteArray &head
     Q_ASSERT(header.size() == 4);
 
     QByteArray ret;
-    ret.append((char *)&size, 4); // = decSize
+    ret.append(reinterpret_cast<const char *>(&size), 4); // = decSize
     ret.append(header);
     return ret.append(GZIP::compress(ungzip, size, level));
 }
