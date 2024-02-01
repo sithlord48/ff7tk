@@ -3,6 +3,17 @@
 
 #pragma once
 
+#ifdef _MSC_VER
+#   define PACK(structure)          \
+    __pragma(pack(push, 1))     \
+    structure                   \
+    __pragma(pack(pop))
+#elif defined(__MINGW32__)
+#define PACK(structure) structure __attribute__ ((gcc_struct, __packed__))
+#else
+#define PACK(structure) structure Q_PACKED
+#endif
+
 #include <QObject>
 #include <QRegularExpression>
 #if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
@@ -36,6 +47,8 @@ public:
         SWITCH  = 7,  //!< Switch Format
         PGE     = 8,  //!< Psx Game Edit Style Single Save
         PDA     = 9,  //!< GS , Dantel Style Save
+        PS4    = 10,  //!< PS4 Save Format
+        PS4BIN = 11   //!< PS4 BIN File (pfsSKKey)
     };
     Q_ENUM(FORMAT)
 
@@ -62,6 +75,21 @@ public:
         SAVESIZE /**< Size of save data 4 bytes match SIZEDISPLAY's value */
     };
     Q_ENUM(PSVINFO)
+
+    /**
+     *  \struct pfsSKKey
+     *  \brief Extra bin file (Sealedkey) used for PS4 format
+     */
+PACK(
+    struct pfsSKKey {
+        quint8 MAGIC[8];   /**< [0x0000] MAGIC (0x08) */
+        quint16 KEYSET;    /**< [0x0008] KEYSET (0x02) */
+        quint8 pad[6];     /**< [0x000A] Padding zeros (0x06) */
+        quint8 IV[16];     /**< [0x0010] AES IV (0x10) */
+        quint8 KEY[32];    /**< [0x0020] AES KEY (0x20) */
+        quint8 SHA256[32]; /**< [0x0040] AES SHA256 (0x20) */
+    }
+);
 
     /**
      * @brief Get the FF7SaveInfo Instance.
@@ -325,6 +353,28 @@ private:
         inline static const int PS_SIGNATURE_SIZE = 0x0014;
         inline static const QByteArray PS_SIGNING_KEY= QByteArray::fromRawData("\xAB\x5A\xBC\x9F\xC1\xF4\x9D\xE6\xA0\x51\xDB\xAE\xFA\x51\x88\x59", 0x10);
         inline static const QByteArray PS_SIGNING_IV= QByteArray::fromRawData("\xB3\x0F\xFE\xED\xB7\xDC\x5E\xB7\x13\x3D\xA6\x0D\x1B\x6B\x2C\xDC", 0x10);
+        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PS4 SAVE INFO~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        static const int PS4_FILE_SIZE = 0xA00000;
+        static const int PS4_FILE_HEADER_SIZE = 0x00AF;
+        inline static const QString PS4_FILE_DESCRIPTION = QT_TR_NOOP("PS4 Save File");
+        inline static const QStringList PS4_VALID_EXTENSIONS { QStringLiteral("*.ff7") };
+        inline static const QRegularExpression PS4_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("save0[0-9].ff7"));
+        inline static const QByteArray PS4_FILE_ID = QByteArray::fromRawData("\x17\x00\x00\x00\x00\x00\x00\x00", 8);
+        inline static const QByteArray PS4_BINFILE_FILE_ID = QByteArray::fromRawData("\x70\x66\x73\x53\x4B\x4B\x65\x79", 8);
+        static const int PS4_BINFILE_FILE_ID_SIZE = 8;
+        static const int PS4_BINFILE_SIZE = 0x60;
+        static const int PS4_BINFILE_IV_OFFSET= 0x10;
+        static const int PS4_BINFILE_IV_SIZE= 0x10;
+        static const int PS4_SEED_OFFSET = 0x0008;
+        static const int PS4_SIGNATURE_OFFSET = 0x001C;
+        static const int PS4_FILE_TYPE_OFFSET = 0x0038;
+        static const int PS4_FILE_DISP_SIZE_OFFSET = 0x0040;
+        static const int PS4_FILE_SIZE_OFFSET = 0x005C;
+        inline static const QByteArray PS4_FILE_HEADER = QByteArray::fromRawData("\x00\x56\x53\x50\x00\x00\x00\x00\x04\xbc\x97\x58\x11\x0f\x7e\x85\xc7\x4f\x2f\xd0\x5a\x28\xb6\x25\xe6\x9a\x6e\xa1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x14\x00\x00\x00\x01\x00\x00\x00\x00\x20\x00\x00\x84\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x20\x00\x00\x03\x90\x00\x00\x42\x41\x53\x43\x55\x53\x2d\x39\x34\x31\x36\x33\x46\x46\x37\x2d\x53\x30\x31\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", PS3_FILE_HEADER_SIZE);
+        /*~~~~~~~ PS4 Signing ~~~~~~~~~~~~~~*/
+        static const int PS4_SIGNATURE_SIZE = 0x0014;
+        inline static const QByteArray PS4_SIGNING_KEY= QByteArray::fromRawData("\xAB\x5A\xBC\x9F\xC1\xF4\x9D\xE6\xA0\x51\xDB\xAE\xFA\x51\x88\x59", 0x10);
+        inline static const QByteArray PS4_SIGNING_IV= QByteArray::fromRawData("\xB3\x0F\xFE\xED\xB7\xDC\x5E\xB7\x13\x3D\xA6\x0D\x1B\x6B\x2C\xDC", 0x10);
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Mem Card Format~~~~~~~~~~~~~~~~~~~*/
         inline static const int VMC_FILE_SIZE = 0x20000;
         inline static const int VMC_FILE_HEADER_SIZE = 0x2000;
