@@ -25,8 +25,10 @@
 FF7Save::FF7Save()
 {
     fileHasChanged = false;
-    for (int i = 0; i < 15; i++)
+    for (int i = 0; i < 15; i++) {
         slotChanged[i] = false;
+        SG_Region_String.append(QString());
+    }
     buffer_slot.checksum = 0x4D1D;
 }
 
@@ -104,9 +106,9 @@ bool FF7Save::loadFile(const QString &fileName)
     if (FF7SaveInfo::isTypePC(fileFormat)) {
         for (int i = 0; i < 15; i++) {
             if (slot[i].checksum != 0x0000 && slot[i].checksum != 0x4D1D)
-                SG_Region_String[i] = QString("BASCUS-94163FF7-S%1").arg(QString::number(i + 1), 2, QChar('0'));
+                SG_Region_String.replace(i, QString("BASCUS-94163FF7-S%1").arg(QString::number(i + 1), 2, QChar('0')));
             else
-                SG_Region_String[i].clear();
+                SG_Region_String.replace(i, QString());
         }
     } else if (FF7SaveInfo::isTypeVMC(fileFormat)) {
         QByteArray mc_header;
@@ -116,21 +118,21 @@ bool FF7Save::loadFile(const QString &fileName)
         for (int i = 0; i < 15; i++) {
             int index = (128 * i) + 138;
             QString temp = QString(mc_header.mid(index, 20));
-            SG_Region_String[i] = (temp != invalidRegion) ? QString(mc_header.mid(index, 20)) : QString();
+            SG_Region_String.replace(i, (temp != invalidRegion) ? QString(mc_header.mid(index, 20)) : QString());
         }
     } else if (FF7SaveInfo::isTypeSSS(fileFormat)) {
         if (fileFormat == FF7SaveInfo::FORMAT::PSX) {
-            SG_Region_String[0] = QFileInfo(file).fileName();
+            SG_Region_String.replace(0, QFileInfo(file).fileName());
         } else {
             file.seek(FF7SaveInfo::psxSaveNameOffset(fileFormat));
-            SG_Region_String[0] = QString(file.read(20));
+            SG_Region_String.replace(0, QString(file.read(20)));
         }
         for (int i = 1; i < 15; i++)
             clearSlot(i);
     } else if (fileFormat == FF7SaveInfo::FORMAT::PDA) {
         file.seek(0);
         QString temp = file.read(20);
-        SG_Region_String[0] = (temp != invalidRegion) ? file.read(20) : QString();
+        SG_Region_String.replace(0, (temp != invalidRegion) ? file.read(20) : QString());
     } else {
         return false;
     }
@@ -315,7 +317,7 @@ bool FF7Save::exportPCFormat(const QString &fileName, FF7SaveInfo::FORMAT export
     FF7HEADFOOT prev_slot_hf[15];
     bool prev_slotChanged[15];
     for(int i =0; i < 15; i++) {
-        prev_regionString[i] = SG_Region_String[i];
+        prev_regionString[i] = SG_Region_String.at(i);
         prev_slots[i] = slot[i];
         prev_slotChanged[i] = slotChanged[i];
         prev_slot_hf[i] = hf[i];
@@ -348,7 +350,7 @@ bool FF7Save::exportPCFormat(const QString &fileName, FF7SaveInfo::FORMAT export
     filename = prev_fileName;
     _fileHeader = prev_fileHeader;
     for(int i =0; i < 15; i++) {
-        SG_Region_String[i] = prev_regionString[i];
+        SG_Region_String.replace(i, prev_regionString[i]);
         slot[i] = prev_slots[i];
         slotChanged[i] = prev_slotChanged[i];
         hf[i] = prev_slot_hf[i];
@@ -369,7 +371,7 @@ bool FF7Save::exportVMCFormat(const QString &fileName, FF7SaveInfo::FORMAT expor
     FF7HEADFOOT prev_slot_hf[15];
     bool prev_slotChanged[15];
     for(int i =0; i < 15; i++) {
-        prev_regionString[i] = SG_Region_String[i];
+        prev_regionString[i] = SG_Region_String.at(i);
         prev_slots[i] = slot[i];
         prev_slotChanged[i] = slotChanged[i];
         prev_slot_hf[i] = hf[i];
@@ -405,7 +407,7 @@ bool FF7Save::exportVMCFormat(const QString &fileName, FF7SaveInfo::FORMAT expor
     filename = prev_fileName;
     _fileHeader = prev_fileHeader;
     for(int i =0; i < 15; i++) {
-        SG_Region_String[i] = prev_regionString[i];
+        SG_Region_String.replace(i, prev_regionString[i]);
         slot[i] = prev_slots[i];
         slotChanged[i] = prev_slotChanged[i];
         if(slotChanged[i])
@@ -556,7 +558,7 @@ void FF7Save::clearSlot(int rmslot)
     setSlotHeader(rmslot, QByteArray(FF7SaveInfo::slotHeaderSize(fileFormat), 0x00));
     setSlotFF7Data(rmslot, QByteArray(FF7SaveInfo::slotSize(), 0x00));
     setSlotFooter(rmslot, QByteArray(FF7SaveInfo::slotFooterSize(fileFormat), 0x00));
-    SG_Region_String[rmslot].clear();
+    SG_Region_String.insert(rmslot, QString());
     if (FF7SaveInfo::isTypeVMC(fileFormat)) {
         //clean the mem card header if needed.
         int index = (128 + (128 * rmslot));
@@ -762,7 +764,7 @@ void FF7Save::fix_psv_header(int s, int blocks)
         fix_psx_header(s);//adjust time.
     QByteArray data = fileHeader();
     data.replace(FF7SaveInfo::psxSaveNameOffset(FF7SaveInfo::FORMAT::PS3), 0x20, QByteArray(0x20, '\x00'));
-    data.replace(FF7SaveInfo::psxSaveNameOffset(FF7SaveInfo::FORMAT::PS3), SG_Region_String[s].size(), SG_Region_String[s].toLatin1());
+    data.replace(FF7SaveInfo::psxSaveNameOffset(FF7SaveInfo::FORMAT::PS3), SG_Region_String.at(s).size(), SG_Region_String.at(s).toLatin1());
     QByteArray bSize(3, '\x00');
     switch((blocks * FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX))) {
         default: bSize.setRawData("\x00\x20\x00", 3); break;
@@ -861,8 +863,9 @@ void FF7Save::setSaveNumber(int s, int saveNum)
 {
     if (!isFF7(s))
         return;
-
-    SG_Region_String[s].replace(SG_Region_String[s].lastIndexOf(QChar('S'))+ 1, 2, QString("%1").arg(QString::number(saveNum + 1), 2, QChar('0')));
+    auto str = SG_Region_String.at(s);
+    str.replace(str.lastIndexOf(QChar('S'))+ 1, 2, QString("%1").arg(QString::number(saveNum + 1), 2, QChar('0')));
+    SG_Region_String.replace(s, str);
 
     switch(format()) {
         default: break;
@@ -878,26 +881,26 @@ void FF7Save::setSaveNumber(int s, int saveNum)
 
 QString FF7Save::region(int s)
 {
-    return SG_Region_String[s];
+   return SG_Region_String.at(s);
 }
 void FF7Save::setRegion(int s, const QString &new_region)
 {
     if ((new_region == "USA") || (new_region == "NTSC-U") || (new_region == "1")) {
-        SG_Region_String[s] = QString("BASCUS-94163FF7-S%1").arg(QString::number(s + 1), 2, QChar('0'));
+        SG_Region_String.replace(s, QString("BASCUS-94163FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
     } else if ((new_region == "UK") || (new_region == "PAL-E") || (new_region == "2")) {
-        SG_Region_String[s] = QString("BESCES-00867FF7-S%1").arg(QString::number(s + 1), 2, QChar('0'));
+        SG_Region_String.replace(s, QString("BESCES-00867FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
     } else if ((new_region == "French") || (new_region == "PAL-FR") || (new_region == "3")) {
-        SG_Region_String[s] = QString("BESCES-00868FF7-S%1").arg(QString::number(s + 1), 2, QChar('0'));
+        SG_Region_String.replace(s, QString("BESCES-00868FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
     } else if ((new_region == "German") || (new_region == "PAL-DE") || (new_region == "4")) {
-        SG_Region_String[s] = QString("BESCES-00869FF7-S%1").arg(QString::number(s + 1), 2, QChar('0'));
+        SG_Region_String.replace(s, QString("BESCES-00869FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
     } else if ((new_region == "Spanish") || (new_region == "PAL-ES") || (new_region == "5")) {
-        SG_Region_String[s] = QString("BESCES-00900FF7-S%1").arg(QString::number(s + 1), 2, QChar('0'));
+        SG_Region_String.replace(s, QString("BESCES-00900FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
     } else if ((new_region == "Japanese") || (new_region == "NTSC-J") || (new_region == "6")) {
-        SG_Region_String[s] = QString("BISLPS-00700FF7-S%1").arg(QString::number(s + 1), 2, QChar('0'));
+        SG_Region_String.replace(s, QString("BISLPS-00700FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
     } else if ((new_region == "International") || (new_region == "NTSC-JI") || (new_region == "7")) {
-        SG_Region_String[s] = QString("BISLPS-01057FF7-S%1").arg(QString::number(s + 1), 2, QChar('0'));
+        SG_Region_String.replace(s, QString("BISLPS-01057FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
     } else {
-        SG_Region_String[s] = new_region;
+        SG_Region_String.replace(s, new_region);
     }
 
     if (FF7SaveInfo::isTypeVMC(fileFormat)) {
@@ -912,14 +915,14 @@ void FF7Save::setRegion(int s, const QString &new_region)
 void FF7Save::copySlot(int s)
 {
     buffer_slot = slot[s];
-    buffer_region = SG_Region_String[s];
+    buffer_region = SG_Region_String.at(s);
 }
 
 void FF7Save::pasteSlot(int s)
 {
     slot[s] = buffer_slot;
-    SG_Region_String[s] = buffer_region;
-    SG_Region_String[s].replace(SG_Region_String[s].lastIndexOf(QChar('S'))+ 1, 2, QString("%1").arg(QString::number(s + 1), 2, QChar('0')));
+    auto newRegion = buffer_region.replace(buffer_region.lastIndexOf(QChar('S'))+ 1, 2, QString("%1").arg(QString::number(s + 1), 2, QChar('0')));
+    SG_Region_String.replace(s, newRegion);
     if (FF7SaveInfo::isTypeVMC(fileFormat)) {
         vmcRegionEval(s);
         fix_vmc_header();
@@ -5682,7 +5685,7 @@ void FF7Save::vmcRegionEval(int s)
             }
         }
     }
-    SG_Region_String[s] = newRegionString;
+    SG_Region_String.replace(s, newRegionString);
 }
 bool FF7Save::subMiniGameVictory(int s)
 {
