@@ -160,6 +160,7 @@ private slots:
 //NON FF7 TESTS
     void test_nonff7();
     void test_non7Export();
+    void test_editN7();
 
 private:
     FF7Save *ff7save = nullptr;

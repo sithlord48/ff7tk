@@ -1679,4 +1679,12 @@ void FF7Save_Test::test_non7Export()
     QVERIFY(ff7save->exportFile(_saveFileNameVMC, FF7SaveInfo::FORMAT::VMC, 0));
 }
 
+void FF7Save_Test::test_editN7()
+{
+    auto data = _non7slotData;
+    data.replace(0x100, 1, QByteArray::fromRawData("\x13", 1));
+    ff7save->setSlotPsxRawData(0, data);
+    QVERIFY(ff7save->exportFile(_saveFileNameVMC, FF7SaveInfo::FORMAT::VMC, 0));
+}
+
 QTEST_MAIN(FF7Save_Test)
