@@ -1652,13 +1652,31 @@ void FF7Save_Test::test_worldCoordsWChoco()
     QCOMPARE(ff7save->worldCoordsWchocoAngle(0), 12);
 }
 
-void FF7Save_Test::text_battleSpecialWins()
+void FF7Save_Test::test_battleSpecialWins()
 {
     QCOMPARE(ff7save->specialBattleWins(0), 16);
     ff7save->setSpecialBattleWins(0, 0xFF);
     QCOMPARE(ff7save->specialBattleWins(0), 0xFF);
     ff7save->setSpecialBattleWins(0, 0);
     QCOMPARE(ff7save->specialBattleWins(0), 0);
+}
+
+void FF7Save_Test::test_nonff7()
+{
+    QFile file("n7.mc");
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.write(_fileData);
+    file.close();
+    ff7save = new FF7Save();
+    QVERIFY(ff7save->loadFile("n7.mc"));
+    QCOMPARE(ff7save->slotPsxRawData(0), _non7slotData);
+    QCOMPARE(ff7save->region(0), _n7region);
+    QCOMPARE(ff7save->format(), FF7SaveInfo::FORMAT::PGE);
+}
+
+void FF7Save_Test::test_non7Export()
+{
+    QVERIFY(ff7save->exportFile(_saveFileNameVMC, FF7SaveInfo::FORMAT::VMC, 0));
 }
 
 QTEST_MAIN(FF7Save_Test)

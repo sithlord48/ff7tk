@@ -385,11 +385,13 @@ bool FF7Save::exportVMCFormat(const QString &fileName, FF7SaveInfo::FORMAT expor
     setFormat(exportFormat);
     if (  prev_format == FF7SaveInfo::FORMAT::VMC
        || prev_format == FF7SaveInfo::FORMAT::PSP
-       || prev_format == FF7SaveInfo::FORMAT::PGE
        || prev_format == FF7SaveInfo::FORMAT::VGS
        || prev_format == FF7SaveInfo::FORMAT::DEX) {
           _fileHeader.replace(FF7SaveInfo::vmcHeaderOffset(exportFormat), FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX)
                               , _bufferFileHeader.mid(FF7SaveInfo::vmcHeaderOffset(prev_format), FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX)));
+    } else if (prev_format == FF7SaveInfo::FORMAT::PGE) {
+          _fileHeader.replace(FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PGE), FF7SaveInfo::fileHeaderSize(prev_format)
+                              , _bufferFileHeader.mid(FF7SaveInfo::vmcHeaderOffset(prev_format), FF7SaveInfo::fileHeaderSize(prev_format)));
     }
 
     if (exportFormat != FF7SaveInfo::FORMAT::PSP) {
