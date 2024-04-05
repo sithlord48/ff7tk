@@ -2097,6 +2097,10 @@ The km/h speeds are calculated while playing </source>
         <source>Wizard Staff</source>
         <translation type="unfinished">ウィザードロッド</translation>
     </message>
+    <message>
+        <source>Played piano during flashback</source>
+        <translation type="unfinished">回想中にピアノを弾いた</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

@@ -2097,6 +2097,10 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <source>Wizard Staff</source>
         <translation type="unfinished">Bâton magicien</translation>
     </message>
+    <message>
+        <source>Played piano during flashback</source>
+        <translation type="unfinished">J&apos;ai joué du piano pendant le flashback</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

@@ -2101,6 +2101,10 @@ Battaglia %1</translation>
         <source>Wizard Staff</source>
         <translation type="unfinished">Asta del mago</translation>
     </message>
+    <message>
+        <source>Played piano during flashback</source>
+        <translation type="unfinished">Suonavo il piano durante il flashback</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

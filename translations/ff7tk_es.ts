@@ -2097,6 +2097,10 @@ Los km/h son calculados mientras se juega </translation>
         <source>Wizard Staff</source>
         <translation type="unfinished">Vara Mágica</translation>
     </message>
+    <message>
+        <source>Played piano during flashback</source>
+        <translation type="unfinished">Tocó el piano durante el flashback</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

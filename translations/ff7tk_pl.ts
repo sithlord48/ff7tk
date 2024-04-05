@@ -2096,6 +2096,10 @@ The km/h speeds are calculated while playing </source>
         <source>Wizard Staff</source>
         <translation>Czarodziejski Personel</translation>
     </message>
+    <message>
+        <source>Played piano during flashback</source>
+        <translation type="unfinished">Grałem na pianinie podczas retrospekcji</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

@@ -2097,6 +2097,10 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Wizard Staff</source>
         <translation type="unfinished">Zauberstab</translation>
     </message>
+    <message>
+        <source>Played piano during flashback</source>
+        <translation type="unfinished">Spielte während der Rückblende Klavier</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

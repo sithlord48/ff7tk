@@ -308,9 +308,9 @@ private:
             , {{quint16(0x0E3D)}, {quint8(1)}, {QStringLiteral("games_2")}, QT_TR_NOOP("Cauldron")}
             , {{quint16(0x0E3D)}, {quint8(2)}, {QStringLiteral("farm")}, QT_TR_NOOP("Chocobo Lure")}
 
-            , {{quint16(0x0EA5)}, {quint8(1)}, {QStringLiteral("niv_ti2")}, QT_TR_NOOP("Final Heaven (+other stuff?)")}
-            //, {{quint16(0x0EA5)}, {quint8(2)}, {QStringLiteral("niv_ti2")}, QT_TR_NOOP("Played piano durring flashback")}
-            , {{quint16(0x0EA5)}, {quint8(4)}, {QStringLiteral("niv_ti2")}, QT_TR_NOOP("Elemental(+other stuff?)")}
+            , {{quint16(0x0EA5)}, {quint8(0)}, {QStringLiteral("niv_ti2")}, QT_TR_NOOP("Final Heaven (+other stuff?)")}
+            , {{quint16(0x0EA5)}, {quint8(1)}, {QStringLiteral("niv_ti2")}, QT_TR_NOOP("Played piano during flashback")}
+            , {{quint16(0x0EA5)}, {quint8(2)}, {QStringLiteral("niv_ti2")}, QT_TR_NOOP("Elemental(+other stuff?)")}
 
             , {{quint16(0x0FA4)}, {quint8(1)}, {QStringLiteral("gaiin_4")}, QT_TR_NOOP("Enhance Sword")}
             , {{quint16(0x0FA4)}, {quint8(2)}, {QStringLiteral("gaiin_5")}, QT_TR_NOOP("Fire Armlet")}

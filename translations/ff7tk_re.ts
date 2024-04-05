@@ -2097,6 +2097,10 @@ The km/h speeds are calculated while playing </translation>
         <source>Wizard Staff</source>
         <translation>Wizard Rod</translation>
     </message>
+    <message>
+        <source>Played piano during flashback</source>
+        <translation>Played piano during flashback</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>
