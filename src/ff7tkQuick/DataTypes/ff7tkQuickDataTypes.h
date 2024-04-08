@@ -37,10 +37,10 @@ struct FF7TKQUICKDATATYPES_EXPORT FF7TextSingleton
 
 struct FF7TKQUICKDATATYPES_EXPORT FF7ItemSingleton
 {
-        Q_GADGET
-        QML_SINGLETON
-        QML_FOREIGN(FF7Item)
-        QML_NAMED_ELEMENT(FF7Item)
+    Q_GADGET
+    QML_SINGLETON
+    QML_FOREIGN(FF7Item)
+    QML_NAMED_ELEMENT(FF7Item)
     public:
         inline static FF7Item *s_singletonInstance = nullptr;
         static FF7Item* create(QQmlEngine *, QJSEngine*) {
@@ -51,10 +51,10 @@ struct FF7TKQUICKDATATYPES_EXPORT FF7ItemSingleton
 
 struct FF7TKQUICKDATATYPES_EXPORT FF7MateriaSingleton
 {
-        Q_GADGET
-        QML_SINGLETON
-        QML_FOREIGN(FF7Materia)
-        QML_NAMED_ELEMENT(FF7Materia)
+    Q_GADGET
+    QML_SINGLETON
+    QML_FOREIGN(FF7Materia)
+    QML_NAMED_ELEMENT(FF7Materia)
     public:
         inline static FF7Materia *s_singletonInstance = nullptr;
         static FF7Materia* create(QQmlEngine *, QJSEngine*) {
