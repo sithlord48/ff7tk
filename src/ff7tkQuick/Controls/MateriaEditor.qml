@@ -189,7 +189,7 @@ Item {
             }
             SpinBox {
                 id: sbAP
-                anchors.top: parent.top; anchors.bottom: parent.bottom
+                anchors.verticalCenter: parent.verticalCenter
                 anchors.left: txtAp.right; anchors.leftMargin: 6
                 visible: root.editable
                 editable: true
