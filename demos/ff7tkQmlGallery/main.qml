@@ -138,7 +138,7 @@ ApplicationWindow {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 color: palette.alternateBase
-                height: 50
+                height: 55
                 id: materiaEditorControls
                 QQC.SpinBox {
                     id: spStarHeight
@@ -148,44 +148,41 @@ ApplicationWindow {
                     value: materiaEditor.starHeight
                     onValueChanged: materiaEditor.starHeight = value
                 }
-                Label {
-                    anchors.top:parent.top
-                    anchors.left: spStarHeight.right
-                    text: "Id: " + materiaEditor.currentId
-                }
-                Label {
-                    anchors.top:parent.top
-                    anchors.right: parent.right
-                    text: "Ap: " + materiaEditor.currentAp
-                }
                 CheckBox {
-                    anchors.left: parent.left
-                    anchors.top: spStarHeight.bottom
-                    anchors.bottom: parent.bottom
+                    anchors.verticalCenter: spStarHeight.verticalCenter
+                    anchors.left: spStarHeight.right
                     text: "Editable"
                     checked: materiaEditor.editable
                     onCheckedChanged: materiaEditor.editable = checked
                 }
                 CheckBox {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.top: spStarHeight.bottom
-                    anchors.bottom: parent.bottom
+                    anchors.verticalCenter: spStarHeight.verticalCenter
                     text: "Show PlaceHolder Materia"
                     checked: materiaEditor.showPlaceHolderMateria
                     onCheckedChanged: materiaEditor.showPlaceHolderMateria = checked
                 }
                 CheckBox {
                     anchors.right: parent.right
-                    anchors.top: spStarHeight.bottom
-                    anchors.bottom: parent.bottom
+                    anchors.verticalCenter: spStarHeight.verticalCenter
                     text: "ShortLayout"
                     checked: materiaEditor.fixedHeightSkills
                     onCheckedChanged: materiaEditor.fixedHeightSkills = checked
                 }
+                Label {
+                    anchors.top:spStarHeight.bottom
+                    anchors.left: parent.left
+                    text: "Id: " + materiaEditor.currentId
+                }
+                Label {
+                    anchors.top:spStarHeight.bottom
+                    anchors.right: parent.right
+                    text: "Ap: " + materiaEditor.currentAp
+                }
             }
             MateriaEditor {
                 id: materiaEditor
-                anchors { fill: parent; topMargin: materiaEditorControls.height + 6; leftMargin: 6; rightMargin: 6 }
+                anchors { fill: parent; topMargin: materiaEditorControls.height + 2; leftMargin: 6; rightMargin: 6 }
             }
         }
     }
