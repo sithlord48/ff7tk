@@ -135,6 +135,11 @@ function(sbom_generate)
         set(SBOM_GENERATE_PROJECT "${PROJECT_NAME}")
     endif()
 
+    string(REGEX MATCH "^Package-" HAS_MATCH ${SBOM_GENERATE_PROJECT})
+    if("${HAS_MATCH}" STREQUAL "")
+        string(PREPEND SBOM_GENERATE_PROJECT "Package-")
+    endif()
+
     if("${SBOM_GENERATE_SUPPLIER}" STREQUAL "")
         set(SBOM_GENERATE_SUPPLIER "${SBOM_SUPPLIER}")
     elseif("${SBOM_SUPPLIER_URL}" STREQUAL "")
