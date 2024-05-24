@@ -137,7 +137,7 @@ jobs:
             brew install doxygen graphviz ninja
         fi
     - name: Install Qt
-      uses: jurplel/install-qt-action@v3.3.0
+      uses: jurplel/install-qt-action@v4
       with:
        dir: ${{matrix.config.QT_INST_DIR}}
        version: ${{ env.QtVersion }}
