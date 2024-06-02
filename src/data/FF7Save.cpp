@@ -52,9 +52,8 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
     if (((FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PS3) - FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PS3)) % FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX) == 0) && (file.peek(25)).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PS3)))
     {
         char psvType = file.peek(0x40).at(FF7SaveInfo::extraPSVOffsets(FF7SaveInfo::PSVINFO::SAVETYPE));
-        if (psvType == 0x14) {
+        if (psvType == 0x14)
             return FF7SaveInfo::FORMAT::PS3;
-        }
         QTextStream(stdout) << tr("Unable to open PSV of Type %2: 0x%1")
                                 .arg(psvType, 2, 16, QChar('0'))
                                 .arg(psvType == 0x14 ? QStringLiteral("PSX")
@@ -162,12 +161,10 @@ QByteArray FF7Save::slotHeader(int s)
 
 bool FF7Save::setSlotHeader(int s, QByteArray data)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if (data.size() != FF7SaveInfo::slotHeaderSize(fileFormat)) {
+    if (data.size() != FF7SaveInfo::slotHeaderSize(fileFormat))
         return false;
-    }
     memcpy(&hf[s].sl_header, data, size_t(FF7SaveInfo::slotHeaderSize(fileFormat)));
     setFileModified(true, s);
     return true;
@@ -180,12 +177,10 @@ QByteArray FF7Save::slotFooter(int s)
 
 bool FF7Save::setSlotFooter(int s, QByteArray data)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if (data.size() != FF7SaveInfo::slotFooterSize(fileFormat)) {
+    if (data.size() != FF7SaveInfo::slotFooterSize(fileFormat))
         return false;
-    }
     memcpy(&hf[s].sl_footer, data, size_t(FF7SaveInfo::slotFooterSize(fileFormat)));
     setFileModified(true, s);
     return true;
@@ -193,12 +188,12 @@ bool FF7Save::setSlotFooter(int s, QByteArray data)
 
 QByteArray FF7Save::slotPsxRawData(int s)
 {
-    if (filename.isEmpty()) {
+    if (filename.isEmpty())
         return QByteArray();
-    }
-    if (FF7SaveInfo::isTypePC(fileFormat)) {
+
+    if (FF7SaveInfo::isTypePC(fileFormat))
         return QByteArray();
-    }
+
     if (FF7SaveInfo::isTypeSSS(fileFormat)) {
         QFile file(fileName());
         if (!file.open(QIODevice::ReadOnly))
@@ -208,6 +203,7 @@ QByteArray FF7Save::slotPsxRawData(int s)
         temp.remove(0, FF7SaveInfo::fileHeaderSize(fileFormat));
         return temp;
     }
+
     QByteArray temp;
     int blocks = psx_block_size(s);
     for (int i = 0; i < blocks; i++) {
@@ -221,7 +217,7 @@ QByteArray FF7Save::slotPsxRawData(int s)
 
 bool FF7Save::setSlotPsxRawData(int s, QByteArray data)
 {
-    if ( s < 0 || s > 14 || data.isEmpty())
+    if ( (s < 0) || (s > 14) || data.isEmpty())
         return false;
 
     int blocks = data.length() / FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX);
@@ -290,19 +286,14 @@ bool FF7Save::exportFile(const QString &fileName, FF7SaveInfo::FORMAT newFormat,
 {
     if (fileName.isEmpty())
         return false;
-
     if (newFormat == fileFormat)
         return saveFile(fileName, s);
-
     if (FF7SaveInfo::isTypePC(newFormat))
         return exportPCFormat(fileName, newFormat);
-
     if (FF7SaveInfo::isTypeVMC(newFormat))
         return exportVMCFormat(fileName, newFormat);
-
     if (FF7SaveInfo::isTypeSSS(newFormat))
         return exportSlot(fileName, newFormat, s);
-
     return false;
 }
 
@@ -310,7 +301,6 @@ bool FF7Save::exportPCFormat(const QString &fileName, FF7SaveInfo::FORMAT export
 {
     if (fileName.isEmpty() || !FF7SaveInfo::isTypePC(exportFormat))
         return false;
-
     if (!FF7SaveInfo::isTypePC(exportFormat))
         return false;
 
@@ -445,7 +435,7 @@ bool FF7Save::exportSlot(const QString &fileName, FF7SaveInfo::FORMAT exportForm
             QString rslot = fileName.mid(fileName.lastIndexOf("533") +3, 3);
             slot = (10 * rslot.mid(0,1).toInt()) + (rslot.mid(2, 1).toInt() -1);
         }
-        if (slot < 0 || slot > 14)
+        if ((slot < 0) || (slot > 14))
             return false;
         setSlotHeader(s, FF7SaveInfo::slotHeader(exportFormat, slot));
         setSlotFooter(s, FF7SaveInfo::slotFooter(exportFormat));
@@ -486,7 +476,7 @@ bool FF7Save::exportSlot(const QString &fileName, FF7SaveInfo::FORMAT exportForm
 
 void FF7Save::importSlot(int s, QString fileName, int fileSlot)
 {
-    if (s < 0 || s > 14 || filename.isEmpty())
+    if ((s < 0) || (s > 14) || filename.isEmpty())
         return;
 
     FF7SaveInfo::FORMAT inType = FF7SaveInfo::FORMAT::UNKNOWN;
@@ -623,22 +613,20 @@ quint16 FF7Save::ff7Checksum(int s)
 
 void FF7Save::setItem(int s, int item_num, quint16 rawitem)
 {
-    if (region(s).contains("SLPS-00700") && (FF7Item::itemQty(rawitem) > 99) && (FF7Item::itemId(rawitem) != 0x1FF)) {
-        rawitem = FF7Item::itemEncode(FF7Item::itemId(rawitem), 99);
-    }
     //Item Qty over 99 on SLPS-00700 Causes an Error Durring Battle and break all items.
     //Above Is to Check for and fix, since im sure no one wants to lose all their items.
+    if (region(s).contains("SLPS-00700") && (FF7Item::itemQty(rawitem) > 99) && (FF7Item::itemId(rawitem) != 0x1FF))
+        rawitem = FF7Item::itemEncode(FF7Item::itemId(rawitem), 99);
     slot[s].items[item_num] = rawitem;
     setFileModified(true, s);
 }
 
 void FF7Save::setItem(int s, int item_num, quint16 new_id, quint8 new_qty)
 {
-    if (region(s).contains("SLPS-00700") && (new_qty > 99) && (new_id != 0x1FF)) {
-        //Item Qty over 99 on SLPS-00700 Causes an Error Durring Battle and break all items!
-        //Check for and fix, No one wants to lose all their items.
+    //Item Qty over 99 on SLPS-00700 Causes an Error Durring Battle and break all items!
+    //Check for and fix, No one wants to lose all their items.
+    if (region(s).contains("SLPS-00700") && (new_qty > 99) && (new_id != 0x1FF))
         new_qty = 99;
-    }
     slot[s].items[item_num] = FF7Item::itemEncode(new_id, new_qty);
     setFileModified(true, s);
 }
@@ -651,9 +639,8 @@ quint16 FF7Save::item(int s, int item_num)
 QList<quint16> FF7Save::items(int s)
 {
     QList<quint16> item_list;
-    for (int i = 0; i < 320; i++) {
+    for (int i = 0; i < 320; i++)
         item_list.append(slot[s].items[i]);
-    }
     return item_list;
 }
 
@@ -661,52 +648,39 @@ void FF7Save::setItems(int s, QList<quint16> items)
 {
     if (region(s).contains("SLPS-00700")) {
         for (int i = 0; i < 320; i++) {
-            if ((FF7Item::itemQty(items.at(i)) > 99) && (FF7Item::itemId(items.at(i)) != 0x1FF)) {
+            if ((FF7Item::itemQty(items.at(i)) > 99) && (FF7Item::itemId(items.at(i)) != 0x1FF))
                 slot[s].items[i] = FF7Item::itemEncode(FF7Item::itemId(items.at(i)), 99);
-            } else {
+            else
                 slot[s].items[i] = items.at(i);
-            }
         }
     } else {
-        for (int i = 0; i < 320; i++) {
+        for (int i = 0; i < 320; i++)
             slot[s].items[i] = items.at(i);
-        }
     }
     setFileModified(true, s);
 }
-
-//quint16 FF7Save::itemId(int s, int item_num)
-//{
-//    return quint16((FF7Item::itemDecode(slot[s].items[item_num])) & 0x1FF);
-//}
-//quint8 FF7Save::itemQty(int s, int item_num)
-//{
-//    return quint8(((FF7Item::itemDecode(slot[s].items[item_num])) & 0xFE00) >> 9);
-//}
 
 void FF7Save::fix_pc_bytemask(int s)
 {
     QByteArray newHeader = FF7SaveInfo::fileHeader(FF7SaveInfo::FORMAT::PC);
     //calc 0x04 of the header (selected slot) no idea why they choose this way to do it but slot15 = 0xC2 , slot 14= 0xb2  and so on till slot2 = 0x01 and slot 01 0x00
     switch (s) {
-    case 0: newHeader.replace(4, 1, QByteArray(1, 0x00)); break;
-    case 1: newHeader.replace(4, 1, QByteArray(1, 0x01)); break;
-    default: newHeader.replace(4, 1, QByteArray(1, char(16 * (s - 2)) + 2)); break;
+        case 0: newHeader.replace(4, 1, QByteArray(1, 0x00)); break;
+        case 1: newHeader.replace(4, 1, QByteArray(1, 0x01)); break;
+        default: newHeader.replace(4, 1, QByteArray(1, char(16 * (s - 2)) + 2)); break;
     }
     //calc 0x05 of the header (slots 1-8 empty?)
     char mask = 0x00;
     for (int i = 0; i < 8; i++) {
-        if (isFF7(i)) {
+        if (isFF7(i))
             mask |= (1 << i);
-        }
     }
     newHeader.replace(5, 1, QByteArray(1, mask));
     mask = 0; // reset for the next byte
     //calc 0x06 of the header (slot 9-15 empty?)
     for (int i = 8; i < 15; i++) {
-        if (isFF7(i)) {
+        if (isFF7(i))
             mask |= (1 << (i - 8));
-        }
     }
     newHeader.replace(6, 1, QByteArray(1, mask));
     _fileHeader = newHeader;
@@ -819,9 +793,8 @@ void FF7Save::fix_vmc_header(void)
     QByteArray mc_header_2 = fileHeader();
     mc_header_2.replace(index, 2, FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::VMC));
     char xor_byte = '\x00';
-    for (int x = index; x < index + 127; x++) {
+    for (int x = index; x < index + 127; x++)
         xor_byte ^= mc_header_2[x];
-    }
     mc_header_2.replace(index + 127, 1, QByteArray(1, char(xor_byte)));
 
     for (int i = 0; i < 15; i++) {
@@ -831,9 +804,8 @@ void FF7Save::fix_vmc_header(void)
             mc_header_2.replace(index, 10, (QByteArray::fromRawData("\x51\x00\x00\x00\x00\x20\x00\x00\xFF\xFF", 10)));
             mc_header_2.replace(index + 10, region(i).length(), region(i).toLatin1());
             xor_byte = 0x00;
-            for (int x = 0; x < 127; x++) {
+            for (int x = 0; x < 127; x++)
                 xor_byte ^= mc_header_2[x + index];
-            }
             index += 127;
             mc_header_2.replace(index, 1, QByteArray(1, char(xor_byte)));
             QString temp = region(i).mid(region(i).lastIndexOf("S") + 1, 2);
@@ -889,28 +861,26 @@ QString FF7Save::region(int s)
 
 void FF7Save::setRegion(int s, const QString &new_region)
 {
-    if ((new_region == "USA") || (new_region == "NTSC-U") || (new_region == "1")) {
+    if ((new_region == "USA") || (new_region == "NTSC-U") || (new_region == "1"))
         SG_Region_String.replace(s, QString("BASCUS-94163FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
-    } else if ((new_region == "UK") || (new_region == "PAL-E") || (new_region == "2")) {
+    else if ((new_region == "UK") || (new_region == "PAL-E") || (new_region == "2"))
         SG_Region_String.replace(s, QString("BESCES-00867FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
-    } else if ((new_region == "French") || (new_region == "PAL-FR") || (new_region == "3")) {
+    else if ((new_region == "French") || (new_region == "PAL-FR") || (new_region == "3"))
         SG_Region_String.replace(s, QString("BESCES-00868FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
-    } else if ((new_region == "German") || (new_region == "PAL-DE") || (new_region == "4")) {
+    else if ((new_region == "German") || (new_region == "PAL-DE") || (new_region == "4"))
         SG_Region_String.replace(s, QString("BESCES-00869FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
-    } else if ((new_region == "Spanish") || (new_region == "PAL-ES") || (new_region == "5")) {
+    else if ((new_region == "Spanish") || (new_region == "PAL-ES") || (new_region == "5"))
         SG_Region_String.replace(s, QString("BESCES-00900FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
-    } else if ((new_region == "Japanese") || (new_region == "NTSC-J") || (new_region == "6")) {
+    else if ((new_region == "Japanese") || (new_region == "NTSC-J") || (new_region == "6"))
         SG_Region_String.replace(s, QString("BISLPS-00700FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
-    } else if ((new_region == "International") || (new_region == "NTSC-JI") || (new_region == "7")) {
+    else if ((new_region == "International") || (new_region == "NTSC-JI") || (new_region == "7"))
         SG_Region_String.replace(s, QString("BISLPS-01057FF7-S%1").arg(QString::number(s + 1), 2, QChar('0')));
-    } else {
+    else
         SG_Region_String.replace(s, new_region);
-    }
 
     if (FF7SaveInfo::isTypeVMC(fileFormat)) {
-        if (isFF7(s)) {
+        if (isFF7(s))
             vmcRegionEval(s);
-        }
         fix_vmc_header();
     }
     setFileModified(true, s);
@@ -970,9 +940,8 @@ void FF7Save::setPsx_block_type(int s, char block_type)
 
 void FF7Save::setPsx_block_next(int s, int next)
 {
-    if (next < 0 || next > 14 || s < 0 || s > 14 || next == s)
+    if ((next < 0) || (next > 14) || (s < 0) || (s > 14) || (next == s))
         return;
-
 
     switch (fileFormat) {
     case FF7SaveInfo::FORMAT::PDA:
@@ -1018,7 +987,7 @@ void FF7Save::setPsx_block_size(int s, int blockSize)
     default: break;
     }
 
-    if (s < 0 || s > 14 || blockSize > 15)
+    if ((s < 0) || (s > 14) || (blockSize > 15))
         return;
 
     quint32 filesize = quint32(blockSize * FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX));
@@ -1262,7 +1231,7 @@ quint8 FF7Save::disc(int s)
 
 void FF7Save::setDisc(int s, int disc)
 {
-    if (disc < 1 || disc > 3) {
+    if ((disc < 1) || (disc > 3)) {
         return;
     }
     slot[s].disc = disc;
@@ -1271,15 +1240,14 @@ void FF7Save::setDisc(int s, int disc)
 
 quint16 FF7Save::mainProgress(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].mprogress);
 }
 
 void FF7Save::setMainProgress(int s, int mProgress)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14)) {
         return;
     }
     mProgress = std::clamp(mProgress, 0, 0xFFFF);
@@ -1314,18 +1282,16 @@ QString FF7Save::charName(int s, int char_num)
 {
     FF7Text::setJapanese(isJPN(s));
     QByteArray text;
-    for (int n = 0; n < 12; n++) {
+    for (int n = 0; n < 12; n++)
         text.append(slot[s].chars[char_num].name[n]);
-    }
     return FF7Text::toPC(text);
 }
 
 void FF7Save::setCharName(int s, int char_num, QString new_name)
 {
     FF7Text::setJapanese(isJPN(s));
-    for (int i = 0; i < 12; i++) {
+    for (int i = 0; i < 12; i++)
         slot[s].chars[char_num].name[i] = 0xFF;
-    }
     QByteArray temp = FF7Text::toFF7(new_name);
     memcpy(slot[s].chars[char_num].name, temp, temp.length());
     setFileModified(true, s);
@@ -1335,18 +1301,16 @@ QString FF7Save::descName(int s)
 {
     FF7Text::setJapanese(isJPN(s));
     QByteArray text;
-    for (int n = 0; n < 16; n++) {
+    for (int n = 0; n < 16; n++)
         text.append(slot[s].desc.name[n]);
-    }
     return FF7Text::toPC(text);
 }
 
 void FF7Save::setDescName(int s, QString new_name)
 {
     FF7Text::setJapanese(isJPN(s));
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 16; i++)
         slot[s].desc.name[i] = 0xFF;
-    }
     QByteArray temp = FF7Text::toFF7(new_name);
     memcpy(slot[s].desc.name, temp, temp.length());
     setFileModified(true, s);
@@ -1356,9 +1320,8 @@ QString FF7Save::descLocation(int s)
 {
     FF7Text::setJapanese(isJPN(s));
     QByteArray text;
-    for (int n = 0; n < 24; n++) {
+    for (int n = 0; n < 24; n++)
         text.append(slot[s].desc.location[n]);
-    }
     return FF7Text::toPC(text);
 }
 
@@ -1476,9 +1439,8 @@ QString FF7Save::location(int s)
 {
     FF7Text::setJapanese(isJPN(s));
     QByteArray text;
-    for (int n = 0; n < 24; n++) {
+    for (int n = 0; n < 24; n++)
         text.append(slot[s].location[n]);
-    }
     return FF7Text::toPC(text);
 }
 
@@ -1548,38 +1510,34 @@ void FF7Save::setMateriaCave(int s, FF7Save::MATERIACAVE cave, bool isEmpty)
 {
     switch (cave) {
     case FF7Save::CAVE_MIME:
-        if (isEmpty) {
+        if (isEmpty)
             slot[s].materiacaves |= (1 << 0);
-        } else {
+        else
             slot[s].materiacaves &= ~(1 << 0);
-        }
         setFileModified(true, s);
         break;
 
     case FF7Save::CAVE_HPMP:
-        if (isEmpty) {
+        if (isEmpty)
             slot[s].materiacaves |= (1 << 1);
-        } else {
+        else
             slot[s].materiacaves &= ~(1 << 1);
-        }
         setFileModified(true, s);
         break;
 
     case FF7Save::CAVE_QUADMAGIC:
-        if (isEmpty) {
+        if (isEmpty)
             slot[s].materiacaves |= (1 << 2);
-        } else {
+        else
             slot[s].materiacaves &= ~(1 << 2);
-        }
         setFileModified(true, s);
         break;
 
     case FF7Save::CAVE_KOTR:
-        if (isEmpty) {
+        if (isEmpty)
             slot[s].materiacaves |= (1 << 3);
-        } else {
+        else
             slot[s].materiacaves &= ~(1 << 3);
-        }
         setFileModified(true, s);
         break;
     }
@@ -1610,9 +1568,8 @@ QString FF7Save::chocoName(int s, int choco_num)
 {
     FF7Text::setJapanese(isJPN(s));
     QByteArray text;
-    for (int n = 0; n < 6; n++) {
+    for (int n = 0; n < 6; n++)
         text.append(slot[s].chocobonames[choco_num][n]);
-    }
     return FF7Text::toPC(text);
 }
 
@@ -1620,9 +1577,8 @@ void FF7Save::setChocoName(int s, int choco_num, QString new_name)
 {
     FF7Text::setJapanese(isJPN(s));
     QByteArray temp = FF7Text::toFF7(new_name);
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++)
         slot[s].chocobonames[choco_num][i] = 0xFF;
-    }
     memcpy(slot[s].chocobonames[choco_num], temp, size_t(temp.length()));
     setFileModified(true, s);
 }
@@ -2118,15 +2074,12 @@ qint32 FF7Save::charMateriaAp(int s, int who, int mat_num)
 
 FF7CHOCOBO FF7Save::chocobo(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot];
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return slot[s].choco56[0];
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return slot[s].choco56[1];
-    }
     FF7CHOCOBO bob;
     QByteArray temp;
     temp.fill(0, 16);
@@ -2141,169 +2094,133 @@ quint16 FF7Save::chocoStamina(int s, int chocoSlot)
 
 quint16 FF7Save::chocoSpeed(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return qFromLittleEndian(slot[s].chocobos[chocoSlot].speed);
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return qFromLittleEndian(slot[s].choco56[0].speed);
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return qFromLittleEndian(slot[s].choco56[1].speed);
-    }
     return 0;
 }
 
 quint16 FF7Save::chocoMaxSpeed(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return qFromLittleEndian(slot[s].chocobos[chocoSlot].maxspeed);
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return qFromLittleEndian(slot[s].choco56[0].maxspeed);
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return qFromLittleEndian(slot[s].choco56[1].maxspeed);
-    }
     return 0;
 }
 
 quint16 FF7Save::chocoSprintSpeed(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return qFromLittleEndian(slot[s].chocobos[chocoSlot].sprintspd);
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return qFromLittleEndian(slot[s].choco56[0].sprintspd);
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return qFromLittleEndian(slot[s].choco56[1].sprintspd);
-    }
     return 0;
 }
 
 quint16 FF7Save::chocoMaxSprintSpeed(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return qFromLittleEndian(slot[s].chocobos[chocoSlot].maxsprintspd);
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return qFromLittleEndian(slot[s].choco56[0].maxsprintspd);
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return qFromLittleEndian(slot[s].choco56[1].maxsprintspd);
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoSex(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].sex;
-    }
-    if (chocoSlot == 4) {
+    else if (chocoSlot == 4)
         return slot[s].choco56[0].sex;
-    }
-    if (chocoSlot == 5) {
+    else if (chocoSlot == 5)
         return slot[s].choco56[1].sex;
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoType(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].type;
-    }
-    if (chocoSlot == 4) {
+    else if (chocoSlot == 4)
         return slot[s].choco56[0].type;
-    }
-    if (chocoSlot == 5) {
+    else if (chocoSlot == 5)
         return slot[s].choco56[1].type;
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoCoop(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].coop;
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return slot[s].choco56[0].coop;
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return slot[s].choco56[1].coop;
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoAccel(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].accel;
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return slot[s].choco56[0].accel;
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return slot[s].choco56[1].accel;
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoIntelligence(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].intelligence;
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return slot[s].choco56[0].intelligence;
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return slot[s].choco56[1].intelligence;
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoRaceswon(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].raceswon;
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return slot[s].choco56[0].raceswon;
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return slot[s].choco56[1].raceswon;
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoPCount(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].pcount;
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return slot[s].choco56[0].pcount;
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return slot[s].choco56[1].pcount;
-    }
     return 0;
 }
 
 quint8 FF7Save::chocoPersonality(int s, int chocoSlot)
 {
-    if (chocoSlot > -1 && chocoSlot < 4) {
+    if (chocoSlot > -1 && chocoSlot < 4)
         return slot[s].chocobos[chocoSlot].personality;
-    }
-    if (chocoSlot == 4) {
+    if (chocoSlot == 4)
         return slot[s].choco56[0].personality;
-    }
-    if (chocoSlot == 5) {
+    if (chocoSlot == 5)
         return slot[s].choco56[1].personality;
-    }
     return 0;
 }
 
@@ -2492,11 +2409,10 @@ void FF7Save::setChocoPersonality(int s, int chocoSlot, quint8 value)
 
 void FF7Save::setChocoCantMate(int s, int chocoSlot, bool cantMate)
 {
-    if (cantMate) {
+    if (cantMate)
         slot[s].chocomated |= (1 << chocoSlot);
-    } else {
+    else
         slot[s].chocomated &= ~(1 << chocoSlot);
-    }
     setFileModified(true, s);
 }
 
@@ -2561,10 +2477,10 @@ quint8 FF7Save::party(int s, int pos)
 
 void FF7Save::setParty(int s, int pos, int new_id)
 {
-    if (s < 0 || s > 14)
+    if ((s < 0) || (s > 14))
         return;
 
-    if (pos <0 || pos > 2)
+    if ((pos < 0) || (pos > 2))
         return;
 
     if(!FF7Char::validID(new_id))
@@ -2673,12 +2589,10 @@ quint16 FF7Save::battlePoints(int s)
 void FF7Save::setBattlePoints(int s, quint16 bp)
 {
     bp = qToLittleEndian(bp);
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (slot[s].battlepoints == bp) {
+    if (slot[s].battlepoints == bp)
         return;
-    }
     slot[s].battlepoints = bp;
     setFileModified(true, s);
 }
@@ -2743,15 +2657,14 @@ QVector< SubContainer > FF7Save::parseXML(const QString &fileName, const QString
             QDomElement peData = pEntries.toElement();
             vector[ii][iii] = peData.text();
             if (el.attribute("block") == number) {
-                if (iii == 15) {
+                if (iii == 15)
                     vector[ii][iii] = Md5;
-                } else if (isSlotModified(iii)) {
+                else if (isSlotModified(iii))
                     vector[ii][iii] = timestamp;   //We check the slot mod tracker to make the time update on all modified slots
-                } else if (region(iii).isEmpty()) {
+                else if (region(iii).isEmpty())
                     vector[ii][iii] = "";   //Clear timestamp for empty slot
-                } else if (vector[ii][iii] == "") {
+                else if (vector[ii][iii] == "")
                     vector[ii][iii] = timestamp;   //Write the stamp (if no stamp is present and the slot isn't empty)
-                }
             }
             pEntries = pEntries.nextSibling();
             iii++;
@@ -2767,23 +2680,21 @@ QVector< SubContainer > FF7Save::createMetadata(const QString &fileName, const Q
 
     QString timestamp = filetimestamp(fileName);
     QString number = fileblock(fileName);//Get file block number
-    if (number == "-1") {
+    if (number == "-1")
         return vector;
-    }
     //Do foreach block
     for (int i = 0; i < 10; i++) {
         //if i is the current number then do each slot and md5
         if (i == number.toInt()) {
             for (int j = 0; j < 16; j++) {
-                if (j == 15) {
+                if (j == 15)
                     vector[i][j] = Md5;
-                } else if (isSlotModified(j)) {
+                else if (isSlotModified(j))
                     vector[i][j] = timestamp;   //We check the slot mod tracker to make the time update on all modified slots
-                } else if (region(j).isEmpty()) {
+                else if (region(j).isEmpty())
                     vector[i][j] = "";   //Clear timestamp for empty slot
-                } else if (vector[i][j] == "") {
+                else if (vector[i][j] == "")
                     vector[i][j] = timestamp;   //Write the stamp (if no stamp is present and the slot isn't empty)
-                }
             }
         }
     }
@@ -2898,9 +2809,8 @@ QString FF7Save::fileblock(const QString &fileName)
     number.chop(4);
     bool isNumber = false;
     number = QString::number(number.toInt(&isNumber));
-    if (isNumber) {
+    if (isNumber)
         return number;
-    }
     return "-1";   //fail if not a number.
 }
 
@@ -2916,14 +2826,14 @@ QString FF7Save::filetimestamp(QString fileName)
 
 QByteArray FF7Save::slotFF7Data(int s)
 {
-    if (s < 0 || s > 14)
+    if ((s < 0) || (s > 14))
         return QByteArray(0x00);
     return slot[s].toByteArray();
 }
 
 bool FF7Save::setSlotFF7Data(int s, QByteArray data)
 {
-    if (s < 0 || s > 14)
+    if ((s < 0) || (s > 14))
         return false;
     slot[s] = FF7SLOT::fromByteArray(data);
     setFileModified(true, s);
@@ -2932,7 +2842,7 @@ bool FF7Save::setSlotFF7Data(int s, QByteArray data)
 
 bool FF7Save::setSlotFF7Data(int s, const FF7SLOT &data)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14)) {
         return false;
     }
     slot[s] = data;
@@ -2942,44 +2852,35 @@ bool FF7Save::setSlotFF7Data(int s, const FF7SLOT &data)
 
 bool FF7Save::turtleParadiseFlyerSeen(int s, int flyer)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14) || (flyer < 0) || (flyer > 7))
         return false;
-    }
-    if (flyer < 0 || flyer > 7) {
-        return false;
-    }
     return ((slot[s].turtleflyers) & (1 << flyer));
 }
 
 quint8 FF7Save::turtleParadiseFlyersSeen(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].turtleflyers;
 }
 
 void FF7Save::setTurtleParadiseFlyerSeen(int s, int flyer, bool seen)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (flyer < 0 || flyer > 7) {
+    if ((flyer < 0) || (flyer > 7))
         return;
-    }
-    if (seen) {
+    if (seen)
         slot[s].turtleflyers |= (1 << flyer);
-    } else {
+    else
         slot[s].turtleflyers &= ~(1 << flyer);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setTurtleParadiseFlyersSeen(int s, quint8 flyersSeen)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     slot[s].turtleflyers = flyersSeen;
     setFileModified(true, s);
 }
@@ -2987,58 +2888,49 @@ void FF7Save::setTurtleParadiseFlyersSeen(int s, quint8 flyersSeen)
 bool FF7Save::itemMask1(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].itemsmask_1) & (1 << bit));
 }
 
 void FF7Save::setItemMask1(int s, int bit, bool pickedUp)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return;
-    }
-    if (pickedUp) {
+    if (pickedUp)
         slot[s].itemsmask_1 |= (1 << bit);
-    } else {
+    else
         slot[s].itemsmask_1 &= ~(1 << bit);
-    }
     setFileModified(true, s);
 }
 
 bool FF7Save::bmProgress1(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].bm_progress1) & (1 << bit));
 }
 
 void FF7Save::setBmProgress1(int s, int bit, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return;
-    }
-    if (isTrue) {
+    if (isTrue)
         slot[s].bm_progress1 |= (1 << bit);
-    } else {
+    else
         slot[s].bm_progress1 &= ~(1 << bit);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setBmProgress1(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     value = std::clamp(value, 0, 0xFF);
     if (value != slot[s].bm_progress1) {
         slot[s].bm_progress1 = value;
@@ -3049,33 +2941,29 @@ void FF7Save::setBmProgress1(int s, int value)
 bool FF7Save::bmProgress2(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].bm_progress2) & (1 << bit));
 }
 
 void FF7Save::setBmProgress2(int s, int bit, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return;
-    }
-    if (isTrue) {
+
+    if (isTrue)
         slot[s].bm_progress2 |= (1 << bit);
-    } else {
+    else
         slot[s].bm_progress2 &= ~(1 << bit);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setBmProgress2(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     value = std::clamp(value, 0, 0xFF);
     if (value != slot[s].bm_progress3) {
         slot[s].bm_progress2 = value;
@@ -3086,33 +2974,26 @@ void FF7Save::setBmProgress2(int s, int value)
 bool FF7Save::bmProgress3(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].bm_progress3) & (1 << bit));
 }
 
 void FF7Save::setBmProgress3(int s, int bit, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14) || (bit < 0) || (bit > 7))
         return;
-    }
-    if (bit < 0 || bit > 7) {
-        return;
-    }
-    if (isTrue) {
+    if (isTrue)
         slot[s].bm_progress3 |= (1 << bit);
-    } else {
+    else
         slot[s].bm_progress3 &= ~(1 << bit);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setBmProgress3(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     value = std::clamp(value, 0, 0xFF);
     if (value != slot[s].bm_progress3) {
         slot[s].bm_progress3 = value;
@@ -3123,33 +3004,29 @@ void FF7Save::setBmProgress3(int s, int value)
 bool FF7Save::midgarTrainFlags(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].midgartrainflags) & (1 << bit));
 }
 
 void FF7Save::setMidgarTrainFlags(int s, int bit, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return;
-    }
-    if (isTrue) {
+
+    if (isTrue)
         slot[s].midgartrainflags |= (1 << bit);
-    } else {
+    else
         slot[s].midgartrainflags &= ~(1 << bit);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setMidgarTrainFlags(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     value = std::clamp(value, 0, 0xFF);
     if (value != slot[s].midgartrainflags) {
         slot[s].midgartrainflags = value;
@@ -3159,9 +3036,8 @@ void FF7Save::setMidgarTrainFlags(int s, int value)
 
 QByteArray FF7Save::keyItems(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return QByteArray("\x00");
-    }
     QByteArray temp;
     temp.setRawData(reinterpret_cast<char *>(&slot[s].keyitems), sizeof(slot[s].keyitems));
     return temp;
@@ -3169,36 +3045,30 @@ QByteArray FF7Save::keyItems(int s)
 
 bool FF7Save::keyItem(int s, int keyItem)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if (keyItem < 0 || keyItem > 51) {
+    if ((keyItem < 0) || (keyItem > 51))
         return false;
-    }
     return ((slot[s].keyitems[keyItem / 8]) & (1 << (keyItem % 8)));
 }
 
 void FF7Save::setKeyItem(int s, int keyItem, bool pickedUp)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return ;
-    }
-    if (keyItem < 0 || keyItem > 51) {
+    if ((keyItem < 0) || (keyItem > 51))
         return;
-    }
-    if (pickedUp) {
+    if (pickedUp)
         slot[s].keyitems[keyItem / 8] |= (1 << (keyItem % 8));
-    } else {
+    else
         slot[s].keyitems[keyItem / 8] &= ~(1 << (keyItem % 8));
-    }
     setFileModified(true, s);
 }
 
 bool FF7Save::setKeyItems(int s, QByteArray data)
 {
-    if (data.size() != sizeof(slot[s].keyitems)) {
+    if (data.size() != sizeof(slot[s].keyitems))
         return false;
-    }
     memcpy(&slot[s].keyitems, data, sizeof(slot[s].keyitems));
     setFileModified(true, s);
     return true;
@@ -3206,9 +3076,9 @@ bool FF7Save::setKeyItems(int s, QByteArray data)
 
 QByteArray FF7Save::unknown(int s, int z)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return QByteArray(0x00);
-    }
+
     QByteArray temp;
     switch (z) {
     case 1: temp.setRawData(reinterpret_cast<char *>(&slot[s].z_1), sizeof(slot[s].z_1)); break;
@@ -3266,9 +3136,9 @@ QByteArray FF7Save::unknown(int s, int z)
 
 bool FF7Save::setUnknown(int s, int z, QByteArray data)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
+
     bool result;
     switch (z) {
     case 1:
@@ -3729,11 +3599,10 @@ void FF7Save::setSoundMode(int s, int mode)
 void FF7Save::setSoundMode(int s, bool mode)
 {
     if (!(mode && soundMode(s))) {
-        if (mode) {
+        if (mode)
             slot[s].options |= (1 << 0);
-        } else {
+        else
             slot[s].options &= ~(1 << 0);
-        }
         setFileModified(true, s);
     }
 }
@@ -3758,11 +3627,10 @@ void FF7Save::setControlMode(int s, int mode)
 void FF7Save::setControlMode(int s, bool mode)
 {
     if (!(mode && controlMode(s))) {
-        if (mode) {
+        if (mode)
             slot[s].options |= (1 << 2);
-        } else {
+        else
             slot[s].options &= ~(1 << 2);
-        }
         setFileModified(true, s);
     }
 }
@@ -3787,23 +3655,20 @@ void FF7Save::setCursorMode(int s, int mode)
 void FF7Save::setCursorMode(int s,  bool mode)
 {
     if (mode != cursorMode(s)) {
-        if (mode) {
+        if (mode)
             slot[s].options |= (1 << 4);
-        } else {
+        else
             slot[s].options &= ~(1 << 4);
-        }
         setFileModified(true, s);
     }
 }
 
 int FF7Save::atbMode(int s)
 {
-    if ((slot[s].options & (1 << 6))) {
+    if ((slot[s].options & (1 << 6)))
         return 1;
-    }
-    if ((slot[s].options & (1 << 7))) {
+    if ((slot[s].options & (1 << 7)))
         return 2;
-    }
     return 0;
 }
 
@@ -3839,32 +3704,26 @@ void FF7Save::setCameraMode(int s, int mode)
 void FF7Save::setCameraMode(int s, bool mode)
 {
     if (!(mode && cameraMode(s))) {
-        if (mode) {
+        if (mode)
             slot[s].options |= (1 << 8);
-        } else {
+        else
             slot[s].options &= ~(1 << 8);
-        }
         setFileModified(true, s);
     }
 }
 
 int FF7Save::magicOrder(int s)
 {
-    if ((slot[s].options & (1 << 10)) && (slot[s].options & (1 << 11))) {
+    if ((slot[s].options & (1 << 10)) && (slot[s].options & (1 << 11)))
         return 3;
-    }
-    if ((slot[s].options & (1 << 10)) && (slot[s].options & (1 << 12))) {
+    if ((slot[s].options & (1 << 10)) && (slot[s].options & (1 << 12)))
         return 5;
-    }
-    if (slot[s].options & (1 << 10)) {
+    if (slot[s].options & (1 << 10))
         return 1;
-    }
-    if ((slot[s].options & (1 << 11))) {
+    if ((slot[s].options & (1 << 11)))
         return 2;
-    }
-    if ((slot[s].options & (1 << 12))) {
+    if ((slot[s].options & (1 << 12)))
         return 4;
-    }
     return 0;
 }
 
@@ -3891,11 +3750,10 @@ bool FF7Save::battleHelp(int s)
 void FF7Save::setBattleHelp(int s, bool shown)
 {
     if (!(shown && battleHelp(s))) {
-        if (shown) {
+        if (shown)
             slot[s].options |= (1 << 14);
-        } else {
+        else
             slot[s].options &= ~(1 << 14);
-        }
         setFileModified(true, s);
     }
 }
@@ -3950,11 +3808,10 @@ bool FF7Save::fieldHelp(int s)
 void FF7Save::setFieldHelp(int s, bool shown)
 {
     if (!(shown && fieldHelp(s))) {
-        if (shown) {
+        if (shown)
             slot[s].field_help |= (1 << 0);
-        } else {
+        else
             slot[s].field_help &= ~(1 << 0);
-        }
         setFileModified(true, s);
     }
 }
@@ -3967,25 +3824,24 @@ bool FF7Save::battleTargets(int s)
 void FF7Save::setBattleTargets(int s, bool shown)
 {
     if (!(shown && battleTargets(s))) {
-        if (shown) {
+        if (shown)
             slot[s].tut_sub |= (1 << 6);
-        } else {
+        else
             slot[s].tut_sub &= ~(1 << 6);
-        }
         setFileModified(true, s);
     }
 }
 
 quint8 FF7Save::specialBattleWins(int s)
 {
-    if (s < 0 || s > 14)
+    if ((s < 0) || (s > 14))
         return 0;
     return slot[s].battleArenaSpecialWins;
 }
 
 void FF7Save::setSpecialBattleWins(int s, int wins)
 {
-    if (s < 0 || s > 14)
+    if ((s < 0) || (s > 14))
         return;
     slot[s].battleArenaSpecialWins = wins;
 }
@@ -4007,9 +3863,8 @@ void FF7Save::setOptions(int s, int opt)
 QByteArray FF7Save::controllerMapping(int s)
 {
     QByteArray temp;
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 16; i++)
         temp.append(slot[s].controller_map[i]);
-    }
     return temp;
 }
 
@@ -4020,9 +3875,9 @@ quint8 FF7Save::controllerMapping(int s, int action)
 
 void FF7Save::setControllerMapping(int s, QByteArray map)
 {
-    if (map.length() > 16) {
+    if (map.length() > 16)
         map.chop(16);
-    }
+
     if (map != controllerMapping(s)) {
         memcpy(&slot[s].controller_map, map, 16);
         setFileModified(true, s);
@@ -4031,9 +3886,8 @@ void FF7Save::setControllerMapping(int s, QByteArray map)
 
 void FF7Save::setControllerMapping(int s, int action,  int button)
 {
-    if (button < 0 || button > 15) {
+    if ((button < 0) || (button > 15))
         return;
-    }
     if (slot[s].controller_map[action] != button) {
         slot[s].controller_map[action] = button;
         setFileModified(true, s);
@@ -4042,36 +3896,26 @@ void FF7Save::setControllerMapping(int s, int action,  int button)
 
 bool FF7Save::phsVisible(int s, int who)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14) || (who < 0) || (who > 8))
         return false;
-    }
-    if (who < 0 || who > 8) {
-        return false;
-    }
     return ((slot[s].phsvisible) & (1 << who));
 }
 
 void FF7Save::setPhsVisible(int s, int who, bool checked)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14) || (who < 0) || (who > 8))
         return;
-    }
-    if (who < 0 || who > 8) {
-        return;
-    }
-    if (checked) {
+    if (checked)
         slot[s].phsvisible |= (1 << who);
-    } else {
+    else
         slot[s].phsvisible &= ~(1 << who);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setPhsVisible(int s, quint16 phs_visible)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     if (phs_visible != slot[s].phsvisible) {
         phs_visible = qToLittleEndian(phs_visible);
         slot[s].phsvisible = phs_visible;
@@ -4081,52 +3925,45 @@ void FF7Save::setPhsVisible(int s, quint16 phs_visible)
 
 quint16 FF7Save::phsVisible(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].phsvisible);
 }
 
 bool FF7Save::phsAllowed(int s, int who)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if (who < 0 || who > 8) {
+    if ((who < 0) || (who > 8))
         return false;
-    }
     return ((slot[s].phsallowed) & (1 << who));
 }
 
 quint16 FF7Save::phsAllowed(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].phsallowed);
 }
 
 void FF7Save::setPhsAllowed(int s, int who, bool checked)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (who < 0 || who > 8) {
+    if ((who < 0) || (who > 8))
         return;
-    }
-    if (checked) {
+    if (checked)
         slot[s].phsallowed |= (1 << who);
-    } else {
+    else
         slot[s].phsallowed &= ~(1 << who);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setPhsAllowed(int s, quint16 phs_visible)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     if (phs_visible != slot[s].phsallowed) {
         phs_visible = qToLittleEndian(phs_visible);
         slot[s].phsallowed = phs_visible;
@@ -4136,35 +3973,31 @@ void FF7Save::setPhsAllowed(int s, quint16 phs_visible)
 
 bool FF7Save::menuVisible(int s, int index)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if (index < 0 || index > 9) {
+    if ((index < 0) || (index > 9))
         return false;
-    }
     return ((slot[s].menu_visible) & (1 << index));
 }
 
 void FF7Save::setMenuVisible(int s, int index, bool checked)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    } else if (index < 0 || index > 9) {
+    if ((index < 0) || (index > 9))
         return;
-    }
-    if (checked) {
+    if (checked)
         slot[s].menu_visible |= (1 << index);
-    } else {
+    else
         slot[s].menu_visible &= ~(1 << index);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setMenuVisible(int s, quint16 menu_visible)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     if (menu_visible != slot[s].menu_visible) {
         menu_visible = qToLittleEndian(menu_visible);
         slot[s].menu_visible = menu_visible;
@@ -4174,44 +4007,38 @@ void FF7Save::setMenuVisible(int s, quint16 menu_visible)
 
 quint16 FF7Save::menuVisible(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].menu_visible);
 }
 
 bool FF7Save::menuLocked(int s, int index)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if (index < 0 || index > 9) {
+    if ((index < 0) || (index > 9))
         return false;
-    }
     return ((slot[s].menu_locked) & (1 << index));
 }
 
 void FF7Save::setMenuLocked(int s, int index, bool checked)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (index < 0 || index > 9) {
+    if ((index < 0) || (index > 9))
         return;
-    }
-    if (checked) {
+    if (checked)
         slot[s].menu_locked |= (1 << index);
-    } else {
+    else
         slot[s].menu_locked &= ~(1 << index);
-    }
     setFileModified(true, s);
 }
 
 void FF7Save::setMenuLocked(int s, quint16 menu_locked)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     if (menu_locked != slot[s].menu_locked) {
         menu_locked = qToLittleEndian(menu_locked);
         slot[s].menu_locked = menu_locked;
@@ -4221,28 +4048,24 @@ void FF7Save::setMenuLocked(int s, quint16 menu_locked)
 
 quint16 FF7Save::menuLocked(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].menu_locked);
 }
 
 quint16 FF7Save::locationId(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].locationid);
 }
 
 void FF7Save::setLocationId(int s, quint16 locationID)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (locationID == locationId(s)) {
+    if (locationID == locationId(s))
         return;
-    }
     locationID = qToLittleEndian(locationID);
     slot[s].locationid = locationID;
     setFileModified(true, s);
@@ -4250,20 +4073,17 @@ void FF7Save::setLocationId(int s, quint16 locationID)
 
 quint16 FF7Save::mapId(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].mapid);
 }
 
 void FF7Save::setMapId(int s, quint16 mapID)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (mapID == mapId(s)) {
+    if (mapID == mapId(s))
         return;
-    }
     mapID = qToLittleEndian(mapID);
     slot[s].mapid = mapID;
     setFileModified(true, s);
@@ -4271,20 +4091,17 @@ void FF7Save::setMapId(int s, quint16 mapID)
 
 qint16 FF7Save::locationX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].coord.x);
 }
 
 void FF7Save::setLocationX(int s, qint16 x)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (x == locationX(s)) {
+    if (x == locationX(s))
         return;
-    }
     x = qToLittleEndian(x);
     slot[s].coord.x = x;
     setFileModified(true, s);
@@ -4292,20 +4109,17 @@ void FF7Save::setLocationX(int s, qint16 x)
 
 qint16 FF7Save::locationY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].coord.y);
 }
 
 void FF7Save::setLocationY(int s, qint16 y)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (y == locationY(s)) {
+    if (y == locationY(s))
         return;
-    }
     y = qToLittleEndian(y);
     slot[s].coord.y = y;
     setFileModified(true, s);
@@ -4313,20 +4127,17 @@ void FF7Save::setLocationY(int s, qint16 y)
 
 quint16 FF7Save::locationT(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].coord.t);
 }
 
 void FF7Save::setLocationT(int s, quint16 t)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (t == locationT(s)) {
+    if (t == locationT(s))
         return;
-    }
     t = qToLittleEndian(t);
     slot[s].coord.t = t;
     setFileModified(true, s);
@@ -4334,20 +4145,17 @@ void FF7Save::setLocationT(int s, quint16 t)
 
 quint8 FF7Save::locationD(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].coord.d);
 }
 
 void FF7Save::setLocationD(int s, quint8 d)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (d == locationD(s)) {
+    if (d == locationD(s))
         return;
-    }
     d = qToLittleEndian(d);
     slot[s].coord.d = d;
     setFileModified(true, s);
@@ -4355,17 +4163,15 @@ void FF7Save::setLocationD(int s, quint8 d)
 
 quint16 FF7Save::condorFunds(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].condorfunds);
 }
 
 void FF7Save::setCondorFunds(int s, quint16 value)
 {
-    if (value == condorFunds(s)) {
+    if (value == condorFunds(s))
         return;
-    }
     value = qToLittleEndian(value);
     slot[s].condorfunds = value;
     setFileModified(true, s);
@@ -4373,9 +4179,8 @@ void FF7Save::setCondorFunds(int s, quint16 value)
 
 quint8 FF7Save::condorWins(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return  slot[s].condorwins;
 }
 
@@ -4390,17 +4195,15 @@ void FF7Save::setCondorWins(int s, quint8 wins)
 
 quint8 FF7Save::condorLosses(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return  slot[s].condorlosses;
 }
 
 void FF7Save::setCondorLosses(int s, quint8 losses)
 {
-    if (losses == condorLosses(s)) {
+    if (losses == condorLosses(s))
         return;
-    }
     slot[s].condorlosses = losses;
     setFileModified(true, s);
 }
@@ -4408,92 +4211,80 @@ void FF7Save::setCondorLosses(int s, quint8 losses)
 QList<FF7CHOCOBO> FF7Save::chocobos(int s)
 {
     QList<FF7CHOCOBO> chocos;
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++)
         chocos.append(chocobo(s, i));
-    }
     return chocos;
 }
 
 QList<quint16> FF7Save::chocobosStaminas(int s)
 {
     QList<quint16> stamina;
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++)
         stamina.append(this->chocoStamina(s, i));
-    }
     return stamina;
 }
 
 QList<QString> FF7Save::chocobosNames(int s)
 {
     QList<QString> names;
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++)
         names.append(chocoName(s, i));
-    }
     return names;
 }
 
 QList<bool> FF7Save::chocoboCantMates(int s)
 {
     QList<bool> mates;
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++)
         mates.append(chocoCantMate(s, i));
-    }
     return mates;
 }
 
 qint8 FF7Save::stablesOwned(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].stables;
 }
 
 void FF7Save::setStablesOwned(int s, qint8 value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (value < 0 || value > 6) {
+    if ((value < 0) || (value > 6))
         return;
-    }
     slot[s].stables = value;
     setFileModified(true, s);
 }
 
 qint8 FF7Save::stablesOccupied(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].stablesoccupied;
 }
 
 void FF7Save::setStablesOccupied(int s, qint8 value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (value < 0 || value > 6) {
+    if ((value < 0) || (value > 6))
         return;
-    }
     slot[s].stablesoccupied = value;
     setFileModified(true, s);
 }
 
 qint8 FF7Save::stableMask(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].chocobomask;
 }
 
 void FF7Save::setStableMask(int s, qint8 value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     slot[s].chocobomask = value;
     setFileModified(true, s);
 }
@@ -4501,41 +4292,36 @@ void FF7Save::setStableMask(int s, qint8 value)
 QList<qint8> FF7Save::chocoboPens(int s)
 {
     QList<qint8> pens;
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++)
         pens.append(slot[s].pennedchocos[i]);
-    }
     return pens;
 }
 
 qint8 FF7Save::chocoboPen(int s, int pen)
 {
-    if (s < 0 || s > 14 || pen < 0 || pen > 3) {
+    if ((s < 0) || (s > 14) || (pen < 0) || (pen > 3))
         return 0;
-    }
     return slot[s].pennedchocos[pen];
 }
 
 void FF7Save::setChocoboPen(int s, int pen, int value)
 {
-    if (s < 0 || s > 14 || pen < 0 || pen > 3 || value < 0 || value > 8) {
+    if ((s < 0) || (s > 14) || (pen < 0) || (pen > 3) || (value < 0) || (value > 8))
         return;
-    }
     slot[s].pennedchocos[pen] = value; setFileModified(true, s);
 }
 
 quint32 FF7Save::countdownTimer(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return quint32(slot[s].timer[0] | (slot[s].timer[1] << 8) | (slot[s].timer[2] << 16));
 }
 
 void FF7Save::setCountdownTimer(int s, quint32 time)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     time = qToLittleEndian(time);
     slot[s].timer[0] = (time & 0xff);
     slot[s].timer[1] = ((time & 0xff00) >> 8);
@@ -4545,35 +4331,31 @@ void FF7Save::setCountdownTimer(int s, quint32 time)
 
 bool FF7Save::seenPandorasBox(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
     return (slot[s].seenpandora & (1 << 0));
 }
 
 void FF7Save::setSeenPandorasBox(int s, bool seen)
 {
-    if (seen) {
+    if (seen)
         slot[s].seenpandora |= (1 << 0);
-    } else {
+    else
         slot[s].seenpandora &= ~(1 << 0);
-    }
     setFileModified(true, s);
 }
 
 quint16 FF7Save::steps(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return qFromLittleEndian(slot[s].steps);
 }
 
 void FF7Save::setSteps(int s, int steps)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     steps = std::clamp(steps, 0, 0xFFFF);
     if (steps != slot[s].mprogress) {
         steps = qToLittleEndian(steps);
@@ -4584,17 +4366,15 @@ void FF7Save::setSteps(int s, int steps)
 
 quint8 FF7Save::churchProgress(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].aeris_church;
 }
 
 void FF7Save::setChurchProgress(int s, int progress)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     progress = std::clamp(progress, 0, 0xFF);
     if (progress != slot[s].aeris_church) {
         slot[s].aeris_church = progress;
@@ -4604,17 +4384,15 @@ void FF7Save::setChurchProgress(int s, int progress)
 
 quint8 FF7Save::donProgress(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].donprogress;
 }
 
 void FF7Save::setDonProgress(int s, int progress)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     progress = std::clamp(progress, 0, 0xFF);
     if (progress != slot[s].donprogress) {
         slot[s].donprogress = progress;
@@ -4624,21 +4402,15 @@ void FF7Save::setDonProgress(int s, int progress)
 
 bool FF7Save::startBombingMission(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if (slot[s].intbombing == 0x14) {
-        return true;
-    } else {
-        return false;
-    }
+    return (slot[s].intbombing == 0x14);
 }
 
 void FF7Save::setStartBombingMission(int s, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     if (isTrue && slot[s].intbombing != 0x14) {
         slot[s].intbombing = 0x14;
         setFileModified(true, s);
@@ -4652,17 +4424,15 @@ void FF7Save::setStartBombingMission(int s, bool isTrue)
 
 quint32 FF7Save::uWeaponHp(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return quint32(slot[s].u_weapon_hp[0] | (slot[s].u_weapon_hp[1] << 8) | (slot[s].u_weapon_hp[2] << 16));
 }
 
 void FF7Save::setUWeaponHp(int s, int hp)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     if (quint32(hp) != uWeaponHp(s)) {
         hp = qToLittleEndian(hp);
         int a = (hp & 0xff);
@@ -4677,71 +4447,55 @@ void FF7Save::setUWeaponHp(int s, int hp)
 
 bool FF7Save::killedEmeraldWeapon(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if ((slot[s].ruby_emerald) & (1 << 4)) {
-        return true;
-    } else {
-        return false;
-    }
+    return ((slot[s].ruby_emerald) & (1 << 4));
 }
 
 void FF7Save::setKilledEmeraldWeapon(int s, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     if (isTrue != killedEmeraldWeapon(s)) {
-        if (isTrue) {
+        if (isTrue)
             slot[s].ruby_emerald |= (1 << 4);
-        } else {
+        else
             slot[s].ruby_emerald &= ~(1 << 4);
-        }
         setFileModified(true, s);
     }
 }
 
 bool FF7Save::killedRubyWeapon(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-    if ((slot[s].ruby_emerald) & (1 << 3)) {
-        return true;
-    } else {
-        return false;
-    }
+    return ((slot[s].ruby_emerald) & (1 << 3));
 }
 
 void FF7Save::setKilledRubyWeapon(int s, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     if (isTrue != killedRubyWeapon(s)) {
-        if (isTrue) {
+        if (isTrue)
             slot[s].ruby_emerald |= (1 << 3);
-        } else {
+        else
             slot[s].ruby_emerald &= ~(1 << 3);
-        }
         setFileModified(true, s);
     }
 }
 
 quint8 FF7Save::tutSave(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].tut_save;
 }
 
 void FF7Save::setTutSave(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     value = std::clamp(value, 0, 0xFF);
     if (value != slot[s].tut_save) {
         slot[s].tut_save = value;
@@ -4751,68 +4505,58 @@ void FF7Save::setTutSave(int s, int value)
 
 bool FF7Save::canFightNinjaInForest(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
     return (slot[s].yuffieforest) & (1 << 0);
 }
 
 void FF7Save::setCanFightNinjaInForest(int s, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     if (isTrue != canFightNinjaInForest(s)) {
-        if (isTrue) {
+        if (isTrue)
             slot[s].yuffieforest |= (1 << 0);
-        } else {
+        else
             slot[s].yuffieforest &= ~(1 << 0);
-        }
         setFileModified(true, s);
     }
 }
 
 quint8 FF7Save::tutSub(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].tut_sub;
 }
 
 bool FF7Save::tutSub(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].tut_sub) & (1 << bit));
 }
 
 void FF7Save::setTutSub(int s, int bit, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14) || (bit < 0) || (bit > 7))
         return;
-    }
-    if (bit < 0 || bit > 7) {
-        return;
-    }
     if (bit == 6) {
         setBattleTargets(s, isTrue);
-    }
-    if (isTrue) {
-        slot[s].tut_sub |= (1 << bit);
     } else {
-        slot[s].tut_sub &= ~(1 << bit);
+        if (isTrue)
+            slot[s].tut_sub |= (1 << bit);
+        else
+            slot[s].tut_sub &= ~(1 << bit);
+        setFileModified(true, s);
     }
-    setFileModified(true, s);
 }
 
 void FF7Save::setTutSub(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
     value = std::clamp(value, 0, 0xFF);
     if (value != slot[s].tut_sub) {
         slot[s].tut_sub = value;
@@ -4822,152 +4566,131 @@ void FF7Save::setTutSub(int s, int value)
 
 bool FF7Save::yuffieUnlocked(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
     return (slot[s].reg_yuffie & (1 << 0));
 }
 
 void FF7Save::setYuffieUnlocked(int s, bool isUnlocked)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (isUnlocked) {
+    if (isUnlocked)
         slot[s].reg_yuffie |= (1 << 0);
-    } else {
+    else
         slot[s].reg_yuffie &= ~(1 << 0);
-    }
     setFileModified(true, s);
 }
 
 bool FF7Save::vincentUnlocked(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
     return (slot[s].reg_vinny & (1 << 2));
 }
 
 void FF7Save::setVincentUnlocked(int s, bool isUnlocked)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (isUnlocked) {
+    if (isUnlocked)
         slot[s].reg_vinny |= (1 << 2);
-    } else {
+    else
         slot[s].reg_vinny &= ~(1 << 2);
-    }
     setFileModified(true, s);
 }
 
 bool FF7Save::worldChocobo(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].world_map_chocobos) & (1 << bit));
 }
 
 void FF7Save::setWorldChocobo(int s, int bit, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return;
-    }
-    if (isTrue) {
+    if (isTrue)
         slot[s].world_map_chocobos |= (1 << bit);
-    } else {
+    else
         slot[s].world_map_chocobos &= ~(1 << bit);
-    }
     setFileModified(true, s);
 }
 
 bool FF7Save::worldVehicle(int s, int bit)
 {
     //the Bit Number to offset.
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return false;
-    }
     return ((slot[s].world_map_vehicles) & (1 << bit));
 }
 
 void FF7Save::setWorldVehicle(int s, int bit, bool isTrue)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (bit < 0 || bit > 7) {
+    if ((bit < 0) || (bit > 7))
         return;
-    }
-    if (isTrue) {
+    if (isTrue)
         slot[s].world_map_vehicles |= (1 << bit);
-    } else {
+    else
         slot[s].world_map_vehicles &= ~(1 << bit);
-    }
     setFileModified(true, s);
 }
 
 quint32 FF7Save::worldCoordsLeader(int s, bool firstChunk)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
-    if (firstChunk) {
+    if (firstChunk)
         return slot[s].l_world;
-    }
     return slot[s].l_world2;
 }
 
 int FF7Save::worldCoordsLeaderX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return (slot[s].l_world & 0x7FFFF);
 }
 
 int FF7Save::worldCoordsLeaderID(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].l_world >> 19) & 0x1F);
 }
 
 int FF7Save::worldCoordsLeaderAngle(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].l_world) >> 24);
 }
 
 int FF7Save::worldCoordsLeaderY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].l_world2) & 0x3FFFF);
 }
 
 int FF7Save::worldCoordsLeaderZ(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].l_world2) >> 18);
 }
 
 void FF7Save::setWorldCoordsLeader(int s, bool firstChunk, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFFFF);
     if (firstChunk && quint32(value) != worldCoordsLeader(s, true)) {
         slot[s].l_world = quint32(value);
@@ -4982,9 +4705,9 @@ void FF7Save::setWorldCoordsLeader(int s, bool firstChunk, int value)
 
 void FF7Save::setWorldCoordsLeaderX(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 295000);
     if (value != worldCoordsLeaderX(s)) {
         slot[s].l_world = quint32(value | worldCoordsLeaderID(s) << 19 | worldCoordsLeaderAngle(s) << 24);
@@ -4994,9 +4717,9 @@ void FF7Save::setWorldCoordsLeaderX(int s, int value)
 
 void FF7Save::setWorldCoordsLeaderID(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsLeaderID(s)) {
         slot[s].l_world = quint32(worldCoordsLeaderX(s) | value << 19 | worldCoordsLeaderAngle(s) << 24);
@@ -5006,9 +4729,9 @@ void FF7Save::setWorldCoordsLeaderID(int s, int value)
 
 void FF7Save::setWorldCoordsLeaderAngle(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 360);
     if (value != worldCoordsLeaderAngle(s)) {
         slot[s].l_world = quint32(worldCoordsLeaderX(s) | worldCoordsLeaderID(s) << 19 | value << 24);
@@ -5018,9 +4741,9 @@ void FF7Save::setWorldCoordsLeaderAngle(int s, int value)
 
 void FF7Save::setWorldCoordsLeaderY(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 230000);
     if (value != worldCoordsLeaderY(s)) {
         slot[s].l_world2 = quint32(value | worldCoordsLeaderZ(s) << 18);
@@ -5030,9 +4753,9 @@ void FF7Save::setWorldCoordsLeaderY(int s, int value)
 
 void FF7Save::setWorldCoordsLeaderZ(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsLeaderZ(s)) {
         slot[s].l_world2 = quint32(worldCoordsLeaderY(s) | value << 18);
@@ -5042,60 +4765,53 @@ void FF7Save::setWorldCoordsLeaderZ(int s, int value)
 
 quint32 FF7Save::worldCoordsTc(int s, bool firstChunk)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
-    if (firstChunk) {
+    if (firstChunk)
         return slot[s].tc_world;
-    }
     return slot[s].tc_world2;
 }
 
 int FF7Save::worldCoordsTcX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || s > 14)
         return 0;
-    }
     return (slot[s].tc_world & 0x7FFFF);
 }
 
 int FF7Save::worldCoordsTcID(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].tc_world >> 19) & 0x1F);
 }
 
 int FF7Save::worldCoordsTcAngle(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].tc_world) >> 24);
 }
 
 int FF7Save::worldCoordsTcY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].tc_world2) & 0x3FFFF);
 }
 
 int FF7Save::worldCoordsTcZ(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].tc_world2) >> 18);
 }
 
 void FF7Save::setWorldCoordsTc(int s, bool firstChunk, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFFFF);
     if (firstChunk && quint32(value) != worldCoordsTc(s, true)) {
         slot[s].tc_world = quint32(value);
@@ -5110,9 +4826,9 @@ void FF7Save::setWorldCoordsTc(int s, bool firstChunk, int value)
 
 void FF7Save::setWorldCoordsTcX(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 295000);
     if (value != worldCoordsTcX(s)) {
         slot[s].tc_world = quint32(value | worldCoordsTcID(s) << 19 | worldCoordsTcAngle(s) << 24);
@@ -5122,9 +4838,9 @@ void FF7Save::setWorldCoordsTcX(int s, int value)
 
 void FF7Save::setWorldCoordsTcID(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsTcID(s)) {
         slot[s].tc_world = quint32(worldCoordsTcX(s) | value << 19 | worldCoordsTcAngle(s) << 24);
@@ -5134,9 +4850,9 @@ void FF7Save::setWorldCoordsTcID(int s, int value)
 
 void FF7Save::setWorldCoordsTcAngle(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 360);
     if (value != worldCoordsTcAngle(s)) {
         slot[s].tc_world = quint32(worldCoordsTcX(s) | worldCoordsTcID(s) << 19 | value << 24);
@@ -5146,9 +4862,9 @@ void FF7Save::setWorldCoordsTcAngle(int s, int value)
 
 void FF7Save::setWorldCoordsTcY(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 230000);
     if (value != worldCoordsTcY(s)) {
         slot[s].tc_world2 = quint32(value | worldCoordsTcZ(s) << 18);
@@ -5158,9 +4874,9 @@ void FF7Save::setWorldCoordsTcY(int s, int value)
 
 void FF7Save::setWorldCoordsTcZ(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsTcZ(s)) {
         slot[s].tc_world2 = quint32(worldCoordsTcY(s) | value << 18);
@@ -5170,61 +4886,53 @@ void FF7Save::setWorldCoordsTcZ(int s, int value)
 
 quint32 FF7Save::worldCoordsBh(int s, bool firstChunk)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
-    if (firstChunk) {
+    if (firstChunk)
         return slot[s].bh_world;
-    } else {
-        return slot[s].bh_world2;
-    }
+    return slot[s].bh_world2;
 }
 
 int FF7Save::worldCoordsBhX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return (slot[s].bh_world & 0x7FFFF);
 }
 
 int FF7Save::worldCoordsBhID(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].bh_world >> 19) & 0x1F);
 }
 
 int FF7Save::worldCoordsBhAngle(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].bh_world) >> 24);
 }
 
 int FF7Save::worldCoordsBhY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].bh_world2) & 0x3FFFF);
 }
 
 int FF7Save::worldCoordsBhZ(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].bh_world2) >> 18);
 }
 
 void FF7Save::setWorldCoordsBh(int s, bool firstChunk, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFFFF);
     if (firstChunk && quint32(value) != worldCoordsBh(s, true)) {
         slot[s].bh_world = quint32(value);
@@ -5239,9 +4947,9 @@ void FF7Save::setWorldCoordsBh(int s, bool firstChunk, int value)
 
 void FF7Save::setWorldCoordsBhX(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 295000);
     if (value != worldCoordsBhX(s)) {
         slot[s].bh_world = quint32(value | worldCoordsBhID(s) << 19 | worldCoordsBhAngle(s) << 24);
@@ -5251,9 +4959,9 @@ void FF7Save::setWorldCoordsBhX(int s, int value)
 
 void FF7Save::setWorldCoordsBhID(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsBhID(s)) {
         slot[s].bh_world = quint32(worldCoordsBhX(s) | value << 19 | worldCoordsBhAngle(s) << 24);
@@ -5263,9 +4971,9 @@ void FF7Save::setWorldCoordsBhID(int s, int value)
 
 void FF7Save::setWorldCoordsBhAngle(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 360);
     if (value != worldCoordsBhAngle(s)) {
         slot[s].bh_world = quint32(worldCoordsBhX(s) | worldCoordsBhID(s) << 19 | value << 24);
@@ -5275,22 +4983,21 @@ void FF7Save::setWorldCoordsBhAngle(int s, int value)
 
 void FF7Save::setWorldCoordsBhY(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 230000);
     if (value != worldCoordsBhY(s)) {
         slot[s].bh_world2 = quint32(value | worldCoordsBhZ(s) << 18);
         setFileModified(true, s);
     }
-
 }
 
 void FF7Save::setWorldCoordsBhZ(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsBhZ(s)) {
         slot[s].bh_world2 = quint32(worldCoordsBhY(s) | value << 18);
@@ -5300,60 +5007,53 @@ void FF7Save::setWorldCoordsBhZ(int s, int value)
 
 quint32 FF7Save::worldCoordsSub(int s, bool firstChunk)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
-    if (firstChunk) {
+    if (firstChunk)
         return slot[s].sub_world;
-    }
     return slot[s].sub_world2;
 }
 
 int FF7Save::worldCoordsSubX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return (slot[s].sub_world & 0x7FFFF);
 }
 
 int FF7Save::worldCoordsSubID(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].sub_world >> 19) & 0x1F);
 }
 
 int FF7Save::worldCoordsSubAngle(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].sub_world) >> 24);
 }
 
 int FF7Save::worldCoordsSubY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].sub_world2) & 0x3FFFF);
 }
 
 int FF7Save::worldCoordsSubZ(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].sub_world2) >> 18);
 }
 
 void FF7Save::setWorldCoordsSub(int s, bool firstChunk, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFFFF);
     if (firstChunk && quint32(value) != worldCoordsSub(s, true)) {
         slot[s].sub_world = quint32(value);
@@ -5368,9 +5068,9 @@ void FF7Save::setWorldCoordsSub(int s, bool firstChunk, int value)
 
 void FF7Save::setWorldCoordsSubX(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 295000);
     if (value != worldCoordsSubX(s)) {
         slot[s].sub_world = quint32(value | worldCoordsSubID(s) << 19 | worldCoordsSubAngle(s) << 24);
@@ -5380,9 +5080,9 @@ void FF7Save::setWorldCoordsSubX(int s, int value)
 
 void FF7Save::setWorldCoordsSubID(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsSubID(s)) {
         slot[s].sub_world = quint32(worldCoordsSubX(s) | value << 19 | worldCoordsSubAngle(s) << 24);
@@ -5392,9 +5092,9 @@ void FF7Save::setWorldCoordsSubID(int s, int value)
 
 void FF7Save::setWorldCoordsSubAngle(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 360);
     if (value != worldCoordsSubAngle(s)) {
         slot[s].sub_world = quint32(worldCoordsSubX(s) | worldCoordsSubID(s) << 19 | value << 24);
@@ -5404,9 +5104,9 @@ void FF7Save::setWorldCoordsSubAngle(int s, int value)
 
 void FF7Save::setWorldCoordsSubY(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 230000);
     if (value != worldCoordsSubY(s)) {
         slot[s].sub_world2 = quint32(value | worldCoordsSubZ(s) << 18);
@@ -5417,9 +5117,9 @@ void FF7Save::setWorldCoordsSubY(int s, int value)
 
 void FF7Save::setWorldCoordsSubZ(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsSubZ(s)) {
         slot[s].sub_world2 = quint32(worldCoordsSubY(s) | value << 18);
@@ -5429,61 +5129,54 @@ void FF7Save::setWorldCoordsSubZ(int s, int value)
 
 quint32 FF7Save::worldCoordsWchoco(int s, bool firstChunk)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
-    if (firstChunk) {
+    if (firstChunk)
         return slot[s].wc_world;
-    } else {
+    else
         return slot[s].wc_world2;
-    }
 }
 
 int FF7Save::worldCoordsWchocoX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return (slot[s].wc_world & 0x7FFFF);
 }
 
 int FF7Save::worldCoordsWchocoID(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].wc_world >> 19) & 0x1F);
 }
 
 int FF7Save::worldCoordsWchocoAngle(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].wc_world) >> 24);
 }
 
 int FF7Save::worldCoordsWchocoY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].wc_world2) & 0x3FFFF);
 }
 
 int FF7Save::worldCoordsWchocoZ(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].wc_world2) >> 18);
 }
 
 void FF7Save::setWorldCoordsWchoco(int s, bool firstChunk, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFFFF);
     if (firstChunk && quint32(value) != worldCoordsWchoco(s, true)) {
         slot[s].wc_world = quint32(value);
@@ -5498,9 +5191,9 @@ void FF7Save::setWorldCoordsWchoco(int s, bool firstChunk, int value)
 
 void FF7Save::setWorldCoordsWchocoX(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 295000);
     if (value != worldCoordsWchocoX(s)) {
         slot[s].wc_world = quint32(value | worldCoordsWchocoID(s) << 19 | worldCoordsWchocoAngle(s) << 24);
@@ -5510,9 +5203,9 @@ void FF7Save::setWorldCoordsWchocoX(int s, int value)
 
 void FF7Save::setWorldCoordsWchocoID(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsWchocoID(s)) {
         slot[s].wc_world = quint32(worldCoordsWchocoX(s) | value << 19 | worldCoordsWchocoAngle(s) << 24);
@@ -5522,9 +5215,9 @@ void FF7Save::setWorldCoordsWchocoID(int s, int value)
 
 void FF7Save::setWorldCoordsWchocoAngle(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 360);
     if (value != worldCoordsWchocoAngle(s)) {
         slot[s].wc_world = quint32(worldCoordsWchocoX(s) | worldCoordsWchocoID(s) << 19 | value << 24);
@@ -5534,9 +5227,9 @@ void FF7Save::setWorldCoordsWchocoAngle(int s, int value)
 
 void FF7Save::setWorldCoordsWchocoY(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 230000);
     if (value != worldCoordsWchocoY(s)) {
         slot[s].wc_world2 = quint32(value | worldCoordsWchocoZ(s) << 18);
@@ -5547,9 +5240,9 @@ void FF7Save::setWorldCoordsWchocoY(int s, int value)
 
 void FF7Save::setWorldCoordsWchocoZ(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsWchocoZ(s)) {
         slot[s].wc_world2 = quint32(worldCoordsWchocoY(s) | value << 18);
@@ -5559,61 +5252,54 @@ void FF7Save::setWorldCoordsWchocoZ(int s, int value)
 
 quint32 FF7Save::worldCoordsDurw(int s, bool firstChunk)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
-    if (firstChunk) {
+    if (firstChunk)
         return slot[s].durw_world;
-    } else {
+    else
         return slot[s].durw_world2;
-    }
 }
 
 int FF7Save::worldCoordsDurwX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return (slot[s].durw_world & 0x7FFFF);
 }
 
 int FF7Save::worldCoordsDurwID(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].durw_world >> 19) & 0x1F);
 }
 
 int FF7Save::worldCoordsDurwAngle(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].durw_world) >> 24);
 }
 
 int FF7Save::worldCoordsDurwY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].durw_world2) & 0x3FFFF);
 }
 
 int FF7Save::worldCoordsDurwZ(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return ((slot[s].durw_world2) >> 18);
 }
 
 void FF7Save::setWorldCoordsDurw(int s, bool firstChunk, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFFFF);
     if (firstChunk && quint32(value) != worldCoordsDurw(s, true)) {
         slot[s].durw_world = quint32(value);
@@ -5628,9 +5314,9 @@ void FF7Save::setWorldCoordsDurw(int s, bool firstChunk, int value)
 
 void FF7Save::setWorldCoordsDurwX(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 295000);
     if (value != worldCoordsDurwX(s)) {
         slot[s].durw_world = quint32(value | worldCoordsDurwID(s) << 19 | worldCoordsDurwAngle(s) << 24);
@@ -5640,9 +5326,9 @@ void FF7Save::setWorldCoordsDurwX(int s, int value)
 
 void FF7Save::setWorldCoordsDurwID(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsDurwID(s)) {
         slot[s].durw_world = quint32(worldCoordsDurwX(s) | value << 19 | worldCoordsDurwAngle(s) << 24);
@@ -5652,9 +5338,9 @@ void FF7Save::setWorldCoordsDurwID(int s, int value)
 
 void FF7Save::setWorldCoordsDurwAngle(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 360);
     if (value != worldCoordsDurwAngle(s)) {
         slot[s].durw_world = quint32(worldCoordsDurwX(s) | worldCoordsDurwID(s) << 19 | value << 24);
@@ -5664,9 +5350,9 @@ void FF7Save::setWorldCoordsDurwAngle(int s, int value)
 
 void FF7Save::setWorldCoordsDurwY(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 230000);
     if (value != worldCoordsDurwY(s)) {
         slot[s].durw_world2 = quint32(value | worldCoordsDurwZ(s) << 18);
@@ -5677,9 +5363,9 @@ void FF7Save::setWorldCoordsDurwY(int s, int value)
 
 void FF7Save::setWorldCoordsDurwZ(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 0xFF);
     if (value != worldCoordsDurwZ(s)) {
         slot[s].durw_world2 = quint32(worldCoordsDurwY(s) | value << 18);
@@ -5689,17 +5375,16 @@ void FF7Save::setWorldCoordsDurwZ(int s, int value)
 
 quint16 FF7Save::craterSavePointMapID(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].cratersaveMapId;
 }
 
 void FF7Save::setCraterSavePointMapID(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, 0, 999);
     slot[s].cratersaveMapId = value;
     setFileModified(true, s);
@@ -5707,17 +5392,16 @@ void FF7Save::setCraterSavePointMapID(int s, int value)
 
 qint16 FF7Save::craterSavePointX(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].cratersaveX;
 }
 
 void FF7Save::setCraterSavePointX(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, -32767, 32767);
     slot[s].cratersaveX = value;
     setFileModified(true, s);
@@ -5725,17 +5409,16 @@ void FF7Save::setCraterSavePointX(int s, int value)
 
 qint16 FF7Save::craterSavePointY(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].cratersaveY;
 }
 
 void FF7Save::setCraterSavePointY(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, -32767, 32767);
     slot[s].cratersaveY = value;
     setFileModified(true, s);
@@ -5743,17 +5426,16 @@ void FF7Save::setCraterSavePointY(int s, int value)
 
 qint16 FF7Save::craterSavePointZ(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].cratersaveZ;
 }
 
 void FF7Save::setCraterSavePointZ(int s, int value)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     value = std::clamp(value, -32767, 32767);
     slot[s].cratersaveZ = value;
     setFileModified(true, s);
@@ -5865,48 +5547,39 @@ void FF7Save::vmcRegionEval(int s)
 bool FF7Save::subMiniGameVictory(int s)
 {
     //0x0F38 in game saved as int 1 or int 0
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
-
-    if (slot[s].wonsubgame == 1) {
-        return true;
-    }
-    return false;
+    return (slot[s].wonsubgame == 1);
 }
 
 void FF7Save::setSubMiniGameVictory(int s, bool won)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
+
     int temp = slot[s].wonsubgame;
-    if (won) {
+    if (won)
         slot[s].wonsubgame = 1;
-    } else {
+    else
         slot[s].wonsubgame = 0;
-    }
-    if (temp != slot[s].wonsubgame) {
+
+    if (temp != slot[s].wonsubgame)
         setFileModified(true, s);
-    }
 }
 
 quint8 FF7Save::chocoboRating(int s, int stable)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return 0;
-    }
     return slot[s].stablechocorating[stable];
 }
 
 void FF7Save::setChocoboRating(int s, int stable, int rating)
 {
-    if (s < 0 || s > 14 || stable < 0 || stable > 5 || rating < 0 || rating > 8) {
+    if ((s < 0) || (s > 14) || (stable < 0) || (stable > 5) || (rating < 0) || (rating > 8))
         return;
-    }
-    if (rating == slot[s].stablechocorating[stable]) {
+    if (rating == slot[s].stablechocorating[stable])
         return;
-    }
     slot[s].stablechocorating[stable] = rating;
     setFileModified(true, s);
 }
@@ -5914,36 +5587,31 @@ void FF7Save::setChocoboRating(int s, int stable, int rating)
 QList<quint8> FF7Save::chocoboRatings(int s)
 {
     QList<quint8>ratings;
-    if (s < 0 || s > 14) {
-        for (int i = 0; i < 6; i++) {
+    if ((s < 0) || (s > 14)) {
+        for (int i = 0; i < 6; i++)
             ratings.append(0);
-        }
     } else {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++)
             ratings.append(slot[s].stablechocorating[i]);
-        }
     }
     return ratings;
 }
 
 bool FF7Save::playedPianoOnFlashback(int s)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return false;
-    }
     return ((slot[s].z_36[0]) & (1 << 2));
 }
 
 void FF7Save::setPlayedPianoOnFlashback(int s, bool played)
 {
-    if (s < 0 || s > 14) {
+    if ((s < 0) || (s > 14))
         return;
-    }
-    if (played) {
+    if (played)
         slot[s].z_36[0] |= (1 << 2);
-    } else {
+    else
         slot[s].z_36[0] &= ~(1 << 2);
-    }
     setFileModified(true, s);
 }
 
