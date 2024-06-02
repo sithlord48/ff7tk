@@ -1162,7 +1162,7 @@ void FF7Save::newGame(int s, const QString &region, const QString &fileName)
             return;
         QByteArray ff7file;
         ff7file = file.readAll(); //put all data in temp raw file)
-        slot[s].setData(ff7file.mid(index, FF7SaveInfo::slotSize()));
+        slot[s].setData(ff7file.mid(0x200, FF7SaveInfo::slotSize()));
     }
     setRegion(s, region);
     if (isJPN(s)) {
@@ -1192,76 +1192,52 @@ void FF7Save::newGame(int s, const QString &region, const QString &fileName)
 
 void FF7Save::newGamePlus(int s, QString CharFileName, QString fileName)
 {
+    FF7SLOT tempSlot;
     if (fileName.isEmpty() || fileName.isNull()) {
-        buffer_slot.setData(FF7SaveInfo::defaultSaveData());
+        tempSlot.setData(FF7SaveInfo::defaultSaveData());
     } else {
         QFile file(fileName);
-        if (!file.open(QFile::ReadOnly)) {
+        if (!file.open(QFile::ReadOnly))
             return;
-        }
         QByteArray ff7file;
         ff7file = file.readAll(); //put all data in temp raw file
-        buffer_slot.setData(ff7file.mid(0x200, FF7SaveInfo::slotSize()));
+        tempSlot.setData(ff7file.mid(0x200, FF7SaveInfo::slotSize()));
     }
     buffer_region = region(s);
-    memcpy(&buffer_slot.desc, &slot[s].desc, 0x44); // keep a old preview
-    memcpy(&buffer_slot.colors, &slot[s].colors, 12); // keep old colors.
+    memcpy(&tempSlot.desc, &slot[s].desc, 0x44); // keep a old preview
+    memcpy(&tempSlot.colors, &slot[s].colors, 12); // keep old colors.
 
     for (int i = 0; i < 9; i++) { // keep all old character info.
-        if ((i == 6) || (i == 7)) { // except we have to export cait sith and vincent.the game needs y.cloud/seppie,for the flash back.
-            QString outFile;
-            if (i == 6) { //export cait sith. cait sith's stats are only generated when he joins the party.
-                outFile.append(CharFileName);
-                outFile.append("-cait_sith");
-                if (!FF7SaveInfo::isTypeSSS(fileFormat)) {
-                    outFile.append("-");
-                    QString str;
-                    str.setNum(s + 1, 10);
-                    outFile.append(str);
-                }
-            } else if (i == 7) { // export vincent. vincent's stats are only generated when he joins the party.
-                outFile.append(CharFileName);
-                outFile.append("-vincent");
-                if (!FF7SaveInfo::isTypeSSS(fileFormat)) {
-                    outFile.append("-");
-                    QString str;
-                    str.setNum(s + 1, 10);
-                    outFile.append(str);
-                }
-            }
-            outFile.append(".char");
-            exportCharacter(s, i, outFile);
-
-        } else {
-            memcpy(&buffer_slot.chars[i], &slot[s].chars[i], 0x84);   // normal character
+        if ((i != 6) && (i !=7)) {
+            tempSlot.chars[i] = slot[s].chars[i];
+        } else { //Cait and Vincent must be replaced by young cloud and sephiroth for the flashback.
+            QString slotNumber = FF7SaveInfo::isTypeSSS(fileFormat) ? QString() : QStringLiteral("-%1").arg(s+1);
+            QString who = i == 6 ? QStringLiteral("cait_sith"): QStringLiteral("vincent");
+            exportCharacter(s, i, QStringLiteral("%1-%2%3.char").arg(CharFileName, who, slotNumber));
         }
     }
-    memcpy(&buffer_slot.items, &slot[s].items, 640); // copy items
-    memcpy(&buffer_slot.materias, &slot[s].materias, 800); // copy materia
-    buffer_slot.gil = slot[s].gil; // copy gil
-    buffer_slot.battles = slot[s].battles; // copy battle count
-    buffer_slot.runs = slot[s].runs; // copy run count
-    buffer_slot.gp = slot[s].gp; // copy gp
+    memcpy(&tempSlot.items, slot[s].items, 640);
+    std::copy(std::begin(slot[s].materias), std::end(slot[s].materias), std::begin(tempSlot.materias));
+    tempSlot.gil = slot[s].gil;
+    tempSlot.battles = slot[s].battles;
+    tempSlot.runs = slot[s].runs;
+    tempSlot.gp = slot[s].gp;
     //copy chocobo info.
-    buffer_slot.stables = slot[s].stables;
-    buffer_slot.stablesoccupied = slot[s].stablesoccupied;
-    buffer_slot.chocobomask = slot[s].chocobomask;
-    for (int i = 0; i < 4; i++) {
-        buffer_slot.chocobos[i] = slot[s].chocobos[i];
-    }
-    memcpy(&buffer_slot.chocobonames, slot[s].chocobonames, 36);
-    memcpy(&buffer_slot.chocostaminas, slot[s].chocostaminas, 12);
-    for (int i = 0; i < 2; i++) {
-        buffer_slot.choco56[i] = slot[s].choco56[i];
-    }
+    tempSlot.stables = slot[s].stables;
+    tempSlot.stablesoccupied = slot[s].stablesoccupied;
+    tempSlot.chocobomask = slot[s].chocobomask;
+    std::copy(std::begin(slot[s].chocobos), std::end(slot[s].chocobos), std::begin(tempSlot.chocobos));
+    memcpy(&tempSlot.chocobonames, slot[s].chocobonames, 36);
+    memcpy(&tempSlot.chocostaminas, slot[s].chocostaminas, 12);
+    std::copy(std::begin(slot[s].choco56), std::end(slot[s].choco56), std::begin(tempSlot.choco56));
     // copy options
-    buffer_slot.battlespeed = slot[s].battlespeed;
-    buffer_slot.battlemspeed = slot[s].battlemspeed;
-    buffer_slot.options = slot[s].options;
-    memcpy(&buffer_slot.controller_map, slot[s].controller_map, 16);
-    buffer_slot.fieldmspeed = slot[s].fieldmspeed;
-    //~~ buffer now ready to be copied~
-    slot[s] = buffer_slot;
+    tempSlot.battlespeed = slot[s].battlespeed;
+    tempSlot.battlemspeed = slot[s].battlemspeed;
+    tempSlot.options = slot[s].options;
+    std::copy(std::begin(slot[s].controller_map), std::end(slot[s].controller_map), std::begin(tempSlot.controller_map));
+    tempSlot.fieldmspeed = slot[s].fieldmspeed;
+    //~~ Temp is now ready to be copied~
+    slot[s] = tempSlot;
     setLocation(s, QT_TRANSLATE_NOOP("FF7Save", "New Game +"));
     setFileModified(true, s);
 }
