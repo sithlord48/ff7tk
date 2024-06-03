@@ -165,7 +165,7 @@ bool FF7Save::setSlotHeader(int s, QByteArray data)
         return false;
     if (data.size() != FF7SaveInfo::slotHeaderSize(fileFormat))
         return false;
-    memcpy(&hf[s].sl_header, data, size_t(FF7SaveInfo::slotHeaderSize(fileFormat)));
+    std::copy(std::begin(data), std::end(data), std::begin(hf[s].sl_header));
     setFileModified(true, s);
     return true;
 }
@@ -181,7 +181,7 @@ bool FF7Save::setSlotFooter(int s, QByteArray data)
         return false;
     if (data.size() != FF7SaveInfo::slotFooterSize(fileFormat))
         return false;
-    memcpy(&hf[s].sl_footer, data, size_t(FF7SaveInfo::slotFooterSize(fileFormat)));
+    std::copy(std::begin(data), std::end(data), std::begin(hf[s].sl_footer));
     setFileModified(true, s);
     return true;
 }
@@ -1186,7 +1186,7 @@ void FF7Save::newGamePlus(int s, QString CharFileName, QString fileName)
         tempSlot.setData(ff7file.mid(0x200, FF7SaveInfo::slotSize()));
     }
     buffer_region = region(s);
-    memcpy(&tempSlot.desc, &slot[s].desc, 0x44); // keep a old preview
+    tempSlot.desc = slot[s].desc;
     memcpy(&tempSlot.colors, &slot[s].colors, 12); // keep old colors.
 
     for (int i = 0; i < 9; i++) { // keep all old character info.
@@ -1293,7 +1293,7 @@ void FF7Save::setCharName(int s, int char_num, QString new_name)
     for (int i = 0; i < 12; i++)
         slot[s].chars[char_num].name[i] = 0xFF;
     QByteArray temp = FF7Text::toFF7(new_name);
-    memcpy(slot[s].chars[char_num].name, temp, temp.length());
+    std::copy(std::begin(temp), std::end(temp), std::begin(slot[s].chars[char_num].name));
     setFileModified(true, s);
 }
 
@@ -1312,7 +1312,7 @@ void FF7Save::setDescName(int s, QString new_name)
     for (int i = 0; i < 16; i++)
         slot[s].desc.name[i] = 0xFF;
     QByteArray temp = FF7Text::toFF7(new_name);
-    memcpy(slot[s].desc.name, temp, temp.length());
+    std::copy(std::begin(temp), std::end(temp), std::begin(slot[s].desc.name));
     setFileModified(true, s);
 }
 
@@ -1331,7 +1331,7 @@ void FF7Save::setDescLocation(int s, QString new_desc_location)
     for (int i = 0; i < 32; i++)
         slot[s].desc.location[i] = 0xFF;
     QByteArray temp = FF7Text::toFF7(new_desc_location);
-    memcpy(slot[s].desc.location, temp, temp.length());
+    std::copy(std::begin(temp), std::end(temp), std::begin(slot[s].desc.location));
     setFileModified(true, s);
 }
 
@@ -1450,7 +1450,7 @@ void FF7Save::setLocation(int s, QString new_location)
     for (int i = 0; i < 24; i++)
         slot[s].location[i] = 0xFF;
     QByteArray temp = FF7Text::toFF7(new_location);
-    memcpy(slot[s].location, temp, size_t(temp.length()));
+    std::copy(std::begin(temp), std::end(temp), std::begin(slot[s].location));
     //and the description.
     setDescLocation(s, new_location);
     setFileModified(true, s);
@@ -3069,7 +3069,7 @@ bool FF7Save::setKeyItems(int s, QByteArray data)
 {
     if (data.size() != sizeof(slot[s].keyitems))
         return false;
-    memcpy(&slot[s].keyitems, data, sizeof(slot[s].keyitems));
+    std::copy(std::begin(data), std::end(data), std::begin(slot[s].keyitems));
     setFileModified(true, s);
     return true;
 }
@@ -3146,7 +3146,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_1, data, sizeof(slot[s].z_1));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_1));
             result = true;
             break;
         }
@@ -3155,7 +3155,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_2, data, sizeof(slot[s].z_2));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_2));
             result = true;
             break;
         }
@@ -3164,7 +3164,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_3, data, sizeof(slot[s].z_3));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_3));
             result = true;
             break;
         }
@@ -3173,7 +3173,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_4, data, sizeof(slot[s].z_4));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_4));
             result = true;
             break;
         }
@@ -3182,7 +3182,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_5, data, sizeof(slot[s].z_5));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_5));
             result = true;
             break;
         }
@@ -3191,7 +3191,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_6, data, sizeof(slot[s].z_6));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_6));
             result = true;
             break;
         }
@@ -3200,7 +3200,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_7, data, sizeof(slot[s].z_7));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_7));
             result = true;
             break;
         }
@@ -3209,7 +3209,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_8, data, sizeof(slot[s].z_8));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_8));
             result = true;
             break;
         }
@@ -3218,7 +3218,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_9, data, sizeof(slot[s].z_9));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_9));
             result = true;
             break;
         }
@@ -3227,7 +3227,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_10, data, sizeof(slot[s].z_10));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_10));
             result = true;
             break;
         }
@@ -3236,7 +3236,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_11, data, sizeof(slot[s].z_11));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_11));
             result = true;
             break;
         }
@@ -3245,7 +3245,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_12, data, sizeof(slot[s].z_12));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_12));
             result = true;
             break;
         }
@@ -3254,7 +3254,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_13, data, sizeof(slot[s].z_13));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_13));
             result = true;
             break;
         }
@@ -3263,7 +3263,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_14, data, sizeof(slot[s].z_14));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_14));
             result = true;
             break;
         }
@@ -3272,7 +3272,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_15, data, sizeof(slot[s].z_15));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_15));
             result = true;
             break;
         }
@@ -3281,7 +3281,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_16, data, sizeof(slot[s].z_16));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_16));
             result = true;
             break;
         }
@@ -3290,7 +3290,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_17, data, sizeof(slot[s].z_17));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_17));
             result = true;
             break;
         }
@@ -3299,7 +3299,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_18, data, sizeof(slot[s].z_18));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_18));
             result = true;
             break;
         }
@@ -3308,7 +3308,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_19, data, sizeof(slot[s].z_19));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_19));
             result = true;
             break;
         }
@@ -3317,7 +3317,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_20, data, sizeof(slot[s].z_20));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_20));
             result = true;
             break;
         }
@@ -3326,7 +3326,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_21, data, sizeof(slot[s].z_21));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_21));
             result = true;
             break;
         }
@@ -3335,7 +3335,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_22, data, sizeof(slot[s].z_22));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_22));
             result = true;
             break;
         }
@@ -3344,7 +3344,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_23, data, sizeof(slot[s].z_23));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_23));
             result = true;
             break;
         }
@@ -3353,7 +3353,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_24, data, sizeof(slot[s].z_24));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_24));
             result = true;
             break;
         }
@@ -3362,7 +3362,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_25, data, sizeof(slot[s].z_25));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_25));
             result = true;
             break;
         }
@@ -3371,7 +3371,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_26, data, sizeof(slot[s].z_26));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_26));
             result = true;
             break;
         }
@@ -3380,7 +3380,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_27, data, sizeof(slot[s].z_27));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_27));
             result = true;
             break;
         }
@@ -3389,7 +3389,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_28, data, sizeof(slot[s].z_28));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_28));
             result = true;
             break;
         }
@@ -3398,7 +3398,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_29, data, sizeof(slot[s].z_29));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_29));
             result = true;
             break;
         }
@@ -3407,7 +3407,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_30, data, sizeof(slot[s].z_30));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_30));
             result = true;
             break;
         }
@@ -3416,7 +3416,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_31, data, sizeof(slot[s].z_31));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_31));
             result = true;
             break;
         }
@@ -3425,7 +3425,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_32, data, sizeof(slot[s].z_32));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_32));
             result = true;
             break;
         }
@@ -3434,7 +3434,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_33, data, sizeof(slot[s].z_33));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_33));
             result = true;
             break;
         }
@@ -3443,7 +3443,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_34, data, sizeof(slot[s].z_34));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_34));
             result = true;
             break;
         }
@@ -3452,7 +3452,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_35, data, sizeof(slot[s].z_35));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_35));
             result = true;
             break;
         }
@@ -3461,7 +3461,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_36, data, sizeof(slot[s].z_36));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_36));
             result = true;
             break;
         }
@@ -3470,7 +3470,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_37, data, sizeof(slot[s].z_37));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_37));
             result = true;
             break;
         }
@@ -3479,7 +3479,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_38, data, sizeof(slot[s].z_38));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_38));
             result = true;
             break;
         }
@@ -3488,7 +3488,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_39, data, sizeof(slot[s].z_39));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_39));
             result = true;
             break;
         }
@@ -3497,7 +3497,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_40, data, sizeof(slot[s].z_40));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_40));
             result = true;
             break;
         }
@@ -3506,7 +3506,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_41, data, sizeof(slot[s].z_41));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_41));
             result = true;
             break;
         }
@@ -3515,7 +3515,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_42, data, sizeof(slot[s].z_42));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_42));
             result = true;
             break;
         }
@@ -3524,7 +3524,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_43, data, sizeof(slot[s].z_43));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_43));
             result = true;
             break;
         }
@@ -3533,7 +3533,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_44, data, sizeof(slot[s].z_44));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_44));
             result = true;
             break;
         }
@@ -3542,7 +3542,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_45, data, sizeof(slot[s].z_45));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_45));
             result = true;
             break;
         }
@@ -3551,7 +3551,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_46, data, sizeof(slot[s].z_46));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_46));
             result = true;
             break;
         }
@@ -3560,7 +3560,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_47, data, sizeof(slot[s].z_47));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_47));
             result = true;
             break;
         }
@@ -3569,7 +3569,7 @@ bool FF7Save::setUnknown(int s, int z, QByteArray data)
             result = false;
             break;
         } else {
-            memcpy(&slot[s].z_48, data, sizeof(slot[s].z_48));
+            std::copy(std::begin(data), std::end(data), std::begin(slot[s].z_48));
             result = true;
             break;
         }
@@ -3879,7 +3879,7 @@ void FF7Save::setControllerMapping(int s, QByteArray map)
         map.chop(16);
 
     if (map != controllerMapping(s)) {
-        memcpy(&slot[s].controller_map, map, 16);
+        std::copy(std::begin(map), std::end(map), std::begin(slot[s].controller_map));
         setFileModified(true, s);
     }
 }
