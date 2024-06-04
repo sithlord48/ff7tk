@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">1.1.0.2</span>
+   &#160;<span id="projectnumber">1.1.0.8</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -698,7 +698,7 @@ $(function() {
 <div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;    QString fileblock(<span class="keyword">const</span> QString &amp;fileName);</div>
 <div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;    QString filetimestamp(QString fileName);</div>
 <div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;    <span class="keywordtype">void</span> checksumSlots();</div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;    quint16 ff7Checksum(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;    [[ deprecated (<span class="stringliteral">&quot;FF7Save::ff7Checksum Removed, Use FF7SLOT.updateChecksum() and / or FF7SLOT.isEmpty()&quot;</span>) ]]quint16 ff7Checksum(<span class="keywordtype">int</span> s);</div>
 <div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;    <span class="keywordtype">void</span> fix_psv_header(<span class="keywordtype">int</span> s, <span class="keywordtype">int</span> blocks = 1);</div>
 <div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;    <span class="keywordtype">void</span> fix_pge_header(<span class="keywordtype">int</span> s);</div>
 <div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;    <span class="keywordtype">void</span> fix_pda_header(<span class="keywordtype">int</span> s);</div>
