@@ -40,10 +40,10 @@ void ItemSelector::init_display()
     btn_remove->setIconSize(iconSize);
     btn_remove->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear"), QPixmap(":/common/edit-clear")));
     btn_remove->setToolTip(tr("Empty Item"));
+    btn_remove->setFixedWidth((iconSize.width()*2));
     btn_remove->setShortcut(QKeySequence::Delete);
 
     init_data(); //before setting layout set dat
-
     sb_qty->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     btn_remove->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     combo_type->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
@@ -168,7 +168,7 @@ void ItemSelector::comboItem_changed(int index)
 
 void ItemSelector::setCurrentItem(int id,int qty)
 {
-    if (id < 0 || id > 319 || qty < 0 || qty > 127) {
+    if ((id < 0) || (id > 319) || (qty < 0) || (qty > 127)) {
         if (id != FF7Item::EmptyItem)
             return;
     }
