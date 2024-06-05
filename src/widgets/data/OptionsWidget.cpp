@@ -402,11 +402,12 @@ void OptionsWidget::setControllerMappingVisible(bool visible)
 QGridLayout *OptionsWidget::makeControllerLayout()
 {
     auto finalLayout = new QGridLayout;
+    const int fmh = fontMetrics().height();
     for (int i = 0; i < 16; i++) {
         lblInputs[i]->setAlignment(Qt::AlignRight);
         auto comboBox = new QComboBox;
         comboBox->setObjectName(_inputNames.at(i));
-        comboBox->setIconSize(QSize(fontMetrics().height(), fontMetrics().height()));
+        comboBox->setIconSize(QSize(fmh * 1.5, fmh * 1.5));
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
@@ -423,6 +424,7 @@ QGridLayout *OptionsWidget::makeControllerLayout()
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
+        comboBox->setFixedWidth(fmh * 3);
 
         connect(comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [comboBox, i, this] {
             Q_EMIT inputChanged(i, comboBox->currentIndex());
