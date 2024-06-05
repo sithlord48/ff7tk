@@ -24,6 +24,7 @@ MateriaEditor::MateriaEditor(QWidget *parent, quint8 materia_id, qint32 materia_
     init_display();
     setMateria(materia_id, materia_ap);
 }
+
 void MateriaEditor::init_display()
 {
     setContentsMargins(0, 0, 0, 0);
@@ -73,6 +74,7 @@ void MateriaEditor::setMateria(quint8 materia_id, qint32 materia_ap)
     setAP(materia_ap);
     setStats();
 }
+
 void MateriaEditor::setAP(qint32 ap)
 {
     if (FF7Materia::levels(_id) == 1) {
@@ -150,6 +152,7 @@ void MateriaEditor::setStats()
         box_skills->setTitle(title);
     }
 }
+
 void MateriaEditor::setLevel()
 {
     _level = FF7Materia::materiaLevel(_id, _current_ap);
@@ -239,6 +242,7 @@ qint32 MateriaEditor::ap(void)
 {
     return _current_ap;
 }
+
 qint8 MateriaEditor::id(void)
 {
     return qint8(_id);
@@ -476,6 +480,7 @@ QWidget *MateriaEditor::makeStarWidget()
     frm_ap_stars->setLayout(layout);
     return frm_ap_stars;
 }
+
 void MateriaEditor::changeEvent(QEvent *e)
 {
     if (e->type() == QEvent::LanguageChange) {
@@ -514,6 +519,7 @@ void MateriaEditor::changeEvent(QEvent *e)
     }
     QWidget::changeEvent(e);
 }
+
 void MateriaEditor::updateESkillList()
 {
     if (eskill_list) {
@@ -531,6 +537,7 @@ void MateriaEditor::updateESkillList()
         }
     }
 }
+
 QWidget *MateriaEditor::makeSkillWidget()
 {
     updateESkillList();
@@ -585,7 +592,7 @@ QWidget *MateriaEditor::makeSkillWidget()
 
     list_skills = new QListWidget;
     list_skills->addItem(new QListWidgetItem("Item"));
-    list_skills->setFixedHeight(list_skills->sizeHintForRow(0) * 5 + list_skills->contentsMargins().top() + list_skills->contentsMargins().bottom() + 3);
+    list_skills->setFixedHeight( ((list_skills->sizeHintForRow(0) + list_skills->spacing())* 5) + list_skills->contentsMargins().top() + list_skills->contentsMargins().bottom()  + 4);
     list_skills->setSelectionMode(QAbstractItemView::NoSelection);
 
     auto skill_layout = new QVBoxLayout;
