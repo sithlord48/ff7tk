@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">1.1.0.11</span>
+   &#160;<span id="projectnumber">1.1.0.12</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -108,18 +108,20 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> comboItem_changed(<span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> sb_qty_changed(<span class="keywordtype">int</span> qty);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> btn_remove_clicked();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> init_display();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> init_connections();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> init_data();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> type_offset(<span class="keywordtype">int</span> type);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QComboBox *combo_type = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QComboBox *combo_item = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QSpinBox  *sb_qty = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QPushButton *btn_remove = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    quint16 current_item = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> _showPlaceholderItems;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> changeEvent(QEvent *e);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> init_display();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> init_connections();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> init_data();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> type_offset(<span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QComboBox *combo_type = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QComboBox *combo_item = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QSpinBox  *sb_qty = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QPushButton *btn_remove = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    quint16 current_item = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> _showPlaceholderItems;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassItemSelector_html"><div class="ttname"><a href="classItemSelector.html">ItemSelector</a></div><div class="ttdef"><b>Definition:</b> ItemSelector.h:13</div></div>
 <!-- start footer part -->
