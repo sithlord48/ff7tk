@@ -9,7 +9,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-#include <QDebug>
+#include <QEvent>
 #include <FF7Item>
 
 ItemSelector::ItemSelector(QWidget *parent)
@@ -40,7 +40,7 @@ void ItemSelector::init_display()
     btn_remove->setIconSize(iconSize);
     btn_remove->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear"), QPixmap(":/common/edit-clear")));
     btn_remove->setToolTip(tr("Empty Item"));
-    btn_remove->setFixedWidth((iconSize.width()*2));
+    btn_remove->setFixedWidth((fontMetrics().height()*2));
     btn_remove->setShortcut(QKeySequence::Delete);
 
     init_data(); //before setting layout set dat
@@ -112,6 +112,19 @@ void ItemSelector::btn_remove_clicked()
     sb_qty->setEnabled(false);
     current_item = FF7Item::EmptyItemData;
     Q_EMIT itemChanged(current_item);
+}
+
+void ItemSelector::changeEvent(QEvent *e)
+{
+    if (e->type() == QEvent::StyleChange) {
+        adjustSize();
+    } else if (e->type() == QEvent::FontChange) {
+        qDebug() << "Font Change";
+        sb_qty->setFixedWidth(fontMetrics().horizontalAdvance(QStringLiteral("WWWW")) + 3);
+        btn_remove->setFixedWidth((fontMetrics().height()*2));
+    } else {
+        QWidget::changeEvent(e);
+    }
 }
 
 void ItemSelector::setFilter(int type)
@@ -263,6 +276,7 @@ void ItemSelector::setFixedHeight(int h)
     combo_type->setFixedHeight(h);
     combo_item->setFixedHeight(h);
     btn_remove->setFixedHeight(h);
+    QWidget::setFixedHeight(h);
 }
 
 void ItemSelector::setFixedWidth(int w)

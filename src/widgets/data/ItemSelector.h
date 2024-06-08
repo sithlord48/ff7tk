@@ -35,6 +35,8 @@ private slots:
     void comboItem_changed(int index);
     void sb_qty_changed(int qty);
     void btn_remove_clicked();
+protected:
+    void changeEvent(QEvent *e);
 private:
     void init_display();
     void init_connections();

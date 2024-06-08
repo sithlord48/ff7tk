@@ -22,6 +22,8 @@ public:
     bool viewportEvent(QEvent *event);
     void destroyTooltip();
     int sizeHintForColumn(int column);
+protected:
+    void changeEvent(QEvent *e);
 private:
     int m_itemQtyLimit = 127;
     bool m_editableItemCombo = false;

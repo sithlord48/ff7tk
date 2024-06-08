@@ -2,7 +2,6 @@
 //    SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include <ItemListView.h>
-
 #include <QEvent>
 #include <QHeaderView>
 #include <QScrollBar>
@@ -18,6 +17,7 @@ ItemListView::ItemListView(QWidget *parent)
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setEditTriggers(QAbstractItemView::AllEditTriggers);
     setItemDelegate(new ItemSelectionDelegate(this));
+    horizontalHeader()->setStretchLastSection(true);
 
     ItemSelector itemSelector;
     m_columnWidth[0] = itemSelector.combo_type_width();
@@ -30,6 +30,9 @@ ItemListView::ItemListView(QWidget *parent)
     setFixedWidth(itemSelector.sizeHint().width() + verticalScrollBar()->sizeHint().width());
     itemSelector.close();
     itemSelector.deleteLater();
+
+    if (style()->name() == "oxygen")
+        setFixedWidth(width() + 8);
 
 }
 
@@ -78,6 +81,30 @@ int ItemListView::sizeHintForColumn(int column)
     if(column < 0 || column > 2)
         return -1;
     return m_columnWidth[column];
+}
+
+void ItemListView::changeEvent(QEvent *e)
+{
+    if (e->type() == QEvent::StyleChange) {
+        ItemSelector itemSelector;
+        m_columnWidth[0] = itemSelector.combo_type_width();
+        m_columnWidth[1] = itemSelector.combo_item_width();
+        m_columnWidth[2] = itemSelector.qty_width();
+        setFixedWidth(itemSelector.sizeHint().width() + verticalScrollBar()->sizeHint().width());
+        verticalHeader()->setDefaultSectionSize(itemSelector.height());
+        itemSelector.close();
+        itemSelector.deleteLater();
+        setColumnWidth(0, m_columnWidth[0]);
+        setColumnWidth(1, m_columnWidth[1]);
+        setColumnWidth(2, m_columnWidth[2]);
+        if (style()->name() == "breeze")
+            setFixedWidth(width() + 4);
+        if (style()->name() == "oxygen")
+            setFixedWidth(width() + 8);
+    } else {
+        QWidget::changeEvent(e);
+    }
+    adjustSize();
 }
 
 void ItemListView::setMaximumItemQty(int itemQtyLimit)
