@@ -78,10 +78,9 @@ void SlotSelect::remove_slot(int s)
 
 void SlotSelect::copy_slot(int s)
 {
-    if (!ff7->isFF7(s)) {
-        //We can not Copy Non FF7 Slots Since we don't modify their region data and it will result in a duplicate index entry.
+    //We can not Copy Non FF7 Slots Since we don't modify their region data and it will result in a duplicate index entry.
+    if (!ff7->isFF7(s))
         return;
-    }
     ff7->copySlot(s);
 }
 
@@ -119,7 +118,9 @@ void SlotSelect::ReIntSlot(int s)
 
 void SlotSelect::setSlotPreview(int s)
 {
-    if (ff7->isFF7(s)) {
+    if (ff7->isSlotEmpty(s)) {
+        preview[s]->setMode(SlotPreview::EMPTY);
+    } else if (ff7->isFF7(s)) {
         preview[s]->setMode(SlotPreview::FF7SAVE);
         //show real Dialog background.
         QImage image(2, 2, QImage::Format_ARGB32);
@@ -135,8 +136,6 @@ void SlotSelect::setSlotPreview(int s)
         preview[s]->setLevel(ff7->descLevel(s));
         preview[s]->setGil(int(ff7->descGil(s)));
         preview[s]->setTime((ff7->descTime(s) / 3600), (ff7->descTime(s) / 60 % 60));
-    } else if (ff7->isSlotEmpty(s)) {
-        preview[s]->setMode(SlotPreview::EMPTY);
     } else {
         // all other psx saves.
         preview[s]->setMode(SlotPreview::PSXGAME);
@@ -148,11 +147,11 @@ void SlotSelect::setSlotPreview(int s)
                 || ff7->psx_block_type(s) == char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_ENDLINK)
                 || ff7->psx_block_type(s) == char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_ENDLINK)) {
             switch (ff7->psx_block_type(s)) {
-            case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_MIDLINK):   Slottext.append(tr("       Mid-Linked Block")); break;
-            case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_MIDLINK):  Slottext.append(tr("    Mid-Linked Block (Deleted)")); break;
-            case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_ENDLINK):  Slottext.append(tr("      End Of Linked Blocks")); break;
-            case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_ENDLINK): Slottext.append(tr("      End Of Linked Blocks (Deleted)")); break;
-            default: Slottext.append(tr("ERROR")); break;
+                case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_MIDLINK):   Slottext.append(tr("       Mid-Linked Block")); break;
+                case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_MIDLINK):  Slottext.append(tr("    Mid-Linked Block (Deleted)")); break;
+                case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_ENDLINK):  Slottext.append(tr("      End Of Linked Blocks")); break;
+                case char(FF7SaveInfo::PSXBLOCKTYPE::BLOCK_DELETED_ENDLINK): Slottext.append(tr("      End Of Linked Blocks (Deleted)")); break;
+                default: Slottext.append(tr("ERROR")); break;
             }
         }
         Slottext.append(ff7->psxDesc(s));

@@ -163,23 +163,21 @@ void MateriaEditor::setLevel()
 void MateriaEditor::setStars()
 {
     //show if its eskill Materia
-    if (FF7Materia::levels(_id) == 1
-     || (_id == FF7Materia::EmptyId)) {
+    if ( (FF7Materia::levels(_id) == 1) || (_id == FF7Materia::EmptyId)) {
         box_stars->setHidden(true);
         return;
-    } else {
-        box_stars->setHidden(false);
-        for (QPushButton *button : std::as_const(btn_stars))
-            button->setHidden(true);
-        if (FF7Materia::type(_id) != 0) {
-            for (QPushButton *button : std::as_const(btn_stars))
-                button->setIcon(FF7Materia::pixmapEmptyStar(_id));
-        }
-        for (int i = 0 ; i < _level ; i ++)
-            btn_stars.at(i)->setIcon(FF7Materia::pixmapFullStar(_id));
-        for (int i = 0 ; i < FF7Materia::levels(_id) ; i ++)
-            btn_stars.at(i)->setHidden(false);
     }
+    box_stars->setHidden(false);
+    for (QPushButton *button : std::as_const(btn_stars))
+        button->setHidden(true);
+    if (FF7Materia::type(_id) != 0) {
+        for (QPushButton *button : std::as_const(btn_stars))
+            button->setIcon(FF7Materia::pixmapEmptyStar(_id));
+    }
+    for (int i = 0 ; i < _level ; i ++)
+        btn_stars.at(i)->setIcon(FF7Materia::pixmapFullStar(_id));
+    for (int i = 0 ; i < FF7Materia::levels(_id) ; i ++)
+        btn_stars.at(i)->setHidden(false);
 }
 
 void MateriaEditor::setSkills()
@@ -371,9 +369,8 @@ QHBoxLayout *MateriaEditor::makeNameLayout()
     combo_materia->setStyleSheet(_comboStyle);
     combo_materia->view()->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     for (int i = 0; i < 91; i++) {
-        if (!FF7Materia::placeHolderIdList().contains(i)) {
+        if (!FF7Materia::placeHolderIdList().contains(i))
             combo_materia->addItem(FF7Materia::pixmap(i), FF7Materia::name(i));
-        }
     }
     connect(combo_materia, &QComboBox::currentTextChanged, this, &MateriaEditor::materia_changed);
 
@@ -464,9 +461,8 @@ QWidget *MateriaEditor::makeStarWidget()
 
     auto stars = new QHBoxLayout;
     stars->setContentsMargins(3, 0, 0, 0);
-    for (QPushButton *button : std::as_const(btn_stars)) {
+    for (QPushButton *button : std::as_const(btn_stars))
         stars->addWidget(button);
-    }
     auto spacer = new QSpacerItem(30, 0, QSizePolicy::Expanding, QSizePolicy::Fixed);
     stars->addSpacerItem(spacer);
     box_stars->setLayout(stars);

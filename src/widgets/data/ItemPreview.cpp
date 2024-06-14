@@ -50,7 +50,7 @@ ItemPreview::ItemPreview(QFlags<Qt::WindowType> WindowFlags, QWidget *parent)
 
     setWindowFlags(WindowFlags);
     Qt::WindowFlags WidgetType = (this->windowFlags() & Qt::WindowType_Mask);
-    if (WidgetType == Qt::Popup || WidgetType == Qt::ToolTip)
+    if ((WidgetType == Qt::Popup) || (WidgetType == Qt::ToolTip))
         installEventFilter(this);
 
     _id = FF7Item::EmptyItem;
@@ -161,7 +161,7 @@ void ItemPreview::setItem(int id)
     status_box->setHidden(true);
     elemental_box->setHidden(true);
 
-    if (id < 0 || id > 319)
+    if ((id < 0) || (id > 319))
         _id = FF7Item::EmptyItem;/*InValid Number..Do Nothing*/
     else {
         _id = id;
@@ -204,33 +204,32 @@ void ItemPreview::elemental_info(int id)
 {
     elemental_effects->clear();
     bool show = false;
-    if (id < 0 || id > 319) {/*invalid number*/}
-    else {
+    if ((id >= 0) && (id <= 319)) {
         for (int i = 0; i < 14; i++) {
             QString effect;
             int element = 0;
             switch (i) {
-            case 0: element = FF7Item::elementRestoration(id); effect.append(tr("Restoration")); break;
-            case 1: element = FF7Item::elementFire(id); effect.append(tr("Fire")); break;
-            case 2: element = FF7Item::elementCold(id); effect.append(tr("Cold")); break;
-            case 3: element = FF7Item::elementLightning(id); effect.append(tr("Lightning")); break;
-            case 4: element = FF7Item::elementEarth(id); effect.append(tr("Earth")); break;
-            case 5: element = FF7Item::elementWind(id); effect.append(tr("Wind")); break;
-            case 6: element = FF7Item::elementWater(id); effect.append(tr("Water")); break;
-            case 7: element = FF7Item::elementGravity(id); effect.append(tr("Gravity")); break;
-            case 8: element = FF7Item::elementHoly(id); effect.append(tr("Holy")); break;
-            case 9: element = FF7Item::elementPoison(id); effect.append(tr("Poison")); break;
-            case 10: element = FF7Item::elementCut(id); effect.append(tr("Cut")); break;
-            case 11: element = FF7Item::elementShoot(id); effect.append(tr("Shoot")); break;
-            case 12: element = FF7Item::elementPunch(id); effect.append(tr("Punch")); break;
-            case 13: element = FF7Item::elementHit(id); effect.append(tr("Hit")); break;
+                case 0: element = FF7Item::elementRestoration(id); effect.append(tr("Restoration")); break;
+                case 1: element = FF7Item::elementFire(id); effect.append(tr("Fire")); break;
+                case 2: element = FF7Item::elementCold(id); effect.append(tr("Cold")); break;
+                case 3: element = FF7Item::elementLightning(id); effect.append(tr("Lightning")); break;
+                case 4: element = FF7Item::elementEarth(id); effect.append(tr("Earth")); break;
+                case 5: element = FF7Item::elementWind(id); effect.append(tr("Wind")); break;
+                case 6: element = FF7Item::elementWater(id); effect.append(tr("Water")); break;
+                case 7: element = FF7Item::elementGravity(id); effect.append(tr("Gravity")); break;
+                case 8: element = FF7Item::elementHoly(id); effect.append(tr("Holy")); break;
+                case 9: element = FF7Item::elementPoison(id); effect.append(tr("Poison")); break;
+                case 10: element = FF7Item::elementCut(id); effect.append(tr("Cut")); break;
+                case 11: element = FF7Item::elementShoot(id); effect.append(tr("Shoot")); break;
+                case 12: element = FF7Item::elementPunch(id); effect.append(tr("Punch")); break;
+                case 13: element = FF7Item::elementHit(id); effect.append(tr("Hit")); break;
             }
             switch (element) {
-            case FF7Item::Absorb: effect.prepend(tr("Absorb:")); break;
-            case FF7Item::Nullify: effect.prepend(tr("Nullify:")); break;
-            case FF7Item::Halve: effect.prepend(tr("Halve:")); break;
-            case FF7Item::NoEffect: effect.clear(); break;
-            case FF7Item::Damage: effect.prepend(tr("Attack:")); break;
+                case FF7Item::Absorb: effect.prepend(tr("Absorb:")); break;
+                case FF7Item::Nullify: effect.prepend(tr("Nullify:")); break;
+                case FF7Item::Halve: effect.prepend(tr("Halve:")); break;
+                case FF7Item::NoEffect: effect.clear(); break;
+                case FF7Item::Damage: effect.prepend(tr("Attack:")); break;
             }
             if (!effect.isNull()) {
                 elemental_effects->addItem(effect);
@@ -258,44 +257,43 @@ void ItemPreview::status_info(int id)
     int y = status_effects->contentsMargins().top() + status_effects->contentsMargins().bottom();
     status_effects->clear();
     bool show = false;
-    if (id < 0 || id > 319) {/*invalid number*/}
-    else {
+    if ((id >= 0) && (id <= 319)) {
         for (int i = 0; i < 24; i++) {
             QString effect;
             int status = 0;
             switch (i) {
-            case 0: status = FF7Item::statusDeath(id); effect.append(tr("Death")); break;
-            case 1: status = FF7Item::statusSlowNumb(id); effect.append(tr("Slow-Numb")); break;
-            case 2: status = FF7Item::statusDeathSentence(id); effect.append(tr("D.Sentence")); break;
-            case 3: status = FF7Item::statusParalysis(id); effect.append(tr("Paralysis")); break;
-            case 4: status = FF7Item::statusPetrify(id); effect.append(tr("Petrify")); break;
-            case 5: status = FF7Item::statusSilence(id); effect.append(tr("Silence")); break;
-            case 6: status = FF7Item::statusSleep(id); effect.append(tr("Sleep")); break;
-            case 7: status = FF7Item::statusConfusion(id); effect.append(tr("Confusion")); break;
-            case 8: status = FF7Item::statusBerserk(id); effect.append(tr("Berserk")); break;
-            case 9: status = FF7Item::statusFrog(id); effect.append(tr("Frog")); break;
-            case 10: status = FF7Item::statusMini(id); effect.append(tr("Mini")); break;
-            case 11: status = FF7Item::statusPoison(id); effect.append(tr("Poison")); break;
-            case 12: status = FF7Item::statusFury(id); effect.append(tr("Fury")); break;
-            case 13: status = FF7Item::statusSadness(id); effect.append(tr("Sadness")); break;
-            case 14: status = FF7Item::statusDarkness(id); effect.append(tr("Darkness")); break;
-            case 15: status = FF7Item::statusHaste(id); effect.append(tr("Haste")); break;
-            case 16: status = FF7Item::statusSlow(id); effect.append(tr("Slow")); break;
-            case 17: status = FF7Item::statusStop(id); effect.append(tr("Stop")); break;
-            case 18: status = FF7Item::statusBarrier(id); effect.append(tr("Barrier")); break;
-            case 19: status = FF7Item::statusMagicBarrier(id); effect.append(tr("M.Barrier")); break;
-            case 20: status = FF7Item::statusReflect(id); effect.append(tr("Reflect")); break;
-            case 21: status = FF7Item::statusShield(id); effect.append(tr("Shield")); break;
-            case 22: status = FF7Item::statusRegen(id); effect.append(tr("Regen")); break;
-            case 23: status = FF7Item::statusResist(id); effect.append(tr("Resist")); break;
+                case 0: status = FF7Item::statusDeath(id); effect.append(tr("Death")); break;
+                case 1: status = FF7Item::statusSlowNumb(id); effect.append(tr("Slow-Numb")); break;
+                case 2: status = FF7Item::statusDeathSentence(id); effect.append(tr("D.Sentence")); break;
+                case 3: status = FF7Item::statusParalysis(id); effect.append(tr("Paralysis")); break;
+                case 4: status = FF7Item::statusPetrify(id); effect.append(tr("Petrify")); break;
+                case 5: status = FF7Item::statusSilence(id); effect.append(tr("Silence")); break;
+                case 6: status = FF7Item::statusSleep(id); effect.append(tr("Sleep")); break;
+                case 7: status = FF7Item::statusConfusion(id); effect.append(tr("Confusion")); break;
+                case 8: status = FF7Item::statusBerserk(id); effect.append(tr("Berserk")); break;
+                case 9: status = FF7Item::statusFrog(id); effect.append(tr("Frog")); break;
+                case 10: status = FF7Item::statusMini(id); effect.append(tr("Mini")); break;
+                case 11: status = FF7Item::statusPoison(id); effect.append(tr("Poison")); break;
+                case 12: status = FF7Item::statusFury(id); effect.append(tr("Fury")); break;
+                case 13: status = FF7Item::statusSadness(id); effect.append(tr("Sadness")); break;
+                case 14: status = FF7Item::statusDarkness(id); effect.append(tr("Darkness")); break;
+                case 15: status = FF7Item::statusHaste(id); effect.append(tr("Haste")); break;
+                case 16: status = FF7Item::statusSlow(id); effect.append(tr("Slow")); break;
+                case 17: status = FF7Item::statusStop(id); effect.append(tr("Stop")); break;
+                case 18: status = FF7Item::statusBarrier(id); effect.append(tr("Barrier")); break;
+                case 19: status = FF7Item::statusMagicBarrier(id); effect.append(tr("M.Barrier")); break;
+                case 20: status = FF7Item::statusReflect(id); effect.append(tr("Reflect")); break;
+                case 21: status = FF7Item::statusShield(id); effect.append(tr("Shield")); break;
+                case 22: status = FF7Item::statusRegen(id); effect.append(tr("Regen")); break;
+                case 23: status = FF7Item::statusResist(id); effect.append(tr("Resist")); break;
             }
 
             switch (status) {
-            case FF7Item::Protect: effect.prepend(tr("Protect:")); break;
-            case FF7Item::Remove: effect.prepend(tr("Remove:")); break;
-            case FF7Item::NoEffect: effect.clear(); break;
-            case FF7Item::Infilict: effect.prepend(tr("Inflict:")); break;
-            case FF7Item::SelfCast: effect.prepend(tr("OnBattle:")); break;
+                case FF7Item::Protect: effect.prepend(tr("Protect:")); break;
+                case FF7Item::Remove: effect.prepend(tr("Remove:")); break;
+                case FF7Item::NoEffect: effect.clear(); break;
+                case FF7Item::Infilict: effect.prepend(tr("Inflict:")); break;
+                case FF7Item::SelfCast: effect.prepend(tr("OnBattle:")); break;
             }
 
             if (!effect.isNull()) {

@@ -66,9 +66,8 @@ void ChocoboEditor::updateText()
     };
 
     if (combo_rating->count() != 0) {
-        for (int i = 0; i < typelist.count(); i++) {
+        for (int i = 0; i < typelist.count(); i++)
             combo_rating->setItemText(i, typelist.at(i));
-        }
     } else {
         combo_rating->addItems(typelist);
     }
@@ -193,7 +192,7 @@ ChocoboEditor::ChocoboEditor(QWidget *parent) :
     Final->addWidget(lblSpeedWarning, 8, 0, 2, 2, Qt::AlignCenter);
     Final->addWidget(advancedModeBox, 10, 0, 1, 2);
     Final->addItem(new QSpacerItem(0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding), 11, 0, 1, 2);
-    this->setLayout(Final);
+    setLayout(Final);
     init_connections();
 }
 
@@ -320,15 +319,14 @@ void ChocoboEditor::SetChocobo(FF7CHOCOBO choco, const QString &Processed_Name, 
 }
 void ChocoboEditor::getRank(void)
 {
-    if (choco_data.raceswon < 3) {
+    if (choco_data.raceswon < 3)
         lbl_rank->setText(tr("Rank: C"));
-    } else if (choco_data.raceswon < 6) {
+    else if (choco_data.raceswon < 6)
         lbl_rank->setText(tr("Rank: B"));
-    } else if (choco_data.raceswon < 9) {
+    else if (choco_data.raceswon < 9)
         lbl_rank->setText(tr("Rank: A"));
-    } else {
+    else
         lbl_rank->setText(tr("Rank: S"));
-    }
 }
 
 void ChocoboEditor::setAdvancedMode(bool advancedMode)
@@ -464,11 +462,10 @@ void ChocoboEditor::setName(const QString &newName)
 {
     if (choco_name != newName) {
         choco_name = newName.mid(0, 6);
-        if (choco_name.startsWith(QString("\xff"), Qt::CaseInsensitive) || choco_name == QString(6, '\x20')) {
+        if (choco_name.startsWith(QString("\xff"), Qt::CaseInsensitive) || choco_name == QString(6, '\x20'))
             line_name->setText(QString());
-        } else {
+        else
             line_name->setText(choco_name);
-        }
     }
 }
 

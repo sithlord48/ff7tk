@@ -78,7 +78,7 @@ void ItemListView::destroyTooltip()
 
 int ItemListView::sizeHintForColumn(int column)
 {
-    if(column < 0 || column > 2)
+    if ((column < 0) || (column > 2))
         return -1;
     return m_columnWidth[column];
 }
