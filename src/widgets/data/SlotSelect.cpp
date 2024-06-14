@@ -171,9 +171,9 @@ void SlotSelect::setSlotPreview(int s)
     }
 
     connect(preview[s], &SlotPreview::clicked, this, &SlotSelect::button_clicked);
-    connect(preview[s], &SlotPreview::btn_remove_clicked, this, &SlotSelect::remove_slot);
-    connect(preview[s], &SlotPreview::btn_copy_clicked, this, &SlotSelect::copy_slot);
-    connect(preview[s], &SlotPreview::btn_paste_clicked, this, &SlotSelect::paste_slot);
+    connect(preview[s], &SlotPreview::remove, this, &SlotSelect::remove_slot);
+    connect(preview[s], &SlotPreview::copy, this, &SlotSelect::copy_slot);
+    connect(preview[s], &SlotPreview::paste, this, &SlotSelect::paste_slot);
 }
 
 void SlotSelect::newFile(void)
