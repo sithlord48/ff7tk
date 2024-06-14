@@ -102,16 +102,16 @@ void MenuListWidget::setChecked(int row, int box, bool checked)
 {
     disconnectAll();
     switch (row) {
-    case 0: cb_item->setChecked(box, checked); break;
-    case 1: cb_magic->setChecked(box, checked); break;
-    case 2: cb_materia->setChecked(box, checked); break;
-    case 3: cb_equip->setChecked(box, checked); break;
-    case 4: cb_status->setChecked(box, checked); break;
-    case 5: cb_order->setChecked(box, checked); break;
-    case 6: cb_limit->setChecked(box, checked); break;
-    case 7: cb_config->setChecked(box, checked); break;
-    case 8: cb_phs->setChecked(box, checked); break;
-    case 9: cb_save->setChecked(box, checked); break;
+        case 0: cb_item->setChecked(box, checked); break;
+        case 1: cb_magic->setChecked(box, checked); break;
+        case 2: cb_materia->setChecked(box, checked); break;
+        case 3: cb_equip->setChecked(box, checked); break;
+        case 4: cb_status->setChecked(box, checked); break;
+        case 5: cb_order->setChecked(box, checked); break;
+        case 6: cb_limit->setChecked(box, checked); break;
+        case 7: cb_config->setChecked(box, checked); break;
+        case 8: cb_phs->setChecked(box, checked); break;
+        case 9: cb_save->setChecked(box, checked); break;
     };
     connectAll();
 }

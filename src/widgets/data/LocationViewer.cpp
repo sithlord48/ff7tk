@@ -63,18 +63,16 @@ void LocationViewer::resizeEvent(QResizeEvent *ev)
 {
     if (ev->type() == QResizeEvent::Resize) {
         QPixmap pix(QStringLiteral(":/locations/%1_%2").arg(QString::number(sbMapID->value()), QString::number(sbLocID->value())));
-        if (pix.isNull()) {
+        if (pix.isNull())
             return;
-        }
         lblLocationPreview->setPixmap(pix.scaled(lblLocationPreview->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 }
 
 void LocationViewer::changeEvent(QEvent *e)
 {
-    if (e->type() == QEvent::LanguageChange) {
+    if (e->type() == QEvent::LanguageChange)
         updateText();
-    }
     QWidget::changeEvent(e);
 }
 
@@ -499,8 +497,8 @@ void LocationViewer::filterLocations(QString filter)
     QRegularExpression exp(filter);
     exp.setPatternOptions(caseSensitive ? QRegularExpression::PatternOption::NoPatternOption : QRegularExpression::CaseInsensitiveOption );
     switch (searchMode) {
-    case NAME: searchName(exp); break;
-    case ITEM: searchItem(exp); break;
+        case NAME: searchName(exp); break;
+        case ITEM: searchItem(exp); break;
     }
 }
 
@@ -510,9 +508,8 @@ void LocationViewer::actionNameSearchToggled(bool checked)
         actionItemSearchToggled(false);
         searchMode = NAME;
         lineTableFilter->setPlaceholderText(actionNameSearch->text());
-        if (!lineTableFilter->text().isEmpty()) {
+        if (!lineTableFilter->text().isEmpty())
             filterLocations(lineTableFilter->text());
-        }
     } else {
         actionNameSearch->setChecked(false);
     }
@@ -582,24 +579,14 @@ void LocationViewer::init_fieldItems(void)
 
 void LocationViewer::fieldItemListItemChanged(QModelIndex index)
 {
-    bool checked;
-    if (fieldItemList->item(index.row())->checkState() == Qt::Checked)
-        checked = true;
-    else
-        checked = false;
-
-    Q_EMIT fieldItemChanged(index.row(), checked);
-
+    Q_EMIT fieldItemChanged(index.row(), (fieldItemList->item(index.row())->checkState() == Qt::Checked));
 }
+
 void LocationViewer::setFieldItemChecked(int row, bool checked)
 {
     init_disconnect();
-    if (fieldItemList->count() > row) {
-        if (checked)
-            fieldItemList->item(row)->setCheckState(Qt::Checked);
-        else
-            fieldItemList->item(row)->setCheckState(Qt::Unchecked);
-    }
+    if (fieldItemList->count() > row)
+        fieldItemList->item(row)->setCheckState(checked ? Qt::Checked : Qt::Unchecked);
     init_connections();
 }
 void LocationViewer::searchName(QRegularExpression exp)
@@ -632,7 +619,7 @@ void LocationViewer::searchItem(QRegularExpression exp)
     if(regExpSearch) {
         for (const FieldItem &fieldItem : FF7FieldItemList::fieldItemList()) {
             if (exp.match(QCoreApplication::translate("FF7FieldItemList", fieldItem.Text.toUtf8())).hasMatch())
-                    locationNames.append(fieldItem.Maps);
+                locationNames.append(fieldItem.Maps);
         }
     } else {
         Qt::CaseSensitivity caseSensitiveValue = caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive;

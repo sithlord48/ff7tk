@@ -22,7 +22,7 @@ void ChocoboManager::changeEvent(QEvent *e)
     } else if (e->type() == QEvent::PaletteChange) {
         const auto list  = findChildren<QWidget*>();
             for( auto i: list)
-            i->setPalette(palette());
+                i->setPalette(palette());
     }
     QWidget::changeEvent(e);
 }
@@ -246,9 +246,8 @@ void ChocoboManager::rmChocobo(int s)
 
 void ChocoboManager::labelUpdate(int label)
 {
-    if (!(chocoboName[label].startsWith(QString("\xff")))) {
+    if (!(chocoboName[label].startsWith(QString("\xff"))))
         chocoboLabel[label]->setName(chocoboName[label]);
-    }
     chocoboLabel[label]->setSex(chocoboData[label].sex);
     chocoboLabel[label]->setRank(chocoboData[label].raceswon);
     chocoboLabel[label]->setType(chocoboData[label].type);
@@ -260,19 +259,18 @@ void ChocoboManager::setData(FF7CHOCOBO chocos[6], QString names[6], quint16 sta
 {
     for (int i = 0; i < 6; i++) {
         setChocobo(i, chocos[i], names[i], staminas[i], cMate[i], chocoboRatings[i]);
-        if (!chocoboLabel[i]->isOccupied()) {
+        if (!chocoboLabel[i]->isOccupied())
             chocoboLabel[i]->clearLabel();
-        }
         chocoboLabel[i]->setSelected(false);
     }
     setOwned(owned);
     setOccupied(occupied, mask);
     selectedStable = -1; //reset
     chocoboEditor->setHidden(true);
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++)
         setChocoboPen(i, chocoPens[i]);
-    }
 }
+
 void ChocoboManager::setData(QList<FF7CHOCOBO> chocos, QList<QString> names, QList<quint16> staminas, QList<bool> cMate, qint8 owned, qint8 occupied, qint8 mask, QList<qint8> chocoPens, QList<quint8> chocoboRatings)
 {
     setOwned(owned);
@@ -283,16 +281,15 @@ void ChocoboManager::setData(QList<FF7CHOCOBO> chocos, QList<QString> names, QLi
 
     for (int i = 0; i < 6; i++) {
         setChocobo(i, chocos.at(i), names.at(i), staminas.at(i), cMate.at(i), chocoboRatings.at(i));
-        if (!chocoboLabel[i]->isOccupied()) {
+        if (!chocoboLabel[i]->isOccupied())
             chocoboLabel[i]->clearLabel();
-        }
         chocoboLabel[i]->setSelected(false);
     }
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++)
         setChocoboPen(i, chocoPens[i]);
-    }
 }
+
 void ChocoboManager::setChocobo(int s, const FF7CHOCOBO &chocoData, const QString &chocoName, quint16 chocoStamina, bool chocoCmate, quint8 rating)
 {
     chocoboLabel[s]->clearLabel();
@@ -301,57 +298,54 @@ void ChocoboManager::setChocobo(int s, const FF7CHOCOBO &chocoData, const QStrin
     chocoboStamina[s] = chocoStamina;
     chocoboRatings[s] = rating;
     cantMate[s] = chocoCmate;
-    if (chocoboLabel[s]->isOccupied()) {
+    if (chocoboLabel[s]->isOccupied())
         labelUpdate(s);
-    } else {
+    else
         chocoboLabel[s]->clearLabel();
-    }
 }
+
 void ChocoboManager::setChocoboPen(int pen, int value)
 {
-    if ((pen < 0) || (pen > 3) || (value < 0) || (value > 8)) {
+    if ((pen < 0) || (pen > 3) || (value < 0) || (value > 8))
         return;
-    } else {
-        comboChocoPen[pen]->setCurrentIndex(value);
-    }
+    comboChocoPen[pen]->setCurrentIndex(value);
 }
+
 void ChocoboManager::setOwned(int owned)
 {
-    if ((owned < 0) || (owned > 6)) {
+    if ((owned < 0) || (owned > 6))
         return;
-    } else {
-        stablesOwned = qint8(owned);
-        sbStablesOwned->blockSignals(true);
-        sbStablesOwned->setValue(owned);
-        disableChocoLabels();
-        enableChocoboLabels(owned);
-        sbStablesOwned->blockSignals(false);
-    }
+    stablesOwned = qint8(owned);
+    sbStablesOwned->blockSignals(true);
+    sbStablesOwned->setValue(owned);
+    disableChocoLabels();
+    enableChocoboLabels(owned);
+    sbStablesOwned->blockSignals(false);
 }
+
 void ChocoboManager::setOccupied(int occupied, int mask)
 {
-    if ((occupied < 0) || (occupied > 6)) {
+    if ((occupied < 0) || (occupied > 6))
         return;
-    } else {
-        stablesOccupied = qint8(occupied);
-        stableMask = qint8(mask);
+    stablesOccupied = qint8(occupied);
+    stableMask = qint8(mask);
 
-        for (int i = 0; i < 6; i++) {
-            chocoboLabel[i]->blockSignals(true);
-            if ((mask & (1 << i))) {
-                chocoboLabel[i]->setOccupied(true);
-                labelUpdate(i);
-            } else {
-                chocoboLabel[i]->setOccupied(false);
-                chocoboLabel[i]->clearLabel();
-            }
-            chocoboLabel[i]->blockSignals(false);
+    for (int i = 0; i < 6; i++) {
+        chocoboLabel[i]->blockSignals(true);
+        if ((mask & (1 << i))) {
+            chocoboLabel[i]->setOccupied(true);
+            labelUpdate(i);
+        } else {
+            chocoboLabel[i]->setOccupied(false);
+            chocoboLabel[i]->clearLabel();
         }
-        lcdStablesOccupied->blockSignals(true);
-        lcdStablesOccupied->display(occupied);
-        lcdStablesOccupied->blockSignals(false);
+        chocoboLabel[i]->blockSignals(false);
     }
+    lcdStablesOccupied->blockSignals(true);
+    lcdStablesOccupied->display(occupied);
+    lcdStablesOccupied->blockSignals(false);
 }
+
 void ChocoboManager::ChocoboChanged(int s)
 {
     Q_EMIT nameChanged(s, chocoboName[s]);
@@ -371,70 +365,69 @@ void ChocoboManager::ChocoboChanged(int s)
     Q_EMIT winsChanged(s, chocoboData[s].raceswon);
     Q_EMIT ratingChanged(s, chocoboRatings[s]);
 }
+
 bool ChocoboManager::isEmpty(FF7CHOCOBO choco)
 {
     int score = 0;
-    if (!choco.accel) {
+    if (!choco.accel)
         score++;
-    }
-    if (!choco.coop) {
+
+    if (!choco.coop)
         score++;
-    }
-    if (!choco.intelligence) {
+
+    if (!choco.intelligence)
         score++;
-    }
-    if (!choco.maxspeed) {
+
+    if (!choco.maxspeed)
         score++;
-    }
-    if (!choco.maxsprintspd) {
+
+    if (!choco.maxsprintspd)
         score++;
-    }
-    if (!choco.pcount) {
+
+    if (!choco.pcount)
         score++;
-    }
-    if (!choco.personality) {
+
+    if (!choco.personality)
         score++;
-    }
-    if (!choco.raceswon) {
+
+    if (!choco.raceswon)
         score++;
-    }
-    if (!choco.sex) {
+
+    if (!choco.sex)
         score++;
-    }
-    if (!choco.speed) {
+
+    if (!choco.speed)
         score++;
-    }
-    if (!choco.sprintspd) {
+
+    if (!choco.sprintspd)
         score++;
-    }
-    if (!choco.type) {
+
+    if (!choco.type)
         score++;
-    }
-    if (score > 5) {
+
+    if (score > 5)
         return false;
-    } else {
-        return true;
-    }
+    return true;
 }
 
 void ChocoboManager::clearSelection()
 {
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++)
         chocoboLabel[i]->setSelected(false);
-    }
 }
+
 void ChocoboManager::disableChocoLabels()
 {
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 6; i++)
         chocoboLabel[i]->setEnabled(false);
-    }
 }
+
 void ChocoboManager::enableChocoboLabels(int count)
 {
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < count; i++)
         chocoboLabel[i]->setEnabled(true);
-    }
 }
+
 QGridLayout *ChocoboManager::createChocoboLabelGrid()
 {
     auto gridLayout = new QGridLayout;
@@ -448,9 +441,7 @@ QGridLayout *ChocoboManager::createChocoboLabelGrid()
 
         connect(chocoboLabel[i], &ChocoboLabel::clicked, this, [this] {
             if (selectedStable == -1)
-            {
                 chocoboEditor->setHidden(false);
-            }
             selectedStable = sender()->objectName().toInt();
             chocoboEditor->SetChocobo(chocoboData[selectedStable], chocoboName[selectedStable], cantMate[selectedStable], chocoboStamina[selectedStable], chocoboRatings[selectedStable]);
             clearSelection();
@@ -469,8 +460,7 @@ QGridLayout *ChocoboManager::createChocoboLabelGrid()
             setChocobo(s, chocoboData[6], chocoboName[6], chocoboStamina[6], cantMate[6], chocoboRatings[6]);
             //emit the changes
             ChocoboChanged(s);
-            if (!chocoboLabel[s]->isOccupied())
-            {
+            if (!chocoboLabel[s]->isOccupied()) {
                 chocoboLabel[s]->setOccupied(true);
                 setOccupied(stablesOccupied + 1, stableMask |= (1 << s));
                 Q_EMIT occupiedChanged(stablesOccupied);
@@ -537,9 +527,8 @@ void ChocoboManager::updateCombos()
 
     for (int i = 0; i < 4; i++) {
         if (comboChocoPen[i]->count() != 0) {
-            for (int j = 0; j < comboChocoPen[i]->count(); j++) {
+            for (int j = 0; j < comboChocoPen[i]->count(); j++)
                 comboChocoPen[i]->setItemText(j, typeList.at(j));
-            }
         } else {
             comboChocoPen[i]->addItems(typeList);
         }

@@ -85,9 +85,8 @@ void CharEditor::updateText()
         sbBaseHp = new QSpinBox(this);
     sbBaseHp->setToolTip(tr("Base HP"));
 
-    if (!lblBaseHp){
+    if (!lblBaseHp)
         lblBaseHp = new QLabel(this);
-    }
     lblBaseHp->setText(tr("HP"));
 
     if (!lblBaseHpBonus)
@@ -313,9 +312,8 @@ void CharEditor::updateText()
         lblLckTotal = new QLabel(this);
     lblLckTotal->setToolTip(tr("Luck Stat Total"));
 
-    if (!toolbox) {
+    if (!toolbox)
         toolbox = new QToolBox(this);
-    }
     toolbox->setItemText(0, tr("Status Info"));
     toolbox->setItemText(1, tr("Equipment"));
 
@@ -444,11 +442,10 @@ void CharEditor::updateMateriaToolTips()
 {
     int i =0;
     for(auto button : std::as_const(materiaSlots)) {
-        if (data.materias[i].id != FF7Materia::EmptyId) {
+        if (data.materias[i].id != FF7Materia::EmptyId)
             button->setToolTip(FF7Materia::name(data.materias[i].id));
-        } else {
+        else
             button->setToolTip(QString(tr("-Empty-")));
-        }
         i++;
     }
 }
@@ -838,146 +835,182 @@ quint8 CharEditor::id()
 {
     return data.id;
 }
+
 quint8 CharEditor::level()
 {
     return data.level;
 }
+
 quint8 CharEditor::str()
 {
     return data.strength;
 }
+
 quint8 CharEditor::vit()
 {
     return data.vitality;
 }
+
 quint8 CharEditor::mag()
 {
     return data.magic;
 }
+
 quint8 CharEditor::spi()
 {
     return data.spirit;
 }
+
 quint8 CharEditor::dex()
 {
     return data.dexterity;
 }
+
 quint8 CharEditor::lck()
 {
     return data.luck;
 }
+
 quint8 CharEditor::strBonus()
 {
     return data.strength_bonus;
 }
+
 quint8 CharEditor::vitBonus()
 {
     return data.vitality_bonus;
 }
+
 quint8 CharEditor::magBonus()
 {
     return data.magic_bonus;
 }
+
 quint8 CharEditor::spiBonus()
 {
     return data.spirit_bonus;
 }
+
 quint8 CharEditor::dexBonus()
 {
     return data.dexterity_bonus;
 }
+
 quint8 CharEditor::lckBonus()
 {
     return data.luck_bonus;
 }
+
 qint8 CharEditor::limitLevel()
 {
     return data.limitlevel;
 }
+
 quint8 CharEditor::limitBar()
 {
     return data.limitbar;
 }
+
 QString CharEditor::name()
 {
     return lineName->text();
 }
+
 quint8 CharEditor::weapon()
 {
     return data.weapon;
 }
+
 quint8 CharEditor::armor()
 {
     return data.armor;
 }
+
 quint8 CharEditor::accessory()
 {
     return data.accessory;
 }
+
 quint16 CharEditor::curHp()
 {
     return data.curHP;
 }
+
 quint16 CharEditor::maxHp()
 {
     return data.maxHP;
 }
+
 quint16 CharEditor::curMp()
 {
     return data.curMP;
 }
+
 quint16 CharEditor::maxMp()
 {
     return data.maxMP;
 }
+
 quint16 CharEditor::kills()
 {
     return data.kills;
 }
+
 quint8 CharEditor::row()
 {
     return data.rowFlag;
 }
+
 quint8 CharEditor::levelProgress()
 {
     return data.tnlFlag;
 }
+
 quint8 CharEditor::sadnessfury()
 {
     return data.statusFlag;
 }
+
 quint16 CharEditor::limits()
 {
     return data.limits;
 }
+
 quint16 CharEditor::timesused1()
 {
     return data.timesused1;
 }
+
 quint16 CharEditor::timesused2()
 {
     return data.timesused2;
 }
+
 quint16 CharEditor::timesused3()
 {
     return data.timesused3;
 }
+
 quint16 CharEditor::baseHp()
 {
     return data.baseHP;
 }
+
 quint16 CharEditor::baseMp()
 {
     return data.baseMP;
 }
+
 quint32 CharEditor::exp()
 {
     return data.exp;
 }
+
 quint32 CharEditor::expNext()
 {
     return data.expNext;
 }
+
 materia CharEditor::char_materia(int mat)
 {
     return data.materias[mat];
@@ -992,9 +1025,8 @@ void CharEditor::Exp_Changed(int exp)
                 int level = 0;
                 int prev_level = data.level;
                 for (int i = level; i < 99; i++) {
-                    if (data.exp >= FF7Char::totalExpForLevel(data.id, i)) {
+                    if (data.exp >= FF7Char::totalExpForLevel(data.id, i))
                         level++;
-                    }
                 }
                 sbLevel->blockSignals(true);
                 sbLevel->setValue(level);
@@ -1013,11 +1045,10 @@ void CharEditor::Level_Changed(int level)
         if (autolevel) {
             int prev_level = data.level;
             setLevel(level);
-            if (level <= 0) {
+            if (level <= 0)
                 setExp(0);
-            } else {
+            else
                 setExp(int(FF7Char::totalExpForLevel(data.id, level - 1)));
-            }
             sbTotalExp->blockSignals(true);
             sbTotalExp->setValue(int(data.exp));
             sbTotalExp->blockSignals(false);
@@ -1381,10 +1412,8 @@ void CharEditor::setWeapon(int weapon)
     elemental_info();
     status_info();
     update_materia_slots();
-    if(mslotsel >= 0 && mslotsel <= 7) {
+    if (mslotsel >= 0 && mslotsel <= 7)
         materiaSlotClicked(-1);
-    }
-
 }
 
 void CharEditor::setArmor(int armor)
@@ -1402,9 +1431,8 @@ void CharEditor::setArmor(int armor)
     elemental_info();
     status_info();
     update_materia_slots();
-    if(mslotsel >= 8 && mslotsel <= 15) {
+    if(mslotsel >= 8 && mslotsel <= 15)
         materiaSlotClicked(-1);
-    }
 }
 
 void CharEditor::setAccessory(int accessory)
@@ -1540,37 +1568,41 @@ void CharEditor::calc_limit_value(QModelIndex item)
 {
     int row = item.row();
     int limits = data.limits;
-    if (list_limits->item(row)->checkState() == Qt::Checked) {
+    if (list_limits->item(row)->checkState() == Qt::Checked)
         limits |= (1 << FF7Char::limitBitConvert(row));
-    } else {
+    else
         limits &= ~(1 << FF7Char::limitBitConvert(row));
-    }
     setLimits(limits);
 }
+
 void CharEditor::setAutoLevel(bool ans)
 {
     autolevel = ans;    //used to turn off auto char leveling
-    if (ans) {
+    if (ans)
         Level_Changed(data.level);
-    }
 }
+
 bool CharEditor::AutoLevel()
 {
     return autolevel;
 }
+
 void CharEditor::setAutoStatCalc(bool ans)
 {
     autostatcalc = ans;    //Toggle stat calculation
     calc_stats();
 }
+
 bool CharEditor::AutoStatCalc()
 {
     return autostatcalc;
 }
+
 bool CharEditor::AdvancedMode()
 {
     return advancedMode;
 }
+
 void CharEditor::setAdvancedMode(bool new_advancedMode)
 {
     advancedMode = new_advancedMode;
@@ -1578,19 +1610,14 @@ void CharEditor::setAdvancedMode(bool new_advancedMode)
     comboId->setVisible(advancedMode);
 
     //if viewing cait/vincent/y.cloud or sephiroth hid the checkbox for simple id changing.
-    if (data.id == FF7Char::CaitSith || data.id == FF7Char::Vincent || data.id == FF7Char::YoungCloud || data.id == FF7Char::Sephiroth) {
+    if (data.id == FF7Char::CaitSith || data.id == FF7Char::Vincent || data.id == FF7Char::YoungCloud || data.id == FF7Char::Sephiroth)
         cb_idChanger->setHidden(advancedMode);
-    }
 }
 
 void CharEditor::setEditable(bool edit)
 {
     editable = edit;
-    if (editable) {
-        setEnabled(true);
-    } else {
-        setEnabled(false);
-    }
+    setEnabled(editable);
 }
 
 void CharEditor::setShowPlaceholderMateria(bool shown)
@@ -1648,30 +1675,30 @@ void CharEditor::calc_stats()
         QString title;
         title.append(tr("AP:x%1").arg(QString::number(FF7Item::materiaGrowthRate(data.weapon + 128))));
 
-        if (FF7Item::statSTR(data.weapon + 128) != 0) {
+        if (FF7Item::statSTR(data.weapon + 128) != 0)
             title.append(tr(" Str:+%1").arg(QString::number(FF7Item::statSTR(data.weapon + 128))));
-        }
-        if (FF7Item::statVIT(data.weapon + 128) != 0) {
+
+        if (FF7Item::statVIT(data.weapon + 128) != 0)
             title.append(tr(" Vit:+%1").arg(QString::number(FF7Item::statVIT(data.weapon + 128))));
-        }
-        if (FF7Item::statDEX(data.weapon + 128) != 0) {
+
+        if (FF7Item::statDEX(data.weapon + 128) != 0)
             title.append(tr(" Dex:+%1").arg(QString::number(FF7Item::statDEX(data.weapon + 128))));
-        }
-        if (FF7Item::statSPI(data.weapon + 128) != 0) {
+
+        if (FF7Item::statSPI(data.weapon + 128) != 0)
             title.append(tr(" Spi:+%1").arg(QString::number(FF7Item::statSPI(data.weapon + 128))));
-        }
-        if (FF7Item::statMAG(data.weapon + 128) != 0) {
+
+        if (FF7Item::statMAG(data.weapon + 128) != 0)
             title.append(tr(" Mag:+%1").arg(QString::number(FF7Item::statMAG(data.weapon + 128))));
-        }
-        if (FF7Item::statLCK(data.weapon + 128) != 0) {
+
+        if (FF7Item::statLCK(data.weapon + 128) != 0)
             title.append(tr(" Lck:+%1").arg(QString::number(FF7Item::statLCK(data.weapon + 128))));
-        }
-        if (FF7Item::statHP(data.weapon + 128) != 0) {
+
+        if (FF7Item::statHP(data.weapon + 128) != 0)
             title.append(tr(" Hp:+%1%").arg(QString::number(FF7Item::statHP(data.weapon + 128))));
-        }
-        if (FF7Item::statMP(data.weapon + 128) != 0) {
+
+        if (FF7Item::statMP(data.weapon + 128) != 0)
             title.append(tr(" Mp:+%1%").arg(QString::number(FF7Item::statMP(data.weapon + 128))));
-        }
+
         lblWeaponStats->setText(title);
         //Armor
         str_bonus += FF7Item::statSTR(data.armor + 256);
@@ -1684,30 +1711,30 @@ void CharEditor::calc_stats()
         mp_bonus += FF7Item::statMP(data.armor + 256);
         title.clear();
         title.append(tr("AP:x%1").arg(QString::number(FF7Item::materiaGrowthRate(data.armor + 256))));
-        if (FF7Item::statSTR(data.armor + 256) != 0) {
+        if (FF7Item::statSTR(data.armor + 256) != 0)
             title.append(tr(" Str:+%1").arg(QString::number(FF7Item::statSTR(data.armor + 256))));
-        }
-        if (FF7Item::statVIT(data.armor + 256) != 0) {
+
+        if (FF7Item::statVIT(data.armor + 256) != 0)
             title.append(tr(" Vit:+%1").arg(QString::number(FF7Item::statVIT(data.armor + 256))));
-        }
-        if (FF7Item::statDEX(data.armor + 256) != 0) {
+
+        if (FF7Item::statDEX(data.armor + 256) != 0)
             title.append(tr(" Dex:+%1").arg(QString::number(FF7Item::statDEX(data.armor + 256))));
-        }
-        if (FF7Item::statSPI(data.armor + 256) != 0) {
+
+        if (FF7Item::statSPI(data.armor + 256) != 0)
             title.append(tr(" Spi:+%1").arg(QString::number(FF7Item::statSPI(data.armor + 256))));
-        }
-        if (FF7Item::statMAG(data.armor + 256) != 0) {
+
+        if (FF7Item::statMAG(data.armor + 256) != 0)
             title.append(tr(" Mag:+%1").arg(QString::number(FF7Item::statMAG(data.armor + 256))));
-        }
-        if (FF7Item::statLCK(data.armor + 256) != 0) {
+
+        if (FF7Item::statLCK(data.armor + 256) != 0)
             title.append(tr(" Lck:+%1").arg(QString::number(FF7Item::statLCK(data.armor + 256))));
-        }
-        if (FF7Item::statHP(data.armor + 256) != 0) {
+
+        if (FF7Item::statHP(data.armor + 256) != 0)
             title.append(tr(" Hp:+%1%").arg(QString::number(FF7Item::statHP(data.armor + 256))));
-        }
-        if (FF7Item::statMP(data.armor + 256) != 0) {
+
+        if (FF7Item::statMP(data.armor + 256) != 0)
             title.append(tr(" Mp:+%1%").arg(QString::number(FF7Item::statMP(data.armor + 256))));
-        }
+
         lblArmorStats->setText(title);
         //Accessory
         if (data.accessory < 32) {
@@ -1721,30 +1748,30 @@ void CharEditor::calc_stats()
             mp_bonus += FF7Item::statMP(data.accessory + 288);
             title.clear();
             title.append(tr("Accessory"));
-            if (FF7Item::statSTR(data.accessory + 288) != 0) {
+            if (FF7Item::statSTR(data.accessory + 288) != 0)
                 title.append(tr(" Str:+%1").arg(QString::number(FF7Item::statSTR(data.accessory + 288))));
-            }
-            if (FF7Item::statVIT(data.accessory + 288) != 0) {
+
+            if (FF7Item::statVIT(data.accessory + 288) != 0)
                 title.append(tr(" Vit:+%1").arg(QString::number(FF7Item::statVIT(data.accessory + 288))));
-            }
-            if (FF7Item::statDEX(data.accessory + 288) != 0) {
+
+            if (FF7Item::statDEX(data.accessory + 288) != 0)
                 title.append(tr(" Dex:+%1").arg(QString::number(FF7Item::statDEX(data.accessory + 288))));
-            }
-            if (FF7Item::statSPI(data.accessory + 288) != 0) {
+
+            if (FF7Item::statSPI(data.accessory + 288) != 0)
                 title.append(tr(" Spi:+%1").arg(QString::number(FF7Item::statSPI(data.accessory + 288))));
-            }
-            if (FF7Item::statMAG(data.accessory + 288) != 0) {
+
+            if (FF7Item::statMAG(data.accessory + 288) != 0)
                 title.append(tr(" Mag:+%1").arg(QString::number(FF7Item::statMAG(data.accessory + 288))));
-            }
-            if (FF7Item::statLCK(data.accessory + 288) != 0) {
+
+            if (FF7Item::statLCK(data.accessory + 288) != 0)
                 title.append(tr(" Lck:+%1").arg(QString::number(FF7Item::statLCK(data.accessory + 288))));
-            }
-            if (FF7Item::statHP(data.accessory + 288) != 0) {
+
+            if (FF7Item::statHP(data.accessory + 288) != 0)
                 title.append(tr(" Hp:+%1%").arg(QString::number(FF7Item::statHP(data.accessory + 288))));
-            }
-            if (FF7Item::statMP(data.accessory + 288) != 0) {
+
+            if (FF7Item::statMP(data.accessory + 288) != 0)
                 title.append(tr(" Mp:+%1%").arg(QString::number(FF7Item::statMP(data.accessory + 288))));
-            }
+
             accessory_box->setTitle(title);
         } else {
             title.clear();
@@ -1757,9 +1784,8 @@ void CharEditor::calc_stats()
                 int level = 0;
                 qint32 aptemp = FF7Materia::materiaAP(data.materias[i]);
                 for (int m = 0; m < FF7Materia::levels(data.materias[i].id); m++) {
-                    if (aptemp >= FF7Materia::apForLevel(data.materias[i].id, m)) {
+                    if (aptemp >= FF7Materia::apForLevel(data.materias[i].id, m))
                         level++;
-                    }
                 }
 
                 if (!materiaSlots.at(i)->isHidden()) {
@@ -1769,36 +1795,31 @@ void CharEditor::calc_stats()
                     spi_bonus += FF7Materia::spiritChange(data.materias[i].id);
 
                     //Show in Percentage.
-                    if (data.materias[i].id == FF7Materia::MpPlus) {
+                    if (data.materias[i].id == FF7Materia::MpPlus)
                         mp_bonus += (10 * level);
-                    } else {
+                    else
                         mp_bonus += FF7Materia::mpChange(data.materias[i].id);
-                    }
 
-                    if (data.materias[i].id == FF7Materia::HpPlus) {
+                    if (data.materias[i].id == FF7Materia::HpPlus)
                         hp_bonus += (10 * level);
-                    } else {
+                    else
                         hp_bonus += FF7Materia::hpChange(data.materias[i].id);
-                    }
 
                     //show exact numbers
-                    if (data.materias[i].id == FF7Materia::SpeedPlus) {
+                    if (data.materias[i].id == FF7Materia::SpeedPlus)
                         dex_bonus += data.dexterity * int(0.01 * (level * 10));
-                    } else {
+                    else
                         dex_bonus += FF7Materia::dexterityChange(data.materias[i].id);
-                    }
 
-                    if (data.materias[i].id == FF7Materia::MagicPlus) {
+                    if (data.materias[i].id == FF7Materia::MagicPlus)
                         mag_bonus += data.magic * int(0.01 * (level * 10));
-                    } else {
+                    else
                         mag_bonus += FF7Materia::magicChange(data.materias[i].id);
-                    }
 
-                    if (data.materias[i].id == FF7Materia::LuckPlus) {
+                    if (data.materias[i].id == FF7Materia::LuckPlus)
                         lck_bonus += data.luck * int(0.01 * (level * 10));
-                    } else {
+                    else
                         lck_bonus += FF7Materia::luckChange(data.materias[i].id);
-                    }
                 }// end of add case.
             }
         }
@@ -1826,17 +1847,15 @@ void CharEditor::calc_stats()
     lblDexTotal->setText(QString::number(std::min(dex_total, quint8Max)));
     lblLckTotal->setText(QString::number(std::min(lck_total, quint8Max)));
 
-    if (hp_bonus >= 0) {
+    if (hp_bonus >= 0)
         lblBaseHpBonus->setText(QStringLiteral(" +%1%").arg(QString::number(hp_bonus)));
-    } else {
+    else
         lblBaseHpBonus->setText(QStringLiteral(" %1%").arg(QString::number(hp_bonus)));
-    }
 
-    if (mp_bonus >= 0) {
+    if (mp_bonus >= 0)
         lblBaseMpBonus->setText(QStringLiteral(" +%1%").arg(QString::number(mp_bonus)));
-    } else {
+    else
         lblBaseMpBonus->setText(QString(" %1%").arg(QString::number(mp_bonus)));
-    }
 
     lblMaxHp->setNum(std::min(int(data.baseHP + (data.baseHP * (hp_bonus * .01))), qint16Max));
     lblMaxMp->setNum(std::min(int(data.baseMP + (data.baseMP * (mp_bonus * .01))), qint16Max));
@@ -1877,17 +1896,15 @@ void CharEditor::update_tnl_bar()
 {
     if (data.level != 99) {
         setExpNext(int(FF7Char::totalExpForLevel(data.id, data.level) - data.exp));
-        if (data.level > 0) {
+        if (data.level > 0)
             setLevelProgress(int(((FF7Char::tnlForLevel(data.id, data.level) - data.expNext) * 62) / FF7Char::tnlForLevel(data.id, data.level)));
-        }
     } else {
         setExpNext(0);
         setLevelProgress(0x3D);
     }
     bar_tnl->setValue(data.tnlFlag);
-    if (bar_tnl->value() < 4) {
+    if (bar_tnl->value() < 4)
         bar_tnl->setValue(0);   //ff7 ingores the value if its <4 (but we don't save this)
-    }
     lbl_level_next->setText(tr("Next: %1").arg(QString::number(data.expNext)));
 }
 
@@ -1900,37 +1917,36 @@ void CharEditor::elemental_info()
     elemental_effects->clear();
     for (int r = 0; r < 3; r++) {
         switch (r) {
-        case 0: item_id = data.weapon + 128; break;
-        case 1: item_id = data.armor + 256; break;
-        case 2: item_id = data.accessory + 288; break;
+            case 0: item_id = data.weapon + 128; break;
+            case 1: item_id = data.armor + 256; break;
+            case 2: item_id = data.accessory + 288; break;
         }
-        if (item_id < 0 || item_id > 319) {}
-        else {
+        if ((item_id >= 0) && (item_id <= 319)) {
             for (int i = 0; i < 14; i++) {
                 QString effect;
                 int element = 0;
                 switch (i) {
-                case 0: element = FF7Item::elementRestoration(item_id); effect.append(tr("Restoration")); break;
-                case 1: element = FF7Item::elementFire(item_id); effect.append(tr("Fire")); break;
-                case 2: element = FF7Item::elementCold(item_id); effect.append(tr("Cold")); break;
-                case 3: element = FF7Item::elementLightning(item_id); effect.append(tr("Lightning")); break;
-                case 4: element = FF7Item::elementEarth(item_id); effect.append(tr("Earth")); break;
-                case 5: element = FF7Item::elementWind(item_id); effect.append(tr("Wind")); break;
-                case 6: element = FF7Item::elementWater(item_id); effect.append(tr("Water")); break;
-                case 7: element = FF7Item::elementGravity(item_id); effect.append(tr("Gravity")); break;
-                case 8: element = FF7Item::elementHoly(item_id); effect.append(tr("Holy")); break;
-                case 9: element = FF7Item::elementPoison(item_id); effect.append(tr("Poison")); break;
-                case 10: element = FF7Item::elementCut(item_id); effect.append(tr("Cut")); break;
-                case 11: element = FF7Item::elementShoot(item_id); effect.append(tr("Shoot")); break;
-                case 12: element = FF7Item::elementPunch(item_id); effect.append(tr("Punch")); break;
-                case 13: element = FF7Item::elementHit(item_id); effect.append(tr("Hit")); break;
+                    case 0: element = FF7Item::elementRestoration(item_id); effect.append(tr("Restoration")); break;
+                    case 1: element = FF7Item::elementFire(item_id); effect.append(tr("Fire")); break;
+                    case 2: element = FF7Item::elementCold(item_id); effect.append(tr("Cold")); break;
+                    case 3: element = FF7Item::elementLightning(item_id); effect.append(tr("Lightning")); break;
+                    case 4: element = FF7Item::elementEarth(item_id); effect.append(tr("Earth")); break;
+                    case 5: element = FF7Item::elementWind(item_id); effect.append(tr("Wind")); break;
+                    case 6: element = FF7Item::elementWater(item_id); effect.append(tr("Water")); break;
+                    case 7: element = FF7Item::elementGravity(item_id); effect.append(tr("Gravity")); break;
+                    case 8: element = FF7Item::elementHoly(item_id); effect.append(tr("Holy")); break;
+                    case 9: element = FF7Item::elementPoison(item_id); effect.append(tr("Poison")); break;
+                    case 10: element = FF7Item::elementCut(item_id); effect.append(tr("Cut")); break;
+                    case 11: element = FF7Item::elementShoot(item_id); effect.append(tr("Shoot")); break;
+                    case 12: element = FF7Item::elementPunch(item_id); effect.append(tr("Punch")); break;
+                    case 13: element = FF7Item::elementHit(item_id); effect.append(tr("Hit")); break;
                 }
                 switch (element) {
-                case -3: effect.prepend(tr("Absorb:")); break;
-                case -2: effect.prepend(tr("Nullify:")); break;
-                case -1: effect.prepend(tr("Halve:")); break;
-                case  0: effect.clear(); break;
-                case +1: effect.prepend(tr("Attack:")); break;
+                    case -3: effect.prepend(tr("Absorb:")); break;
+                    case -2: effect.prepend(tr("Nullify:")); break;
+                    case -1: effect.prepend(tr("Halve:")); break;
+                    case  0: effect.clear(); break;
+                    case +1: effect.prepend(tr("Attack:")); break;
                 }
                 if (!effect.isNull() && !m_effect.contains(effect, Qt::CaseSensitive)) {
                     m_effect.append(effect);
@@ -1940,9 +1956,8 @@ void CharEditor::elemental_info()
                 }
             }//end of for Loop
             elemental_effects->setFixedHeight(y);
-
             elemental_box->setFixedSize( (charWidth * 16), y + elemental_box->contentsMargins().top() + elemental_box->contentsMargins().bottom());
-        }//end of else.
+        }//end of if
     }//end of other loop.
     elemental_box->setVisible(show);
     elemental_box->adjustSize();
@@ -1958,47 +1973,46 @@ void CharEditor::status_info()
     status_effects->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     for (int r = 0; r < 3; r++) {
         switch (r) {
-        case 0: item_id = data.weapon + 128; break;
-        case 1: item_id = data.armor + 256; break;
-        case 2: item_id = data.accessory + 288; break;
+            case 0: item_id = data.weapon + 128; break;
+            case 1: item_id = data.armor + 256; break;
+            case 2: item_id = data.accessory + 288; break;
         }
-        if (item_id < 0 || item_id > 319) {}
-        else {
+        if ((item_id >= 0) && (item_id <= 319)) {
             for (int i = 0; i < 24; i++) {
                 QString effect;
                 int status = 0;
                 switch (i) {
-                case 0: status = FF7Item::statusDeath(item_id); effect.append(tr("Death")); break;
-                case 1: status = FF7Item::statusSlowNumb(item_id); effect.append(tr("Slow-Numb")); break;
-                case 2: status = FF7Item::statusDeathSentence(item_id); effect.append(tr("D.Sentence")); break;
-                case 3: status = FF7Item::statusParalysis(item_id); effect.append(tr("Paralysis")); break;
-                case 4: status = FF7Item::statusPetrify(item_id); effect.append(tr("Petrify")); break;
-                case 5: status = FF7Item::statusSilence(item_id); effect.append(tr("Silence")); break;
-                case 6: status = FF7Item::statusSleep(item_id); effect.append(tr("Sleep")); break;
-                case 7: status = FF7Item::statusConfusion(item_id); effect.append(tr("Confusion")); break;
-                case 8: status = FF7Item::statusBerserk(item_id); effect.append(tr("Berserk")); break;
-                case 9: status = FF7Item::statusFrog(item_id); effect.append(tr("Frog")); break;
-                case 10: status = FF7Item::statusMini(item_id); effect.append(tr("Mini")); break;
-                case 11: status = FF7Item::statusPoison(item_id); effect.append(tr("Poison")); break;
-                case 12: status = FF7Item::statusFury(item_id); effect.append(tr("Fury")); break;
-                case 13: status = FF7Item::statusSadness(item_id); effect.append(tr("Sadness")); break;
-                case 14: status = FF7Item::statusDarkness(item_id); effect.append(tr("Darkness")); break;
-                case 15: status = FF7Item::statusHaste(item_id); effect.append(tr("Haste")); break;
-                case 16: status = FF7Item::statusSlow(item_id); effect.append(tr("Slow")); break;
-                case 17: status = FF7Item::statusStop(item_id); effect.append(tr("Stop")); break;
-                case 18: status = FF7Item::statusBarrier(item_id); effect.append(tr("Barrier")); break;
-                case 19: status = FF7Item::statusMagicBarrier(item_id); effect.append(tr("M.Barrier")); break;
-                case 20: status = FF7Item::statusReflect(item_id); effect.append(tr("Reflect")); break;
-                case 21: status = FF7Item::statusShield(item_id); effect.append(tr("Shield")); break;
-                case 22: status = FF7Item::statusRegen(item_id); effect.append(tr("Regen")); break;
-                case 23: status = FF7Item::statusResist(item_id); effect.append(tr("Resist")); break;
+                    case 0: status = FF7Item::statusDeath(item_id); effect.append(tr("Death")); break;
+                    case 1: status = FF7Item::statusSlowNumb(item_id); effect.append(tr("Slow-Numb")); break;
+                    case 2: status = FF7Item::statusDeathSentence(item_id); effect.append(tr("D.Sentence")); break;
+                    case 3: status = FF7Item::statusParalysis(item_id); effect.append(tr("Paralysis")); break;
+                    case 4: status = FF7Item::statusPetrify(item_id); effect.append(tr("Petrify")); break;
+                    case 5: status = FF7Item::statusSilence(item_id); effect.append(tr("Silence")); break;
+                    case 6: status = FF7Item::statusSleep(item_id); effect.append(tr("Sleep")); break;
+                    case 7: status = FF7Item::statusConfusion(item_id); effect.append(tr("Confusion")); break;
+                    case 8: status = FF7Item::statusBerserk(item_id); effect.append(tr("Berserk")); break;
+                    case 9: status = FF7Item::statusFrog(item_id); effect.append(tr("Frog")); break;
+                    case 10: status = FF7Item::statusMini(item_id); effect.append(tr("Mini")); break;
+                    case 11: status = FF7Item::statusPoison(item_id); effect.append(tr("Poison")); break;
+                    case 12: status = FF7Item::statusFury(item_id); effect.append(tr("Fury")); break;
+                    case 13: status = FF7Item::statusSadness(item_id); effect.append(tr("Sadness")); break;
+                    case 14: status = FF7Item::statusDarkness(item_id); effect.append(tr("Darkness")); break;
+                    case 15: status = FF7Item::statusHaste(item_id); effect.append(tr("Haste")); break;
+                    case 16: status = FF7Item::statusSlow(item_id); effect.append(tr("Slow")); break;
+                    case 17: status = FF7Item::statusStop(item_id); effect.append(tr("Stop")); break;
+                    case 18: status = FF7Item::statusBarrier(item_id); effect.append(tr("Barrier")); break;
+                    case 19: status = FF7Item::statusMagicBarrier(item_id); effect.append(tr("M.Barrier")); break;
+                    case 20: status = FF7Item::statusReflect(item_id); effect.append(tr("Reflect")); break;
+                    case 21: status = FF7Item::statusShield(item_id); effect.append(tr("Shield")); break;
+                    case 22: status = FF7Item::statusRegen(item_id); effect.append(tr("Regen")); break;
+                    case 23: status = FF7Item::statusResist(item_id); effect.append(tr("Resist")); break;
                 }
                 switch (status) {
-                case -2: effect.prepend(tr("Protect:")); break;
-                case -1: effect.prepend(tr("Remove:")); break;
-                case  0: effect.clear(); break;
-                case +1: effect.prepend(tr("Inflict:")); break;
-                case +2: effect.prepend(tr("OnBattle:")); break;
+                    case -2: effect.prepend(tr("Protect:")); break;
+                    case -1: effect.prepend(tr("Remove:")); break;
+                    case  0: effect.clear(); break;
+                    case +1: effect.prepend(tr("Inflict:")); break;
+                    case +2: effect.prepend(tr("OnBattle:")); break;
                 }
                 if (!effect.isNull() && !m_status.contains(effect, Qt::CaseSensitive)) {
                     m_status.append(effect);
@@ -2020,21 +2034,19 @@ void CharEditor::update_materia_slots()
     int i = 0;
     for(auto button : std::as_const(buttons)) {
         button->setVisible((i+1) <= FF7Item::materiaSlots(data.weapon + 128));
-        if (data.materias[i].id != FF7Materia::EmptyId) {
+        if (data.materias[i].id != FF7Materia::EmptyId)
             button->setIcon(FF7Materia::icon(data.materias[i].id));
-        } else {
+        else
             button->setIcon(QIcon());
-        }
         i++;
     }
     buttons = armor_box->findChildren<QPushButton *>();
     for(auto button : std::as_const(buttons)) {
         button->setVisible((i-7) <= FF7Item::materiaSlots(data.armor + 256));
-        if (data.materias[i].id != FF7Materia::EmptyId) {
+        if (data.materias[i].id != FF7Materia::EmptyId)
             button->setIcon(FF7Materia::icon(data.materias[i].id));
-        } else {
+        else
             button->setIcon(QIcon());
-        }
         i++;
     }
 
@@ -2049,10 +2061,10 @@ void CharEditor::update_materia_slots()
         label->setStyleSheet(QString());
 
     switch (FF7Item::linkedSlots((data.weapon + 128))) {
-    case 4: weapon_m_link_4->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
-    case 3: weapon_m_link_3->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
-    case 2: weapon_m_link_2->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
-    case 1: weapon_m_link_1->setStyleSheet(FF7Item::styleMateriaLink());
+        case 4: weapon_m_link_4->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
+        case 3: weapon_m_link_3->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
+        case 2: weapon_m_link_2->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
+        case 1: weapon_m_link_1->setStyleSheet(FF7Item::styleMateriaLink());
     }
 
     //set up armor
@@ -2060,10 +2072,10 @@ void CharEditor::update_materia_slots()
     lblArmorStats->setText(ap_rate);
 
     switch (FF7Item::linkedSlots((data.armor + 256))) {
-    case 4: armor_m_link_4->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
-    case 3: armor_m_link_3->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
-    case 2: armor_m_link_2->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
-    case 1: armor_m_link_1->setStyleSheet(FF7Item::styleMateriaLink());
+        case 4: armor_m_link_4->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
+        case 3: armor_m_link_3->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
+        case 2: armor_m_link_2->setStyleSheet(FF7Item::styleMateriaLink()); [[fallthrough]];
+        case 1: armor_m_link_1->setStyleSheet(FF7Item::styleMateriaLink());
     }
     calc_stats();
 }
@@ -2104,7 +2116,7 @@ void CharEditor::matAp_changed(qint32 ap)
 void CharEditor::materiaSlotClicked(int slotClicked)
 {
     if (slotClicked == mslotsel) {
-        if(slotClicked < 0 )
+        if (slotClicked < 0 )
             return;
         load = true;
         materia_edit->setMateria(char_materia(mslotsel).id, FF7Materia::materiaAP(char_materia(mslotsel)));
@@ -2114,14 +2126,14 @@ void CharEditor::materiaSlotClicked(int slotClicked)
 
     mslotsel = slotClicked;
 
-    for(auto frame : std::as_const(materiaSlotFrames)) {
+    for (auto frame : std::as_const(materiaSlotFrames))
         frame->setFrameShape(QFrame::NoFrame);
-    }
 
     if (slotClicked < 0) {
         materia_edit->setVisible(false);
         return;
     }
+
     materia_edit->setVisible(true);
     materiaSlotFrames.at(mslotsel)->setFrameShape(QFrame::Box);
 
@@ -2187,21 +2199,21 @@ void CharEditor::MaxEquip()
         quint8 new_id = FF7Materia::EmptyId;
 
         switch (mslotsel) {
-        case 6: new_id = FF7Materia::MegaAll;
-                break;
-        case 5: new_id = FF7Materia::LongRange;
-                break;
-        case 4: new_id = FF7Materia::PreEmptive;
-                break;
-        case 3: new_id = FF7Materia::MasterSummon;
-                break;
-        case 2: new_id = FF7Materia::EnemySkill;
-                break;
-        case 1: new_id = FF7Materia::MasterCommand;
-                break;
-        case 0: materiaSlotClicked(0);
-                new_id = FF7Materia::MasterMagic;
-                break;
+            case 6: new_id = FF7Materia::MegaAll;
+                    break;
+            case 5: new_id = FF7Materia::LongRange;
+                    break;
+            case 4: new_id = FF7Materia::PreEmptive;
+                    break;
+            case 3: new_id = FF7Materia::MasterSummon;
+                    break;
+            case 2: new_id = FF7Materia::EnemySkill;
+                    break;
+            case 1: new_id = FF7Materia::MasterCommand;
+                    break;
+            case 0: materiaSlotClicked(0);
+                    new_id = FF7Materia::MasterMagic;
+                    break;
         }
 
         data.materias[mslotsel].id = new_id;

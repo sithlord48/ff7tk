@@ -157,12 +157,12 @@ ChocoboLabel::ChocoboLabel(const QString &titleText, bool occupied, QWidget *par
 void ChocoboLabel::setType(int type)
 {
     switch (type) {
-    case 0: lblType->setPixmap(QPixmap("://chocobo/yellow")); break;
-    case 1: lblType->setPixmap(QPixmap("://chocobo/green")); break;
-    case 2: lblType->setPixmap(QPixmap("://chocobo/blue")); break;
-    case 3: lblType->setPixmap(QPixmap("://chocobo/black")); break;
-    case 4: lblType->setPixmap(QPixmap("://chocobo/gold")); break;
-    default: lblType->setPixmap(QPixmap()); break;
+        case 0: lblType->setPixmap(QPixmap("://chocobo/yellow")); break;
+        case 1: lblType->setPixmap(QPixmap("://chocobo/green")); break;
+        case 2: lblType->setPixmap(QPixmap("://chocobo/blue")); break;
+        case 3: lblType->setPixmap(QPixmap("://chocobo/black")); break;
+        case 4: lblType->setPixmap(QPixmap("://chocobo/gold")); break;
+        default: lblType->setPixmap(QPixmap()); break;
     }
 }
 
@@ -178,38 +178,35 @@ void ChocoboLabel::setName(QString decodedName)
 
 void ChocoboLabel::setSex(bool male)
 {
-    if (male) {
+    if (male)
         lblSex->setText(QString::fromUtf8("♂"));
-    } else {
+    else
         lblSex->setText(QString::fromUtf8("♀"));
-    }
 }
 
 void ChocoboLabel::setSex(int sex)
 {
-    if (sex == 0) {
+    if (sex == 0)
         lblSex->setText(QString::fromUtf8("♂"));
-    } else if (sex == 1) {
+    else if (sex == 1)
         lblSex->setText(QString::fromUtf8("♀"));
-    } else {
+    else
         lblSex->setText(QString());
-    }
 }
 
 void ChocoboLabel::setRank(int wins)
 {
     m_wins = wins;
-    if (wins < 0) {
+    if (wins < 0)
         lblRank->setText(QString());
-    } else if (wins < 3) {
+    else if (wins < 3)
         lblRank->setText(tr("Rank:C"));
-    } else if (wins < 6) {
+    else if (wins < 6)
         lblRank->setText(tr("Rank:B"));
-    } else if (wins < 9) {
+    else if (wins < 9)
         lblRank->setText(tr("Rank:A"));
-    } else {
+    else
         lblRank->setText(tr("Rank:S"));
-    }
 }
 
 void ChocoboLabel::setOccupied(bool occupied)
