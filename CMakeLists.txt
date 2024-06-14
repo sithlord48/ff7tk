@@ -6,7 +6,7 @@ cmake_policy(SET CMP0074 NEW)
 
 #Set The Current Version Number to use as fallback if GIT Fails.
 set(FF7TK_VERSION_MAJOR 1)
-set(FF7TK_VERSION_MINOR 1)
+set(FF7TK_VERSION_MINOR 2)
 set(FF7TK_VERSION_PATCH 0)
 set(FF7TK_VERSION_TWEAK 0)
 # Get the version from git if it's a git repository
