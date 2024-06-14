@@ -85,44 +85,272 @@ protected:
     void changeEvent(QEvent *e) override;
 
 signals:
-    void id_changed(qint8);
-    void level_changed(qint8);
-    void str_changed(quint8);
-    void vit_changed(quint8);
-    void mag_changed(quint8);
-    void spi_changed(quint8);
-    void dex_changed(quint8);
-    void lck_changed(quint8);
-    void strBonus_changed(quint8);
-    void vitBonus_changed(quint8);
-    void magBonus_changed(quint8);
-    void spiBonus_changed(quint8);
-    void dexBonus_changed(quint8);
-    void lckBonus_changed(quint8);
-    void limitLevel_changed(qint8);
-    void limitBar_changed(quint8);
-    void name_changed(QString);
-    void weapon_changed(quint8);
-    void armor_changed(quint8);
-    void accessory_changed(quint8);
-    void curHp_changed(quint16);
-    void maxHp_changed(quint16);
-    void curMp_changed(quint16);
-    void maxMp_changed(quint16);
-    void kills_changed(quint16);
-    void row_changed(quint8);
-    void levelProgress_changed(quint8);
-    void sadnessfury_changed(quint8);
-    void limits_changed(quint16);
-    void timesused1_changed(quint16);
-    void timesused2_changed(quint16);
-    void timesused3_changed(quint16);
-    void baseHp_changed(quint16);
-    void baseMp_changed(quint16);
-    void exp_changed(quint32);
-    void mslotChanged(int);
-    void Materias_changed(materia);
-    void expNext_changed(quint32);
+
+    /**
+     * @brief Emitted when the character's id changes
+     * @param id New Id of the character
+     */
+    void idChanged(qint8 id);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::idChanged") ]]void id_changed(qint8);
+
+    /**
+     * @brief Emitted when the character's level changes
+     * @param level New level of the character
+     */
+    void levelChanged(qint8 level);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::levelChanged") ]]void level_changed(qint8);
+
+    /**
+     * @brief Emitted when the character's strength changes
+     * @param strength New strength of the character
+     */
+    void strengthChanged(quint8 strength);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::strengthChanged") ]]void str_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's vitality changes
+     * @param vitality New vitality of the character
+     */
+    void vitalityChanged(quint8 vitality);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::vitalityChanged") ]]void vit_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's magic changes
+     * @param magic New magic of the character
+     */
+    void magicChanged(quint8 magic);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::magicChanged") ]]void mag_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's spirit changes
+     * @param spirit New spirit of the character
+     */
+    void spiritChanged(quint8 spirit);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::spiritChanged") ]]void spi_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's dexterity changes
+     * @param dexterity New dexterity of the character
+     */
+    void dexterityChanged(quint8 dexterity);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::dexterityChanged") ]]void dex_changed(quint8);
+    /**
+     * @brief Emitted when the character's luck changes
+     * @param luck New luck of the character
+     */
+    void luckChanged(quint8 luck);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::luckChanged") ]]void lck_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's strengthBonus changes
+     * @param strengthBonus New strengthBonus of the character
+     */
+    void strengthBonusChanged(quint8 strengthBonus);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::strengthBonusChanged") ]]void strBonus_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's vitalityBonus changes
+     * @param vitalityBonus New vitalityBonus of the character
+     */
+    void vitalityBonusChanged(quint8 vitalityBonus);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::vitalityBonusChanged") ]]void vitBonus_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's magicBonus changes
+     * @param magicBonus New magicBonus of the character
+     */
+    void magicBonusChanged(quint8 magicBonus);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::magicBonusChanged") ]]void magBonus_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's spiritBonus changes
+     * @param spiritBonus New spiritBonus of the character
+     */
+    void spiritBonusChanged(quint8 spiritBonus);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::spiritBonusChanged") ]]void spiBonus_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's dexterityBonus changes
+     * @param dexterityBonus New dexterityBonus of the character
+     */
+    void dexterityBonusChanged(quint8 dexterityBonus);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::dexterityBonusChanged") ]]void dexBonus_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's luckBonus changes
+     * @param luckBonus New luckBonus of the character
+     */
+    void luckBonusChanged(quint8 luckBonus);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::luckBonusChanged") ]]void lckBonus_changed(quint8);
+
+
+    /**
+     * @brief Emitted when the character's limitLevel changes
+     * @param limitLevel New limitLevel of the character
+     */
+    void limitLevelChanged(qint8 limitLevel);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::limitLevelChanged") ]]void limitLevel_changed(qint8);
+
+    /**
+     * @brief Emitted when the character's limitBar changes
+     * @param limitBar New limitBar of the character
+     */
+    void limitBarChanged(qint8 limitBar);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::limitBarChanged") ]]void limitBar_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's name changes
+     * @param name New name of the character
+     */
+    void nameChanged(QString name);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::nameChanged") ]]void name_changed(QString);
+
+    /**
+     * @brief Emitted when the character's weapon changes
+     * @param weapon New weapon of the character
+     */
+    void weaponChanged(quint8 weapon);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::weaponChanged") ]]void weapon_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's armor changes
+     * @param armor New armor of the character
+     */
+    void armorChanged(quint8 armor);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::armorChanged") ]]void armor_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's accessory changes
+     * @param accessory New accessory of the character
+     */
+    void accessoryChanged(quint8 accessory);
+
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::accessoryChanged") ]]void accessory_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's current hit points changes
+     * @param curHp New current hit points of the character
+     */
+    void curHpChanged(quint16 curHp);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::curHpChanged") ]]void curHp_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's current maximum hit points changes
+     * @param maxHp New maximum hit points of the character
+     */
+    void maxHpChanged(quint16 maxHp);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::maxHpChanged") ]]void maxHp_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's current magic points changes
+     * @param curMp New current magic points of the character
+     */
+    void curMpChanged(quint16 curMp);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::curMpChanged") ]]void curMp_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's current maximum magic points changes
+     * @param maxMp New maximum magic points of the character
+     */
+    void maxMpChanged(quint16 maxMp);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::maxMpChanged") ]]void maxMp_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's kills changes
+     * @param kills New name of the character
+     */
+    void killsChanged(quint16 kills);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::killsChanged") ]]void kills_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's row changes
+     * @param row New row of the character
+     */
+    void rowChanged(quint8 row);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::rowChanged") ]]void row_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's levelProgress changes
+     * @param levelProgress New levelProgresss of the character
+     */
+    void levelProgressChanged(quint8 levelProgress);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::levelProgressChanged") ]]void levelProgress_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's sadness / fury state changes
+     * @param state New sadness / fury state of the character
+     */
+    void stateChanged(quint8 state);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::stateChanged") ]]void sadnessfury_changed(quint8);
+
+    /**
+     * @brief Emitted when the character's limits changes
+     * @param limits New limits of the character
+     */
+    void limitsChanged(quint16 limits);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::limitsChanged") ]]void limits_changed(quint16);
+
+    /**
+     * @brief Emitted when the number of times the character's used the 1-1 limit break changes
+     * @param times New times the character has used the 1-1 limit break
+     */
+    void times1UsedChanged(quint16 times);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::times1UsedChanged") ]]void timesused1_changed(quint16);
+
+    /**
+     * @brief Emitted when the number of times the character's used the 2-1 limit break changes
+     * @param times New times the character has used the 2-1 limit break
+     */
+    void times2UsedChanged(quint16 times);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::times2UsedChanged") ]]void timesused2_changed(quint16);
+
+    /**
+     * @brief Emitted when the number of times the character's used the 3-1 limit break changes
+     * @param times New times the character has used the 3-1 limit break
+     */
+    void times3UsedChanged(quint16 times);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::times3UsedChanged") ]]void timesused3_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's base hit points changes
+     * @param baseHp New base hit points of the character
+     */
+    void baseHpChanged(quint16 baseHp);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::baseHpChanged") ]]void baseHp_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's base magic points changes
+     * @param baseMp New base magic points of the character
+     */
+    void baseMpChanged(quint16 baseMp);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::baseMpChanged") ]]void baseMp_changed(quint16);
+
+    /**
+     * @brief Emitted when the character's experience changes
+     * @param exp New experience of the character
+     */
+    void expChanged(quint32 exp);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::expChanged") ]]void exp_changed(quint32);
+
+    /**
+     * @brief Emitted when the current materia slot being viwed changes
+     * @param mslot New materia slot being viewed
+     */
+    void mslotChanged(int mslot);
+
+    /**
+     * @brief Emitted when the character's materia changes
+     * @param mat New materia of the character (at the current mslot)
+     */
+    void materiaChanged(materia mat);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::materiaChanged") ]]void Materias_changed(materia);
+
+    /**
+     * @brief Emitted when the character's amount of experience needed to reach the next level changes
+     * @param expNext New amount of experience needed to reach the next level
+     */
+    void expNextChanged(quint32 expNext);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use CharEditor::expNextChanged") ]]void expNext_changed(quint32);
 
 public slots:
     void setAutoLevel(bool);
