@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hexlineedit_2230',['HexLineEdit',['../classHexLineEdit.html',1,'']]]
+  ['hexlineedit_2267',['HexLineEdit',['../classHexLineEdit.html',1,'']]]
 ];
