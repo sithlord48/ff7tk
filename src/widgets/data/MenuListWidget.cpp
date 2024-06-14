@@ -198,48 +198,48 @@ void MenuListWidget::cb_save_two_toggled(bool checked)
 
 void MenuListWidget::connectAll()
 {
-    connect(cb_item, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_item_one_toggled);
-    connect(cb_item, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_item_two_toggled);
-    connect(cb_magic, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_magic_one_toggled);
-    connect(cb_magic, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_magic_two_toggled);
-    connect(cb_materia, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_materia_one_toggled);
-    connect(cb_materia, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_materia_two_toggled);
-    connect(cb_equip, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_equip_one_toggled);
-    connect(cb_equip, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_equip_two_toggled);
-    connect(cb_status, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_status_one_toggled);
-    connect(cb_status, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_status_two_toggled);
-    connect(cb_order, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_order_one_toggled);
-    connect(cb_order, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_order_two_toggled);
-    connect(cb_limit, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_limit_one_toggled);
-    connect(cb_limit, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_limit_two_toggled);
-    connect(cb_config, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_config_one_toggled);
-    connect(cb_config, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_config_two_toggled);
-    connect(cb_phs, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_phs_one_toggled);
-    connect(cb_phs, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_phs_two_toggled);
-    connect(cb_save, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_save_one_toggled);
-    connect(cb_save, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_save_two_toggled);
+    connect(cb_item, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_item_one_toggled);
+    connect(cb_item, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_item_two_toggled);
+    connect(cb_magic, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_magic_one_toggled);
+    connect(cb_magic, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_magic_two_toggled);
+    connect(cb_materia, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_materia_one_toggled);
+    connect(cb_materia, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_materia_two_toggled);
+    connect(cb_equip, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_equip_one_toggled);
+    connect(cb_equip, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_equip_two_toggled);
+    connect(cb_status, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_status_one_toggled);
+    connect(cb_status, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_status_two_toggled);
+    connect(cb_order, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_order_one_toggled);
+    connect(cb_order, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_order_two_toggled);
+    connect(cb_limit, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_limit_one_toggled);
+    connect(cb_limit, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_limit_two_toggled);
+    connect(cb_config, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_config_one_toggled);
+    connect(cb_config, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_config_two_toggled);
+    connect(cb_phs, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_phs_one_toggled);
+    connect(cb_phs, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_phs_two_toggled);
+    connect(cb_save, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_save_one_toggled);
+    connect(cb_save, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_save_two_toggled);
 }
 
 void MenuListWidget::disconnectAll()
 {
-    disconnect(cb_item, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_item_one_toggled);
-    disconnect(cb_item, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_item_two_toggled);
-    disconnect(cb_magic, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_magic_one_toggled);
-    disconnect(cb_magic, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_magic_two_toggled);
-    disconnect(cb_materia, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_materia_one_toggled);
-    disconnect(cb_materia, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_materia_two_toggled);
-    disconnect(cb_equip, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_equip_one_toggled);
-    disconnect(cb_equip, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_equip_two_toggled);
-    disconnect(cb_status, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_status_one_toggled);
-    disconnect(cb_status, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_status_two_toggled);
-    disconnect(cb_order, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_order_one_toggled);
-    disconnect(cb_order, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_order_two_toggled);
-    disconnect(cb_limit, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_limit_one_toggled);
-    disconnect(cb_limit, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_limit_two_toggled);
-    disconnect(cb_config, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_config_one_toggled);
-    disconnect(cb_config, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_config_two_toggled);
-    disconnect(cb_phs, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_phs_one_toggled);
-    disconnect(cb_phs, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_phs_two_toggled);
-    disconnect(cb_save, &DoubleCheckBox::box1_toggled, this, &MenuListWidget::cb_save_one_toggled);
-    disconnect(cb_save, &DoubleCheckBox::box2_toggled, this, &MenuListWidget::cb_save_two_toggled);
+    disconnect(cb_item, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_item_one_toggled);
+    disconnect(cb_item, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_item_two_toggled);
+    disconnect(cb_magic, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_magic_one_toggled);
+    disconnect(cb_magic, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_magic_two_toggled);
+    disconnect(cb_materia, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_materia_one_toggled);
+    disconnect(cb_materia, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_materia_two_toggled);
+    disconnect(cb_equip, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_equip_one_toggled);
+    disconnect(cb_equip, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_equip_two_toggled);
+    disconnect(cb_status, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_status_one_toggled);
+    disconnect(cb_status, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_status_two_toggled);
+    disconnect(cb_order, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_order_one_toggled);
+    disconnect(cb_order, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_order_two_toggled);
+    disconnect(cb_limit, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_limit_one_toggled);
+    disconnect(cb_limit, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_limit_two_toggled);
+    disconnect(cb_config, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_config_one_toggled);
+    disconnect(cb_config, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_config_two_toggled);
+    disconnect(cb_phs, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_phs_one_toggled);
+    disconnect(cb_phs, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_phs_two_toggled);
+    disconnect(cb_save, &DoubleCheckBox::box1Toggled, this, &MenuListWidget::cb_save_one_toggled);
+    disconnect(cb_save, &DoubleCheckBox::box2Toggled, this, &MenuListWidget::cb_save_two_toggled);
 }
