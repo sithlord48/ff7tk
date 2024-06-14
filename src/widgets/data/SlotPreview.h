@@ -42,10 +42,28 @@ public:
     void setPSXText(const QString &text);
 
 signals:
-    void clicked(int); /**< \brief Signal: User Clicked on preview, returns index of click */
-    void btn_remove_clicked(int); /**< \brief Signal: User Clicked on remove, returns index of click */
-    void btn_copy_clicked(int); /**< \brief Signal: User Clicked on copy, returns index of click */
-    void btn_paste_clicked(int); /**< \brief Signal: User Clicked on paste, returns index of click */
+    /**
+     *  \brief Signal: User Clicked on preview, returns index of click
+     */
+    void clicked(int);
+
+    /**
+     *  \brief Signal: User Clicked on remove, returns index of click
+    */
+    void remove(int);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use SlotPreview::remove") ]]void btn_remove_clicked(int);
+
+    /**
+      *  \brief Signal: User Clicked on copy, returns index of click
+     */
+    void copy(int);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use SlotPreview::copy") ]]void btn_copy_clicked(int);
+
+    /**
+     *  \brief Signal: User Clicked on paste, returns index of click
+    */
+    void paste(int);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use SlotPreview::paste") ]]void btn_paste_clicked(int);
 
 protected:
     void mousePressEvent(QMouseEvent *ev);
