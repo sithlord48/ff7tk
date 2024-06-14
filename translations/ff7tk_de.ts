@@ -1211,7 +1211,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Mythril</source>
-        <translation>Schlüsselgegenstände: Mythril</translation>
+        <translation>Schlüsselelement: Mythril</translation>
     </message>
     <message>
         <source>Mime</source>
@@ -1299,11 +1299,11 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Midgar parts</source>
-        <translation>Schlüsselgegenstände: Teil von Midgar</translation>
+        <translation>Schlüsselelement: Teil von Midgar</translation>
     </message>
     <message>
         <source>KeyItem: Keycard 66</source>
-        <translation>Schlüsselgegenstände: Code-Karte 66</translation>
+        <translation>Schlüsselelement: Code-Karte 66</translation>
     </message>
     <message>
         <source>All</source>
@@ -1339,7 +1339,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Keycard 62</source>
-        <translation>Schlüsselgegenstände: Code-Karte 62</translation>
+        <translation>Schlüsselelement: Code-Karte 62</translation>
     </message>
     <message>
         <source>Swift Bolt</source>
@@ -1363,7 +1363,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Key to Ancients</source>
-        <translation>Schlüsselgegenstände:  Schlüssel für Sektor 5</translation>
+        <translation type="unfinished">Schlüsselelement: Schlüssel für Sektor 5</translation>
     </message>
     <message>
         <source>Ultima</source>
@@ -1371,11 +1371,11 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Snowboard</source>
-        <translation>Schlüsselgegenstände: Snowboard</translation>
+        <translation>Schlüsselelement: Snowboard</translation>
     </message>
     <message>
         <source>KeyItem: Glacier Map</source>
-        <translation>Schlüsselgegenstände: Gletscherkarte</translation>
+        <translation type="unfinished">Schlüsselelement: Gletscherkarte</translation>
     </message>
     <message>
         <source>Shiva</source>
@@ -1383,67 +1383,67 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Cologne</source>
-        <translation>Schlüsselgegenstände: Eau de Cologne</translation>
+        <translation type="unfinished">Schlüsselelement: Eau de Cologne</translation>
     </message>
     <message>
         <source>KeyItem: Flower Cologne</source>
-        <translation>Schlüsselgegenstände: Rosenparfüm</translation>
+        <translation type="unfinished">Schlüsselelement: Rosenparfüm</translation>
     </message>
     <message>
         <source>KeyItem: Sexy Cologne</source>
-        <translation>Schlüsselgegenstände: Sexy Parfüm</translation>
+        <translation>Schlüsselelement: Sexy Parfüm</translation>
     </message>
     <message>
         <source>KeyItem: Pharmacy Coupon</source>
-        <translation>Schlüsselgegenstände: Apothekengutschein</translation>
+        <translation>Schlüsselelement: Apothekengutschein</translation>
     </message>
     <message>
         <source>KeyItem: Wig</source>
-        <translation>Schlüsselgegenstände: Perücke</translation>
+        <translation>Schlüsselelement: Perücke</translation>
     </message>
     <message>
         <source>KeyItem: Dyed Wig</source>
-        <translation>Schlüsselgegenstände: Gefärbte Perücke</translation>
+        <translation type="unfinished">Schlüsselelement: Gefärbte Perücke</translation>
     </message>
     <message>
         <source>KeyItem: Blonde Wig</source>
-        <translation type="unfinished">Schlüsselgegenstände: Blonde Perücke</translation>
+        <translation type="unfinished">Schlüsselelement: Blonde Perücke</translation>
     </message>
     <message>
         <source>KeyItem: Cotton Dress</source>
-        <translation>Schlüsselgegenstände: Baumwollkleid</translation>
+        <translation type="unfinished">Schlüsselelement: Baumwollkleid</translation>
     </message>
     <message>
         <source>KeyItem: Satin Dress</source>
-        <translation>Schlüsselgegenstände: Satinkleid</translation>
+        <translation>Schlüsselelement: Satinkleid</translation>
     </message>
     <message>
         <source>KeyItem: Silk Dress</source>
-        <translation>Schlüsselgegenstände: Seidenkleid</translation>
+        <translation>Schlüsselelement: Seidenkleid</translation>
     </message>
     <message>
         <source>KeyItem: Disinfectant</source>
-        <translation>Schlüsselgegenstände: Desinfektionsmittel</translation>
+        <translation type="unfinished">Schlüsselelement: Desinfektionsmittel</translation>
     </message>
     <message>
         <source>KeyItem: Deodorant</source>
-        <translation>Schlüsselgegenstände: Deodorant</translation>
+        <translation type="unfinished">Schlüsselelement: Deodorant</translation>
     </message>
     <message>
         <source>KeyItem: Digestive</source>
-        <translation>Schlüsselgegenstände: Abführmittel</translation>
+        <translation type="unfinished">Schlüsselelement: Abführmittel</translation>
     </message>
     <message>
         <source>KeyItem: Glass Tiara</source>
-        <translation>Schlüsselgegenstände: Glasdiadem</translation>
+        <translation type="unfinished">Schlüsselelement: Glasdiadem</translation>
     </message>
     <message>
         <source>KeyItem: Ruby Tiara</source>
-        <translation>Schlüsselgegenstände: Rubindiadem</translation>
+        <translation>Schlüsselelement: Rubindiadem</translation>
     </message>
     <message>
         <source>KeyItem: Diamond Tiara</source>
-        <translation>Schlüsselgegenstände: Diamantendiadem</translation>
+        <translation type="unfinished">Schlüsselelement: Diamantendiadem</translation>
     </message>
     <message>
         <source>Batteries</source>
@@ -1483,15 +1483,15 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: KeyCard 68</source>
-        <translation>Schlüsselgegenstände: Code-Karte 68</translation>
+        <translation>Schlüsselelement: Code-Karte 68</translation>
     </message>
     <message>
         <source>KeyItem: Lunar Harp</source>
-        <translation>Schlüsselgegenstände: Mondharfe</translation>
+        <translation>Schlüsselelement: Mondharfe</translation>
     </message>
     <message>
         <source>KeyItem: Key To Basement</source>
-        <translation>Schlüsselgegenstände:  Schlüssel für Keller</translation>
+        <translation>Schlüsselelement: Schlüssel für Keller</translation>
     </message>
     <message>
         <source>Mind Plus</source>
@@ -1503,7 +1503,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Gold Ticket</source>
-        <translation>Schlüsselgegenstände: Goldticket</translation>
+        <translation type="unfinished">Schlüsselelement: Goldticket</translation>
     </message>
     <message>
         <source>Gil Plus</source>
@@ -1535,7 +1535,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Keycard 60</source>
-        <translation>Schlüsselgegenstände: Code-Karte 60</translation>
+        <translation>Schlüsselelement: Code-Karte 60</translation>
     </message>
     <message>
         <source>Initialized the Machine</source>
@@ -1543,15 +1543,15 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: A Coupon</source>
-        <translation>Schlüsselgegenstände: A-Coupon</translation>
+        <translation type="unfinished">Schlüsselelement: A-Coupon</translation>
     </message>
     <message>
         <source>KeyItem: B Coupon</source>
-        <translation>Schlüsselgegenstände: B-Coupon</translation>
+        <translation type="unfinished">Schlüsselelement: B-Coupon</translation>
     </message>
     <message>
         <source>KeyItem: C Coupon</source>
-        <translation>Schlüsselgegenstände: C Coupon</translation>
+        <translation type="unfinished">Schlüsselelement: C Coupon</translation>
     </message>
     <message>
         <source>Star Pendant</source>
@@ -1567,7 +1567,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Keycard 65</source>
-        <translation>Schlüsselgegenstände: Code-Karte 65</translation>
+        <translation>Schlüsselelement: Code-Karte 65</translation>
     </message>
     <message>
         <source>Elemental</source>
@@ -1615,11 +1615,11 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Bikini briefs</source>
-        <translation type="unfinished">Schlüsselgegenstände: Bikini-Slip</translation>
+        <translation type="unfinished">Schlüsselelement: Bikini-Slip</translation>
     </message>
     <message>
         <source>KeyItem: Lingerie</source>
-        <translation>Schlüsselgegenstände: Unterwäsche</translation>
+        <translation>Schlüsselelement: Unterwäsche</translation>
     </message>
     <message>
         <source>Work Glove</source>
@@ -1811,7 +1811,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Key To Sector 5</source>
-        <translation>Schlüsselgegenstände:  Schlüssel für Sektor 5</translation>
+        <translation type="unfinished">Schlüsselelement: Schlüssel für Sektor 5</translation>
     </message>
     <message>
         <source>Tent</source>
@@ -1983,7 +1983,7 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Leviathan Scales</source>
-        <translation>Schlüsselgegenstände: Leviathanschuppen</translation>
+        <translation>Schlüsselelement: Leviathanschuppen</translation>
     </message>
     <message>
         <source>Steal-As-Well</source>
@@ -2047,35 +2047,35 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Fort Condor</source>
-        <translation type="unfinished">Schlüsselgegenstände: Große Materia: Fort Condor</translation>
+        <translation type="unfinished">Schlüsselelement: Große Materia: Fort Condor</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: UnderWater</source>
-        <translation type="unfinished">Schlüsselgegenstände: Große Materia: Unterwasser</translation>
+        <translation type="unfinished">Schlüsselelement: Große Materia: Unterwasser</translation>
     </message>
     <message>
         <source>KeyItem: PHS</source>
-        <translation type="unfinished">Schlüsselgegenstände: PHS</translation>
+        <translation type="unfinished">Schlüsselelement: PHS</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Corel</source>
-        <translation type="unfinished">Schlüsselgegenstände: Große Materia: Corel</translation>
+        <translation type="unfinished">Schlüsselelement: Große Materia: Corel</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Rocket</source>
-        <translation type="unfinished">Schlüsselgegenstände: Große Materia: Rakete</translation>
+        <translation type="unfinished">Schlüsselelement: Große Materia: Rakete</translation>
     </message>
     <message>
         <source>KeyItem: Member&apos;s Card</source>
-        <translation type="unfinished">Schlüsselgegenstände: Mitgliedskarte</translation>
+        <translation type="unfinished">Schlüsselelement: Mitgliedskarte</translation>
     </message>
     <message>
         <source>KeyItem: Keystone</source>
-        <translation type="unfinished">Schlüsselgegenstände: Schlussstein</translation>
+        <translation type="unfinished">Schlüsselelement: Schlussstein</translation>
     </message>
     <message>
         <source>KeyItem: Black Materia</source>
-        <translation type="unfinished">Schlüsselgegenstände: Schwarze Materia</translation>
+        <translation type="unfinished">Schlüsselelement: Schwarze Materia</translation>
     </message>
     <message>
         <source>Slash-All</source>

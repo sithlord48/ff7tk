@@ -1591,35 +1591,35 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #1</source>
-        <translation>Affiches du Turtle&apos;s Paradise #1</translation>
+        <translation>Affiches du Turtle Paradise #1</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #2</source>
-        <translation>Affiches du Turtle&apos;s Paradise #2</translation>
+        <translation>Affiches du Turtle Paradise #2</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #3</source>
-        <translation>Affiches du Turtle&apos;s Paradise #3</translation>
+        <translation>Affiches du Turtle Paradise #3</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #4</source>
-        <translation>Affiches du Turtle&apos;s Paradise #4</translation>
+        <translation>Affiches du Turtle Paradise #4</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #5</source>
-        <translation>Affiches du Turtle&apos;s Paradise #5</translation>
+        <translation>Affiches du Turtle Paradise #5</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #6</source>
-        <translation>Affiches du Turtle&apos;s Paradise #6</translation>
+        <translation>Affiches du Turtle&apos;Paradise #6</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #7</source>
-        <translation>Affiches du Turtle&apos;s Paradise #7</translation>
+        <translation>Affiches du Turtle Paradise #7</translation>
     </message>
     <message>
         <source>Rewarded for viewing all Turtle Paradise Flyers</source>
-        <translation>Récompensé pour avoir vu tous les paneaux du Turle Paradise</translation>
+        <translation>Récompensé pour avoir vu tous les paneaux du Turtle Paradise</translation>
     </message>
     <message>
         <source>KeyItem: Bikini briefs</source>
