@@ -22,11 +22,16 @@ DoubleCheckBox::DoubleCheckBox(const QString &text, QWidget *parent) :
 void DoubleCheckBox::init_display()
 {
     cb_one = new QCheckBox(this);
-    connect(cb_one, &QCheckBox::toggled, this, &DoubleCheckBox::box1_toggled);
+    connect(cb_one, &QCheckBox::toggled, this, &DoubleCheckBox::box1Toggled);
 
     cb_two = new QCheckBox(this);
-    connect(cb_two, &QCheckBox::toggled, this, &DoubleCheckBox::box2_toggled);
+    connect(cb_two, &QCheckBox::toggled, this, &DoubleCheckBox::box2Toggled);
     label = new QLabel(this);
+
+    // TODO: remove for 2.0
+    connect(cb_one, &QCheckBox::toggled, this, &DoubleCheckBox::box1_toggled);
+    // TODO: remove for 2.0
+    connect(cb_two, &QCheckBox::toggled, this, &DoubleCheckBox::box2_toggled);
 
     auto boxLayout = new QHBoxLayout;
     boxLayout->addWidget(cb_one);

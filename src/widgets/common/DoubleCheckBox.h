@@ -11,6 +11,7 @@ class QLabel;
 
 /** \class DoubleCheckBox
  *  \brief one text two checkable boxes
+ *  \todo  remove deprecated Emits on ff7tk 2.0 release
  */
 class FF7TKQTWIDGETS_EXPORT DoubleCheckBox : public QWidget
 {
@@ -58,12 +59,14 @@ signals:
     /** \brief Signal: box1 has had its state changed
      *  \param checked checked state
      */
-    void box1_toggled(bool checked);
+    void box1Toggled(bool checked);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use DoubleCheckbox::box1Toggled") ]]void box1_toggled(bool checked);
 
     /** \brief Signal: box2 has had its state changed
      *  \param checked checked state
      */
-    void box2_toggled(bool checked);
+    void box2Toggled(bool checked);
+    [[ deprecated ("will be removed in ff7tk 2.0, Use DoubleCheckbox::box2Toggled") ]]void box2_toggled(bool checked);
 private:
     void init_display();
     QCheckBox *cb_one = nullptr;
