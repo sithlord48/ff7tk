@@ -607,8 +607,8 @@ void LocationViewer::searchName(QRegularExpression exp)
     for (int i = 0; i < locationTable->rowCount(); i++) {
         bool hidden = true;
         if(regExpSearch) {
-        for (int j = 0; j < locationTable->columnCount(); j++) {
-                if (exp.match(locationTable->item(i, j)->text()).hasMatch()) {
+            for (int j = 0; j < locationTable->columnCount(); j++) {
+                if (exp.match(QCoreApplication::translate("FF7Location", locationTable->item(i, j)->text().toUtf8())).hasMatch()) {
                     hidden = false;
                     break;
                 }
@@ -616,7 +616,8 @@ void LocationViewer::searchName(QRegularExpression exp)
         } else {
             Qt::CaseSensitivity caseSensitiveValue = caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive;
             for (int j = 0; j < locationTable->columnCount(); j++) {
-                if (locationTable->item(i, j)->text().contains(exp.pattern(), caseSensitiveValue)) {
+                QString str = QCoreApplication::translate("FF7Location", locationTable->item(i, j)->text().toUtf8());
+                if (str.contains(exp.pattern(), caseSensitiveValue)) {
                     hidden = false;
                     break;
                 }
@@ -630,17 +631,18 @@ void LocationViewer::searchItem(QRegularExpression exp)
     QStringList locationNames;
     if(regExpSearch) {
         for (const FieldItem &fieldItem : FF7FieldItemList::fieldItemList()) {
-                if (exp.match(fieldItem.Text).hasMatch())
+            if (exp.match(QCoreApplication::translate("FF7FieldItemList", fieldItem.Text.toUtf8())).hasMatch())
                     locationNames.append(fieldItem.Maps);
         }
     } else {
         Qt::CaseSensitivity caseSensitiveValue = caseSensitive ? Qt::CaseSensitive : Qt::CaseInsensitive;
         for (const FieldItem &fieldItem : FF7FieldItemList::fieldItemList()) {
-            if (fieldItem.Text.contains(exp.pattern(), caseSensitiveValue))
+            QString str = QCoreApplication::translate("FF7FieldItemList", fieldItem.Text.toUtf8());
+            if (str.contains(exp.pattern(), caseSensitiveValue))
                 locationNames.append(fieldItem.Maps);
         }
     }
-
+    qDebug() << "Maps" << locationNames;
     for (int i = 0; i < locationTable->rowCount(); i++) {
         bool hidden = true;
         for (int j = 0; j < locationNames.count(); j++) {
