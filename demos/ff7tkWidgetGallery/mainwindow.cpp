@@ -13,6 +13,7 @@
 #include <FF7Save>
 #include <ff7tkInfo>
 #include <FF7ItemModel>
+#include <FF7Char>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -293,3 +294,16 @@ void MainWindow::hideAllBoxes(void)
     ui->orientationGroup->setVisible(0);
     ui->encounterTableGroup->setVisible(0);
 }
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QString fpath = QFileDialog::getOpenFileName(this, tr("Pick a char file"), QDir::homePath(), QStringLiteral("CharFile (*.char)"));
+    if (fpath.isEmpty())
+        return;
+    QFile file(fpath);
+    file.open(QIODevice::ReadOnly);
+    auto character = FF7Char::fromByteArray(file.readAll());
+    char_editor->setChar(character, "NAME");
+
+}
+

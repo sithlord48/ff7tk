@@ -68,14 +68,14 @@ public:
      * @param id - Materia ID
      * @return Materia Name
      */
-    static Q_INVOKABLE const QString name(const int id) { return tr(Materias(id).name.toUtf8()); }
+    static Q_INVOKABLE const QString name(const int id) { return isModID(id) ? QStringLiteral("ID: %1").arg(id) : tr(Materias(id).name.toUtf8()); }
 
     /**
      * @brief statString - Get the stat changes String for a materia
      * @param id - Materia ID
      * @return String contining stat changes when materia is equiped.
      */
-    static Q_INVOKABLE const QString statString(const int id) { return tr(Materias(id).stats.toUtf8()); }
+    static Q_INVOKABLE const QString statString(const int id) { return isModID(id) ? QString() : tr(Materias(id).stats.toUtf8()); }
 
     /**
      * @brief enemySkill - Get translated string of an enemy skill
@@ -118,7 +118,9 @@ public:
      * @param id - Id of materia to get the type of
      * @return An Elemental String Or QString()
      */
-    static Q_INVOKABLE const QString element(const int id) { return tr(Materias(id).elemental.toUtf8()); }
+    static Q_INVOKABLE const QString element(const int id) {
+        return (id > FF7Materia::TotalMateria) ? QString() : tr(Materias(id).elemental.toUtf8());
+    }
 
     /**
      * @brief skills - Get Skill for a materia
@@ -127,6 +129,10 @@ public:
      */
     static Q_INVOKABLE const QStringList skills(const int id) {
         QStringList translated_list;
+        if ( id > FF7Materia::TotalMateria) {
+            translated_list.append(QString());
+            return translated_list;
+        }
         const auto list = id == EnemySkill ? get()->d->_enemySkills : Materias(id).skills;
         for(const QString &skill : list)
             translated_list.append(tr(skill.toUtf8()));
@@ -140,7 +146,7 @@ public:
      * @return  List of skills the materia has unlocked for that level
      */
     static Q_INVOKABLE const QStringList skillsForLevel(const int id, const int level) {
-        if(id == EmptyId)
+        if(id > FF7Materia::TotalMateria)
             return QStringList();
 
         if ( id == MasterCommand || id == MasterSummon || id == MasterMagic)
@@ -164,6 +170,10 @@ public:
      */
     static Q_INVOKABLE const QStringList addedEffects (const int id) {
         QStringList translated_list;
+        if (isModID(id)) {
+            translated_list.append(QString());
+            return translated_list;
+        }
         for(const QString& stat : Materias(id).status)
             translated_list.append(tr(stat.toUtf8()));
         return translated_list;
@@ -174,7 +184,7 @@ public:
      * @param id - Materia ID
      * @return Total Number of levels for the materia
      */
-    static Q_INVOKABLE const qint8 levels(const int id) { return Materias(id).levels; }
+    static Q_INVOKABLE const qint8 levels(const int id) { return (id > FF7Materia::TotalMateria) ? 1 : Materias(id).levels; }
 
     /**
      * @brief materiaLevel - Returns the ap needed for a materia at a level
@@ -184,6 +194,8 @@ public:
      */
     static Q_INVOKABLE const int materiaLevel(const int id, const quint32 ap) {
         int level = 0;
+        if (isModID(id))
+            return level;
         if ( id == EnemySkill)
             return ap;
         for(int i = 0; i < levels(id); i++) {
@@ -206,7 +218,7 @@ public:
      * @param id - Materia Id
      * @return  Ap Needed To Master the Materia
      */
-    static Q_INVOKABLE const qint32 apToMax(const int id) { return Materias(id).ap.at(std::max(Materias(id).levels -1, 0)); }
+    static Q_INVOKABLE const qint32 apToMax(const int id) { return isModID(id) ? FF7Materia::MaxMateriaAp : Materias(id).ap.at(std::max(Materias(id).levels -1, 0)); }
 
 
     /**
@@ -214,21 +226,21 @@ public:
      * @param id - The materia id to check
      * @return The change in the strength stat for this materia
      */
-    static Q_INVOKABLE const qint8 strengthChange(const int id) { return Materias(id).str; }
+    static Q_INVOKABLE const qint8 strengthChange(const int id) { return isModID(id) ? 0 : Materias(id).str; }
 
     /**
      * @brief vitalityChange - The Change to the vitality stat when materia is equipped
      * @param id - The materia id to check
      * @return The change in the vitality stat for this materia
      */
-    static Q_INVOKABLE const qint8 vitalityChange(const int id) { return Materias(id).vit; }
+    static Q_INVOKABLE const qint8 vitalityChange(const int id) { return isModID(id) ? 0 : Materias(id).vit; }
 
     /**
      * @brief magicChange - The Change to the magic stat when materia is equipped
      * @param id - The materia id to check
      * @return The change in the magic stat for this materia
      */
-    static Q_INVOKABLE const qint8 magicChange(const int id) { return Materias(id).mag; }
+    static Q_INVOKABLE const qint8 magicChange(const int id) { return isModID(id) ? 0 : Materias(id).mag; }
 
 
     /**
@@ -236,7 +248,7 @@ public:
      * @param id - The materia id to check
      * @return The change in the spirit stat for this materia
      */
-    static Q_INVOKABLE const qint8 spiritChange(const int id) { return Materias(id).spi; }
+    static Q_INVOKABLE const qint8 spiritChange(const int id) { return isModID(id) ? 0 : Materias(id).spi; }
 
 
     /**
@@ -244,35 +256,35 @@ public:
      * @param id - The materia id to check
      * @return The change in the dexterity stat for this materia
      */
-    static Q_INVOKABLE const qint8 dexterityChange(const int id) { return Materias(id).dex; }
+    static Q_INVOKABLE const qint8 dexterityChange(const int id) { return isModID(id) ? 0 : Materias(id).dex; }
 
     /**
      * @brief luckChange - The Change to the luck stat when materia is equipped
      * @param id - The materia id to check
      * @return The change in the luck stat for this materia
      */
-    static Q_INVOKABLE const qint8 luckChange(const int id) { return Materias(id).lck; }
+    static Q_INVOKABLE const qint8 luckChange(const int id) { return isModID(id) ? 0 : Materias(id).lck; }
 
     /**
      * @brief hpChange - The Change to the baseHp stat when materia is equipped
      * @param id - The materia id to check
      * @return The change in the baseHp stat for this materia
      */
-    static Q_INVOKABLE const qint8 hpChange(const int id) { return Materias(id).hp; }
+    static Q_INVOKABLE const qint8 hpChange(const int id) { return isModID(id) ? 0 : Materias(id).hp; }
 
     /**
      * @brief mpChange - The Change to the baseMp stat when materia is equipped
      * @param id - The materia id to check
      * @return The change in the baseMp stat for this materia
      */
-    static Q_INVOKABLE const qint8 mpChange(const int id) { return Materias(id).mp; }
+    static Q_INVOKABLE const qint8 mpChange(const int id) { return isModID(id) ? 0 : Materias(id).mp; }
 
     /**
      * @brief type Get Materia Type
      * @param id
      * @return The Type of the materia
      */
-    static Q_INVOKABLE const int type(const int id) { return Materias(id).type; }
+    static Q_INVOKABLE const int type(const int id) { return isModID(id) ? 0 : Materias(id).type; }
 
     /**
      * @brief encodeMateria encode a materia
@@ -283,7 +295,7 @@ public:
     static Q_INVOKABLE materia encodeMateria(const int id, const qint32 ap) {
         materia temp;
         const int aptmp = qToLittleEndian(ap);
-        if ( (id >= 0 )  && (id <= 90 ) && ((aptmp >= 0) && (aptmp <= MaxMateriaAp))) {
+        if ( (id >= 0 )  && (id != FF7Materia::EmptyId ) && ((aptmp >= 0) && (aptmp <= MaxMateriaAp))) {
             temp.id = id;
             temp.ap[0] = (aptmp & 0xff);
             temp.ap[1] = (aptmp & 0xff00) >> 8;
@@ -302,7 +314,7 @@ public:
      * @param mat - Materia
      * @return Id of the materia.
      */
-    static Q_INVOKABLE const int materiaID(materia mat) { return idClamp(mat.id); }
+    static Q_INVOKABLE const int materiaID(materia mat) { return mat.id; }
 
     /**
      * @brief materiaAP - Transform 3 bytes into a materia AP
@@ -332,23 +344,25 @@ public:
 
 
     //Image Functions
-    static const QIcon icon(const int id) { return QIcon(QPixmap(Materias(id).imageString)); }
-    static const QPixmap pixmap(const int id) { return QPixmap(Materias(id).imageString); }
-    static const QImage image(const int id) { return QImage(Materias(id).imageString); }
+    static const QIcon icon(const int id) { return isModID(id) ? iconAllMateria() : QIcon(QPixmap(Materias(id).imageString)); }
+    static const QPixmap pixmap(const int id) { return isModID(id) ? QPixmap(get()->d->_resourceAllMateria) : QPixmap(Materias(id).imageString); }
+    static const QImage image(const int id) { return isModID(id) ? imageAllMateria() : QImage(Materias(id).imageString); }
     static Q_INVOKABLE const QString iconResource(const int id) {
+        if (isModID(id))
+            return imageAllResource();
         auto tmp = Materias(id).imageString;
         return tmp.isEmpty() ? tmp : tmp.prepend(QStringLiteral("qrc"));
     }
 
-    static const QPixmap pixmapEmptyStar(int id) { return QPixmap(Materias(id).emptyStarString); }
-    static const QImage imageEmptyStar(int id) { return QImage(Materias(id).emptyStarString); }
+    static const QPixmap pixmapEmptyStar(int id) { return isModID(id) ? QPixmap() : QPixmap(Materias(id).emptyStarString); }
+    static const QImage imageEmptyStar(int id) { return isModID(id) ? QImage() : QImage(Materias(id).emptyStarString); }
     static Q_INVOKABLE const QString emptyStarResource(int id) {
         auto tmp = Materias(id).emptyStarString;
         return tmp.isEmpty() ? tmp : tmp.prepend(QStringLiteral("qrc"));
     }
 
-    static const QPixmap pixmapFullStar(int id) { return QPixmap(Materias(id).fullStarString); }
-    static const QImage imageFullStar(int id) { return QImage(Materias(id).fullStarString); }
+    static const QPixmap pixmapFullStar(int id) { return isModID(id) ? QPixmap() : QPixmap(Materias(id).fullStarString); }
+    static const QImage imageFullStar(int id) { return isModID(id) ? QImage() : QImage(Materias(id).fullStarString); }
     static Q_INVOKABLE const QString fullStarResource(int id) {
         auto tmp = Materias(id).fullStarString;
         return tmp.isEmpty() ? tmp : tmp.prepend(QStringLiteral("qrc"));
@@ -369,6 +383,13 @@ public:
         return phList;
     }
 
+    /*!
+     * \brief isModID
+     * \param id Materia id to check
+     * \return true if the id is in the range of 91 - 254 (unused but could be added by a mod)
+     */
+    static bool isModID(int id) { return id > FF7Materia::TotalMateria && id != FF7Materia::EmptyId; }
+
 protected:
     /**
      * @brief Get the FF7Materia Instance
@@ -377,6 +398,7 @@ protected:
         static FF7Materia m;
         return &m;
     };
+
 
 private:
     FF7Materia *operator = (FF7Materia &other) = delete;
@@ -424,7 +446,7 @@ private:
     * \sa Materia(int)
     */
     static const FF7Materia::MATERIA &Materias(int id) {
-        return (idClamp(id) == EmptyId) ?  get()->d->_emptyMateria : get()->d->_materiaList.at(id);
+        return (id == EmptyId) ?  get()->d->_emptyMateria : get()->d->_materiaList.at(id);
     }
 
     struct FF7MateriaPrivate;
