@@ -42,6 +42,8 @@ private slots:
     void selectLgpFile();
     void extractLgp();
 
+    void on_pushButton_2_clicked();
+
 private:
 
     Ui::MainWindow *ui = nullptr;
