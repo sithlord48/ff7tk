@@ -50,7 +50,7 @@ void CharEditor::changeEvent(QEvent *e)
         weapon_selection->setStyleSheet(comboStyle);
         armor_selection->setStyleSheet(comboStyle);
         accessory_selection->setStyleSheet(comboStyle);
-        for(auto m : materiaSlotFrames) {
+        for(auto m : std::as_const(materiaSlotFrames)) {
             m->setStyleSheet(transparentBackgroundStyle);
         }
     }
@@ -2081,11 +2081,7 @@ void CharEditor::update_materia_slots()
 }
 void CharEditor::matId_changed(qint8 id)
 {
-    if (id >= 0 && id < 91)
-        data.materias[mslotsel].id = quint8(id);
-    else
-        data.materias[mslotsel].id = FF7Materia::EmptyId;
-
+    data.materias[mslotsel].id = quint8(id);
     if (!load) {
         Q_EMIT materiaChanged(data.materias[mslotsel]);
 /* Remove for 2.0 */Q_EMIT Materias_changed(data.materias[mslotsel]);

@@ -380,6 +380,8 @@ public:
             if(m.name.startsWith(get()->d->_placeHolderFilter))
                 phList.append(m.id);
         }
+        for (int i = 91; i < FF7Materia::EmptyId; i++)
+            phList.append(i);
         return phList;
     }
 
