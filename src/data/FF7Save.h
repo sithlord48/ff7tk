@@ -136,8 +136,9 @@ public:
      *  \param s slot to import into
      *  \param fileName file that will be imported
      *  \param fileSlot slot to import from fileName
+     *  \return true if successful
     */
-    void importSlot(int s = 0, QString fileName = "", int fileSlot = 0);
+    bool importSlot(int s = 0, QString fileName = "", int fileSlot = 0);
 
     /** \brief clear a slot
      * \param s slot number (0-14)

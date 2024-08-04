@@ -474,22 +474,22 @@ bool FF7Save::exportSlot(const QString &fileName, FF7SaveInfo::FORMAT exportForm
     return true;
 }
 
-void FF7Save::importSlot(int s, QString fileName, int fileSlot)
+bool FF7Save::importSlot(int s, QString fileName, int fileSlot)
 {
     if ((s < 0) || (s > 14) || filename.isEmpty())
-        return;
+        return false;
 
     FF7SaveInfo::FORMAT inType = FF7SaveInfo::FORMAT::UNKNOWN;
     int offset = 0;
 
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly))
-        return;
+        return false;
 
     inType = fileDataFormat(file);
     if (inType == FF7SaveInfo::FORMAT::UNKNOWN) {
         file.close();
-        return;
+        return false;
     }
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~Set File Type Vars ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -538,10 +538,11 @@ void FF7Save::importSlot(int s, QString fileName, int fileSlot)
     } else {
         //Unknown or Unspecified Type Abort.
         file.close();
-        return;
+        return false;
     }
     file.close();
     setFileModified(true, s);
+    return true;
 }
 
 void FF7Save::clearSlot(int rmslot)
