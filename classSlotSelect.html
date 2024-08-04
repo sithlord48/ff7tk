@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">1.2.0.3</span>
+   &#160;<span id="projectnumber">1.2.0.5</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -64,6 +64,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classSlotSelect-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -94,6 +95,13 @@ Collaboration diagram for SlotSelect:</div>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a443c3fa84660c4cb8b5ac990624928d8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8">RESULT</a> { <a class="el" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8aabf9dad80a0b9f77bf3f24b6c68e4d25">CANCEL</a> = -2, 
+<a class="el" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8abc0e19bf231263a296771ca6bb0ce383">LOAD_NEW</a> = -1
+ }</td></tr>
+<tr class="separator:a443c3fa84660c4cb8b5ac990624928d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad252147f51fe7f1c64542591035ba052"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSlotSelect.html#ad252147f51fe7f1c64542591035ba052">SlotSelect</a> (<a class="el" href="classFF7Save.html">FF7Save</a> *data=nullptr, bool loadVisiable=false, QWidget *parent=nullptr)</td></tr>
@@ -103,7 +111,26 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Display a preview of the contents of a PSX memory card file or FF7 PC save. </p>
 <p>When the dialog is run it will return the slot selected (0-14) or -1 if the load button was pushed. Copy Paste and Remove are are internal so no need to worry about doing those. Copy will currently only copies FF7 Saves. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a443c3fa84660c4cb8b5ac990624928d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a443c3fa84660c4cb8b5ac990624928d8">&#9670;&nbsp;</a></span>RESULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8">SlotSelect::RESULT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a443c3fa84660c4cb8b5ac990624928d8aabf9dad80a0b9f77bf3f24b6c68e4d25"></a>CANCEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a443c3fa84660c4cb8b5ac990624928d8abc0e19bf231263a296771ca6bb0ce383"></a>LOAD_NEW&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad252147f51fe7f1c64542591035ba052"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad252147f51fe7f1c64542591035ba052">&#9670;&nbsp;</a></span>SlotSelect()</h2>
 

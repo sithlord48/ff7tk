@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">1.2.0.3</span>
+   &#160;<span id="projectnumber">1.2.0.5</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -89,26 +89,31 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classSlotSelect.html">SlotSelect</a>(<a class="code" href="classFF7Save.html">FF7Save</a> *data = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> loadVisiable = <span class="keyword">false</span>, QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> button_clicked(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> remove_slot(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> copy_slot(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> paste_slot(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> newFile(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setSlotPreview(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> showLoad(<span class="keywordtype">bool</span> shown);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> ReIntSlot(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QVBoxLayout *preview_layout;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classSlotPreview.html">SlotPreview</a> *preview[15];</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QPushButton *btnNew;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//Private Data</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classFF7Save.html">FF7Save</a> *ff7;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8">   26</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8">RESULT</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8aabf9dad80a0b9f77bf3f24b6c68e4d25">   27</a></span>&#160;        CANCEL = -2,</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8abc0e19bf231263a296771ca6bb0ce383">   28</a></span>&#160;        LOAD_NEW = -1</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classSlotSelect.html">SlotSelect</a>(<a class="code" href="classFF7Save.html">FF7Save</a> *data = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> loadVisiable = <span class="keyword">false</span>, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> button_clicked(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> remove_slot(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> copy_slot(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> paste_slot(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> newFile(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> reject() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> setSlotPreview(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> showLoad(<span class="keywordtype">bool</span> shown);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> ReIntSlot(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QVBoxLayout *preview_layout;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classSlotPreview.html">SlotPreview</a> *preview[15];</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QPushButton *btnNew;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//Private Data</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classFF7Save.html">FF7Save</a> *ff7;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassFF7Save_html"><div class="ttname"><a href="classFF7Save.html">FF7Save</a></div><div class="ttdoc">edit saves from Final Fantasy 7</div><div class="ttdef"><b>Definition:</b> FF7Save.h:52</div></div>
+<div class="ttc" id="aclassSlotSelect_html_a443c3fa84660c4cb8b5ac990624928d8"><div class="ttname"><a href="classSlotSelect.html#a443c3fa84660c4cb8b5ac990624928d8">SlotSelect::RESULT</a></div><div class="ttdeci">RESULT</div><div class="ttdef"><b>Definition:</b> SlotSelect.h:26</div></div>
 <div class="ttc" id="aclassSlotPreview_html"><div class="ttname"><a href="classSlotPreview.html">SlotPreview</a></div><div class="ttdoc">Preview a Single Slot on a Psx memory card or FF7 Save file.</div><div class="ttdef"><b>Definition:</b> SlotPreview.h:19</div></div>
 <div class="ttc" id="aclassSlotSelect_html"><div class="ttname"><a href="classSlotSelect.html">SlotSelect</a></div><div class="ttdoc">Display a preview of the contents of a PSX memory card file or FF7 PC save.</div><div class="ttdef"><b>Definition:</b> SlotSelect.h:22</div></div>
 <!-- start footer part -->
