@@ -23,7 +23,10 @@ class FF7TKWIDGETS_EXPORT SlotSelect : public QDialog
 {
     Q_OBJECT
 public:
-
+    enum RESULT {
+        CANCEL = -2,
+        LOAD_NEW = -1
+    };
     /** \brief create a new SlotSelect Dialog.
      *  \param data Pointer to a FF7Save object
      *  \param loadVisiable show the load file button
@@ -36,6 +39,7 @@ private slots:
     void copy_slot(int s);
     void paste_slot(int s);
     void newFile(void);
+    void reject() override;
 private:
     void setSlotPreview(int s);
     void showLoad(bool shown);

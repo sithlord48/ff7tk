@@ -177,7 +177,12 @@ void SlotSelect::setSlotPreview(int s)
 
 void SlotSelect::newFile(void)
 {
-    done(-1);
+    done(RESULT::LOAD_NEW);
+}
+
+void SlotSelect::reject(void)
+{
+    done(RESULT::CANCEL);
 }
 
 void SlotSelect::showLoad(bool show)
