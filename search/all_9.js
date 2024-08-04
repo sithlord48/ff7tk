@@ -27,7 +27,7 @@ var searchData=
   ['impaler_804',['Impaler',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7ab0355cf3b26e5b7f45906c13596aba57',1,'FF7Item']]],
   ['imperialguard_805',['ImperialGuard',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a2c81af64596b595934642e072d9b0110',1,'FF7Item']]],
   ['importcharacter_806',['importCharacter',['../classFF7Save.html#a8f0633e1d54d5bf54c5e9220da7caf11',1,'FF7Save']]],
-  ['importslot_807',['importSlot',['../classFF7Save.html#af0ae9823949a123906c4d3f9dbdc98d0',1,'FF7Save']]],
+  ['importslot_807',['importSlot',['../classFF7Save.html#a6c186cfd7c7d3f9f98db3ff5aa6b54be',1,'FF7Save']]],
   ['independent_808',['Independent',['../classFF7Materia.html#aa544682547e83581feb2794d1611a747ac2c327a30ec550d149ec7b0f9edae931',1,'FF7Materia']]],
   ['indeterminate_809',['Indeterminate',['../classQTaskBarButton.html#a072ef2961b0b7b7d6ef9cb4bfa9377e4a013a9f5bdf33c89804bd63430d644935',1,'QTaskBarButton']]],
   ['index_810',['index',['../classSlotPreview.html#a9c34c4d47e2b3135f30c33844549ff45',1,'SlotPreview']]],

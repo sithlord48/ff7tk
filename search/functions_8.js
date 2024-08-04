@@ -17,7 +17,7 @@ var searchData=
   ['imagemateriaslotnogrowth_2817',['imageMateriaSlotNoGrowth',['../classFF7Item.html#ac300f7baec8c4b248b8650a7b220acca',1,'FF7Item']]],
   ['imageptr_2818',['imagePtr',['../classTextureFile.html#aa2490221c2b6ae84913ad3d1495ec881',1,'TextureFile']]],
   ['importcharacter_2819',['importCharacter',['../classFF7Save.html#a8f0633e1d54d5bf54c5e9220da7caf11',1,'FF7Save']]],
-  ['importslot_2820',['importSlot',['../classFF7Save.html#af0ae9823949a123906c4d3f9dbdc98d0',1,'FF7Save']]],
+  ['importslot_2820',['importSlot',['../classFF7Save.html#a6c186cfd7c7d3f9f98db3ff5aa6b54be',1,'FF7Save']]],
   ['index_2821',['index',['../classSlotPreview.html#a9c34c4d47e2b3135f30c33844549ff45',1,'SlotPreview']]],
   ['indexof_2822',['indexOf',['../classFF7String.html#a8a0664322c0b058ce9e3ee97a12b81a7',1,'FF7String']]],
   ['init_5ffielditems_2823',['init_fieldItems',['../classLocationViewer.html#a19bffaefc01ab4508697396c48b233bb',1,'LocationViewer']]],

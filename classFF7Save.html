@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">1.2.0.2</span>
+   &#160;<span id="projectnumber">1.2.0.3</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -318,9 +318,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afc6bb25fc86028562ec37497df1f57c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Save.html#afc6bb25fc86028562ec37497df1f57c7">exportFile</a> (const QString &amp;<a class="el" href="classFF7Save.html#ae5072c928f7e59ea99d0735c6ab971fe">fileName</a>, <a class="el" href="classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958">FF7SaveInfo::FORMAT</a> exportFormat, int s=0)</td></tr>
 <tr class="memdesc:afc6bb25fc86028562ec37497df1f57c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Export a File to the specificed format. Calls one of several internal methods to export the file.  <a href="classFF7Save.html#afc6bb25fc86028562ec37497df1f57c7">More...</a><br /></td></tr>
 <tr class="separator:afc6bb25fc86028562ec37497df1f57c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0ae9823949a123906c4d3f9dbdc98d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Save.html#af0ae9823949a123906c4d3f9dbdc98d0">importSlot</a> (int s=0, QString <a class="el" href="classFF7Save.html#ae5072c928f7e59ea99d0735c6ab971fe">fileName</a>=&quot;&quot;, int fileSlot=0)</td></tr>
-<tr class="memdesc:af0ae9823949a123906c4d3f9dbdc98d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">import from a file into a slot  <a href="classFF7Save.html#af0ae9823949a123906c4d3f9dbdc98d0">More...</a><br /></td></tr>
-<tr class="separator:af0ae9823949a123906c4d3f9dbdc98d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c186cfd7c7d3f9f98db3ff5aa6b54be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Save.html#a6c186cfd7c7d3f9f98db3ff5aa6b54be">importSlot</a> (int s=0, QString <a class="el" href="classFF7Save.html#ae5072c928f7e59ea99d0735c6ab971fe">fileName</a>=&quot;&quot;, int fileSlot=0)</td></tr>
+<tr class="memdesc:a6c186cfd7c7d3f9f98db3ff5aa6b54be"><td class="mdescLeft">&#160;</td><td class="mdescRight">import from a file into a slot  <a href="classFF7Save.html#a6c186cfd7c7d3f9f98db3ff5aa6b54be">More...</a><br /></td></tr>
+<tr class="separator:a6c186cfd7c7d3f9f98db3ff5aa6b54be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec43466004be11a03da773a5ca3ffeb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFF7Save.html#aec43466004be11a03da773a5ca3ffeb2">clearSlot</a> (int s)</td></tr>
 <tr class="memdesc:aec43466004be11a03da773a5ca3ffeb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear a slot  <a href="classFF7Save.html#aec43466004be11a03da773a5ca3ffeb2">More...</a><br /></td></tr>
 <tr class="separator:aec43466004be11a03da773a5ca3ffeb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4892,14 +4892,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af0ae9823949a123906c4d3f9dbdc98d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0ae9823949a123906c4d3f9dbdc98d0">&#9670;&nbsp;</a></span>importSlot()</h2>
+<a id="a6c186cfd7c7d3f9f98db3ff5aa6b54be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c186cfd7c7d3f9f98db3ff5aa6b54be">&#9670;&nbsp;</a></span>importSlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FF7Save::importSlot </td>
+          <td class="memname">bool FF7Save::importSlot </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>s</em> = <code>0</code>, </td>
@@ -4933,6 +4933,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful </dd></dl>
 
 </div>
 </div>
