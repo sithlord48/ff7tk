@@ -467,6 +467,7 @@ void LocationViewer::setRegion(const QString &newRegion)
 QString LocationViewer::translate(QString text)
 {
     QString lang;
+
     if (region.contains(QStringLiteral("BASCUS-94163")) || region.contains(QStringLiteral("BESCES-00867")))
         lang = QStringLiteral("en");
     else if (region.contains(QStringLiteral("BESCES-00868")))
@@ -477,7 +478,11 @@ QString LocationViewer::translate(QString text)
         lang = QStringLiteral("es");
     else if (region.contains(QStringLiteral("BISLPS-00700")) || region.contains(QStringLiteral("BISLPS-01057")))
         lang = QStringLiteral("ja");
+
     if(lang.isNull())
+        return text;
+
+    if(!ff7tkInfo::translations().value(lang))
         return text;
 
     QString newText = ff7tkInfo::translations().value(lang)->translate("FF7Location", text.toLatin1());
