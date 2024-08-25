@@ -13,7 +13,8 @@ else()
     set(BUILD_FRAMEWORKS FALSE)
 endif()
 
-add_subdirectory(core)
+add_subdirectory(ff7tk)
+
 if(DATA)
     add_subdirectory(data)
 endif()

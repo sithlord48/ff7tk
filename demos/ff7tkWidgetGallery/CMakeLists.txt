@@ -12,7 +12,7 @@ find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
         Quick
 )
 
-find_library(ff7tk ${CMAKE_BINARY_DIR}/src/core)
+find_library(ff7tk ${CMAKE_BINARY_DIR}/src/ff7tk)
 find_library(ff7tkData ${CMAKE_BINARY_DIR}/src/data)
 find_library(ff7tkFormats ${CMAKE_BINARY_DIR}/src/formats)
 find_library(ff7tkUtils ${CMAKE_BINARY_DIR}/src/utils)
