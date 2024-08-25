@@ -39,24 +39,24 @@ public:
      *  \param index index in list
      *   \return List of Offsets where that control the item being shown
      */
-    static Q_INVOKABLE const QList<quint16> &offset(int index);
+    Q_INVOKABLE static const QList<quint16> &offset(int index);
     /*! \brief bit list for an entry (one per offset)
      *  \param index index in list
      *  \return List of bits that control the item being shown
      */
-    static Q_INVOKABLE const QList<quint8> &bit(int index);
+    Q_INVOKABLE static const QList<quint8> &bit(int index);
 
     /*! \brief map list for an entry.
      *  \param index index in list
      *  \return List of maps that item is shown on
      */
-    static Q_INVOKABLE const QStringList &maps(int index);
+    Q_INVOKABLE static const QStringList &maps(int index);
 
     /*! \brief item or desc of item
      *  \param index index in list
      *  \return text for item
      */
-    static Q_INVOKABLE QString text(int index);
+    Q_INVOKABLE static QString text(int index);
 
     /*! \brief total entries in FILIST
      *  \return number of entries in FILIST

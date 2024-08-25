@@ -37,13 +37,13 @@ public:
      *  \param text the raw ff7text to read
      *  \return decoded ff7text
      */
-    static Q_INVOKABLE QString toPC(QByteArray text);
+    Q_INVOKABLE static QString toPC(QByteArray text);
 
     /*! \brief convert pc string to ff7text
      *  \param string the raw ff7text to read
      *  \return decoded ff7text
      */
-    static Q_INVOKABLE QByteArray toFF7(const QString &string);
+    Q_INVOKABLE static QByteArray toFF7(const QString &string);
 signals:
     /*! \brief emited when switching language used for decode.
      */
