@@ -12,7 +12,7 @@ To build ff7tk you will a minimum of:
 
 
 A Default Build of ff7tk will build: 
-     - A Required Core Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)
+     - A Required ff7tk Library (libff7tk.so, libff7tk.dylib, or ff7tk.dll)
      - All Additional Libraries ff7tkQtWidgets, ff7tkWidgets, ff7tkUtils and ff7tkFormats.
      - Headers for the libraries so you can link to them
      - Required CMake parts to find it post install.
