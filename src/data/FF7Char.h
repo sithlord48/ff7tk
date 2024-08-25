@@ -72,7 +72,7 @@ public:
      * \param who persons id  (they are almost always the same in stock game)
      * \return Chars[who].id
      */
-    static Q_INVOKABLE quint8 id(int who);
+    Q_INVOKABLE static quint8 id(int who);
 
     static int totalCharacters() {return FF7Char::Chocobo;}
     /**
@@ -80,31 +80,31 @@ public:
      * @param id -ID to check
      * @return True if ID is valid
      */
-    static Q_INVOKABLE bool validID(int id);
+    Q_INVOKABLE static bool validID(int id);
 
     /*! \brief number of weapons for a Character
      * \param who Characters id number
      * \return Number of Weapons for the given character
      */
-    static Q_INVOKABLE int numberOfWeapons(int who);
+    Q_INVOKABLE static int numberOfWeapons(int who);
 
     /*! \brief find what item id is the first weapon for a Character
      * \param who Characters id number
      * \return Item Id of characters first weapon
      */
-    static Q_INVOKABLE int weaponStartingId(int who);
+    Q_INVOKABLE static int weaponStartingId(int who);
 
     /*! \brief find what weapon number is the first weapon for a Character
      * \param who Characters id number
      * \return Weapon number of characters first weapon
      */
-    static Q_INVOKABLE int weaponOffset(int who);
+    Q_INVOKABLE static int weaponOffset(int who);
 
     /*! \brief default name for a character
      * \param who Characters id number
      * \return Translated default name for character
      */
-    static Q_INVOKABLE QString defaultName(int who);
+    Q_INVOKABLE static QString defaultName(int who);
 
     /*! \brief Menu icon for a character
      * \param who Characters id number
@@ -131,21 +131,21 @@ public:
      * \param who Characters id number
      * \return QStringList of Translated names for each limit break
      */
-    static Q_INVOKABLE QStringList limits(int who);
+    Q_INVOKABLE static QStringList limits(int who);
 
     /*! \brief Exp needed to reach a level
      * \param who Characters id number
      * \param level Level you want to reach
      * \return Total amount of Exp needed to reach level (ex. to reach level 99 you need 20000000 xp)
      */
-    static Q_INVOKABLE quint32 totalExpForLevel(int who, int level);
+    Q_INVOKABLE static quint32 totalExpForLevel(int who, int level);
 
     /*! \brief experance needed to level up
      * \param who Characters id number
      * \param level Level you are trying to reach
      * \return Exp needed to reach the next level. (i.e from 9 to 10 you need 50 exp)
      */
-    static Q_INVOKABLE quint32 tnlForLevel(int who, int level);
+    Q_INVOKABLE static quint32 tnlForLevel(int who, int level);
 
     /*! \brief how much to increase stat on level up
      * \param who Characters id number
@@ -155,13 +155,13 @@ public:
      * \param next_lvl level the character is becoming
      * \return how many points to be put in stat.
      */
-    static Q_INVOKABLE int statGain(int who, int stat, int stat_amount, int current_lvl, int next_lvl);
+    Q_INVOKABLE static int statGain(int who, int stat, int stat_amount, int current_lvl, int next_lvl);
 
     /*! \brief convert bit to limit offset
      * \param bit to convert
      * \return limit offset to change
      */
-    static Q_INVOKABLE int limitBitConvert(int bit);
+    Q_INVOKABLE static int limitBitConvert(int bit);
 
     /*!
      * \brief Convert a FF7CHAR to QByteArray
@@ -169,7 +169,7 @@ public:
      * \return QByteArray
      * \sa fromByteArray()
      */
-    static Q_INVOKABLE QByteArray toByteArray (FF7CHAR ff7char);
+    Q_INVOKABLE static QByteArray toByteArray (FF7CHAR ff7char);
 
     /*!
      * \brief Convert a QByteArray to FF7CHAR
@@ -177,7 +177,7 @@ public:
      * \return FF7Char
      * \sa toByteArray()
      */
-    static Q_INVOKABLE FF7CHAR fromByteArray(const QByteArray &ba);
+    Q_INVOKABLE static FF7CHAR fromByteArray(const QByteArray &ba);
 private:
     /*! \brief characters grade in a stat
     * \param who Characters id number

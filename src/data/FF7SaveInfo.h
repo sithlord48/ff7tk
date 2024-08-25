@@ -73,49 +73,49 @@ public:
      * @param format : The Save Format you wish to know about
      * @return size of Filetype
      */
-    static Q_INVOKABLE int fileSize(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int fileSize(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Size of the format's file header
      * @param format : The Save Format you wish to know about
      * @return size of File Header
      */
-    static Q_INVOKABLE int fileHeaderSize(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int fileHeaderSize(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Size of the format's slot header
      * @param format : The Save Format you wish to know about
      * @return size of slotHeader
      */
-    static Q_INVOKABLE int slotHeaderSize(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int slotHeaderSize(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Size of the format's slot footer
      * @param format : The Save Format you wish to know about
      * @return size of slotFooter
      */
-    static Q_INVOKABLE int slotFooterSize(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int slotFooterSize(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Number of save slots in format
      * @param format : The Save Format you wish to know about
      * @return number of save slots in format.
      */
-    static Q_INVOKABLE int slotCount(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int slotCount(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Magic Numbers for Final Fantasy VII Save Files
      * @param format : The Save Format
      * @return Magic Numbers for this file type
      */
-    static Q_INVOKABLE QByteArray fileIdentifier(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QByteArray fileIdentifier(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Standard File Header for Format
      * @param format
      * @return A Default File header
      */
-    static Q_INVOKABLE QByteArray fileHeader(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QByteArray fileHeader(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Standard Slot Header for Format
@@ -123,137 +123,137 @@ public:
      * @param slot: the slot value to use (PSX ICON)
      * @return A Default File header
      */
-    static Q_INVOKABLE QByteArray slotHeader(FF7SaveInfo::FORMAT format, int slot = 0);
+    Q_INVOKABLE static QByteArray slotHeader(FF7SaveInfo::FORMAT format, int slot = 0);
 
     /**
      * @brief Standard Slot Footer for Format
      * @param format
      * @return A Default File footer
      */
-    static Q_INVOKABLE QByteArray slotFooter(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QByteArray slotFooter(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Key Used to Sign The Format
      * @param format
      * @return The Key used to sign the format or an QByteArray() if none.
      */
-    static Q_INVOKABLE QByteArray signingKey(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QByteArray signingKey(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Extra off set data for psv format
      * @param info: FF7SaveInfo::PSVINFO that describes the info type to return.
      * @return offset for the type of info requested
      */
-    static Q_INVOKABLE int extraPSVOffsets(FF7SaveInfo::PSVINFO info);
+    Q_INVOKABLE static int extraPSVOffsets(FF7SaveInfo::PSVINFO info);
 
     /**
      * @brief IV Used to Sign The Format
      * @param format
      * @return The IV used to sign the format or an QByteArray() if none.
      */
-    static Q_INVOKABLE QByteArray signingIV(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QByteArray signingIV(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief The offset for the seed for signed saves
      * @param format
      * @return offset of the seed or -1 if none
      */
-    static Q_INVOKABLE int fileSeedOffset(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int fileSeedOffset(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief The offset for the signature for signed saves
      * @param format
      * @return offset of the signature or -1 if none
      */
-    static Q_INVOKABLE int fileSignatureOffset(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int fileSignatureOffset(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief The size for the signature for signed saves
      * @param format
      * @return size of the signature
      */
-    static Q_INVOKABLE int fileSignatureSize(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int fileSignatureSize(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Description of the File type
      * @param format
      * @return Description of format
      */
-    static Q_INVOKABLE QString typeDescription(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QString typeDescription(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Size of an FF7Slot
      * @return size of 0X10F4
      */
-    static Q_INVOKABLE int slotSize();
+    Q_INVOKABLE static int slotSize();
 
     /**
      * @brief Get a constructed RegularExpression to check for valid save name
      * @param format: the format you wish to check .
      * @return Constructed RegularExpression
      */
-    static Q_INVOKABLE QRegularExpression validNames(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QRegularExpression validNames(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Valid Extensions for the File type
      * @param format
      * @return  List of valid Extensions for the chosen format.
      */
-    static Q_INVOKABLE QStringList typeExtension(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QStringList typeExtension(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Get a constructed filter string for use in save/ load dialogs.
      * @param format: the format you want info about
      * @return Constructed Filter string for chosen format or All Files for UNKNOWN TYPE
      */
-    static Q_INVOKABLE QString typeFilter(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static QString typeFilter(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Get a constructed filter string for use in save/load Dialogs.
      * @return Constructed Filter string
      */
-    static Q_INVOKABLE QString knownTypesFilter();
+    Q_INVOKABLE static QString knownTypesFilter();
 
     /**
      * @brief Check if a format is using the PC format internally
      * @param format - Format to check 
      * @return True if format is uses PC format internally
      */
-    static Q_INVOKABLE bool isTypePC(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static bool isTypePC(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Check if a format is a Virtual Memory card
      * @param format - Format to check
      * @return True if format is a Virtual Memory card type.
      */
-    static Q_INVOKABLE bool isTypeVMC(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static bool isTypeVMC(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief Check if a format is a SingleSlot Save
      * @param format - Format to check
      * @return True if format is a a SingleSlot Save Type. (PSX, PDA, PGE + PSV)
      */
-    static Q_INVOKABLE bool isTypeSSS(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static bool isTypeSSS(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief mcHeaderOffset Retuns the offset of the vmc header. Valid only for VMC types saves.
      * @param format - Format to check
      * @return Offset where the Vmc header starts or -1 if invalid format provided.
      */
-    static Q_INVOKABLE int vmcHeaderOffset(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int vmcHeaderOffset(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief psxSaveNameOffset Return the offset where the psxSaveName starts. Valid only for PS3, PGE and PDA save formats.
      * @param format - Format to check
      * @return  Offset where the psxSaveNameOffset is or -1 if invalid format provided.
      */
-    static Q_INVOKABLE int psxSaveNameOffset(FF7SaveInfo::FORMAT format);
+    Q_INVOKABLE static int psxSaveNameOffset(FF7SaveInfo::FORMAT format);
 
     /**
      * @brief defaultSaveData Returns the default save data use by the stock kernel
      * @return The Default raw save
      */
-    static Q_INVOKABLE QByteArray defaultSaveData();
+    Q_INVOKABLE static QByteArray defaultSaveData();
 
 private:
     FF7SaveInfo *operator = (FF7SaveInfo &other) = delete;
