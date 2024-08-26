@@ -193,12 +193,12 @@ void OrientationWidget::changeEvent(QEvent *e)
 
 QPointF OrientationWidget::centerCircle() const
 {
-    return QPointF(width()/2.0, height()/2.0);
+    return QPointF(width() * 0.5, height() * 0.5);
 }
 
 double OrientationWidget::radiusCircle() const
 {
-    return (qMin(width(), height()) - 1)/2.0;
+    return (qMin(width(), height()) - 1) * 0.5;
 }
 
 bool OrientationWidget::isInCircle(const QPointF &pos)
@@ -236,17 +236,17 @@ void OrientationWidget::moveCursor(const QPointF &pos)
     int angleModifier = (_zeroDirection == North || _zeroDirection == South) ? 180 : 0;
     int angleFlipModifier = (_zeroDirection == North || _zeroDirection == South) ? 0 : 180;
 
-    if (sizeX < 0 && sizeY <= 0) {
+    if ((sizeX < 0) && (sizeY <= 0)) {
         _value = angleModifier + int(angle+offset);
-    } else if (sizeX == 0.0 && sizeY < 0) {
+    } else if ((sizeX == 0.0) && (sizeY < 0)) {
         _value = topAngle;
-    } else if (sizeX > 0 && sizeY < 0) {
+    } else if ((sizeX > 0) && (sizeY < 0)) {
         _value = 180 - int(angle+offset);
-    } else if (sizeX == 0.0 && sizeY > 0) {
+    } else if ((sizeX == 0.0) && (sizeY > 0)) {
         _value = bottomAngle;
-    } else if (sizeX < 0 && sizeY > 0) {
+    } else if ((sizeX < 0) && (sizeY > 0)) {
         _value = 360 - int(angle+offset);
-    } else if (sizeX > 0 && sizeY >= 0) {
+    } else if ((sizeX > 0) && (sizeY >= 0)) {
         _value = angleFlipModifier + int(angle+offset);
     }
 
