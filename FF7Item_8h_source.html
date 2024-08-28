@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">1.2.0.5</span>
+   &#160;<span id="projectnumber">1.2.0.8</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -159,138 +159,138 @@ $(function() {
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">static</span> <a class="code" href="classFF7Item.html">FF7Item</a> *get();</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE quint16 itemDecode(quint16 itemraw);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> quint16 itemDecode(quint16 itemraw);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE quint16 itemEncode(quint16 <span class="keywordtype">id</span>, quint8 qty);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> quint16 itemEncode(quint16 <span class="keywordtype">id</span>, quint8 qty);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE quint16 itemId(quint16 item);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> quint16 itemId(quint16 item);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE quint8 itemQty(quint16 item);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> quint8 itemQty(quint16 item);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QString name(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QString name(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QString desc(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QString desc(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QString iconResource(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QString iconResource(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> type(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> type(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">static</span> QIcon icon(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QString materiaSlotNoGrowthResource();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QString materiaSlotNoGrowthResource();</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QString materiaSlotResource();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QString materiaSlotResource();</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QString materiaLinkResource();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QString materiaLinkResource();</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">static</span> QImage image(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> materiaSlots(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> materiaSlots(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> linkedSlots(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> linkedSlots(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> materiaGrowthRate(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> materiaGrowthRate(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statHP(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statHP(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statMP(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statMP(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statSTR(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statSTR(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statVIT(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statVIT(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statDEX(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statDEX(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statLCK(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statLCK(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statMAG(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statMAG(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statSPI(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statSPI(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">//Elemental Functions</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"></span>    <span class="keyword">static</span> Q_INVOKABLE QStringList elementalEffects(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"></span>    Q_INVOKABLE <span class="keyword">static</span> QStringList elementalEffects(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementRestoration(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementRestoration(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementFire(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementFire(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementCold(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementCold(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementLightning(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementLightning(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementEarth(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementEarth(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementWind(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementWind(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementWater(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementWater(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementGravity(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementGravity(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementHoly(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementHoly(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementPoison(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementPoison(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementCut(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementCut(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementShoot(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementShoot(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementPunch(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementPunch(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> elementHit(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> elementHit(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="comment">//Status Functions</span></div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QStringList statusEffects(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QStringList statusEffects(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusDeath(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusDeath(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusSlowNumb(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusSlowNumb(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusDeathSentence(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusDeathSentence(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusParalysis(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusParalysis(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusPetrify(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusPetrify(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusSilence(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusSilence(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusSleep(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusSleep(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusConfusion(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusConfusion(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusBerserk(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusBerserk(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusFrog(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusFrog(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusMini(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusMini(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusPoison(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusPoison(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusFury(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusFury(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusSadness(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusSadness(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusDarkness(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusDarkness(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160; </div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusHaste(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusHaste(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusSlow(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusSlow(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusStop(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusStop(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusBarrier(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusBarrier(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusMagicBarrier(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusMagicBarrier(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusReflect(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusReflect(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160; </div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusShield(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusShield(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160; </div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusRegen(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusRegen(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> statusResist(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> statusResist(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keywordtype">int</span> size();</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keywordtype">int</span> size();</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160; </div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keyword">static</span> QImage imageMateriaSlotNoGrowth();</div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160; </div>

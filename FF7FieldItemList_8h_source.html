@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ff7tk
-   &#160;<span id="projectnumber">1.2.0.5</span>
+   &#160;<span id="projectnumber">1.2.0.8</span>
    </div>
    <div id="projectbrief">Work with Final Fantasy 7 game data</div>
   </td>
@@ -102,12 +102,12 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <a class="code" href="classFF7FieldItemList.html">FF7FieldItemList</a> *get();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keyword">const</span> QList&lt;quint16&gt; &amp;offset(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keyword">const</span> QList&lt;quint8&gt; &amp;bit(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keyword">const</span> QList&lt;quint16&gt; &amp;offset(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keyword">const</span> QList&lt;quint8&gt; &amp;bit(<span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE <span class="keyword">const</span> QStringList &amp;maps(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> <span class="keyword">const</span> QStringList &amp;maps(<span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> Q_INVOKABLE QString text(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    Q_INVOKABLE <span class="keyword">static</span> QString text(<span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classFF7FieldItemList.html#a2ce771dd033f46c208498191677cd97f">   64</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classFF7FieldItemList.html#a2ce771dd033f46c208498191677cd97f">size</a>() { <span class="keywordflow">return</span> get()-&gt;d-&gt;_fieldItemList.size(); }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
