@@ -1143,7 +1143,8 @@ IsoDirectory *IsoArchive::_openDirectoryRecord(IsoDirectory *directories, QList<
             }
         }
 
-        for (IsoDirectory *dir : directories->directories()) {
+        const auto dirs = directories->directories();
+        for (IsoDirectory *dir : dirs) {
             if (!dir->isSpecial()) {
                 if (!_openDirectoryRecord(dir, dirVisisted)) {
                     qWarning() << "IsoArchive::_openDirectoryRecord cannot open directory" << dir->name() << dir->location();
@@ -1263,7 +1264,8 @@ bool IsoArchive::extractDir(const QString &path, const QString &destination) con
     QDir destDir(destination);
     bool error = false;
 
-    for (IsoFile *file : dir->files()) {
+    const auto files = dir->files();
+    for (IsoFile *file : files) {
         if (!file->extract(destDir.filePath(file->name()))) {
             error = true;
         }

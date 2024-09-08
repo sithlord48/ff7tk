@@ -56,7 +56,7 @@ quint8 FF7Char::id(int who)
 
 bool FF7Char::validID(int id)
 {
-    return !(id < 0 || id > 11);
+    return !((id < 0) || (id > 11));
 }
 
 int FF7Char::numberOfWeapons(int who)

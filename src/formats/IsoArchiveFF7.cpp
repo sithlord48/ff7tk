@@ -48,7 +48,7 @@ IsoFile *IsoArchiveFF7::searchExe() const
     }
 
     static const QRegularExpression exeName(QRegularExpression::anchoredPattern("[A-Z]{4}_\\d{3}\\.\\d{2}"));
-    QList<IsoFile *> files = rootDirectory()->files();
+    const QList<IsoFile *> files = rootDirectory()->files();
     for (IsoFile *isoFile : files) {
         QRegularExpressionMatch match = exeName.match(isoFile->name());
         if (match.hasMatch()) {
@@ -231,7 +231,7 @@ QMap<int, QString> IsoArchiveFF7::maplist()
 
     QMap<int, QString> orderedFields, ret;
     int min = -1;
-    QList<IsoFile *> files = fieldDirectory->files();
+    const QList<IsoFile *> files = fieldDirectory->files();
 
     for (const IsoFile *field : files) {
         if (!field->name().endsWith(".DAT")) {
@@ -381,7 +381,7 @@ IsoFile *IsoArchiveFF7::updateFieldBin()
     }
 
     QList<IsoFile *> files;
-    QList<IsoFile *> f = fieldDirectory->files();
+    const QList<IsoFile *> f = fieldDirectory->files();
     for (IsoFile *file : f) {
         if (!file->name().endsWith(".X")
                 && file->name() != "FIELD.BIN") {
@@ -412,7 +412,7 @@ IsoFile *IsoArchiveFF7::updateWorldBin()
     }
 
     QList<IsoFile *> files;
-    QList<IsoFile *> f = worldDirectory->files();
+    const QList<IsoFile *> f = worldDirectory->files();
     for (IsoFile *file : f) {
         if (file->name() != "WORLD.BIN") {
             files.append(file);

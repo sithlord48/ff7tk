@@ -264,7 +264,8 @@ bool LgpToc::hasEntries(quint16 id) const
 
 LgpHeaderEntry *LgpToc::entry(const QString &filePath, quint16 id) const
 {
-    for (LgpHeaderEntry *entry : entries(id)) {
+    const auto _entries = entries(id);
+    for (LgpHeaderEntry *entry : _entries) {
         if (filePath.compare(entry->filePath(), Qt::CaseInsensitive) == 0) {
             return entry;
         }

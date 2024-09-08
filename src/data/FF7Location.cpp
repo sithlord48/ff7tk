@@ -53,14 +53,17 @@ const QString &FF7Location::fileName(int MapID, int LocID)
         return it->filename;
     return get()->dPtr->_emptyLocation.filename;
 }
+
 QString FF7Location::rawLocationString(int index)
 {
     return get()->dPtr->_locations.at(index).location;
 }
+
 QString FF7Location::rawLocationString(const QString &fileName)
 {
     return location(fileName).location;
 }
+
 QString FF7Location::locationString(int index)
 {
     return tr(get()->dPtr->_locations.at(index).location.toUtf8());

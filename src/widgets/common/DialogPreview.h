@@ -20,7 +20,7 @@ public:
         BOTTOMRIGHT=2,
         BOTTOMLEFT=3,
     };
-    Q_ENUM(CORNER);
+    Q_ENUM(CORNER)
 
     DialogPreview(QWidget *parent = nullptr);
     ~DialogPreview() = default;

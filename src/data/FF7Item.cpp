@@ -163,7 +163,7 @@ QStringList FF7Item::elementalEffects(int id)
 {
 
     QStringList elementList;
-    if (id < 0 || id > 319) {
+    if ((id < 0) || (id > 319)) {
         return elementList;
     }
     for (int i = 0; i < 14; i++) {
@@ -273,7 +273,7 @@ QStringList FF7Item::statusEffects(int id)
 {
 
     QStringList statusList;
-    if (id < 0 || id > 319) {
+    if ((id < 0) || (id > 319)) {
         return statusList;
     }
     for (int i = 0; i < 24; i++) {
