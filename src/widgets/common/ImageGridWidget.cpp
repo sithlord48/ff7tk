@@ -182,7 +182,7 @@ void ImageGridWidget::paintEvent(QPaintEvent *event)
         QColor lightRed(0xff, 0x7f, 0x7f);
 
         p.setPen(hasFocus() ? Qt::red : lightRed);
-        for (const Cell &cell: _selectedCells) {
+        for (const Cell &cell: std::as_const(_selectedCells)) {
             drawSelection(p, cell);
         }
 

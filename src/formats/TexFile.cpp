@@ -77,7 +77,7 @@ bool TexFile::open(const QByteArray &data)
         quint16 color;
         _image = QImage(w, h, QImage::Format_ARGB32);
         QRgb *pixels = reinterpret_cast<QRgb *>(_image.bits());
-        if (header.bytesPerPixel < 2 || header.bytesPerPixel > 4) {
+        if ((header.bytesPerPixel < 2) || (header.bytesPerPixel > 4)) {
             qWarning() << "tex invalid bytesPerPixel!" << header.bytesPerPixel;
             return false;
         }
