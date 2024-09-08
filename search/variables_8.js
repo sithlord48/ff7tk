@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['hascolorkey_3737',['hasColorKey',['../structTexStruct.html#ae8cb518706a01bec4d164449d28d1243',1,'TexStruct']]],
-  ['hascolorkeyarray_3738',['hasColorKeyArray',['../structTexStruct.html#a6c135a0f6f8450e384c4011a74fbbcbb',1,'TexStruct']]],
-  ['haspal_3739',['hasPal',['../structTexStruct.html#afcad87a259213f3a6aff588a516fc1a5',1,'TexStruct']]],
-  ['hour_3740',['hour',['../structIsoTime.html#acaaa69c3490a6970d9246a2b8474441b',1,'IsoTime::hour()'],['../structDirectoryRecordHead.html#a2e459ddac30ef908eb88002c9f24d423',1,'DirectoryRecordHead::hour()']]]
+  ['hascolorkey_3735',['hasColorKey',['../structTexStruct.html#ae8cb518706a01bec4d164449d28d1243',1,'TexStruct']]],
+  ['hascolorkeyarray_3736',['hasColorKeyArray',['../structTexStruct.html#a6c135a0f6f8450e384c4011a74fbbcbb',1,'TexStruct']]],
+  ['haspal_3737',['hasPal',['../structTexStruct.html#afcad87a259213f3a6aff588a516fc1a5',1,'TexStruct']]],
+  ['hour_3738',['hour',['../structIsoTime.html#acaaa69c3490a6970d9246a2b8474441b',1,'IsoTime::hour()'],['../structDirectoryRecordHead.html#a2e459ddac30ef908eb88002c9f24d423',1,'DirectoryRecordHead::hour()']]]
 ];
