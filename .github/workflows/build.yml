@@ -31,7 +31,7 @@ jobs:
           fi
           echo "version=$VER" >> $GITHUB_OUTPUT
       - name: REUSE Compliance Check
-        uses: fsfe/reuse-action@v2
+        uses: fsfe/reuse-action@v4
         with:
           args: spdx
 

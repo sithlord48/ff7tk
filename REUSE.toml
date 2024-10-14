@@ -1,0 +1,104 @@
+
+# SPDX-FileCopyrightText: 2024 Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+SPDX-PackageName = "ff7tk"
+SPDX-PackageSupplier = "Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-PackageDownloadLocation = "https://github.com/sithlord48/ff7tk"
+
+[[annotations]]
+path = ".github/**"
+precedence = "override"
+SPDX-FileCopyrightText = "ff7tk Authors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "demos/ff7tkWidgetGallery/mainwindow.ui"
+precedence = "override"
+SPDX-FileCopyrightText = "2017 - 2023 Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "LGPL-3.0-or-later"
+
+[[annotations]]
+path = "translations/**.ts"
+precedence = "override"
+SPDX-FileCopyrightText = "ff7tk Translators"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "src/icons/achievements/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2019, 2022 Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/icons/chocobo/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/icons/characters/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Aavock"
+SPDX-License-Identifier = "LGPL-3.0-or-later"
+
+[[annotations]]
+path = "src/icons/common/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Tangoish"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/icons/items/**.png"
+precedence = "override"
+SPDX-FileCopyrightText = "Team Avalanche"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/icons/items/**.svg"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/icons/locations/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2019 - 2020 Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/icons/materia/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "src/icons/psxButtons/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2022 Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "cmake/_template/demoTemplate.icns"
+precedence = "override"
+SPDX-FileCopyrightText = "Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "cmake/_template/demoTemplate.ico"
+precedence = "override"
+SPDX-FileCopyrightText = "Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "cmake/_template/demoTemplate.png"
+precedence = "override"
+SPDX-FileCopyrightText = "Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "cmake/_template/sbom-document.in"
+precedence = "override"
+SPDX-FileCopyrightText = "Chris Rizzitello <sithlord48@gmail.com>"
+SPDX-License-Identifier = "MIT"
