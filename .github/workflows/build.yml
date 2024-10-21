@@ -48,9 +48,7 @@ jobs:
              , debArch: amd64
           }
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+    - uses: sithlord48/fancy-checkout@v1.0.0
     - run: git fetch --tags --force
     - name: Install Dependencies
       run: |
@@ -95,9 +93,7 @@ jobs:
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+    - uses: sithlord48/fancy-checkout@v1.0.0
     - run: git fetch --tags --force
     - name: Cache Zlib
       id: cache-zlib
@@ -203,11 +199,9 @@ jobs:
            , arch: armv7, distro: ubuntu22.04, debArch: armhf
           }
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: sithlord48/fancy-checkout@v1.0.0
       - run: git fetch --tags --force
-      - uses: uraimo/run-on-arch-action@v2.7.1
+      - uses: uraimo/run-on-arch-action@v2.8.1
         name: Build artifact
         with:
           arch: ${{ matrix.config.arch }}
