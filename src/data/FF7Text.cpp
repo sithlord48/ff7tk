@@ -42,7 +42,7 @@ bool FF7Text::isJapanese()
 QString FF7Text::toPC(QByteArray text)
 {
     QString str;
-    for (quint16 i = 0 ; i < text.size() ; ++i) {
+    for (qsizetype i = 0 ; i < text.size() ; ++i) {
         quint8 index = quint8(text.at(i));
         if (index == 0xFF) {
             break;
