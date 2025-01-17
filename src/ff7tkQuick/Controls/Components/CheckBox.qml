@@ -39,7 +39,7 @@ T.CheckBox {
         x: root.height * .15
         y: (parent.height - height) / 2
         anchors.verticalCenter: root.verticalCenter
-        width: text.paintedHeight % 2 === 0 ? text.paintedHeight : text.paintedHeight + 1
+        width: text.paintedHeight % 2 === 0 ? text.paintedHeight - 4 : text.paintedHeight - 3
         height: width
 
         Connections {
@@ -57,7 +57,7 @@ T.CheckBox {
             ctx.roundedRect(0,0, width, height, root.height * 0.15, root.height * 0.15)
             ctx.fill()
             ctx.roundedRect(0, 0, width, height, root.height * 0.15, root.height * 0.15)
-            ctx.lineWidth = 3
+            ctx.lineWidth = 2
             ctx.strokeStyle = root.down ? palette.highlight : palette.text
             ctx.stroke();
             if (root.checkState === Qt.Checked) {
