@@ -36,36 +36,45 @@ jobs:
           args: spdx
 
   deb_builder:
-    name: debianBuilder-${{matrix.config.name}}
+    name: debianBuilder-${{matrix.config.name}}-${{matrix.config.debArch}}
     runs-on: ${{matrix.config.os}}
+    needs: precheck
     strategy:
       fail-fast: false
       matrix:
         config:
-        - {
-             name: jammy
-             , os: ubuntu-22.04
-             , debArch: amd64
-          }
+        - name: jammy
+          os: ubuntu-22.04
+          debArch: amd64
+
+        - name: jammy
+          os: ubuntu-22.04-arm
+          debArch: arm64
+
     steps:
     - uses: sithlord48/fancy-checkout@v1.0.0
-    - run: git fetch --tags --force
     - name: Install Dependencies
       run: |
         sudo apt-get update -y > /dev/null
+        sudo apt-get upgrade -y > /dev/null
         sudo apt-get install -qqq ${{env.debianRequirments}} > /dev/null
+        sudo apt search qt | grep installed
         pip install --user ntia-conformance-checker
         pip install --user spdx-tools
     - name: Build
       run: |
-        ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
-        cmake --build build
+        ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+        cmake --build build --target package
+        mv build/ff7tk[-_]*.* .
         cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: debian-artifacts-${{matrix.config.name}}
-        path: libff7tk*.deb
+        name: debian-artifacts-${{matrix.config.name}}-${{matrix.config.debArch}}
+        path: |
+          ff7tk[-_]*.*
+          libff7tk*.deb
+
   main_build:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
@@ -190,10 +199,6 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {
-           name: "jammy"
-           , arch: aarch64, distro: ubuntu22.04, debArch : arm64
-          }
         - {
            name: "jammy"
            , arch: armv7, distro: ubuntu22.04, debArch: armhf
