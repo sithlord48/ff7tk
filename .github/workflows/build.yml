@@ -51,8 +51,16 @@ jobs:
           os: ubuntu-22.04-arm
           debArch: arm64
 
+        - name: noble
+          os: ubuntu-24.04
+          debArch: amd64
+
+        - name: noble
+          os: ubuntu-24.04-arm
+          debArch: arm64
+
     steps:
-    - uses: sithlord48/fancy-checkout@v1.0.0
+    - uses: sithlord48/fancy-checkout@v1
     - name: Install Dependencies
       run: |
         sudo apt-get update -y > /dev/null
@@ -63,10 +71,11 @@ jobs:
         pip install --user spdx-tools
     - name: Build
       run: |
-        ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+        ${{env.cmakeConfigure}} -DCMAKE_INSTALL_PREFIX=/usr -DPACKAGE_VERSION_LABEL="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
         cmake --build build --target package
         mv build/ff7tk[-_]*.* .
-        cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
+        mv build/libff7tk[-_]*.deb .
+
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
@@ -102,7 +111,7 @@ jobs:
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
     steps:
-    - uses: sithlord48/fancy-checkout@v1.0.0
+    - uses: sithlord48/fancy-checkout@v1
     - run: git fetch --tags --force
     - name: Cache Zlib
       id: cache-zlib
@@ -173,8 +182,13 @@ jobs:
         pip install --user reuse
     - name: Build ff7tk
       run: |
-        ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
+        ${{env.cmakeConfigure}} -DPACKAGE_VERSION_LABEL="${{ needs.precheck.outputs.version }}" -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BuildType}} --target package
+
+    - name: Rename Tarball for Linux compat
+      if: (runner.os == 'Linux')
+      run: cp build/ff7tk-${{ needs.precheck.outputs.version }}*.tar.gz build/ff7tk-${{ needs.precheck.outputs.version }}-linux_x86_64.tar.gz
+
     - name: Update Documentation
       if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@v4.5.0
@@ -189,54 +203,9 @@ jobs:
           ${{ github.workspace }}/build/ff7tk[-_]*.*
           ${{ github.workspace }}/build/libff7tk[-_]*.*
 
-
-  container_build:
-    # The host should always be linux
-    runs-on: ubuntu-latest
-    name: Linux-${{matrix.config.arch}}-${{matrix.config.name}}
-    needs: precheck
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-        - {
-           name: "jammy"
-           , arch: armv7, distro: ubuntu22.04, debArch: armhf
-          }
-    steps:
-      - uses: sithlord48/fancy-checkout@v1.0.0
-      - run: git fetch --tags --force
-      - uses: uraimo/run-on-arch-action@v2.8.1
-        name: Build artifact
-        with:
-          arch: ${{ matrix.config.arch }}
-          distro: ${{ matrix.config.distro }}
-          githubToken: ${{ github.token }}
-          setup: mkdir -p "${PWD}/artifacts"
-          dockerRunArgs: --volume "${PWD}/artifacts:/artifacts"
-          shell: /bin/sh
-          install: |
-                apt update -y > /dev/null
-                apt install -y -qqq ${{env.debianRequirments}} python3-pip > /dev/null
-                pip install --user ntia-conformance-checker
-                pip install --user spdx-tools
-          run: |
-            git config --global --add safe.directory /home/runner/work/ff7tk/ff7tk
-            ${{env.cmakeConfigure}} -DCPACK_PACKAGE_VERSION="${{ needs.precheck.outputs.version }}" -DCPACK_DEBIAN_PACKAGE_RELEASE=${{github.run_attempt}}~${{matrix.config.name}} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
-            cmake --build build --config ${{env.BuildType}} --target package
-            mv build/ff7tk[-_]*.* .
-            cpack -G DEB -C ${{env.BuildType}} --config build/CPackConfig.cmake
-      - name: Upload
-        uses: actions/upload-artifact@v4
-        with:
-          name: container-artifact-${{matrix.config.name}}-${{matrix.config.arch}}
-          path: |
-            ff7tk[-_]*.*
-            libff7tk*.deb
-
   release_assets:
     name: Release
-    needs: [main_build, container_build, deb_builder]
+    needs: [main_build, deb_builder]
     runs-on: ubuntu-latest
     steps:
     - name: Download Files
@@ -251,7 +220,6 @@ jobs:
        title: "Continuous Build"
        files: |
          artifact-*/*
-         container-artifact-*/*
          debian-artifacts-*/*
     - name: Deploy Release
       if: contains(github.ref, '/tags/v')
@@ -261,5 +229,4 @@ jobs:
        prerelease: false
        files: |
          artifact-*/*
-         container-artifact-*/*
          debian-artifacts-*/*
