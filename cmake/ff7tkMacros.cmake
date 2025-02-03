@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2023 Chris Rizzitello <sithlord48@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2025 Chris Rizzitello <sithlord48@gmail.com>
 # SPDX-License-Identifier: MIT
 
 #Contains Various Macros to be included
@@ -272,4 +272,84 @@ macro (MAKE_TEST NAME FILE)
     add_test(NAME ${NAME} COMMAND $<TARGET_FILE:${NAME}> WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/../../src/${curDir}")
     set_tests_properties(${NAME} PROPERTIES DEPENDS ${DEP_LIB})
     set_property(GLOBAL APPEND PROPERTY ff7tk_tests ${NAME})
+endmacro()
+
+
+# Get OS INFO
+macro (SET_OS_INFO)
+    if (APPLE)
+        set(OS_STRING "macos")
+    elseif(WIN32)
+        if(CMAKE_SYSTEM_PROCESSOR MATCHES AMD64)
+            set(OS_STRING "win64")
+        elseif(CMAKE_SYSTEM_PROCESSOR MATCHES ARM64)
+            set(OS_STRING "win-arm64")
+        else()
+            set(OS_STRING "win-${CMAKE_SYSTEM_PROCESSOR}")
+        endif()
+    elseif(UNIX AND NOT APPLE)
+        if(EXISTS "/etc/os-release")
+            FILE(STRINGS "/etc/os-release" RELEASE_FILE_CONTENTS)
+        else()
+            message(FATAL_ERROR "Unable to read file /etc/os-release")
+        endif()
+        foreach(LINE IN LISTS RELEASE_FILE_CONTENTS)
+            if( "${LINE}" MATCHES "^ID=")
+                string(REGEX REPLACE "^ID=" "" DISTRO_NAME ${LINE})
+                string(REGEX REPLACE "\"" "" DISTRO_NAME ${DISTRO_NAME})
+                message(DEBUG "Distro Name :${DISTRO_NAME}")
+            elseif( "${LINE}" MATCHES "^ID_LIKE=")
+                string(REGEX REPLACE "^ID_LIKE=" "" DISTRO_LIKE "${LINE}")
+                string(REGEX REPLACE "\"" "" DISTRO_LIKE ${DISTRO_LIKE})
+                message(DEBUG "Distro Like :${DISTRO_LIKE}")
+            elseif( "${LINE}" MATCHES "^VERSION_CODENAME=")
+                string(REGEX REPLACE "^VERSION_CODENAME=" "" DISTRO_CODENAME "${LINE}")
+                string(REGEX REPLACE "\"" "" DISTRO_CODENAME "${DISTRO_CODENAME}")
+                message(DEBUG "Distro Codename:${DISTRO_CODENAME}")
+            elseif( "${LINE}" MATCHES "^VERSION_ID=")
+                string(REGEX REPLACE "^VERSION_ID=" "" DISTRO_VERSION_ID "${LINE}")
+                string(REGEX REPLACE "\"" "" DISTRO_VERSION_ID "${DISTRO_VERSION_ID}")
+                message(DEBUG "Distro VersionID:${DISTRO_VERSION_ID}")
+            endif()
+        endforeach()
+
+        # Check if Debian-link
+        string(REGEX MATCH debian|buntu DEBTYPE "${DISTRO_LIKE}")
+        string(REGEX MATCH debian|deepin|uos DEBNAME "${DISTRO_NAME}")
+        if((NOT ("${DEBTYPE}" STREQUAL "")) OR (NOT ("${DEBNAME}" STREQUAL "")))
+            list(APPEND CPACK_GENERATOR "DEB")
+        endif()
+        # Check if Rpm-like
+        string(REGEX MATCH suse|fedora|rhel RPMTYPE "${DISTRO_LIKE}")
+        string(REGEX MATCH fedora|suse|rhel RPMNAME "${DISTRO_NAME}")
+        if((NOT ("${RPMTYPE}" STREQUAL "")) OR (NOT ("${RPMNAME}" STREQUAL "")))
+            list(APPEND CPACK_GENERATOR "RPM")
+        endif()
+
+        # Disto specific name adjustments
+        if("${DISTRO_NAME}" STREQUAL "opensuse-tumbleweed")
+            set(DISTRO_NAME "opensuse")
+            set(DISTRO_CODENAME "tumbleweed")
+        elseif("${DISTRO_NAME}" STREQUAL "arch")
+            # Arch linux is rolling the version id reported is the date of last iso.
+            set(DISTRO_VERSION_ID "")
+        endif()
+        # Determain the code name to be used if any
+        if(NOT "${DISTRO_VERSION_ID}" STREQUAL "")
+            set(CN_STRING "${DISTRO_VERSION_ID}-")
+        endif()
+
+        if(NOT "${DISTRO_CODENAME}" STREQUAL "")
+            set(CN_STRING "${DISTRO_CODENAME}-")
+        endif()
+
+        if("${DISTRO_NAME}" STREQUAL "")
+            if(${CMAKE_SYSTEM_NAME} MATCHES "|.*BSD")
+                set(DISTRO_NAME ${CMAKE_SYSTEM_NAME})
+            else()
+                set(DISTRO_NAME "linux")
+            endif()
+        endif()
+        set(OS_STRING "${DISTRO_NAME}-${CN_STRING}${CMAKE_SYSTEM_PROCESSOR}")
+    endif()
 endmacro()
