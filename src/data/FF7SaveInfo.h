@@ -362,7 +362,8 @@ private:
         inline static const QString DEX_FILE_DESCRIPTION = QT_TR_NOOP("DEX Drive Virtual Memory Card");
         inline static const QStringList DEX_VALID_EXTENSIONS {QStringLiteral("*.gme")};
         inline static const QRegularExpression DEX_VALID_NAME_REGEX = QRegularExpression(QStringLiteral("\\S+.gme"), QRegularExpression::CaseInsensitiveOption);
-        inline static const QByteArray DEX_FILE_ID = QByteArray::fromRawData("\x31\x32\x33\x2D\x34\x35\x36\x2D\x53\x54\x44\x00\x00\x00\x00\x00\x00\x00\x01\x00\x01\x4D", 22);
+        // Removed until varified
+        //inline static const QByteArray DEX_FILE_ID = QByteArray::fromRawData("\x31\x32\x33\x2D\x34\x35\x36\x2D\x53\x54\x44\x00\x00\x00\x00\x00\x00\x00\x01\x00\x01\x4D", 22);
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PGE SAVE FORMAT~~~~~~~~~~~~~~~~~~~*/
         inline static const int PGE_FILE_SIZE = 0x2080;
         inline static const int PGE_FILE_HEADER_SIZE = 0x0080;

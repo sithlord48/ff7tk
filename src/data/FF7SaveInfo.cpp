@@ -110,7 +110,7 @@ QByteArray FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT format)
     case FORMAT::VMC: return get()->d->VMC_FILE_ID;
     case FORMAT::PSP: return get()->d->PSP_FILE_ID;
     case FORMAT::PS3: return get()->d->PS3_FILE_ID;
-    case FORMAT::DEX: return get()->d->DEX_FILE_ID;
+//    case FORMAT::DEX: return get()->d->DEX_FILE_ID;
     case FORMAT::VGS: return get()->d->VGS_FILE_ID;
     case FORMAT::SWITCH: return get()->d->SWITCH_FILE_ID;
     default: return QByteArray();

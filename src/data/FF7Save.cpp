@@ -65,14 +65,14 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
         return FF7SaveInfo::FORMAT::PSP;
     if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::VGS)) && (file.peek(25)).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::VGS)))
         return FF7SaveInfo::FORMAT::VGS;
-    if ((file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::DEX)) && (file.peek(25)).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::DEX)))
-        return FF7SaveInfo::FORMAT::DEX;
     if (file_size % FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
         return FF7SaveInfo::FORMAT::PSX;
     if ((file_size - FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PGE)) % FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
         return FF7SaveInfo::FORMAT::PGE;
     if ((file_size - FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PDA)) % FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX) == 0)
         return FF7SaveInfo::FORMAT::PDA;
+    if (file_size == FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::DEX))
+        return FF7SaveInfo::FORMAT::DEX;
     return FF7SaveInfo::FORMAT::UNKNOWN;
 }
 
