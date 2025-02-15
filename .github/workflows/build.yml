@@ -94,7 +94,12 @@ jobs:
         config:
         - {
            name: "Linux-x86_64"
-           , os: ubuntu-22.04
+           , os: ubuntu-22.04, arch: x86_64
+           , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
+          }
+        - {
+           name: "Linux-aarch64"
+           , os: ubuntu-24.04-arm, arch: aarch64
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
           }
         - {
@@ -104,9 +109,10 @@ jobs:
           }
         - {
             name: "Windows-x64"
-            , os: windows-2022
+            , os: windows-2022, arch: x64
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
+
     steps:
     - uses: sithlord48/fancy-checkout@v1
     - run: git fetch --tags --force
@@ -116,7 +122,7 @@ jobs:
       uses: actions/cache@v4
       with:
         path: C:/zlib
-        key: ${{ runner.os }}${{ matrix.config.WIN_ARCH }}-zlib-1.3
+        key: ${{ runner.os }}${{ matrix.config.arch }}-zlib-1.3
 
     - name: Cache Chocolatey
       id: cache-choco
@@ -129,11 +135,13 @@ jobs:
             C:/ProgramData/chocolatey/lib/Graphviz
             C:/Program*/doxygen/
             C:/Program*/Graphviz/
-        key: cache-chocolatey${{ matrix.config.WIN_ARCH }}-zlib-1-3
+        key: cache-chocolatey${{ matrix.config.arch }}-zlib-1-3
 
     - name: Setup MSVC Shell For Windows
       if: runner.os == 'Windows'
       uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: ${{matrix.config.arch}}
 
     - name: Install Dependencies
       if: ((runner.os == 'Windows') && (steps.cache-choco.outputs.cache-hit != 'true')) || (runner.os != 'Windows')
@@ -152,7 +160,7 @@ jobs:
        version: ${{ env.QtVersion }}
        modules: qt5compat
        cache: true
-       cache-key-prefix: ${{runner.os}}-${{env.WIN_ARCH}}-${{env.QtKey}}
+       cache-key-prefix: ${{runner.os}}-${{matrix.config.arch}}-${{env.QtKey}}
        tools: ${{env.QtTools}}
     - name: Build Zlib For Windows
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
@@ -183,11 +191,11 @@ jobs:
     - name: Rename Tarball for Linux compat
       if: (runner.os == 'Linux')
       run: |
-        mv build/ff7tk-${{ needs.precheck.outputs.version }}*.tar.gz build/ff7tk-${{ needs.precheck.outputs.version }}-linux_x86_64.tar.gz
+        mv build/ff7tk-${{ needs.precheck.outputs.version }}*.tar.gz build/ff7tk-${{ needs.precheck.outputs.version }}-linux_${{matrix.config.arch}}.tar.gz
         rm build/libff7tk-*.deb
 
     - name: Update Documentation
-      if: runner.os == 'Linux' && github.ref == 'refs/heads/master'
+      if: runner.os == 'Linux' && runner.arch == 'x86_64' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
        branch: gh-pages
