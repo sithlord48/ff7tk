@@ -58,7 +58,7 @@ var searchData=
   ['boomerang_167',['Boomerang',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a8162105c52f02ba4437a9b610a34a5b5',1,'FF7Item']]],
   ['bottomleft_168',['BOTTOMLEFT',['../classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afd027352801eb7140795aa753ced63f2',1,'DialogPreview']]],
   ['bottomright_169',['BOTTOMRIGHT',['../classDialogPreview.html#aac6ee2dc9809f18e4140def446eeb8a9afcdfcbcc251a62244160c98bf89e27ad',1,'DialogPreview']]],
-  ['box_170',['BOX',['../classMenuListWidget.html#aa4e4ac078936a8584f52aa14be043d9d',1,'MenuListWidget::BOX()'],['../classPhsListWidget.html#a66a746887dc6bde6f9654cb9b31c4078',1,'PhsListWidget::Box()']]],
+  ['box_170',['Box',['../classPhsListWidget.html#a66a746887dc6bde6f9654cb9b31c4078',1,'PhsListWidget::Box()'],['../classMenuListWidget.html#aa4e4ac078936a8584f52aa14be043d9d',1,'MenuListWidget::BOX()']]],
   ['box1_5ftoggled_171',['box1_toggled',['../classDoubleCheckBox.html#ab3534008fedb84194438a3bd85513ba5',1,'DoubleCheckBox']]],
   ['box1toggled_172',['box1Toggled',['../classDoubleCheckBox.html#a781babf8b08508e9483658e2a65f6428',1,'DoubleCheckBox']]],
   ['box2_5ftoggled_173',['box2_toggled',['../classDoubleCheckBox.html#ab19595f0414a6ea692f14d330385ca4e',1,'DoubleCheckBox']]],

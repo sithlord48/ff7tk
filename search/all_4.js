@@ -40,7 +40,7 @@ var searchData=
   ['destroytooltip_463',['destroyTooltip',['../classItemListView.html#a995289aaa8c5e03f75beb85cbaaa27a5',1,'ItemListView']]],
   ['destruct_464',['Destruct',['../classFF7Materia.html#a0e29cca6c28370e142d386ce6d67b6bdaefb14edfb57d318883032a294a336f7f',1,'FF7Materia']]],
   ['device_465',['device',['../classIO.html#aa994303660afc2151f587c0a41e72302',1,'IO']]],
-  ['dex_466',['dex',['../classCharEditor.html#a6916ab5446f53df65c6a987888953be0',1,'CharEditor::dex()'],['../classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958a59698b348d09ad8cd6f9290a47903130',1,'FF7SaveInfo::DEX()']]],
+  ['dex_466',['DEX',['../classFF7SaveInfo.html#a26b833c52018990f2bd00a27bed3b958a59698b348d09ad8cd6f9290a47903130',1,'FF7SaveInfo::DEX()'],['../classCharEditor.html#a6916ab5446f53df65c6a987888953be0',1,'CharEditor::dex()']]],
   ['dex_5fchanged_467',['dex_changed',['../classCharEditor.html#ab43a1eb1011e2fc474897e1c75ab720b',1,'CharEditor']]],
   ['dexbonus_468',['dexBonus',['../classCharEditor.html#a59fa53ea8d8f7189180073d19cb14f72',1,'CharEditor']]],
   ['dexbonus_5fchanged_469',['dexBonus_changed',['../classCharEditor.html#a2fa29f23fc5f3029a13d1fbdecfb296d',1,'CharEditor']]],

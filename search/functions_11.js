@@ -85,7 +85,7 @@ var searchData=
   ['setcharwidth_3178',['setCharWidth',['../classWindowBinFile.html#add54ccac145413bfdcd752fda7591430',1,'WindowBinFile']]],
   ['setchecked_3179',['setChecked',['../classDoubleCheckBox.html#a6628705402fa5cbe9c34274f013003fd',1,'DoubleCheckBox::setChecked()'],['../classMenuListWidget.html#a49bbd7b7f1640c43fe3f58b157629f84',1,'MenuListWidget::setChecked()'],['../classPhsListWidget.html#ab2147d3c1d622e8353a5987ed50bedf1',1,'PhsListWidget::setChecked()']]],
   ['setchocoaccel_3180',['setChocoAccel',['../classFF7Save.html#a5966be5e41598c9cd4f8662988d5d0f3',1,'FF7Save']]],
-  ['setchocobo_3181',['SetChocobo',['../classChocoboEditor.html#a2563e37bd3569311693fbc859f105b41',1,'ChocoboEditor::SetChocobo()'],['../classChocoboManager.html#a6afed2f38ceb15278ae30c0cd424f3f6',1,'ChocoboManager::setChocobo()']]],
+  ['setchocobo_3181',['setChocobo',['../classChocoboManager.html#a6afed2f38ceb15278ae30c0cd424f3f6',1,'ChocoboManager::setChocobo()'],['../classChocoboEditor.html#a2563e37bd3569311693fbc859f105b41',1,'ChocoboEditor::SetChocobo()']]],
   ['setchocobopen_3182',['setChocoboPen',['../classFF7Save.html#aab711b78806456669c2e175bc534ae95',1,'FF7Save::setChocoboPen(int s, int pen, qint8 value)'],['../classFF7Save.html#a378b5e65f1dea6032d110058ee437114',1,'FF7Save::setChocoboPen(int s, int pos, int type)'],['../classChocoboManager.html#a2584bb7b322b5de723bb856690a29abd',1,'ChocoboManager::setChocoboPen()']]],
   ['setchocoborating_3183',['setChocoboRating',['../classFF7Save.html#a8539b55d86454a4a3f5bc240e9561e9d',1,'FF7Save']]],
   ['setchococantmate_3184',['setChocoCantMate',['../classFF7Save.html#a7daecd0d3c46af46383a7358734b6c52',1,'FF7Save']]],
