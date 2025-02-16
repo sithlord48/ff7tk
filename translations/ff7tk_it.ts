@@ -2105,6 +2105,10 @@ Battaglia %1</translation>
         <source>Played piano during flashback</source>
         <translation type="unfinished">Suonavo il piano durante il flashback</translation>
     </message>
+    <message>
+        <source>Crystal Bangle</source>
+        <translation type="unfinished">Banda di cristallo</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

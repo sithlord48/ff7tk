@@ -2101,6 +2101,10 @@ Los km/h son calculados mientras se juega </translation>
         <source>Played piano during flashback</source>
         <translation type="unfinished">Tocó el piano durante el flashback</translation>
     </message>
+    <message>
+        <source>Crystal Bangle</source>
+        <translation type="unfinished">Aro de Cristal</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

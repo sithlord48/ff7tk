@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en">
+<TS version="2.1" language="en_US">
 <context>
     <name>CharEditor</name>
     <message>
@@ -2100,6 +2100,10 @@ The km/h speeds are calculated while playing </translation>
     <message>
         <source>Played piano during flashback</source>
         <translation>Played piano during flashback</translation>
+    </message>
+    <message>
+        <source>Crystal Bangle</source>
+        <translation>Crystal Bangle</translation>
     </message>
 </context>
 <context>
