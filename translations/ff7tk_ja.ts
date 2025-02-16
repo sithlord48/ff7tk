@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ja" sourcelanguage="en_US">
+<TS version="2.1" language="ja_JP" sourcelanguage="en_US">
 <context>
     <name>CharEditor</name>
     <message>
@@ -2104,6 +2104,10 @@ The km/h speeds are calculated while playing </source>
     <message>
         <source>Crystal Bangle</source>
         <translation type="unfinished">クリスタルバングル</translation>
+    </message>
+    <message>
+        <source>30Gp from Mog&apos;s House</source>
+        <translation type="unfinished">モグの家から30Gp</translation>
     </message>
 </context>
 <context>

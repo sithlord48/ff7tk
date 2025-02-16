@@ -2105,6 +2105,10 @@ Die km / h beschleunigt berechnet werden während des Spielens </translation>
         <source>Crystal Bangle</source>
         <translation type="unfinished">Kristallreif</translation>
     </message>
+    <message>
+        <source>30Gp from Mog&apos;s House</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

@@ -297,6 +297,7 @@ private:
             , {{quint16(0x0D93)}, {quint8(3)}, {QStringLiteral("kuro_7")}, QT_TR_NOOP("Work Glove")}
             , {{quint16(0x0D93)}, {quint8(4)}, {QStringLiteral("kuro_5")}, QT_TR_NOOP("Nail Bat")}
 
+            , {{quint16(0x0E2E)}, {quint8(3)}, {QStringLiteral("games_2")}, QT_TR_NOOP("30Gp from Mog's House")}
             , {{quint16(0x0E2E)}, {quint8(5)}, {QStringLiteral("crcin_1")}, QT_TR_NOOP("Rewards From Ester")}
 
             , {{quint16(0x0E38)}, {quint8(0)}, {QStringLiteral("games_2")}, QT_TR_NOOP("Safety Bit")}

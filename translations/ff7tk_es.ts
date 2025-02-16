@@ -2105,6 +2105,10 @@ Los km/h son calculados mientras se juega </translation>
         <source>Crystal Bangle</source>
         <translation type="unfinished">Aro de Cristal</translation>
     </message>
+    <message>
+        <source>30Gp from Mog&apos;s House</source>
+        <translation type="unfinished">30Gp para La casa de Mog</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>
