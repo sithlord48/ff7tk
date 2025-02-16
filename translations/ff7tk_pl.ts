@@ -2100,6 +2100,10 @@ The km/h speeds are calculated while playing </source>
         <source>Played piano during flashback</source>
         <translation type="unfinished">Grałem na pianinie podczas retrospekcji</translation>
     </message>
+    <message>
+        <source>Crystal Bangle</source>
+        <translation type="unfinished">Kryształowa Bransoletka</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

@@ -299,6 +299,9 @@ private:
 
             , {{quint16(0x0E2E)}, {quint8(5)}, {QStringLiteral("crcin_1")}, QT_TR_NOOP("Rewards From Ester")}
 
+            , {{quint16(0x0E38)}, {quint8(0)}, {QStringLiteral("games_2")}, QT_TR_NOOP("Safety Bit")}
+            , {{quint16(0x0E38)}, {quint8(1)}, {QStringLiteral("games_2")}, QT_TR_NOOP("All")}
+            , {{quint16(0x0E38)}, {quint8(2)}, {QStringLiteral("games_2")}, QT_TR_NOOP("Crystal Bangle")}
             , {{quint16(0x0E38)}, {quint8(3)}, {QStringLiteral("games_2")}, QT_TR_NOOP("Speed Source")}
             , {{quint16(0x0E38)}, {quint8(5)}, {QStringLiteral("games_2")}, QT_TR_NOOP("Ink")}
             , {{quint16(0x0E38)}, {quint8(6)}, {QStringLiteral("games_2")}, QT_TR_NOOP("T/S Bomb")}

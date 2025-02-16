@@ -2101,6 +2101,10 @@ The km/h speeds are calculated while playing </source>
         <source>Played piano during flashback</source>
         <translation type="unfinished">回想中にピアノを弾いた</translation>
     </message>
+    <message>
+        <source>Crystal Bangle</source>
+        <translation type="unfinished">クリスタルバングル</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>
