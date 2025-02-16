@@ -307,6 +307,7 @@ private:
 
             , {QStringLiteral("q_3"), QT_TR_NOOP("Research Room"), QStringLiteral("1"), QStringLiteral("90"), QStringLiteral("-239"), QStringLiteral("-392"), QStringLiteral("41"), QStringLiteral("128")}
             , {QStringLiteral("q_4"), QT_TR_NOOP("Cargo Room"), QStringLiteral("1"), QStringLiteral("91"), QStringLiteral("-856"), QStringLiteral("-707"), QStringLiteral("23"), QStringLiteral("128")}
+            , {QStringLiteral("q_5"), QString(), QStringLiteral("1"), QStringLiteral("92"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbg1"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("93"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbg2"), QT_TR_NOOP("Debug Room [en]"), QStringLiteral("1"), QStringLiteral("94"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbg3"), QT_TR_NOOP("DEBUG MODE"), QStringLiteral("1"), QStringLiteral("95"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
@@ -317,15 +318,20 @@ private:
 
             , {QStringLiteral("blackbg8"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("100"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbg9"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("101"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbga"), QString(), QStringLiteral("1"), QStringLiteral("102"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgb"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("103"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgc"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("104"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgd"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("105"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbge"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("106"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbgf"), QString(), QStringLiteral("1"), QStringLiteral("107"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbgg"), QString(), QStringLiteral("1"), QStringLiteral("108"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgh"), QT_TR_NOOP("BLACKBGH"), QStringLiteral("1"), QStringLiteral("109"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
 
             , {QStringLiteral("blackbgi"), QT_TR_NOOP("BLACKBGI"), QStringLiteral("1"), QStringLiteral("110"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgj"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("111"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgk"), QT_TR_NOOP("Dark city fourth street"), QStringLiteral("1"), QStringLiteral("112"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("whitebg1"), QString(), QStringLiteral("1"), QStringLiteral("113"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("whitebg2"), QString(), QStringLiteral("1"), QStringLiteral("114"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("whitebg3"), QT_TR_NOOP("Mt. Nibel"), QStringLiteral("1"), QStringLiteral("115"), QStringLiteral("-61"), QStringLiteral("-726"), QStringLiteral("16"), QStringLiteral("0")}
             , {QStringLiteral("md1stin"), QT_TR_NOOP("Platform"), QStringLiteral("1"), QStringLiteral("116"), QStringLiteral("3655"), QStringLiteral("27432"), QStringLiteral("25"), QStringLiteral("96")}
             , {QStringLiteral("md1_1"), QT_TR_NOOP("Sector 1 Station"), QStringLiteral("1"), QStringLiteral("117"), QStringLiteral("1433"), QStringLiteral("386"), QStringLiteral("78"), QStringLiteral("32")}
@@ -436,11 +442,14 @@ private:
             , {QStringLiteral("colne_b1"), QT_TR_NOOP("Sewer"), QStringLiteral("1"), QStringLiteral("212"), QStringLiteral("304"), QStringLiteral("116"), QStringLiteral("14"), QStringLiteral("32")}
             , {QStringLiteral("colne_b3"), QT_TR_NOOP("Sewer"), QStringLiteral("1"), QStringLiteral("213"), QStringLiteral("66"), QStringLiteral("-208"), QStringLiteral("9"), QStringLiteral("32")}
             , {QStringLiteral("mrkt3"), QT_TR_NOOP("Honey Bee Inn"), QStringLiteral("1"), QStringLiteral("214"), QStringLiteral("12"), QStringLiteral("-107"), QStringLiteral("24"), QStringLiteral("32")}
+            , {QStringLiteral("onna_1"), QString(), QStringLiteral("1"), QStringLiteral("215"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("onna_2"), QT_TR_NOOP("Honey Bee Inn"), QStringLiteral("1"), QStringLiteral("216"), QStringLiteral("64"), QStringLiteral("114"), QStringLiteral("47"), QStringLiteral("32")}
+            , {QStringLiteral("onna_3"), QString(), QStringLiteral("1"), QStringLiteral("217"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("onna_4"), QT_TR_NOOP("Honey Bee Inn"), QStringLiteral("1"), QStringLiteral("218"), QStringLiteral("1"), QStringLiteral("-37"), QStringLiteral("11"), QStringLiteral("32")}
             , {QStringLiteral("onna_5"), QT_TR_NOOP("Honey Bee Inn"), QStringLiteral("1"), QStringLiteral("219"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
 
             , {QStringLiteral("onna_52"), QT_TR_NOOP("Honey Bee Inn"), QStringLiteral("1"), QStringLiteral("220"), QStringLiteral("-14"), QStringLiteral("-281"), QStringLiteral("36"), QStringLiteral("32")}
+            , {QStringLiteral("onna_6"), QString(), QStringLiteral("1"), QStringLiteral("221"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("mrkt4"), QT_TR_NOOP("Wall Market"), QStringLiteral("1"), QStringLiteral("222"), QStringLiteral("-69"), QStringLiteral("544"), QStringLiteral("4"), QStringLiteral("32")}
             , {QStringLiteral("wcrimb_1"), QT_TR_NOOP("Plate Section"), QStringLiteral("1"), QStringLiteral("223"), QStringLiteral("-9"), QStringLiteral("909"), QStringLiteral("111"), QStringLiteral("32")}
             , {QStringLiteral("wcrimb_2"), QT_TR_NOOP("Plate Section"), QStringLiteral("1"), QStringLiteral("224"), QStringLiteral("50"), QStringLiteral("1290"), QStringLiteral("70"), QStringLiteral("32")}
@@ -467,6 +476,7 @@ private:
             , {QStringLiteral("blin62_2"), QT_TR_NOOP("Shinra Bldg. 62f."), QStringLiteral("1"), QStringLiteral("243"), QStringLiteral("120"), QStringLiteral("-426"), QStringLiteral("74"), QStringLiteral("32")}
             , {QStringLiteral("blin62_3"), QT_TR_NOOP("Shinra Bldg. 62f."), QStringLiteral("1"), QStringLiteral("244"), QStringLiteral("-123"), QStringLiteral("607"), QStringLiteral("33"), QStringLiteral("32")}
             , {QStringLiteral("blin63_1"), QT_TR_NOOP("Shinra Bldg. 63f."), QStringLiteral("1"), QStringLiteral("245"), QStringLiteral("905"), QStringLiteral("-694"), QStringLiteral("377"), QStringLiteral("32")}
+            , {QStringLiteral("blin63_t"), QT_TR_NOOP("Shinra Bldg. 63f."), QStringLiteral("1"), QStringLiteral("246"), QStringLiteral("-831"), QStringLiteral("94"), QStringLiteral("36"), QStringLiteral("0")}
             , {QStringLiteral("blin64"), QT_TR_NOOP("Shinra Bldg. 64f."), QStringLiteral("1"), QStringLiteral("247"), QStringLiteral("-1150"), QStringLiteral("-283"), QStringLiteral("245"), QStringLiteral("32")}
             , {QStringLiteral("blin65_1"), QT_TR_NOOP("Shinra Bldg. 65f."), QStringLiteral("1"), QStringLiteral("248"), QStringLiteral("581"), QStringLiteral("-462"), QStringLiteral("131"), QStringLiteral("32")}
             , {QStringLiteral("blin65_2"), QT_TR_NOOP("Shinra Bldg. 65f."), QStringLiteral("1"), QStringLiteral("249"), QStringLiteral("31"), QStringLiteral("-368"), QStringLiteral("86"), QStringLiteral("32")}
@@ -487,8 +497,11 @@ private:
             , {QStringLiteral("blin68_1"), QT_TR_NOOP("Shinra Bldg.68f."), QStringLiteral("1"), QStringLiteral("262"), QStringLiteral("-571"), QStringLiteral("440"), QStringLiteral("109"), QStringLiteral("32")}
             , {QStringLiteral("blin68_2"), QT_TR_NOOP("Shinra Bldg.68f."), QStringLiteral("1"), QStringLiteral("263"), QStringLiteral("-994"), QStringLiteral("-45"), QStringLiteral("55"), QStringLiteral("104")}
             , {QStringLiteral("blin69_1"), QT_TR_NOOP("Shinra Bldg. 69f."), QStringLiteral("1"), QStringLiteral("264"), QStringLiteral("150"), QStringLiteral("-434"), QStringLiteral("226"), QStringLiteral("32")}
+            , {QStringLiteral("blin69_2"), QString(), QStringLiteral("1"), QStringLiteral("265"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blin70_1"), QT_TR_NOOP("Shinra Bldg. 70f."), QStringLiteral("1"), QStringLiteral("266"), QStringLiteral("10"), QStringLiteral("87"), QStringLiteral("222"), QStringLiteral("64")}
+            , {QStringLiteral("blin70_2"), QT_TR_NOOP("Shinra Bldg. 70f."), QStringLiteral("1"), QStringLiteral("267"), QStringLiteral("100"), QStringLiteral("-196"), QStringLiteral("42"), QStringLiteral("204")}
             , {QStringLiteral("blin70_3"), QT_TR_NOOP("Shinra Bldg. 70f."), QStringLiteral("1"), QStringLiteral("268"), QStringLiteral("134"), QStringLiteral("1617"), QStringLiteral("16"), QStringLiteral("32")}
+            , {QStringLiteral("blin70_4"), QT_TR_NOOP("Shinra Bldg. 70f."), QStringLiteral("1"), QStringLiteral("269"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
 
             , {QStringLiteral("niv_w"), QT_TR_NOOP("Nibelheim Item Store"), QStringLiteral("1"), QStringLiteral("270"), QStringLiteral("380"), QStringLiteral("-365"), QStringLiteral("9"), QStringLiteral("32")}
             , {QStringLiteral("nvmin1_1"), QT_TR_NOOP("Nibelheim House"), QStringLiteral("1"), QStringLiteral("271"), QStringLiteral("121"), QStringLiteral("92"), QStringLiteral("62"), QStringLiteral("32")}
@@ -506,6 +519,7 @@ private:
             , {QStringLiteral("nivl"), QT_TR_NOOP("Nibelheim"), QStringLiteral("1"), QStringLiteral("282"), QStringLiteral("591"), QStringLiteral("-73"), QStringLiteral("35"), QStringLiteral("32")}
             , {QStringLiteral("nivl_2"), QString(), QStringLiteral("1"), QStringLiteral("283"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("nivl_3"), QT_TR_NOOP("Nibelheim"), QStringLiteral("1"), QStringLiteral("284"), QStringLiteral("161"), QStringLiteral("-480"), QStringLiteral("7"), QStringLiteral("28")}
+            , {QStringLiteral("nivl_4"), QString(), QStringLiteral("1"), QStringLiteral("285"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("niv_ti1"), QT_TR_NOOP("Tifa's House"), QStringLiteral("1"), QStringLiteral("286"), QStringLiteral("-214"), QStringLiteral("23"), QStringLiteral("24"), QStringLiteral("32")}
             , {QStringLiteral("niv_ti2"), QT_TR_NOOP("Tifa's House"), QStringLiteral("1"), QStringLiteral("287"), QStringLiteral("134"), QStringLiteral("-255"), QStringLiteral("46"), QStringLiteral("32")}
             , {QStringLiteral("niv_ti3"), QT_TR_NOOP("Tifa's House"), QStringLiteral("1"), QStringLiteral("288"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
@@ -572,6 +586,7 @@ private:
             , {QStringLiteral("farm"), QT_TR_NOOP("Chocobo farm"), QStringLiteral("1"), QStringLiteral("343"), QStringLiteral("-207"), QStringLiteral("-126"), QStringLiteral("13"), QStringLiteral("32")}
             , {QStringLiteral("frmin"), QT_TR_NOOP("Chocobo farm"), QStringLiteral("1"), QStringLiteral("344"), QStringLiteral("65"), QStringLiteral("-58"), QStringLiteral("62"), QStringLiteral("32")}
             , {QStringLiteral("frcyo"), QT_TR_NOOP("Chocobo Ranch"), QStringLiteral("1"), QStringLiteral("345"), QStringLiteral("-134"), QStringLiteral("-150"), QStringLiteral("73"), QStringLiteral("32")}
+            , {QStringLiteral("trap"), QString(), QStringLiteral("1"), QStringLiteral("346"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("fr_e"), QString(), QStringLiteral("1"), QStringLiteral("347"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("sichi"), QT_TR_NOOP("Marshes"), QStringLiteral("1"), QStringLiteral("348"), QStringLiteral("74"), QStringLiteral("-32"), QStringLiteral("40"), QStringLiteral("32")}
             , {QStringLiteral("psdun_1"), QT_TR_NOOP("Mythril Mine"), QStringLiteral("1"), QStringLiteral("349"), QStringLiteral("693"), QStringLiteral("56"), QStringLiteral("19"), QStringLiteral("32")}
@@ -583,6 +598,7 @@ private:
             , {QStringLiteral("condor2"), QT_TR_NOOP("Entrance to Fort Condor"), QStringLiteral("1"), QStringLiteral("354"), QStringLiteral("9"), QStringLiteral("44"), QStringLiteral("9"), QStringLiteral("32")}
             , {QStringLiteral("convil_1"), QT_TR_NOOP("Fort Condor"), QStringLiteral("1"), QStringLiteral("355"), QStringLiteral("1118"), QStringLiteral("391"), QStringLiteral("12"), QStringLiteral("32")}
             , {QStringLiteral("convil_2"), QT_TR_NOOP("Watch Room"), QStringLiteral("1"), QStringLiteral("356"), QStringLiteral("-52"), QStringLiteral("-13"), QStringLiteral("10"), QStringLiteral("32")}
+            , {QStringLiteral("convil_3"), QString(), QStringLiteral("1"), QStringLiteral("357"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("convil_4"), QT_TR_NOOP("top of the mountian"), QStringLiteral("1"), QStringLiteral("358"), QStringLiteral("662"), QStringLiteral("-545"), QStringLiteral("21"), QStringLiteral("96")}
             , {QStringLiteral("junon"), QT_TR_NOOP("Upper Junon"), QStringLiteral("1"), QStringLiteral("359"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
 
@@ -633,6 +649,7 @@ private:
             , {QStringLiteral("junbin3"), QT_TR_NOOP("Dr.'s Office"), QStringLiteral("1"), QStringLiteral("400"), QStringLiteral("674"), QStringLiteral("-1408"), QStringLiteral("52"), QStringLiteral("128")}
             , {QStringLiteral("junbin4"), QT_TR_NOOP("Press Room"), QStringLiteral("1"), QStringLiteral("401"), QStringLiteral("-18"), QStringLiteral("0"), QStringLiteral("103"), QStringLiteral("0")}
             , {QStringLiteral("junbin5"), QT_TR_NOOP("Gas Room"), QStringLiteral("1"), QStringLiteral("402"), QStringLiteral("-57"), QStringLiteral("-137"), QStringLiteral("58"), QStringLiteral("32")}
+            , {QStringLiteral("junmon"), QString(), QStringLiteral("1"), QStringLiteral("403"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("jumsbd1"), QT_TR_NOOP("Submarine Dock"), QStringLiteral("1"), QStringLiteral("404"), QStringLiteral("463"), QStringLiteral("-1211"), QStringLiteral("81"), QStringLiteral("192")}
             , {QStringLiteral("subin_1a"), QT_TR_NOOP("Submarine Bridge"), QStringLiteral("1"), QStringLiteral("405"), QStringLiteral("-91"), QStringLiteral("-173"), QStringLiteral("0"), QStringLiteral("128")}
             , {QStringLiteral("subin_1b"), QT_TR_NOOP("Submarine Bridge"), QStringLiteral("1"), QStringLiteral("406"), QStringLiteral("2"), QStringLiteral("125"), QStringLiteral("13"), QStringLiteral("128")}
@@ -640,6 +657,7 @@ private:
             , {QStringLiteral("subin_2b"), QT_TR_NOOP("Inside Submarine"), QStringLiteral("1"), QStringLiteral("408"), QStringLiteral("-52"), QStringLiteral("433"), QStringLiteral("7"), QStringLiteral("128")}
             , {QStringLiteral("subin_3"), QT_TR_NOOP("Inside Submarine"), QStringLiteral("1"), QStringLiteral("409"), QStringLiteral("-85"), QStringLiteral("-307"), QStringLiteral("42"), QStringLiteral("128")}
 
+            , {QStringLiteral("sunin_4"), QString(), QStringLiteral("1"), QStringLiteral("410"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("junone2"), QT_TR_NOOP("Aljunon"), QStringLiteral("1"), QStringLiteral("411"), QStringLiteral("13911"), QStringLiteral("-2494"), QStringLiteral("15"), QStringLiteral("251")}
             , {QStringLiteral("junone3"), QT_TR_NOOP("Aljunon"), QStringLiteral("1"), QStringLiteral("412"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("junone4"), QT_TR_NOOP("Canon"), QStringLiteral("1"), QStringLiteral("413"), QStringLiteral("180"), QStringLiteral("-15763"), QStringLiteral("8"), QStringLiteral("0")}
@@ -669,7 +687,7 @@ private:
             , {QStringLiteral("ujunon5"), QString(), QStringLiteral("1"), QStringLiteral("435"), QStringLiteral("-300"), QStringLiteral("1871"), QStringLiteral("25"), QStringLiteral("149")}
             , {QStringLiteral("ship_1"), QT_TR_NOOP("Cargo Ship"), QStringLiteral("1"), QStringLiteral("436"), QStringLiteral("-106"), QStringLiteral("-1168"), QStringLiteral("46"), QStringLiteral("32")}
             , {QStringLiteral("ship_2"), QT_TR_NOOP("Cargo Ship"), QStringLiteral("1"), QStringLiteral("437"), QStringLiteral("357"), QStringLiteral("-524"), QStringLiteral("32"), QStringLiteral("32")}
-            , {QStringLiteral("ship_22"), QT_TR_NOOP("Cargo Ship"), QStringLiteral("1"), QStringLiteral("438"), QStringLiteral("-16"), QStringLiteral("643"), QStringLiteral("43"), QStringLiteral("96")}
+            , {QStringLiteral("shpin_22"), QT_TR_NOOP("Cargo Ship"), QStringLiteral("1"), QStringLiteral("438"), QStringLiteral("-16"), QStringLiteral("643"), QStringLiteral("43"), QStringLiteral("96")}
             , {QStringLiteral("shpin_2"), QT_TR_NOOP("Cargo Ship"), QStringLiteral("1"), QStringLiteral("439"), QStringLiteral("32"), QStringLiteral("-245"), QStringLiteral("63"), QStringLiteral("32")}
 
             , {QStringLiteral("shpin_3"), QT_TR_NOOP("Cargo Ship"), QStringLiteral("1"), QStringLiteral("440"), QStringLiteral("2"), QStringLiteral("-501"), QStringLiteral("43"), QStringLiteral("32")}
@@ -768,6 +786,7 @@ private:
             , {QStringLiteral("cos_btm"), QT_TR_NOOP("Cosmo Canyon"), QStringLiteral("1"), QStringLiteral("525"), QStringLiteral("-962"), QStringLiteral("-1740"), QStringLiteral("128"), QStringLiteral("32")}
             , {QStringLiteral("con_btm2"), QT_TR_NOOP("Cosmo Candle"), QStringLiteral("1"), QStringLiteral("526"), QStringLiteral("-350"), QStringLiteral("-1422"), QStringLiteral("98"), QStringLiteral("235")}
             , {QStringLiteral("cosmo"), QT_TR_NOOP("Cosmo Canyon"), QStringLiteral("1"), QStringLiteral("527"), QStringLiteral("-1834"), QStringLiteral("-1724"), QStringLiteral("99"), QStringLiteral("235")}
+            , {QStringLiteral("cosmo2"), QT_TR_NOOP("Cosmo Canyon"), QStringLiteral("1"), QStringLiteral("528"), QStringLiteral("-610"), QStringLiteral("-964"), QStringLiteral("217"), QStringLiteral("235")}
             , {QStringLiteral("cosin1"), QT_TR_NOOP("Cosmo Canyon"), QStringLiteral("1"), QStringLiteral("529"), QStringLiteral("128"), QStringLiteral("-321"), QStringLiteral("79"), QStringLiteral("32")}
 
             , {QStringLiteral("cosin1_1"), QT_TR_NOOP("Elder's Room"), QStringLiteral("1"), QStringLiteral("530"), QStringLiteral("99"), QStringLiteral("-140"), QStringLiteral("7"), QStringLiteral("32")}
@@ -815,6 +834,7 @@ private:
             , {QStringLiteral("rcktin7"), QT_TR_NOOP("Escape Pod"), QStringLiteral("1"), QStringLiteral("569"), QStringLiteral("-51"), QStringLiteral("263"), QStringLiteral("19"), QStringLiteral("32")}
 
             , {QStringLiteral("rcktin8"), QT_TR_NOOP("Duct"), QStringLiteral("1"), QStringLiteral("570"), QStringLiteral("5"), QStringLiteral("99"), QStringLiteral("11"), QStringLiteral("0")}
+            , {QStringLiteral("pass"), QString(), QStringLiteral("1"), QStringLiteral("571"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("yougan"), QT_TR_NOOP("Wilderness"), QStringLiteral("1"), QStringLiteral("572"), QStringLiteral("-7"), QStringLiteral("73"), QStringLiteral("3"), QStringLiteral("32")}
             , {QStringLiteral("yougan2"), QT_TR_NOOP("Plains"), QStringLiteral("1"), QStringLiteral("573"), QStringLiteral("-72"), QStringLiteral("28"), QStringLiteral("265"), QStringLiteral("32")}
             , {QStringLiteral("yougan3"), QT_TR_NOOP("Wilderness"), QStringLiteral("1"), QStringLiteral("574"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
@@ -1002,6 +1022,7 @@ private:
             , {QStringLiteral("canon_1"), QT_TR_NOOP("Mako Cannon"), QStringLiteral("1"), QStringLiteral("740"), QStringLiteral("877"), QStringLiteral("-2016"), QStringLiteral("31"), QStringLiteral("192")}
             , {QStringLiteral("canon_2"), QT_TR_NOOP("Mako Cannon"), QStringLiteral("1"), QStringLiteral("741"), QStringLiteral("0"), QStringLiteral("-601"), QStringLiteral("80"), QStringLiteral("160")}
             , {QStringLiteral("md_e1"), QString(), QStringLiteral("1"), QStringLiteral("742"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("xmvtes"), QString(), QStringLiteral("1"), QStringLiteral("743"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("las0_1"), QT_TR_NOOP("Highwind, on deck"), QStringLiteral("1"), QStringLiteral("744"), QStringLiteral("-33"), QStringLiteral("-1419"), QStringLiteral("277"), QStringLiteral("100")}
             , {QStringLiteral("las0_2"), QT_TR_NOOP("Northern Cave Crater"), QStringLiteral("1"), QStringLiteral("745"), QStringLiteral("-496"), QStringLiteral("-959"), QStringLiteral("51"), QStringLiteral("168")}
             , {QStringLiteral("las0_3"), QT_TR_NOOP("Northern Cave"), QStringLiteral("1"), QStringLiteral("746"), QStringLiteral("681"), QStringLiteral("1212"), QStringLiteral("115"), QStringLiteral("0")}
@@ -1029,12 +1050,15 @@ private:
             , {QStringLiteral("las4_3"), QT_TR_NOOP("Inside the Planet"), QStringLiteral("1"), QStringLiteral("766"), QStringLiteral("-808"), QStringLiteral("-56"), QStringLiteral("81"), QStringLiteral("96")}
             , {QStringLiteral("las4_4"), QString(), QStringLiteral("1"), QStringLiteral("767"), QStringLiteral("406"), QStringLiteral("944"), QStringLiteral("43"), QStringLiteral("96")}
             , {QStringLiteral("lastmap"), QT_TR_NOOP("????"), QStringLiteral("1"), QStringLiteral("768"), QStringLiteral("61"), QStringLiteral("-386"), QStringLiteral("179"), QStringLiteral("116")}
+            , {QStringLiteral("fallp"), QString(), QStringLiteral("1"), QStringLiteral("769"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
 
+            , {QStringLiteral("m_endo"), QString(), QStringLiteral("1"), QStringLiteral("770"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("hill2"), QString(), QStringLiteral("1"), QStringLiteral("771"), QStringLiteral("-50"), QStringLiteral("-24"), QStringLiteral("284"), QStringLiteral("56")}
             , {QStringLiteral("bonevil2"), QT_TR_NOOP("Bone Village"), QStringLiteral("1"), QStringLiteral("772"), QStringLiteral("-161"), QStringLiteral("610"), QStringLiteral("8"), QStringLiteral("96")}
             , {QStringLiteral("junone22"), QString(), QStringLiteral("1"), QStringLiteral("773"), QStringLiteral("17239"), QStringLiteral("-2980"), QStringLiteral("6"), QStringLiteral("0")}
             , {QStringLiteral("rckt32"), QString(), QStringLiteral("1"), QStringLiteral("774"), QStringLiteral("-163"), QStringLiteral("398"), QStringLiteral("39"), QStringLiteral("96")}
             , {QStringLiteral("jtemplc"), QT_TR_NOOP("Temple of the Ancients"), QStringLiteral("1"), QStringLiteral("775"), QStringLiteral("166"), QStringLiteral("-376"), QStringLiteral("106"), QStringLiteral("128")}
+            , {QStringLiteral("fship_26"), QString(), QStringLiteral("1"), QStringLiteral("776"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("las4_42"), QString(), QStringLiteral("1"), QStringLiteral("777"), QStringLiteral("406"), QStringLiteral("945"), QStringLiteral("43"), QStringLiteral("96")}
             , {QStringLiteral("tunnel_6"), QT_TR_NOOP("Winding Tunnel"), QStringLiteral("1"), QStringLiteral("778"), QStringLiteral("166"), QStringLiteral("-376"), QStringLiteral("106"), QStringLiteral("128")}
             , {QStringLiteral("md8_52"), QString(), QStringLiteral("1"), QStringLiteral("779"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
