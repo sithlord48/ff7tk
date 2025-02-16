@@ -2105,6 +2105,10 @@ Les vitesses en km/h sont calculés pendant le jeu </translation>
         <source>Crystal Bangle</source>
         <translation type="unfinished">Bijou cristal</translation>
     </message>
+    <message>
+        <source>30Gp from Mog&apos;s House</source>
+        <translation type="unfinished">30 Gp de la maison de Mog</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

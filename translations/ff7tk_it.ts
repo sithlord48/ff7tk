@@ -2109,6 +2109,10 @@ Battaglia %1</translation>
         <source>Crystal Bangle</source>
         <translation type="unfinished">Banda di cristallo</translation>
     </message>
+    <message>
+        <source>30Gp from Mog&apos;s House</source>
+        <translation type="unfinished">30Gp dalla casa di Mog</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>

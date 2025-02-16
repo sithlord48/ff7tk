@@ -2105,6 +2105,10 @@ The km/h speeds are calculated while playing </translation>
         <source>Crystal Bangle</source>
         <translation>Crystal Bangle</translation>
     </message>
+    <message>
+        <source>30Gp from Mog&apos;s House</source>
+        <translation>30Gp from Mog&apos;s House</translation>
+    </message>
 </context>
 <context>
     <name>FF7Item</name>
