@@ -308,27 +308,27 @@ private:
             , {QStringLiteral("q_3"), QT_TR_NOOP("Research Room"), QStringLiteral("1"), QStringLiteral("90"), QStringLiteral("-239"), QStringLiteral("-392"), QStringLiteral("41"), QStringLiteral("128")}
             , {QStringLiteral("q_4"), QT_TR_NOOP("Cargo Room"), QStringLiteral("1"), QStringLiteral("91"), QStringLiteral("-856"), QStringLiteral("-707"), QStringLiteral("23"), QStringLiteral("128")}
             , {QStringLiteral("q_5"), QString(), QStringLiteral("1"), QStringLiteral("92"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbg1"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("93"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbg1"), QString(), QStringLiteral("1"), QStringLiteral("93"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbg2"), QT_TR_NOOP("Debug Room [en]"), QStringLiteral("1"), QStringLiteral("94"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbg3"), QT_TR_NOOP("DEBUG MODE"), QStringLiteral("1"), QStringLiteral("95"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbg4"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("96"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbg5"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("97"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbg6"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("98"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbg4"), QString(), QStringLiteral("1"), QStringLiteral("96"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbg5"), QString(), QStringLiteral("1"), QStringLiteral("97"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbg6"), QString(), QStringLiteral("1"), QStringLiteral("98"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbg7"), QT_TR_NOOP("DEBUG"), QStringLiteral("1"), QStringLiteral("99"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
 
-            , {QStringLiteral("blackbg8"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("100"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbg9"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("101"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbg8"), QString(), QStringLiteral("1"), QStringLiteral("100"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbg9"), QString(), QStringLiteral("1"), QStringLiteral("101"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbga"), QString(), QStringLiteral("1"), QStringLiteral("102"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbgb"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("103"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbgc"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("104"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbgd"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("105"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbge"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("106"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbgb"), QString(), QStringLiteral("1"), QStringLiteral("103"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbgc"), QString(), QStringLiteral("1"), QStringLiteral("104"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbgd"), QString(), QStringLiteral("1"), QStringLiteral("105"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbge"), QString(), QStringLiteral("1"), QStringLiteral("106"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgf"), QString(), QStringLiteral("1"), QStringLiteral("107"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgg"), QString(), QStringLiteral("1"), QStringLiteral("108"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgh"), QT_TR_NOOP("BLACKBGH"), QStringLiteral("1"), QStringLiteral("109"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
 
             , {QStringLiteral("blackbgi"), QT_TR_NOOP("BLACKBGI"), QStringLiteral("1"), QStringLiteral("110"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
-            , {QStringLiteral("blackbgj"), QT_TR_NOOP(""), QStringLiteral("1"), QStringLiteral("111"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
+            , {QStringLiteral("blackbgj"), QString(), QStringLiteral("1"), QStringLiteral("111"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("blackbgk"), QT_TR_NOOP("Dark city fourth street"), QStringLiteral("1"), QStringLiteral("112"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("whitebg1"), QString(), QStringLiteral("1"), QStringLiteral("113"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
             , {QStringLiteral("whitebg2"), QString(), QStringLiteral("1"), QStringLiteral("114"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0"), QStringLiteral("0")}
