@@ -1513,7 +1513,7 @@ void CharEditor::setTimesused2(int timesused)
     if (timesused == data.timesused2)
         return;
     data.timesused2 = quint16(std::clamp(timesused, 0, quint16Max));
-    Q_EMIT times3UsedChanged(data.timesused2);
+    Q_EMIT times2UsedChanged(data.timesused2);
 /* Remove for 2.0 */Q_EMIT timesused2_changed(data.timesused2);
 }
 
