@@ -94,20 +94,26 @@ jobs:
         config:
         - {
            name: "Linux-x86_64"
-           , os: ubuntu-22.04
-           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.6"
+           , os: ubuntu-22.04, arch: x86_64
+           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.6", Qt_Arch: "linux_gcc_64", Qt_OS: "linux"
+           , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
+          }
+        - {
+           name: "Linux-aarch64"
+           , os: ubuntu-22.04-arm, arch: aarch64
+           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.6", Qt_Arch: "linux_gcc_arm64", Qt_OS: "linux_arm64"
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
           }
         - {
             name: "MacOS"
             , os: macos-latest
-            , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.6"
+            , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.6" , Qt_OS: "macos"
             , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
           }
         - {
             name: "Windows-x64"
             , os: windows-2019
-            , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.6"
+            , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.6" , Qt_OS: "windows"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
     steps:
@@ -155,9 +161,11 @@ jobs:
       with:
        dir: ${{matrix.config.QT_INST_DIR}}
        version: ${{ env.QtVersion }}
+       arch: ${{ matrix.config.Qt_Arch }}
+       host: ${{ matrix.config.Qt_OS }}
        modules: qt5compat
        cache: true
-       cache-key-prefix: ${{runner.os}}-${{env.WIN_ARCH}}-${{env.QtKey}}
+       cache-key-prefix: ${{runner.os}}-${{matrix.config.Qt_Arch}}-${{env.QtKey}}
        tools: ${{env.QtTools}}
     - name: Build Zlib For Windows
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
