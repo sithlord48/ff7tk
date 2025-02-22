@@ -326,3 +326,33 @@ void XorWithByte(uint8_t* buf, uint8_t byte, int length)
         buf[i] ^= byte;
     }
 }
+
+void AES_CBC_encrypt_buffer(struct AES_ctx *ctx, uint8_t* buf, size_t length)
+{
+    size_t i;
+    uint8_t *Iv = ctx->Iv;
+    for (i = 0; i < length; i += AES_BLOCKLEN)
+    {
+        XorWithIv(buf, Iv);
+        Cipher((state_t*)buf, ctx->RoundKey);
+        Iv = buf;
+        buf += AES_BLOCKLEN;
+    }
+    /* store Iv in ctx for next call */
+    memcpy(ctx->Iv, Iv, AES_BLOCKLEN);
+}
+
+void AES_CBC_decrypt_buffer(struct AES_ctx* ctx, uint8_t* buf, size_t length)
+{
+    size_t i;
+    uint8_t storeNextIv[AES_BLOCKLEN];
+    for (i = 0; i < length; i += AES_BLOCKLEN)
+    {
+        memcpy(storeNextIv, buf, AES_BLOCKLEN);
+        InvCipher((state_t*)buf, ctx->RoundKey);
+        XorWithIv(buf, ctx->Iv);
+        memcpy(ctx->Iv, storeNextIv, AES_BLOCKLEN);
+        buf += AES_BLOCKLEN;
+    }
+
+}
