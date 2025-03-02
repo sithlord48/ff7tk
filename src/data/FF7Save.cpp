@@ -6,10 +6,11 @@
 #include <QColor>
 #include <QDateTime>
 #include <QMap>
-#include <QTextCodec>
 #include <QFile>
 #include <QFileInfo>
 #include <QMessageAuthenticationCode>
+#include <QStringEncoder>
+#include <QStringDecoder>
 #include <QTextStream>
 #include <QtXml/QDomDocument>
 #include <QVector>
@@ -1026,12 +1027,16 @@ QString FF7Save::psxDesc(int s)
     int index;
     if ((index = desc.indexOf('\x00')) != -1)
         desc.truncate(index);
-    return QTextCodec::codecForName("Shift-JIS")->toUnicode(desc);
+    QStringDecoder fromJIS("Shift-JIS");
+    return fromJIS(desc);
+    //return QTextCodec::codecForName("Shift-JIS")->toUnicode(desc);
 }
 
 void FF7Save::setPsxDesc(QString newDesc, int s)
 {
-    QByteArray temp = QTextCodec::codecForName("Shift-JIS")->fromUnicode(newDesc);
+    QStringEncoder toJIS("Shift-JIS");
+    QByteArray temp = toJIS(newDesc);
+    //QByteArray temp = QTextCodec::codecForName("Shift-JIS")->fromUnicode(newDesc);
 
     QByteArray codedText;
     codedText.fill('\x00', 64);

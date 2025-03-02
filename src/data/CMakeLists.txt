@@ -3,7 +3,6 @@
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
     Core
-    Core5Compat
     Svg
     Xml
 )
@@ -40,7 +39,6 @@ set (ff7tkData_PublicLIBLINKS
       Qt::Core
       Qt::Xml
       Qt::Svg
-      Qt::Core5Compat
 )
 
 set (ff7tkData_PrivateLIBLINKS
