@@ -52,7 +52,7 @@ void MateriaEditor::init_display()
 
 void MateriaEditor::setMateria(quint8 materia_id, qint32 materia_ap)
 {
-    if(_id == materia_id)
+    if((_id == materia_id) && (_current_ap == materia_ap))
         return;
     _id = materia_id;
     Q_EMIT idChanged(qint8(_id));
