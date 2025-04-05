@@ -51,7 +51,7 @@ FF7SaveInfo::FORMAT FF7Save::fileDataFormat(QFile &file)
         return FF7SaveInfo::FORMAT::VMC;
     if (((FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PS3) - FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT::PS3)) % FF7SaveInfo::fileSize(FF7SaveInfo::FORMAT::PSX) == 0) && (file.peek(25)).startsWith(FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT::PS3)))
     {
-        char psvType = file.peek(0x40).at(FF7SaveInfo::extraPSVOffsets(FF7SaveInfo::PSVINFO::SAVETYPE));
+        uint8_t psvType = file.peek(0x40).at(FF7SaveInfo::extraPSVOffsets(FF7SaveInfo::PSVINFO::SAVETYPE));
         if (psvType == 0x14)
             return FF7SaveInfo::FORMAT::PS3;
         QTextStream(stdout) << tr("Unable to open PSV of Type %2: 0x%1")
