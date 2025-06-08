@@ -8,9 +8,9 @@ on:
   pull_request:
     branches: [ master ]
 env:
-    QtVersion: 6.8.2
+    QtVersion: 6.9.1
     QtTools: 'tools_ifw'
-    QtKey: "6.8.2-ifw46"
+    QtKey: "6.9.1-ifw47"
     BuildType: RelWithDebInfo
     cmakeConfigure: "cmake -S. -Bbuild -DDEMOS=ON -DQT_DEFAULT_MAJOR_VERSION=6 -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja -DSBOM_LINT=ON"
     debianRequirments: "build-essential git zlib1g-dev cmake doxygen graphviz qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-declarative-dev qt6-base-dev libqt6svg6-dev qt6-base-dev-tools qt6-translations-l10n libqt6core5compat6-dev libgl1-mesa-dev rename devscripts ninja-build clang"
@@ -104,7 +104,7 @@ jobs:
           }
         - {
             name: "Windows-x64"
-            , os: windows-2019
+            , os: windows-2022
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
     steps:
