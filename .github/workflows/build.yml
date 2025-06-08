@@ -128,7 +128,6 @@ jobs:
       with:
         path: |
             C:/ProgramData/chocolatey/bin/
-            C:/ProgramData/chocolatey/lib/ninja
             C:/ProgramData/chocolatey/lib/doxygen.install
             C:/ProgramData/chocolatey/lib/Graphviz
             C:/Program*/doxygen/
@@ -144,11 +143,11 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 ninja-build clang > /dev/null
+            sudo apt-get update > /dev/null && sudo apt-get install -qqq doxygen graphviz devscripts libxkbcommon-x11-0 clang > /dev/null
         elif [ "$RUNNER_OS" == "Windows" ]; then
-            choco install ninja doxygen.install graphviz
+            choco install doxygen.install graphviz
         else
-            brew install doxygen graphviz ninja
+            brew install doxygen graphviz
         fi
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
