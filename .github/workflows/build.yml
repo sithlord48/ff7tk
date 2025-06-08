@@ -95,19 +95,16 @@ jobs:
         - {
            name: "Linux-x86_64"
            , os: ubuntu-22.04
-           , QT_INST_DIR: /opt, Qt_TOOL_PATH: "/opt/Qt/Tools/QtInstallerFramework/4.6"
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
           }
         - {
             name: "MacOS"
             , os: macos-latest
-            , QT_INST_DIR: /Users/runner, Qt_TOOL_PATH: "/Users/runner/Qt/Tools/QtInstallerFramework/4.6"
             , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
           }
         - {
             name: "Windows-x64"
             , os: windows-2019
-            , QT_INST_DIR: "C:", Qt_TOOL_PATH: "C:/Qt/Tools/QtInstallerFramework/4.6"
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
     steps:
@@ -150,9 +147,8 @@ jobs:
             brew install doxygen graphviz
         fi
     - name: Install Qt
-      uses: jurplel/install-qt-action@v4
+      uses: jurplel/install-qt-action@v4.3.0
       with:
-       dir: ${{matrix.config.QT_INST_DIR}}
        version: ${{ env.QtVersion }}
        modules: qt5compat
        cache: true
@@ -181,7 +177,7 @@ jobs:
         pip install --user reuse
     - name: Build ff7tk
       run: |
-        ${{env.cmakeConfigure}} -DPACKAGE_VERSION_LABEL="${{ needs.precheck.outputs.version }}" -DCPACK_IFW_ROOT=${{matrix.config.Qt_TOOL_PATH}} ${{matrix.config.extraCmakeConfig}}
+        ${{env.cmakeConfigure}} -DPACKAGE_VERSION_LABEL="${{ needs.precheck.outputs.version }}" ${{matrix.config.extraCmakeConfig}}
         cmake --build build --config ${{env.BuildType}} --target package
 
     - name: Rename Tarball for Linux compat
