@@ -81,11 +81,11 @@
     </message>
     <message>
         <source>Attack,Restore,Indirect</source>
-        <translation>攻击,恢复,间接</translation>
+        <translation>攻击,恢复,辅助</translation>
     </message>
     <message>
         <source>Attack,Indirect,Restore</source>
-        <translation>攻击,间接,恢复</translation>
+        <translation>攻击,辅助,恢复</translation>
     </message>
     <message>
         <source>Battle Message Speed:</source>
@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Active</source>
-        <translation>活跃</translation>
+        <translation>即时</translation>
     </message>
     <message>
         <source>In-Game Dialog Preview</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Indirect,Restore,Attack</source>
-        <translation>间接,恢复,攻击</translation>
+        <translation>辅助,恢复,攻击</translation>
     </message>
     <message>
         <source>Show Field Help</source>
@@ -169,7 +169,7 @@
     </message>
     <message>
         <source>Restore,Attack,Indirect</source>
-        <translation>恢复,攻击,间接</translation>
+        <translation>恢复,攻击,辅助</translation>
     </message>
     <message>
         <source>Show Battle Targets Labels</source>
@@ -181,7 +181,7 @@
     </message>
     <message>
         <source>Indirect,Attack,Restore</source>
-        <translation>间接,攻击,恢复</translation>
+        <translation>辅助,攻击,恢复</translation>
     </message>
     <message>
         <source>Battle Speed:</source>
@@ -189,7 +189,7 @@
     </message>
     <message>
         <source>Restore,Indirect,Attack</source>
-        <translation>恢复,间接,攻击</translation>
+        <translation>恢复,辅助,攻击</translation>
     </message>
     <message>
         <source>Custom Controller Mapping (PSX Only)</source>
@@ -520,7 +520,7 @@
     </message>
     <message>
         <source>M.Barrier</source>
-        <translation>魔力屏障</translation>
+        <translation>魔法屏障</translation>
     </message>
     <message>
         <source>OnBattle:</source>
@@ -528,7 +528,7 @@
     </message>
     <message>
         <source>Darkness</source>
-        <translation>黑暗</translation>
+        <translation>失明</translation>
     </message>
     <message>
         <source>Attack:</source>
@@ -576,11 +576,11 @@
     </message>
     <message>
         <source>Luck Sources Used</source>
-        <translation>已用幸运来源</translation>
+        <translation>已用幸运之源</translation>
     </message>
     <message>
         <source>Mind Sources Used</source>
-        <translation>已用心灵来源</translation>
+        <translation>已用精神之源</translation>
     </message>
     <message>
         <source>Accessory</source>
@@ -612,7 +612,7 @@
     </message>
     <message>
         <source>Speed Sources Used</source>
-        <translation>已用速度来源</translation>
+        <translation>已用速度之源</translation>
     </message>
     <message>
         <source>Nullify:</source>
@@ -624,11 +624,11 @@
     </message>
     <message>
         <source>Power Sources Used</source>
-        <translation>已用力量来源</translation>
+        <translation>已用力量之源</translation>
     </message>
     <message>
         <source>Magic Sources Used</source>
-        <translation>已用魔力来源</translation>
+        <translation>已用魔法之源</translation>
     </message>
     <message>
         <source>Next: %1</source>
@@ -640,11 +640,11 @@
     </message>
     <message>
         <source>Guard Sources Used</source>
-        <translation>已用防御来源</translation>
+        <translation>已用防御之源</translation>
     </message>
     <message>
         <source>Lightning</source>
-        <translation>闪电</translation>
+        <translation>雷电</translation>
     </message>
     <message>
         <source>Gravity</source>
@@ -989,7 +989,7 @@
     </message>
     <message>
         <source>Northern Cave Crater</source>
-        <translation>北方大空洞</translation>
+        <translation>大空洞</translation>
     </message>
     <message>
         <source>Platform</source>
@@ -1077,7 +1077,7 @@
     </message>
     <message>
         <source>Junon Area (Highwind)</source>
-        <translation>朱农地区 (高风)</translation>
+        <translation>朱农地区 (飞空艇)</translation>
     </message>
     <message>
         <source>Grasslands Area</source>
@@ -1113,7 +1113,7 @@
     </message>
     <message>
         <source>Base of Fort Condor</source>
-        <translation>秃鹫堡基地</translation>
+        <translation>秃鹰堡垒基地</translation>
     </message>
     <message>
         <source>Bridge</source>
@@ -1137,11 +1137,11 @@
     </message>
     <message>
         <source>Great Glacier</source>
-        <translation>大冰川</translation>
+        <translation>大冰原</translation>
     </message>
     <message>
         <source>Mako Cannon</source>
-        <translation>魔晄炮</translation>
+        <translation>魔晄加农炮</translation>
     </message>
     <message>
         <source>7th Heaven</source>
@@ -1149,7 +1149,7 @@
     </message>
     <message>
         <source>Fort Condor</source>
-        <translation>秃鹫堡</translation>
+        <translation>秃鹰堡垒</translation>
     </message>
     <message>
         <source>Jungle</source>
@@ -1293,7 +1293,7 @@
     </message>
     <message>
         <source>Aljunon</source>
-        <translation>阿尔朱农</translation>
+        <translation>朱农</translation>
     </message>
     <message>
         <source>Gongaga Village</source>
@@ -1413,11 +1413,11 @@
     </message>
     <message>
         <source>Great Glacier Map</source>
-        <translation>大冰川地图</translation>
+        <translation>大冰原地图</translation>
     </message>
     <message>
         <source>Highwind, on deck</source>
-        <translation>高风号，甲板上</translation>
+        <translation>飞空艇，甲板上</translation>
     </message>
     <message>
         <source>Gongaga Area</source>
@@ -1749,7 +1749,7 @@
     </message>
     <message>
         <source>Entrance to Fort Condor</source>
-        <translation>秃鹫堡入口</translation>
+        <translation>秃鹰堡垒入口</translation>
     </message>
     <message>
         <source>Cargo Ship</source>
@@ -1901,7 +1901,7 @@
     </message>
     <message>
         <source>Highwind</source>
-        <translation>高风号</translation>
+        <translation>飞空艇</translation>
     </message>
     <message>
         <source>Submarine Dock</source>
@@ -2003,19 +2003,19 @@
     </message>
     <message>
         <source>Drill Arm</source>
-        <translation>钻头臂</translation>
+        <translation>钻孔手臂</translation>
     </message>
     <message>
         <source>Rewarded for viewing all Turtle Paradise Flyers</source>
-        <translation>查看所有海龟乐园传单后获得奖励</translation>
+        <translation>查看所有海龟天堂传单后获得奖励</translation>
     </message>
     <message>
         <source>Speed Source</source>
-        <translation>速度源</translation>
+        <translation>速度之源</translation>
     </message>
     <message>
         <source>Chaos</source>
-        <translation>混沌</translation>
+        <translation>混沌魔神</translation>
     </message>
     <message>
         <source>Comet</source>
@@ -2031,7 +2031,7 @@
     </message>
     <message>
         <source>Great Gospel</source>
-        <translation>大福音</translation>
+        <translation>大祈祷术</translation>
     </message>
     <message>
         <source>Hades</source>
@@ -2043,7 +2043,7 @@
     </message>
     <message>
         <source>Morph</source>
-        <translation>变形</translation>
+        <translation>变化</translation>
     </message>
     <message>
         <source>Ramuh</source>
@@ -2051,7 +2051,7 @@
     </message>
     <message>
         <source>Sense</source>
-        <translation>感知</translation>
+        <translation>察看</translation>
     </message>
     <message>
         <source>Shiva</source>
@@ -2063,7 +2063,7 @@
     </message>
     <message>
         <source>Twin Viper</source>
-        <translation>双毒蛇</translation>
+        <translation>双首大蛇</translation>
     </message>
     <message>
         <source>Titan</source>
@@ -2071,11 +2071,11 @@
     </message>
     <message>
         <source>Sniper CR</source>
-        <translation>狙击步枪CR</translation>
+        <translation>狙击手步枪</translation>
     </message>
     <message>
         <source>Silver M-phone</source>
-        <translation>银色M形电话</translation>
+        <translation>银色扩音器</translation>
     </message>
     <message>
         <source>Javelin</source>
@@ -2083,7 +2083,7 @@
     </message>
     <message>
         <source>Magic Source</source>
-        <translation>魔力源</translation>
+        <translation>魔法之源</translation>
     </message>
     <message>
         <source>Added Effect</source>
@@ -2091,7 +2091,7 @@
     </message>
     <message>
         <source>Power Source</source>
-        <translation>力量源</translation>
+        <translation>力量之源</translation>
     </message>
     <message>
         <source>KeyItem: Satin Dress</source>
@@ -2099,31 +2099,31 @@
     </message>
     <message>
         <source>KeyItem: Key to Ancients</source>
-        <translation>关键物品：古代人之钥</translation>
+        <translation>关键物品：古代种的钥匙</translation>
     </message>
     <message>
         <source>Aegis Armlet</source>
-        <translation>圣盾手镯</translation>
+        <translation>庇护手镯</translation>
     </message>
     <message>
         <source>Turbo Ether</source>
-        <translation>高效以太</translation>
+        <translation>超以太</translation>
     </message>
     <message>
         <source>Venus Gospel</source>
-        <translation>金星福音</translation>
+        <translation>维纳斯的福音</translation>
     </message>
     <message>
         <source>Show Master Magic</source>
-        <translation>显示大师魔法</translation>
+        <translation>显示全魔法</translation>
     </message>
     <message>
         <source>Hero Drink</source>
-        <translation>英雄之饮</translation>
+        <translation>英雄之药</translation>
     </message>
     <message>
         <source>Guard Source</source>
-        <translation>防御源</translation>
+        <translation>防御之源</translation>
     </message>
     <message>
         <source>Rewards From Ester</source>
@@ -2131,7 +2131,7 @@
     </message>
     <message>
         <source>Tetra Elemental</source>
-        <translation>四重元素</translation>
+        <translation>四元素</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: UnderWater</source>
@@ -2143,7 +2143,7 @@
     </message>
     <message>
         <source>Silver Rifle</source>
-        <translation>银色步枪</translation>
+        <translation>银玉铁炮</translation>
     </message>
     <message>
         <source>Behemoth Horn</source>
@@ -2151,11 +2151,11 @@
     </message>
     <message>
         <source>Hp Shout</source>
-        <translation>HP呐喊</translation>
+        <translation>生命呐喊</translation>
     </message>
     <message>
         <source>MP Turbo</source>
-        <translation>MP涡轮</translation>
+        <translation>MP增幅</translation>
     </message>
     <message>
         <source>X-Potion</source>
@@ -2167,11 +2167,11 @@
     </message>
     <message>
         <source>Escort Guard</source>
-        <translation>护卫守卫</translation>
+        <translation>守护卫士</translation>
     </message>
     <message>
         <source>W-Summon</source>
-        <translation>W-召唤</translation>
+        <translation>双重召唤</translation>
     </message>
     <message>
         <source>KeyItem: Digestive</source>
@@ -2179,7 +2179,7 @@
     </message>
     <message>
         <source>Full Cure</source>
-        <translation>完全治疗</translation>
+        <translation>全回复</translation>
     </message>
     <message>
         <source>Shinra Gym Special Drink</source>
@@ -2187,7 +2187,7 @@
     </message>
     <message>
         <source>Spring Gun Clip</source>
-        <translation>弹簧枪夹</translation>
+        <translation>守护者发夹</translation>
     </message>
     <message>
         <source>Steal-As-Well</source>
@@ -2199,23 +2199,23 @@
     </message>
     <message>
         <source>Star Pendant</source>
-        <translation>星形吊坠</translation>
+        <translation>星状垂饰</translation>
     </message>
     <message>
         <source>KeyItem: Pharmacy Coupon</source>
-        <translation>关键物品：药店优惠券</translation>
+        <translation>关键物品：药品屋的交换券</translation>
     </message>
     <message>
         <source>Bolt Ring</source>
-        <translation>雷电戒指</translation>
+        <translation>雷电指环</translation>
     </message>
     <message>
         <source>Viper Halberd</source>
-        <translation>毒蛇长柄刀</translation>
+        <translation>蛇矛</translation>
     </message>
     <message>
         <source>Max Ray</source>
-        <translation>最大射线</translation>
+        <translation>终极射线</translation>
     </message>
     <message>
         <source>Umbrella</source>
@@ -2223,19 +2223,19 @@
     </message>
     <message>
         <source>White M-phone</source>
-        <translation>白色M形电话</translation>
+        <translation>白色扩音器</translation>
     </message>
     <message>
         <source>Wizard Staff</source>
-        <translation>巫师之杖</translation>
+        <translation>巫师手杖</translation>
     </message>
     <message>
         <source>Show Master Summon</source>
-        <translation>显示大师召唤</translation>
+        <translation>显示全召唤</translation>
     </message>
     <message>
         <source>Rocket Punch</source>
-        <translation>火箭拳</translation>
+        <translation>金刚飞拳</translation>
     </message>
     <message>
         <source>KeyItem: Sexy Cologne</source>
@@ -2243,19 +2243,19 @@
     </message>
     <message>
         <source>HP &lt;-&gt; MP</source>
-        <translation>HP &lt;-&gt; MP</translation>
+        <translation>HPMP交换</translation>
     </message>
     <message>
         <source>Spirit Lance</source>
-        <translation>灵魂之枪</translation>
+        <translation>隆基诺斯之枪</translation>
     </message>
     <message>
         <source>Sprint Shoes</source>
-        <translation>冲刺鞋</translation>
+        <translation>全速鞋</translation>
     </message>
     <message>
         <source>Motor Drive</source>
-        <translation>马达驱动</translation>
+        <translation>摩托手套</translation>
     </message>
     <message>
         <source>30Gp from Mog&apos;s House</source>
@@ -2263,11 +2263,11 @@
     </message>
     <message>
         <source>T/S Bomb</source>
-        <translation>T/S炸弹</translation>
+        <translation>时空弹</translation>
     </message>
     <message>
         <source>Four Slots</source>
-        <translation>四孔</translation>
+        <translation>四槽手镯</translation>
     </message>
     <message>
         <source>Mind Plus</source>
@@ -2295,19 +2295,19 @@
     </message>
     <message>
         <source>Gold Armlet</source>
-        <translation>黄金手镯</translation>
+        <translation>金臂环</translation>
     </message>
     <message>
         <source>Pile Banger</source>
-        <translation>打桩机</translation>
+        <translation>碎骨巨叉</translation>
     </message>
     <message>
         <source>Flayer</source>
-        <translation>剥皮者</translation>
+        <translation>方天画戟</translation>
     </message>
     <message>
         <source>Conformer</source>
-        <translation>顺从者</translation>
+        <translation>不俱戴天</translation>
     </message>
     <message>
         <source>Fourth Bracelet</source>
@@ -2319,7 +2319,7 @@
     </message>
     <message>
         <source>KeyItem: Gold Ticket</source>
-        <translation>关键物品：黄金票</translation>
+        <translation>关键物品：金碟游乐场入场券</translation>
     </message>
     <message>
         <source>Omnislash</source>
@@ -2327,7 +2327,7 @@
     </message>
     <message>
         <source>Mystile</source>
-        <translation>神秘铠甲</translation>
+        <translation>米斯迪尔手镯</translation>
     </message>
     <message>
         <source>Kujata</source>
@@ -2335,7 +2335,7 @@
     </message>
     <message>
         <source>HypnoCrown</source>
-        <translation>催眠皇冠</translation>
+        <translation>休普诺王冠</translation>
     </message>
     <message>
         <source>KeyItem: Dyed Wig</source>
@@ -2363,11 +2363,11 @@
     </message>
     <message>
         <source>W-Item</source>
-        <translation>W-物品</translation>
+        <translation>双重道具</translation>
     </message>
     <message>
         <source>Choco/Mog</source>
-        <translation>陆行鸟/莫古力</translation>
+        <translation>陆行鸟和莫古</translation>
     </message>
     <message>
         <source>KeyItem: Mythril</source>
@@ -2383,7 +2383,7 @@
     </message>
     <message>
         <source>Ultima</source>
-        <translation>究极</translation>
+        <translation>创世</translation>
     </message>
     <message>
         <source>Phoenix Down</source>
@@ -2395,11 +2395,11 @@
     </message>
     <message>
         <source>Mind Source</source>
-        <translation>精神源</translation>
+        <translation>精神之源</translation>
     </message>
     <message>
         <source>Luck Source</source>
-        <translation>幸运源</translation>
+        <translation>幸运之源</translation>
     </message>
     <message>
         <source>KeyItem: Glass Tiara</source>
@@ -2415,11 +2415,11 @@
     </message>
     <message>
         <source>Poison Ring</source>
-        <translation>毒素戒指</translation>
+        <translation>毒指环</translation>
     </message>
     <message>
         <source>Wind Slash</source>
-        <translation>风之斩</translation>
+        <translation>风斩</translation>
     </message>
     <message>
         <source>KeyItem: Lingerie</source>
@@ -2431,11 +2431,11 @@
     </message>
     <message>
         <source>Phoenix</source>
-        <translation>凤凰</translation>
+        <translation>不死鸟</translation>
     </message>
     <message>
         <source>W Machine Gun</source>
-        <translation>W机关枪</translation>
+        <translation>多管机枪</translation>
     </message>
     <message>
         <source>Stole boys 5 gil</source>
@@ -2443,15 +2443,15 @@
     </message>
     <message>
         <source>Rune Blade</source>
-        <translation>符文之刃</translation>
+        <translation>古代剑</translation>
     </message>
     <message>
         <source>Black M-phone</source>
-        <translation>黑色M形电话</translation>
+        <translation>黑色扩音器</translation>
     </message>
     <message>
         <source>Final Heaven (+other stuff?)</source>
-        <translation>最终天堂（+其他物品？）</translation>
+        <translation>终极天堂（+其他物品？）</translation>
     </message>
     <message>
         <source>Can Advance</source>
@@ -2467,11 +2467,11 @@
     </message>
     <message>
         <source>Magic Shuriken</source>
-        <translation>魔法手里剑</translation>
+        <translation>风魔手里剑</translation>
     </message>
     <message>
         <source>Neo Bahamut</source>
-        <translation>新巴哈姆特</translation>
+        <translation>巴哈姆特改</translation>
     </message>
     <message>
         <source>Transform</source>
@@ -2479,7 +2479,7 @@
     </message>
     <message>
         <source>Fire Ring</source>
-        <translation>火焰戒指</translation>
+        <translation>火焰指环</translation>
     </message>
     <message>
         <source>Bahamut</source>
@@ -2507,7 +2507,7 @@
     </message>
     <message>
         <source>Slash-All</source>
-        <translation>全体斩</translation>
+        <translation>全体攻击</translation>
     </message>
     <message>
         <source>Deathblow</source>
@@ -2515,11 +2515,11 @@
     </message>
     <message>
         <source>Cauldron</source>
-        <translation>大锅</translation>
+        <translation>魔女的大锅</translation>
     </message>
     <message>
         <source>Premium Heart</source>
-        <translation>高级之心</translation>
+        <translation>珍视之心</translation>
     </message>
     <message>
         <source>Bahamut Zero</source>
@@ -2527,15 +2527,15 @@
     </message>
     <message>
         <source>Played piano during flashback</source>
-        <translation>闪回中弹奏了钢琴</translation>
+        <translation>回忆中弹奏了钢琴</translation>
     </message>
     <message>
         <source>Oritsuru</source>
-        <translation>折鹤</translation>
+        <translation>折纸鹤</translation>
     </message>
     <message>
         <source>Show Master Command</source>
-        <translation>显示大师指令</translation>
+        <translation>显示全指令</translation>
     </message>
     <message>
         <source>Double Cut</source>
@@ -2551,11 +2551,11 @@
     </message>
     <message>
         <source>Grow Lance</source>
-        <translation>成长长枪</translation>
+        <translation>强化长枪</translation>
     </message>
     <message>
         <source>Long Range</source>
-        <translation>远程</translation>
+        <translation>远程攻击</translation>
     </message>
     <message>
         <source>Peace Ring</source>
@@ -2563,11 +2563,11 @@
     </message>
     <message>
         <source>Minerva Band</source>
-        <translation>密涅瓦手环</translation>
+        <translation>智慧缎带</translation>
     </message>
     <message>
         <source>Apocalypse</source>
-        <translation>启示录</translation>
+        <translation>启示录之剑</translation>
     </message>
     <message>
         <source>Fairy Ring</source>
@@ -2575,7 +2575,7 @@
     </message>
     <message>
         <source>Peacemaker</source>
-        <translation>和平缔造者</translation>
+        <translation>调停者</translation>
     </message>
     <message>
         <source>KeyItem: Snowboard</source>
@@ -2583,11 +2583,11 @@
     </message>
     <message>
         <source>Luck Plus</source>
-        <translation>幸运增强</translation>
+        <translation>幸运提升</translation>
     </message>
     <message>
         <source>Yoshiyuki</source>
-        <translation>吉行</translation>
+        <translation>陆奥守吉行</translation>
     </message>
     <message>
         <source>KeyItem: Black Materia</source>
@@ -2595,39 +2595,39 @@
     </message>
     <message>
         <source>Scimitar</source>
-        <translation>弯刀</translation>
+        <translation>青龙偃月刀</translation>
     </message>
     <message>
         <source>Show Underwater</source>
-        <translation>显示水下</translation>
+        <translation>显示潜水</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #1</source>
-        <translation>海龟乐园传单 #1</translation>
+        <translation>海龟天堂传单 #1</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #2</source>
-        <translation>海龟乐园传单 #2</translation>
+        <translation>海龟天堂传单 #2</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #3</source>
-        <translation>海龟乐园传单 #3</translation>
+        <translation>海龟天堂传单 #3</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #4</source>
-        <translation>海龟乐园传单 #4</translation>
+        <translation>海龟天堂传单 #4</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #5</source>
-        <translation>海龟乐园传单 #5</translation>
+        <translation>海龟天堂传单 #5</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #6</source>
-        <translation>海龟乐园传单 #6</translation>
+        <translation>海龟天堂传单 #6</translation>
     </message>
     <message>
         <source>Turtle Paradise Flyer #7</source>
-        <translation>海龟乐园传单 #7</translation>
+        <translation>海龟天堂传单 #7</translation>
     </message>
     <message>
         <source>Imperial Guard</source>
@@ -2635,7 +2635,7 @@
     </message>
     <message>
         <source>W-Magic</source>
-        <translation>W-魔法</translation>
+        <translation>双重魔法</translation>
     </message>
     <message>
         <source>Initialized the Machine</source>
@@ -2655,7 +2655,7 @@
     </message>
     <message>
         <source>Added Cut</source>
-        <translation>附加斩</translation>
+        <translation>追加攻击</translation>
     </message>
     <message>
         <source>KeyItem: Deodorant</source>
@@ -2667,7 +2667,7 @@
     </message>
     <message>
         <source>Catastrophe</source>
-        <translation>灾难</translation>
+        <translation>灾祸之光</translation>
     </message>
     <message>
         <source>KeyItem: Cologne</source>
@@ -2675,11 +2675,11 @@
     </message>
     <message>
         <source>Enhance Sword</source>
-        <translation>强化剑</translation>
+        <translation>魔剑</translation>
     </message>
     <message>
         <source>Enemy Skill</source>
-        <translation>敌方技能</translation>
+        <translation>青魔法</translation>
     </message>
     <message>
         <source>Magic Counter</source>
@@ -2703,11 +2703,11 @@
     </message>
     <message>
         <source>Mega All</source>
-        <translation>全体大</translation>
+        <translation>全部全体化</translation>
     </message>
     <message>
         <source>Dragoon Lance</source>
-        <translation>龙骑兵长枪</translation>
+        <translation>龙枪</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Corel</source>
@@ -2731,7 +2731,7 @@
     </message>
     <message>
         <source>Water Ring</source>
-        <translation>水之戒指</translation>
+        <translation>水指环</translation>
     </message>
     <message>
         <source>Super Ball</source>
@@ -2743,15 +2743,15 @@
     </message>
     <message>
         <source>Princess Guard</source>
-        <translation>公主守卫</translation>
+        <translation>公主守护杖</translation>
     </message>
     <message>
         <source>Supershot ST</source>
-        <translation>超级射击ST</translation>
+        <translation>高级霰弹枪</translation>
     </message>
     <message>
         <source>Buntline</source>
-        <translation>邦特线</translation>
+        <translation>长管左轮</translation>
     </message>
     <message>
         <source>Vaccine</source>
@@ -2759,7 +2759,7 @@
     </message>
     <message>
         <source>Enemy Launcher</source>
-        <translation>敌人发射器</translation>
+        <translation>高能榴弹</translation>
     </message>
     <message>
         <source>Destruct</source>
@@ -2767,11 +2767,11 @@
     </message>
     <message>
         <source>Outsider</source>
-        <translation>局外人</translation>
+        <translation>法外之徒</translation>
     </message>
     <message>
         <source>Safety Bit</source>
-        <translation>安全位</translation>
+        <translation>安全装备</translation>
     </message>
     <message>
         <source>KeyItem: Key To Basement</source>
@@ -2779,7 +2779,7 @@
     </message>
     <message>
         <source>Platinum Fist</source>
-        <translation>白金之拳</translation>
+        <translation>白金手套</translation>
     </message>
     <message>
         <source>Alexander</source>
@@ -2791,7 +2791,7 @@
     </message>
     <message>
         <source>Mind Source + Speed Source</source>
-        <translation>精神源 + 速度源</translation>
+        <translation>精神之源 + 速度之源</translation>
     </message>
     <message>
         <source>Sneak Glove</source>
@@ -2799,11 +2799,11 @@
     </message>
     <message>
         <source>Work Glove</source>
-        <translation>工作手套</translation>
+        <translation>军手</translation>
     </message>
     <message>
         <source>Missing Score</source>
-        <translation>遗失乐谱</translation>
+        <translation>旭日东升</translation>
     </message>
     <message>
         <source>Swift Bolt</source>
@@ -2815,11 +2815,11 @@
     </message>
     <message>
         <source>KeyItem: Member&apos;s Card</source>
-        <translation>关键物品：会员卡</translation>
+        <translation>关键物品：蜜蜂馆会员卡</translation>
     </message>
     <message>
         <source>Megalixir</source>
-        <translation>巨型万灵药</translation>
+        <translation>强力万灵药</translation>
     </message>
     <message>
         <source>Show Gold Chocobo</source>
@@ -2831,11 +2831,11 @@
     </message>
     <message>
         <source>Trumpet Shell</source>
-        <translation>号角螺</translation>
+        <translation>法螺贝</translation>
     </message>
     <message>
         <source>Powersoul</source>
-        <translation>力量灵魂</translation>
+        <translation>绝地拳套</translation>
     </message>
     <message>
         <source>Dragon Scales</source>
@@ -2863,7 +2863,7 @@
     </message>
     <message>
         <source>Hairpin</source>
-        <translation>发夹</translation>
+        <translation>发饰</translation>
     </message>
     <message>
         <source>Crystal Bangle</source>
@@ -2871,7 +2871,7 @@
     </message>
     <message>
         <source>Starlight Phone</source>
-        <translation>星光电话</translation>
+        <translation>星光麦克风</translation>
     </message>
     <message>
         <source>Heaven&apos;s Cloud</source>
@@ -2891,11 +2891,11 @@
     </message>
     <message>
         <source>Save Crystal</source>
-        <translation>保存水晶</translation>
+        <translation>记录水晶</translation>
     </message>
     <message>
         <source>Exp Plus</source>
-        <translation>经验增强</translation>
+        <translation>经验值提升</translation>
     </message>
     <message>
         <source>KeyItem: Midgar parts</source>
@@ -2903,7 +2903,7 @@
     </message>
     <message>
         <source>Magic Plus</source>
-        <translation>魔法增强</translation>
+        <translation>魔力提升</translation>
     </message>
     <message>
         <source>Magic Comb</source>
@@ -2911,19 +2911,19 @@
     </message>
     <message>
         <source>KeyItem: Glacier Map</source>
-        <translation>关键物品：冰川地图</translation>
+        <translation>关键物品：大冰河地图</translation>
     </message>
     <message>
         <source>KeyItem: Huge Materia: Fort Condor</source>
-        <translation>关键物品：巨型魔晶石：柯尔特堡</translation>
+        <translation>关键物品：巨型魔晶石：秃鹰堡垒</translation>
     </message>
     <message>
         <source>Plus Barrette</source>
-        <translation>加号发夹</translation>
+        <translation>白金发夹</translation>
     </message>
     <message>
         <source>Highwind</source>
-        <translation>高风</translation>
+        <translation>飞空艇</translation>
     </message>
     <message>
         <source>KeyItem: Key To Sector 5</source>
@@ -2931,7 +2931,7 @@
     </message>
     <message>
         <source>Gil Plus</source>
-        <translation>金币增强</translation>
+        <translation>金钱提升</translation>
     </message>
 </context>
 <context>
@@ -2950,11 +2950,11 @@
     </message>
     <message>
         <source>Beta</source>
-        <translation>贝塔</translation>
+        <translation>Beta</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation>退出</translation>
+        <translation>脱出</translation>
     </message>
     <message>
         <source>Fire</source>
@@ -2974,7 +2974,7 @@
     </message>
     <message>
         <source>Seal</source>
-        <translation>封印</translation>
+        <translation>封闭</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3034,7 +3034,7 @@
     </message>
     <message>
         <source>Morph</source>
-        <translation>变形</translation>
+        <translation>变化</translation>
     </message>
     <message>
         <source>Ramuh</source>
@@ -3042,7 +3042,7 @@
     </message>
     <message>
         <source>Sense</source>
-        <translation>感知</translation>
+        <translation>察看</translation>
     </message>
     <message>
         <source>Shiva</source>
@@ -3062,7 +3062,7 @@
     </message>
     <message>
         <source>Trine</source>
-        <translation>三角</translation>
+        <translation>三角锥</translation>
     </message>
     <message>
         <source>Final Attack</source>
@@ -3098,7 +3098,7 @@
     </message>
     <message>
         <source>Exp Plus +50%</source>
-        <translation>经验值+50%</translation>
+        <translation>经验值提升+50%</translation>
     </message>
     <message>
         <source>[Sleep]</source>
@@ -3154,51 +3154,51 @@
     </message>
     <message>
         <source>Neo Bahamut (140mp)</source>
-        <translation>新巴哈姆特 (140mp)</translation>
+        <translation>巴哈姆特改 (140mp)</translation>
     </message>
     <message>
         <source>Master Magic</source>
-        <translation>究极魔法</translation>
+        <translation>全魔法</translation>
     </message>
     <message>
         <source>Magic Plus +30%</source>
-        <translation>魔法强化 +30%</translation>
+        <translation>魔力提升 +30%</translation>
     </message>
     <message>
         <source>Magic Plus +40%</source>
-        <translation>魔法强化 +40%</translation>
+        <translation>魔力提升 +40%</translation>
     </message>
     <message>
         <source>Magic Plus +10%</source>
-        <translation>魔法强化 +10%</translation>
+        <translation>魔力提升 +10%</translation>
     </message>
     <message>
         <source>Magic Plus +20%</source>
-        <translation>魔法强化 +20%</translation>
+        <translation>魔力提升 +20%</translation>
     </message>
     <message>
         <source>Magic Plus +50%</source>
-        <translation>魔法强化 +50%</translation>
+        <translation>魔力提升 +50%</translation>
     </message>
     <message>
         <source>Gil Plus +50%</source>
-        <translation>金钱强化 +50%</translation>
+        <translation>金钱提升 +50%</translation>
     </message>
     <message>
         <source>Magic Breath</source>
-        <translation>魔法吐息</translation>
+        <translation>魔法气息</translation>
     </message>
     <message>
         <source>Death Sentence</source>
-        <translation>死亡宣告</translation>
+        <translation>死之宣告</translation>
     </message>
     <message>
         <source>Magic Hammer</source>
-        <translation>魔法之锤</translation>
+        <translation>魔法锤</translation>
     </message>
     <message>
         <source>MP Plus</source>
-        <translation>魔力值强化</translation>
+        <translation>MP提升</translation>
     </message>
     <message>
         <source>Counter Attack</source>
@@ -3222,7 +3222,7 @@
     </message>
     <message>
         <source>MP Turbo</source>
-        <translation>魔力涡轮</translation>
+        <translation>MP增幅</translation>
     </message>
     <message>
         <source>Shiva x3 (32mp)</source>
@@ -3246,7 +3246,7 @@
     </message>
     <message>
         <source>Skill: W-Summon</source>
-        <translation>技能：W-召唤</translation>
+        <translation>技能：双重召唤</translation>
     </message>
     <message>
         <source>Silence (24mp)</source>
@@ -3266,11 +3266,11 @@
     </message>
     <message>
         <source>W-Summon</source>
-        <translation>W-召唤</translation>
+        <translation>双重召唤</translation>
     </message>
     <message>
         <source>Skill: Enemy Skill</source>
-        <translation>技能：敌方技能</translation>
+        <translation>技能：青魔法</translation>
     </message>
     <message>
         <source>Mini (10mp)</source>
@@ -3282,7 +3282,7 @@
     </message>
     <message>
         <source>Full Cure</source>
-        <translation>完全治疗</translation>
+        <translation>全回复</translation>
     </message>
     <message>
         <source>Wall (58mp)</source>
@@ -3314,7 +3314,7 @@
     </message>
     <message>
         <source>Exit (16mp)</source>
-        <translation>退出 (16mp)</translation>
+        <translation>脱出 (16mp)</translation>
     </message>
     <message>
         <source>Skill: Mug</source>
@@ -3326,7 +3326,7 @@
     </message>
     <message>
         <source>Steal as well</source>
-        <translation>同时偷窃</translation>
+        <translation>追加偷窃</translation>
     </message>
     <message>
         <source>Demi (14mp)</source>
@@ -3338,35 +3338,35 @@
     </message>
     <message>
         <source>Steal-As-Well</source>
-        <translation>同时偷窃</translation>
+        <translation>追加偷窃</translation>
     </message>
     <message>
         <source>Master Command</source>
-        <translation>究极指令</translation>
+        <translation>全指令</translation>
     </message>
     <message>
         <source>Matra Magic</source>
-        <translation>矩阵魔法</translation>
+        <translation>魔法飞弹</translation>
     </message>
     <message>
         <source>Mega-all x1</source>
-        <translation>超全体化 x1</translation>
+        <translation>全部全体化 x1</translation>
     </message>
     <message>
         <source>Mega-all x2</source>
-        <translation>超全体化 x2</translation>
+        <translation>全部全体化 x2</translation>
     </message>
     <message>
         <source>Mega-all x3</source>
-        <translation>超全体化 x3</translation>
+        <translation>全部全体化 x3</translation>
     </message>
     <message>
         <source>Mega-all x4</source>
-        <translation>超全体化 x4</translation>
+        <translation>全部全体化 x4</translation>
     </message>
     <message>
         <source>Mega-all x5</source>
-        <translation>超全体化 x5</translation>
+        <translation>全部全体化 x5</translation>
     </message>
     <message>
         <source>Alexander (120mp)</source>
@@ -3374,23 +3374,23 @@
     </message>
     <message>
         <source>Neo Bahamut x1 (140mp)</source>
-        <translation>新巴哈姆特 x1 (140mp)</translation>
+        <translation>巴哈姆特改 x1 (140mp)</translation>
     </message>
     <message>
         <source>Neo Bahamut x2 (140mp)</source>
-        <translation>新巴哈姆特 x2 (140mp)</translation>
+        <translation>巴哈姆特改 x2 (140mp)</translation>
     </message>
     <message>
         <source>Neo Bahamut x3 (140mp)</source>
-        <translation>新巴哈姆特 x3 (140mp)</translation>
+        <translation>巴哈姆特改 x3 (140mp)</translation>
     </message>
     <message>
         <source>Neo Bahamut x4 (140mp)</source>
-        <translation>新巴哈姆特 x4 (140mp)</translation>
+        <translation>巴哈姆特改 x4 (140mp)</translation>
     </message>
     <message>
         <source>Neo Bahamut x5 (140mp)</source>
-        <translation>新巴哈姆特 x5 (140mp)</translation>
+        <translation>巴哈姆特改 x5 (140mp)</translation>
     </message>
     <message>
         <source>Bahamut x2 (100mp)</source>
@@ -3414,7 +3414,7 @@
     </message>
     <message>
         <source>HP &lt;-&gt; MP</source>
-        <translation>生命值 &lt;-&gt; 魔力值</translation>
+        <translation>HPMP交换</translation>
     </message>
     <message>
         <source>Sleepel (8mp)</source>
@@ -3462,7 +3462,7 @@
     </message>
     <message>
         <source>Bad Breath</source>
-        <translation>臭气</translation>
+        <translation>臭息</translation>
     </message>
     <message>
         <source>Dex:+2</source>
@@ -3470,11 +3470,11 @@
     </message>
     <message>
         <source>Enemy Away</source>
-        <translation>敌人远离</translation>
+        <translation>遇敌率下降</translation>
     </message>
     <message>
         <source>Enemy Lure</source>
-        <translation>敌人吸引</translation>
+        <translation>遇敌率上升</translation>
     </message>
     <message>
         <source>Goblin Punch</source>
@@ -3482,7 +3482,7 @@
     </message>
     <message>
         <source>Dragon Force</source>
-        <translation>龙之力</translation>
+        <translation>龙之力量</translation>
     </message>
     <message>
         <source>Knights of the Round</source>
@@ -3518,7 +3518,7 @@
     </message>
     <message>
         <source>Pandora's Box</source>
-        <translation>潘多拉之盒</translation>
+        <translation>潘多拉魔盒</translation>
     </message>
     <message>
         <source>Poison</source>
@@ -3542,11 +3542,11 @@
     </message>
     <message>
         <source>W-Item</source>
-        <translation>W-道具</translation>
+        <translation>双重道具</translation>
     </message>
     <message>
         <source>Choco/Mog</source>
-        <translation>陆行鸟/莫古</translation>
+        <translation>陆行鸟和莫古</translation>
     </message>
     <message>
         <source>Magic Counter Rate 100%</source>
@@ -3558,7 +3558,7 @@
     </message>
     <message>
         <source>Angel Whisper</source>
-        <translation>天使的低语</translation>
+        <translation>天使窃语</translation>
     </message>
     <message>
         <source>Typhon</source>
@@ -3566,7 +3566,7 @@
     </message>
     <message>
         <source>Ultima</source>
-        <translation>究极</translation>
+        <translation>创世</translation>
     </message>
     <message>
         <source>Bahamut (100mp)</source>
@@ -3598,7 +3598,7 @@
     </message>
     <message>
         <source>Chocobuckle</source>
-        <translation>陆行鸟冲击</translation>
+        <translation>陆行鸟压杀</translation>
     </message>
     <message>
         <source>[Fire]</source>
@@ -3678,7 +3678,7 @@
     </message>
     <message>
         <source>Master Summon</source>
-        <translation>究极召唤</translation>
+        <translation>全召唤</translation>
     </message>
     <message>
         <source>Break (86mp)</source>
@@ -3746,7 +3746,7 @@
     </message>
     <message>
         <source>Roulette</source>
-        <translation>轮盘</translation>
+        <translation>轮盘赌</translation>
     </message>
     <message>
         <source>Dex:+% depending on level</source>
@@ -3810,7 +3810,7 @@
     </message>
     <message>
         <source>L5 Death</source>
-        <translation>LV5 死亡</translation>
+        <translation>5级即死</translation>
     </message>
     <message>
         <source>Kujata (110mp)</source>
@@ -3830,47 +3830,47 @@
     </message>
     <message>
         <source>Luck Plus +10%</source>
-        <translation>幸运强化 +10%</translation>
+        <translation>幸运提升 +10%</translation>
     </message>
     <message>
         <source>Luck Plus +20%</source>
-        <translation>幸运强化 +20%</translation>
+        <translation>幸运提升 +20%</translation>
     </message>
     <message>
         <source>Luck Plus +30%</source>
-        <translation>幸运强化 +30%</translation>
+        <translation>幸运提升 +30%</translation>
     </message>
     <message>
         <source>Luck Plus +40%</source>
-        <translation>幸运强化 +40%</translation>
+        <translation>幸运提升 +40%</translation>
     </message>
     <message>
         <source>Luck Plus +50%</source>
-        <translation>幸运强化 +50%</translation>
+        <translation>幸运提升 +50%</translation>
     </message>
     <message>
         <source>Flame Thrower</source>
-        <translation>火焰喷射</translation>
+        <translation>火炎放射</translation>
     </message>
     <message>
         <source>Speed Plus +50%</source>
-        <translation>速度强化 +50%</translation>
+        <translation>速度提升 +50%</translation>
     </message>
     <message>
         <source>Speed Plus +20%</source>
-        <translation>速度强化 +20%</translation>
+        <translation>速度提升 +20%</translation>
     </message>
     <message>
         <source>Speed Plus +10%</source>
-        <translation>速度强化 +10%</translation>
+        <translation>速度提升 +10%</translation>
     </message>
     <message>
         <source>Speed Plus +40%</source>
-        <translation>速度强化 +40%</translation>
+        <translation>速度提升 +40%</translation>
     </message>
     <message>
         <source>Speed Plus +30%</source>
-        <translation>速度强化 +30%</translation>
+        <translation>速度提升 +30%</translation>
     </message>
     <message>
         <source>Resist (120mp)</source>
@@ -3886,7 +3886,7 @@
     </message>
     <message>
         <source>Neo Bahamut</source>
-        <translation>新巴哈姆特</translation>
+        <translation>巴哈姆特改</translation>
     </message>
     <message>
         <source>Titan x1 (46mp)</source>
@@ -3918,23 +3918,23 @@
     </message>
     <message>
         <source>HP Plus +40%</source>
-        <translation>生命值强化 +40%</translation>
+        <translation>HP提升 +40%</translation>
     </message>
     <message>
         <source>HP Plus +30%</source>
-        <translation>生命值强化 +30%</translation>
+        <translation>HP提升 +30%</translation>
     </message>
     <message>
         <source>HP Plus +20%</source>
-        <translation>生命值强化 +20%</translation>
+        <translation>HP提升 +20%</translation>
     </message>
     <message>
         <source>HP Plus +10%</source>
-        <translation>生命值强化 +10%</translation>
+        <translation>HP提升 +10%</translation>
     </message>
     <message>
         <source>HP Plus +50%</source>
-        <translation>生命值强化 +50%</translation>
+        <translation>HP提升 +50%</translation>
     </message>
     <message>
         <source>Barrier</source>
@@ -3946,19 +3946,19 @@
     </message>
     <message>
         <source>Slash-All</source>
-        <translation>全体斩</translation>
+        <translation>全体攻击</translation>
     </message>
     <message>
         <source>Choco/Mog (14mp)</source>
-        <translation>陆行鸟/莫古 (14mp)</translation>
+        <translation>陆行鸟和莫古 (14mp)</translation>
     </message>
     <message>
         <source>Deathblow</source>
-        <translation>致命一击</translation>
+        <translation>即死攻击</translation>
     </message>
     <message>
         <source>Aqualung</source>
-        <translation>水之吐息</translation>
+        <translation>水的气息</translation>
     </message>
     <message>
         <source>Restore</source>
@@ -3990,7 +3990,7 @@
     </message>
     <message>
         <source>Ultima (130mp)</source>
-        <translation>究极 (130mp)</translation>
+        <translation>创世 (130mp)</translation>
     </message>
     <message>
         <source>Pre-emptive +6%</source>
@@ -3998,23 +3998,23 @@
     </message>
     <message>
         <source>Choco/Mog x1 (14mp)</source>
-        <translation>陆行鸟/莫古 x1 (14mp)</translation>
+        <translation>陆行鸟和莫古 x1 (14mp)</translation>
     </message>
     <message>
         <source>Choco/Mog x4 (14mp)</source>
-        <translation>陆行鸟/莫古 x4 (14mp)</translation>
+        <translation>陆行鸟和莫古 x4 (14mp)</translation>
     </message>
     <message>
         <source>Choco/Mog x5 (14mp)</source>
-        <translation>陆行鸟/莫古 x5 (14mp)</translation>
+        <translation>陆行鸟和莫古 x5 (14mp)</translation>
     </message>
     <message>
         <source>Choco/Mog x2 (14mp)</source>
-        <translation>陆行鸟/莫古 x2 (14mp)</translation>
+        <translation>陆行鸟和莫古 x2 (14mp)</translation>
     </message>
     <message>
         <source>Choco/Mog x3 (14mp)</source>
-        <translation>陆行鸟/莫古 x3 (14mp)</translation>
+        <translation>陆行鸟和莫古 x3 (14mp)</translation>
     </message>
     <message>
         <source>Double Cut</source>
@@ -4026,11 +4026,11 @@
     </message>
     <message>
         <source>Big Guard</source>
-        <translation>大防护</translation>
+        <translation>大保护</translation>
     </message>
     <message>
         <source>Long Range</source>
-        <translation>远距离</translation>
+        <translation>远程攻击</translation>
     </message>
     <message>
         <source>Reflect (30mp)</source>
@@ -4038,23 +4038,23 @@
     </message>
     <message>
         <source>MP Plus +40%</source>
-        <translation>魔力值强化 +40%</translation>
+        <translation>MP提升 +40%</translation>
     </message>
     <message>
         <source>MP Plus +30%</source>
-        <translation>魔力值强化 +30%</translation>
+        <translation>MP提升 +30%</translation>
     </message>
     <message>
         <source>MP Plus +20%</source>
-        <translation>魔力值强化 +20%</translation>
+        <translation>MP提升 +20%</translation>
     </message>
     <message>
         <source>MP Plus +10%</source>
-        <translation>魔力值强化 +10%</translation>
+        <translation>MP提升 +10%</translation>
     </message>
     <message>
         <source>MP Plus +50%</source>
-        <translation>魔力值强化 +50%</translation>
+        <translation>MP提升 +50%</translation>
     </message>
     <message>
         <source>Skill: 4x-Cut</source>
@@ -4090,7 +4090,7 @@
     </message>
     <message>
         <source>Luck Plus</source>
-        <translation>幸运强化</translation>
+        <translation>幸运提升</translation>
     </message>
     <message>
         <source>Skill: Flash</source>
@@ -4098,7 +4098,7 @@
     </message>
     <message>
         <source>Skill: Morph</source>
-        <translation>技能：变形</translation>
+        <translation>技能：变化</translation>
     </message>
     <message>
         <source>Skill: Steal</source>
@@ -4110,7 +4110,7 @@
     </message>
     <message>
         <source>Skill: Sense</source>
-        <translation>技能：感知</translation>
+        <translation>技能：察看</translation>
     </message>
     <message>
         <source>Quake3 (68mp)</source>
@@ -4118,11 +4118,11 @@
     </message>
     <message>
         <source>Death Force</source>
-        <translation>死亡力量</translation>
+        <translation>死之力量</translation>
     </message>
     <message>
         <source>Exp Plus +100%</source>
-        <translation>经验值强化 +100%</translation>
+        <translation>经验值提升 +100%</translation>
     </message>
     <message>
         <source>Quake2 (28mp)</source>
@@ -4130,7 +4130,7 @@
     </message>
     <message>
         <source>W-Magic</source>
-        <translation>W-魔法</translation>
+        <translation>双重魔法</translation>
     </message>
     <message>
         <source>M-Barrier (24mp)</source>
@@ -4146,15 +4146,15 @@
     </message>
     <message>
         <source>Skill: DeathBlow</source>
-        <translation>技能：致命一击</translation>
+        <translation>技能：即死攻击</translation>
     </message>
     <message>
         <source>Skill: Slash-All</source>
-        <translation>技能：全体斩</translation>
+        <translation>技能：全体攻击</translation>
     </message>
     <message>
         <source>Contain</source>
-        <translation>封锁</translation>
+        <translation>封印</translation>
     </message>
     <message>
         <source>Counter</source>
@@ -4170,27 +4170,27 @@
     </message>
     <message>
         <source>Chocobo Lure +100%</source>
-        <translation>陆行鸟吸引 +100%</translation>
+        <translation>陆行鸟诱饵 +100%</translation>
     </message>
     <message>
         <source>Chocobo Lure +200%</source>
-        <translation>陆行鸟吸引 +200%</translation>
+        <translation>陆行鸟诱饵 +200%</translation>
     </message>
     <message>
         <source>Added Cut</source>
-        <translation>附加斩击</translation>
+        <translation>追加攻击</translation>
     </message>
     <message>
         <source>L4 Suicide</source>
-        <translation>LV4 自杀</translation>
+        <translation>4级自爆</translation>
     </message>
     <message>
         <source>Gil Plus +100%</source>
-        <translation>金钱强化 +100%</translation>
+        <translation>金钱提升 +100%</translation>
     </message>
     <message>
         <source>Enemy Skill</source>
-        <translation>敌方技能</translation>
+        <translation>青魔法</translation>
     </message>
     <message>
         <source>Magic Counter</source>
@@ -4202,7 +4202,7 @@
     </message>
     <message>
         <source>Speed Plus</source>
-        <translation>速度强化</translation>
+        <translation>速度提升</translation>
     </message>
     <message>
         <source>Ifrit x5 (34mp)</source>
@@ -4226,7 +4226,7 @@
     </message>
     <message>
         <source>Mega All</source>
-        <translation>超全体化</translation>
+        <translation>全部全体化</translation>
     </message>
     <message>
         <source>Pre-emptive</source>
@@ -4234,7 +4234,7 @@
     </message>
     <message>
         <source>Skill: W-Magic</source>
-        <translation>技能：W-魔法</translation>
+        <translation>技能：双重魔法</translation>
     </message>
     <message>
         <source>Elemental</source>
@@ -4258,7 +4258,7 @@
     </message>
     <message>
         <source>Underwater</source>
-        <translation>水下</translation>
+        <translation>潜水</translation>
     </message>
     <message>
         <source>[Berserk]</source>
@@ -4274,7 +4274,7 @@
     </message>
     <message>
         <source>Shadow Flare</source>
-        <translation>暗影核爆</translation>
+        <translation>影之闪</translation>
     </message>
     <message>
         <source>Alexander</source>
@@ -4282,11 +4282,11 @@
     </message>
     <message>
         <source>Full Cure (99mp)</source>
-        <translation>完全治疗 (99mp)</translation>
+        <translation>全回复 (99mp)</translation>
     </message>
     <message>
         <source>Leviathan</source>
-        <translation>利维亚桑</translation>
+        <translation>利维坦</translation>
     </message>
     <message>
         <source>Encounter Rate +50%</source>
@@ -4338,11 +4338,11 @@
     </message>
     <message>
         <source>HP Plus</source>
-        <translation>生命值强化</translation>
+        <translation>HP提升</translation>
     </message>
     <message>
         <source>EXP Plus</source>
-        <translation>经验值强化</translation>
+        <translation>经验值提升</translation>
     </message>
     <message>
         <source>MaxHp:-5% MaxMp:+5% Str:-2 Vit:-1 Mag:+2 Spi:+1</source>
@@ -4350,7 +4350,7 @@
     </message>
     <message>
         <source>Leviathan (78mp)</source>
-        <translation>利维亚桑 (78mp)</translation>
+        <translation>利维坦 (78mp)</translation>
     </message>
     <message>
         <source>Comet2 (110mp)</source>
@@ -4358,7 +4358,7 @@
     </message>
     <message>
         <source>Chocobo Lure</source>
-        <translation>陆行鸟吸引</translation>
+        <translation>陆行鸟诱饵</translation>
     </message>
     <message>
         <source>[Confusion]</source>
@@ -4366,7 +4366,7 @@
     </message>
     <message>
         <source>Chocobo Lure +50%</source>
-        <translation>陆行鸟吸引 +50%</translation>
+        <translation>陆行鸟诱饵 +50%</translation>
     </message>
     <message>
         <source>MaxHp:-10% MaxMp:+10% Str:-4 Vit:-2 Mag:+4 Spi:+2</source>
@@ -4374,23 +4374,23 @@
     </message>
     <message>
         <source>MP Turbo 50%</source>
-        <translation>魔力涡轮 50%</translation>
+        <translation>MP增幅 50%</translation>
     </message>
     <message>
         <source>MP Turbo 40%</source>
-        <translation>魔力涡轮 40%</translation>
+        <translation>MP增幅 40%</translation>
     </message>
     <message>
         <source>MP Turbo 30%</source>
-        <translation>魔力涡轮 30%</translation>
+        <translation>MP增幅 30%</translation>
     </message>
     <message>
         <source>MP Turbo 20%</source>
-        <translation>魔力涡轮 20%</translation>
+        <translation>MP增幅 20%</translation>
     </message>
     <message>
         <source>MP Turbo 10%</source>
-        <translation>魔力涡轮 10%</translation>
+        <translation>MP增幅 10%</translation>
     </message>
     <message>
         <source>MaxHp:-2% MaxMp:+2% Mag:+1</source>
@@ -4398,7 +4398,7 @@
     </message>
     <message>
         <source>Lightning</source>
-        <translation>闪电</translation>
+        <translation>雷电</translation>
     </message>
     <message>
         <source>Final Attack x1</source>
@@ -4426,23 +4426,23 @@
     </message>
     <message>
         <source>Leviathan x3 (78mp)</source>
-        <translation>利维亚桑 x3 (78mp)</translation>
+        <translation>利维坦 x3 (78mp)</translation>
     </message>
     <message>
         <source>Leviathan x2 (78mp)</source>
-        <translation>利维亚桑 x2 (78mp)</translation>
+        <translation>利维坦 x2 (78mp)</translation>
     </message>
     <message>
         <source>Leviathan x5 (78mp)</source>
-        <translation>利维亚桑 x5 (78mp)</translation>
+        <translation>利维坦 x5 (78mp)</translation>
     </message>
     <message>
         <source>Leviathan x4 (78mp)</source>
-        <translation>利维亚桑 x4 (78mp)</translation>
+        <translation>利维坦 x4 (78mp)</translation>
     </message>
     <message>
         <source>Leviathan x1 (78mp)</source>
-        <translation>利维亚桑 x1 (78mp)</translation>
+        <translation>利维坦 x1 (78mp)</translation>
     </message>
     <message>
         <source>Phoenix x1 (180mp)</source>
@@ -4486,7 +4486,7 @@
     </message>
     <message>
         <source>Magic Plus</source>
-        <translation>魔法强化</translation>
+        <translation>魔力提升</translation>
     </message>
     <message>
         <source>Mag:+% depending on level</source>
@@ -4542,7 +4542,7 @@
     </message>
     <message>
         <source>Skill: W-Item</source>
-        <translation>技能：W-道具</translation>
+        <translation>技能：双重道具</translation>
     </message>
     <message>
         <source>Encounter Rate +100%</source>
@@ -4550,7 +4550,7 @@
     </message>
     <message>
         <source>[Lightning]</source>
-        <translation>[闪电]</translation>
+        <translation>[雷电]</translation>
     </message>
     <message>
         <source>Skill: Manipulate</source>
@@ -4558,7 +4558,7 @@
     </message>
     <message>
         <source>Gil Plus</source>
-        <translation>金钱强化</translation>
+        <translation>金钱提升</translation>
     </message>
 </context>
 <context>
@@ -4726,7 +4726,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Stables Occupied</source>
-        <translation>马厩已占用</translation>
+        <translation>鸟舍栏位已占用</translation>
     </message>
     <message>
         <source>Wonderful</source>
@@ -4734,7 +4734,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Stable:%1</source>
-        <translation>马厩：%1</translation>
+        <translation>栏位：%1</translation>
     </message>
     <message>
         <source>Average</source>
@@ -4750,7 +4750,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Stables Owned</source>
-        <translation>拥有马厩</translation>
+        <translation>拥有鸟舍栏位</translation>
     </message>
 </context>
 <context>
@@ -4769,15 +4769,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Final Heaven</source>
-        <translation>最终天堂</translation>
+        <translation>终极天堂</translation>
     </message>
     <message>
         <source>Dynamite</source>
-        <translation>炸药</translation>
+        <translation>炸药投掷</translation>
     </message>
     <message>
         <source>Chaos</source>
-        <translation>混沌</translation>
+        <translation>混沌魔神</translation>
     </message>
     <message>
         <source>Choco</source>
@@ -4789,11 +4789,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Mindblow</source>
-        <translation>精神打击</translation>
+        <translation>心灵爆破</translation>
     </message>
     <message>
         <source>Great Gospel</source>
-        <translation>伟大福音</translation>
+        <translation>大祈祷术</translation>
     </message>
     <message>
         <source>Slots</source>
@@ -4801,7 +4801,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Howling Moon</source>
-        <translation>咆哮月亮</translation>
+        <translation>月之嚎叫</translation>
     </message>
     <message>
         <source>Cait Sith</source>
@@ -4817,27 +4817,27 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Pulse of Life</source>
-        <translation>生命脉冲</translation>
+        <translation>生命之光</translation>
     </message>
     <message>
         <source>Planet Protector</source>
-        <translation>星球守护者</translation>
+        <translation>星球守护</translation>
     </message>
     <message>
         <source>Satellite Beam</source>
-        <translation>卫星射线</translation>
+        <translation>卫星光束</translation>
     </message>
     <message>
         <source>Hellmasker</source>
-        <translation>地狱假面</translation>
+        <translation>地狱魔王</translation>
     </message>
     <message>
         <source>Hammerblow</source>
-        <translation>锤击</translation>
+        <translation>重锤打击</translation>
     </message>
     <message>
         <source>Greased Lightning</source>
-        <translation>疾速闪电</translation>
+        <translation>闪电突袭</translation>
     </message>
     <message>
         <source>Aerith</source>
@@ -4849,27 +4849,27 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Galian Beast</source>
-        <translation>加利安巨兽</translation>
+        <translation>野兽形态</translation>
     </message>
     <message>
         <source>Braver</source>
-        <translation>英勇</translation>
+        <translation>一刀两断</translation>
     </message>
     <message>
         <source>Dragon</source>
-        <translation>龙</translation>
+        <translation>龙炎击</translation>
     </message>
     <message>
         <source>Angermax</source>
-        <translation>怒气极限</translation>
+        <translation>怒火极限</translation>
     </message>
     <message>
         <source>Omnislash</source>
-        <translation>全能斩</translation>
+        <translation>超究武神霸斩</translation>
     </message>
     <message>
         <source>Blood Fang</source>
-        <translation>血牙</translation>
+        <translation>嗜血之爪</translation>
     </message>
     <message>
         <source>Yuffie</source>
@@ -4877,7 +4877,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Doom of the Living</source>
-        <translation>生者末日</translation>
+        <translation>灭绝猛击</translation>
     </message>
     <message>
         <source>Dragon Dive</source>
@@ -4889,11 +4889,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Meteor Strike</source>
-        <translation>陨石强袭</translation>
+        <translation>流星投</translation>
     </message>
     <message>
         <source>Cross-Slash</source>
-        <translation>交叉斩</translation>
+        <translation>凶斩</translation>
     </message>
     <message>
         <source>Sephiroth</source>
@@ -4909,39 +4909,39 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Beat Rush</source>
-        <translation>猛击</translation>
+        <translation>猛袭拳</translation>
     </message>
     <message>
         <source>Gauntlet</source>
-        <translation>铁手套</translation>
+        <translation>气功波动</translation>
     </message>
     <message>
         <source>Stardust Ray</source>
-        <translation>星尘射线</translation>
+        <translation>星尘光线</translation>
     </message>
     <message>
         <source>Big Brawl</source>
-        <translation>大混战</translation>
+        <translation>大乱斗</translation>
     </message>
     <message>
         <source>Death Gigas</source>
-        <translation>死亡巨人</translation>
+        <translation>恶魔形态</translation>
     </message>
     <message>
         <source>Boost Jump</source>
-        <translation>助推跳跃</translation>
+        <translation>跳跃突击</translation>
     </message>
     <message>
         <source>Lunatic High</source>
-        <translation>疯狂高度</translation>
+        <translation>狂乱时刻</translation>
     </message>
     <message>
         <source>Blade Beam</source>
-        <translation>刀刃光束</translation>
+        <translation>剑刃光束</translation>
     </message>
     <message>
         <source>Earth Rave</source>
-        <translation>大地狂舞</translation>
+        <translation>大地怒吼</translation>
     </message>
     <message>
         <source>Meteorain</source>
@@ -4949,23 +4949,23 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Waterkick</source>
-        <translation>水踢</translation>
+        <translation>水击掌</translation>
     </message>
     <message>
         <source>Clear Tranquil</source>
-        <translation>清澈宁静</translation>
+        <translation>净化静心</translation>
     </message>
     <message>
         <source>Catastrophe</source>
-        <translation>灾难</translation>
+        <translation>灾祸之光</translation>
     </message>
     <message>
         <source>Fury Brand</source>
-        <translation>狂怒烙印</translation>
+        <translation>愤怒祈愿</translation>
     </message>
     <message>
         <source>Sled Fang</source>
-        <translation>雪橇獠牙</translation>
+        <translation>冲刺之爪</translation>
     </message>
     <message>
         <source>Red XIII</source>
@@ -4973,7 +4973,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Landscaper</source>
-        <translation>景观师</translation>
+        <translation>山崩地裂</translation>
     </message>
     <message>
         <source>Y.Cloud</source>
@@ -4981,27 +4981,27 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>All Creation</source>
-        <translation>万物创造</translation>
+        <translation>万象归一</translation>
     </message>
     <message>
         <source>Hyper Jump</source>
-        <translation>超跳跃</translation>
+        <translation>超级跳跃</translation>
     </message>
     <message>
         <source>Finishing Touch</source>
-        <translation>终结技</translation>
+        <translation>画龙点睛</translation>
     </message>
     <message>
         <source>Meteodrive</source>
-        <translation>流星驱动</translation>
+        <translation>流星摔</translation>
     </message>
     <message>
         <source>Somersault</source>
-        <translation>空翻</translation>
+        <translation>翻滚踢</translation>
     </message>
     <message>
         <source>Dolphin Blow</source>
-        <translation>海豚冲击</translation>
+        <translation>海豚踢</translation>
     </message>
     <message>
         <source>Vincent</source>
@@ -5009,19 +5009,19 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Grenade Bomb</source>
-        <translation>手榴弹</translation>
+        <translation>榴弹爆破</translation>
     </message>
     <message>
         <source>Climhazzard</source>
-        <translation>攀岩危机</translation>
+        <translation>连环斩</translation>
     </message>
     <message>
         <source>Big Shot</source>
-        <translation>大魄力射击</translation>
+        <translation>威力射击</translation>
     </message>
     <message>
         <source>Highwind</source>
-        <translation>高空风暴</translation>
+        <translation>飞空艇</translation>
     </message>
 </context>
 <context>
@@ -5048,7 +5048,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Gatling Gun</source>
-        <translation>格林机枪</translation>
+        <translation>加德林枪</translation>
     </message>
     <message>
         <source>Fire</source>
@@ -5076,7 +5076,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Soft</source>
-        <translation>软</translation>
+        <translation>金针</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -5096,7 +5096,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Full Metal Staff</source>
-        <translation>全金属杖</translation>
+        <translation>全金属手杖</translation>
     </message>
     <message>
         <source>Long Range Weapon</source>
@@ -5104,7 +5104,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Super Sweeper</source>
-        <translation>超级清扫机</translation>
+        <translation>超级扫除机</translation>
     </message>
     <message>
         <source>Red M-phone</source>
@@ -5112,27 +5112,27 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Drill Arm</source>
-        <translation>钻头臂</translation>
+        <translation>钻孔手臂</translation>
     </message>
     <message>
         <source>Atomic Scissors</source>
-        <translation>原子剪</translation>
+        <translation>原子能剪</translation>
     </message>
     <message>
         <source>Final Heaven</source>
-        <translation>最终天堂</translation>
+        <translation>终极天堂</translation>
     </message>
     <message>
         <source>Speed Source</source>
-        <translation>速度源泉</translation>
+        <translation>速度之源</translation>
     </message>
     <message>
         <source>Impaler</source>
-        <translation>穿刺者</translation>
+        <translation>变形药</translation>
     </message>
     <message>
         <source>Chaos</source>
-        <translation>混沌</translation>
+        <translation>混沌魔神</translation>
     </message>
     <message>
         <source>Death</source>
@@ -5152,7 +5152,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Great Gospel</source>
-        <translation>伟大福音</translation>
+        <translation>大祈祷术</translation>
     </message>
     <message>
         <source>Haste</source>
@@ -5160,7 +5160,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Hyper</source>
-        <translation>超级</translation>
+        <translation>兴奋剂</translation>
     </message>
     <message>
         <source>Punch</source>
@@ -5168,11 +5168,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Regen</source>
-        <translation>回复</translation>
+        <translation>再生</translation>
     </message>
     <message>
         <source>Gigas Armlet</source>
-        <translation>巨人之臂</translation>
+        <translation>基加司手镯</translation>
     </message>
     <message>
         <source>Shoot</source>
@@ -5184,11 +5184,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Spear</source>
-        <translation>长枪</translation>
+        <translation>枪矛</translation>
     </message>
     <message>
         <source>Twin Viper</source>
-        <translation>双蛇</translation>
+        <translation>双首大蛇</translation>
     </message>
     <message>
         <source>Water</source>
@@ -5200,7 +5200,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sniper CR</source>
-        <translation>狙击手CR</translation>
+        <translation>狙击手步枪</translation>
     </message>
     <message>
         <source>Luchile Nut</source>
@@ -5224,7 +5224,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Magic Source</source>
-        <translation>魔法源泉</translation>
+        <translation>魔法之源</translation>
     </message>
     <message>
         <source>Magic &amp; Spirit +30</source>
@@ -5252,11 +5252,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Power Source</source>
-        <translation>力量源泉</translation>
+        <translation>力量之源</translation>
     </message>
     <message>
         <source>Aegis Armlet</source>
-        <translation>宙斯盾手镯</translation>
+        <translation>庇护手镯</translation>
     </message>
     <message>
         <source>Vitality &amp; Spirit +50</source>
@@ -5268,15 +5268,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Turbo Ether</source>
-        <translation>超级以太</translation>
+        <translation>超以太</translation>
     </message>
     <message>
         <source>Venus Gospel</source>
-        <translation>金星福音</translation>
+        <translation>维纳斯的福音</translation>
     </message>
     <message>
         <source>Heavy Vulcan</source>
-        <translation>重型火神炮</translation>
+        <translation>强力火神炮</translation>
     </message>
     <message>
         <source>Uses [Fire2] on all opponents</source>
@@ -5288,7 +5288,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Titan Bangle</source>
-        <translation>泰坦手镯</translation>
+        <translation>巨人手镯</translation>
     </message>
     <message>
         <source>Uses [Poison/Confu/Sleepel/Silence/Small/Frog]</source>
@@ -5300,7 +5300,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Hero Drink</source>
-        <translation>英雄之饮</translation>
+        <translation>英雄之药</translation>
     </message>
     <message>
         <source>Cures [Frog]</source>
@@ -5324,7 +5324,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Guard Source</source>
-        <translation>防御源泉</translation>
+        <translation>防御之源</translation>
     </message>
     <message>
         <source>Map of another world. It Slumbers with sunken ships</source>
@@ -5364,11 +5364,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Dream Powder</source>
-        <translation>梦境粉</translation>
+        <translation>梦之粉</translation>
     </message>
     <message>
         <source>Silver Rifle</source>
-        <translation>银色步枪</translation>
+        <translation>银玉铁炮</translation>
     </message>
     <message>
         <source>Drains HP out of one opponent</source>
@@ -5388,7 +5388,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>HP Shout</source>
-        <translation>HP呐喊</translation>
+        <translation>生命呐喊</translation>
     </message>
     <message>
         <source>It increases each status but...</source>
@@ -5400,7 +5400,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>X-Potion</source>
-        <translation>X型回复药</translation>
+        <translation>特级回复药</translation>
     </message>
     <message>
         <source>Hi-Potion</source>
@@ -5412,7 +5412,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Escort Guard</source>
-        <translation>护卫</translation>
+        <translation>守护卫士</translation>
     </message>
     <message>
         <source>Protects against all abnormal status</source>
@@ -5424,11 +5424,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Quicksilver</source>
-        <translation>水银</translation>
+        <translation>银色快手</translation>
     </message>
     <message>
         <source>Striking Staff</source>
-        <translation>打击杖</translation>
+        <translation>锤击之杖</translation>
     </message>
     <message>
         <source>Restores HP as you walk</source>
@@ -5444,11 +5444,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Solid Bazooka</source>
-        <translation>固体火箭筒</translation>
+        <translation>轻量化火箭筒</translation>
     </message>
     <message>
         <source>Spring Gun Clip</source>
-        <translation>弹簧枪夹</translation>
+        <translation>守护者发夹</translation>
     </message>
     <message>
         <source>Fully Restores all Members HP/MP</source>
@@ -5464,11 +5464,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Star Pendant</source>
-        <translation>星形吊坠</translation>
+        <translation>星状垂饰</translation>
     </message>
     <message>
         <source>Adaman Bangle</source>
-        <translation>金刚手镯</translation>
+        <translation>阿达曼手镯</translation>
     </message>
     <message>
         <source>Protects against [Paralyze/Petrify/Slow-numb]</source>
@@ -5476,19 +5476,19 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Crystal Comb</source>
-        <translation>水晶梳</translation>
+        <translation>水晶梳子</translation>
     </message>
     <message>
         <source>Bolt Ring</source>
-        <translation>雷电戒指</translation>
+        <translation>雷电指环</translation>
     </message>
     <message>
         <source>Viper Halberd</source>
-        <translation>毒蛇戟</translation>
+        <translation>蛇矛</translation>
     </message>
     <message>
         <source>Max Ray</source>
-        <translation>最大射线</translation>
+        <translation>终极射线</translation>
     </message>
     <message>
         <source>Mast Ax</source>
@@ -5496,7 +5496,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Metal Knuckle</source>
-        <translation>金属指虎</translation>
+        <translation>金属拳套</translation>
     </message>
     <message>
         <source>Power &amp; Vitality +30</source>
@@ -5504,7 +5504,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Umbrella</source>
-        <translation>伞</translation>
+        <translation>雨伞</translation>
     </message>
     <message>
         <source>A prefect copy of Sephiroth&apos;s sword!</source>
@@ -5516,15 +5516,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Protects against [Darkness]</source>
-        <translation>防止[黑暗]</translation>
+        <translation>防止[失明]</translation>
     </message>
     <message>
         <source>Wizard Staff</source>
-        <translation>巫师杖</translation>
+        <translation>巫师手杖</translation>
     </message>
     <message>
         <source>Rocket Punch</source>
-        <translation>火箭拳</translation>
+        <translation>金刚飞拳</translation>
     </message>
     <message>
         <source>Initial equip. Long Range Weapon</source>
@@ -5548,7 +5548,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Spirit Lance</source>
-        <translation>灵魂长枪</translation>
+        <translation>隆基诺斯之枪</translation>
     </message>
     <message>
         <source>Automatically puts you in [Berserk]</source>
@@ -5556,7 +5556,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sprint Shoes</source>
-        <translation>冲刺鞋</translation>
+        <translation>全速鞋</translation>
     </message>
     <message>
         <source>Wizer Staff</source>
@@ -5564,7 +5564,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Power Wrist</source>
-        <translation>力量腕带</translation>
+        <translation>力量之腕</translation>
     </message>
     <message>
         <source>Shinra armored &apos;attack&apos; soldiers: 12 in the Set!</source>
@@ -5572,15 +5572,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Motor Drive</source>
-        <translation>电机驱动</translation>
+        <translation>摩托手套</translation>
     </message>
     <message>
         <source>Mythril Armlet</source>
-        <translation>秘银手镯</translation>
+        <translation>米斯里鲁臂环</translation>
     </message>
     <message>
         <source>T/S Bomb</source>
-        <translation>T/S炸弹</translation>
+        <translation>时空弹</translation>
     </message>
     <message>
         <source>Explosive damage against all opponents</source>
@@ -5588,7 +5588,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Four Slots</source>
-        <translation>四孔</translation>
+        <translation>四槽手镯</translation>
     </message>
     <message>
         <source>Molotov</source>
@@ -5608,7 +5608,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>A M Cannon</source>
-        <translation>A M加农炮</translation>
+        <translation>AM加农炮</translation>
     </message>
     <message>
         <source>Restores life</source>
@@ -5616,7 +5616,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Dazers</source>
-        <translation>眩晕弹</translation>
+        <translation>麻痹针</translation>
     </message>
     <message>
         <source>Bolt Armlet</source>
@@ -5632,7 +5632,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Gold Armlet</source>
-        <translation>黄金手镯</translation>
+        <translation>金臂环</translation>
     </message>
     <message>
         <source>Raises [Strength]</source>
@@ -5644,11 +5644,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Pile Banger</source>
-        <translation>打桩机</translation>
+        <translation>碎骨巨叉</translation>
     </message>
     <message>
         <source>Flayer</source>
-        <translation>剥皮者</translation>
+        <translation>方天画戟</translation>
     </message>
     <message>
         <source>Inflict:</source>
@@ -5656,11 +5656,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Rune Armlet</source>
-        <translation>符文手镯</translation>
+        <translation>古文臂环</translation>
     </message>
     <message>
         <source>Conformer</source>
-        <translation>顺从者</translation>
+        <translation>不俱戴天</translation>
     </message>
     <message>
         <source>Iron Bangle</source>
@@ -5680,7 +5680,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Crystal Cross</source>
-        <translation>水晶十字</translation>
+        <translation>水晶十字剑</translation>
     </message>
     <message>
         <source>Crystal Glove</source>
@@ -5700,15 +5700,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Omnislash</source>
-        <translation>全能斩</translation>
+        <translation>超究武神霸斩</translation>
     </message>
     <message>
         <source>Mystile</source>
-        <translation>神秘之服</translation>
+        <translation>米斯迪尔手镯</translation>
     </message>
     <message>
         <source>Lariat</source>
-        <translation>套索</translation>
+        <translation>短管霰弹枪</translation>
     </message>
     <message>
         <source>Initial equipment</source>
@@ -5716,11 +5716,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>HypnoCrown</source>
-        <translation>催眠皇冠</translation>
+        <translation>休普诺王冠</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation>镜子</translation>
+        <translation>反射镜</translation>
     </message>
     <message>
         <source>Choco Feather</source>
@@ -5728,7 +5728,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cures [Darkness]</source>
-        <translation>解除[黑暗]</translation>
+        <translation>解除[失明]</translation>
     </message>
     <message>
         <source>Automatically sets up [Reflect]</source>
@@ -5736,7 +5736,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>S-mine</source>
-        <translation>S型地雷</translation>
+        <translation>超级地雷</translation>
     </message>
     <message>
         <source>Vitality +10</source>
@@ -5760,11 +5760,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Ribbon</source>
-        <translation>丝带</translation>
+        <translation>缎带</translation>
     </message>
     <message>
         <source>Shield</source>
-        <translation>盾牌</translation>
+        <translation>护盾</translation>
     </message>
     <message>
         <source>Vagyrisk Claw</source>
@@ -5776,7 +5776,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Tissue</source>
-        <translation>纸巾</translation>
+        <translation>织物</translation>
     </message>
     <message>
         <source>Uses [Reflect] on all allies</source>
@@ -5784,7 +5784,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cornucopia</source>
-        <translation>丰饶角</translation>
+        <translation>万宝槌</translation>
     </message>
     <message>
         <source>Phoenix Down</source>
@@ -5792,15 +5792,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Echo Screen</source>
-        <translation>回声屏幕</translation>
+        <translation>回声草</translation>
     </message>
     <message>
         <source>Mind Source</source>
-        <translation>精神源泉</translation>
+        <translation>精神之源</translation>
     </message>
     <message>
         <source>Luck Source</source>
-        <translation>幸运源泉</translation>
+        <translation>幸运之源</translation>
     </message>
     <message>
         <source>Fully Restores HP/MP</source>
@@ -5808,7 +5808,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Learn Limit Skill [Chaos]</source>
-        <translation>学习极限技[混沌]</translation>
+        <translation>学习极限技[混沌魔神]</translation>
     </message>
     <message>
         <source>Increases Stealing rate</source>
@@ -5816,11 +5816,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>M-Tentacles</source>
-        <translation>M触手</translation>
+        <translation>毒触手</translation>
     </message>
     <message>
         <source>Grand Glove</source>
-        <translation>大拳套</translation>
+        <translation>高级手套</translation>
     </message>
     <message>
         <source>Diamond Pin</source>
@@ -5828,7 +5828,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Speed Drink</source>
-        <translation>速度之饮</translation>
+        <translation>速度之药</translation>
     </message>
     <message>
         <source>Guard Stick</source>
@@ -5840,7 +5840,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Razor Ring</source>
-        <translation>剃刀戒指</translation>
+        <translation>圆月轮</translation>
     </message>
     <message>
         <source>Drains 1/2 [Fire/Cold/Lightning] attack</source>
@@ -5848,7 +5848,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cannon Ball</source>
-        <translation>炮弹</translation>
+        <translation>加农球锤</translation>
     </message>
     <message>
         <source>Dragon Claw</source>
@@ -5860,7 +5860,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Poison Ring</source>
-        <translation>毒素戒指</translation>
+        <translation>毒指环</translation>
     </message>
     <message>
         <source>Bolt Plume</source>
@@ -5868,7 +5868,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Wind Slash</source>
-        <translation>风之斩</translation>
+        <translation>风斩</translation>
     </message>
     <message>
         <source>Krakka Greens</source>
@@ -5876,15 +5876,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Learn Limit Skill [Final Heaven]</source>
-        <translation>学习极限技[最终天堂]</translation>
+        <translation>学习极限技[终极天堂]</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Highwind]</source>
-        <translation>学习极限技[高空风暴]</translation>
+        <translation>学习极限技[飞空艇]</translation>
     </message>
     <message>
         <source>Aurora Rod</source>
-        <translation>极光杖</translation>
+        <translation>极地之杖</translation>
     </message>
     <message>
         <source>Raises [Vitality]</source>
@@ -5900,7 +5900,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Superball</source>
-        <translation>超级球</translation>
+        <translation>超级棒球</translation>
     </message>
     <message>
         <source>Petrify</source>
@@ -5912,11 +5912,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Shinra Alpha</source>
-        <translation>神罗阿尔法</translation>
+        <translation>神罗甲型防具改</translation>
     </message>
     <message>
         <source>Leather Glove</source>
-        <translation>皮手套</translation>
+        <translation>皮革手套</translation>
     </message>
     <message>
         <source>Gold Barrette</source>
@@ -5924,7 +5924,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Seraph Comb</source>
-        <translation>炽天使梳</translation>
+        <translation>赛拉夫之梳</translation>
     </message>
     <message>
         <source>Pepio Nut</source>
@@ -5932,7 +5932,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>W Machine Gun</source>
-        <translation>W机关枪</translation>
+        <translation>多管机枪</translation>
     </message>
     <message>
         <source>Uses [Death] on all opponents</source>
@@ -5940,7 +5940,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Rune Blade</source>
-        <translation>符文之刃</translation>
+        <translation>古代剑</translation>
     </message>
     <message>
         <source>Women&apos;s Armlet nullifies [Fire/Cold/Gravity/Holy]</source>
@@ -5960,7 +5960,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Force Stealer</source>
-        <translation>力量窃取者</translation>
+        <translation>穷力剑</translation>
     </message>
     <message>
         <source>Power up when [Near death]</source>
@@ -5972,7 +5972,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Ragnarok</source>
-        <translation>诸神黄昏</translation>
+        <translation>诸神之黄昏</translation>
     </message>
     <message>
         <source>Saraha Nut</source>
@@ -5988,7 +5988,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Magic Shuriken</source>
-        <translation>魔法手里剑</translation>
+        <translation>风魔手里剑</translation>
     </message>
     <message>
         <source>Talisman</source>
@@ -6000,7 +6000,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Adaman Clip</source>
-        <translation>金刚夹</translation>
+        <translation>亚达曼发夹</translation>
     </message>
     <message>
         <source>War Gong</source>
@@ -6020,7 +6020,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Shinra Beta</source>
-        <translation>神罗测试版</translation>
+        <translation>神罗安式防具</translation>
     </message>
     <message>
         <source>Fire Fang</source>
@@ -6032,7 +6032,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Fire Ring</source>
-        <translation>火之戒</translation>
+        <translation>火焰指环</translation>
     </message>
     <message>
         <source>Pram Nut</source>
@@ -6052,7 +6052,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Hardedge</source>
-        <translation>硬刃</translation>
+        <translation>硬刃剑</translation>
     </message>
     <message>
         <source>Battery</source>
@@ -6064,7 +6064,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Darkness</source>
-        <translation>黑暗</translation>
+        <translation>失明</translation>
     </message>
     <message>
         <source>Masamune</source>
@@ -6072,7 +6072,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Partisan</source>
-        <translation>党派</translation>
+        <translation>羽翼刺枪</translation>
     </message>
     <message>
         <source>Uses whirlwind on all opponents</source>
@@ -6080,11 +6080,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Learn Limit Skill [Great Gospel]</source>
-        <translation>学习极限技[伟大福音]</translation>
+        <translation>学习极限技[大祈祷术]</translation>
     </message>
     <message>
         <source>Mythril Rod</source>
-        <translation>神话之杖</translation>
+        <translation>米斯里鲁杖</translation>
     </message>
     <message>
         <source>Uses [Mini] on one opponent</source>
@@ -6100,11 +6100,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cauldron</source>
-        <translation>大锅</translation>
+        <translation>魔女的大锅</translation>
     </message>
     <message>
         <source>Premium Heart</source>
-        <translation>尊贵之心</translation>
+        <translation>珍视之心</translation>
     </message>
     <message>
         <source>Remove:</source>
@@ -6124,7 +6124,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Organics</source>
-        <translation>有机体</translation>
+        <translation>有机剑</translation>
     </message>
     <message>
         <source>Petrifies one opponent</source>
@@ -6148,11 +6148,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Oritsuru</source>
-        <translation>折鹤</translation>
+        <translation>折纸鹤</translation>
     </message>
     <message>
         <source>Lunar Curtain</source>
-        <translation>月亮帘幕</translation>
+        <translation>月之幕</translation>
     </message>
     <message>
         <source>Desert Rose</source>
@@ -6172,7 +6172,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Grow Lance</source>
-        <translation>成长之枪</translation>
+        <translation>强化长枪</translation>
     </message>
     <message>
         <source>Slows all opponents</source>
@@ -6180,7 +6180,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Microlaser</source>
-        <translation>微型激光</translation>
+        <translation>微型雷射</translation>
     </message>
     <message>
         <source>Porov Nut</source>
@@ -6196,15 +6196,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Curse Ring</source>
-        <translation>诅咒戒指</translation>
+        <translation>诅咒指环</translation>
     </message>
     <message>
         <source>Minerva Band</source>
-        <translation>密涅瓦之带</translation>
+        <translation>智慧缎带</translation>
     </message>
     <message>
         <source>Ice Ring</source>
-        <translation>冰之戒</translation>
+        <translation>冰冻指环</translation>
     </message>
     <message>
         <source>Sadness</source>
@@ -6216,11 +6216,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Apocalypse</source>
-        <translation>启示</translation>
+        <translation>启示录之剑</translation>
     </message>
     <message>
         <source>Uses [Darkness] against one opponent</source>
-        <translation>对一名敌人使用[黑暗]</translation>
+        <translation>对一名敌人使用[失明]</translation>
     </message>
     <message>
         <source>Fairy Ring</source>
@@ -6228,15 +6228,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Fairy Tale</source>
-        <translation>童话</translation>
+        <translation>妖精物语</translation>
     </message>
     <message>
         <source>Fury Ring</source>
-        <translation>愤怒戒指</translation>
+        <translation>狂怒指环</translation>
     </message>
     <message>
         <source>Peacemaker</source>
-        <translation>和平制造者</translation>
+        <translation>调停者</translation>
     </message>
     <message>
         <source>Decreases all elemental attacks by 1/2</source>
@@ -6244,7 +6244,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>4-point Shuriken</source>
-        <translation>四角手里剑</translation>
+        <translation>十字手里剑</translation>
     </message>
     <message>
         <source>Stops all opponents</source>
@@ -6252,15 +6252,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Ultima Weapon</source>
-        <translation>究极武器</translation>
+        <translation>创世兵器</translation>
     </message>
     <message>
         <source>Winchester</source>
-        <translation>温彻斯特</translation>
+        <translation>温彻斯特步枪</translation>
     </message>
     <message>
         <source>Yoshiyuki</source>
-        <translation>吉行</translation>
+        <translation>陆奥守吉行</translation>
     </message>
     <message>
         <source>Restores 100 HP</source>
@@ -6276,7 +6276,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Shrivel</source>
-        <translation>枯萎</translation>
+        <translation>萎缩药</translation>
     </message>
     <message>
         <source>Silence</source>
@@ -6284,7 +6284,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Scimitar</source>
-        <translation>弯刀</translation>
+        <translation>青龙偃月刀</translation>
     </message>
     <message>
         <source>Cures abnormal status</source>
@@ -6292,7 +6292,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Circlet</source>
-        <translation>头冠</translation>
+        <translation>头饰</translation>
     </message>
     <message>
         <source>Loco weed</source>
@@ -6300,7 +6300,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Diamond Knuckle</source>
-        <translation>钻石指虎</translation>
+        <translation>钻石拳套</translation>
     </message>
     <message>
         <source>Raises [Dexterity]</source>
@@ -6312,7 +6312,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Slash Lance</source>
-        <translation>斩击长枪</translation>
+        <translation>砍杀之枪</translation>
     </message>
     <message>
         <source>Kiss of Death</source>
@@ -6324,7 +6324,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Kaiser Knuckle</source>
-        <translation>凯撒指虎</translation>
+        <translation>恺撒指套</translation>
     </message>
     <message>
         <source>Ghost Hand</source>
@@ -6336,7 +6336,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Guide Book</source>
-        <translation>指南书</translation>
+        <translation>导游簿</translation>
     </message>
     <message>
         <source>White Cape</source>
@@ -6360,15 +6360,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Earth Harp</source>
-        <translation>大地之琴</translation>
+        <translation>大地竖琴</translation>
     </message>
     <message>
         <source>Mythril Claw</source>
-        <translation>神话之爪</translation>
+        <translation>米斯理鲁爪</translation>
     </message>
     <message>
         <source>Mythril Clip</source>
-        <translation>神话之夹</translation>
+        <translation>米斯里鲁发夹</translation>
     </message>
     <message>
         <source>Nullifies [Cold] attacks</source>
@@ -6376,11 +6376,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Spider Web</source>
-        <translation>蜘蛛网</translation>
+        <translation>蜘网</translation>
     </message>
     <message>
         <source>Shortbarrel</source>
-        <translation>短管枪</translation>
+        <translation>短管步枪</translation>
     </message>
     <message>
         <source>Drains [Cold] attacks</source>
@@ -6392,7 +6392,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Catastrophe</source>
-        <translation>灾难</translation>
+        <translation>灾祸之光</translation>
     </message>
     <message>
         <source>Antarctic Wind</source>
@@ -6408,7 +6408,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Edincoat</source>
-        <translation>爱丁外套</translation>
+        <translation>爱丁之衣</translation>
     </message>
     <message>
         <source>Raises [Spirit]</source>
@@ -6416,7 +6416,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Enhance Sword</source>
-        <translation>强化之剑</translation>
+        <translation>魔剑</translation>
     </message>
     <message>
         <source>1/35 soldier</source>
@@ -6424,7 +6424,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Mythril Saber</source>
-        <translation>神话军刀</translation>
+        <translation>米斯里鲁刀</translation>
     </message>
     <message>
         <source>Silver Barrette</source>
@@ -6432,7 +6432,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Autograph</source>
-        <translation>签名</translation>
+        <translation>手稿</translation>
     </message>
     <message>
         <source>Holy Torch</source>
@@ -6464,7 +6464,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Dragoon Lance</source>
-        <translation>龙骑士之枪</translation>
+        <translation>龙枪</translation>
     </message>
     <message>
         <source>Gysahl Greens</source>
@@ -6476,11 +6476,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Jem Ring</source>
-        <translation>宝石戒指</translation>
+        <translation>石指环</translation>
     </message>
     <message>
         <source>Long Barrel R</source>
-        <translation>长管R</translation>
+        <translation>加长型步枪</translation>
     </message>
     <message>
         <source>Zeio Nut</source>
@@ -6496,11 +6496,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Death Penalty</source>
-        <translation>死刑</translation>
+        <translation>死刑制裁</translation>
     </message>
     <message>
         <source>Warrior Bangle</source>
-        <translation>战士手镯</translation>
+        <translation>勇士手镯</translation>
     </message>
     <message>
         <source>Nullify:</source>
@@ -6512,7 +6512,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>All Creation</source>
-        <translation>万物创造</translation>
+        <translation>万象归一</translation>
     </message>
     <message>
         <source>Automatically sets up [Barrier/MBarrier]</source>
@@ -6520,35 +6520,35 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Water Ring</source>
-        <translation>水之戒</translation>
+        <translation>水指环</translation>
     </message>
     <message>
         <source>Tiger Fang</source>
-        <translation>虎牙</translation>
+        <translation>虎爪</translation>
     </message>
     <message>
         <source>Aurora Armlet</source>
-        <translation>极光臂章</translation>
+        <translation>极光手镯</translation>
     </message>
     <message>
         <source>Princess Guard</source>
-        <translation>公主守卫</translation>
+        <translation>公主守护杖</translation>
     </message>
     <message>
         <source>Protects against [Poison/Darkness]</source>
-        <translation>免疫[中毒/黑暗]</translation>
+        <translation>免疫[中毒/失明]</translation>
     </message>
     <message>
         <source>Supershot ST</source>
-        <translation>超级射击 ST</translation>
+        <translation>高级霰弹枪</translation>
     </message>
     <message>
         <source>Centclip</source>
-        <translation>百分夹</translation>
+        <translation>神圣发夹</translation>
     </message>
     <message>
         <source>Buntline</source>
-        <translation>邦特线</translation>
+        <translation>长管左轮</translation>
     </message>
     <message>
         <source>D.Sentence</source>
@@ -6576,11 +6576,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Assault Gun</source>
-        <translation>突击枪</translation>
+        <translation>突击机枪</translation>
     </message>
     <message>
         <source>Enemy Launcher</source>
-        <translation>敌人发射器</translation>
+        <translation>高能榴弹</translation>
     </message>
     <message>
         <source>Murasame</source>
@@ -6592,7 +6592,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Gold M-phone</source>
-        <translation>金色手机</translation>
+        <translation>金色扩音器</translation>
     </message>
     <message>
         <source>Restores all lost HP</source>
@@ -6604,15 +6604,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Outsider</source>
-        <translation>局外人</translation>
+        <translation>法外之徒</translation>
     </message>
     <message>
         <source>Dio&apos;s autograph</source>
-        <translation>迪奥的签名</translation>
+        <translation>迪奥的手稿</translation>
     </message>
     <message>
         <source>Safety Bit</source>
-        <translation>安全位</translation>
+        <translation>安全装备</translation>
     </message>
     <message>
         <source>A new machine to protect the reactor!</source>
@@ -6620,11 +6620,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Blue M-phone</source>
-        <translation>蓝色手机</translation>
+        <translation>蓝色扩音器</translation>
     </message>
     <message>
         <source>Platinum Fist</source>
-        <translation>白金之拳</translation>
+        <translation>白金手套</translation>
     </message>
     <message>
         <source>Carbon Bangle</source>
@@ -6648,11 +6648,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Work Glove</source>
-        <translation>工作手套</translation>
+        <translation>军手</translation>
     </message>
     <message>
         <source>Missing Score</source>
-        <translation>遗失的分数</translation>
+        <translation>旭日东升</translation>
     </message>
     <message>
         <source>Swift Bolt</source>
@@ -6676,7 +6676,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Megalixir</source>
-        <translation>万能药</translation>
+        <translation>强力万灵药</translation>
     </message>
     <message>
         <source>Gambler</source>
@@ -6684,7 +6684,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Tough Ring</source>
-        <translation>坚韧戒指</translation>
+        <translation>顽强戒指</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Cosmo Memory]</source>
@@ -6708,15 +6708,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Trumpet Shell</source>
-        <translation>喇叭贝壳</translation>
+        <translation>法螺贝</translation>
     </message>
     <message>
         <source>Powersoul</source>
-        <translation>力量之魂</translation>
+        <translation>绝地拳套</translation>
     </message>
     <message>
         <source>Precious Watch</source>
-        <translation>珍贵手表</translation>
+        <translation>高级手表</translation>
     </message>
     <message>
         <source>Nullifies [Lightning] attacks</source>
@@ -6732,7 +6732,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Right arm</source>
-        <translation>右臂</translation>
+        <translation>炸弹的右手</translation>
     </message>
     <message>
         <source>Lightning</source>
@@ -6744,7 +6744,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Silver Glasses</source>
-        <translation>银框眼镜</translation>
+        <translation>银色眼镜</translation>
     </message>
     <message>
         <source>Calms the hearts of all who hear it</source>
@@ -6776,11 +6776,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Cat&apos;s Bell</source>
-        <translation>猫之铃</translation>
+        <translation>猫铃</translation>
     </message>
     <message>
         <source>Limited Moon</source>
-        <translation>限定之月</translation>
+        <translation>最终满月</translation>
     </message>
     <message>
         <source>Tranquilizer</source>
@@ -6788,11 +6788,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Use This to create a SAVE Point in the &apos;North Cave&apos;</source>
-        <translation>使用此物品可在“北方大空洞”创建存档点</translation>
+        <translation>使用此物品可在“大空洞”创建存档点</translation>
     </message>
     <message>
         <source>Learn Limit Skill [Catastrophe]</source>
-        <translation>学习极限技[灾难]</translation>
+        <translation>学习极限技[灾祸之光]</translation>
     </message>
     <message>
         <source>Tantal Greens</source>
@@ -6804,11 +6804,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Chainsaw</source>
-        <translation>链锯</translation>
+        <translation>电锯手臂</translation>
     </message>
     <message>
         <source>Hairpin</source>
-        <translation>发夹</translation>
+        <translation>发饰</translation>
     </message>
     <message>
         <source>Gravity</source>
@@ -6820,7 +6820,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Silver Armlet</source>
-        <translation>银色臂章</translation>
+        <translation>银臂环</translation>
     </message>
     <message>
         <source>Hawkeye</source>
@@ -6836,11 +6836,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Starlight Phone</source>
-        <translation>星光手机</translation>
+        <translation>星光麦克风</translation>
     </message>
     <message>
         <source>Heaven&apos;s Cloud</source>
-        <translation>天堂之云</translation>
+        <translation>天业云剑</translation>
     </message>
     <message>
         <source>Uses [Quake3] on all opponents</source>
@@ -6860,27 +6860,27 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Prism Staff</source>
-        <translation>棱镜法杖</translation>
+        <translation>棱柱杖</translation>
     </message>
     <message>
         <source>Butterfly Edge</source>
-        <translation>蝴蝶之刃</translation>
+        <translation>蝴蝶刀</translation>
     </message>
     <message>
         <source>Dragon Armlet</source>
-        <translation>龙之臂章</translation>
+        <translation>龙手镯</translation>
     </message>
     <message>
         <source>Save Crystal</source>
-        <translation>存档水晶</translation>
+        <translation>记录水晶</translation>
     </message>
     <message>
         <source>Protect Vest</source>
-        <translation>保护背心</translation>
+        <translation>防弹背心</translation>
     </message>
     <message>
         <source>Protect Ring</source>
-        <translation>保护戒指</translation>
+        <translation>保护指环</translation>
     </message>
     <message>
         <source>Spiral Shuriken</source>
@@ -6888,7 +6888,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Magic Comb</source>
-        <translation>魔法梳</translation>
+        <translation>魔法梳子</translation>
     </message>
     <message>
         <source>Cures [Sadness]</source>
@@ -6896,7 +6896,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Eye drop</source>
-        <translation>眼药水</translation>
+        <translation>眼药</translation>
     </message>
     <message>
         <source>Creates [Barrier] around all allies</source>
@@ -6904,15 +6904,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Shrapnel</source>
-        <translation>弹片</translation>
+        <translation>榴霰弹</translation>
     </message>
     <message>
         <source>Plus Barrette</source>
-        <translation>加号发夹</translation>
+        <translation>白金发夹</translation>
     </message>
     <message>
         <source>Ziedrich</source>
-        <translation>泽德里奇</translation>
+        <translation>杰德里奇</translation>
     </message>
     <message>
         <source>When you want to breed Chocobos...</source>
@@ -6920,15 +6920,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Masamune Blade</source>
-        <translation>正宗之刃</translation>
+        <translation>正宗刀</translation>
     </message>
     <message>
         <source>8-inch Cannon</source>
-        <translation>8英寸大炮</translation>
+        <translation>8英寸加农炮</translation>
     </message>
     <message>
         <source>Highwind</source>
-        <translation>高风</translation>
+        <translation>飞空艇</translation>
     </message>
     <message>
         <source>Sylkis Greens</source>
@@ -6936,11 +6936,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Reflect Ring</source>
-        <translation>反射戒指</translation>
+        <translation>反射指环</translation>
     </message>
     <message>
         <source>Learn Limit Skill [All Creation]</source>
-        <translation>学习极限技[万物创造]</translation>
+        <translation>学习极限技[万象归一]</translation>
     </message>
     <message>
         <source>Deadly Waste</source>
@@ -7095,7 +7095,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Darkness</source>
-        <translation>黑暗</translation>
+        <translation>失明</translation>
     </message>
     <message>
         <source>Attack:</source>
@@ -7255,11 +7255,11 @@ The km/h speeds are calculated while playing </source>
     <name>FF7Achievements</name>
     <message>
         <source>Dice</source>
-        <translation>骰子</translation>
+        <translation>掷骰子</translation>
     </message>
     <message>
         <source>Final Heaven</source>
-        <translation>最终天堂</translation>
+        <translation>终极天堂</translation>
     </message>
     <message>
         <source>Materia Overlord</source>
@@ -7267,11 +7267,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Chaos</source>
-        <translation>混沌</translation>
+        <translation>混沌魔神</translation>
     </message>
     <message>
         <source>Great Gospel</source>
-        <translation>伟大福音</translation>
+        <translation>大祈祷术</translation>
     </message>
     <message>
         <source>First Battle</source>
@@ -7299,15 +7299,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Greased Lightning</source>
-        <translation>疾电</translation>
+        <translation>闪电突袭</translation>
     </message>
     <message>
         <source>Galian Beast</source>
-        <translation>迦利安野兽</translation>
+        <translation>野兽形态</translation>
     </message>
     <message>
         <source>Braver</source>
-        <translation>英勇</translation>
+        <translation>一刀两断</translation>
     </message>
     <message>
         <source>Knights of the Round</source>
@@ -7339,7 +7339,7 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Beat Rush</source>
-        <translation>节拍冲刺</translation>
+        <translation>猛袭拳</translation>
     </message>
     <message>
         <source>Bahamut Zero</source>
@@ -7355,11 +7355,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Boost Jump</source>
-        <translation>助推跳跃</translation>
+        <translation>跳跃突击</translation>
     </message>
     <message>
         <source>Catastrophe</source>
-        <translation>灾难</translation>
+        <translation>灾祸之光</translation>
     </message>
     <message>
         <source>Master Materia</source>
@@ -7367,11 +7367,11 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Sled Fang</source>
-        <translation>雪橇牙</translation>
+        <translation>冲刺之爪</translation>
     </message>
     <message>
         <source>All Creation</source>
-        <translation>万物创造</translation>
+        <translation>万象归一</translation>
     </message>
     <message>
         <source>Vincent</source>
@@ -7387,15 +7387,15 @@ The km/h speeds are calculated while playing </source>
     </message>
     <message>
         <source>Ultimate Weapon</source>
-        <translation>究极武器</translation>
+        <translation>创世武器</translation>
     </message>
     <message>
         <source>Big Shot</source>
-        <translation>大爆发</translation>
+        <translation>威力射击</translation>
     </message>
     <message>
         <source>Highwind</source>
-        <translation>高风</translation>
+        <translation>飞空艇</translation>
     </message>
 </context>
 <context>
