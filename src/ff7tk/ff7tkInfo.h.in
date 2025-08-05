@@ -84,7 +84,11 @@ public:
         for (const QString &translation : std::as_const(langList)) {
             QTranslator *translator = new QTranslator;
             std::ignore = translator->load(translation, dir.absolutePath());
-            QString lang = translation.mid(6, 2);
+            static const QRegularExpression re(QStringLiteral(R"(^ff7tk_([a-z]{2}(?:_[A-Z]{2})?)\.qm$)"));
+            QRegularExpressionMatch match = re.match(translation);
+            if (!match.hasMatch())
+                continue;
+            QString lang = match.captured(1);
             ff7tk_translations.insert(lang, translator);
         }
         return ff7tk_translations;
