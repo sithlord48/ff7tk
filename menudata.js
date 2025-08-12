@@ -155,7 +155,7 @@ var menudata={children:[
 {text:"y",url:"functions_eval_y.html#index_y"},
 {text:"z",url:"functions_eval_z.html#index_z"}]},
 {text:"Properties",url:"functions_prop.html"},
-{text:"Related Functions",url:"functions_rela.html"}]}]},
+{text:"Related Symbols",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[

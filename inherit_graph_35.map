@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classLgpToc.html" title=" " alt="" coords="5,5,72,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,58,56"/>
+<area shape="rect" id="Node000001" href="$class_iso_archive_i_o.html" title=" " alt="" coords="106,5,203,31"/>
+<area shape="poly" id="edge9_Node000000_Node000001" title=" " alt="" coords="73,32,105,26,106,31,74,38"/>
+<area shape="rect" id="Node000002" href="$class_q_locked_file.html" title=" " alt="" coords="107,55,202,80"/>
+<area shape="poly" id="edge10_Node000000_Node000002" title=" " alt="" coords="74,49,107,56,106,61,73,54"/>
 </map>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['conflict_3786',['conflict',['../structLgpTocEntry.html#a7b8589ebaad8c3cd6ff5baddf24173fa',1,'LgpTocEntry']]],
-  ['copyright_5ffile_5fid_3787',['copyright_file_id',['../structVolumeDescriptor2.html#ade5a60a923e4bf0ee30f5a8d394aeff0',1,'VolumeDescriptor2']]],
-  ['creation_5fdate_3788',['creation_date',['../structVolumeDescriptor2.html#a5120962558a7fb0a884a080abfac4d7d',1,'VolumeDescriptor2']]]
+  ['conflict_0',['conflict',['../struct_lgp_toc_entry.html#a7b8589ebaad8c3cd6ff5baddf24173fa',1,'LgpTocEntry']]],
+  ['copyright_5ffile_5fid_1',['copyright_file_id',['../struct_volume_descriptor2.html#ade5a60a923e4bf0ee30f5a8d394aeff0',1,'VolumeDescriptor2']]],
+  ['creation_5fdate_2',['creation_date',['../struct_volume_descriptor2.html#a5120962558a7fb0a884a080abfac4d7d',1,'VolumeDescriptor2']]]
 ];

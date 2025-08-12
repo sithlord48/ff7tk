@@ -1,0 +1,13 @@
+<map id="src/widgets/common/ListWidget.h" name="src/widgets/common/ListWidget.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="176,5,318,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,78,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,49,88,91,86,86,195,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,94,176,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,49,169,87,166,82,219,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="200,94,294,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="250,46,250,78,244,78,244,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="318,94,384,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="274,44,324,82,321,86,271,49"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="408,94,566,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="308,44,436,86,435,91,306,49"/>
+</map>
