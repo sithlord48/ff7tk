@@ -99,12 +99,12 @@ jobs:
           }
         - {
            name: "Linux-aarch64"
-           , os: ubuntu-24.04-arm, arch: aarch64, qtTools: 'tools_ifw'
+           , os: ubuntu-24.04-arm, arch: aarch64
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
           }
         - {
             name: "MacOS"
-            , os: macos-latest, qtTools: 'tools_ifw'
+            , os: macos-latest
             , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
           }
         - {
@@ -166,7 +166,7 @@ jobs:
        modules: qt5compat
        cache: true
        cache-key-prefix: ${{runner.os}}-${{matrix.config.arch}}-${{env.QtKey}}
-       tools: ${{runner.qtTools}}
+       tools: ${{matrix.config.qtTools}}
     - name: Build Zlib For Windows
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
       run: |
@@ -201,7 +201,7 @@ jobs:
 
 
     - name: Update Documentation
-      if: ${{matrix.config.runner.name}} == 'Linux-x86_64' && github.ref == 'refs/heads/master'
+      if: (runner.os == 'Linux' && matrix.config.arch == 'x86_64' && github.ref == 'refs/heads/master')
       uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
        branch: gh-pages
