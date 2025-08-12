@@ -48,3 +48,7 @@ set (ff7tkData_PrivateLIBLINKS
 )
 
 MAKE_LIBRARY(ff7tkData ff7tk/data)
+
+if(WIN32)
+    target_compile_options(ff7tkData PRIVATE /bigobj)
+endif()

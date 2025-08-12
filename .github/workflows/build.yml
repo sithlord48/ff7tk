@@ -94,22 +94,27 @@ jobs:
         config:
         - {
            name: "Linux-x86_64"
-           , os: ubuntu-22.04, arch: x86_64
+           , os: ubuntu-22.04, arch: x86_64, qtTools: 'tools_ifw'
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
           }
         - {
            name: "Linux-aarch64"
-           , os: ubuntu-24.04-arm, arch: aarch64
+           , os: ubuntu-24.04-arm, arch: aarch64, qtTools: 'tools_ifw'
            , extraCmakeConfig: "-DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
           }
         - {
             name: "MacOS"
-            , os: macos-latest
+            , os: macos-latest, qtTools: 'tools_ifw'
             , extraCmakeConfig: "-DCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\""
           }
         - {
             name: "Windows-x64"
-            , os: windows-2022, arch: x64
+            , os: windows-2022, arch: x64, qtTools: 'tools_ifw'
+            , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
+          }
+        - {
+            name: "Windows-arm64"
+            , os: windows-11-arm, arch: arm64
             , extraCmakeConfig: "-DZLIB_ROOT=C:/zlib"
           }
 
@@ -161,7 +166,7 @@ jobs:
        modules: qt5compat
        cache: true
        cache-key-prefix: ${{runner.os}}-${{matrix.config.arch}}-${{env.QtKey}}
-       tools: ${{env.QtTools}}
+       tools: ${{runner.qtTools}}
     - name: Build Zlib For Windows
       if: (runner.os == 'Windows') && (steps.cache-zlib.outputs.cache-hit != 'true')
       run: |
