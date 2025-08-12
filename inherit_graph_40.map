@@ -1,4 +1,25 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,104,32"/>
-<area shape="rect" id="node2" href="$classOptionsWidget.html" title="A Single widget to allow you to set all the options for the game will save emit a signal when any opt..." alt="" coords="152,5,271,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,252,80,277"/>
+<area shape="rect" id="Node000001" href="$classFF7Achievements.html" title="Work with achievements.dat." alt="" coords="128,5,267,31"/>
+<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="44,237,52,195,66,142,90,88,107,63,126,40,143,29,146,33,130,44,111,66,95,90,71,144,57,196,49,238"/>
+<area shape="rect" id="Node000002" href="$classFF7Char.html" title="Data and Enums for Characters in Final Fantasy 7." alt="" coords="159,55,235,80"/>
+<area shape="poly" id="edge18_Node000000_Node000002" title=" " alt="" coords="47,238,57,204,73,165,96,124,126,89,142,79,158,72,160,77,144,84,130,93,100,128,78,167,62,206,52,239"/>
+<area shape="rect" id="Node000003" href="$classFF7FieldItemList.html" title="Data Class to allow the tracking and changing of items being picked up on the field." alt="" coords="132,104,263,129"/>
+<area shape="poly" id="edge19_Node000000_Node000003" title=" " alt="" coords="53,238,81,188,102,162,126,139,146,127,149,132,130,143,106,165,86,191,57,241"/>
+<area shape="rect" id="Node000004" href="$classFF7Item.html" title="Information about items in FF7." alt="" coords="159,153,235,179"/>
+<area shape="poly" id="edge20_Node000000_Node000004" title=" " alt="" coords="63,240,92,213,127,188,158,174,160,179,129,192,95,217,67,244"/>
+<area shape="rect" id="Node000005" href="$classFF7Location.html" title="Info about field locations." alt="" coords="147,203,248,228"/>
+<area shape="poly" id="edge21_Node000000_Node000005" title=" " alt="" coords="92,246,156,226,157,231,94,251"/>
+<area shape="rect" id="Node000006" href="$classFF7Materia.html" title=" " alt="" coords="149,252,245,277"/>
+<area shape="poly" id="edge22_Node000000_Node000006" title=" " alt="" coords="94,262,149,262,149,267,94,267"/>
+<area shape="rect" id="Node000007" href="$classFF7Save.html" title="edit saves from Final Fantasy 7" alt="" coords="158,301,237,327"/>
+<area shape="poly" id="edge23_Node000000_Node000007" title=" " alt="" coords="94,278,158,299,157,304,92,283"/>
+<area shape="rect" id="Node000008" href="$classFF7SaveInfo.html" title=" " alt="" coords="146,351,249,376"/>
+<area shape="poly" id="edge24_Node000000_Node000008" title=" " alt="" coords="67,285,96,311,129,336,156,348,153,353,127,340,92,315,64,289"/>
+<area shape="rect" id="Node000009" href="$classFF7Text.html" title="Convert ff7text &lt;&#45;&gt; pc string." alt="" coords="161,400,234,425"/>
+<area shape="poly" id="edge25_Node000000_Node000009" title=" " alt="" coords="58,288,86,337,106,363,130,385,162,402,159,406,126,390,102,367,82,340,53,291"/>
+<area shape="rect" id="Node000010" href="$classQTaskBarButton.html" title=" " alt="" coords="134,449,261,475"/>
+<area shape="poly" id="edge26_Node000000_Node000010" title=" " alt="" coords="53,290,63,322,79,361,101,401,130,435,149,447,146,452,126,439,96,404,74,364,58,324,48,291"/>
+<area shape="rect" id="Node000011" href="$classSaveIcon.html" title="PSX icon data as a QPixmap." alt="" coords="157,499,238,524"/>
+<area shape="poly" id="edge27_Node000000_Node000011" title=" " alt="" coords="50,291,57,333,72,384,95,438,111,462,130,484,158,501,155,505,126,488,107,465,91,440,67,386,52,334,44,292"/>
 </map>

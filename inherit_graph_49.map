@@ -1,5 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classTextureFile.html" title=" " alt="" coords="5,31,99,57"/>
-<area shape="rect" id="node2" href="$classTexFile.html" title=" " alt="" coords="149,5,215,32"/>
-<area shape="rect" id="node3" href="$classTimFile.html" title=" " alt="" coords="147,56,217,83"/>
+<area shape="rect" id="Node000000" href="$classTextureFile.html" title=" " alt="" coords="5,31,99,56"/>
+<area shape="rect" id="Node000001" href="$classTexFile.html" title=" " alt="" coords="149,5,215,31"/>
+<area shape="poly" id="edge48_Node000000_Node000001" title=" " alt="" coords="112,29,148,22,149,27,113,34"/>
+<area shape="rect" id="Node000002" href="$classTimFile.html" title=" " alt="" coords="147,55,217,80"/>
+<area shape="poly" id="edge49_Node000000_Node000002" title=" " alt="" coords="113,52,147,58,146,64,112,57"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="src/widgets/data/MetadataCreator.h" name="src/widgets/data/MetadataCreator.h">
-<area shape="rect" id="node1" title=" " alt="" coords="17,5,212,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,80,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,95,269,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="17,5,212,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,80,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,47,65,85,61,81,95,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,93,269,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,44,169,81,165,85,130,47"/>
 </map>

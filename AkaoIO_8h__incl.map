@@ -1,5 +1,7 @@
 <map id="src/formats/AkaoIO.h" name="src/formats/AkaoIO.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,164,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="31,80,69,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="93,80,148,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,164,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="31,79,69,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,32,64,67,59,65,77,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="93,79,148,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,30,111,65,106,68,88,32"/>
 </map>

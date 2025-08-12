@@ -1,5 +1,7 @@
 <map id="src/widgets/common/EncounterTableWidget.h" name="src/widgets/common/EncounterTableWidget.h">
-<area shape="rect" id="node1" title=" " alt="" coords="42,5,225,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,101,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="126,95,303,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="42,5,225,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,101,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,47,77,85,73,82,112,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="126,93,303,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,44,194,82,191,85,151,47"/>
 </map>

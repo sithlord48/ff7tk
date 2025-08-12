@@ -1,5 +1,7 @@
 <map id="src/data/FF7Achievements.h" name="src/data/FF7Achievements.h">
-<area shape="rect" id="node1" title=" " alt="" coords="6,5,213,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,80,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,80,247,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="6,5,213,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,80,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,33,65,70,61,67,96,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,79,247,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,29,158,67,154,70,118,33"/>
 </map>

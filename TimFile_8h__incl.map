@@ -1,6 +1,9 @@
 <map id="src/formats/TimFile.h" name="src/formats/TimFile.h">
-<area shape="rect" id="node1" title=" " alt="" coords="70,5,230,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,79,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="103,80,197,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="221,80,385,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="70,5,230,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,79,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,33,73,73,70,69,131,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="103,79,197,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,31,153,65,147,65,147,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="221,79,385,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,28,267,70,265,75,174,33"/>
 </map>

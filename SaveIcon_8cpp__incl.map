@@ -1,10 +1,17 @@
 <map id="src/data/SaveIcon.cpp" name="src/data/SaveIcon.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="233,5,397,32"/>
-<area shape="rect" id="node2" href="$SaveIcon_8h.html" title=" " alt="" coords="99,80,192,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="217,80,314,107"/>
-<area shape="rect" id="node7" title=" " alt="" coords="338,80,393,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="417,80,487,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,80,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="105,155,186,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="210,155,353,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="233,5,397,31"/>
+<area shape="rect" id="Node000002" href="$SaveIcon_8h.html" title=" " alt="" coords="99,79,192,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="288,33,187,76,185,71,286,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="217,79,314,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="309,33,283,69,279,66,304,29"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="338,79,393,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="325,29,351,66,347,69,321,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="417,79,487,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="338,28,419,70,416,75,336,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,80,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,106,72,146,69,142,127,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,152,186,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="148,104,148,138,143,138,143,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="210,152,353,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="168,102,248,143,246,148,166,106"/>
 </map>

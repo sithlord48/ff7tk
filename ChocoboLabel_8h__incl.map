@@ -1,5 +1,7 @@
 <map id="src/widgets/data/ChocoboLabel.h" name="src/widgets/data/ChocoboLabel.h">
-<area shape="rect" id="node1" title=" " alt="" coords="22,5,211,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,84,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,95,272,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="22,5,211,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,84,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,47,67,85,63,81,97,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="108,93,272,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,44,172,81,168,85,132,47"/>
 </map>

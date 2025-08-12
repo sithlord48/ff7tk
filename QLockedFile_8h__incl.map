@@ -1,10 +1,17 @@
 <map id="src/utils/QLockedFile.h" name="src/utils/QLockedFile.h">
-<area shape="rect" id="node1" title=" " alt="" coords="282,5,449,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="96,80,181,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="205,80,301,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="325,80,405,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="430,80,493,107"/>
-<area shape="rect" id="node7" title=" " alt="" coords="517,80,592,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="617,80,757,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="282,5,449,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,33,86,81,85,76,308,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,79,181,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="330,33,189,77,188,72,328,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="205,79,301,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="349,33,285,73,282,69,346,28"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="325,79,405,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="368,31,368,65,363,65,363,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="430,79,493,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="382,29,436,68,433,72,379,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="517,79,592,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="397,28,512,71,510,76,395,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="617,79,757,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="418,28,622,73,621,78,416,33"/>
 </map>

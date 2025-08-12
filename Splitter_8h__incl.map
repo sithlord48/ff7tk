@@ -1,6 +1,9 @@
 <map id="src/widgets/common/Splitter.h" name="src/widgets/common/Splitter.h">
-<area shape="rect" id="node1" title=" " alt="" coords="59,5,217,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,84,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,95,168,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="192,95,369,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="59,5,217,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,84,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,48,71,86,68,82,114,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="108,93,168,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,46,141,79,135,79,135,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,93,369,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,43,249,84,247,89,171,48"/>
 </map>

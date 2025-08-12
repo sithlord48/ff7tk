@@ -1,5 +1,7 @@
 <map id="src/widgets/data/ItemSelector.h" name="src/widgets/data/ItemSelector.h">
-<area shape="rect" id="node1" title=" " alt="" coords="131,5,358,32"/>
-<area shape="rect" id="node2" href="$ItemSelectionDelegate_8cpp.html" title=" " alt="" coords="5,80,228,121"/>
-<area shape="rect" id="node3" href="$ItemSelector_8cpp.html" title=" " alt="" coords="253,87,495,114"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="131,5,358,31"/>
+<area shape="rect" id="Node000002" href="$ItemSelectionDelegate_8cpp.html" title=" " alt="" coords="5,79,228,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,40,149,81,146,76,213,36"/>
+<area shape="rect" id="Node000003" href="$ItemSelector_8cpp.html" title=" " alt="" coords="253,86,495,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="277,36,356,83,353,88,274,40"/>
 </map>

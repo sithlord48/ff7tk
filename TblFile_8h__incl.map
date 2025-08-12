@@ -1,5 +1,7 @@
 <map id="src/formats/TblFile.h" name="src/formats/TblFile.h">
-<area shape="rect" id="node1" title=" " alt="" coords="31,5,185,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,80,261,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="31,5,185,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,33,61,71,57,67,95,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,79,261,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,29,160,67,156,71,118,33"/>
 </map>

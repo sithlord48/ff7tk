@@ -1,5 +1,7 @@
 <map id="src/formats/IsoArchiveFF7.h" name="src/formats/IsoArchiveFF7.h">
-<area shape="rect" id="node1" title=" " alt="" coords="25,5,229,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="121,80,285,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,5,229,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,96,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,33,75,71,71,67,113,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,79,285,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,29,182,67,178,71,137,33"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="src/utils/PsColor.h" name="src/utils/PsColor.h">
-<area shape="rect" id="node1" title=" " alt="" coords="57,5,194,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,80,154,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="178,80,318,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="57,5,194,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,33,65,72,62,68,110,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,79,154,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,31,128,65,123,65,123,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="178,79,318,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,28,218,69,215,74,144,33"/>
 </map>

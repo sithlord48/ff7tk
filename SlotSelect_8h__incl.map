@@ -1,5 +1,7 @@
 <map id="src/widgets/data/SlotSelect.h" name="src/widgets/data/SlotSelect.h">
-<area shape="rect" id="node1" title=" " alt="" coords="9,5,220,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,80,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,80,269,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="9,5,220,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,80,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,33,66,71,62,67,101,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,79,269,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,29,167,67,163,71,125,33"/>
 </map>

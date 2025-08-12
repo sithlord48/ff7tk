@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyitems_3939',['KEYITEMS',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95',1,'FF7Save']]]
+  ['keyitems_0',['KEYITEMS',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95',1,'FF7Save']]]
 ];
