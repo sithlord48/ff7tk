@@ -200,7 +200,7 @@ jobs:
         rm build/libff7tk-*.deb
 
     - name: Update Documentation
-      if: runner.os == 'Linux' && runner.arch == 'x86_64' && github.ref == 'refs/heads/master'
+      if: runner.os == 'Linux' && runner.arch == x86_64 && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
        branch: gh-pages
