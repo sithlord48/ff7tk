@@ -120,7 +120,7 @@ jobs:
 
     steps:
     - uses: sithlord48/fancy-checkout@v1
-    - run: git fetch --tags --force
+
     - name: Cache Zlib
       id: cache-zlib
       if: runner.os == 'Windows'
@@ -199,8 +199,9 @@ jobs:
         mv build/ff7tk-${{ needs.precheck.outputs.version }}*.tar.gz build/ff7tk-${{ needs.precheck.outputs.version }}-linux_${{matrix.config.arch}}.tar.gz
         rm build/libff7tk-*.deb
 
+
     - name: Update Documentation
-      if: runner.os == 'Linux' && runner.arch == x86_64 && github.ref == 'refs/heads/master'
+      if: ${{matrix.config.runner.name}} == 'Linux-x86_64' && github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
        branch: gh-pages
