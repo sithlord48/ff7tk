@@ -1,35 +1,35 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,376,84,401"/>
-<area shape="rect" id="Node000001" href="$classAchievementEditor.html" title="A QWidget editor for achievements.dat file from 2012 and 2013 release of Final Fantasy 7." alt="" coords="132,5,279,31"/>
-<area shape="poly" id="edge32_Node000000_Node000001" title=" " alt="" coords="47,362,57,288,75,192,99,101,114,65,130,40,145,29,148,33,134,44,119,68,104,103,80,193,63,289,52,363"/>
-<area shape="rect" id="Node000002" href="$classCharEditor.html" title="Widget to allow editing of a character using FF7Char for data." alt="" coords="160,55,251,80"/>
-<area shape="poly" id="edge33_Node000000_Node000002" title=" " alt="" coords="43,362,47,306,59,234,70,195,85,157,105,121,130,89,143,79,159,72,161,77,146,84,134,93,109,124,90,159,75,197,64,235,52,307,49,362"/>
-<area shape="rect" id="Node000003" href="$classChocoboEditor.html" title=" " alt="" coords="147,104,263,129"/>
-<area shape="poly" id="edge34_Node000000_Node000003" title=" " alt="" coords="45,362,51,315,66,255,91,193,108,164,130,139,146,127,149,132,134,143,113,167,95,196,71,257,57,316,50,363"/>
-<area shape="rect" id="Node000004" href="$classChocoboLabel.html" title="A Label to display a single chocobo&#39;s brief data." alt="" coords="149,153,262,179"/>
-<area shape="poly" id="edge35_Node000000_Node000004" title=" " alt="" coords="48,362,57,323,73,277,97,229,130,188,147,177,150,181,134,192,101,232,77,279,62,325,53,363"/>
-<area shape="rect" id="Node000005" href="$classChocoboManager.html" title=" " alt="" coords="138,203,273,228"/>
-<area shape="poly" id="edge36_Node000000_Node000005" title=" " alt="" coords="52,362,80,300,102,266,130,237,150,226,152,230,134,241,107,270,85,302,57,364"/>
-<area shape="rect" id="Node000006" href="$classColorDisplay.html" title=" " alt="" coords="153,252,258,277"/>
-<area shape="poly" id="edge37_Node000000_Node000006" title=" " alt="" coords="59,363,89,324,130,286,153,275,155,280,134,291,93,328,63,366"/>
-<area shape="rect" id="Node000007" href="$classDoubleCheckBox.html" title="one text two checkable boxes" alt="" coords="139,301,272,327"/>
-<area shape="poly" id="edge38_Node000000_Node000007" title=" " alt="" coords="75,366,131,336,160,324,162,329,133,340,78,371"/>
-<area shape="rect" id="Node000008" href="$classImageGridWidget.html" title=" " alt="" coords="137,351,273,376"/>
-<area shape="poly" id="edge39_Node000000_Node000008" title=" " alt="" coords="97,378,137,371,138,377,98,383"/>
-<area shape="rect" id="Node000009" href="$classItemPreview.html" title=" " alt="" coords="153,400,257,425"/>
-<area shape="poly" id="edge40_Node000000_Node000009" title=" " alt="" coords="98,394,153,402,153,408,98,399"/>
-<area shape="rect" id="Node000010" href="$classItemSelector.html" title=" " alt="" coords="153,449,258,475"/>
-<area shape="poly" id="edge41_Node000000_Node000010" title=" " alt="" coords="80,406,133,434,165,447,163,452,131,439,77,411"/>
-<area shape="rect" id="Node000011" href="$classListWidget.html" title=" " alt="" coords="160,499,251,524"/>
-<area shape="poly" id="edge42_Node000000_Node000011" title=" " alt="" coords="64,411,94,449,133,484,161,497,158,502,131,488,90,452,60,415"/>
-<area shape="rect" id="Node000012" href="$classLocationViewer.html" title="Set Saves Location or View Field Locations and Toggle the items picked up from them." alt="" coords="144,548,267,573"/>
-<area shape="poly" id="edge43_Node000000_Node000012" title=" " alt="" coords="57,413,86,474,107,506,134,533,155,546,152,550,130,537,103,509,81,476,52,416"/>
-<area shape="rect" id="Node000013" href="$classMateriaEditor.html" title="The MateriaEditor class &#160;MateriaEditor is a Widget that can be used to edit materia in the player&#39;s i..." alt="" coords="150,597,261,623"/>
-<area shape="poly" id="edge44_Node000000_Node000013" title=" " alt="" coords="53,415,62,452,78,497,102,543,134,583,153,595,150,599,130,587,97,546,73,499,57,453,48,416"/>
-<area shape="rect" id="Node000014" href="$classMenuListWidget.html" title="easily manage the menus in Final Fantasy 7" alt="" coords="142,647,269,672"/>
-<area shape="poly" id="edge45_Node000000_Node000014" title=" " alt="" coords="51,414,57,461,71,519,96,579,113,607,134,632,152,644,149,649,130,636,109,610,91,582,66,521,52,462,45,415"/>
-<area shape="rect" id="Node000015" href="$classOrientationWidget.html" title=" " alt="" coords="135,696,276,721"/>
-<area shape="poly" id="edge46_Node000000_Node000015" title=" " alt="" coords="49,415,53,470,65,541,76,579,91,616,110,651,134,681,151,694,148,698,130,685,105,654,86,618,71,581,60,543,47,471,43,416"/>
-<area shape="rect" id="Node000016" href="$classPhsListWidget.html" title="Easily manage the who can be in the phs." alt="" coords="148,745,263,771"/>
-<area shape="poly" id="edge47_Node000000_Node000016" title=" " alt="" coords="52,414,63,488,81,582,105,672,119,707,134,731,150,743,147,747,130,734,114,710,100,674,75,583,58,488,47,415"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,376,78,402"/>
+<area shape="rect" id="Node000001" href="$class_achievement_editor.html" title="A QWidget editor for achievements.dat file from 2012 and 2013 release of Final Fantasy 7." alt="" coords="126,5,257,31"/>
+<area shape="poly" id="edge32_Node000000_Node000001" title=" " alt="" coords="43,360,54,286,71,191,94,101,108,65,124,40,137,29,141,34,128,44,113,68,99,103,76,192,59,287,49,361"/>
+<area shape="rect" id="Node000002" href="$class_char_editor.html" title="Widget to allow editing of a character using FF7Char for data." alt="" coords="150,55,233,80"/>
+<area shape="poly" id="edge33_Node000000_Node000002" title=" " alt="" coords="40,360,43,304,55,233,66,194,80,157,99,121,124,90,148,74,151,78,127,93,104,124,85,159,71,196,61,234,49,305,45,361"/>
+<area shape="rect" id="Node000003" href="$class_chocobo_editor.html" title=" " alt="" coords="138,104,245,130"/>
+<area shape="poly" id="edge34_Node000000_Node000003" title=" " alt="" coords="42,360,48,313,62,254,86,193,103,165,124,139,139,128,142,132,128,143,107,168,91,195,67,256,53,314,47,361"/>
+<area shape="rect" id="Node000004" href="$class_chocobo_label.html" title="A Label to display a single chocobo&#39;s brief data." alt="" coords="139,153,244,179"/>
+<area shape="poly" id="edge35_Node000000_Node000004" title=" " alt="" coords="45,360,53,322,69,276,92,229,124,188,140,177,143,182,128,192,96,232,73,278,59,324,50,362"/>
+<area shape="rect" id="Node000005" href="$class_chocobo_manager.html" title=" " alt="" coords="130,203,253,228"/>
+<area shape="poly" id="edge36_Node000000_Node000005" title=" " alt="" coords="49,360,76,299,97,266,124,237,141,227,144,231,127,242,102,269,81,302,54,362"/>
+<area shape="rect" id="Node000006" href="$class_color_display.html" title=" " alt="" coords="143,252,240,278"/>
+<area shape="poly" id="edge37_Node000000_Node000006" title=" " alt="" coords="56,361,85,323,124,287,144,276,146,281,127,291,89,327,61,365"/>
+<area shape="rect" id="Node000007" href="$class_double_check_box.html" title="one text two checkable boxes" alt="" coords="130,301,253,327"/>
+<area shape="poly" id="edge38_Node000000_Node000007" title=" " alt="" coords="73,365,124,336,149,325,151,330,127,341,76,370"/>
+<area shape="rect" id="Node000008" href="$class_image_grid_widget.html" title=" " alt="" coords="130,351,252,376"/>
+<area shape="poly" id="edge39_Node000000_Node000008" title=" " alt="" coords="93,378,129,371,130,377,93,383"/>
+<area shape="rect" id="Node000009" href="$class_item_preview.html" title=" " alt="" coords="144,400,238,426"/>
+<area shape="poly" id="edge40_Node000000_Node000009" title=" " alt="" coords="94,394,144,403,143,408,93,400"/>
+<area shape="rect" id="Node000010" href="$class_item_selector.html" title=" " alt="" coords="144,449,239,475"/>
+<area shape="poly" id="edge41_Node000000_Node000010" title=" " alt="" coords="77,408,127,436,151,446,149,451,124,441,74,413"/>
+<area shape="rect" id="Node000011" href="$class_list_widget.html" title=" " alt="" coords="150,499,233,524"/>
+<area shape="poly" id="edge42_Node000000_Node000011" title=" " alt="" coords="61,413,89,450,127,485,151,498,148,502,124,490,85,454,57,416"/>
+<area shape="rect" id="Node000012" href="$class_location_viewer.html" title="Set Saves Location or View Field Locations and Toggle the items picked up from them." alt="" coords="136,548,246,574"/>
+<area shape="poly" id="edge43_Node000000_Node000012" title=" " alt="" coords="54,415,81,475,102,507,127,535,144,545,141,550,124,539,98,510,76,478,49,417"/>
+<area shape="rect" id="Node000013" href="$class_materia_editor.html" title="The MateriaEditor class &#160;MateriaEditor is a Widget that can be used to edit materia in the player&#39;s i..." alt="" coords="142,597,240,623"/>
+<area shape="poly" id="edge44_Node000000_Node000013" title=" " alt="" coords="50,416,59,453,74,499,96,544,127,584,143,595,140,599,124,588,92,547,69,501,54,455,45,417"/>
+<area shape="rect" id="Node000014" href="$class_menu_list_widget.html" title="easily manage the menus in Final Fantasy 7" alt="" coords="134,647,249,672"/>
+<area shape="poly" id="edge45_Node000000_Node000014" title=" " alt="" coords="47,417,53,463,67,521,91,581,107,609,128,634,142,644,139,648,124,637,103,612,86,584,62,523,48,464,42,417"/>
+<area shape="rect" id="Node000015" href="$class_orientation_widget.html" title=" " alt="" coords="129,696,254,722"/>
+<area shape="poly" id="edge46_Node000000_Node000015" title=" " alt="" coords="45,417,49,472,61,543,71,581,85,618,104,652,128,683,141,693,138,697,124,687,100,655,81,620,66,582,55,544,44,473,40,417"/>
+<area shape="rect" id="Node000016" href="$class_phs_list_widget.html" title="Easily manage the who can be in the phs." alt="" coords="138,745,244,771"/>
+<area shape="poly" id="edge47_Node000000_Node000016" title=" " alt="" coords="49,416,59,490,76,585,99,674,113,709,128,732,141,743,137,747,124,736,108,711,94,676,71,586,54,491,44,417"/>
 </map>

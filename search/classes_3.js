@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['encountertablewidget_0',['EncounterTableWidget',['../classEncounterTableWidget.html',1,'']]]
+  ['encountertablewidget_0',['EncounterTableWidget',['../class_encounter_table_widget.html',1,'']]]
 ];

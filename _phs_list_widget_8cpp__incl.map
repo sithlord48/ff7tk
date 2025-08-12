@@ -1,0 +1,18 @@
+<map id="src/widgets/data/PhsListWidget.cpp" name="src/widgets/data/PhsListWidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="116,5,282,46"/>
+<area shape="rect" id="Node000002" href="$_phs_list_widget_8h.html" title=" " alt="" coords="74,94,191,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,48,155,83,151,80,181,45"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,168,68,193"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="134,49,96,68,64,96,49,123,41,153,36,152,44,122,60,92,93,64,131,44"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="215,94,317,120"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="218,45,248,80,244,83,214,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="342,94,414,120"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="245,44,337,85,335,90,243,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,168,157,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="134,120,130,153,125,152,129,120"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="118,122,66,161,63,156,115,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="181,168,327,193"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="154,118,221,157,219,162,152,123"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="351,168,474,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="181,118,351,161,350,166,179,123"/>
+</map>

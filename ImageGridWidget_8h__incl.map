@@ -1,7 +1,0 @@
-<map id="src/widgets/common/ImageGridWidget.h" name="src/widgets/common/ImageGridWidget.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="42,5,199,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,84,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,47,68,85,64,81,100,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="108,93,285,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,44,178,81,174,85,137,47"/>
-</map>

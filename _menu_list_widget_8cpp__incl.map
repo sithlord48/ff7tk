@@ -1,0 +1,17 @@
+<map id="src/widgets/data/MenuListWidget.cpp" name="src/widgets/data/MenuListWidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="230,5,405,46"/>
+<area shape="rect" id="Node000002" href="$_menu_list_widget_8h.html" title=" " alt="" coords="136,94,262,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,49,231,87,228,83,287,44"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="286,94,349,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="320,46,320,78,315,78,315,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="373,94,475,120"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="345,44,397,82,394,87,342,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,78,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="173,123,83,163,81,158,171,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,168,168,193"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="190,122,158,158,154,154,186,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="191,168,337,193"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="212,118,245,154,241,158,208,122"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="361,168,484,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="238,118,371,160,370,165,236,123"/>
+</map>

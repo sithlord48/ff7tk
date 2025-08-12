@@ -1,0 +1,7 @@
+<map id="IsoFileOrDirectory" name="IsoFileOrDirectory">
+<area shape="rect" id="Node000001" title=" " alt="" coords="37,5,164,31"/>
+<area shape="rect" id="Node000002" href="$class_iso_directory.html" title=" " alt="" coords="5,79,98,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,45,62,80,58,77,82,42"/>
+<area shape="rect" id="Node000003" href="$class_iso_file.html" title=" " alt="" coords="121,79,182,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="120,42,145,77,141,80,116,45"/>
+</map>

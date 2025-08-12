@@ -1,7 +1,0 @@
-<map id="TextureFile" name="TextureFile">
-<area shape="rect" id="Node000001" title=" " alt="" coords="39,5,132,31"/>
-<area shape="rect" id="Node000002" href="$classTexFile.html" title=" " alt="" coords="5,79,72,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,44,48,80,44,77,68,41"/>
-<area shape="rect" id="Node000003" href="$classTimFile.html" title=" " alt="" coords="97,79,167,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="103,41,127,77,122,80,98,44"/>
-</map>

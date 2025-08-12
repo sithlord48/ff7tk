@@ -1,9 +1,0 @@
-<map id="src/widgets/data/CharEditor.h" name="src/widgets/data/CharEditor.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="84,5,296,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,84,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,33,82,75,79,70,165,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="108,79,272,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,31,193,65,187,65,187,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="297,79,417,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,28,318,71,316,76,216,33"/>
-</map>

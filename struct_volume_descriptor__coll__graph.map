@@ -1,0 +1,13 @@
+<map id="VolumeDescriptor" name="VolumeDescriptor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="157,260,282,285"/>
+<area shape="rect" id="Node000002" href="$struct_volume_descriptor1.html" title=" " alt="" coords="5,163,138,189"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,195,202,257,199,261,102,200"/>
+<area shape="rect" id="Node000003" href="$struct_directory_record.html" title=" " alt="" coords="161,163,278,189"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,204,222,259,217,259,217,204"/>
+<area shape="rect" id="Node000004" href="$struct_directory_record_head.html" title=" " alt="" coords="146,5,293,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,47,222,162,217,162,217,47"/>
+<area shape="rect" id="Node000005" href="$struct_volume_descriptor2.html" title=" " alt="" coords="301,163,434,189"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="337,200,240,261,237,257,334,195"/>
+<area shape="rect" id="Node000006" href="$struct_iso_time.html" title=" " alt="" coords="333,5,402,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="370,47,370,162,365,162,365,47"/>
+</map>
