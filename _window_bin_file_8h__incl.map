@@ -1,9 +1,0 @@
-<map id="src/formats/WindowBinFile.h" name="src/formats/WindowBinFile.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="30,5,220,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,69,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,34,65,71,62,67,108,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="93,79,157,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,31,128,63,122,63,122,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="182,79,327,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,29,220,69,218,73,146,34"/>
-</map>

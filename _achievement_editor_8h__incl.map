@@ -1,9 +1,0 @@
-<map id="src/widgets/data/AchievementEditor.h" name="src/widgets/data/AchievementEditor.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="76,5,274,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,78,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,49,76,88,74,83,140,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="102,94,248,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,46,178,78,172,78,172,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="272,94,400,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,44,299,84,297,89,214,49"/>
-</map>

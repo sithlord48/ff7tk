@@ -1,5 +1,0 @@
-<map id="OptionsWidget" name="OptionsWidget">
-<area shape="rect" id="Node000001" title="A Single widget to allow you to set all the options for the game will save emit a signal when any opt..." alt="" coords="5,79,113,105"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="13,5,105,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,46,62,79,56,79,56,46"/>
-</map>

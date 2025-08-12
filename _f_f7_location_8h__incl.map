@@ -1,7 +1,0 @@
-<map id="src/data/FF7Location.h" name="src/data/FF7Location.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="22,5,178,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,75,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,33,62,69,58,65,88,30"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="98,79,224,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="112,29,143,65,139,69,108,33"/>
-</map>

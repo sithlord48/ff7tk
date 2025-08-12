@@ -1,10 +1,6 @@
 <map id="src/data/crypto/aes.c" name="src/data/crypto/aes.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,150,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="52,153,116,178"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,33,41,65,34,84,36,104,46,123,60,140,56,143,42,126,31,105,29,83,37,62,62,30"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="45,79,110,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="80,31,80,63,75,63,75,31"/>
-<area shape="rect" id="Node000004" href="$aes_8h.html" title=" " alt="" coords="134,79,187,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="93,30,137,67,133,71,90,34"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="149,107,110,144,106,140,145,103"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,163,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="55,155,126,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="49,80,119,107"/>
+<area shape="rect" id="node4" href="$aes_8h.html" title=" " alt="" coords="143,80,201,107"/>
 </map>
