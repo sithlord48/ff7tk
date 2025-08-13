@@ -141,7 +141,11 @@ if(DEMOS)
     add_subdirectory(demos)
 endif()
 
-add_subdirectory(translations)
+option(TRANSLATIONS "Build ff7tk Translation files" ON)
+if(TRANSLATIONS)
+  add_subdirectory(translations)
+endif()
+
 add_subdirectory(src)
 
 option(TESTS "Skip UnitTests" ON)
