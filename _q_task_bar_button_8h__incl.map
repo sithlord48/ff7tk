@@ -1,9 +1,0 @@
-<map id="src/widgets/common/QTaskBarButton.h" name="src/widgets/common/QTaskBarButton.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="61,5,203,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,75,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,48,67,86,64,82,108,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="98,94,166,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,46,135,78,129,78,129,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="189,94,347,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,44,236,84,233,88,165,49"/>
-</map>

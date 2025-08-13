@@ -1,3 +1,19 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$struct_a_e_s__ctx.html" title=" " alt="" coords="5,5,79,31"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,385,84,412"/>
+<area shape="rect" id="node2" href="$classAchievementEditor.html" title="A QWidget editor for achievements.dat file from 2012 and 2013 release of Final Fantasy 7." alt="" coords="132,5,279,32"/>
+<area shape="rect" id="node3" href="$classCharEditor.html" title="Widget to allow editing of a character using FF7Char for data." alt="" coords="160,56,251,83"/>
+<area shape="rect" id="node4" href="$classChocoboEditor.html" title=" " alt="" coords="147,107,263,133"/>
+<area shape="rect" id="node5" href="$classChocoboLabel.html" title="A Label to display a single chocobo&#39;s brief data." alt="" coords="149,157,262,184"/>
+<area shape="rect" id="node6" href="$classChocoboManager.html" title=" " alt="" coords="138,208,273,235"/>
+<area shape="rect" id="node7" href="$classColorDisplay.html" title=" " alt="" coords="153,259,258,285"/>
+<area shape="rect" id="node8" href="$classDoubleCheckBox.html" title="one text two checkable boxes" alt="" coords="139,309,272,336"/>
+<area shape="rect" id="node9" href="$classImageGridWidget.html" title=" " alt="" coords="137,360,273,387"/>
+<area shape="rect" id="node10" href="$classItemPreview.html" title=" " alt="" coords="153,411,257,437"/>
+<area shape="rect" id="node11" href="$classItemSelector.html" title=" " alt="" coords="153,461,258,488"/>
+<area shape="rect" id="node12" href="$classListWidget.html" title=" " alt="" coords="160,512,251,539"/>
+<area shape="rect" id="node13" href="$classLocationViewer.html" title="Set Saves Location or View Field Locations and Toggle the items picked up from them." alt="" coords="144,563,267,589"/>
+<area shape="rect" id="node14" href="$classMateriaEditor.html" title="The MateriaEditor class &#160;MateriaEditor is a Widget that can be used to edit materia in the player&#39;s i..." alt="" coords="150,613,261,640"/>
+<area shape="rect" id="node15" href="$classMenuListWidget.html" title="easily manage the menus in Final Fantasy 7" alt="" coords="142,664,269,691"/>
+<area shape="rect" id="node16" href="$classOrientationWidget.html" title=" " alt="" coords="135,715,276,741"/>
+<area shape="rect" id="node17" href="$classPhsListWidget.html" title="Easily manage the who can be in the phs." alt="" coords="148,765,263,792"/>
 </map>

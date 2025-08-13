@@ -1,7 +1,0 @@
-<map id="src/data/Type_FF7CHOCOBO.h" name="src/data/Type_FF7CHOCOBO.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="33,5,244,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,125,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,33,90,70,86,66,124,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="148,79,275,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,29,190,66,187,70,149,33"/>
-</map>

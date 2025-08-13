@@ -1,9 +1,0 @@
-<map id="src/widgets/common/OrientationWidget.h" name="src/widgets/common/OrientationWidget.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="64,5,206,46"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,78,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,48,69,86,66,82,110,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="102,94,168,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,46,138,78,132,78,132,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="192,94,350,120"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,44,239,84,236,88,167,49"/>
-</map>
