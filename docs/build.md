@@ -32,6 +32,7 @@ FORMATS                  | Build ff7tkFormats                      | ON         
 PACKAGE                  | Enable Package target                   | ON                 | |
 FRAMEWORKS               | Build as Frameworks (EXPERMANTAL)       | OFF                | Mac Os Only |
 TESTS                    | Build and run unit tests                | ON                 | |
+TRANSLATIONS             | Build ff7tk translation files           | ON                 | |
 UTILS                    | Build ff7tkUtils.                       | ON                 | [zlib] |
 WIDGETS                  | Build ff7tkWidgets.                     | ON                 | |
 SPLITPACKAGES            | Create Split Packages                   | OFF                | |
