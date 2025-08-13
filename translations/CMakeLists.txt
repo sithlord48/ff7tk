@@ -3,7 +3,7 @@
 
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM 1)
 option(CLEAN_TRS "Clean Obsolete translations from tr files" FALSE)
-find_package(Qt6LinguistTools)
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS LinguistTools)
 
 set(ff7tk_TRS
     ff7tk_de.ts
