@@ -6943,6 +6943,10 @@ The km/h speeds are calculated while playing </translation>
         <source>Known FF7 Save Types (%1)</source>
         <translation>Known FF7 Save Types (%1)</translation>
     </message>
+    <message>
+        <source>PS4 Save File</source>
+        <translation type="unfinished">PS4 Save File</translation>
+    </message>
 </context>
 <context>
     <name>ItemPreview</name>

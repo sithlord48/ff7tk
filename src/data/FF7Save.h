@@ -1020,6 +1020,8 @@ private:
      */
     QString md5sum(QString fileName, QString UserID);
 
+
+    QByteArray decryptPS4Save(QByteArray in);
     QString fileblock(const QString &fileName);
     QString filetimestamp(QString fileName);
     void checksumSlots();
@@ -1042,10 +1044,11 @@ private:
     bool fileHasChanged;
     QString buffer_region; // hold the buffers region data.
     QList<QString> SG_Region_String;
+    QByteArray m_ps4_iv;
+    QByteArray m_ps4_key;
     QString filename;//opened file
     QVector< SubContainer > parseXML(const QString &fileName, const QString &metadataPath, const QString &UserID);
     QVector< SubContainer > createMetadata(const QString &fileName, const QString &UserID);
-
     inline static const auto allDigetRegEx = QRegularExpression(QStringLiteral("^\\d+$"));
     inline static const QString invalidRegion = QStringLiteral("\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000");
 };
