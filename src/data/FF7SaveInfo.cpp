@@ -51,6 +51,7 @@ int FF7SaveInfo::fileHeaderSize(FF7SaveInfo::FORMAT format)
     case FORMAT::SWITCH: return get()->d->SWITCH_FILE_HEADER_SIZE;
     case FORMAT::PGE: return get()->d->PGE_FILE_HEADER_SIZE;
     case FORMAT::PDA: return get()->d->PDA_FILE_HEADER_SIZE;
+    case FORMAT::RZIP: return get()->d->RZIP_FILE_HEADER_SIZE;
     default: return 0;
     }
 }
@@ -65,6 +66,7 @@ int FF7SaveInfo::slotHeaderSize(FF7SaveInfo::FORMAT format)
     case FORMAT::DEX:
     case FORMAT::PGE:
     case FORMAT::PDA:
+    case FORMAT::RZIP:
     case FORMAT::VGS: return get()->d->PSX_SLOT_HEADER_SIZE;
     default: return 0;
     }
@@ -80,6 +82,7 @@ int FF7SaveInfo::slotFooterSize(FF7SaveInfo::FORMAT format)
     case FORMAT::DEX:
     case FORMAT::PGE:
     case FORMAT::PDA:
+    case FORMAT::RZIP:
     case FORMAT::VGS: return get()->d->PSX_SLOT_FOOTER_SIZE;
     default: return 0;
     }
@@ -97,6 +100,7 @@ int FF7SaveInfo::slotCount(FF7SaveInfo::FORMAT format)
     case FORMAT::DEX:
     case FORMAT::VGS:
     case FORMAT::SWITCH:
+    case FORMAT::RZIP:
     case FORMAT::PC: return 15;
     default: return 0;
     }
@@ -113,12 +117,14 @@ QByteArray FF7SaveInfo::fileIdentifier(FF7SaveInfo::FORMAT format)
 //    case FORMAT::DEX: return get()->d->DEX_FILE_ID;
     case FORMAT::VGS: return get()->d->VGS_FILE_ID;
     case FORMAT::SWITCH: return get()->d->SWITCH_FILE_ID;
+    case FORMAT::RZIP: return get()->d->RZIP_FILE_ID;
     default: return QByteArray();
     }
 }
 
 QByteArray FF7SaveInfo::fileHeader(FF7SaveInfo::FORMAT format)
 {
+    //TODO: PROPER FILE HEADER FOR RZIP
     switch (format) {
     case FORMAT::PC:
     case FORMAT::SWITCH:
@@ -142,6 +148,7 @@ QByteArray FF7SaveInfo::slotHeader(FF7SaveInfo::FORMAT format, int slot)
     case FORMAT::PS3:
     case FORMAT::DEX:
     case FORMAT::VGS:
+    case FORMAT::RZIP:
     case FORMAT::VMC: return QByteArray(get()->d->PSX_SLOT_HEADER.at(slot)).append(256, 0x00);
     default: return QByteArray();
     }
@@ -225,6 +232,7 @@ int FF7SaveInfo::slotSize()
 
 QRegularExpression FF7SaveInfo::validNames(FF7SaveInfo::FORMAT format)
 {
+    //TODO: ADD RZIP INFO
     switch (format) {
     case FORMAT::PC: return get()->d->PC_VALID_NAME_REGEX;
     case FORMAT::PSX: return get()->d->PSX_VALID_NAME_REGEX;
@@ -236,6 +244,7 @@ QRegularExpression FF7SaveInfo::validNames(FF7SaveInfo::FORMAT format)
     case FORMAT::SWITCH: return get()->d->SWITCH_VALID_NAME_REGEX;
     case FORMAT::PGE: return get()->d->PGE_VALID_NAME_REGEX;
     case FORMAT::PDA: return get()->d->PDA_VALID_NAME_REGEX;
+    case FORMAT::RZIP: return get()->d->RZIP_VALID_NAME_REGEX;
     default: return QRegularExpression();
     }
 }
@@ -253,6 +262,7 @@ QString FF7SaveInfo::typeDescription(FF7SaveInfo::FORMAT format)
     case FORMAT::SWITCH: return tr(get()->d->SWITCH_FILE_DESCRIPTION.toUtf8());
     case FORMAT::PGE: return tr(get()->d->PGE_FILE_DESCRIPTION.toUtf8());
     case FORMAT::PDA: return tr(get()->d->PDA_FILE_DESCRIPTION.toUtf8());
+    case FORMAT::RZIP: return tr(get()->d->RZIP_FILE_DESCRIPTION.toUtf8());
     default: return QString();
     }
 }
@@ -270,6 +280,7 @@ QStringList FF7SaveInfo::typeExtension(FF7SaveInfo::FORMAT format)
     case FORMAT::SWITCH: return get()->d->SWITCH_VALID_EXTENSIONS;
     case FORMAT::PGE: return get()->d->PGE_VALID_EXTENSIONS;
     case FORMAT::PDA: return get()->d->PDA_VALID_EXTENSIONS;
+    case FORMAT::RZIP: return get()->d->RZIP_VALID_EXTENSIONS;
     default: return QStringList();
     }
 }
@@ -283,6 +294,7 @@ QString FF7SaveInfo::typeFilter(FF7SaveInfo::FORMAT format)
 
 QString FF7SaveInfo::knownTypesFilter()
 {
+    //TODO INCLUDE RZIP WHEN ITS WORKING
     QString space = QStringLiteral(" ");
     QString allTypes = QStringLiteral("%1 %2 %3 %4 %5 %6 %7 %8 %9 %10")
         .arg(get()->d->PC_VALID_EXTENSIONS.join(space)
@@ -326,6 +338,7 @@ bool FF7SaveInfo::isTypeVMC(FF7SaveInfo::FORMAT format)
         case FORMAT::VMC:
         case FORMAT::VGS:
         case FORMAT::DEX:
+        case FORMAT::RZIP:
         case FORMAT::PSP: return true;
         default: return false;
     };
@@ -344,6 +357,7 @@ bool FF7SaveInfo::isTypeSSS(FF7SaveInfo::FORMAT format)
 
 int FF7SaveInfo::vmcHeaderOffset(FF7SaveInfo::FORMAT format)
 {
+    //TODO INCLUDE RZIP
     switch (format) {
         case FORMAT::PSP: return get()->d->PSP_VMC_HEADER_OFFSET;
         case FORMAT::DEX: return get()->d->DEX_VMC_HEADER_OFFSET;
