@@ -14,8 +14,6 @@ set(ff7tk_TRS
     ff7tk_ja.ts
     ff7tk_re.ts
     ff7tk_pl.ts
-    ff7tk_zh_CN.ts
-    ff7tk_zh_TW.ts
 )
 
 if(CLEAN_TRS)
