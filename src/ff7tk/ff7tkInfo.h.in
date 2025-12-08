@@ -46,6 +46,7 @@ public:
             appDir
             , QStringLiteral("%1/../..").arg(appDir)
             , QStringLiteral("%1/..").arg(appDir)
+            , QStringLiteral("%1/../Resources").arg(appDir)
             , QStringLiteral("%1/../share/ff7tk").arg(appDir)
 #if defined (Q_OS_UNIX)
             , QStringLiteral("%1/.local/share/ff7tk").arg(QDir::homePath())
