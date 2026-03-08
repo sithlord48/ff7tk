@@ -66,6 +66,12 @@ You can use the `ff7tk <version>-installer` to install ff7tk, when using them it
  - Support us by making a [Donation].
  - [Contribute] to ff7tk.
 
+## One last thing 
+
+Any use of this project's code by GitHub Copilot, past or present, is done
+without our permission.  We do not consent to GitHub's use of this project's
+code in Copilot.
+
 [Aavock UI Overhaul]:https://forums.qhimm.com/index.php?topic=20331
 [Tango Desktop Project]:http://tango.freedesktop.org/Tango_Desktop_Project
 [Team Avalanche GUI]:https://forums.qhimm.com/index.php?topic=18397
