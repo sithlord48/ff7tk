@@ -15,6 +15,7 @@ set(ff7tkFormats_SRC
     Archive.cpp
     IsoArchive.cpp
     IsoArchiveFF7.cpp
+    PsxCdromEdcEcc.h
     Lgp_p.cpp
     Lgp.cpp
     TblFile.cpp
