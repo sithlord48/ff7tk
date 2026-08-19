@@ -3,6 +3,7 @@
 //    SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include <IsoArchive.h>
+#include "PsxCdromEdcEcc.h"
 #include <QCoreApplication>
 #include <QDir>
 #include <QtEndian>
@@ -425,11 +426,13 @@ QByteArray IsoArchiveIO::readIso(qint64 maxSize)
 
 qint64 IsoArchiveIO::writeIso(const char *data, qint64 maxSize)
 {
-    qint64 write, writeTotal = 0, seqLen;
+    qint64 write = 0, writeTotal = 0, seqLen;
 
     if (!seekIso(isoPos(pos()))) {
         return 0;
     }
+
+    const qint64 startIsoPos = posIso();
 
     seqLen = std::min(SECTOR_SIZE_HEADER + SECTOR_SIZE_DATA - (pos() % SECTOR_SIZE), maxSize);
 
@@ -437,11 +440,22 @@ qint64 IsoArchiveIO::writeIso(const char *data, qint64 maxSize)
         data += write;
         maxSize -= write;
         writeTotal += write;
-        seqLen = std::min(qint64(2048), maxSize);
+        seqLen = std::min(qint64(SECTOR_SIZE_DATA), maxSize);
         // If we are at the end of the sector
         if (pos() % SECTOR_SIZE >= SECTOR_SIZE_HEADER + SECTOR_SIZE_DATA
                 && !seek(pos() + SECTOR_SIZE_HEADER + SECTOR_SIZE_FOOTER)) {
             break;
+        }
+    }
+
+    if (writeTotal > 0) {
+        const quint32 firstSector = quint32(startIsoPos / SECTOR_SIZE_DATA);
+        const quint32 lastSector = quint32((startIsoPos + writeTotal - 1) / SECTOR_SIZE_DATA);
+
+        for (quint32 sector = firstSector; sector <= lastSector; ++sector) {
+            if (!ff7tk_psx_cd::repairSector(*this, sector)) {
+                return -1;
+            }
         }
     }
 
@@ -493,24 +507,30 @@ bool IsoArchiveIO::seekToSector(quint32 num)
 
 bool IsoArchiveIO::writeSector(const QByteArray &data, quint8 type, quint8 mode)
 {
-    qint64 dataSize = data.size();
-    quint32 sectorCur = currentSector();
+    const qint64 dataSize = data.size();
+    const quint32 sectorCur = currentSector();
     QByteArray sectorData;
 
     Q_ASSERT(pos() % SECTOR_SIZE == 0);
     Q_ASSERT(dataSize <= SECTOR_SIZE_DATA);
 
-    // sector header
+    // The ff7tk ISO layout is Mode 2 XA: 24-byte header/subheader + 2048-byte payload.
+    if (pos() % SECTOR_SIZE != 0 || dataSize > SECTOR_SIZE_DATA || mode != 2) {
+        return false;
+    }
+
     sectorData = buildHeader(sectorCur, type, mode);
-    // data
     sectorData.append(data);
     if (dataSize != SECTOR_SIZE_DATA) {
         sectorData.append(QByteArray(SECTOR_SIZE_DATA - dataSize, '\x00'));
     }
-    // sector footer
-    sectorData.append(buildFooter(sectorCur));
 
-    return SECTOR_SIZE == write(sectorData);
+    sectorData.append(QByteArray(SECTOR_SIZE_FOOTER, '\x00'));
+    if (!ff7tk_psx_cd::updateSectorEdcEcc(sectorData)) {
+        return false;
+    }
+
+    return write(sectorData) == SECTOR_SIZE;
 }
 
 IsoFileIO::IsoFileIO(IsoArchiveIO *io, const IsoFile *infos, QObject *parent) :
@@ -826,8 +846,8 @@ bool IsoArchive::pack(IsoArchive *destination, ArchiveObserver *control, IsoDire
         // volume_space_size (taille totale de l'ISO)
         destinationIO->seekIso(SECTOR_SIZE_DATA * 16 + 80);// sector 16 : pos 80 size 4+4
         quint32 volume_space_size = quint32(destinationIO->size() / SECTOR_SIZE), volume_space_size2 = qToBigEndian(volume_space_size);
-        destinationIO->write((char*)&volume_space_size, 4);
-        destinationIO->write((char*)&volume_space_size2, 4);
+        destinationIO->writeIso((char*)&volume_space_size, 4);
+        destinationIO->writeIso((char*)&volume_space_size2, 4);
     }
 
     // Update ISO files locations
@@ -881,20 +901,13 @@ bool IsoArchive::copySectors(IsoArchiveIO *out, qint64 sectorCount, ArchiveObser
             return false;
         }
 
-        if (!repair) {
-            if (out->write(data) != SECTOR_SIZE) {
-                qWarning() << "IsoArchive::copySectors write error" << data.size() << SECTOR_SIZE;
-                setError(Archive::WriteError, out->errorString());
-                return false;
-            }
-        } else {
-            quint8 type, mode;
-            IsoArchiveIO::headerInfos(data, &type, &mode);
-            if (!out->writeSector(data.mid(SECTOR_SIZE_HEADER, SECTOR_SIZE_DATA), type, mode)) {
-                qWarning() << "IsoArchive::copySectors writeSector error";
-                setError(Archive::WriteError, out->errorString());
-                return false;
-            }
+        const bool written = repair
+                ? ff7tk_psx_cd::writeRelocatedSector(*out, data)
+                : out->write(data) == SECTOR_SIZE;
+        if (!written) {
+            qWarning() << "IsoArchive::copySectors write error";
+            setError(Archive::WriteError, out->errorString());
+            return false;
         }
 
         // Send current position to output
