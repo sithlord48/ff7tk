@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['backrow_119',['BackRow',['../classFF7Char.html#a67e9a7b3822421fa496a2602130aa00ba953dd36246abb8acc52537513bc3fc1f',1,'FF7Char']]],
+  ['backrow_118',['BackRow',['../classFF7Char.html#a67e9a7b3822421fa496a2602130aa00ba953dd36246abb8acc52537513bc3fc1f',1,'FF7Char']]],
+  ['backward_119',['backward',['../structff7tk__psx__cd_1_1EccTables.html#a216288d80a2a39b52bde723bded34d56',1,'ff7tk_psx_cd::EccTables']]],
   ['bahamut_120',['Bahamut',['../classFF7Materia.html#a0e29cca6c28370e142d386ce6d67b6bda05dec6a0cac30ba2105fba8241254b0c',1,'FF7Materia']]],
   ['bahamutzero_121',['BahamutZERO',['../classFF7Materia.html#a0e29cca6c28370e142d386ce6d67b6bdae1b9b63e7bf44b29ff1eaa185ab0676d',1,'FF7Materia']]],
   ['barret_122',['Barret',['../classFF7Char.html#ab5a2bfe97102436308604be85ce73316a90c128fa373ccf579007daaac065edff',1,'FF7Char']]],
@@ -31,8 +32,8 @@ var searchData=
   ['bikehighscore_147',['bikeHighScore',['../classFF7Save.html#af42fee62c3f10c12e3c23c5876e84c0c',1,'FF7Save']]],
   ['bikinibriefs_148',['BIKINIBRIEFS',['../classFF7Save.html#a4b82e92cd13f6eb20fc9552f83479a95aa112fd861376901dba01a143f592222e',1,'FF7Save']]],
   ['birdwing_149',['BirdWing',['../classFF7Item.html#a9ef504bbd839e117669cc6fbbaea4fa7a6bde95f467ae334abb37fdc919609bc9',1,'FF7Item']]],
-  ['bit_150',['Bit',['../structFieldItem.html#a5ab27ac62809b4804828b3d9524dd81e',1,'FieldItem']]],
-  ['bit_151',['bit',['../classFF7FieldItemList.html#ab181f796aa966b10142105cbbae3a5fa',1,'FF7FieldItemList']]],
+  ['bit_150',['bit',['../classFF7FieldItemList.html#ab181f796aa966b10142105cbbae3a5fa',1,'FF7FieldItemList']]],
+  ['bit_151',['Bit',['../structFieldItem.html#a5ab27ac62809b4804828b3d9524dd81e',1,'FieldItem']]],
   ['bitdepth_152',['bitDepth',['../structTexStruct.html#ac3754add4c19f99e5050c91f227cdc58',1,'TexStruct']]],
   ['bitsperindex_153',['bitsPerIndex',['../structTexStruct.html#a9865d918f1e7122899b627a54b8e960d',1,'TexStruct']]],
   ['bitsperpixel_154',['bitsPerPixel',['../structTexStruct.html#ac80059430f030b94b6b007aeb5de7d4f',1,'TexStruct']]],
