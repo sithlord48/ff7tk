@@ -6943,6 +6943,10 @@ The km/h speeds are calculated while playing </translation>
         <source>XP AR GS Caetla SmartLink Dantel</source>
         <translation>XP AR GS Caetla SmartLink Dantel</translation>
     </message>
+    <message>
+        <source>PS4 Save File</source>
+        <translation>PS4 Save File</translation>
+    </message>
 </context>
 <context>
     <name>ItemPreview</name>
